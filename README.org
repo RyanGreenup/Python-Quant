@@ -1,1 +1,6 @@
 #+TITLE: Quant Project Python
+
+- [[file:Learning-Sympy/ProbA.md][Problem A1]] (MD)
+  - [[file:Learning-Sympy/ProbA.pdf][PDF]]
+  - [[file:Learning-Sympy/partA.py][py Script]]
+- [[file:Learning-Sympy/FindPrimes.ipynb][Problem A2 (ipynb)]]
