@@ -1,4 +1,5 @@
 
+
   #Test and install pacman package
   if (require('pacman')) {
     library('pacman')
@@ -28,7 +29,7 @@ mise()
 
 
 # Constants ---------------------------------------------------------------
-n <- 8
+n <- 3
 m <- 16
 
 # Generate Colours --------------------------------------------------------
@@ -107,70 +108,9 @@ colorgrid <- function(l, r, t, b) {
     ## Assign the colour
     ## Notice that I didn't need to call a sequence
     mat[(t+1):(b-1),mc] <<- cx(l, r, t, b)
-    mat[mr,(t+1):(b-1)] <<- cx(l, r, t, b)
+   mat[mr,(t+1):(b-1)] <<- cx(l, r, t, b)
 }
 
 colorgrid(1, ncol(mat), 1, nrow(mat))
 mat
-cx(1, 1, nrow(mat), ncol(mat))
-
-colorgrid <- function(l, r, t, b) {
-  ## Only call it again if there is space
-  if (l < r - 1) {
-    ## define the centre column and row
-    mc <- (l+r)/2; mr <- (t+b)/2
-    ## Assign the colour
-    ## Notice that I didn't need to call a sequence
-    mat[(t+1):(b-1),mc] <<- cx(l, r, t, b)
-    mat[mr,(l+1):(r-1)] <<- cx(l, r, t, b)
-    
-    ## Now Recall this function on the four new squares
-              #l r   t   b
-    colorgrid(l, mc, t, mr)    # NW
-    colorgrid(mc, r, t, mr)    # NE
-    colorgrid(l, mc, mr, b)    # SW
-    colorgrid(mc, r, mr, b)    # SE
-    
-  }
-}
-
-mat[1,] <- mat[,1] <- mat[nrow(mat),] <- mat[,ncol(mat)] <- 7
-
-mat
-#        (L, R,         T, B        )
-colorgrid(1, ncol(mat), 1, nrow(mat))
-
-mat
-
 make_matrix_plot(mat)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
