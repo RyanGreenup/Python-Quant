@@ -32,15 +32,66 @@
   
   #  updateR() #Uncomment if you want to update R
   
+
+
+# Constants ---------------------------------------------------------------
+
+
   
-n <- 3
+n <- 8
+m <- 16
+
+
+# Generate Colours --------------------------------------------------------
+
+## https://stackoverflow.com/questions/15282580/how-to-generate-a-number-of-most-distinctive-colors-in-r
+
+library(RColorBrewer)
+m <- 60
+qual_col_pals = brewer.pal.imfo[brewer.pal.imfo$category == 'qual',]
+col_vector = umlist(mapply(brewer.pal, qual_col_pals$maxcolors, rowmames(qual_col_pals)))
+pie(rep(1,m), col=sample(col_vector, m))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# generate matrix plot ----------------------------------------------------
+
+
+%>% 
+
+colors
 mat <- matrix(0, nrow = 2^n+1, ncol = 2^n+1)
 mat <- matrix(runif((2^n+1)^2, min = 1, max = 16), nrow = 2^n+1, ncol = 2^n+1)
 
 dim(mat)
 
 make_matrix_plot <- function (mat) {
-  mat <- make_walls_dead(mat)
+#  mat <- make_walls_dead(mat)
   par(pty = "s", mai = c(0.1, 0.1, 0.4, 0.1))
   image(rotate(mat), col = c("lightblue", "grey", "violet"),
         axes = FALSE,
@@ -54,41 +105,14 @@ rotate <- function(x) {
 }
 
 
-make_walls_dead <- function(mat) {
-  mat[mat==9] <- 0
-  return(mat)
-}
+## make_walls_dead <- function(mat) {
+##   mat[mat==9] <- 0
+##   return(mat)
+## }
 
 
 
 make_matrix_plot(mat)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
