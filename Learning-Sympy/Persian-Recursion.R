@@ -28,8 +28,8 @@ mise()
 
 
 # Constants ---------------------------------------------------------------
-n <- 8
-m <- 16
+n <- 9 
+m <-6
 
 # Generate Colours --------------------------------------------------------
 
@@ -37,12 +37,11 @@ m <- 16
 
 library(RColorBrewer)
 qual_col_pals = brewer.pal.info[brewer.pal.info$category == 'qual',]
-col_vector = unlist(mapply(brewer.pal, qual_col_pals$maxcolors, rownames(qual_col_pals)))
-pie(rep(1,m), col=sample(col_vector, m))
+palette = unlist(mapply(brewer.pal, qual_col_pals$maxcolors, rownames(qual_col_pals)))
+palette = palette[1:m]
+length(palette)
+pie(rep(1,m), col=sample(palette, m))
 
-# library(randomcoloR)
-# n <- 20
-# palette <- distinctColorPalette(n)
 
 
 # Build a Matrix ----------------------------------------------------------
@@ -65,7 +64,7 @@ dim(mat)
 make_matrix_plot <- function (mat) {
 #  mat <- make_walls_dead(mat)
   par(pty = "s", mai = c(0.1, 0.1, 0.4, 0.1))
-  image(rotate(mat), col = col_vector,
+  image(rotate(mat), col = palette,
         axes = FALSE,
         frame.plot = TRUE,
         main = "Persian Rug")
