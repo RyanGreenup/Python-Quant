@@ -1,6 +1,24 @@
 #+TITLE: Quant Project Python
 
+
+
+* Emailed Problems
+** Exam Questions
+*** A Problems
 - [[file:Learning-Sympy/ProbA.md][Problem A1]] (MD)
   - [[file:Learning-Sympy/ProbA.pdf][PDF]]
   - [[file:Learning-Sympy/partA.py][py Script]]
 - [[file:Learning-Sympy/FindPrimes.ipynb][Problem A2 (ipynb)]]
+*** B Matrix Determinant Problem
+- [[file:Learning-Sympy/Matrix-Determinant-Numpy.ipynb][Numpy Determinant]]
+- [[file:Learning-Sympy/Matrix-Determinant.ipynb][Sympy Determinant]]
+** Persian Recursion
+- [[file:Learning-Sympy/Persian-Recursion/Persian-Recursion.ipynb][Persian Recursion]]
+* Textbook Problems
+** Project A
+- [[file:Learning-Sympy/Practice-Exercises/A-12.ipynb][(12)]]
+- [[file:A-35.py][(35)]]
+
+** Inter-Chapter
+- [[file:Chap3/prob31-recursive-fractoin.ipynb][Problem 3.1]]
+
