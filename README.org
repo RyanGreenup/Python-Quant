@@ -16,9 +16,9 @@
 - [[file:Learning-Sympy/Persian-Recursion/Persian-Recursion.ipynb][Persian Recursion]]
 * Textbook Problems
 ** Project A
-- [[file:Learning-Sympy/Practice-Exercises/A-12.ipynb][(12)]]
-- [[file:A-35.py][(35)]]
+- [[file:Learning-Sympy/Practice-Exercises/A-12.ipynb][(12) - Summations]]
+- [[file:A-35.py][(35) - Identifying Primes]]
+- [[file:Learning-Sympy/Practice-Exercises/A-44.ipynb][(A-44) - Recursive Surd Product Sequence]]
 
 ** Inter-Chapter
-- [[file:Chap3/prob31-recursive-fractoin.ipynb][Problem 3.1]]
-
+- [[file:Chap3/prob31-recursive-fractoin.ipynb][Problem 3.1 - Continuous Fractions]]
