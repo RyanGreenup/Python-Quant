@@ -28,3 +28,16 @@
 
 * Notes
 - [[file:Learning-Sympy/Docs/Lists/Python-Lists.ipynb][Lists]]
+
+
+#+begin_comment
+* Consultation
+
+- [ ] Geg everybody on Zulip
+- [ ] Show Working on Problems thus far
+- [ ] Show Notes on Lists
+- [ ] Discuss Recursion
+- [ ] Show James VSCode Jupyter
+- [ ] Show James \LaTeX
+
+#+end_comment
