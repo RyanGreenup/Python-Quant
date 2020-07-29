@@ -19,6 +19,9 @@
 - [[file:Learning-Sympy/Practice-Exercises/A-12.ipynb][(12) - Summations]]
 - [[file:A-35.py][(35) - Identifying Primes]]
 - [[file:Learning-Sympy/Practice-Exercises/A-44.ipynb][(A-44) - Recursive Surd Product Sequence]]
+  - [[file:Learning-Sympy/Practice-Exercises/a44SurdSeries.pdf][PDF Version]]
+  - [[file:Learning-Sympy/Practice-Exercises/a44SurdSeries.html][HTML Version]]
+  - [[file:Learning-Sympy/Practice-Exercises/Recursion.pdf][Notes on Loops Vs Recursion.pdf]]
 
 ** Inter-Chapter
 - [[file:Chap3/prob31-recursive-fractoin.ipynb][Problem 3.1 - Continuous Fractions]]
