@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{A} \PYG{o}{=} \PYG{n}{Matrix}\PYG{p}{([} \PYG{p}{[}\PYG{l+m+mi}{11}\PYG{p}{,} \PYG{l+m+mi}{12}\PYG{p}{,} \PYG{l+m+mi}{13}\PYG{p}{],} \PYG{p}{[}\PYG{l+m+mi}{21}\PYG{p}{,} \PYG{l+m+mi}{22}\PYG{p}{,} \PYG{l+m+mi}{23}\PYG{p}{],} \PYG{p}{[}\PYG{l+m+mi}{31}\PYG{p}{,} \PYG{l+m+mi}{32}\PYG{p}{,} \PYG{l+m+mi}{33}\PYG{p}{]} \PYG{p}{])}
+
+  \PYG{n}{expr} \PYG{o}{=} \PYG{n}{exp}\PYG{p}{(}\PYG{n}{A}\PYG{p}{)}
+  \PYG{n}{expr}\PYG{o}{.}\PYG{n}{doit}\PYG{p}{()}
+\end{Verbatim}

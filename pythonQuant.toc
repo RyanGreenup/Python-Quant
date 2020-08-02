@@ -1,0 +1,13 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {\S \nobreakspace {}1\nobreakspace {}}Matrix Exponentiation}{1}{section.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {\nobreakspace {}1.1\nobreakspace {}}Implementation in Sympy}{1}{subsubsection.1.0.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {\P \nobreakspace {}1\nobreakspace {}}Theory}{3}{subsection.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {\nobreakspace {}1.1\nobreakspace {}}Matrix Exponentiation}{3}{subsubsection.1.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {\nobreakspace {}1.1\nobreakspace {}}Matrix-Matrix Exponentiation}{5}{subsubsection.1.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {\P \nobreakspace {}1\nobreakspace {}}An alternative Implementation in Sympy}{6}{subsection.1.2}%

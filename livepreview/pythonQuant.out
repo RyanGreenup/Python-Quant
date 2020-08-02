@@ -1,0 +1,6 @@
+\BOOKMARK [1][-]{section.1}{Matrix Exponentiation}{}% 1
+\BOOKMARK [2][-]{subsubsection.1.0.1}{Implementation in Sympy}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.1}{Theory}{section.1}% 3
+\BOOKMARK [3][-]{subsubsection.1.1.1}{Matrix Exponentiation}{subsection.1.1}% 4
+\BOOKMARK [3][-]{subsubsection.1.1.2}{Matrix-Matrix Exponentiation}{subsection.1.1}% 5
+\BOOKMARK [2][-]{subsection.1.2}{An alternative Implementation in Sympy}{section.1}% 6

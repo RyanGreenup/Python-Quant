@@ -1,50 +1,52 @@
-#+TITLE: Python Quantitative Project
-#+OPTIONS: broken-links:auto
-#+INFOJS_OPT: view:showall toc:3
-#+PLOT: title:"Citas" ind:1 deps:(3) type:2d with:histograms set:"yrange [0:]"
-#+OPTIONS: tex:t
-#+TODO: TODO IN-PROGRESS WAITING DONE
-#+CATEGORY: TAD
-:HTML:
-#+INFOJS_OPT: view:info toc:3
-#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="style.css">
-#+CSL_STYLE: /home/ryan/Templates/CSL/nature.csl
-:END:
-:R:
-#+PROPERTY: header-args:R :session TADMain :dir ./ :cache yes :eval never-export :exports both
-# exports: both (or code or whatever)
-# results: table (or output or whatever)
-:END:
-# #+STARTUP: latexpreview
-#+LATEX_HEADER: \usepackage{./Resources/style}
-#+latex_header: \addbibresource{./Resources/references.bib}
+% Created 2020-08-02 Sun 19:56
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{minted}
+\usepackage{./Resources/style}
+\addbibresource{./Resources/references.bib}
+\author{Ryan Greenup}
+\date{\today}
+\title{Python Quantitative Project}
+\hypersetup{
+ pdfauthor={Ryan Greenup},
+ pdftitle={Python Quantitative Project},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 26.3 (Org mode 9.4)}, 
+ pdflang={English}}
+\begin{document}
 
+\maketitle
+\tableofcontents
 
-#+begin_src bash
-code /home/ryan/Dropbox/Studies/QuantProject/Current/Python-Quant/ & disown
-#+end_src
-
-#+RESULTS:
-
-* What the unit involves.
-Writing and presenting.
-* Python
-Two parts:
-1. Figure out the python
-2. IMPORTANT: MUST have new math
-   1. Dr. Hazrat may have some new math to use.
-
-* Matrix Exponentiation
-*** Implementation in Sympy
+\section{Matrix Exponentiation}
+\label{sec:org42085ff}
+\subsubsection{Implementation in Sympy}
+\label{sec:org36a994b}
 The Matrix Exponential is implemented in areas of:
 
-- Graph Centrality modelling cite:parkPowerWalkRevisiting2013
-- Systems of Linear Differential Equations [[cite:Zil2009][Ch. 8.4]]
-- Theory of Algebraic Lie Groups [[cite:hallLieGroupsLie2015][Ch. 2]]
+\begin{itemize}
+\item Graph Centrality modelling \cite{parkPowerWalkRevisiting2013}
+\item Systems of Linear Differential Equations \cite[Ch. 8.4]{Zil2009}
+\item Theory of Algebraic Lie Groups \cite[Ch. 2]{hallLieGroupsLie2015}
+\end{itemize}
 
-However the method to implement matrix exponentiation provided [[https://docs.sympy.org/latest/tutorial/matrices.html][by the documentation]] cite:MatricesSymPyDocumentation2020 and [[https://github.com/sympy/sympy/issues/6218][referenced in the development repository]] cite:MatrixExponentialIssue2019 does not appear to be implemented very well, for example the following provides a very long result:
+However the method to implement matrix exponentiation provided \href{https://docs.sympy.org/latest/tutorial/matrices.html}{by the documentation} \cite{MatricesSymPyDocumentation2020} and \href{https://github.com/sympy/sympy/issues/6218}{referenced in the development repository} \cite{MatrixExponentialIssue2019} does not appear to be implemented very well, for example the following provides a very long result:
 
-#+BEGIN_SRC python
+\begin{minted}[]{python}
   from __future__ import division
   from sympy import *
   x, y, z, t = symbols('x y z t')
@@ -58,9 +60,9 @@ However the method to implement matrix exponentiation provided [[https://docs.sy
   def lx(expr):
       pyperclip.copy(latex(expr))
       print(expr)
-#+END_SRC
+\end{minted}
 
-#+BEGIN_SRC python
+\begin{minted}[]{python}
 A = Matrix([
     [11, 12, 13],
     [21, 22, 23],
@@ -69,7 +71,7 @@ A = Matrix([
 
   expr = exp(A)
   expr.doit()
-#+END_SRC
+\end{minted}
 
 $$
 {
@@ -345,9 +347,9 @@ $$
 $$
 Simplifying this result doesn't seem to help either:
 
-#+BEGIN_SRC python
+\begin{minted}[]{python}
 simplify(expr)
-#+END_SRC
+\end{minted}
 
 $$
 {
@@ -390,22 +392,22 @@ $$
 
 Methods suggested online only provide numerical solutions or partial sums:
 
-- [[https://stackoverflow.com/questions/47240208/sympy-symbolic-matrix-exponential][python -
-  Sympy Symbolic Matrix Exponential - Stack Overflow]]
-- [[https://stackoverflow.com/a/50718831/12843551][python - Exponentiate
-  symbolic matrix expression using SymPy - Stack Overflow]]
-- [[https://stackoverflow.com/a/54025116/12843551][Calculate state transition
-  matrix in python - Stack Overflow]]
+\begin{itemize}
+\item \href{https://stackoverflow.com/questions/47240208/sympy-symbolic-matrix-exponential}{python -
+Sympy Symbolic Matrix Exponential - Stack Overflow}
+\item \href{https://stackoverflow.com/a/50718831/12843551}{python - Exponentiate
+symbolic matrix expression using SymPy - Stack Overflow}
+\item \href{https://stackoverflow.com/a/54025116/12843551}{Calculate state transition
+matrix in python - Stack Overflow}
+\end{itemize}
 
 Instead this will need to be implemented from first principles.
 
-** Theory
-*** Matrix Exponentiation
-   :PROPERTIES:
-   :CUSTOM_ID: definition-of-a-matrix-exponential
-   :END:
-
-A Matrix Exponential is defined by using the ordinary exponential power series [[cite:hallLieGroupsLie2015][Ch. 2]],[[cite:Zil2009][Ch. 8.4]] (should we prove the power series generally?):
+\subsection{Theory}
+\label{sec:org7c754a4}
+\subsubsection{Matrix Exponentiation}
+\label{sec:orgcb281c3}
+A Matrix Exponential is defined by using the ordinary exponential power series \cite[Ch. 2]{hallLieGroupsLie2015},\cite[Ch. 8.4]{Zil2009} (should we prove the power series generally?):
 
 \begin{align}
     e^{\mathit{\mathbf{X}}} = \sum^{\infty}_{k= 0}   \left[ \frac{1}{k!} \cdot  \mathit{\mathbf{X^k}} \right] 
@@ -420,19 +422,19 @@ This definition can be expanded upon however by using properties of logarithms:
 \end{align}
 
 The identity in \eqref{eq:bydef} is justified by the definition of the complex log. However some discussion is required for \eqref{eq:tojustify}  because it is not clear that the
-exponential will generally distribute throught he parenthesis like so $\left( a\cdot b \right)^{k} = a^k\cdot b^k$, for example
-consider $\left( \left[ - 1 \right]^2 \cdot 3
+exponential will generally distribute throught he parenthesis like so \(\left( a\cdot b \right)^{k} = a^k\cdot b^k\), for example
+consider \(\left( \left[ - 1 \right]^2 \cdot 3
 \right)^{\frac{1}{2}} \neq \left[ - 1 \right]^{\frac{2}{2}} \cdot
-3^{\frac{1}{2}}$.
+3^{\frac{1}{2}}\).
 
-A sufficient condition for this identity is $k \in
-\mathbb{Z}^{*}$, consider this example which will be important later:
+A sufficient condition for this identity is \(k \in
+\mathbb{Z}^{*}\), consider this example which will be important later:
 
 \begin{align}
     \left( \log_e{\left( b \right) }\mathbf{X} \right)^{k} , \quad \forall k \in \mathbb{Z^{*}}
 \end{align}
 
-Because multiplication is commutative $\forall z \in \mathbb{C}$, this could be
+Because multiplication is commutative \(\forall z \in \mathbb{C}\), this could be
 re-expressed in the form:
 
 \begin{align}
@@ -460,8 +462,8 @@ So the matrix exponential for an arbitrary base could be given by:
      &= \sum^{\infty}_{k= 0}   \left[ \frac{\log_e{\left( b \right) }}{k!}\mathbf{X}^{k} \right] 
 \end{align}
 
-This is also consistent with the /McLaurin Series/ expansion of $b^{\mathbf{X}}
-\enspace (\forall b \in \mathbb{C})$:
+This is also consistent with the \emph{McLaurin Series} expansion of \(b^{\mathbf{X}}
+\enspace (\forall b \in \mathbb{C})\):
 
 \begin{align*}
 f\left( x \right) &= \sum^{\infty}_{k= 0}   \left[ \frac{f^{\left( n \right)}\left( 0 \right)}{k!} x^{k} \right]  \\
@@ -469,8 +471,8 @@ f\left( x \right) &= \sum^{\infty}_{k= 0}   \left[ \frac{f^{\left( n \right)}\le
 \implies  b^{\mathbf{X}} &= \sum^{\infty}_{k= 0}   \left[ \frac{\frac{\mathrm{d}^n }{\mathrm{d}\mathbf{X}^n  } \left( b^{\mathbf{X}} \right) \vert_{\mathbf{X}= \mathbf{O}}}{k!} \mathbf{X}^k \right]
 \end{align*}
 
-By ordinary calculus identities we have$f\left( x \right) = b^{x} \implies
-f^{\left( n \right)}\left( x \right) = b^{x} \log_e^n{\left( b \right)}$ which
+By ordinary calculus identities we have\(f\left( x \right) = b^{x} \implies
+f^{\left( n \right)}\left( x \right) = b^{x} \log_e^n{\left( b \right)}\) which
 distribute through a matrix and hence:
 
 \begin{align*}
@@ -485,17 +487,22 @@ By the previous identity:
     &= e^{\log_e{\left( b \right) } \mathbf{X}}
 \end{align*}
 
-*** Matrix-Matrix Exponentiation
+\subsubsection{Matrix-Matrix Exponentiation}
+\label{sec:org2476455}
 
-Matrix-Matrix exponentiation has applications in quantum mechanics [[cite:barradasIteratedExponentiationMatrixMatrix1994][p. 84]].
+Matrix-Matrix exponentiation has applications in quantum mechanics \cite[p. 84]{barradasIteratedExponentiationMatrixMatrix1994}.
 
 As for Matrices with the requirements:
 
-1. Square
-2. Normal:
-   - Commutes with it's congugate transpose
-3. Non Singular
-4. Non Zero Determinant
+\begin{enumerate}
+\item Square
+\item Normal:
+\begin{itemize}
+\item Commutes with it's congugate transpose
+\end{itemize}
+\item Non Singular
+\item Non Zero Determinant
+\end{enumerate}
 
 \begin{align*}
     \left| \left| A-I \right| \right|<1  &\implies  e^{\log_e{\left( \mathbf{A} \right) }} = \mathbf{A} \enspace \text{(By Lie Groups Springer Textbook)}\\
@@ -504,16 +511,17 @@ As for Matrices with the requirements:
              & \implies  \mathbf{A}^{\mathbf{B}}= e^{\log_e{\left( \mathbf{A} \right) } \mathbf{B}}
 \end{align*}
 
-However the following identities are by *Definition* anyway: cite:barradasIteratedExponentiationMatrixMatrix1994
+However the following identities are by \textbf{Definition} anyway: \cite{barradasIteratedExponentiationMatrixMatrix1994}
 
 \begin{align}
 \mathbf{A}^{\mathbf{B}}&= e^{\log_e{\left( \mathbf{A} \right) } \mathbf{B}} \\
 \ ^{\mathbf{B}} \mathbf{A} &= e^{ \mathbf{B} \log_e{\left( \mathbf{A} \right) } }
 \end{align}
 
-** An alternative Implementation in Sympy
+\subsection{An alternative Implementation in Sympy}
+\label{sec:org0cc009e}
 
-#+BEGIN_SRC python
+\begin{minted}[]{python}
 def matexp(mat, base = E):
       """
       Return the Matrix Exponential of a square matrix
@@ -530,32 +538,32 @@ def matexp(mat, base = E):
           for j in range(m.shape[1]):
               m[i,j] = Sum((mat[i,j]*ln(base))**k/factorial(k), (k, 0, oo)).doit()
       return m
-#+END_SRC
+\end{minted}
 
-#+BEGIN_SRC python
+\begin{minted}[]{python}
 matexp(A, pi)
-#+END_SRC
+\end{minted}
 
 $$
 \left[\begin{matrix}\pi^{11} & \pi^{12} & \pi^{13}\\\pi^{21} & \pi^{22} &
 \pi^{23}\\\pi^{31} & \pi^{32} & \pi^{33}\end{matrix}\right]
 $$
 
-But it would be nice to expand this to matrix bases for there uses in quantum
-mechanics.
+%But it would be nice to expand this to matrix bases for there uses in quantum
+%mechanics.
+%
+%The built in method for a**mat is not implemented.
+%
+%there is exp(mat) but this returns garbage (see github issue), (see other
+%solution on stack exchange that is numeric and example)
+%
+%show our method with proofs of
+%
+%cauchy power taylor then exp
+%
+%then show our code
 
-The built in method for a**mat is not implemented.
-
-there is exp(mat) but this returns garbage (see github issue), (see other
-solution on stack exchange that is numeric and example)
-
-show our method with proofs of
-
-cauchy power taylor then exp
-
-then show our code
-
-#+BEGIN_SRC python
+\begin{minted}[]{python}
 A = Matrix([ [11,12,13], [21,22,23], [31,32,33] ])
 
   B = Matrix([
@@ -566,54 +574,5 @@ A = Matrix([ [11,12,13], [21,22,23], [31,32,33] ])
 
 
   A**B
-#+END_SRC
-
-[fn:1] 
-
-       #+BEGIN_HTML
-         <html>
-       #+END_HTML
-
-       Park, Laurence A. F., and Simeon Simoff. "Power Walk: Revisiting the
-       Random Surfer." In Proceedings of the 18th Australasian Document
-       Computing Symposium, 50--57. ADCS '13. Brisbane, Queensland, Australia:
-       Association for Computing Machinery, 2013.
-       https://doi.org/10.1145/2537734.2537749.
-
-       #+BEGIN_HTML
-         </body>
-       #+END_HTML
-
-       #+BEGIN_HTML
-         </html>
-       #+END_HTML
-
-[fn:2] Zill, Dennis G., and Michael R. Cullen. "8.4 Matrix Exponential."
-       In /Differential Equations with Boundary-Value Problems/, 7th
-       ed. Belmont, CA: Brooks/Cole, Cengage Learning, 2009.
-
-[fn:3] Hall, Brian C. Lie Groups, Lie Algebras, and Representations: An
-       Elementary Introduction. Second edition. Graduate Texts in
-       Mathematics 222. Cham ; New York: Springer, 2015.
-
-[fn:4] Hall, Brian C. Lie Groups, Lie Algebras, and Representations: An
-       Elementary Introduction. Second edition. Graduate Texts in
-       Mathematics 222. Cham ; New York: Springer, 2015.
-
-[fn:5] Zill, Dennis G., and Michael R. Cullen. "8.4 Matrix Exponential."
-       In Differential Equations with Boundary-Value Problems, 7th
-       ed. Belmont, CA: Brooks/Cole, Cengage Learning, 2009.
-
-[fn:6] Hall, Brian C. Lie Groups, Lie Algebras, and Representations: An
-       Elementary Introduction. Second edition. Graduate Texts in
-       Mathematics 222. Cham ; New York: Springer, 2015.
-
-[fn:7] Barradas, I., and J. E. Cohen. "Iterated Exponentiation,
-       Matrix-Matrix Exponentiation, and Entropy." Journal of
-       Mathematical Analysis and Applications 183, no. 1 (April 1,
-       1994): 76--88. https://doi.org/10.1006/jmaa.1994.1132.
-
-[fn:8] Barradas, I., and J. E. Cohen. "Iterated Exponentiation,
-       Matrix-Matrix Exponentiation, and Entropy." Journal of
-       Mathematical Analysis and Applications 183, no. 1 (April 1,
-       1994): 76--88. https://doi.org/10.1006/jmaa.1994.1132.
+\end{minted}
+\end{document}
