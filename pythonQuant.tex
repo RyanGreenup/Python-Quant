@@ -1,4 +1,4 @@
-% Created 2020-08-02 Sun 19:56
+% Created 2020-08-02 Sun 20:13
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -33,9 +33,9 @@
 \tableofcontents
 
 \section{Matrix Exponentiation}
-\label{sec:org42085ff}
+\label{sec:org042a657}
 \subsubsection{Implementation in Sympy}
-\label{sec:org36a994b}
+\label{sec:org0709426}
 The Matrix Exponential is implemented in areas of:
 
 \begin{itemize}
@@ -404,9 +404,9 @@ matrix in python - Stack Overflow}
 Instead this will need to be implemented from first principles.
 
 \subsection{Theory}
-\label{sec:org7c754a4}
+\label{sec:org8f7cd61}
 \subsubsection{Matrix Exponentiation}
-\label{sec:orgcb281c3}
+\label{sec:org8c72797}
 A Matrix Exponential is defined by using the ordinary exponential power series \cite[Ch. 2]{hallLieGroupsLie2015},\cite[Ch. 8.4]{Zil2009} (should we prove the power series generally?):
 
 \begin{align}
@@ -458,8 +458,9 @@ So the matrix exponential for an arbitrary base could be given by:
    b = e^{\log_e{\left( b \right) }}, \quad \forall b \in \mathbb{C} \notag \\
     \implies  b^{\mathbf{X}} &= \left( e^{\log_e{\left( b \right) }} \right)^{\mathbf{X}} \notag \\
      \text{as per \eqref{eq:expmatpower}} \notag \\
+    b^{\mathbf{X}} &=  e^{\log_e{\left( b \right) } {\mathbf{X}}}  \notag \\
      b^{\mathbf{X}} &= \sum^{\infty}_{k= 0}   \left[ \frac{\left( \log_e{\left( b \right) }\mathbf{X} \right)^k}{k!} \right]  \notag \\
-     &= \sum^{\infty}_{k= 0}   \left[ \frac{\log_e{\left( b \right) }}{k!}\mathbf{X}^{k} \right] 
+     &= \sum^{\infty}_{k= 0}   \left[ \frac{\log_e ^{k}{\left( b \right) }}{k!}\mathbf{X}^{k} \right]
 \end{align}
 
 This is also consistent with the \emph{McLaurin Series} expansion of \(b^{\mathbf{X}}
@@ -488,7 +489,7 @@ By the previous identity:
 \end{align*}
 
 \subsubsection{Matrix-Matrix Exponentiation}
-\label{sec:org2476455}
+\label{sec:org48f8aa7}
 
 Matrix-Matrix exponentiation has applications in quantum mechanics \cite[p. 84]{barradasIteratedExponentiationMatrixMatrix1994}.
 
@@ -519,7 +520,7 @@ However the following identities are by \textbf{Definition} anyway: \cite{barrad
 \end{align}
 
 \subsection{An alternative Implementation in Sympy}
-\label{sec:org0cc009e}
+\label{sec:orgb093e3b}
 
 \begin{minted}[]{python}
 def matexp(mat, base = E):
@@ -549,19 +550,19 @@ $$
 \pi^{23}\\\pi^{31} & \pi^{32} & \pi^{33}\end{matrix}\right]
 $$
 
-%But it would be nice to expand this to matrix bases for there uses in quantum
-%mechanics.
-%
-%The built in method for a**mat is not implemented.
-%
-%there is exp(mat) but this returns garbage (see github issue), (see other
-%solution on stack exchange that is numeric and example)
-%
-%show our method with proofs of
-%
-%cauchy power taylor then exp
-%
-%then show our code
+But it would be nice to expand this to matrix bases for there uses in quantum
+mechanics.
+
+The built in method for a**mat is not implemented.
+
+there is exp(mat) but this returns garbage (see github issue), (see other
+solution on stack exchange that is numeric and example)
+
+show our method with proofs of
+
+cauchy power taylor then exp
+
+then show our code
 
 \begin{minted}[]{python}
 A = Matrix([ [11,12,13], [21,22,23], [31,32,33] ])

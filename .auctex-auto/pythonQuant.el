@@ -33,16 +33,16 @@
     "hyperref"
     "minted")
    (LaTeX-add-labels
-    "sec:org42085ff"
-    "sec:org36a994b"
-    "sec:org7c754a4"
-    "sec:orgcb281c3"
+    "sec:org042a657"
+    "sec:org0709426"
+    "sec:org8f7cd61"
+    "sec:org8c72797"
     "eq:bydef"
     "eq:tojustify"
     "eq:matpower"
     "eq:expmatpower"
-    "sec:org2476455"
-    "sec:org0cc009e")
+    "sec:org48f8aa7"
+    "sec:orgb093e3b")
    (LaTeX-add-environments
     '("sol" LaTeX-env-args ["argument"] 0))
    (LaTeX-add-bibliographies

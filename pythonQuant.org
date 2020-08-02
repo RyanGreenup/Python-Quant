@@ -456,8 +456,9 @@ So the matrix exponential for an arbitrary base could be given by:
    b = e^{\log_e{\left( b \right) }}, \quad \forall b \in \mathbb{C} \notag \\
     \implies  b^{\mathbf{X}} &= \left( e^{\log_e{\left( b \right) }} \right)^{\mathbf{X}} \notag \\
      \text{as per \eqref{eq:expmatpower}} \notag \\
+    b^{\mathbf{X}} &=  e^{\log_e{\left( b \right) } {\mathbf{X}}}  \notag \\
      b^{\mathbf{X}} &= \sum^{\infty}_{k= 0}   \left[ \frac{\left( \log_e{\left( b \right) }\mathbf{X} \right)^k}{k!} \right]  \notag \\
-     &= \sum^{\infty}_{k= 0}   \left[ \frac{\log_e{\left( b \right) }}{k!}\mathbf{X}^{k} \right] 
+     &= \sum^{\infty}_{k= 0}   \left[ \frac{\log_e ^{k}{\left( b \right) }}{k!}\mathbf{X}^{k} \right]
 \end{align}
 
 This is also consistent with the /McLaurin Series/ expansion of $b^{\mathbf{X}}
