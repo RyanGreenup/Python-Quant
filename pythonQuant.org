@@ -1,0 +1,18 @@
+#+TITLE: Python Quantitative Project
+
+
+#+begin_src bash
+code /home/ryan/Dropbox/Studies/QuantProject/Current/Python-Quant/ & disown
+#+end_src
+
+#+RESULTS:
+
+* What the unit involves.
+Writing and presenting.
+* Python
+Two parts:
+1. Figure out the python
+2. IMPORTANT: MUST have new math
+   1. Dr. Hazrat may have some new math to use.
+
+* Matrix Exponentiation
