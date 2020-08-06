@@ -25,6 +25,7 @@
 
 ** Inter-Chapter
 - [[file:Chap3/prob31-recursive-fractoin.ipynb][Problem 3.1 - Continuous Fractions]]
+- [[file:Problem 4.1.md][Problem 4.1 - Flattening List of a List]]
 
 * Notes
 - [[file:Learning-Sympy/Docs/Lists/Python-Lists.ipynb][Lists]]
