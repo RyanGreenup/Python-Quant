@@ -35,8 +35,8 @@ See [[https://shields.io/][Shields io]]
 ** Inter-Chapter
 *** Chapter 3
 - [[file:Problems/chapter_03/prob31-recursive-fraction.ipynb][Problem 3.1 - Continuous Fractions]]
-- [[file:Problems/chapter_03/Problem 3.2.md][Problem 3.2]]
-- [[file:Problems/chapter_03/Problem 3.6.md][Problem 3.6]]
+- [[file:Problems/chapter_03/problem-3.2.md][Problem 3.2]]
+- [[file:Problems/chapter_03/problem-3.6.md][Problem 3.6]]
 
 *** Chapter 4
 - Problem 4.1
