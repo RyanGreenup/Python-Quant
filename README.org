@@ -52,7 +52,6 @@ See [[https://shields.io/][Shields io]]
 tree ./
 #+end_src
 
-#+RESULTS:
 #+begin_example
 ./
 ├── Problems
@@ -166,5 +165,4 @@ digraph finite_state_machine {
 @enduml
 #+end_src
 
-#+RESULTS:
 [[file:dir-tree-puml.png]]
