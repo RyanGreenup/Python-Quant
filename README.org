@@ -1,5 +1,13 @@
 #+TITLE: Quant Project Python
 
+#+BEGIN_HTML
+<p> <img src="https://img.shields.io/badge/Chat-2%20Members-orange" /> <img
+src="https://img.shields.io/badge/Contributors-2%20Member-green" /> <img src="https://img.shields.io/badge/Chapter-3%20Completed-red" /> </p>
+#+END_HTML
+#+begin_comment
+See [[https://shields.io/][Shields io]]
+#+end_comment
+
 
 
 * Emailed Problems
