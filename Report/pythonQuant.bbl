@@ -1,0 +1,252 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{barradasIteratedExponentiationMatrixMatrix1994}{article}{}
+      \name{author}{2}{}{%
+        {{hash=e7fd91907811838c6bf04279e1721f54}{%
+           family={Barradas},
+           familyi={B\bibinitperiod},
+           given={I.},
+           giveni={I\bibinitperiod}}}%
+        {{hash=12e99ead5b577942b43c0c2c8186a2ac}{%
+           family={Cohen},
+           familyi={C\bibinitperiod},
+           given={J.\bibnamedelimi E.},
+           giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{1431d2d13644684c68836b7ae419f254}
+      \strng{fullhash}{1431d2d13644684c68836b7ae419f254}
+      \strng{bibnamehash}{1431d2d13644684c68836b7ae419f254}
+      \strng{authorbibnamehash}{1431d2d13644684c68836b7ae419f254}
+      \strng{authornamehash}{1431d2d13644684c68836b7ae419f254}
+      \strng{authorfullhash}{1431d2d13644684c68836b7ae419f254}
+      \field{sortinit}{B}
+      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{On [0, ∞), log(xxxx) is strictly convex. Matrix-matrix exponentiation AB is defined when A is normal and nonsingular. Von Neumann′s quantum-mechanical entropy S(A) of a density-matrix A can be written S(A) = −log[det(AA)]. Using convexity, an obvious generalization of S(A), namely −log[det(AAAA)], is shown to satisfy the same monotonicity inequality as S(A). Matrix-matrix exponentiation is used to generalize several results about iterated exponentiation of scalars.}
+      \field{day}{1}
+      \field{issn}{0022-247X}
+      \field{journaltitle}{Journal of Mathematical Analysis and Applications}
+      \field{langid}{english}
+      \field{month}{4}
+      \field{number}{1}
+      \field{title}{Iterated {{Exponentiation}}, {{Matrix}}-{{Matrix Exponentiation}}, and {{Entropy}}}
+      \field{urlday}{2}
+      \field{urlmonth}{8}
+      \field{urlyear}{2020}
+      \field{volume}{183}
+      \field{year}{1994}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{76\bibrangedash 88}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1006/jmaa.1994.1132
+      \endverb
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/RQH7JPEN/Barradas and Cohen - 1994 - Iterated Exponentiation, Matrix-Matrix Exponentiat.pdf;/home/ryan/Zotero/storage/MKPKRJJH/S0022247X84711322.html
+      \endverb
+      \verb{urlraw}
+      \verb http://www.sciencedirect.com/science/article/pii/S0022247X84711322
+      \endverb
+      \verb{url}
+      \verb http://www.sciencedirect.com/science/article/pii/S0022247X84711322
+      \endverb
+    \endentry
+    \entry{hallLieGroupsLie2015}{book}{}
+      \name{author}{1}{}{%
+        {{hash=b805c00e09278506b061111d904aa5c8}{%
+           family={Hall},
+           familyi={H\bibinitperiod},
+           given={Brian\bibnamedelima C.},
+           giveni={B\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cham ; New York}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{b805c00e09278506b061111d904aa5c8}
+      \strng{fullhash}{b805c00e09278506b061111d904aa5c8}
+      \strng{bibnamehash}{b805c00e09278506b061111d904aa5c8}
+      \strng{authorbibnamehash}{b805c00e09278506b061111d904aa5c8}
+      \strng{authornamehash}{b805c00e09278506b061111d904aa5c8}
+      \strng{authorfullhash}{b805c00e09278506b061111d904aa5c8}
+      \field{sortinit}{H}
+      \field{sortinithash}{6db6145dae8dc9e1271a8d556090b50a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{annotation}{Part I: General theory -- Martix Lie groups -- The matrix exponential -- Lie algebras -- Basic representation theory -- The Baker-Campbell-Hausdorff formula and its consequences -- Part II: Semisimple Lie algebras -- The represantations of sl(3;C) -- Semisimple Lie algebras -- Root systems -- Representations of semisimple Lie algebras -- Further properties of the representations -- Part III: Compact Lie groups -- Compact Lie groups and maximal tori -- The compact group approach to representation theory -- Fundamental groups of compact Lie groups -- A: Linear algebra review -- B: Differential forms -- C: Clebsch-Gordan theory and the Wigner-Eckart theorem -- D: Completeness of characters}
+      \field{edition}{Second edition}
+      \field{isbn}{978-3-319-13466-6}
+      \field{note}{OCLC: ocn910324548}
+      \field{number}{222}
+      \field{pagetotal}{449}
+      \field{series}{Graduate Texts in Mathematics}
+      \field{shorttitle}{Lie Groups, {{Lie}} Algebras, and Representations}
+      \field{title}{Lie Groups, {{Lie}} Algebras, and Representations: An Elementary Introduction}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \keyw{Lie algebras,Lie groups,Representations of Lie algebras,Representations of Lie groups}
+    \endentry
+    \entry{MatricesSymPyDocumentation2020}{online}{}
+      \field{sortinit}{M}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labeltitlesource}{title}
+      \field{day}{2}
+      \field{month}{7}
+      \field{title}{Matrices — {{SymPy}} 1.6.1 Documentation}
+      \field{urlday}{2}
+      \field{urlmonth}{8}
+      \field{urlyear}{2020}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/LI4MHWQK/matrices.html
+      \endverb
+      \verb{urlraw}
+      \verb https://docs.sympy.org/latest/tutorial/matrices.html
+      \endverb
+      \verb{url}
+      \verb https://docs.sympy.org/latest/tutorial/matrices.html
+      \endverb
+    \endentry
+    \entry{MatrixExponentialIssue2019}{online}{}
+      \field{sortinit}{M}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We should be able to represent matrix exponentials - expressions of the form a**B with a a scalar and B a matrix. When asked to operate on this we could either use the eigenvalue decomposition or r...}
+      \field{day}{9}
+      \field{journaltitle}{GitHub}
+      \field{langid}{english}
+      \field{month}{2}
+      \field{title}{Matrix {{Exponential}} · {{Issue}} \#6218 · Sympy/Sympy}
+      \field{urlday}{2}
+      \field{urlmonth}{8}
+      \field{urlyear}{2020}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/2Q62EHEU/6218.html
+      \endverb
+      \verb{urlraw}
+      \verb https://github.com/sympy/sympy/issues/6218
+      \endverb
+      \verb{url}
+      \verb https://github.com/sympy/sympy/issues/6218
+      \endverb
+    \endentry
+    \entry{parkPowerWalkRevisiting2013}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=86084ac8caf5f18b13cd932bd6aa8dff}{%
+           family={Park},
+           familyi={P\bibinitperiod},
+           given={Laurence\bibnamedelimb A.\bibnamedelimi F.},
+           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=96654bcd1175d60cd5c42be759fc1603}{%
+           family={Simoff},
+           familyi={S\bibinitperiod},
+           given={Simeon},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Brisbane, Queensland, Australia}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{c83776840cc1e750910e46b6b4ba2eeb}
+      \strng{fullhash}{c83776840cc1e750910e46b6b4ba2eeb}
+      \strng{bibnamehash}{c83776840cc1e750910e46b6b4ba2eeb}
+      \strng{authorbibnamehash}{c83776840cc1e750910e46b6b4ba2eeb}
+      \strng{authornamehash}{c83776840cc1e750910e46b6b4ba2eeb}
+      \strng{authorfullhash}{c83776840cc1e750910e46b6b4ba2eeb}
+      \field{sortinit}{P}
+      \field{sortinithash}{bb5b15f2db90f7aef79bb9e83defefcb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Measurement of graph centrality provides us with an indication of the importance or popularity of each vertex in a graph. When dealing with graphs that are not centrally controlled (such as the Web, social networks and academic citation graphs), centrality measure must 1) correlate with vertex importance/popularity, 2) scale well in terms of computation, and 3) be difficult to manipulate by individuals. The Random Surfer probability transition model, combined with Eigenvalue Centrality produced PageRank, which has shown to satisfy the required properties. Existing centrality measures (including PageRank) make the assumption that all directed edges are positive, implying an endorsement. Recent work on sentiment analysis has shown that this assumption is not valid. In this article, we introduce a new method of transitioning a graph, called Power Walk, that can successfully compute centrality scores for graphs with real weighted edges. We show that it satisfies the desired properties, and that its computation time and centrality ranking is similar to when using the Random Surfer model for non-negative matrices. Finally, stability and convergence analysis shows us that both stability and convergence when using the power method, are dependent on the Power Walk parameter β.}
+      \field{booktitle}{Proceedings of the 18th {{Australasian Document Computing Symposium}}}
+      \field{day}{5}
+      \field{isbn}{978-1-4503-2524-0}
+      \field{month}{12}
+      \field{series}{{{ADCS}} '13}
+      \field{shorttitle}{Power Walk}
+      \field{title}{Power Walk: Revisiting the Random Surfer}
+      \field{urlday}{31}
+      \field{urlmonth}{7}
+      \field{urlyear}{2020}
+      \field{year}{2013}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{50\bibrangedash 57}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1145/2537734.2537749
+      \endverb
+      \verb{urlraw}
+      \verb http://doi.org/10.1145/2537734.2537749
+      \endverb
+      \verb{url}
+      \verb http://doi.org/10.1145/2537734.2537749
+      \endverb
+      \keyw{graph centrality,PageRank,random surfer,sentiment}
+    \endentry
+    \entry{Zil2009}{book}{}
+      \name{author}{2}{}{%
+        {{hash=ce0689f2d52c5a0939d5509701e4f498}{%
+           family={Zill},
+           familyi={Z\bibinitperiod},
+           given={Dennis\bibnamedelima G},
+           giveni={D\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=724ffae515880969319e4b88c9995872}{%
+           family={Cullen},
+           familyi={C\bibinitperiod},
+           given={Michael\bibnamedelima R},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Brooks/Cole}%
+      }
+      \strng{namehash}{e3f0d8f56b31e2cddc7c5b3d08e252a8}
+      \strng{fullhash}{e3f0d8f56b31e2cddc7c5b3d08e252a8}
+      \strng{bibnamehash}{e3f0d8f56b31e2cddc7c5b3d08e252a8}
+      \strng{authorbibnamehash}{e3f0d8f56b31e2cddc7c5b3d08e252a8}
+      \strng{authornamehash}{e3f0d8f56b31e2cddc7c5b3d08e252a8}
+      \strng{authorfullhash}{e3f0d8f56b31e2cddc7c5b3d08e252a8}
+      \field{sortinit}{Z}
+      \field{sortinithash}{8f7b480688e809b50b6f6577b16f3db5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{7}
+      \field{title}{Differential {{Equations}}}
+      \field{version}{7}
+      \field{year}{2009}
+      \field{dateera}{ce}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
