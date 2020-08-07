@@ -13,39 +13,158 @@ See [[https://shields.io/][Shields io]]
 * Emailed Problems
 ** Exam Questions
 *** A Problems
-- [[file:Learning-Sympy/ProbA.md][Problem A1]] (MD)
-  - [[file:Learning-Sympy/ProbA.pdf][PDF]]
-  - [[file:Learning-Sympy/partA.py][py Script]]
-- [[file:Learning-Sympy/FindPrimes.ipynb][Problem A2 (ipynb)]]
+- [[file:Problems/00EmailedInitialProblems/ProbA.md][Problem A1 (MD)]] (MD)
+  - [[file:Problems/00EmailedInitialProblems/partA.py][Problem A1 (py)]]
+  - [[file:Problems/00EmailedInitialProblems/ProbA.pdf][PDF]]
+- [[file:Problems/Learning-Sympy/FindPrimes.ipynb][Problem A2 (ipynb)]]
 *** B Matrix Determinant Problem
-- [[file:Learning-Sympy/Matrix-Determinant-Numpy.ipynb][Numpy Determinant]]
-- [[file:Learning-Sympy/Matrix-Determinant.ipynb][Sympy Determinant]]
+- [[file:Problems/00EmailedInitialProblems/Matrix-Determinant-Numpy.ipynb][Numpy Determinant]]
+- [[file:Problems/00EmailedInitialProblems/Matrix-Determinant.ipynb][Sympy Determinant]]
 ** Persian Recursion
-- [[file:Learning-Sympy/Persian-Recursion/Persian-Recursion.ipynb][Persian Recursion]]
+- [[file:Problems/00EmailedInitialProblems/Persian-Recursion/Persian-Recursion.ipynb][Persian Recursion]]
 * Textbook Problems
 ** Project A
-- [[file:Learning-Sympy/Practice-Exercises/A-12.ipynb][(12) - Summations]]
-- [[file:A-35.py][(35) - Identifying Primes]]
-- [[file:Learning-Sympy/Practice-Exercises/A-44.ipynb][(A-44) - Recursive Surd Product Sequence]]
-  - [[file:Learning-Sympy/Practice-Exercises/a44SurdSeries.pdf][PDF Version]]
-  - [[file:Learning-Sympy/Practice-Exercises/a44SurdSeries.html][HTML Version]]
-  - [[file:Learning-Sympy/Practice-Exercises/Recursion.pdf][Notes on Loops Vs Recursion.pdf]]
+- [[file:Problems/ProjectA/A-12.ipynb][(12) - Summations]]
+- [[file:Problems/ProjectA/A-35.py][(35) - Identifying Primes]]
+- [[file:Problems/ProjectA/A-44.ipynb][(A-44) - Recursive Surd Product Sequence]]
+  - [[file:Problems/ProjectA/a44SurdSeries.pdf][PDF Version]]
+  - [[file:Problems/ProjectA/a44SurdSeries.html][HTML Version]]
+  - [[file:Problems/ProjectA/Recursion.pdf][Notes on Loops Vs Recursion.pdf]]
+    - [[file:Problems/ProjectA/Recursion.md][(MD)]]
 
 ** Inter-Chapter
-- [[file:Chap3/prob31-recursive-fractoin.ipynb][Problem 3.1 - Continuous Fractions]]
+*** Chapter 3
+- [[file:Problems/chapter_03/prob31-recursive-fraction.ipynb][Problem 3.1 - Continuous Fractions]]
+- [[file:Problems/chapter_03/Problem 3.2.md][Problem 3.2]]
+- [[file:Problems/chapter_03/Problem 3.6.md][Problem 3.6]]
+
+*** Chapter 4
+- Problem 4.1
 
 * Notes
-- [[file:Learning-Sympy/Docs/Lists/Python-Lists.ipynb][Lists]]
+- [[file:Problems/Docs/Lists/Python-Lists.ipynb][Lists]]
+- [[file:Problems/Docs/Variable-Scope-of-Nested-Functions.md][Variable Scope of Nested Functions]]
 
 
-#+begin_comment
-* Consultation
 
-- [ ] Geg everybody on Zulip
-- [ ] Show Working on Problems thus far
-- [ ] Show Notes on Lists
-- [ ] Discuss Recursion
-- [ ] Show James VSCode Jupyter
-- [ ] Show James \LaTeX
+* Directory Structure
+#+begin_src bash :results output
+tree ./
+#+end_src
 
-#+end_comment
+#+RESULTS:
+#+begin_example
+./
+├── Problems
+│   ├── 00EmailedInitialProblems
+│   │   ├── Matrix-Determinant.ipynb
+│   │   ├── Matrix-Determinant-Numpy.ipynb
+│   │   ├── partA.py
+│   │   ├── Persian-Recursion
+│   │   │   ├── Persian-Recursion-Example.R
+│   │   │   ├── Persian-Recursion.ipynb
+│   │   │   ├── Persian-Recursion.py
+│   │   │   ├── Persian-Recursion.R
+│   │   │   └── test2.py
+│   │   ├── proba2.py
+│   │   ├── ProbA.md
+│   │   └── ProbA.pdf
+│   ├── chapter_03
+│   │   ├── prob31-recursive-fraction.ipynb
+│   │   ├── Problem 3.2.md
+│   │   └── Problem 3.6.md
+│   ├── chapter_04
+│   ├── Docs
+│   │   ├── Lists
+│   │   │   └── Python-Lists.ipynb
+│   │   └── Variable-Scope-of-Nested-Functions.md
+│   ├── Julia
+│   │   ├── PlotlyAttempt.ipynb
+│   │   ├── primes.jl
+│   │   ├── surfaceiplot.png
+│   │   └── Symata-FoldList.ipynb
+│   ├── Learning-Sympy
+│   │   ├── FindPrimes.ipynb
+│   │   ├── _minted-input
+│   │   ├── sympyDocs.py
+│   │   └── Sympy.ipynb
+│   ├── Matrix-Exponentiation
+│   │   └── Matrix-Exponentiation.ipynb
+│   └── ProjectA
+│       ├── A-12(1).py
+│       ├── A-12.ipynb
+│       ├── A-12.jl
+│       ├── A-35.py
+│       ├── A-44.ipynb
+│       ├── A-44.pdf
+│       ├── a44SurdSeries.html
+│       ├── a44SurdSeries.pdf
+│       ├── Recursion.md
+│       └── Recursion.pdf
+├── README.org
+├── Report
+│   ├── pythonQuant.bbl
+│   ├── pythonQuant.org
+│   ├── pythonQuant.pdf
+│   ├── pythonQuant.synctex.gz
+│   ├── pythonQuant.tex
+│   └── references.bib
+└── Resources
+    ├── 9780495708247.pdf (1231)
+    │   ├── 9780495708247.pdf - Differential equations.pdf
+    │   ├── cover.jpg
+    │   └── metadata.opf
+    ├── (Graduate Texts in Mathematics 222) Brian Hall (auth.) - Lie Groups, Lie Algebras, and Representations_ An Elementary Introduction-Springer International Publishing (2015).pdf
+    ├── references.bib
+    ├── style.sty
+    └── turing.pdf
+
+15 directories, 48 files
+#+end_example
+
+* Dot Graph
+So I was going to turn this into a dot graph but I gave up.
+
+But the point was going to be to illustrate that It'd be nice if we symlinked problems out of Project A into Ch. 3/4/5 etc.
+
+#+begin_src plantuml :file dir-tree-puml.png
+  @startuml
+digraph finite_state_machine {
+    rankdir=LR;
+    size="8,5"
+
+    node [shape = doublecircle,  label = "Problems" ]; pb;
+    node [shape = doublecircle,  label = "Resources" ]; rs;
+    node [shape = square,  label = "00EmaiiledInitialProblems" ]; eml;
+    node [shape = square,  label = "Docs" ]; d;
+    node [shape = oval,  label = "Ch. 3" ]; c3;
+    node [shape = oval,  label = "Ch. 4" ]; c4;
+    node [shape = oval,  label = "Ch. 5" ]; c5;
+    node [shape = circle,  label = "Julia" ]; jl;
+    node [shape = circle,  label = "Learning-Sympy" ]; sp;
+    node [shape = circle,  label = "ProjectA" ]; pa;
+    node [shape = circle,  label = "README.org" ]; rd;
+    node [shape = circle,  label = "Report" ]; rp;
+
+    node [shape = circle];
+    pb -> eml [];
+    pb -> c3 [];
+    pb -> c4 [];
+    pb -> c5 [];
+    pb -> d [];
+    pb -> jl [];
+    pb -> sp [];
+    pb -> rp [];
+    pb -> rd [];
+    pb -> pa [];
+    pb -> rs [];
+    rs -> docs [];
+    pa -> c3 [];
+    pa -> c4 [];
+    c4 -> eml [];
+}
+@enduml
+#+end_src
+
+#+RESULTS:
+[[file:dir-tree-puml.png]]
