@@ -14,7 +14,7 @@ def lx(expr):
 import numpy as np
 import matplotlib as plt
 
-mylist = [[[[a, b], 2], [[c, d], 3]], [[[a, b], 2, [[e, f], 3]]]]
+mylist = [[[[a, b], 2], [[c, d], 3]], [[[a, b], 2], [[e, f], 3]]]
 
 
 import operator
@@ -85,7 +85,7 @@ def isIterable(x):
     try:
         iter(x)
         return True
-    except: 
+    except:
         return False
 
 isIterable([1,2]) # True
@@ -94,7 +94,7 @@ isIterable(4)     # False
 
 # instead use iter()
     # iter will succeed for an object for which items can be pulled from
-    # but throw an error otherwise 
+    # but throw an error otherwise
       # https://stackoverflow.com/a/61139278/12843551
 
 def flatten(list):
@@ -123,11 +123,4 @@ def myFlat(list, n):
     return list
 
 mylist
-myFlat(mylist, 5)
-
-
-
-
-
-
-
+myFlat(mylist, 4)
