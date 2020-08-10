@@ -21,14 +21,26 @@
 :END:
 :LATEXBIB:
 #+latex_header:\usepackage[citestyle=numeric, bibstyle=numeric,hyperref=true,backref=true, maxcitenames=3,url=true,backend=biber,natbib=true]{biblatex}
-#+latex_header: \addbibresource{../Resources/references.bib}
 #+latex_header:\AtEndDocument{\printbibliography}
 :END:
+#+latex_header: \addbibresource{../Resources/references.bib}
 
 
 #+begin_src bash
 code /home/ryan/Dropbox/Studies/QuantProject/Current/Python-Quant/ & disown
 #+end_src
+
+#+begin_comment
+- Headings (sections, subsections and subsubsections) only go up to 3 ~*~
+- use align and \nonumber
+- Delete the ~:LATEXBIB:~ draw after re-inserting the style.sty
+  - the style.sty seems to break ~texfrag~
+    - And it's generally slower anyway.
+- Use ~CUSTOM-ID:~ when referencing sections, the name of the section may
+  change and that will get confusing
+  - Don't cross-reference a section that is less than three stars.
+
+#+end_comment
 
 #+RESULTS:
 
@@ -636,9 +648,9 @@ In order to find a solution for $a_n$, the following one-to-one
 correspondence can be used to relate the vector space of the sequence to the
 power series ring:(cite stackExchange[1]):
 
-$$\begin{aligned}
-g: \left( a_n \right)_{n\in\mathbb{Z}^+} \rightarrow \mathbb{C}\left[ \left[ x \right]  \right]: g\left( a_n \right) = \sum^{\infty}_{n= 0}\left[ \frac{x^n}{n!} a_n \right] 
-\end{aligned}$$
+\begin{align}
+g: \left( a_n \right)_{n\in\mathbb{Z}^+} \rightarrow \mathbb{C}\left[ \left[ x \right]  \right]: g\left( a_n \right) = \sum^{\infty}_{n= 0}\left[ \frac{x^n}{n!} a_n \right] \label{eq:gen-func-def}
+\end{align}
 
 This technique is referred to as generating functions.
 cite:lehmanReadingsMathematicsComputer2010
@@ -675,6 +687,9 @@ a_n  \right]   \right] = 0
 $$
 
 ** Pandoc Conversion
+:PROPERTIES:
+:CUSTOM_ID: power-series-gen-func-example
+:END:
 Given the Linear Recurrence Relation:
 
 \begin{align*}
@@ -745,11 +760,11 @@ By partial fractions it is known:
  f\left( x \right)&=    \frac{1}{x- 1} - \frac{1}{x- 2}
 \end{align*}
 
-Now because it is known that:
+By definition of the power series:
 
-\begin{align*}
-\sum^{\infty}_{n= 0}\left[ rx^n \right] = \frac{1}{1- rx^n}
-\end{align*}
+\begin{align}
+\sum^{\infty}_{n= 0}\left[ rx^n \right] = \frac{1}{1- rx^n} \label{eq:pow-series-definition}
+\end{align}
 
 we can conclude that:
 
@@ -768,34 +783,28 @@ f\left( x \right) &= \frac{1}{2}\sum^{\infty}_{n= 0}\left[ \left( \frac{1}{2}x \
 f\left( x \right) &= \sum^{\infty}_{n= 0}\left[ \frac{1}{2}\left( \frac{1}{2}x \right) ^n -x^n \right]  \\
 f\left( x \right) &= \sum^{\infty}_{n= 0}\left[ \frac{1}{2 \cdot 2^n} x^n -x^n \right]  \\
 f\left( x \right) &= \sum^{\infty}_{n= 0}\left[x^n {\left( {\frac{1}{2 \cdot 2^n} -1} \right) } \right]  \\
- \implies  a_n &= \frac{1}{2 \cdot 2^n} - 1
 \end{align*}
+\begin{align}
+ \implies  a_n &= \frac{1}{2 \cdot 2^n} - 1 \label{eq:seq-end-value}
+\end{align}
 
 *** Generating Functions
    :PROPERTIES:
    :CUSTOM_ID: generating-functions
    :END:
 
-A [[https://en.wikipedia.org/wiki/Generating_function][Generating
-Function]] is a way of encoding an
-[[https://en.wikipedia.org/wiki/Infinite_sequence][infinite series]] of
-numbers ($a_n$) by treating them as the coeficcients of a power series
-($\sum^\infty_{n = 0} \left[ a_nx^n \right]$).
-
-The variable remains in an indeterminate form and they were first
-introduced by Abraham De Moivre in 1730 in order to solve the general
-linear recurrence problem [^1]
-
-[^1]: Donald E. Knuth, The Art of Computer Programming, Volume 1
-Fundamental Algorithms (Third Edition) Addison-Wesley. ISBN
-0-201-89683-4. Section 1.2.9: "Generating Functions".
+A [[https://en.wikipedia.org/wiki/Generating_function][Generating Function]], as shown in eqref:eq:gen-func-def  is a way of encoding an [[https://en.wikipedia.org/wiki/Infinite_sequence][infinite series]] of numbers ($a_n$)
+by treating them as the coefficients of a power series ($\sum^\infty_{n = 0}
+\left[ a_nx^n \right]$) where the variable remains in an indeterminate form,
+they were first introduced by Abraham De Moivre in 1730 in order to solve the
+linear recurrence relations cite:knuthArtComputerProgramming1997, (such as the /Fibonacci Sequence/).
 
 *** Using the Power series for the Exponential Function
    :PROPERTIES:
    :CUSTOM_ID: using-the-power-series-for-the-exponential-function
    :END:
 
-**** Motivation
+**** TODO Motivation
     :PROPERTIES:
     :CUSTOM_ID: motivation
     :END:
@@ -803,23 +812,22 @@ Fundamental Algorithms (Third Edition) Addison-Wesley. ISBN
 Consider the /Fibonacci Sequence/:
 
 
-\begin{align*}
-    a_{n}&= a_{n - 1} + a_{n - 2}\\
-\iff a_{n+  2} &= a_{n+  1} +  a_n
-\end{align*}
+\begin{align}
+    a_{n}&= a_{n - 1} + a_{n - 2} \nonumber \\
+\iff a_{n+  2} &= a_{n+  1} +  a_n \label{eq:fib-def}
+\end{align}
 
 
-Solving this outright is quite difficult, previously we used a power
-series generating function to solve it, something to the effect of:
+Solving this outright is quite difficult, a power
+series generating function can be used to solve it as shown in section [[#power-series-gen-func-example]], which provides a corresponding equation to the effect of:
 
 
 \begin{align*}
 x^2 f\left( x \right) -  x f \left( x \right) -  f\left( x \right)=  0
 \end{align*}
 
-
-This however is still a little tricky, however, just from observation,
-the following would be fairly easy to deal with:
+This however still requires a little intuition, however, just from observation, this appears similar in structure to
+the following /ordinary differential equation/, which would be fairly easy to deal with:
 
 
 \begin{align*}
@@ -827,40 +835,44 @@ f''\left( x \right)- f'\left( x \right)- f\left( x \right)=  0
 \end{align*}
 
 
-This would however imply that $f\left( x \right)= e^x$ because
+This would imply that $f\left( x \right) \propto e^{mx}, \quad \exists m \in \mathbb{Z}$ because
 $\frac{\mathrm{d}\left( e^x \right) }{\mathrm{d} x} = e^x$, but that's
 fine because we have a power series for that already:
 
 
 \begin{align*}
-f\left( x \right)= e^rx = \sum^{\infty}_{n= 0}   \left[ r \frac{x^n}{n!} \right]
+f\left( x \right)= e^{rx} = \sum^{\infty}_{n= 0}   \left[ r \frac{x^n}{n!} \right]
 \end{align*}
 
 
 So this would give an easy means by which to solve the linear recurrence
 relation.
 
-**** Solving the Sequence
+**** Derivative of the Exponential Generating Function
+    :PROPERTIES:
+    :CUSTOM_ID: Derivative-exp-gen-function
+    :END:
+
+**** TODO Solving the Sequence
     :PROPERTIES:
     :CUSTOM_ID: solving-the-sequence
     :END:
 
-Now this is all well and good but if we could relate this to $f(x)=e^x$
-we'd really be cooking with fire because we could connect linear
-recurrence relations to non-homogenous linear differential equations.
+Consider using the following generating function, observe that the derivative of the generating function is proved in section [[*Derivative of the Exponential Generating Function]] :
 
-Consider using the following generating function:
+Consider using the following generating function, observe that the derivative of the generating function is proved in section [[#Derivative-exp-gen-function]]
 
 
-\begin{align*}
-    f\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n} \cdot  \frac{x^n}{n!} \right]   &= e^x \\
-    \text{ $\mathcal{TODO::}$ The real trick is showing this derivative property } \\
-    f'\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n+1} \cdot  \frac{x^n}{n!} \right]  &= e^x \\
-    f''\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n+2} \cdot  \frac{x^n}{n!} \right] &= e^x \\
-\end{align*}
 
 
-So the recursive relation from above could be expressed:
+\begin{alignat}
+    \ f \left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n} \cdot  \frac{x^n}{n!} \right]   &= e^x \label{eq:exp-gen-def-1} \\
+    f'\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n+1} \cdot  \frac{x^n}{n!} \right]  &= e^x  \label{eq:exp-gen-def-2} \\
+    f''\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n+2} \cdot  \frac{x^n}{n!} \right] &= e^x  \label{eq:exp-gen-def-3}
+\end{alignat}
+
+
+So the recursive relation from ref:eq:fib-def  could be expressed :
 
 
 \begin{align*}
@@ -937,10 +949,7 @@ Open Questions:
 - Show that this is an isomorphism Lindear ODEs with constant
   coefficients to recursive relations with constant coefficients.
 
-*** References
-   :PROPERTIES:
-   :CUSTOM_ID: references
-   :END:
+*** Links to references
 
 1. [[https://math.stackexchange.com/a/1775226]]
 2. [[https://math.stackexchange.com/a/593553]]
