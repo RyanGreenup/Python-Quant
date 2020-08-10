@@ -109,6 +109,56 @@
       \field{dateera}{ce}
       \keyw{Lie algebras,Lie groups,Representations of Lie algebras,Representations of Lie groups}
     \endentry
+    \entry{lehmanReadingsMathematicsComputer2010}{online}{}
+      \name{author}{3}{}{%
+        {{hash=e9354f7da9d5e5cbaf657bca9e1daf67}{%
+           family={Lehman},
+           familyi={L\bibinitperiod},
+           given={Eric},
+           giveni={E\bibinitperiod}}}%
+        {{hash=24aa5c49395c3600019d9a672fb58a9a}{%
+           family={Leighton},
+           familyi={L\bibinitperiod},
+           given={Tom},
+           giveni={T\bibinitperiod}}}%
+        {{hash=af3075f8415a9256e7a556b4abd5d97a}{%
+           family={Meyer},
+           familyi={M\bibinitperiod},
+           given={Albert},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{f16e742b1dc4d2cf7bf2d04c2faca163}
+      \strng{fullhash}{f16e742b1dc4d2cf7bf2d04c2faca163}
+      \strng{bibnamehash}{f16e742b1dc4d2cf7bf2d04c2faca163}
+      \strng{authorbibnamehash}{f16e742b1dc4d2cf7bf2d04c2faca163}
+      \strng{authornamehash}{f16e742b1dc4d2cf7bf2d04c2faca163}
+      \strng{authorfullhash}{f16e742b1dc4d2cf7bf2d04c2faca163}
+      \field{sortinit}{L}
+      \field{sortinithash}{dad3efd0836470093a7b4a7bb756eb8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This section contains the course notes, Mathematics for Computer Science.}
+      \field{day}{8}
+      \field{journaltitle}{MIT Open Courseware}
+      \field{langid}{english}
+      \field{month}{9}
+      \field{title}{Readings | {{Mathematics}} for {{Computer Science}} | {{Electrical Engineering}} and {{Computer Science}} | {{MIT OpenCourseWare}}}
+      \field{urlday}{10}
+      \field{urlmonth}{8}
+      \field{urlyear}{2020}
+      \field{year}{2010}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/GVDZTA4Y/readings.html
+      \endverb
+      \verb{urlraw}
+      \verb https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/readings/
+      \endverb
+      \verb{url}
+      \verb https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/readings/
+      \endverb
+    \endentry
     \entry{MatricesSymPyDocumentation2020}{online}{}
       \field{sortinit}{M}
       \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
