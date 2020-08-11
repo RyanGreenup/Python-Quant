@@ -18,12 +18,12 @@
 # results: table (or output or whatever)
 :END:
 # #+STARTUP: latexpreview
-# #+LATEX_HEADER: \usepackage{style}
 # TexFrag Doesn't work with relative paths.
 :END:
 :LATEXBIB:
 #+latex_header:\usepackage[citestyle=numeric, bibstyle=numeric,hyperref=true,backref=true, maxcitenames=3,url=true,backend=biber,natbib=true]{biblatex}
 #+latex_header:\AtEndDocument{\printbibliography}
+#+LATEX_HEADER: \usepackage{style}
 :END:
 #+latex_header: \addbibresource{../Resources/references.bib}
 
@@ -1058,10 +1058,3 @@ Misc
 
    When $n$ is set to 0, the /Taylor Series/ reduces to the /Mean Value Theorem/, when $a$ is set to 0 the series is referred to as the /Maclaurin Series/.
 
-* References
-# Remember, this is here for HTML, but latex uses biblatex for URL support
-<<bibliography link>>
-bibliography:../Resources/references.bib
-
-<<bibliographystyle link>>
- bibliographystyle:unsrt
