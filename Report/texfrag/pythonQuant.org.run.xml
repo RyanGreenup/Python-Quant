@@ -80,8 +80,7 @@
       <file>pythonQuant.org.bcf</file>
     </requires>
     <requires type="editable">
-      <file>/home/ryan/Dropbox/Studies/Papers/references.bib</file>
-      <file>./Resources/references.bib</file>
+      <file>../Resources/references.bib</file>
     </requires>
   </external>
 </requests>

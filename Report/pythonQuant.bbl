@@ -109,6 +109,39 @@
       \field{dateera}{ce}
       \keyw{Lie algebras,Lie groups,Representations of Lie algebras,Representations of Lie groups}
     \endentry
+    \entry{knuthArtComputerProgramming1997}{book}{}
+      \name{author}{1}{}{%
+        {{hash=16ba958eaf56fad580491eef4f771cee}{%
+           family={Knuth},
+           familyi={K\bibinitperiod},
+           given={Donald\bibnamedelima Ervin},
+           giveni={D\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Reading, Mass}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \strng{namehash}{16ba958eaf56fad580491eef4f771cee}
+      \strng{fullhash}{16ba958eaf56fad580491eef4f771cee}
+      \strng{bibnamehash}{16ba958eaf56fad580491eef4f771cee}
+      \strng{authorbibnamehash}{16ba958eaf56fad580491eef4f771cee}
+      \strng{authornamehash}{16ba958eaf56fad580491eef4f771cee}
+      \strng{authorfullhash}{16ba958eaf56fad580491eef4f771cee}
+      \field{sortinit}{K}
+      \field{sortinithash}{d3edc18d54b9438a72c24c925bfb38f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{annotation}{Includes indexes \par v. 1. Fundamental algorithms -- v. 2. Seminumerical algorithms -- v. 3. Sorting and searching}
+      \field{edition}{3rd ed}
+      \field{isbn}{978-0-201-89683-1 978-0-201-89684-8 978-0-201-89685-5}
+      \field{pagetotal}{3}
+      \field{title}{The Art of Computer Programming}
+      \field{year}{1997}
+      \field{dateera}{ce}
+      \keyw{Computer algorithms,Computer programming}
+    \endentry
     \entry{lehmanReadingsMathematicsComputer2010}{online}{}
       \name{author}{3}{}{%
         {{hash=e9354f7da9d5e5cbaf657bca9e1daf67}{%
@@ -159,6 +192,43 @@
       \verb https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/readings/
       \endverb
     \endentry
+    \entry{levinSolvingRecurrenceRelations2018}{online}{}
+      \name{author}{1}{}{%
+        {{hash=902f4d627498372858aaaf35c5ce01c4}{%
+           family={Levin},
+           familyi={L\bibinitperiod},
+           given={Oscar},
+           giveni={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{902f4d627498372858aaaf35c5ce01c4}
+      \strng{fullhash}{902f4d627498372858aaaf35c5ce01c4}
+      \strng{bibnamehash}{902f4d627498372858aaaf35c5ce01c4}
+      \strng{authorbibnamehash}{902f4d627498372858aaaf35c5ce01c4}
+      \strng{authornamehash}{902f4d627498372858aaaf35c5ce01c4}
+      \strng{authorfullhash}{902f4d627498372858aaaf35c5ce01c4}
+      \field{sortinit}{L}
+      \field{sortinithash}{dad3efd0836470093a7b4a7bb756eb8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{29}
+      \field{month}{1}
+      \field{title}{Solving {{Recurrence Relations}}}
+      \field{urlday}{11}
+      \field{urlmonth}{8}
+      \field{urlyear}{2020}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/7TGQCTAK/sec_recurrence.html
+      \endverb
+      \verb{urlraw}
+      \verb http://discrete.openmathbooks.org/dmoi2/sec_recurrence.html
+      \endverb
+      \verb{url}
+      \verb http://discrete.openmathbooks.org/dmoi2/sec_recurrence.html
+      \endverb
+    \endentry
     \entry{MatricesSymPyDocumentation2020}{online}{}
       \field{sortinit}{M}
       \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
@@ -207,6 +277,49 @@
       \verb{url}
       \verb https://github.com/sympy/sympy/issues/6218
       \endverb
+    \endentry
+    \entry{nicodemiIntroductionAbstractAlgebra2007}{book}{}
+      \name{author}{3}{}{%
+        {{hash=c4c18a360dba4df7294730d2aa312b46}{%
+           family={Nicodemi},
+           familyi={N\bibinitperiod},
+           given={Olympia},
+           giveni={O\bibinitperiod}}}%
+        {{hash=251e87cdbe6e2d924c77289bb1ee47d6}{%
+           family={Sutherland},
+           familyi={S\bibinitperiod},
+           given={Melissa\bibnamedelima A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=085b8b7f038738c294ca1b1711b92971}{%
+           family={Towsley},
+           familyi={T\bibinitperiod},
+           given={Gary\bibnamedelima W.},
+           giveni={G\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Upper Saddle River, NJ}%
+      }
+      \list{publisher}{1}{%
+        {Pearson Prentice Hall}%
+      }
+      \strng{namehash}{c65809013899687a317846080ba75019}
+      \strng{fullhash}{c65809013899687a317846080ba75019}
+      \strng{bibnamehash}{c65809013899687a317846080ba75019}
+      \strng{authorbibnamehash}{c65809013899687a317846080ba75019}
+      \strng{authornamehash}{c65809013899687a317846080ba75019}
+      \strng{authorfullhash}{c65809013899687a317846080ba75019}
+      \field{sortinit}{N}
+      \field{sortinithash}{98cf339a479c0454fe09153a08675a15}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{annotation}{Includes bibliographic references (S. 391-394) and index}
+      \field{isbn}{978-0-13-101963-8}
+      \field{langid}{english}
+      \field{note}{OCLC: 253915717}
+      \field{pagetotal}{436}
+      \field{title}{An Introduction to Abstract Algebra with Notes to the Future Teacher}
+      \field{year}{2007}
+      \field{dateera}{ce}
     \endentry
     \entry{parkPowerWalkRevisiting2013}{inproceedings}{}
       \name{author}{2}{}{%
@@ -286,6 +399,7 @@
       \strng{authorbibnamehash}{e3f0d8f56b31e2cddc7c5b3d08e252a8}
       \strng{authornamehash}{e3f0d8f56b31e2cddc7c5b3d08e252a8}
       \strng{authorfullhash}{e3f0d8f56b31e2cddc7c5b3d08e252a8}
+      \field{extraname}{1}
       \field{sortinit}{Z}
       \field{sortinithash}{8f7b480688e809b50b6f6577b16f3db5}
       \field{labelnamesource}{author}
@@ -295,6 +409,45 @@
       \field{version}{7}
       \field{year}{2009}
       \field{dateera}{ce}
+    \endentry
+    \entry{zillMatrixExponential2009}{incollection}{}
+      \name{author}{2}{}{%
+        {{hash=ce0689f2d52c5a0939d5509701e4f498}{%
+           family={Zill},
+           familyi={Z\bibinitperiod},
+           given={Dennis\bibnamedelima G.},
+           giveni={D\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=724ffae515880969319e4b88c9995872}{%
+           family={Cullen},
+           familyi={C\bibinitperiod},
+           given={Michael\bibnamedelima R.},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Belmont, CA}%
+      }
+      \list{publisher}{1}{%
+        {Brooks/Cole, Cengage Learning}%
+      }
+      \strng{namehash}{e3f0d8f56b31e2cddc7c5b3d08e252a8}
+      \strng{fullhash}{e3f0d8f56b31e2cddc7c5b3d08e252a8}
+      \strng{bibnamehash}{e3f0d8f56b31e2cddc7c5b3d08e252a8}
+      \strng{authorbibnamehash}{e3f0d8f56b31e2cddc7c5b3d08e252a8}
+      \strng{authornamehash}{e3f0d8f56b31e2cddc7c5b3d08e252a8}
+      \strng{authorfullhash}{e3f0d8f56b31e2cddc7c5b3d08e252a8}
+      \field{extraname}{2}
+      \field{sortinit}{Z}
+      \field{sortinithash}{8f7b480688e809b50b6f6577b16f3db5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{annotation}{Includes index}
+      \field{booktitle}{Differential Equations with Boundary-Value Problems}
+      \field{edition}{7th ed}
+      \field{isbn}{978-0-495-10836-8}
+      \field{title}{8.4 {{Matrix Exponential}}}
+      \field{year}{2009}
+      \field{dateera}{ce}
+      \keyw{Boundary value problems,Differential equations,Textbooks}
     \endentry
   \enddatalist
 \endrefsection

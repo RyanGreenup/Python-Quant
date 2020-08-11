@@ -1,5 +1,7 @@
 #+TITLE: Python Quantitative Project
-#+OPTIONS: broken-links:auto
+#+OPTIONS: broken-links:auto todo:nil H:9
+#+OPTIONS: tags:not-in-toc d:nil
+#+AUTHOR: Ryan Greenup & James Guerra
 #+INFOJS_OPT: view:showall toc:3
 #+PLOT: title:"Citas" ind:1 deps:(3) type:2d with:histograms set:"yrange [0:]"
 #+OPTIONS: tex:t
@@ -45,7 +47,7 @@ code /home/ryan/Dropbox/Studies/QuantProject/Current/Python-Quant/ & disown
 
 #+RESULTS:
 
-* What the unit involves.
+* What the unit involves.                                                       :Ryan:James:
 Writing and presenting.
 * Python
 Two parts:
@@ -53,7 +55,7 @@ Two parts:
 2. IMPORTANT: MUST have new math
    1. Dr. Hazrat may have some new math to use.
 
-* Matrix Exponentiation
+* Matrix Exponentiation                                                         :Ryan:
 *** Implementation in Sympy
 The Matrix Exponential is implemented in areas of:
 
@@ -637,13 +639,13 @@ A = Matrix([ [11,12,13], [21,22,23], [31,32,33] ])
        Matrix-Matrix Exponentiation, and Entropy." Journal of
        Mathematical Analysis and Applications 183, no. 1 (April 1,
        1994): 76--88. https://doi.org/10.1006/jmaa.1994.1132.
-* Recursive Relations
-A recursive relation is of the form:
+* Recursive Relations                                                           :Ryan:
+A linear recurrence relation is of the form:
 
-$$
+\begin{align}
 \sum^{\infty}_{n= 0}   \left[ c_i \cdot  a_n \right] = 0, \quad \exists c \in
-\mathbb{R}, \enspace \forall i<k\in\mathbb{Z}^+
-$$
+\mathbb{R}, \enspace \forall i<k\in\mathbb{Z}^+ \label{eq:recurrence-relation-def}
+\end{align}
 
 In order to find a solution for $a_n$, the following one-to-one
 correspondence can be used to relate the vector space of the sequence to the
@@ -667,7 +669,7 @@ A [[https://en.wikipedia.org/wiki/Generating_function][Generating Function]], as
 by treating them as the coefficients of a power series ($\sum^\infty_{n = 0}
 \left[ a_nx^n \right]$) where the variable remains in an indeterminate form,
 they were first introduced by Abraham De Moivre in 1730 in order to solve the
-linear recurrence relations cite:knuthArtComputerProgramming1997, (such as the /Fibonacci Sequence/).
+linear recurrence relations cite:knuthArtComputerProgramming1997, as shown in eqref:eq:recurrence-relation-def (such as the /Fibonacci Sequence/).
 
 *** STRT Example
 :PROPERTIES:
@@ -772,7 +774,7 @@ f\left( x \right) &= \sum^{\infty}_{n= 0}\left[x^n {\left( {\frac{1}{2 \cdot 2^n
 \end{align}
 
 ** TODO Exponential Generating Function
-*** STRT Motivation
+*** Motivation
     :PROPERTIES:
     :CUSTOM_ID: motivation
     :END:
@@ -816,7 +818,7 @@ f\left( x \right)= e^{rx} = \sum^{\infty}_{n= 0}   \left[ r \frac{x^n}{n!} \righ
 So this would give an easy means by which to solve the linear recurrence
 relation.
 
-*** STRT Example
+*** Example
     :PROPERTIES:
     :CUSTOM_ID: solving-the-sequence
     :END:
@@ -901,7 +903,7 @@ where:
 - $\varphi = \frac{1+ \sqrt{5} }{2} \approx 1.61\ldots$
 - $\psi = 1-\varphi = \frac{1- \sqrt{5} }{2} \approx 0.61\ldots$
 
-*** TODO Derivative of the Exponential Generating Function
+*** Derivative of the Exponential Generating Function
     :PROPERTIES:
     :CUSTOM_ID: Derivative-exp-gen-function
     :END:
@@ -914,17 +916,97 @@ f'\left( x \right)ht) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n
 &= \sum^{\infty}_{n= 0}   \left[ \frac{\mathrm{d} }{\mathrm{d} x}\left( a_n \frac{x^n}{n!} \right) \right] \nonumber \\
 &= \sum^{\infty}_{n= 0}   {\left[{ \frac{a_n}{{\left({ n- 1 }\right)!}} } x^{n- 1}  \right]} \nonumber \\
 &= \sum^{\infty}_{n= 0}   {\left[{ \frac{a_n}{{\left({ n- 1 }\right)}}! x^{n - 1} }\right]} \nonumber \\
-\implies  &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}a_{n+  1} }\right]} \label{eq:\exp-pow-series-sol}
+\implies  &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}a_{n+  1} }\right]} \label{eq:exp-pow-series-sol}
 \end{align}
 
-If $f\left( x \right)= \sum^{\infty}_{n= 0 } \left[ a_n \frac{x^n}{n!} \right]$ can it be shown by induction that $\frac{\mathrm{d}^k }{\mathrm{d} x^k} \left(  f\left( x \right) \right)= f^{k} \left( x \right) \sum^{\infty}_{n= 0}   \left[ x^n \frac{a_{n+  k}}{n!} \right] $
-
-
+If $f\left( x \right)= \sum^{\infty}_{n= 0 } \left[ a_n \frac{x^n}{n!} \right]$ can it be shown by induction that $\frac{\mathrm{d}^k }{\mathrm{d} x^k} \left(  f\left( x \right) \right)= f^{k} \left( x \right) \sum^{\infty}_{n= 0}   \left[ x^n \frac{a_{n+  k}}{n!} \right]$
 
 *** TODO Homogeneous Proof
-**** TODO Unique Roots of Characteristic Equation
+An equation of the form:
+
+\begin{align}
+\sum^{\infty}_{n=0} \left[ c_{i} \cdot f^{(n)}(x) \right] = 0 \label{eq:hom-ode}
+\end{align}
+
+is said to be a homogenous linear ODE:
+
+- Linear :: because the equation is linear with respect to $f(x)$
+- Ordinary :: because there are no partial derivatives (e.g. $\frac{\partial }{\partial x}{\left({ f{\left({ x }\right)} }\right)}$  )
+- Differential :: because the derivates of the function are concerned
+- Homogenous :: because the */RHS/* is 0
+  - A non-homogeous equation would have a non-zero RHS
+
+There will be $k$ solutions to a $k^{\mathrm{th}}$ order linear ODE, each may be summed to produce a superposition which will also be a solution to the equation, [[cite:Zil2009][Ch. 4]]  this will be considered as the desired complete solution (and this will be shown to be the only solution for the recurrence relation eqref:eq:recurrence-relation-def). These $k$ solutions will be in one of two forms:
+
+1. $f(x)=c_{i} \cdot e^{m_{i}x}$
+2. $f(x)=c_{i} \cdot x^{j}\cdot e^{m_{i}x}$
+
+where:
+
+- $\sum^{k}_{i=0}\left[  c_{i}m^{k-i} \right] = 0$
+  - This is referred to the characteristic equation of the recurrence relation or ODE cite:levinSolvingRecurrenceRelations2018
+- $\exists i,j \in \mathbb{Z}^{+} \cap \left[0,k\right]$
+  - These is often referred to as repeated roots cite:levinSolvingRecurrenceRelations2018,zillMatrixExponential2009 with a multiplicity corresponding to the number of repetitions of that root [[cite:nicodemiIntroductionAbstractAlgebra2007][\textsection 3.2]]
+ 
+**** Unique Roots of Characteristic Equation
 ***** Example
+An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section [[#solving-the-sequence]].
 ***** Proof
+Consider the linear recurrence relation eqref:eq:recurrence-relation-def:
+
+\begin{align}
+\sum^{\infty}_{n= 0}   \left[ c_i \cdot  a_n \right] = 0, \quad \exists c \in
+\mathbb{R}, \enspace \forall i<k\in\mathbb{Z}^+ \tag{$\textrm{\ref{eq:recurrence-relation-def}}^2$}
+\end{align}
+
+By implementing the exponential generating function as shown in eqref:eq:exp-gen-def-1, this provides:
+
+
+\begin{align}
+    \sum^{k}_{i= 0}   {\left[{ c_i \cdot a_n } \right]} = 0 \nonumber \\
+    \intertext{By Multiplying through and summing: } \notag \\
+     \implies  \sum^{k}_{i= 0}   {\left[{ \sum^{\infty}_{n= 0}   {\left[{ c_i a_n \frac{x^n}{n!} }\right]}  }\right]}  \nonumber = 0 \\
+     \sum^{k}_{i= 0}    {\left[{ c_i \sum^{\infty}_{n= 0}   {\left[{  a_n \frac{x^n}{n!} }\right]}  }\right]}  \nonumber = 0 \\
+\end{align}
+
+Recall from eqref:eq:exp-gen-def-1 xxx the generating function $f{\left({ x }\right)}$:
+    
+\begin{align}
+\sum^{k}_{i= 0}   {\left[{ c_i f^{{\left({ k }\right)} } } {\left({ x }\right)} \right]} \label{eq:exp-gen-def-proof}  &= 0
+\end{align}
+
+
+Now assume that the solution exists and all roots of the characteristic polynomial are unique (i.e. the solution is of the form $f{\left({ x }\right)} \propto e^{m_i x}: \quad m_i \neq m_j \forall i\neq j$), this implies that [[cite:Zil2009][Ch. 4]] :
+
+\begin{align}
+    f{\left({ x }\right)} = \sum^{k}_{i= 0}   {\left[{ k_i e^{m_i x} }\right]}, \quad \exists m,k \in \mathbb{C} \nonumber
+\end{align}
+
+This can be re-expressed in terms of the exponential power series, in order to relate the solution of the function $f{\left({ x }\right)}$ back to a solution of the sequence $a_n$, (see section [[#prove-exp-power-series]] for a derivation of the exponential power series):
+
+\begin{align}
+    \sum^{k}_{i= 0}   {\left[{ k_i e^{m_i x}  }\right]}  &= \sum^{k}_{i= 0}   {\left[{ k_i \sum^{\infty}_{n= 0}   \frac{{\left({ m_i x }\right)}^n}{n!}  }\right]}  \nonumber \\
+							 &= \sum^{k}_{i= 0}  \sum^{\infty}_{n= 0}   k_i m_i^n \frac{x^n}{n!} \nonumber\\
+							 &=    \sum^{\infty}_{n= 0} \sum^{k}_{i= 0}   k_i m_i^n \frac{x^n}{n!} \nonumber \\
+							 &= \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}  \sum^{k}_{i=0}   {\left[{ k_im^n_i }\right]}  }\right]}, \quad \exists k_i \in \mathbb{C}, \enspace \forall i \in \mathbb{Z}^+\cap {\left[{ 1, k }\right]}     \label{eq:unique-root-sol-power-series-form}
+\end{align}
+
+Recall the definition of the generating function from ref:eq:exp-gen-def-proof, by relating this to eqref:eq:unique-root-sol-power-series-form:
+
+\begin{align}
+    f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{  \frac{x^n}{n!} a_n }\right]} \nonumber \\
+&= \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}  \sum^{k}_{i=0}   {\left[{ k_im^n_i }\right]}  }\right]}  \nonumber \\
+      \implies  a_n &= \sum^{k}_{n= 0} {\left[{ k_im_i^n }\right]}     \nonumber \\ \nonumber
+\square
+\end{align}
+
+This can be verified by the fibonacci sequence as shown in section xxx, the solution to the characteristic equation is $m_1 = \varphi, m_2 = {\left({ 1-\varphi }\right)}$ and the corresponding solution to the linear ODE and recursive relation are:
+
+\begin{alignat}{4}
+    f{\left({ x }\right)} &= &c_1 e^{\varphi x} +  &c_2 e^{{\left({ 1-\varphi }\right)} x}, \quad &\exists c_1, c_2 \in \mathbb{R} \subset \mathbb{C} \nonumber \\
+    \iff  a_n &= &k_1 n^{\varphi} +  &k_2 n^{1- \varphi}, &\exists k_1, k_2 \in \mathbb{R} \subset \mathbb{C} \nonumber
+\end{alignat}
+
 **** TODO Repeated Roots of Characteristic Equation
 ***** Example
 ***** Proof
@@ -945,11 +1027,6 @@ $$
 a_n  \right]   \right] = 0
 $$
 
-* Prove the Power Series
-   :PROPERTIES:
-   :CUSTOM_ID: generating-functions
-   :END:
-
 ** Links to references
 
 1. [[https://math.stackexchange.com/a/1775226]]
@@ -961,3 +1038,30 @@ Misc
 1. [[https://brilliant.org/wiki/generating-functions-solving-recurrence-relations/]]
 2. [[https://www.math.cmu.edu/~af1p/Teaching/Combinatorics/Slides/Generating-Functions.pdf]]
 3. [[https://www.math.cmu.edu/~af1p/Teaching/Combinatorics/Slides/Generating-Functions.pdf]]
+
+* Prove the Power Series
+   :PROPERTIES:
+   :CUSTOM_ID: prove-power-series
+   :END:
+
+
+** General Power Series
+
+** Exponential Power Series
+   :PROPERTIES:
+   :CUSTOM_ID: prove-exp-power-series
+   :END:
+
+
+** Taylor Series
+
+
+   When $n$ is set to 0, the /Taylor Series/ reduces to the /Mean Value Theorem/, when $a$ is set to 0 the series is referred to as the /Maclaurin Series/.
+
+* References
+# Remember, this is here for HTML, but latex uses biblatex for URL support
+<<bibliography link>>
+bibliography:../Resources/references.bib
+
+<<bibliographystyle link>>
+ bibliographystyle:unsrt

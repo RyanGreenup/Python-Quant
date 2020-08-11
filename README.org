@@ -46,6 +46,10 @@ See [[https://shields.io/][Shields io]]
 - [[file:Problems/Docs/Variable-Scope-of-Nested-Functions.md][Variable Scope of Nested Functions]]
 
 
+* Report
+- [[file:Report/pythonQuant.org][Org File]]
+- [[file:Report/pythonQuant.pdf][pdf File]]
+- [[file:Report/pythonQuant.html][html File]]
 
 * Directory Structure
 #+begin_src bash :results output

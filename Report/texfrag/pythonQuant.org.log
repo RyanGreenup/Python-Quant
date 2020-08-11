@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.7.5)  10 AUG 2020 22:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.7.5)  11 AUG 2020 22:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -275,75 +275,279 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (/usr/share/texmf-dist/tex/latex/biblatex/biblatex.sty
+Package: biblatex 2019/12/01 v3.14 programmable bibliographies (PK/MW)
+ (/usr/share/texmf-dist/tex/latex/logreq/logreq.sty
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count285
+ (/usr/share/texmf-dist/tex/latex/logreq/logreq.def
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+)) (/usr/share/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+\c@tabx@nest=\count286
+\c@listtotal=\count287
+\c@listcount=\count288
+\c@liststart=\count289
+\c@liststop=\count290
+\c@citecount=\count291
+\c@citetotal=\count292
+\c@multicitecount=\count293
+\c@multicitetotal=\count294
+\c@instcount=\count295
+\c@maxnames=\count296
+\c@minnames=\count297
+\c@maxitems=\count298
+\c@minitems=\count299
+\c@citecounter=\count300
+\c@maxcitecounter=\count301
+\c@savedcitecounter=\count302
+\c@uniquelist=\count303
+\c@uniquename=\count304
+\c@refsection=\count305
+\c@refsegment=\count306
+\c@maxextratitle=\count307
+\c@maxextratitleyear=\count308
+\c@maxextraname=\count309
+\c@maxextradate=\count310
+\c@maxextraalpha=\count311
+\c@abbrvpenalty=\count312
+\c@highnamepenalty=\count313
+\c@lownamepenalty=\count314
+\c@maxparens=\count315
+\c@parenlevel=\count316
+\blx@tempcnta=\count317
+\blx@tempcntb=\count318
+\blx@tempcntc=\count319
+\blx@maxsection=\count320
+\blx@maxsegment@0=\count321
+\blx@notetype=\count322
+\blx@parenlevel@text=\count323
+\blx@parenlevel@foot=\count324
+\blx@sectionciteorder@0=\count325
+\blx@entrysetcounter=\count326
+\labelnumberwidth=\skip58
+\labelalphawidth=\skip59
+\biblabelsep=\skip60
+\bibitemsep=\skip61
+\bibnamesep=\skip62
+\bibinitsep=\skip63
+\bibparsep=\skip64
+\bibhang=\skip65
+\blx@bcfin=\read4
+\blx@bcfout=\write5
+\blx@langwohyphens=\language86
+\c@mincomprange=\count327
+\c@maxcomprange=\count328
+\c@mincompwidth=\count329
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+ (/usr/share/texmf-dist/tex/latex/biblatex/blx-dm.def
+File: blx-dm.def 2019/12/01 v3.14 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load biblatex citestyle data model...
+Package biblatex Info: ... file 'numeric.dbx' not found.
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count330
+\c@savedafterword=\count331
+\c@annotator=\count332
+\c@savedannotator=\count333
+\c@author=\count334
+\c@savedauthor=\count335
+\c@bookauthor=\count336
+\c@savedbookauthor=\count337
+\c@commentator=\count338
+\c@savedcommentator=\count339
+\c@editor=\count340
+\c@savededitor=\count341
+\c@editora=\count342
+\c@savededitora=\count343
+\c@editorb=\count344
+\c@savededitorb=\count345
+\c@editorc=\count346
+\c@savededitorc=\count347
+\c@foreword=\count348
+\c@savedforeword=\count349
+\c@holder=\count350
+\c@savedholder=\count351
+\c@introduction=\count352
+\c@savedintroduction=\count353
+\c@namea=\count354
+\c@savednamea=\count355
+\c@nameb=\count356
+\c@savednameb=\count357
+\c@namec=\count358
+\c@savednamec=\count359
+\c@translator=\count360
+\c@savedtranslator=\count361
+\c@shortauthor=\count362
+\c@savedshortauthor=\count363
+\c@shorteditor=\count364
+\c@savedshorteditor=\count365
+\c@labelname=\count366
+\c@savedlabelname=\count367
+\c@institution=\count368
+\c@savedinstitution=\count369
+\c@lista=\count370
+\c@savedlista=\count371
+\c@listb=\count372
+\c@savedlistb=\count373
+\c@listc=\count374
+\c@savedlistc=\count375
+\c@listd=\count376
+\c@savedlistd=\count377
+\c@liste=\count378
+\c@savedliste=\count379
+\c@listf=\count380
+\c@savedlistf=\count381
+\c@location=\count382
+\c@savedlocation=\count383
+\c@organization=\count384
+\c@savedorganization=\count385
+\c@origlocation=\count386
+\c@savedoriglocation=\count387
+\c@origpublisher=\count388
+\c@savedorigpublisher=\count389
+\c@publisher=\count390
+\c@savedpublisher=\count391
+\c@language=\count392
+\c@savedlanguage=\count393
+\c@origlanguage=\count394
+\c@savedoriglanguage=\count395
+\c@pageref=\count396
+\c@savedpageref=\count397
+\shorthandwidth=\skip66
+\shortjournalwidth=\skip67
+\shortserieswidth=\skip68
+\shorttitlewidth=\skip69
+\shortauthorwidth=\skip70
+\shorteditorwidth=\skip71
+\locallabelnumberwidth=\skip72
+\locallabelalphawidth=\skip73
+\localshorthandwidth=\skip74
+\localshortjournalwidth=\skip75
+\localshortserieswidth=\skip76
+\localshorttitlewidth=\skip77
+\localshortauthorwidth=\skip78
+\localshorteditorwidth=\skip79
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+ (/usr/share/texmf-dist/tex/latex/biblatex/blx-compat.def
+File: blx-compat.def 2019/12/01 v3.14 biblatex compatibility (PK/MW)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+ (/usr/share/texmf-dist/tex/latex/biblatex/biblatex.def
+File: biblatex.def 2019/12/01 v3.14 biblatex compatibility (PK/MW)
+\c@textcitecount=\count398
+\c@textcitetotal=\count399
+\c@textcitemaxnames=\count400
+\c@biburlbigbreakpenalty=\count401
+\c@biburlbreakpenalty=\count402
+\c@biburlnumpenalty=\count403
+\c@biburlucpenalty=\count404
+\c@biburllcpenalty=\count405
+\biburlbigskip=\muskip18
+\biburlnumskip=\muskip19
+\biburlucskip=\muskip20
+\biburllcskip=\muskip21
+\c@smartand=\count406
+)
+Package biblatex Info: Trying to load natbib compatibility...
+Package biblatex Info: ... file 'blx-natbib.def' found.
+ (/usr/share/texmf-dist/tex/latex/biblatex/blx-natbib.def
+File: blx-natbib.def 2019/12/01 v3.14 biblatex compatibility (PK/MW)
+Package biblatex Info: Delimiter 'nameyeardelim' in context '' already defined, overwriting.
+)
+Package biblatex Info: Trying to load bibliography style 'numeric'...
+Package biblatex Info: ... file 'numeric.bbx' found.
+ (/usr/share/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
+File: numeric.bbx 2019/12/01 v3.14 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+ (/usr/share/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
+File: standard.bbx 2019/12/01 v3.14 biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count407
+\c@bbx:relatedtotal=\count408
 ))
-./pythonQuant.org.tex:32: Undefined control sequence.
-l.32 \addbibresource
-                    {../Resources/references.bib}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+Package biblatex Info: Trying to load citation style 'numeric'...
+Package biblatex Info: ... file 'numeric.cbx' found.
+ (/usr/share/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx
+File: numeric.cbx 2019/12/01 v3.14 biblatex citation style (PK/MW)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
+)
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
 
-
-./pythonQuant.org.tex:32: LaTeX Error: Missing \begin{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.32 \addbibresource{.
-                      ./Resources/references.bib}
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
+(/usr/share/texmf-dist/tex/latex/biblatex/biblatex.cfg
+File: biblatex.cfg 
+))
 runsystem(which pygmentize && touch pythonQuant.org.aex)...disabled (restricted).
 
 
-./pythonQuant.org.tex:34: Package minted Error: You must have `pygmentize' installed to use this package.
+
+./pythonQuant.org.tex:36: Package minted Error: You must have `pygmentize' installed to use this package.
 
 See the minted package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.34 \begin{document}
+l.36 \begin{document}
                      
 Refer to the installation instructions in the minted documentation for more information.
 
+
+Package biblatex Warning: Missing 'hyperref' package.
+(biblatex)                Setting 'hyperref=false'.
+
+\@quotelevel=\count409
+\@quotereset=\count410
 (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-06-03 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count285
+\l__kernel_color_stack_int=\count411
 \l__pdf_internal_box=\box59
 )
 No file pythonQuant.org.aux.
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-(/usr/share/texmf-dist/tex/latex/preview/preview.sty
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+(/home/ryan/.emacs.d/.local/straight/build/auctex/latex/preview.sty
 Package: preview 2017/04/24 12.2 (AUCTeX/preview-latex)
  (/usr/share/texmf-dist/tex/generic/luatex85/luatex85.sty
 Package: luatex85 2016/06/15 v1.4 pdftex aliases for luatex
-) (/usr/share/texmf-dist/tex/latex/preview/prtightpage.def
+) (/home/ryan/.emacs.d/.local/straight/build/auctex/latex/prtightpage.def
 \PreviewBorder=\dimen166
-) (/usr/share/texmf-dist/tex/latex/preview/prauctex.def
+) (/home/ryan/.emacs.d/.local/straight/build/auctex/latex/prauctex.def
 No auxiliary output files.
 
 
-\hbadness=\count286
+\hbadness=\count412
 \hfuzz=\dimen167
-(/usr/share/texmf-dist/tex/latex/preview/prauctex.cfg)) (/usr/share/texmf-dist/tex/latex/preview/prfootnotes.def)
-\pr@snippet=\count287
+(/home/ryan/.emacs.d/.local/straight/build/auctex/latex/prauctex.cfg)) (/home/ryan/.emacs.d/.local/straight/build/auctex/latex/prfootnotes.def)
+\pr@snippet=\count413
 \pr@box=\box60
 \pr@output=\toks28
 
@@ -351,16 +555,16 @@ Preview: Fontsize 10pt
 Preview: PDFoutput 1
 ) (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count288
+\scratchcounter=\count414
 \scratchdimen=\dimen168
 \scratchbox=\box61
-\nofMPsegments=\count289
-\nofMParguments=\count290
+\nofMPsegments=\count415
+\nofMParguments=\count416
 \everyMPshowfont=\toks29
-\MPscratchCnt=\count291
+\MPscratchCnt=\count417
 \MPscratchDim=\dimen169
-\MPnumerator=\count292
-\makeMPintoPDFobject=\count293
+\MPnumerator=\count418
+\makeMPintoPDFobject=\count419
 \everyMPtoPDFconversion=\toks30
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -376,77 +580,91 @@ Package grfext Info: Graphics extension search list:
  (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-./pythonQuant.org.tex:35: Preview: Snippet 1 started.
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+ (/usr/share/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2019/12/01 v3.14 biblatex localization (PK/MW)
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'pythonQuant.org.bbl' not found.
+
+No file pythonQuant.org.bbl.
+Package biblatex Info: Reference section=0 on input line 36.
+Package biblatex Info: Reference segment=0 on input line 36.
+./pythonQuant.org.tex:37: Preview: Snippet 1 started.
 <-><->
       
-l.35 $
+l.37 $
       $
 Not a real error.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 35.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 37.
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 35.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 37.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 37.
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 39.
 
 Preview: Tightpage -32891 -32891 32891 32891
-./pythonQuant.org.tex:306: Preview: Snippet 1 ended.(7293073+0x34664398).
+./pythonQuant.org.tex:308: Preview: Snippet 1 ended.(7293073+0x34664398).
 <-><->
       
-l.306 $$
+l.308 $$
         
 Not a real error.
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-./pythonQuant.org.tex:307: Preview: Snippet 2 started.
+./pythonQuant.org.tex:309: Preview: Snippet 2 started.
 <-><->
       
-l.307 $
+l.309 $
        $
 Not a real error.
 
 
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 309.
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 311.
 
-./pythonQuant.org.tex:344: Preview: Snippet 2 ended.(3712313+0x34664398).
+./pythonQuant.org.tex:346: Preview: Snippet 2 ended.(3712313+0x34664398).
 <-><->
       
-l.344 $$
+l.346 $$
         
 Not a real error.
 
 [2]
-./pythonQuant.org.tex:345: Preview: Snippet 3 started.
+./pythonQuant.org.tex:347: Preview: Snippet 3 started.
 <-><->
       
-l.345 \begin{align}
+l.347 \begin{align}
                    
 Not a real error.
 
-./pythonQuant.org.tex:347: Preview: Snippet 3 ended.(1936048+0x34664398).
+./pythonQuant.org.tex:349: Preview: Snippet 3 ended.(1936048+0x34664398).
 <-><->
       
-l.347 \end{align}
+l.349 \end{align}
                  
 Not a real error.
 
 [3]
-./pythonQuant.org.tex:348: Preview: Snippet 4 started.
+./pythonQuant.org.tex:350: Preview: Snippet 4 started.
 <-><->
       
-l.348 \begin{align}
+l.350 \begin{align}
                    
 Not a real error.
 
-./pythonQuant.org.tex:352: Preview: Snippet 4 ended.(3532375+0x34664398).
+./pythonQuant.org.tex:354: Preview: Snippet 4 ended.(3532375+0x34664398).
 <-><->
       
-l.352 \end{align}
+l.354 \end{align}
                  
 Not a real error.
 
@@ -454,395 +672,399 @@ Not a real error.
 
 
 ]
-./pythonQuant.org.tex:353: Preview: Snippet 5 started.
+./pythonQuant.org.tex:355: Preview: Snippet 5 started.
 <-><->
       
-l.353 $
+l.355 $
        \left( a\cdot b \right)^{k} = a^k\cdot b^k$
 Not a real error.
 
-./pythonQuant.org.tex:353: Preview: Snippet 5 ended.(648079+163840x4552842).
+./pythonQuant.org.tex:355: Preview: Snippet 5 ended.(648079+163840x4552842).
 <-><->
       
-l.353 $\left( a\cdot b \right)^{k} = a^k\cdot b^k$
+l.355 $\left( a\cdot b \right)^{k} = a^k\cdot b^k$
                                                   
 Not a real error.
 
 [5]
-./pythonQuant.org.tex:354: Preview: Snippet 6 started.
+./pythonQuant.org.tex:356: Preview: Snippet 6 started.
 <-><->
       
-l.354 $
+l.356 $
        \left( \left[ - 1 \right]^2 \cdot 3
 Not a real error.
 
-./pythonQuant.org.tex:356: Preview: Snippet 6 ended.(978938+425990x7194761).
+./pythonQuant.org.tex:358: Preview: Snippet 6 ended.(978938+425990x7194761).
 <-><->
       
-l.356 3^{\frac{1}{2}}$
+l.358 3^{\frac{1}{2}}$
                       
 Not a real error.
 
 [6]
-./pythonQuant.org.tex:357: Preview: Snippet 7 started.
+./pythonQuant.org.tex:359: Preview: Snippet 7 started.
 <-><->
       
-l.357 $
+l.359 $
        k \in
 Not a real error.
 
-./pythonQuant.org.tex:358: Preview: Snippet 7 ended.(455111+25623x1900994).
+./pythonQuant.org.tex:360: Preview: Snippet 7 ended.(455111+25623x1900994).
 <-><->
       
-l.358 \mathbb{Z}^{*}$
+l.360 \mathbb{Z}^{*}$
                      
 Not a real error.
 
 [7]
-./pythonQuant.org.tex:359: Preview: Snippet 8 started.
+./pythonQuant.org.tex:361: Preview: Snippet 8 started.
 <-><->
       
-l.359 \begin{align}
+l.361 \begin{align}
                    
 Not a real error.
 
-./pythonQuant.org.tex:361: Preview: Snippet 8 ended.(884011+0x34664398).
+./pythonQuant.org.tex:363: Preview: Snippet 8 ended.(884011+0x34664398).
 <-><->
       
-l.361 \end{align}
+l.363 \end{align}
                  
 Not a real error.
 
 [8]
-./pythonQuant.org.tex:362: Preview: Snippet 9 started.
+./pythonQuant.org.tex:364: Preview: Snippet 9 started.
 <-><->
       
-l.362 $
+l.364 $
        \forall z \in \mathbb{C}$
 Not a real error.
 
-./pythonQuant.org.tex:362: Preview: Snippet 9 ended.(455111+25623x1971992).
+./pythonQuant.org.tex:364: Preview: Snippet 9 ended.(455111+25623x1971992).
 <-><->
       
-l.362 $\forall z \in \mathbb{C}$
+l.364 $\forall z \in \mathbb{C}$
                                 
 Not a real error.
 
 [9]
-./pythonQuant.org.tex:363: Preview: Snippet 10 started.
+./pythonQuant.org.tex:365: Preview: Snippet 10 started.
 <-><->
       
-l.363 \begin{align}
+l.365 \begin{align}
                    
 Not a real error.
 
-./pythonQuant.org.tex:366: Preview: Snippet 10 ended.(2886861+0x34664398).
+./pythonQuant.org.tex:368: Preview: Snippet 10 ended.(2886861+0x34664398).
 <-><->
       
-l.366 \end{align}
+l.368 \end{align}
                  
 Not a real error.
 
 [10
 
 ]
-./pythonQuant.org.tex:367: Preview: Snippet 11 started.
+./pythonQuant.org.tex:369: Preview: Snippet 11 started.
 <-><->
       
-l.367 \begin{align}
+l.369 \begin{align}
                    
 Not a real error.
 
-./pythonQuant.org.tex:373: Preview: Snippet 11 ended.(8812398+0x34664398).
+./pythonQuant.org.tex:375: Preview: Snippet 11 ended.(8812398+0x34664398).
 <-><->
       
-l.373 \end{align}
+l.375 \end{align}
                  
 Not a real error.
 
 [11
 
 ]
-./pythonQuant.org.tex:374: Preview: Snippet 12 started.
+./pythonQuant.org.tex:376: Preview: Snippet 12 started.
 <-><->
       
-l.374 \begin{align}
+l.376 \begin{align}
                    
 Not a real error.
 
 
-LaTeX Warning: Reference `eq:expmatpower' on page 1 undefined on input line 381.
+LaTeX Warning: Reference `eq:expmatpower' on page 1 undefined on input line 383.
 
 
-LaTeX Warning: Reference `eq:expmatpower' on page 1 undefined on input line 381.
+LaTeX Warning: Reference `eq:expmatpower' on page 1 undefined on input line 383.
 
-./pythonQuant.org.tex:381: Preview: Snippet 12 ended.(9132086+0x34664398).
+./pythonQuant.org.tex:383: Preview: Snippet 12 ended.(9132086+0x34664398).
 <-><->
       
-l.381 \end{align}
+l.383 \end{align}
                  
 Not a real error.
 
 [12]
-./pythonQuant.org.tex:382: Preview: Snippet 13 started.
+./pythonQuant.org.tex:384: Preview: Snippet 13 started.
 <-><->
       
-l.382 $
+l.384 $
        b^{\mathbf{X}}
 Not a real error.
 
-./pythonQuant.org.tex:383: Preview: Snippet 13 ended.(552580+163840x3515010).
+./pythonQuant.org.tex:385: Preview: Snippet 13 ended.(552580+163840x3515010).
 <-><->
       
-l.383 \enspace (\forall b \in \mathbb{C})$
+l.385 \enspace (\forall b \in \mathbb{C})$
                                           
 Not a real error.
 
 [13]
-./pythonQuant.org.tex:384: Preview: Snippet 14 started.
+./pythonQuant.org.tex:386: Preview: Snippet 14 started.
 <-><->
       
-l.384 \begin{align*}
+l.386 \begin{align*}
                     
 Not a real error.
 
-./pythonQuant.org.tex:388: Preview: Snippet 14 ended.(6461696+0x22534743).
+./pythonQuant.org.tex:390: Preview: Snippet 14 ended.(6461696+0x22534743).
 <-><->
       
-l.388 \end{align*}
+l.390 \end{align*}
                   
 Not a real error.
 
 [14]
-./pythonQuant.org.tex:389: Preview: Snippet 15 started.
+./pythonQuant.org.tex:391: Preview: Snippet 15 started.
 <-><->
       
-l.389 $
+l.391 $
        f\left( x \right) = b^{x} \implies
 Not a real error.
 
-./pythonQuant.org.tex:390: Preview: Snippet 15 ended.(581889+163840x10502881).
+./pythonQuant.org.tex:392: Preview: Snippet 15 ended.(581889+163840x10502881).
 <-><->
       
-l.390 ...ight) = b^{x} \log_e^n{\left( b \right)}$
+l.392 ...ight) = b^{x} \log_e^n{\left( b \right)}$
                                                   
 Not a real error.
 
 [15]
-./pythonQuant.org.tex:391: Preview: Snippet 16 started.
+./pythonQuant.org.tex:393: Preview: Snippet 16 started.
 <-><->
       
-l.391 \begin{align*}
+l.393 \begin{align*}
                     
 Not a real error.
 
-./pythonQuant.org.tex:394: Preview: Snippet 16 ended.(4263504+0x21764223).
+./pythonQuant.org.tex:396: Preview: Snippet 16 ended.(4263504+0x21764223).
 <-><->
       
-l.394 \end{align*}
+l.396 \end{align*}
                   
 Not a real error.
 
 [16]
-./pythonQuant.org.tex:395: Preview: Snippet 17 started.
+./pythonQuant.org.tex:397: Preview: Snippet 17 started.
 <-><->
       
-l.395 \begin{align*}
+l.397 \begin{align*}
                     
 Not a real error.
 
-./pythonQuant.org.tex:398: Preview: Snippet 17 ended.(3113413+0x21656329).
+./pythonQuant.org.tex:400: Preview: Snippet 17 ended.(3113413+0x21656329).
 <-><->
       
-l.398 \end{align*}
+l.400 \end{align*}
                   
 Not a real error.
 
 [17]
-./pythonQuant.org.tex:399: Preview: Snippet 18 started.
+./pythonQuant.org.tex:401: Preview: Snippet 18 started.
 <-><->
       
-l.399 \begin{align*}
+l.401 \begin{align*}
                     
 Not a real error.
 
 
-LaTeX Warning: Reference `eq:expmatpower' on page 1 undefined on input line 404.
+LaTeX Warning: Reference `eq:expmatpower' on page 1 undefined on input line 406.
 
 
-LaTeX Warning: Reference `eq:expmatpower' on page 1 undefined on input line 404.
+LaTeX Warning: Reference `eq:expmatpower' on page 1 undefined on input line 406.
 
-./pythonQuant.org.tex:404: Preview: Snippet 18 ended.(4606438+0x27136650).
+./pythonQuant.org.tex:406: Preview: Snippet 18 ended.(4606438+0x27136650).
 <-><->
       
-l.404 \end{align*}
+l.406 \end{align*}
                   
 Not a real error.
 
 [18]
-./pythonQuant.org.tex:405: Preview: Snippet 19 started.
+./pythonQuant.org.tex:407: Preview: Snippet 19 started.
 <-><->
       
-l.405 \begin{align}
+l.407 \begin{align}
                    
 Not a real error.
 
-./pythonQuant.org.tex:408: Preview: Snippet 19 ended.(1963322+0x34664398).
+./pythonQuant.org.tex:410: Preview: Snippet 19 ended.(1963322+0x34664398).
 <-><->
       
-l.408 \end{align}
+l.410 \end{align}
                  
 Not a real error.
 
 [19]
-./pythonQuant.org.tex:409: Preview: Snippet 20 started.
+./pythonQuant.org.tex:411: Preview: Snippet 20 started.
 <-><->
       
-l.409 $
+l.411 $
        $
 Not a real error.
 
-./pythonQuant.org.tex:412: Preview: Snippet 20 ended.(2424854+0x34664398).
+./pythonQuant.org.tex:414: Preview: Snippet 20 ended.(2424854+0x34664398).
 <-><->
       
-l.412 $$
+l.414 $$
         
 Not a real error.
 
 [20]
-./pythonQuant.org.tex:413: Preview: Snippet 21 started.
+./pythonQuant.org.tex:415: Preview: Snippet 21 started.
 <-><->
       
-l.413 $
-       $
+l.415 \begin{align}
+                   
 Not a real error.
 
-./pythonQuant.org.tex:416: Preview: Snippet 21 ended.(1978647+0x34664398).
+./pythonQuant.org.tex:418: Preview: Snippet 21 ended.(1913111+0x34664398).
 <-><->
       
-l.416 $$
-        
+l.418 \end{align}
+                 
 Not a real error.
 
-[21]
-./pythonQuant.org.tex:417: Preview: Snippet 22 started.
+[21
+
+]
+./pythonQuant.org.tex:419: Preview: Snippet 22 started.
 <-><->
       
-l.417 $
+l.419 $
        a_n$
 Not a real error.
 
-./pythonQuant.org.tex:417: Preview: Snippet 22 ended.(282168+98303x703150).
+./pythonQuant.org.tex:419: Preview: Snippet 22 ended.(282168+98303x703150).
 <-><->
       
-l.417 $a_n$
+l.419 $a_n$
            
 Not a real error.
 
 [22]
-./pythonQuant.org.tex:418: Preview: Snippet 23 started.
+./pythonQuant.org.tex:420: Preview: Snippet 23 started.
 <-><->
       
-l.418 $
-       $\begin{aligned}
+l.420 \begin{align}
+                   
 Not a real error.
 
-./pythonQuant.org.tex:420: Preview: Snippet 23 ended.(1978647+0x34664398).
+./pythonQuant.org.tex:422: Preview: Snippet 23 ended.(1913111+0x34664398).
 <-><->
       
-l.420 \end{aligned}$$
-                     
+l.422 \end{align}
+                 
 Not a real error.
 
-[23]
-./pythonQuant.org.tex:421: Preview: Snippet 24 started.
+[23
+
+]
+./pythonQuant.org.tex:423: Preview: Snippet 24 started.
 <-><->
       
-l.421 $
-       $
+l.423 $
+       a_n$
 Not a real error.
 
-./pythonQuant.org.tex:424: Preview: Snippet 24 ended.(1978647+0x34664398).
+./pythonQuant.org.tex:423: Preview: Snippet 24 ended.(282168+98303x703150).
 <-><->
       
-l.424 $$
-        
+l.423 $a_n$
+           
 Not a real error.
 
 [24]
-./pythonQuant.org.tex:425: Preview: Snippet 25 started.
+./pythonQuant.org.tex:424: Preview: Snippet 25 started.
 <-><->
       
-l.425 $
-       $
+l.424 $
+       \sum^\infty_{n = 0}
 Not a real error.
 
-./pythonQuant.org.tex:429: Preview: Snippet 25 ended.(2043279+0x34664398).
+./pythonQuant.org.tex:425: Preview: Snippet 25 ended.(527024+196611x3619814).
 <-><->
       
-l.429 $$
-        
+l.425 \left[ a_nx^n \right]$
+                            
 Not a real error.
 
 [25]
-./pythonQuant.org.tex:430: Preview: Snippet 26 started.
+./pythonQuant.org.tex:426: Preview: Snippet 26 started.
 <-><->
       
-l.430 \begin{align*}
+l.426 \begin{align*}
                     
 Not a real error.
 
-./pythonQuant.org.tex:434: Preview: Snippet 26 ended.(2752512+0x21041077).
+./pythonQuant.org.tex:430: Preview: Snippet 26 ended.(2752512+0x21041077).
 <-><->
       
-l.434 \end{align*}
+l.430 \end{align*}
                   
 Not a real error.
 
 [26]
-./pythonQuant.org.tex:435: Preview: Snippet 27 started.
+./pythonQuant.org.tex:431: Preview: Snippet 27 started.
 <-><->
       
-l.435 $
+l.431 $
        f(x)$
 Not a real error.
 
-./pythonQuant.org.tex:435: Preview: Snippet 27 ended.(491520+163840x1275680).
+./pythonQuant.org.tex:431: Preview: Snippet 27 ended.(491520+163840x1275680).
 <-><->
       
-l.435 $f(x)$
+l.431 $f(x)$
             
 Not a real error.
 
 [27]
-./pythonQuant.org.tex:436: Preview: Snippet 28 started.
+./pythonQuant.org.tex:432: Preview: Snippet 28 started.
 <-><->
       
-l.436 \begin{align}
+l.432 \begin{align}
                    
 Not a real error.
 
-./pythonQuant.org.tex:438: Preview: Snippet 28 ended.(1913111+0x34664398).
+./pythonQuant.org.tex:434: Preview: Snippet 28 ended.(1913111+0x34664398).
 <-><->
       
-l.438 \end{align}
+l.434 \end{align}
                  
 Not a real error.
 
 [28
 
 ]
-./pythonQuant.org.tex:439: Preview: Snippet 29 started.
+./pythonQuant.org.tex:435: Preview: Snippet 29 started.
 <-><->
       
-l.439 \begin{align}
+l.435 \begin{align}
                    
 Not a real error.
 
-./pythonQuant.org.tex:442: Preview: Snippet 29 ended.(4088366+0x34664398).
+./pythonQuant.org.tex:438: Preview: Snippet 29 ended.(4088366+0x34664398).
 <-><->
       
-l.442 \end{align}
+l.438 \end{align}
                  
 Not a real error.
 
@@ -850,199 +1072,166 @@ Not a real error.
 
 
 ]
-./pythonQuant.org.tex:443: Preview: Snippet 30 started.
+./pythonQuant.org.tex:439: Preview: Snippet 30 started.
 <-><->
       
-l.443 \begin{align}
+l.439 \begin{align}
                    
 Not a real error.
 
-./pythonQuant.org.tex:447: Preview: Snippet 30 ended.(3944727+0x34664398).
+./pythonQuant.org.tex:443: Preview: Snippet 30 ended.(3944727+0x34664398).
 <-><->
       
-l.447 \end{align}
+l.443 \end{align}
                  
 Not a real error.
 
 [30
 
 ]
-./pythonQuant.org.tex:448: Preview: Snippet 31 started.
+./pythonQuant.org.tex:444: Preview: Snippet 31 started.
 <-><->
       
-l.448 \begin{align}
+l.444 \begin{align}
                    
 Not a real error.
 
-./pythonQuant.org.tex:451: Preview: Snippet 31 ended.(3114725+0x34664398).
+./pythonQuant.org.tex:447: Preview: Snippet 31 ended.(3114725+0x34664398).
 <-><->
       
-l.451 \end{align}
+l.447 \end{align}
                  
 Not a real error.
 
 [31
 
 ]
-./pythonQuant.org.tex:452: Preview: Snippet 32 started.
+./pythonQuant.org.tex:448: Preview: Snippet 32 started.
 <-><->
       
-l.452 $
+l.448 $
        2$
 Not a real error.
 
-./pythonQuant.org.tex:452: Preview: Snippet 32 ended.(422343+0x327681).
+./pythonQuant.org.tex:448: Preview: Snippet 32 ended.(422343+0x327681).
 <-><->
       
-l.452 $2$
+l.448 $2$
          
 Not a real error.
 
 [32]
-./pythonQuant.org.tex:453: Preview: Snippet 33 started.
+./pythonQuant.org.tex:449: Preview: Snippet 33 started.
 <-><->
       
-l.453 $
+l.449 $
        f(x)$
 Not a real error.
 
-./pythonQuant.org.tex:453: Preview: Snippet 33 ended.(491520+163840x1275680).
+./pythonQuant.org.tex:449: Preview: Snippet 33 ended.(491520+163840x1275680).
 <-><->
       
-l.453 $f(x)$
+l.449 $f(x)$
             
 Not a real error.
 
 [33]
-./pythonQuant.org.tex:454: Preview: Snippet 34 started.
+./pythonQuant.org.tex:450: Preview: Snippet 34 started.
 <-><->
       
-l.454 \begin{align*}
+l.450 \begin{align*}
                     
 Not a real error.
 
-./pythonQuant.org.tex:468: Preview: Snippet 34 ended.(15962429+0x23892595).
+./pythonQuant.org.tex:464: Preview: Snippet 34 ended.(15962429+0x23892595).
 <-><->
       
-l.468 \end{align*}
+l.464 \end{align*}
                   
 Not a real error.
 
 [34]
-./pythonQuant.org.tex:469: Preview: Snippet 35 started.
+./pythonQuant.org.tex:465: Preview: Snippet 35 started.
 <-><->
       
-l.469 $
-       $\begin{align*}
+l.465 \begin{align}
+                   
 Not a real error.
 
-
-./pythonQuant.org.tex:471: Package amsmath Error: Erroneous nesting of equation structures;
-(amsmath)                trying to recover with `aligned'.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.471 \end{align*}
-                  $$
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-./pythonQuant.org.tex:471: Preview: Snippet 35 ended.(1978647+0x34664398).
+./pythonQuant.org.tex:467: Preview: Snippet 35 ended.(1913111+0x34664398).
 <-><->
       
-l.471 \end{align*}$$
+l.467 \end{align}
+                 
+Not a real error.
+
+[35
+
+]
+./pythonQuant.org.tex:468: Preview: Snippet 36 started.
+<-><->
+      
+l.468 \begin{align*}
                     
 Not a real error.
 
-[35]
-./pythonQuant.org.tex:472: Preview: Snippet 36 started.
+./pythonQuant.org.tex:474: Preview: Snippet 36 ended.(9297015+0x20881261).
 <-><->
       
-l.472 $
-       $\begin{align*}
-Not a real error.
-
-
-./pythonQuant.org.tex:478: Package amsmath Error: Erroneous nesting of equation structures;
-(amsmath)                trying to recover with `aligned'.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.478 \end{align*}
-                  $$
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-./pythonQuant.org.tex:478: Preview: Snippet 36 ended.(9362551+0x34664398).
-<-><->
-      
-l.478 \end{align*}$$
-                    
+l.474 \end{align*}
+                  
 Not a real error.
 
 [36]
-./pythonQuant.org.tex:479: Preview: Snippet 37 started.
+./pythonQuant.org.tex:475: Preview: Snippet 37 started.
 <-><->
       
-l.479 $
-       $\begin{align*}
-Not a real error.
-
-
-./pythonQuant.org.tex:485: Package amsmath Error: Erroneous nesting of equation structures;
-(amsmath)                trying to recover with `aligned'.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.485 \end{align*}
-                  $$
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-./pythonQuant.org.tex:485: Preview: Snippet 37 ended.(10081800+0x34664398).
-<-><->
-      
-l.485 \end{align*}$$
+l.475 \begin{align*}
                     
 Not a real error.
 
+./pythonQuant.org.tex:480: Preview: Snippet 37 ended.(9487452+0x22240014).
+<-><->
+      
+l.480 \end{align*}
+                  
+Not a real error.
+
 [37]
-./pythonQuant.org.tex:486: Preview: Snippet 38 started.
+./pythonQuant.org.tex:481: Preview: Snippet 38 started.
 <-><->
       
-l.486 $
-       a_n$
+l.481 \begin{align}
+                   
 Not a real error.
 
-./pythonQuant.org.tex:486: Preview: Snippet 38 ended.(282168+98303x703150).
+./pythonQuant.org.tex:483: Preview: Snippet 38 ended.(1315244+0x34664398).
 <-><->
       
-l.486 $a_n$
-           
+l.483 \end{align}
+                 
 Not a real error.
 
-[38]
-./pythonQuant.org.tex:487: Preview: Snippet 39 started.
+[38
+
+]
+./pythonQuant.org.tex:484: Preview: Snippet 39 started.
 <-><->
       
-l.487 $
-       \sum^\infty_{n = 0} \left[ a_nx^n \right]$
+l.484 \begin{align}
+                   
 Not a real error.
 
-./pythonQuant.org.tex:487: Preview: Snippet 39 ended.(527024+196611x3619814).
+./pythonQuant.org.tex:487: Preview: Snippet 39 ended.(1769472+0x34664398).
 <-><->
       
-l.487 $\sum^\infty_{n = 0} \left[ a_nx^n \right]$
-                                                 
+l.487 \end{align}
+                 
 Not a real error.
 
-[39]
+[39
+
+]
 ./pythonQuant.org.tex:488: Preview: Snippet 40 started.
 <-><->
       
@@ -1050,127 +1239,131 @@ l.488 \begin{align*}
                     
 Not a real error.
 
-./pythonQuant.org.tex:491: Preview: Snippet 40 ended.(1769472+0x21100744).
+./pythonQuant.org.tex:490: Preview: Snippet 40 ended.(802165+0x21332846).
 <-><->
       
-l.491 \end{align*}
+l.490 \end{align*}
                   
 Not a real error.
 
 [40]
-./pythonQuant.org.tex:492: Preview: Snippet 41 started.
+./pythonQuant.org.tex:491: Preview: Snippet 41 started.
 <-><->
       
-l.492 \begin{align*}
+l.491 \begin{align*}
                     
 Not a real error.
 
-./pythonQuant.org.tex:494: Preview: Snippet 41 ended.(802165+0x21332846).
+./pythonQuant.org.tex:493: Preview: Snippet 41 ended.(786432+0x21070702).
 <-><->
       
-l.494 \end{align*}
+l.493 \end{align*}
                   
 Not a real error.
 
 [41]
-./pythonQuant.org.tex:495: Preview: Snippet 42 started.
+./pythonQuant.org.tex:494: Preview: Snippet 42 started.
 <-><->
       
-l.495 \begin{align*}
-                    
+l.494 $
+       f\left( x \right) \propto e^{mx}, \quad \exists m \in \mathbb{Z}$
 Not a real error.
 
-./pythonQuant.org.tex:497: Preview: Snippet 42 ended.(786432+0x21070702).
+./pythonQuant.org.tex:494: Preview: Snippet 42 ended.(491520+163840x6482740).
 <-><->
       
-l.497 \end{align*}
-                  
-Not a real error.
-
-[42]
-./pythonQuant.org.tex:498: Preview: Snippet 43 started.
-<-><->
-      
-l.498 $
-       f\left( x \right)= e^x$
-Not a real error.
-
-./pythonQuant.org.tex:498: Preview: Snippet 43 ended.(491520+163840x2893819).
-<-><->
-      
-l.498 $f\left( x \right)= e^x$
-                              
-Not a real error.
-
-[43]
-./pythonQuant.org.tex:499: Preview: Snippet 44 started.
-<-><->
-      
-l.499 $
-       \frac{\mathrm{d}\left( e^x \right) }{\mathrm{d} x} = e^x$
-Not a real error.
-
-./pythonQuant.org.tex:499: Preview: Snippet 44 ended.(661912+225995x2906089).
-<-><->
-      
-l.499 ...\left( e^x \right) }{\mathrm{d} x} = e^x$
+l.494 ...o e^{mx}, \quad \exists m \in \mathbb{Z}$
                                                   
 Not a real error.
 
-[44]
-./pythonQuant.org.tex:500: Preview: Snippet 45 started.
+[42]
+./pythonQuant.org.tex:495: Preview: Snippet 43 started.
 <-><->
       
-l.500 \begin{align*}
+l.495 $
+       \frac{\mathrm{d}\left( e^x \right) }{\mathrm{d} x} = e^x$
+Not a real error.
+
+./pythonQuant.org.tex:495: Preview: Snippet 43 ended.(661912+225995x2906089).
+<-><->
+      
+l.495 ...\left( e^x \right) }{\mathrm{d} x} = e^x$
+                                                  
+Not a real error.
+
+[43]
+./pythonQuant.org.tex:496: Preview: Snippet 44 started.
+<-><->
+      
+l.496 \begin{align*}
                     
 Not a real error.
 
-./pythonQuant.org.tex:502: Preview: Snippet 45 ended.(1913111+0x20878901).
+./pythonQuant.org.tex:498: Preview: Snippet 44 ended.(1913111+0x20840217).
 <-><->
       
-l.502 \end{align*}
+l.498 \end{align*}
                   
 Not a real error.
 
-[45]
-./pythonQuant.org.tex:503: Preview: Snippet 46 started.
+[44]
+./pythonQuant.org.tex:499: Preview: Snippet 45 started.
 <-><->
       
-l.503 $
-       f(x)=e^x$
+l.499 \begin{alignat}{2}
+                        
 Not a real error.
 
-./pythonQuant.org.tex:503: Preview: Snippet 46 ended.(491520+163840x2784595).
+./pythonQuant.org.tex:503: Preview: Snippet 45 ended.(6263621+0x34664398).
 <-><->
       
-l.503 $f(x)=e^x$
-                
+l.503 \end{alignat}
+                   
 Not a real error.
 
-[46]
-./pythonQuant.org.tex:504: Preview: Snippet 47 started.
+[45
+
+
+
+]
+./pythonQuant.org.tex:504: Preview: Snippet 46 started.
 <-><->
       
 l.504 \begin{align*}
                     
 Not a real error.
 
-./pythonQuant.org.tex:509: Preview: Snippet 47 ended.(8360773+0x31142426).
+./pythonQuant.org.tex:509: Preview: Snippet 46 ended.(5600651+0x23903516).
 <-><->
       
 l.509 \end{align*}
                   
 Not a real error.
 
-[47]
-./pythonQuant.org.tex:510: Preview: Snippet 48 started.
+[46]
+./pythonQuant.org.tex:510: Preview: Snippet 47 started.
 <-><->
       
 l.510 \begin{align*}
                     
 Not a real error.
 
-./pythonQuant.org.tex:515: Preview: Snippet 48 ended.(5600651+0x23903516).
+./pythonQuant.org.tex:512: Preview: Snippet 47 ended.(1966099+0x25227352).
+<-><->
+      
+l.512 \end{align*}
+                  
+Not a real error.
+
+[47]
+./pythonQuant.org.tex:513: Preview: Snippet 48 started.
+<-><->
+      
+l.513 \begin{align*}
+                    
+Not a real error.
+
+./pythonQuant.org.tex:515: Preview: Snippet 48 ended.(2013243+0x25415530).
 <-><->
       
 l.515 \end{align*}
@@ -1185,7 +1378,7 @@ l.516 \begin{align*}
                     
 Not a real error.
 
-./pythonQuant.org.tex:518: Preview: Snippet 49 ended.(1966099+0x25227352).
+./pythonQuant.org.tex:518: Preview: Snippet 49 ended.(1913111+0x20151675).
 <-><->
       
 l.518 \end{align*}
@@ -1200,7 +1393,7 @@ l.519 \begin{align*}
                     
 Not a real error.
 
-./pythonQuant.org.tex:521: Preview: Snippet 50 ended.(2013243+0x25415530).
+./pythonQuant.org.tex:521: Preview: Snippet 50 ended.(2001599+0x22947891).
 <-><->
       
 l.521 \end{align*}
@@ -1215,122 +1408,538 @@ l.522 \begin{align*}
                     
 Not a real error.
 
-./pythonQuant.org.tex:524: Preview: Snippet 51 ended.(1913111+0x20151675).
+./pythonQuant.org.tex:525: Preview: Snippet 51 ended.(3014675+0x23933906).
 <-><->
       
-l.524 \end{align*}
+l.525 \end{align*}
                   
 Not a real error.
 
 [51]
-./pythonQuant.org.tex:525: Preview: Snippet 52 started.
+./pythonQuant.org.tex:526: Preview: Snippet 52 started.
 <-><->
       
-l.525 \begin{align*}
-                    
+l.526 \begin{align}
+                   
 Not a real error.
 
-./pythonQuant.org.tex:527: Preview: Snippet 52 ended.(2001599+0x22947891).
+./pythonQuant.org.tex:530: Preview: Snippet 52 ended.(5509275+0x34664398).
 <-><->
       
-l.527 \end{align*}
-                  
+l.530 \end{align}
+                 
 Not a real error.
 
-[52]
-./pythonQuant.org.tex:528: Preview: Snippet 53 started.
+[52
+
+]
+./pythonQuant.org.tex:531: Preview: Snippet 53 started.
 <-><->
       
-l.528 \begin{align*}
-                    
+l.531 $
+       \varphi = \frac{1+ \sqrt{5} }{2} \approx 1.61\ldots$
 Not a real error.
 
-./pythonQuant.org.tex:531: Preview: Snippet 53 ended.(3014675+0x23933906).
+./pythonQuant.org.tex:531: Preview: Snippet 53 ended.(684192+225995x5727835).
 <-><->
       
-l.531 \end{align*}
-                  
+l.531 ...frac{1+ \sqrt{5} }{2} \approx 1.61\ldots$
+                                                  
 Not a real error.
 
 [53]
 ./pythonQuant.org.tex:532: Preview: Snippet 54 started.
 <-><->
       
-l.532 \begin{align*}
-                    
-Not a real error.
-
-./pythonQuant.org.tex:536: Preview: Snippet 54 ended.(5509275+0x23027793).
-<-><->
-      
-l.536 \end{align*}
-                  
-Not a real error.
-
-[54]
-./pythonQuant.org.tex:537: Preview: Snippet 55 started.
-<-><->
-      
-l.537 $
-       \varphi = \frac{1+ \sqrt{5} }{2} \approx 1.61\ldots$
-Not a real error.
-
-./pythonQuant.org.tex:537: Preview: Snippet 55 ended.(684192+225995x5727835).
-<-><->
-      
-l.537 ...frac{1+ \sqrt{5} }{2} \approx 1.61\ldots$
-                                                  
-Not a real error.
-
-[55]
-./pythonQuant.org.tex:538: Preview: Snippet 56 started.
-<-><->
-      
-l.538 $
+l.532 $
        \psi = 1-\varphi = \frac{1- \sqrt{5} }{2} \approx 0.61\ldots$
 Not a real error.
 
-./pythonQuant.org.tex:538: Preview: Snippet 56 ended.(684192+225995x8188002).
+./pythonQuant.org.tex:532: Preview: Snippet 54 ended.(684192+225995x8188002).
 <-><->
       
-l.538 ...frac{1- \sqrt{5} }{2} \approx 0.61\ldots$
+l.532 ...frac{1- \sqrt{5} }{2} \approx 0.61\ldots$
+                                                  
+Not a real error.
+
+[54]
+./pythonQuant.org.tex:533: Preview: Snippet 55 started.
+<-><->
+      
+l.533 \begin{align}
+                   
+Not a real error.
+
+./pythonQuant.org.tex:541: Preview: Snippet 55 ended.(14738520+0x34664398).
+<-><->
+      
+l.541 \end{align}
+                 
+Not a real error.
+
+[55
+
+
+]
+./pythonQuant.org.tex:542: Preview: Snippet 56 started.
+<-><->
+      
+l.542 $
+       f\left( x \right)= \sum^{\infty}_{n= 0 } \left[ a_n \frac{x^n}{n!} \r...
+Not a real error.
+
+./pythonQuant.org.tex:542: Preview: Snippet 56 ended.(596894+229380x6105142).
+<-><->
+      
+l.542 ...n= 0 } \left[ a_n \frac{x^n}{n!} \right]$
                                                   
 Not a real error.
 
 [56]
-./pythonQuant.org.tex:539: Preview: Snippet 57 started.
+./pythonQuant.org.tex:543: Preview: Snippet 57 started.
 <-><->
       
-l.539 $
-       a_{n+ 2}$
+l.543 $
+       \frac{\mathrm{d}^k }{\mathrm{d} x^k} \left(  f\left( x \right) \right...
 Not a real error.
 
-./pythonQuant.org.tex:539: Preview: Snippet 57 ended.(282168+152917x1366705).
+./pythonQuant.org.tex:543: Preview: Snippet 57 ended.(683365+234106x10176828).
 <-><->
       
-l.539 $a_{n+ 2}$
-                
+l.543 ... \left[ x^n \frac{a_{n+  k}}{n!} \right]$
+                                                  
 Not a real error.
 
 [57]
+./pythonQuant.org.tex:544: Preview: Snippet 58 started.
+<-><->
+      
+l.544 \begin{align}
+                   
+Not a real error.
+
+./pythonQuant.org.tex:546: Preview: Snippet 58 ended.(1913111+0x34664398).
+<-><->
+      
+l.546 \end{align}
+                 
+Not a real error.
+
+[58
+
+]
+./pythonQuant.org.tex:547: Preview: Snippet 59 started.
+<-><->
+      
+l.547 $
+       f(x)$
+Not a real error.
+
+./pythonQuant.org.tex:547: Preview: Snippet 59 ended.(491520+163840x1275680).
+<-><->
+      
+l.547 $f(x)$
+            
+Not a real error.
+
+[59]
+./pythonQuant.org.tex:548: Preview: Snippet 60 started.
+<-><->
+      
+l.548 $
+       \frac{\partial }{\partial x}{\left({ f{\left({ x }\right)} }\right)}$
+Not a real error.
+
+./pythonQuant.org.tex:548: Preview: Snippet 60 ended.(576613+225995x2547967).
+<-><->
+      
+l.548 ...{\left({ f{\left({ x }\right)} }\right)}$
+                                                  
+Not a real error.
+
+[60]
+./pythonQuant.org.tex:549: Preview: Snippet 61 started.
+<-><->
+      
+l.549 $
+       k$
+Not a real error.
+
+./pythonQuant.org.tex:549: Preview: Snippet 61 ended.(455111+0x361814).
+<-><->
+      
+l.549 $k$
+         
+Not a real error.
+
+[61]
+./pythonQuant.org.tex:550: Preview: Snippet 62 started.
+<-><->
+      
+l.550 $
+       k^{\mathrm{th}}$
+Not a real error.
+
+./pythonQuant.org.tex:550: Preview: Snippet 62 ended.(556402+0x888835).
+<-><->
+      
+l.550 $k^{\mathrm{th}}$
+                       
+Not a real error.
+
+[62]
+./pythonQuant.org.tex:551: Preview: Snippet 63 started.
+<-><->
+      
+l.551 $
+       k$
+Not a real error.
+
+./pythonQuant.org.tex:551: Preview: Snippet 63 ended.(455111+0x361814).
+<-><->
+      
+l.551 $k$
+         
+Not a real error.
+
+[63]
+./pythonQuant.org.tex:552: Preview: Snippet 64 started.
+<-><->
+      
+l.552 $
+       f(x)=c_{i} \cdot e^{m_{i}x}$
+Not a real error.
+
+./pythonQuant.org.tex:552: Preview: Snippet 64 ended.(491520+163840x4432362).
+<-><->
+      
+l.552 $f(x)=c_{i} \cdot e^{m_{i}x}$
+                                   
+Not a real error.
+
+[64]
+./pythonQuant.org.tex:553: Preview: Snippet 65 started.
+<-><->
+      
+l.553 $
+       f(x)=c_{i} \cdot x^{j}\cdot e^{m_{i}x}$
+Not a real error.
+
+./pythonQuant.org.tex:553: Preview: Snippet 65 ended.(541383+163840x5556367).
+<-><->
+      
+l.553 $f(x)=c_{i} \cdot x^{j}\cdot e^{m_{i}x}$
+                                              
+Not a real error.
+
+[65]
+./pythonQuant.org.tex:554: Preview: Snippet 66 started.
+<-><->
+      
+l.554 $
+       \sum^{k}_{i=0}\left[  c_{i}m^{k-i} \right] = 0$
+Not a real error.
+
+./pythonQuant.org.tex:554: Preview: Snippet 66 ended.(648083+229380x5425044).
+<-><->
+      
+l.554 ...k}_{i=0}\left[  c_{i}m^{k-i} \right] = 0$
+                                                  
+Not a real error.
+
+[66]
+./pythonQuant.org.tex:555: Preview: Snippet 67 started.
+<-><->
+      
+l.555 $
+       \exists i,j \in \mathbb{Z}^{+} \cap \left[0,k\right]$
+Not a real error.
+
+./pythonQuant.org.tex:555: Preview: Snippet 67 ended.(521815+163840x4934545).
+<-><->
+      
+l.555 ...\in \mathbb{Z}^{+} \cap \left[0,k\right]$
+                                                  
+Not a real error.
+
+[67]
+./pythonQuant.org.tex:556: Preview: Snippet 68 started.
+<-><->
+      
+l.556 \begin{align}
+                   
+Not a real error.
+
+
+LaTeX Warning: Reference `eq:recurrence-relation-def' on page 2 undefined on input line 559.
+
+
+LaTeX Warning: Reference `eq:recurrence-relation-def' on page 2 undefined on input line 559.
+
+./pythonQuant.org.tex:559: Preview: Snippet 68 ended.(1913111+0x34664398).
+<-><->
+      
+l.559 \end{align}
+                 
+Not a real error.
+
+[68]
+./pythonQuant.org.tex:560: Preview: Snippet 69 started.
+<-><->
+      
+l.560 \begin{align}
+                   
+Not a real error.
+
+./pythonQuant.org.tex:565: Preview: Snippet 69 ended.(10942324+0x34664398).
+<-><->
+      
+l.565 \end{align}
+                 
+Not a real error.
+
+[69]
+./pythonQuant.org.tex:566: Preview: Snippet 70 started.
+<-><->
+      
+l.566 $
+       f{\left({ x }\right)}$
+Not a real error.
+
+./pythonQuant.org.tex:566: Preview: Snippet 70 ended.(491520+163840x1275680).
+<-><->
+      
+l.566 $f{\left({ x }\right)}$
+                             
+Not a real error.
+
+[70]
+./pythonQuant.org.tex:567: Preview: Snippet 71 started.
+<-><->
+      
+l.567 \begin{align}
+                   
+Not a real error.
+
+./pythonQuant.org.tex:569: Preview: Snippet 71 ended.(2042088+0x34664398).
+<-><->
+      
+l.569 \end{align}
+                 
+Not a real error.
+
+[71
+
+]
+./pythonQuant.org.tex:570: Preview: Snippet 72 started.
+<-><->
+      
+l.570 $
+       f{\left({ x }\right)} \propto e^{m_i x}: \quad m_i \neq m_j \forall i...
+Not a real error.
+
+./pythonQuant.org.tex:570: Preview: Snippet 72 ended.(491520+187504x8948615).
+<-><->
+      
+l.570 ...i x}: \quad m_i \neq m_j \forall i\neq j$
+                                                  
+Not a real error.
+
+[72]
+./pythonQuant.org.tex:571: Preview: Snippet 73 started.
+<-><->
+      
+l.571 \begin{align}
+                   
+Not a real error.
+
+./pythonQuant.org.tex:573: Preview: Snippet 73 ended.(2042088+0x21957165).
+<-><->
+      
+l.573 \end{align}
+                 
+Not a real error.
+
+[73]
+./pythonQuant.org.tex:574: Preview: Snippet 74 started.
+<-><->
+      
+l.574 $
+       f{\left({ x }\right)}$
+Not a real error.
+
+./pythonQuant.org.tex:574: Preview: Snippet 74 ended.(491520+163840x1275680).
+<-><->
+      
+l.574 $f{\left({ x }\right)}$
+                             
+Not a real error.
+
+[74]
+./pythonQuant.org.tex:575: Preview: Snippet 75 started.
+<-><->
+      
+l.575 $
+       a_n$
+Not a real error.
+
+./pythonQuant.org.tex:575: Preview: Snippet 75 ended.(282168+98303x703150).
+<-><->
+      
+l.575 $a_n$
+           
+Not a real error.
+
+[75]
+./pythonQuant.org.tex:576: Preview: Snippet 76 started.
+<-><->
+      
+l.576 \begin{align}
+                   
+Not a real error.
+
+./pythonQuant.org.tex:581: Preview: Snippet 76 ended.(8954784+0x34664398).
+<-><->
+      
+l.581 \end{align}
+                 
+Not a real error.
+
+[76
+
+]
+./pythonQuant.org.tex:582: Preview: Snippet 77 started.
+<-><->
+      
+l.582 \begin{align}
+                   
+Not a real error.
+
+./pythonQuant.org.tex:587: Preview: Snippet 77 ended.(7562233+0x21806969).
+<-><->
+      
+l.587 \end{align}
+                 
+Not a real error.
+
+[77]
+./pythonQuant.org.tex:588: Preview: Snippet 78 started.
+<-><->
+      
+l.588 $
+       m_1 = \varphi, m_2 = {\left({ 1-\varphi }\right)}$
+Not a real error.
+
+./pythonQuant.org.tex:588: Preview: Snippet 78 ended.(491520+163840x6273544).
+<-><->
+      
+l.588 ...rphi, m_2 = {\left({ 1-\varphi }\right)}$
+                                                  
+Not a real error.
+
+[78]
+./pythonQuant.org.tex:589: Preview: Snippet 79 started.
+<-><->
+      
+l.589 \begin{alignat}{4}
+                        
+Not a real error.
+
+./pythonQuant.org.tex:592: Preview: Snippet 79 ended.(1914898+0x23948175).
+<-><->
+      
+l.592 \end{alignat}
+                   
+Not a real error.
+
+[79]
+./pythonQuant.org.tex:593: Preview: Snippet 80 started.
+<-><->
+      
+l.593 $
+       $
+Not a real error.
+
+./pythonQuant.org.tex:596: Preview: Snippet 80 ended.(1978647+0x34664398).
+<-><->
+      
+l.596 $$
+        
+Not a real error.
+
+[80]
+./pythonQuant.org.tex:597: Preview: Snippet 81 started.
+<-><->
+      
+l.597 $
+       $
+Not a real error.
+
+./pythonQuant.org.tex:601: Preview: Snippet 81 ended.(2043279+0x34664398).
+<-><->
+      
+l.601 $$
+        
+Not a real error.
+
+[81]
+./pythonQuant.org.tex:602: Preview: Snippet 82 started.
+<-><->
+      
+l.602 $
+       n$
+Not a real error.
+
+./pythonQuant.org.tex:602: Preview: Snippet 82 ended.(282168+0x393370).
+<-><->
+      
+l.602 $n$
+         
+Not a real error.
+
+[82]
+./pythonQuant.org.tex:603: Preview: Snippet 83 started.
+<-><->
+      
+l.603 $
+       a$
+Not a real error.
+
+./pythonQuant.org.tex:603: Preview: Snippet 83 ended.(282168+0x346416).
+<-><->
+      
+l.603 $a$
+         
+Not a real error.
+
+[83]
+
+LaTeX Warning: Empty bibliography on input line 604.
+
 
 LaTeX Warning: There were undefined references.
 
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                pythonQuant.org
+(biblatex)                and rerun LaTeX afterwards.
+
+Package logreq Info: Writing requests to 'pythonQuant.org.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
- 6263 strings out of 480478
- 103586 string characters out of 5905960
- 472853 words of memory out of 5000000
- 22154 multiletter control sequences out of 15000+600000
+ 12722 strings out of 480478
+ 230576 string characters out of 5905960
+ 802652 words of memory out of 5000000
+ 28564 multiletter control sequences out of 15000+600000
  540747 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,18n,33p,1093b,262s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,18n,33p,1093b,743s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fo
 nts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on pythonQuant.org.pdf (57 pages, 222621 bytes).
+Output written on pythonQuant.org.pdf (83 pages, 237024 bytes).
 PDF statistics:
- 266 PDF objects out of 1000 (max. 8388607)
- 186 compressed objects within 2 object streams
+ 350 PDF objects out of 1000 (max. 8388607)
+ 243 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

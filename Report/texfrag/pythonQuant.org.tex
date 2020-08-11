@@ -29,6 +29,8 @@
 \setlength{\topmargin}{1.5cm}
 \addtolength{\topmargin}{-2.54cm}
 
+\usepackage[citestyle=numeric, bibstyle=numeric,hyperref=true,backref=true, maxcitenames=3,url=true,backend=biber,natbib=true]{biblatex}
+\AtEndDocument{\printbibliography}
 \addbibresource{../Resources/references.bib}
 
 \begin{document}
@@ -410,23 +412,17 @@ $$
 \left[\begin{matrix}\pi^{11} & \pi^{12} & \pi^{13}\\\pi^{21} & \pi^{22} &
 \pi^{23}\\\pi^{31} & \pi^{32} & \pi^{33}\end{matrix}\right]
 $$
-$$
+\begin{align}
 \sum^{\infty}_{n= 0}   \left[ c_i \cdot  a_n \right] = 0, \quad \exists c \in
-\mathbb{R}, \enspace \forall i<k\in\mathbb{Z}^+
-$$
+\mathbb{R}, \enspace \forall i<k\in\mathbb{Z}^+ \label{eq:recurrence-relation-def}
+\end{align}
 $a_n$
-$$\begin{aligned}
-g: \left( a_n \right)_{n\in\mathbb{Z}^+} \rightarrow \mathbb{C}\left[ \left[ x \right]  \right]: g\left( a_n \right) = \sum^{\infty}_{n= 0}\left[ \frac{x^n}{n!} a_n \right] 
-\end{aligned}$$
-$$
-\sum^{\infty}_{n= 0}   \left[ c_i \cdot  a_n \right] = 0, \quad \exists c \in
-\mathbb{R}, \enspace \forall i<k\in\mathbb{Z}^+
-$$
-$$
-\sum^{\infty}_{n= 0}   \left[ c_i \cdot  a_n \right] = 0\\
-\implies \sum^{\infty}_{n= 0}   \left[\sum^{\infty}_{n= 0}   \left[ c_i \cdot
-a_n  \right]   \right] = 0
-$$
+\begin{align}
+g: \left( a_n \right)_{n\in\mathbb{Z}^+} \rightarrow \mathbb{C}\left[ \left[ x \right]  \right]: g\left( a_n \right) = \sum^{\infty}_{n= 0}\left[ \frac{x^n}{n!} a_n \right] \label{eq:gen-func-def}
+\end{align}
+$a_n$
+$\sum^\infty_{n = 0}
+\left[ a_nx^n \right]$
 \begin{align*}
 a_0= 1 \\
 a_0= 1 \\
@@ -466,47 +462,45 @@ $f(x)$
  \text{Hence:}\\
  f\left( x \right)&=    \frac{1}{x- 1} - \frac{1}{x- 2}
 \end{align*}
-$$\begin{align*}
-\sum^{\infty}_{n= 0}\left[ rx^n \right] = \frac{1}{1- rx^n}
-\end{align*}$$
-$$\begin{align*}
+\begin{align}
+\sum^{\infty}_{n= 0}\left[ rx^n \right] = \frac{1}{1- rx^n} \label{eq:pow-series-definition}
+\end{align}
+\begin{align*}
 \frac{1}{x- 1}&= -\frac{1}{1 -\left( 1 \right) x} \\
 &= -\sum^{\infty}_{n= 0}\left[ x^n \right]  \\
 \frac{-1}{x- 2} &= \frac{1}{2- x} \\
 &= \frac{1}{2}\frac{1}{1-\frac{1}{2}x} \\
 &= \frac{1}{2} \sum^{\infty}_{n= 0}\left[ \left( \frac{1}{2}x \right) ^n \right]
-\end{align*}$$
-$$\begin{align*}
+\end{align*}
+\begin{align*}
 f\left( x \right) &= \frac{1}{2}\sum^{\infty}_{n= 0}\left[ \left( \frac{1}{2}x \right) ^n \right] - \sum^{\infty}_{n= 0}\left[ x^n \right] \\
 f\left( x \right) &= \sum^{\infty}_{n= 0}\left[ \frac{1}{2}\left( \frac{1}{2}x \right) ^n -x^n \right]  \\
 f\left( x \right) &= \sum^{\infty}_{n= 0}\left[ \frac{1}{2 \cdot 2^n} x^n -x^n \right]  \\
 f\left( x \right) &= \sum^{\infty}_{n= 0}\left[x^n {\left( {\frac{1}{2 \cdot 2^n} -1} \right) } \right]  \\
- \implies  a_n &= \frac{1}{2 \cdot 2^n} - 1
-\end{align*}$$
-$a_n$
-$\sum^\infty_{n = 0} \left[ a_nx^n \right]$
-\begin{align*}
-    a_{n}&= a_{n - 1} + a_{n - 2}\\
-\iff a_{n+  2} &= a_{n+  1} +  a_n
 \end{align*}
+\begin{align}
+ \implies  a_n &= \frac{1}{2 \cdot 2^n} - 1 \label{eq:seq-end-value}
+\end{align}
+\begin{align}
+    a_{n}&= a_{n - 1} + a_{n - 2} \nonumber \\
+\iff a_{n+  2} &= a_{n+  1} +  a_n \label{eq:fib-def}
+\end{align}
 \begin{align*}
 x^2 f\left( x \right) -  x f \left( x \right) -  f\left( x \right)=  0
 \end{align*}
 \begin{align*}
 f''\left( x \right)- f'\left( x \right)- f\left( x \right)=  0
 \end{align*}
-$f\left( x \right)= e^x$
+$f\left( x \right) \propto e^{mx}, \quad \exists m \in \mathbb{Z}$
 $\frac{\mathrm{d}\left( e^x \right) }{\mathrm{d} x} = e^x$
 \begin{align*}
-f\left( x \right)= e^rx = \sum^{\infty}_{n= 0}   \left[ r \frac{x^n}{n!} \right]
+f\left( x \right)= e^{rx} = \sum^{\infty}_{n= 0}   \left[ r \frac{x^n}{n!} \right]
 \end{align*}
-$f(x)=e^x$
-\begin{align*}
-    f\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n} \cdot  \frac{x^n}{n!} \right]   &= e^x \\
-    \text{ $\mathcal{TODO::}$ The real trick is showing this derivative property } \\
-    f'\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n+1} \cdot  \frac{x^n}{n!} \right]  &= e^x \\
-    f''\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n+2} \cdot  \frac{x^n}{n!} \right] &= e^x \\
-\end{align*}
+\begin{alignat}{2}
+    f \left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n} \cdot  \frac{x^n}{n!} \right]   &= e^x \label{eq:exp-gen-def-1} \\
+    f'\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n+1} \cdot  \frac{x^n}{n!} \right]  &= e^x  \label{eq:exp-gen-def-2} \\
+    f''\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n+2} \cdot  \frac{x^n}{n!} \right] &= e^x  \label{eq:exp-gen-def-3}
+\end{alignat}
 \begin{align*}
 a_{n+  2}    &= a_{n+  1} +  a_{n}\\
 \frac{x^n}{n!}   a_{n+  2}    &= \frac{x^n}{n!}\left( a_{n+  1} +  a_{n}  \right)\\
@@ -529,14 +523,84 @@ a_n = c_1\cdot  \left( \frac{1- \sqrt{5} }{2} \right)^n +  c_2 \cdot  \left( \fr
 a_0= c_1 +  c_2  \implies  c_1= - c_2\\
 a_1= c_1 \left( \frac{1+ \sqrt{5} }{2} \right) -  c_1 \frac{1-\sqrt{5} }{2}  \implies  c_1 = \frac{1}{\sqrt{5} }
 \end{align*}
-\begin{align*}
-    a_n &= \frac{1}{\sqrt{5} } \left[ \left( \frac{1+  \sqrt{5} }{2}  \right)^n -  \left( \frac{1- \sqrt{5} }{2} \right)^n \right] \\
-&= \frac{\varphi^n - \psi^n}{\sqrt{5} } \\
-&= \frac{\varphi^n -  \psi^n}{\varphi - \psi}
-\end{align*}
+\begin{align}
+    a_n &= \frac{1}{\sqrt{5} } \left[ \left( \frac{1+  \sqrt{5} }{2}  \right)^n -  \left( \frac{1- \sqrt{5} }{2} \right)^n \right] \nonumber \\
+&= \frac{\varphi^n - \psi^n}{\sqrt{5} } \nonumber\\
+&=\frac{\varphi^n -  \psi^n}{\varphi - \psi} \label{eq:fib-sol}
+\end{align}
 $\varphi = \frac{1+ \sqrt{5} }{2} \approx 1.61\ldots$
 $\psi = 1-\varphi = \frac{1- \sqrt{5} }{2} \approx 0.61\ldots$
-$a_{n+ 2}$
+\begin{align}
+    f\left( x \right) &= \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right] \label{eq:exp-pow-series} \\
+f'\left( x \right)ht) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right]  \right) \nonumber \\
+&= \frac{\mathrm{d}}{\mathrm{d} x} \left( a_0 \frac{x^0}{0!} +  a_1 \frac{x^1}{1!} +  a_2 \frac{x^2}{2!}+  a_3 \frac{x^3}{3! } +  \ldots \frac{x^k}{k!} \right) \nonumber \\
+&= \sum^{\infty}_{n= 0}   \left[ \frac{\mathrm{d} }{\mathrm{d} x}\left( a_n \frac{x^n}{n!} \right) \right] \nonumber \\
+&= \sum^{\infty}_{n= 0}   {\left[{ \frac{a_n}{{\left({ n- 1 }\right)!}} } x^{n- 1}  \right]} \nonumber \\
+&= \sum^{\infty}_{n= 0}   {\left[{ \frac{a_n}{{\left({ n- 1 }\right)}}! x^{n - 1} }\right]} \nonumber \\
+\implies  &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}a_{n+  1} }\right]} \label{eq:exp-pow-series-sol}
+\end{align}
+$f\left( x \right)= \sum^{\infty}_{n= 0 } \left[ a_n \frac{x^n}{n!} \right]$
+$\frac{\mathrm{d}^k }{\mathrm{d} x^k} \left(  f\left( x \right) \right)= f^{k} \left( x \right) \sum^{\infty}_{n= 0}   \left[ x^n \frac{a_{n+  k}}{n!} \right]$
+\begin{align}
+\sum^{\infty}_{n=0} \left[ c_{i} \cdot f^{(n)}(x) \right] = 0 \label{eq:hom-ode}
+\end{align}
+$f(x)$
+$\frac{\partial }{\partial x}{\left({ f{\left({ x }\right)} }\right)}$
+$k$
+$k^{\mathrm{th}}$
+$k$
+$f(x)=c_{i} \cdot e^{m_{i}x}$
+$f(x)=c_{i} \cdot x^{j}\cdot e^{m_{i}x}$
+$\sum^{k}_{i=0}\left[  c_{i}m^{k-i} \right] = 0$
+$\exists i,j \in \mathbb{Z}^{+} \cap \left[0,k\right]$
+\begin{align}
+\sum^{\infty}_{n= 0}   \left[ c_i \cdot  a_n \right] = 0, \quad \exists c \in
+\mathbb{R}, \enspace \forall i<k\in\mathbb{Z}^+ \tag{$\textrm{\ref{eq:recurrence-relation-def}}^2$}
+\end{align}
+\begin{align}
+    \sum^{k}_{i= 0}   {\left[{ c_i \cdot a_n } \right]} = 0 \nonumber \\
+    \intertext{By Multiplying through and summing: } \notag \\
+     \implies  \sum^{k}_{i= 0}   {\left[{ \sum^{\infty}_{n= 0}   {\left[{ c_i a_n \frac{x^n}{n!} }\right]}  }\right]}  \nonumber = 0 \\
+     \sum^{k}_{i= 0}    {\left[{ c_i \sum^{\infty}_{n= 0}   {\left[{  a_n \frac{x^n}{n!} }\right]}  }\right]}  \nonumber = 0 \\
+\end{align}
+$f{\left({ x }\right)}$
+\begin{align}
+\sum^{k}_{i= 0}   {\left[{ c_i f^{{\left({ k }\right)} } } {\left({ x }\right)} \right]} \label{eq:exp-gen-def-proof}  &= 0
+\end{align}
+$f{\left({ x }\right)} \propto e^{m_i x}: \quad m_i \neq m_j \forall i\neq j$
+\begin{align}
+    f{\left({ x }\right)} = \sum^{k}_{i= 0}   {\left[{ k_i e^{m_i x} }\right]}, \quad \exists m,k \in \mathbb{C} \nonumber
+\end{align}
+$f{\left({ x }\right)}$
+$a_n$
+\begin{align}
+    \sum^{k}_{i= 0}   {\left[{ k_i e^{m_i x}  }\right]}  &= \sum^{k}_{i= 0}   {\left[{ k_i \sum^{\infty}_{n= 0}   \frac{{\left({ m_i x }\right)}^n}{n!}  }\right]}  \nonumber \\
+							 &= \sum^{k}_{i= 0}  \sum^{\infty}_{n= 0}   k_i m_i^n \frac{x^n}{n!} \nonumber\\
+							 &=    \sum^{\infty}_{n= 0} \sum^{k}_{i= 0}   k_i m_i^n \frac{x^n}{n!} \nonumber \\
+							 &= \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}  \sum^{k}_{i=0}   {\left[{ k_im^n_i }\right]}  }\right]}, \quad \exists k_i \in \mathbb{C}, \enspace \forall i \in \mathbb{Z}^+\cap {\left[{ 1, k }\right]}     \label{eq:unique-root-sol-power-series-form}
+\end{align}
+\begin{align}
+    f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{  \frac{x^n}{n!} a_n }\right]} \nonumber \\
+&= \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}  \sum^{k}_{i=0}   {\left[{ k_im^n_i }\right]}  }\right]}  \nonumber \\
+      \implies  a_n &= \sum^{k}_{n= 0} {\left[{ k_im_i^n }\right]}     \nonumber \\ \nonumber
+\square
+\end{align}
+$m_1 = \varphi, m_2 = {\left({ 1-\varphi }\right)}$
+\begin{alignat}{4}
+    f{\left({ x }\right)} &= &c_1 e^{\varphi x} +  &c_2 e^{{\left({ 1-\varphi }\right)} x}, \quad &\exists c_1, c_2 \in \mathbb{R} \subset \mathbb{C} \nonumber \\
+    \iff  a_n &= &k_1 n^{\varphi} +  &k_2 n^{1- \varphi}, &\exists k_1, k_2 \in \mathbb{R} \subset \mathbb{C} \nonumber
+\end{alignat}
+$$
+\sum^{\infty}_{n= 0}   \left[ c_i \cdot  a_n \right] = 0, \quad \exists c \in
+\mathbb{R}, \enspace \forall i<k\in\mathbb{Z}^+
+$$
+$$
+\sum^{\infty}_{n= 0}   \left[ c_i \cdot  a_n \right] = 0\\
+\implies \sum^{\infty}_{n= 0}   \left[\sum^{\infty}_{n= 0}   \left[ c_i \cdot
+a_n  \right]   \right] = 0
+$$
+$n$
+$a$
 \end{document}
 %%Local Variables:
 %%TeX-master: t
