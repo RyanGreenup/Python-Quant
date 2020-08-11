@@ -3,7 +3,7 @@
 #+INFOJS_OPT: view:showall toc:3
 #+PLOT: title:"Citas" ind:1 deps:(3) type:2d with:histograms set:"yrange [0:]"
 #+OPTIONS: tex:t
-#+TODO: TODO IN-PROGRESS WAITING DONE
+# #+TODO: TODO IN-PROGRESS WAITING DONE
 #+CATEGORY: TAD
 :HTML:
 #+INFOJS_OPT: view:info toc:3
@@ -657,36 +657,18 @@ cite:lehmanReadingsMathematicsComputer2010
 
 
 ** TODO Generating Functions
-*** TODO Example
-** TODO Exponential Generating Function
-*** TODO Example
-*** TODO Homogoneous Proof
-**** TODO Derivative of Exponential Generating Function
-CITE OPEN MIT COURSEWARE SLIDES
-**** TODO Unique Roots of Characteristic Equation
-***** Example
-***** Proof
-**** TODO Repeated Roots of Characteristic Equation
-***** Example
-***** Proof
+*** STRT Generating Functions
+   :PROPERTIES:
+   :CUSTOM_ID: generating-functions
+   :END:
 
-**** TODO General Proof
-Consider a Recursive relation with constant coefficients:
+A [[https://en.wikipedia.org/wiki/Generating_function][Generating Function]], as shown in eqref:eq:gen-func-def  is a way of encoding an [[https://en.wikipedia.org/wiki/Infinite_sequence][infinite series]] of numbers ($a_n$)
+by treating them as the coefficients of a power series ($\sum^\infty_{n = 0}
+\left[ a_nx^n \right]$) where the variable remains in an indeterminate form,
+they were first introduced by Abraham De Moivre in 1730 in order to solve the
+linear recurrence relations cite:knuthArtComputerProgramming1997, (such as the /Fibonacci Sequence/).
 
-$$
-\sum^{\infty}_{n= 0}   \left[ c_i \cdot  a_n \right] = 0, \quad \exists c \in
-\mathbb{R}, \enspace \forall i<k\in\mathbb{Z}^+
-$$
-
-This can be expressed in terms of the exponential generating function:
-
-$$
-\sum^{\infty}_{n= 0}   \left[ c_i \cdot  a_n \right] = 0\\
-\implies \sum^{\infty}_{n= 0}   \left[\sum^{\infty}_{n= 0}   \left[ c_i \cdot
-a_n  \right]   \right] = 0
-$$
-
-** Pandoc Conversion
+*** STRT Example
 :PROPERTIES:
 :CUSTOM_ID: power-series-gen-func-example
 :END:
@@ -788,23 +770,8 @@ f\left( x \right) &= \sum^{\infty}_{n= 0}\left[x^n {\left( {\frac{1}{2 \cdot 2^n
  \implies  a_n &= \frac{1}{2 \cdot 2^n} - 1 \label{eq:seq-end-value}
 \end{align}
 
-*** Generating Functions
-   :PROPERTIES:
-   :CUSTOM_ID: generating-functions
-   :END:
-
-A [[https://en.wikipedia.org/wiki/Generating_function][Generating Function]], as shown in eqref:eq:gen-func-def  is a way of encoding an [[https://en.wikipedia.org/wiki/Infinite_sequence][infinite series]] of numbers ($a_n$)
-by treating them as the coefficients of a power series ($\sum^\infty_{n = 0}
-\left[ a_nx^n \right]$) where the variable remains in an indeterminate form,
-they were first introduced by Abraham De Moivre in 1730 in order to solve the
-linear recurrence relations cite:knuthArtComputerProgramming1997, (such as the /Fibonacci Sequence/).
-
-*** Using the Power series for the Exponential Function
-   :PROPERTIES:
-   :CUSTOM_ID: using-the-power-series-for-the-exponential-function
-   :END:
-
-**** TODO Motivation
+** TODO Exponential Generating Function
+*** STRT Motivation
     :PROPERTIES:
     :CUSTOM_ID: motivation
     :END:
@@ -848,25 +815,18 @@ f\left( x \right)= e^{rx} = \sum^{\infty}_{n= 0}   \left[ r \frac{x^n}{n!} \righ
 So this would give an easy means by which to solve the linear recurrence
 relation.
 
-**** Derivative of the Exponential Generating Function
-    :PROPERTIES:
-    :CUSTOM_ID: Derivative-exp-gen-function
-    :END:
-
-**** TODO Solving the Sequence
+*** STRT Example
     :PROPERTIES:
     :CUSTOM_ID: solving-the-sequence
     :END:
 
-Consider using the following generating function, observe that the derivative of the generating function is proved in section [[*Derivative of the Exponential Generating Function]] :
-
-Consider using the following generating function, observe that the derivative of the generating function is proved in section [[#Derivative-exp-gen-function]]
+Consider using the following generating function, (the derivative of the generating function as in eqref:eq:exp-gen-def-2 and eqref:eq:exp-gen-def-3 is provided in section [[#Derivative-exp-gen-function]])
 
 
 
 
-\begin{alignat}
-    \ f \left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n} \cdot  \frac{x^n}{n!} \right]   &= e^x \label{eq:exp-gen-def-1} \\
+\begin{alignat}{2}
+    f \left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n} \cdot  \frac{x^n}{n!} \right]   &= e^x \label{eq:exp-gen-def-1} \\
     f'\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n+1} \cdot  \frac{x^n}{n!} \right]  &= e^x  \label{eq:exp-gen-def-2} \\
     f''\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n+2} \cdot  \frac{x^n}{n!} \right] &= e^x  \label{eq:exp-gen-def-3}
 \end{alignat}
@@ -925,14 +885,14 @@ a_1= c_1 \left( \frac{1+ \sqrt{5} }{2} \right) -  c_1 \frac{1-\sqrt{5} }{2}  \im
 \end{align*}
 
 
-And so finally we have:
+And so finally we have the solution to the /Fibonacci Sequence/ ref:eq:fib-def:
 
 
-\begin{align*}
-    a_n &= \frac{1}{\sqrt{5} } \left[ \left( \frac{1+  \sqrt{5} }{2}  \right)^n -  \left( \frac{1- \sqrt{5} }{2} \right)^n \right] \\
-&= \frac{\varphi^n - \psi^n}{\sqrt{5} } \\
-&= \frac{\varphi^n -  \psi^n}{\varphi - \psi}
-\end{align*}
+\begin{align}
+    a_n &= \frac{1}{\sqrt{5} } \left[ \left( \frac{1+  \sqrt{5} }{2}  \right)^n -  \left( \frac{1- \sqrt{5} }{2} \right)^n \right] \nonumber \\
+&= \frac{\varphi^n - \psi^n}{\sqrt{5} } \nonumber\\
+&=\frac{\varphi^n -  \psi^n}{\varphi - \psi} \label{eq:fib-sol}
+\end{align}
 
 
 where:
@@ -940,16 +900,52 @@ where:
 - $\varphi = \frac{1+ \sqrt{5} }{2} \approx 1.61\ldots$
 - $\psi = 1-\varphi = \frac{1- \sqrt{5} }{2} \approx 0.61\ldots$
 
-Open Questions:
+*** TODO Derivative of the Exponential Generating Function
+    :PROPERTIES:
+    :CUSTOM_ID: Derivative-exp-gen-function
+    :END:
 
-- Show that the derivitive of the power series is $a_{n+ 2}$
-- Redo the initial problem for the Fibonacci Sequence
-- Extend this to a non-homogenous equation
-- Extend this to all linear recursion problems with first order ODES
-- Show that this is an isomorphism Lindear ODEs with constant
-  coefficients to recursive relations with constant coefficients.
+\begin{align}
+    f\left( x \right) &= \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right] \label{eq:exp-pow-series} \\
+f'\left( x \right)ht) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right]  \right) \nonumber \\
+&= \frac{\mathrm{d}}{\mathrm{d} x} \left( a_0 \frac{x^0}{0!} +  a_1 \frac{x^1}{1!} +  a_2 \frac{x^2}{2!}+  a_3 \frac{x^3}{3! } +  \ldots \frac{x^k}{k!} \right) \nonumber \\
+&= \sum^{\infty}_{n= 0}   \left[ \frac{\mathrm{d} }{\mathrm{d} x}\left( a_n \frac{x^n}{n!} \right) \right] \nonumber \\
+&= \sum^{\infty}_{n= 0}   {\left[{ \frac{a_n}{{\left({ n- 1 }\right)!}} } x^{n- 1}  \right]} \nonumber \\
+&= \sum^{\infty}_{n= 0}   {\left[{ \frac{a_n}{{\left({ n- 1 }\right)}}! x^{n - 1} }\right]} \nonumber \\
+\implies  &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}a_{n+  1} }\right]} \label{eq:\exp-pow-series-sol}
+\end{align}
 
-*** Links to references
+If $f\left( x \right)= \sum^{\infty}_{n= 0 } \left[ a_n \frac{x^n}{n!} \right]$ can it be shown by induction that $\frac{\mathrm{d}^k }{\mathrm{d} x^k} \left(  f\left( x \right) \right)= f^{k} \left( x \right) \sum^{\infty}_{n= 0}   \left[ x^n \frac{a_{n+  k}}{n!} \right] $
+
+
+
+
+*** TODO Homogeneous Proof
+**** TODO Unique Roots of Characteristic Equation
+***** Example
+***** Proof
+**** TODO Repeated Roots of Characteristic Equation
+***** Example
+***** Proof
+
+**** TODO General Proof
+Consider a Recursive relation with constant coefficients:
+
+$$
+\sum^{\infty}_{n= 0}   \left[ c_i \cdot  a_n \right] = 0, \quad \exists c \in
+\mathbb{R}, \enspace \forall i<k\in\mathbb{Z}^+
+$$
+
+This can be expressed in terms of the exponential generating function:
+
+$$
+\sum^{\infty}_{n= 0}   \left[ c_i \cdot  a_n \right] = 0\\
+\implies \sum^{\infty}_{n= 0}   \left[\sum^{\infty}_{n= 0}   \left[ c_i \cdot
+a_n  \right]   \right] = 0
+$$
+
+
+** Links to references
 
 1. [[https://math.stackexchange.com/a/1775226]]
 2. [[https://math.stackexchange.com/a/593553]]
