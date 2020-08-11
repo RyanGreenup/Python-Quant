@@ -37,6 +37,7 @@ code /home/ryan/Dropbox/Studies/QuantProject/Current/Python-Quant/ & disown
   - the style.sty seems to break ~texfrag~
     - And it's generally slower anyway.
 - Use ~CUSTOM-ID:~ when referencing sections, the name of the section may
+  - As described [[file:~/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resources/org-manual.org::*Internal Links][here in the manual]].
   change and that will get confusing
   - Don't cross-reference a section that is less than three stars.
 
@@ -904,6 +905,7 @@ where:
     :PROPERTIES:
     :CUSTOM_ID: Derivative-exp-gen-function
     :END:
+    Differentiating the exponential generating function has the effect of shifting the sequence to the backward: cite:lehmanReadingsMathematicsComputer2010
 
 \begin{align}
     f\left( x \right) &= \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right] \label{eq:exp-pow-series} \\
@@ -916,7 +918,6 @@ f'\left( x \right)ht) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n
 \end{align}
 
 If $f\left( x \right)= \sum^{\infty}_{n= 0 } \left[ a_n \frac{x^n}{n!} \right]$ can it be shown by induction that $\frac{\mathrm{d}^k }{\mathrm{d} x^k} \left(  f\left( x \right) \right)= f^{k} \left( x \right) \sum^{\infty}_{n= 0}   \left[ x^n \frac{a_{n+  k}}{n!} \right] $
-
 
 
 
@@ -944,6 +945,10 @@ $$
 a_n  \right]   \right] = 0
 $$
 
+* Prove the Power Series
+   :PROPERTIES:
+   :CUSTOM_ID: generating-functions
+   :END:
 
 ** Links to references
 
