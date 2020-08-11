@@ -1100,7 +1100,10 @@ Misc
    :PROPERTIES:
    :CUSTOM_ID: prove-exp-power-series
    :END:
-
+** Extended Power Series (for Repeated Roots)
+:PROPERTIES:
+:CUSTOM_ID: prove-ext-exp-power-series-rep-roots
+:END:
 
 ** Taylor Series
 
