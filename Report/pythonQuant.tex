@@ -1,4 +1,4 @@
-% Created 2020-08-11 Tue 22:30
+% Created 2020-08-11 Tue 22:47
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -17,7 +17,6 @@
 \usepackage{minted}
 \usepackage{style}
 \usepackage[citestyle=numeric, bibstyle=numeric,hyperref=true,backref=true, maxcitenames=3,url=true,backend=biber,natbib=true]{biblatex}
-\AtEndDocument{\printbibliography}
 \addbibresource{../Resources/references.bib}
 \author{Ryan Greenup \& James Guerra}
 \date{\today}
@@ -39,10 +38,10 @@ code /home/ryan/Dropbox/Studies/QuantProject/Current/Python-Quant/ & disown
 \end{minted}
 
 \section[What the unit involves.]{What the unit involves.\hfill{}\textsc{Ryan:James}}
-\label{sec:org7741831}
+\label{sec:orgc5bb920}
 Writing and presenting.
 \section{Python}
-\label{sec:org0b5f375}
+\label{sec:org23344a0}
 Two parts:
 \begin{enumerate}
 \item Figure out the python
@@ -53,9 +52,9 @@ Two parts:
 \end{enumerate}
 
 \section[Matrix Exponentiation]{Matrix Exponentiation\hfill{}\textsc{Ryan}}
-\label{sec:org1dd2008}
+\label{sec:orgfae4678}
 \subsubsection{Implementation in Sympy}
-\label{sec:orgcd928cc}
+\label{sec:org383423a}
 The Matrix Exponential is implemented in areas of:
 
 \begin{itemize}
@@ -424,9 +423,9 @@ matrix in python - Stack Overflow}
 Instead this will need to be implemented from first principles.
 
 \subsection{Theory}
-\label{sec:orgb3d7cbe}
+\label{sec:orgb8f2238}
 \subsubsection{Matrix Exponentiation}
-\label{sec:orgec4af5f}
+\label{sec:orga1629a9}
 A Matrix Exponential is defined by using the ordinary exponential power series \cite[Ch. 2]{hallLieGroupsLie2015},\cite[Ch. 8.4]{Zil2009} (should we prove the power series generally?):
 
 \begin{align}
@@ -509,7 +508,7 @@ By the previous identity:
 \end{align*}
 
 \subsubsection{Matrix-Matrix Exponentiation}
-\label{sec:orgb47065d}
+\label{sec:org62132db}
 
 Matrix-Matrix exponentiation has applications in quantum mechanics \cite[p. 84]{barradasIteratedExponentiationMatrixMatrix1994}.
 
@@ -540,7 +539,7 @@ However the following identities are by \textbf{Definition} anyway: \cite{barrad
 \end{align}
 
 \subsection{An alternative Implementation in Sympy}
-\label{sec:org14af41f}
+\label{sec:orgf792af7}
 
 \begin{minted}[]{python}
 def matexp(mat, base = E):
@@ -597,7 +596,7 @@ A = Matrix([ [11,12,13], [21,22,23], [31,32,33] ])
   A**B
 \end{minted}
 \section[Recursive Relations]{Recursive Relations\hfill{}\textsc{Ryan}}
-\label{sec:org7213b67}
+\label{sec:org7edfdcb}
 A linear recurrence relation is of the form:
 
 \begin{align}
@@ -618,9 +617,9 @@ This technique is referred to as generating functions.
 
 
 \subsection{Generating Functions}
-\label{sec:org923a26f}
+\label{sec:org9184d9c}
 \subsubsection{Generating Functions}
-\label{sec:orgca6539d}
+\label{sec:org51a8c10}
 A \href{https://en.wikipedia.org/wiki/Generating\_function}{Generating Function}, as shown in \eqref{eq:gen-func-def}  is a way of encoding an \href{https://en.wikipedia.org/wiki/Infinite\_sequence}{infinite series} of numbers (\(a_n\))
 by treating them as the coefficients of a power series (\(\sum^\infty_{n = 0}
 \left[ a_nx^n \right]\)) where the variable remains in an indeterminate form,
@@ -628,7 +627,7 @@ they were first introduced by Abraham De Moivre in 1730 in order to solve the
 linear recurrence relations \cite{knuthArtComputerProgramming1997}, as shown in \eqref{eq:recurrence-relation-def} (such as the \emph{Fibonacci Sequence}).
 
 \subsubsection{Example}
-\label{sec:org5bb5b3e}
+\label{sec:org1810855}
 Given the Linear Recurrence Relation:
 
 \begin{align*}
@@ -639,7 +638,7 @@ a_{n+  2} =  a_{n+  1 +  2 a_n}, \quad n \geq 0
 
 To solve this we can use what's known as a
 \href{https://en.wikipedia.org/wiki/Generating\_function}{Generating
-Function}, \hyperref[sec:orgca6539d]{see the disucssion below}
+Function}, \hyperref[sec:org51a8c10]{see the disucssion below}
 
 We will make consider the function \(f(x)\) as shown below in:
 
@@ -732,9 +731,9 @@ f\left( x \right) &= \sum^{\infty}_{n= 0}\left[x^n {\left( {\frac{1}{2 \cdot 2^n
 \end{align}
 
 \subsection{Exponential Generating Function}
-\label{sec:org9afec04}
+\label{sec:org0605bf0}
 \subsubsection{Motivation}
-\label{sec:org92306e9}
+\label{sec:org75bd205}
 Consider the \emph{Fibonacci Sequence}:
 
 
@@ -745,7 +744,7 @@ Consider the \emph{Fibonacci Sequence}:
 
 
 Solving this outright is quite difficult, a power
-series generating function can be used to solve it as shown in section \ref{sec:org5bb5b3e}, which provides a corresponding equation to the effect of:
+series generating function can be used to solve it as shown in section \ref{sec:org1810855}, which provides a corresponding equation to the effect of:
 
 
 \begin{align*}
@@ -775,8 +774,8 @@ So this would give an easy means by which to solve the linear recurrence
 relation.
 
 \subsubsection{Example}
-\label{sec:org75ded0c}
-Consider using the following generating function, (the derivative of the generating function as in \eqref{eq:exp-gen-def-2} and \eqref{eq:exp-gen-def-3} is provided in section \ref{sec:org7a1e6a4})
+\label{sec:orgd907da9}
+Consider using the following generating function, (the derivative of the generating function as in \eqref{eq:exp-gen-def-2} and \eqref{eq:exp-gen-def-3} is provided in section \ref{sec:orgdb25539})
 
 
 
@@ -859,7 +858,7 @@ where:
 \end{itemize}
 
 \subsubsection{Derivative of the Exponential Generating Function}
-\label{sec:org7a1e6a4}
+\label{sec:orgdb25539}
 Differentiating the exponential generating function has the effect of shifting the sequence to the backward: \cite{lehmanReadingsMathematicsComputer2010}
 
 \begin{align}
@@ -874,10 +873,8 @@ f'\left( x \right)ht) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n
 
 If \(f\left( x \right)= \sum^{\infty}_{n= 0 } \left[ a_n \frac{x^n}{n!} \right]\) can it be shown by induction that \(\frac{\mathrm{d}^k }{\mathrm{d} x^k} \left(  f\left( x \right) \right)= f^{k} \left( x \right) \sum^{\infty}_{n= 0}   \left[ x^n \frac{a_{n+  k}}{n!} \right]\)
 
-
-
 \subsubsection{Homogeneous Proof}
-\label{sec:org0ab03c7}
+\label{sec:orgb6f746c}
 An equation of the form:
 
 \begin{align}
@@ -917,11 +914,12 @@ where:
 \end{itemize}
 
 \paragraph{Unique Roots of Characteristic Equation}
-\label{sec:orgfa9fdd0}
-An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section \ref{sec:org75ded0c}.
-
+\label{sec:orgb340ca6}
+\subparagraph{Example}
+\label{sec:org0a43d70}
+An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section \ref{sec:orgd907da9}.
 \subparagraph{Proof}
-\label{sec:orgd8f8b38}
+\label{sec:org54add16}
 Consider the linear recurrence relation \eqref{eq:recurrence-relation-def}:
 
 \begin{align}
@@ -952,7 +950,7 @@ Now assume that the solution exists and all roots of the characteristic polynomi
     f{\left({ x }\right)} = \sum^{k}_{i= 0}   {\left[{ k_i e^{m_i x} }\right]}, \quad \exists m,k \in \mathbb{C} \nonumber
 \end{align}
 
-This can be re-expressed in terms of the exponential power series, in order to relate the solution of the function \(f{\left({ x }\right)}\) back to a solution of the sequence \(a_n\), (see section \ref{sec:org266604b} for a derivation of the exponential power series):
+This can be re-expressed in terms of the exponential power series, in order to relate the solution of the function \(f{\left({ x }\right)}\) back to a solution of the sequence \(a_n\), (see section \ref{sec:org9377bc5} for a derivation of the exponential power series):
 
 \begin{align}
     \sum^{k}_{i= 0}   {\left[{ k_i e^{m_i x}  }\right]}  &= \sum^{k}_{i= 0}   {\left[{ k_i \sum^{\infty}_{n= 0}   \frac{{\left({ m_i x }\right)}^n}{n!}  }\right]}  \nonumber \\
@@ -977,17 +975,15 @@ This can be verified by the fibonacci sequence as shown in section xxx, the solu
     \iff  a_n &= &k_1 n^{\varphi} +  &k_2 n^{1- \varphi}, &\exists k_1, k_2 \in \mathbb{R} \subset \mathbb{C} \nonumber
 \end{alignat}
 
-
-
 \paragraph{Repeated Roots of Characteristic Equation}
-\label{sec:org16e7973}
+\label{sec:org79d67d0}
 \subparagraph{Example}
-\label{sec:orgf688334}
+\label{sec:orgd568e5b}
 \subparagraph{Proof}
-\label{sec:org4fc28ce}
+\label{sec:org35fa90f}
 
 \paragraph{General Proof}
-\label{sec:org3d6b168}
+\label{sec:org718be4c}
 Consider a Recursive relation with constant coefficients:
 
 $$
@@ -1003,9 +999,8 @@ $$
 a_n  \right]   \right] = 0
 $$
 
-
 \subsection{Links to references}
-\label{sec:org4877b7e}
+\label{sec:orgd1d83fb}
 
 \begin{enumerate}
 \item \url{https://math.stackexchange.com/a/1775226}
@@ -1022,16 +1017,16 @@ Misc
 \end{enumerate}
 
 \section{Prove the Power Series}
-\label{sec:org74a73d0}
+\label{sec:orgb40cbf9}
 \subsection{General Power Series}
-\label{sec:orgd307746}
+\label{sec:org5c25239}
 
 \subsection{Exponential Power Series}
-\label{sec:org266604b}
+\label{sec:org9377bc5}
 
 
 \subsection{Taylor Series}
-\label{sec:orgf48a251}
+\label{sec:orgb5b8c7b}
 
 
 When \(n\) is set to 0, the \emph{Taylor Series} reduces to the \emph{Mean Value Theorem}, when \(a\) is set to 0 the series is referred to as the \emph{Maclaurin Series}.
