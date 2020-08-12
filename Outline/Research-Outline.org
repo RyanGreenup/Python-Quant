@@ -85,3 +85,19 @@ AVOID DETAILS, JUST SKETCH THE PROJECT OUT.
 - Would a reader become interested in the upcoming report?
 - Is it brief but well prepared?
 - Are the major parts or phases sketched out
+
+
+
+* Download RevealJS
+So first do ~M-x package-install ox-reveal~ then do ~M-x load-library~ and then look for ~ox-reveal~
+
+Download Reveal.js and put it in the directory as ~./reveal.js~, you can do that with something like this:
+
+#+begin_src bash
+# cd /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/
+wget https://github.com/hakimel/reveal.js/archive/master.tar.gz
+tar -xzvf master.tar.gz && rm master.tar.gz
+mv reveal.js-master reveal.js
+#+end_src
+
+Then just do ~C-c e e R R~ to export with RevealJS as opposed to PHP you won't need a fancy server, just open it in the browser.
