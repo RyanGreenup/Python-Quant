@@ -1,0 +1,87 @@
+#+TITLE: Research Outline
+:PREAMBLE:
+#+OPTIONS: broken-links:auto todo:nil H:9
+#+STARTUP: content
+#+OPTIONS: tags:not-in-toc d:nil
+#+AUTHOR: Ryan Greenup & James Guerra
+#+INFOJS_OPT: view:showall toc:3
+#+PLOT: title:"Citas" ind:1 deps:(3) type:2d with:histograms set:"yrange [0:]"
+#+OPTIONS: tex:t
+# #+TODO: TODO IN-PROGRESS WAITING DONE
+#+CATEGORY: TAD
+:END:
+:HTML:
+#+INFOJS_OPT: view:info toc:3
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="style.css">
+#+CSL_STYLE: /home/ryan/Templates/CSL/nature.csl
+:END:
+:R:
+#+PROPERTY: header-args:R :session TADMain :dir ./ :cache yes :eval never-export :exports both
+# exports: both (or code or whatever)
+# results: table (or output or whatever)
+:END:
+:LATEX:
+# #+STARTUP: latexpreview
+# TexFrag Doesn't work with relative paths.
+:END:
+:LATEXBIB:
+#+latex_header:\usepackage[citestyle=numeric, bibstyle=numeric,hyperref=true,backref=true, maxcitenames=3,url=true,backend=biber,natbib=true]{biblatex}
+#+latex_header:\AtEndDocument{\printbibliography}
+# #+LATEX_HEADER: \usepackage{style}
+#+latex_header: \addbibresource{../Resources/references.bib}
+:END:
+
+
+#+begin_src bash
+code /home/ryan/Dropbox/Studies/QuantProject/Current/Python-Quant/ & disown
+#+end_src
+
+Here's what I gatthered from the week 3 slides
+
+* Give a brief Sketch of the project
+
+** Topic / Context
+
+** Motivation
+
+** Basic Ideas
+- Look at FOSS CAS Systems
+  - Python (Sympy)
+  - Julia
+    - Sympy integration
+    - symEngine
+    - Reduce.jl
+    - Symata.jl
+
+- Maybe look at interactive sessions:
+  - Like Jupyter
+  - Hydrogen
+  - TeXmacs
+  - org-mode?
+
+After getting an overview of SymPy let's look at problems that are interesting (chaos, morphogenesis and order from disarray etc.)
+
+
+** Where are the Mathematics
+
+- Trying to look at the algorithms underlying functions in Python/Sympy and other Computer algebra tools such as Maxima, Maple, Mathematica, Sage, GAP and Xcas/Giac, Yacas, Symata.jl, Reduce.jl, SymEngine.jl
+  - For Example Recursive Relations
+- Look at solving some problems related to chaos theory maybe
+  - Mandelbrot and Julia Sets
+- Look at solving some problems related to Fourier Transforms maybe
+
+
+AVOID DETAILS, JUST SKETCH THE PROJECT OUT.
+
+
+** Don't Forget we need a talk
+*** Slides In Org Mode
+- [[https://orgmode.org/worg/org-tutorials/non-beamer-presentations.html][Without Beamer]]
+- [[https://orgmode.org/worg/exporters/beamer/tutorial.html][With Beamer]]
+
+* What we're looking for
+
+- Would a reader know what the project is about?
+- Would a reader become interested in the upcoming report?
+- Is it brief but well prepared?
+- Are the major parts or phases sketched out
