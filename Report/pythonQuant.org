@@ -1035,7 +1035,7 @@ By implementing the already well-established theory of linear ODE's, the charact
     m= 5 \label{eq:rep-roots-recurrence-char-sol}
 \end{align}
 
-Herein lies a complexity, in order to solve this, the solution produced from eqref:eq:rep-roots-recurrence-char-sol can be used with the /Reduction of Order/ technique to produce a solution that will be of the form \textsection 4.3:
+Herein lies a complexity, in order to solve this, the solution produced from eqref:eq:rep-roots-recurrence-char-sol can be used with the /Reduction of Order/ technique to produce a solution that will be of the form [[cite:zillMatrixExponential2009][\textsection 4.3]].
 
 \begin{align}
     f{\left({ x }\right)}= c_1e^{5x} +  c_2 x e^{5x} \label{eq:rep-roots-ode-sol}
