@@ -948,6 +948,9 @@ where:
   - These is often referred to as repeated roots cite:levinSolvingRecurrenceRelations2018,zillMatrixExponential2009 with a multiplicity corresponding to the number of repetitions of that root [[cite:nicodemiIntroductionAbstractAlgebra2007][\textsection 3.2]]
  
 **** Unique Roots of Characteristic Equation
+:PROPERTIES:
+:CUSTOM_ID: uniq-roots-recurrence
+:END:
 ***** Example
 An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section [[#solving-the-sequence]].
 ***** Proof
@@ -1006,7 +1009,10 @@ This can be verified by the fibonacci sequence as shown in section [[#solving-th
     \iff  a_n &= &k_1 n^{\varphi} +  &k_2 n^{1- \varphi}, &\exists k_1, k_2 \in \mathbb{R} \subset \mathbb{C} \nonumber
 \end{alignat}
 
-**** TODO Repeated Roots of Characteristic Equation
+**** Repeated Roots of Characteristic Equation
+:PROPERTIES:
+:CUSTOM_ID: rep-roots-recurrence
+:END:
 ***** Example
 Consider the following recurrence relation:
 
@@ -1057,10 +1063,64 @@ Given the defenition of the exponential generating function from eqref:eq:exp-ge
     \ \nonumber \\
     \square \nonumber
 \end{align}
+***** Generalised Example
 
-***** Proof
+***** TODO Proof
+In order to prove the the solution for a $k^{\mathrm{th}}$ order recurrence relation with $k$ repeated
+
+
+Consider a recurrence relation of the form:
+
+\begin{align}
+     \sum^{k}_{n= 0}   {\left[{ c_i a_n }\right]}  = 0 \nonumber \\
+      \implies  \sum^{\infty}_{n= 0}   \sum^{k}_{i= 0}   c_i a_n \frac{x^n}{n!} = 0 \nonumber \\
+      \sum^{k}_{i= 0}   \sum^{\infty}_{n= 0}   c_i a_n \frac{x^n}{n!} \nonumber
+\end{align}
+
+By substituting for the value of the generating function (from eqref:eq:exp-gen-def-1):
+
+\begin{align}
+    \sum^{k}_{i= 0}   {\left[{ c_if^{{\left({ k }\right)}}  {\left({ x }\right)}    }\right]} \label{eq:gen-form-rep-roots-ode}
+\end{align}
+
+Assume that eqref:eq:gen-form-rep-roots-ode corresponds to a charecteristic polynomial with only 1 root of multiplicity $k$, the solution would hence be of the form:
+
+\begin{align}
+			 & \sum^{k}_{i= 0}   {\left[{ c_i m^i }\right]} = 0 \wedge m=B, \enspace  \exists! B \in \mathbb{C} \nonumber \\
+ \implies      f{\left({ x }\right)}&= \sum^{k}_{i= 0}   {\left[{ x^i A_i e^{mx} }\right]}, \quad \exists A \in \mathbb{C}^+, \enspace \forall i \in {\left[{ 1,k }\right]} \cap \mathbb{N}  \label{eq:sol-rep-roots-ode} \\
+\end{align}
+
+Recall the following power series identity (proved in section xxx):
+
+\begin{align}
+x^k e^x = \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}     \nonumber
+\end{align}
+
+By applying this to eqref:eq:sol-rep-roots-ode :
+
+\begin{align}
+f{\left({ x }\right)}&=     \sum^{k}_{i= 0}   {\left[{ A_i \sum^{\infty}_{n= 0}   {\left[{ \frac{{\left({ x m }\right)}^n}{{\left({ n- i }\right)}!} }\right]}  }\right]} \nonumber \\
+&=     \sum^{\infty}_{n= 0}   {\left[{ \sum^{k}_{i=0} {\left[{ \frac{x^n}{n!}  \frac{n!}{{\left({ n- i }\right)}} A_i m^n }\right]}       }\right]} # \\
+&=     \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}   \sum^{k}_{i=0} {\left[{  \frac{n!}{{\left({ n- i }\right)}} A_i m^n }\right]}       }\right]}
+\end{align}
+
+Recall the generating function that was used to get ref:eq:gen-form-rep-roots-ode:
+
+\begin{align}
+f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]}      \nonumber \\
+ \implies  a_n &= \sum^{k}_{i= 0}   {\left[{ A_i \frac{n!}{{\left({ n- i }\right)}!} m^n  }\right]} \nonumber \\
+ &= \sum^{k}_{i= 0}   {\left[{ m^n A_i \prod_{0}^{k} {\left[{ n- {\left({ i- 1 }\right)} }\right]}   }\right]}
+& \intertext{$\because \enspace i \leq k$} \notag \\
+ &= \sum^{k}_{i= 0} {\left[{ A_i^* m^n n^i }\right]}, \quad \exists A_i \in \mathbb{C}, \enspace \forall i\leqk \in \mathbb{Z}^+ \nonumber \\
+\ \nonumber \\
+\square \nonumber
+\end{align}
+
+
 
 **** TODO General Proof
+In sections [[#uniq-roots-recurrence]] and [[*Unique Roots of Characteristic Equation]] it was shown that a recurrence relation can be related to an ODE and then that solution can be transformed to provide a solution for the recurrence relation, when the charecteristic polynomial has either complex roots or 1 repeated root. Generally the solution to a linear ODE will be a superposition of solutions for each root, repeated or unique and so here it will be shown that these two can be combined and that the solution will still hold.
+
 Consider a Recursive relation with constant coefficients:
 
 $$
@@ -1075,6 +1135,12 @@ $$
 \implies \sum^{\infty}_{n= 0}   \left[\sum^{\infty}_{n= 0}   \left[ c_i \cdot
 a_n  \right]   \right] = 0
 $$
+
+- Use the Generating function to get an ODE
+- The ODE will have a solution that is a combination of the above two forms
+- The solution will translate back to a combination of both above forms
+
+
 
 ** Links to references
 
