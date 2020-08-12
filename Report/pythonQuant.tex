@@ -1,4 +1,4 @@
-% Created 2020-08-11 Tue 22:47
+% Created 2020-08-12 Wed 11:15
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -15,8 +15,8 @@
 \usepackage{capt-of}
 \usepackage{hyperref}
 \usepackage{minted}
-\usepackage{style}
 \usepackage[citestyle=numeric, bibstyle=numeric,hyperref=true,backref=true, maxcitenames=3,url=true,backend=biber,natbib=true]{biblatex}
+\usepackage{style}
 \addbibresource{../Resources/references.bib}
 \author{Ryan Greenup \& James Guerra}
 \date{\today}
@@ -38,10 +38,10 @@ code /home/ryan/Dropbox/Studies/QuantProject/Current/Python-Quant/ & disown
 \end{minted}
 
 \section[What the unit involves.]{What the unit involves.\hfill{}\textsc{Ryan:James}}
-\label{sec:orgc5bb920}
+\label{sec:orge9798b6}
 Writing and presenting.
 \section{Python}
-\label{sec:org23344a0}
+\label{sec:org0e3c86d}
 Two parts:
 \begin{enumerate}
 \item Figure out the python
@@ -52,9 +52,9 @@ Two parts:
 \end{enumerate}
 
 \section[Matrix Exponentiation]{Matrix Exponentiation\hfill{}\textsc{Ryan}}
-\label{sec:orgfae4678}
+\label{sec:orgc027797}
 \subsubsection{Implementation in Sympy}
-\label{sec:org383423a}
+\label{sec:org55a0578}
 The Matrix Exponential is implemented in areas of:
 
 \begin{itemize}
@@ -423,9 +423,9 @@ matrix in python - Stack Overflow}
 Instead this will need to be implemented from first principles.
 
 \subsection{Theory}
-\label{sec:orgb8f2238}
+\label{sec:org883d33f}
 \subsubsection{Matrix Exponentiation}
-\label{sec:orga1629a9}
+\label{sec:orgf5820a2}
 A Matrix Exponential is defined by using the ordinary exponential power series \cite[Ch. 2]{hallLieGroupsLie2015},\cite[Ch. 8.4]{Zil2009} (should we prove the power series generally?):
 
 \begin{align}
@@ -508,7 +508,7 @@ By the previous identity:
 \end{align*}
 
 \subsubsection{Matrix-Matrix Exponentiation}
-\label{sec:org62132db}
+\label{sec:orgf512705}
 
 Matrix-Matrix exponentiation has applications in quantum mechanics \cite[p. 84]{barradasIteratedExponentiationMatrixMatrix1994}.
 
@@ -539,7 +539,7 @@ However the following identities are by \textbf{Definition} anyway: \cite{barrad
 \end{align}
 
 \subsection{An alternative Implementation in Sympy}
-\label{sec:orgf792af7}
+\label{sec:org3723b27}
 
 \begin{minted}[]{python}
 def matexp(mat, base = E):
@@ -596,7 +596,7 @@ A = Matrix([ [11,12,13], [21,22,23], [31,32,33] ])
   A**B
 \end{minted}
 \section[Recursive Relations]{Recursive Relations\hfill{}\textsc{Ryan}}
-\label{sec:org7edfdcb}
+\label{sec:org187decc}
 A linear recurrence relation is of the form:
 
 \begin{align}
@@ -617,9 +617,9 @@ This technique is referred to as generating functions.
 
 
 \subsection{Generating Functions}
-\label{sec:org9184d9c}
+\label{sec:org739ccfe}
 \subsubsection{Generating Functions}
-\label{sec:org51a8c10}
+\label{sec:org200f07c}
 A \href{https://en.wikipedia.org/wiki/Generating\_function}{Generating Function}, as shown in \eqref{eq:gen-func-def}  is a way of encoding an \href{https://en.wikipedia.org/wiki/Infinite\_sequence}{infinite series} of numbers (\(a_n\))
 by treating them as the coefficients of a power series (\(\sum^\infty_{n = 0}
 \left[ a_nx^n \right]\)) where the variable remains in an indeterminate form,
@@ -627,7 +627,7 @@ they were first introduced by Abraham De Moivre in 1730 in order to solve the
 linear recurrence relations \cite{knuthArtComputerProgramming1997}, as shown in \eqref{eq:recurrence-relation-def} (such as the \emph{Fibonacci Sequence}).
 
 \subsubsection{Example}
-\label{sec:org1810855}
+\label{sec:orge4b7317}
 Given the Linear Recurrence Relation:
 
 \begin{align*}
@@ -638,7 +638,7 @@ a_{n+  2} =  a_{n+  1 +  2 a_n}, \quad n \geq 0
 
 To solve this we can use what's known as a
 \href{https://en.wikipedia.org/wiki/Generating\_function}{Generating
-Function}, \hyperref[sec:org51a8c10]{see the disucssion below}
+Function}, \hyperref[sec:org200f07c]{see the disucssion below}
 
 We will make consider the function \(f(x)\) as shown below in:
 
@@ -731,9 +731,9 @@ f\left( x \right) &= \sum^{\infty}_{n= 0}\left[x^n {\left( {\frac{1}{2 \cdot 2^n
 \end{align}
 
 \subsection{Exponential Generating Function}
-\label{sec:org0605bf0}
+\label{sec:orgfcd5233}
 \subsubsection{Motivation}
-\label{sec:org75bd205}
+\label{sec:org44082bb}
 Consider the \emph{Fibonacci Sequence}:
 
 
@@ -744,7 +744,7 @@ Consider the \emph{Fibonacci Sequence}:
 
 
 Solving this outright is quite difficult, a power
-series generating function can be used to solve it as shown in section \ref{sec:org1810855}, which provides a corresponding equation to the effect of:
+series generating function can be used to solve it as shown in section \ref{sec:orge4b7317}, which provides a corresponding equation to the effect of:
 
 
 \begin{align*}
@@ -774,8 +774,8 @@ So this would give an easy means by which to solve the linear recurrence
 relation.
 
 \subsubsection{Example}
-\label{sec:orgd907da9}
-Consider using the following generating function, (the derivative of the generating function as in \eqref{eq:exp-gen-def-2} and \eqref{eq:exp-gen-def-3} is provided in section \ref{sec:orgdb25539})
+\label{sec:orgd72c493}
+Consider using the following generating function, (the derivative of the generating function as in \eqref{eq:exp-gen-def-2} and \eqref{eq:exp-gen-def-3} is provided in section \ref{sec:org92cf896})
 
 
 
@@ -858,23 +858,22 @@ where:
 \end{itemize}
 
 \subsubsection{Derivative of the Exponential Generating Function}
-\label{sec:orgdb25539}
+\label{sec:org92cf896}
 Differentiating the exponential generating function has the effect of shifting the sequence to the backward: \cite{lehmanReadingsMathematicsComputer2010}
 
 \begin{align}
     f\left( x \right) &= \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right] \label{eq:exp-pow-series} \\
-f'\left( x \right)ht) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right]  \right) \nonumber \\
+f'\left( x \right)) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right]  \right) \nonumber \\
 &= \frac{\mathrm{d}}{\mathrm{d} x} \left( a_0 \frac{x^0}{0!} +  a_1 \frac{x^1}{1!} +  a_2 \frac{x^2}{2!}+  a_3 \frac{x^3}{3! } +  \ldots \frac{x^k}{k!} \right) \nonumber \\
 &= \sum^{\infty}_{n= 0}   \left[ \frac{\mathrm{d} }{\mathrm{d} x}\left( a_n \frac{x^n}{n!} \right) \right] \nonumber \\
 &= \sum^{\infty}_{n= 0}   {\left[{ \frac{a_n}{{\left({ n- 1 }\right)!}} } x^{n- 1}  \right]} \nonumber \\
-&= \sum^{\infty}_{n= 0}   {\left[{ \frac{a_n}{{\left({ n- 1 }\right)}}! x^{n - 1} }\right]} \nonumber \\
-\implies  &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}a_{n+  1} }\right]} \label{eq:exp-pow-series-sol}
+\implies f'(x) &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}a_{n+  1} }\right]} \label{eq:exp-pow-series-sol}
 \end{align}
 
 If \(f\left( x \right)= \sum^{\infty}_{n= 0 } \left[ a_n \frac{x^n}{n!} \right]\) can it be shown by induction that \(\frac{\mathrm{d}^k }{\mathrm{d} x^k} \left(  f\left( x \right) \right)= f^{k} \left( x \right) \sum^{\infty}_{n= 0}   \left[ x^n \frac{a_{n+  k}}{n!} \right]\)
 
 \subsubsection{Homogeneous Proof}
-\label{sec:orgb6f746c}
+\label{sec:orgf69b0f3}
 An equation of the form:
 
 \begin{align}
@@ -914,12 +913,12 @@ where:
 \end{itemize}
 
 \paragraph{Unique Roots of Characteristic Equation}
-\label{sec:orgb340ca6}
+\label{sec:org516b254}
 \subparagraph{Example}
-\label{sec:org0a43d70}
-An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section \ref{sec:orgd907da9}.
+\label{sec:org2c8a7a1}
+An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section \ref{sec:orgd72c493}.
 \subparagraph{Proof}
-\label{sec:org54add16}
+\label{sec:org50e07b8}
 Consider the linear recurrence relation \eqref{eq:recurrence-relation-def}:
 
 \begin{align}
@@ -937,7 +936,7 @@ By implementing the exponential generating function as shown in \eqref{eq:exp-ge
      \sum^{k}_{i= 0}    {\left[{ c_i \sum^{\infty}_{n= 0}   {\left[{  a_n \frac{x^n}{n!} }\right]}  }\right]}  \nonumber = 0 \\
 \end{align}
 
-Recall from \eqref{eq:exp-gen-def-1} xxx the generating function \(f{\left({ x }\right)}\):
+Recall from \eqref{eq:exp-gen-def-1} the generating function \(f{\left({ x }\right)}\):
 
 \begin{align}
 \sum^{k}_{i= 0}   {\left[{ c_i f^{{\left({ k }\right)} } } {\left({ x }\right)} \right]} \label{eq:exp-gen-def-proof}  &= 0
@@ -950,7 +949,7 @@ Now assume that the solution exists and all roots of the characteristic polynomi
     f{\left({ x }\right)} = \sum^{k}_{i= 0}   {\left[{ k_i e^{m_i x} }\right]}, \quad \exists m,k \in \mathbb{C} \nonumber
 \end{align}
 
-This can be re-expressed in terms of the exponential power series, in order to relate the solution of the function \(f{\left({ x }\right)}\) back to a solution of the sequence \(a_n\), (see section \ref{sec:org9377bc5} for a derivation of the exponential power series):
+This can be re-expressed in terms of the exponential power series, in order to relate the solution of the function \(f{\left({ x }\right)}\) back to a solution of the sequence \(a_n\), (see section \ref{sec:orgcb7b0a9} for a derivation of the exponential power series):
 
 \begin{align}
     \sum^{k}_{i= 0}   {\left[{ k_i e^{m_i x}  }\right]}  &= \sum^{k}_{i= 0}   {\left[{ k_i \sum^{\infty}_{n= 0}   \frac{{\left({ m_i x }\right)}^n}{n!}  }\right]}  \nonumber \\
@@ -968,7 +967,7 @@ Recall the definition of the generating function from \ref{eq:exp-gen-def-proof}
 \square
 \end{align}
 
-This can be verified by the fibonacci sequence as shown in section xxx, the solution to the characteristic equation is \(m_1 = \varphi, m_2 = {\left({ 1-\varphi }\right)}\) and the corresponding solution to the linear ODE and recursive relation are:
+This can be verified by the fibonacci sequence as shown in section \ref{sec:orgd72c493}, the solution to the characteristic equation is \(m_1 = \varphi, m_2 = {\left({ 1-\varphi }\right)}\) and the corresponding solution to the linear ODE and recursive relation are:
 
 \begin{alignat}{4}
     f{\left({ x }\right)} &= &c_1 e^{\varphi x} +  &c_2 e^{{\left({ 1-\varphi }\right)} x}, \quad &\exists c_1, c_2 \in \mathbb{R} \subset \mathbb{C} \nonumber \\
@@ -976,14 +975,119 @@ This can be verified by the fibonacci sequence as shown in section xxx, the solu
 \end{alignat}
 
 \paragraph{Repeated Roots of Characteristic Equation}
-\label{sec:org79d67d0}
+\label{sec:org031646c}
 \subparagraph{Example}
-\label{sec:orgd568e5b}
+\label{sec:orgb43251d}
+Consider the following recurrence relation:
+
+\begin{align}
+    a_n -  10a_{n+ 1} +  25a_{n+  2}&= 0 \label{eq:hom-repeated-roots-recurrence} \\
+    \implies  \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]} - 10 \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}+    }\right]} + 25 \sum^{\infty}_{n= 0 }   {\left[{  a_{n+  2 }\frac{x^n}{n!} }\right]}&= 0 \nonumber
+\end{align}
+
+By applying the definition of the exponential generating function at \eqref{eq:exp-gen-def-1} :
+
+\begin{align}
+    f''{\left({ x }\right)}- 10f'{\left({ x }\right)}+  25f{\left({ x }\right)}= 0 \nonumber \label{eq:rep-roots-func-ode}
+\end{align}
+
+By implementing the already well-established theory of linear ODE's, the characteristic equation for \eqref{eq:rep-roots-func-ode} can be expressed as:
+
+\begin{align}
+    m^2- 10m+  25 = 0 \nonumber \\
+    {\left({ m- 5 }\right)}^2 = 0 \nonumber \\
+    m= 5 \label{eq:rep-roots-recurrence-char-sol}
+\end{align}
+
+Herein lies a complexity, in order to solve this, the solution produced from \eqref{eq:rep-roots-recurrence-char-sol} can be used with the \emph{Reduction of Order} technique to produce a solution that will be of the form \textsection 4.3:
+
+\begin{align}
+    f{\left({ x }\right)}= c_1e^{5x} +  c_2 x e^{5x} \label{eq:rep-roots-ode-sol}
+\end{align}
+
+\eqref{eq:rep-roots-ode-sol} can be expressed in terms of the exponential power series in order to try and relate the solution for the function back to the generating function,
+observe however the following power series identity (TODO Prove this):
+
+\begin{align}
+    x^ke^x &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}, \quad \exists k \in \mathbb{Z}^+ \label{eq:uniq-roots-pow-series-ident}
+\end{align}
+
+by applying identity \eqref{eq:uniq-roots-pow-series-ident} to equation \eqref{eq:rep-roots-ode-sol}
+
+\begin{align}
+    \implies  f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{ c_1 \frac{{\left({ 5x }\right)}^n}{n!} }\right]}  +  \sum^{\infty}_{n= 0}   {\left[{ c_2 n \frac{{\left({ 5x^n }\right)}}{n{\left({ n-1 }\right)}!} }\right]} \nonumber \\
+ &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!} {\left({ c_{1}5^n +  c_2 n 5^n   }\right)} }\right]} \nonumber
+\end{align}
+
+Given the defenition of the exponential generating function from \eqref{eq:exp-gen-def-1}
+
+\begin{align}
+    f{\left({ x }\right)}&=     \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]} \nonumber \\
+    \iff a_n &= c_{15}^n +  c_2n_5^n \nonumber \\ \nonumber
+    \ \nonumber \\
+    \square \nonumber
+\end{align}
+\subparagraph{Generalised Example}
+\label{sec:org8dde82d}
+
 \subparagraph{Proof}
-\label{sec:org35fa90f}
+\label{sec:org3b066c5}
+In order to prove the the solution for a \(k^{\mathrm{th}}\) order recurrence relation with \(k\) repeated
+
+
+Consider a recurrence relation of the form:
+
+\begin{align}
+     \sum^{k}_{n= 0}   {\left[{ c_i a_n }\right]}  = 0 \nonumber \\
+      \implies  \sum^{\infty}_{n= 0}   \sum^{k}_{i= 0}   c_i a_n \frac{x^n}{n!} = 0 \nonumber \\
+      \sum^{k}_{i= 0}   \sum^{\infty}_{n= 0}   c_i a_n \frac{x^n}{n!} \nonumber
+\end{align}
+
+By substituting for the value of the generating function (from \eqref{eq:exp-gen-def-1}):
+
+\begin{align}
+    \sum^{k}_{i= 0}   {\left[{ c_if^{{\left({ k }\right)}}  {\left({ x }\right)}    }\right]} \label{eq:gen-form-rep-roots-ode}
+\end{align}
+
+Assume that \eqref{eq:gen-form-rep-roots-ode} corresponds to a charecteristic polynomial with only 1 root of multiplicity \(k\), the solution would hence be of the form:
+
+\begin{align}
+			 & \sum^{k}_{i= 0}   {\left[{ c_i m^i }\right]} = 0 \wedge m=B, \enspace  \exists! B \in \mathbb{C} \nonumber \\
+ \implies      f{\left({ x }\right)}&= \sum^{k}_{i= 0}   {\left[{ x^i A_i e^{mx} }\right]}, \quad \exists A \in \mathbb{C}^+, \enspace \forall i \in {\left[{ 1,k }\right]} \cap \mathbb{N}  \label{eq:sol-rep-roots-ode} \\
+\end{align}
+
+Recall the following power series identity (proved in section xxx):
+
+\begin{align}
+x^k e^x = \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}     \nonumber
+\end{align}
+
+By applying this to \eqref{eq:sol-rep-roots-ode} :
+
+\begin{align}
+f{\left({ x }\right)}&=     \sum^{k}_{i= 0}   {\left[{ A_i \sum^{\infty}_{n= 0}   {\left[{ \frac{{\left({ x m }\right)}^n}{{\left({ n- i }\right)}!} }\right]}  }\right]} \nonumber \\
+&=     \sum^{\infty}_{n= 0}   {\left[{ \sum^{k}_{i=0} {\left[{ \frac{x^n}{n!}  \frac{n!}{{\left({ n- i }\right)}} A_i m^n }\right]}       }\right]} # \\
+&=     \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}   \sum^{k}_{i=0} {\left[{  \frac{n!}{{\left({ n- i }\right)}} A_i m^n }\right]}       }\right]}
+\end{align}
+
+Recall the generating function that was used to get \ref{eq:gen-form-rep-roots-ode}:
+
+\begin{align}
+f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]}      \nonumber \\
+ \implies  a_n &= \sum^{k}_{i= 0}   {\left[{ A_i \frac{n!}{{\left({ n- i }\right)}!} m^n  }\right]} \nonumber \\
+ &= \sum^{k}_{i= 0}   {\left[{ m^n A_i \prod_{0}^{k} {\left[{ n- {\left({ i- 1 }\right)} }\right]}   }\right]}
+& \intertext{$\because \enspace i \leq k$} \notag \\
+ &= \sum^{k}_{i= 0} {\left[{ A_i^* m^n n^i }\right]}, \quad \exists A_i \in \mathbb{C}, \enspace \forall i\leqk \in \mathbb{Z}^+ \nonumber \\
+\ \nonumber \\
+\square \nonumber
+\end{align}
+
+
 
 \paragraph{General Proof}
-\label{sec:org718be4c}
+\label{sec:org1ac5cfc}
+In sections \ref{sec:org516b254} and \ref{sec:org516b254} it was shown that a recurrence relation can be related to an ODE and then that solution can be transformed to provide a solution for the recurrence relation, when the charecteristic polynomial has either complex roots or 1 repeated root. Generally the solution to a linear ODE will be a superposition of solutions for each root, repeated or unique and so here it will be shown that these two can be combined and that the solution will still hold.
+
 Consider a Recursive relation with constant coefficients:
 
 $$
@@ -999,8 +1103,16 @@ $$
 a_n  \right]   \right] = 0
 $$
 
+\begin{itemize}
+\item Use the Generating function to get an ODE
+\item The ODE will have a solution that is a combination of the above two forms
+\item The solution will translate back to a combination of both above forms
+\end{itemize}
+
+
+
 \subsection{Links to references}
-\label{sec:orgd1d83fb}
+\label{sec:org888beae}
 
 \begin{enumerate}
 \item \url{https://math.stackexchange.com/a/1775226}
@@ -1017,16 +1129,17 @@ Misc
 \end{enumerate}
 
 \section{Prove the Power Series}
-\label{sec:orgb40cbf9}
+\label{sec:org0a544af}
 \subsection{General Power Series}
-\label{sec:org5c25239}
+\label{sec:orgd7043b2}
 
 \subsection{Exponential Power Series}
-\label{sec:org9377bc5}
-
+\label{sec:orgcb7b0a9}
+\subsection{Extended Power Series (for Repeated Roots)}
+\label{sec:orgf5900a9}
 
 \subsection{Taylor Series}
-\label{sec:orgb5b8c7b}
+\label{sec:org062633b}
 
 
 When \(n\) is set to 0, the \emph{Taylor Series} reduces to the \emph{Mean Value Theorem}, when \(a\) is set to 0 the series is referred to as the \emph{Maclaurin Series}.

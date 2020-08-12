@@ -6,13 +6,13 @@
    (TeX-add-to-alist 'LaTeX-provided-package-options
                      '(("inputenc" "utf8") ("fontenc" "T1") ("ulem" "normalem") ("biblatex" "citestyle=numeric" "bibstyle=numeric" "hyperref=true" "backref=true" "maxcitenames=3" "url=true" "backend=biber" "natbib=true")))
    (add-to-list 'LaTeX-verbatim-environments-local "minted")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "href")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperref")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperref")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "href")
    (add-to-list 'LaTeX-verbatim-macros-with-delims-local "path")
    (TeX-run-style-hooks
     "latex2e"
@@ -32,27 +32,27 @@
     "capt-of"
     "hyperref"
     "minted"
-    "style"
-    "biblatex")
+    "biblatex"
+    "style")
    (LaTeX-add-labels
-    "sec:orgc5bb920"
-    "sec:org23344a0"
-    "sec:orgfae4678"
-    "sec:org383423a"
-    "sec:orgb8f2238"
-    "sec:orga1629a9"
+    "sec:orge9798b6"
+    "sec:org0e3c86d"
+    "sec:orgc027797"
+    "sec:org55a0578"
+    "sec:org883d33f"
+    "sec:orgf5820a2"
     "eq:bydef"
     "eq:tojustify"
     "eq:matpower"
     "eq:expmatpower"
-    "sec:org62132db"
-    "sec:orgf792af7"
-    "sec:org7edfdcb"
+    "sec:orgf512705"
+    "sec:org3723b27"
+    "sec:org187decc"
     "eq:recurrence-relation-def"
     "eq:gen-func-def"
-    "sec:org9184d9c"
-    "sec:org51a8c10"
-    "sec:org1810855"
+    "sec:org739ccfe"
+    "sec:org200f07c"
+    "sec:orge4b7317"
     "eq:pow-gen-func-np0"
     "eq:pow-gen-func-np1"
     "eq:pow-gen-func-np2"
@@ -60,33 +60,42 @@
     "eq:power-series-form-example"
     "eq:pow-series-definition"
     "eq:seq-end-value"
-    "sec:org0605bf0"
-    "sec:org75bd205"
+    "sec:orgfcd5233"
+    "sec:org44082bb"
     "eq:fib-def"
-    "sec:orgd907da9"
+    "sec:orgd72c493"
     "eq:exp-gen-def-1"
     "eq:exp-gen-def-2"
     "eq:exp-gen-def-3"
     "eq:fib-sol"
-    "sec:orgdb25539"
+    "sec:org92cf896"
     "eq:exp-pow-series"
     "eq:exp-pow-series-sol"
-    "sec:orgb6f746c"
+    "sec:orgf69b0f3"
     "eq:hom-ode"
-    "sec:orgb340ca6"
-    "sec:org0a43d70"
-    "sec:org54add16"
+    "sec:org516b254"
+    "sec:org2c8a7a1"
+    "sec:org50e07b8"
     "eq:exp-gen-def-proof"
     "eq:unique-root-sol-power-series-form"
-    "sec:org79d67d0"
-    "sec:orgd568e5b"
-    "sec:org35fa90f"
-    "sec:org718be4c"
-    "sec:orgd1d83fb"
-    "sec:orgb40cbf9"
-    "sec:org5c25239"
-    "sec:org9377bc5"
-    "sec:orgb5b8c7b")
+    "sec:org031646c"
+    "sec:orgb43251d"
+    "eq:hom-repeated-roots-recurrence"
+    "eq:rep-roots-func-ode"
+    "eq:rep-roots-recurrence-char-sol"
+    "eq:rep-roots-ode-sol"
+    "eq:uniq-roots-pow-series-ident"
+    "sec:org8dde82d"
+    "sec:org3b066c5"
+    "eq:gen-form-rep-roots-ode"
+    "eq:sol-rep-roots-ode"
+    "sec:org1ac5cfc"
+    "sec:org888beae"
+    "sec:org0a544af"
+    "sec:orgd7043b2"
+    "sec:orgcb7b0a9"
+    "sec:orgf5900a9"
+    "sec:org062633b")
    (LaTeX-add-bibliographies
     "../Resources/references"))
  :latex)

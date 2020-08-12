@@ -4,10 +4,10 @@
    (TeX-add-to-alist 'LaTeX-provided-package-options
                      '(("color" "usenames") ("inputenc" "utf8") ("fontenc" "T1") ("ulem" "normalem") ("biblatex" "citestyle=numeric" "bibstyle=numeric" "hyperref=true" "backref=true" "maxcitenames=3" "url=true" "backend=biber" "natbib=true")))
    (add-to-list 'LaTeX-verbatim-environments-local "minted")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
-   (add-to-list 'LaTeX-verbatim-macros-with-delims-local "path")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
    (add-to-list 'LaTeX-verbatim-macros-with-delims-local "url")
+   (add-to-list 'LaTeX-verbatim-macros-with-delims-local "path")
    (TeX-run-style-hooks
     "latex2e"
     "article"
@@ -46,7 +46,14 @@
     "eq:exp-pow-series-sol"
     "eq:hom-ode"
     "eq:exp-gen-def-proof"
-    "eq:unique-root-sol-power-series-form")
+    "eq:unique-root-sol-power-series-form"
+    "eq:hom-repeated-roots-recurrence"
+    "eq:rep-roots-func-ode"
+    "eq:rep-roots-recurrence-char-sol"
+    "eq:rep-roots-ode-sol"
+    "eq:uniq-roots-pow-series-ident"
+    "eq:gen-form-rep-roots-ode"
+    "eq:sol-rep-roots-ode")
    (LaTeX-add-bibliographies
     "../Resources/references"))
  :latex)
