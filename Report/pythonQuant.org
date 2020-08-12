@@ -1042,7 +1042,7 @@ Herein lies a complexity, in order to solve this, the solution produced from eqr
 \end{align}
 
 eqref:eq:rep-roots-ode-sol can be expressed in terms of the exponential power series in order to try and relate the solution for the function back to the generating function,
-observe however the following power series identity (TODO Prove this):
+observe however the following power series identity (TODO Prove this in section [[#prove-ext-exp-power-series-rep-roots]]):
 
 \begin{align}
     x^ke^x &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}, \quad \exists k \in \mathbb{Z}^+ \label{eq:uniq-roots-pow-series-ident}
