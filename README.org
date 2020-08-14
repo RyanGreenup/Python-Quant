@@ -44,12 +44,18 @@ See [[https://shields.io/][Shields io]]
 * Notes
 - [[file:Problems/Docs/Lists/Python-Lists.ipynb][Lists]]
 - [[file:Problems/Docs/Variable-Scope-of-Nested-Functions.md][Variable Scope of Nested Functions]]
-
+** Resources
+- [[pdf:~/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resources/Rowland-prime-sequence.pdf::1++0.00][Rowland Prime Sequences (PDF)]]
 
 * Report
 - [[file:Report/pythonQuant.org][Org File]]
 - [[file:Report/pythonQuant.pdf][pdf File]]
 - [[file:Report/pythonQuant.html][html File]]
+
+* Outline
+- [[file:Outline/Research-Outline.org][Org File]]
+- [[file:Outline/Research-Outline.pdf][Org File]]
+- [[file:Outline/Research-Outline.org][Org File]]
 
 * Directory Structure
 #+begin_src bash :results output
@@ -170,8 +176,3 @@ digraph finite_state_machine {
 #+end_src
 
 [[file:dir-tree-puml.png]]
-* Report
-+ [[file:Report/pythonQuant.org][Org File]]
-+ [[file:Report/pythonQuant.tex][TeX]]
-+ [[file:Report/pythonQuant.pdf][PDF]]
-+ [[file:Report/pythonQuant.html][HTML]]
