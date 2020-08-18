@@ -8,7 +8,6 @@
 # #+TODO: TODO IN-PROGRESS WAITING DONE
 #+CATEGORY: TAD
 :HTML:
-#+INFOJS_OPT: view:info toc:3
 #+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="style.css">
 #+CSL_STYLE: /home/ryan/Templates/CSL/nature.csl
 :END:
