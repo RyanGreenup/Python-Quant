@@ -42,8 +42,29 @@ function save_picture(filename, matrix)
     close(f)
 end
 
-my_pic = make_picture(20000, 20000)
+using PlotlyJS
+function plotly_matrix(matrix)
+    trace = PlotlyJS.heatmap(
+        z=matrix
+    )
+    plot(trace)
+end
+
+using PyPlot
+function py_imshow_dp(matrix)
+    pic = PyPlot.imshow(matrix, interpolation = "none")
+    PyPlot.display_figs()
+    return pic
+end
+
+
+
+my_pic = make_picture(5000, 5000)
 save_picture("/tmp/a.fits", my_pic)
+# View in VSCode
+# py_imshow_dp(make_picture(100, 100))
+# View with Plotly
+# plotly_matrix(make_picture(100, 100))
 
 # @time make_picture(20000, 20000)
 #
