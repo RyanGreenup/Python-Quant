@@ -1,4 +1,4 @@
-function mandelbrot(z, num)
+function mandelbrot(z, num, my_func)
     count = 1
     # Define z1 as z
     z1 = z
@@ -9,20 +9,20 @@ function mandelbrot(z, num)
             return Int(count)
         end
         #iterate z
-        z1 = z1^2 + z
+        z1 = my_func(z1) + z
         count=count+1
     end
         #if z hasn't diverged by the end
     return Int(num)
 end
 
-function make_picture(width, height)
+function make_picture(width, height, my_func)
     pic_mat = zeros(width, height)
     for i in 1:size(pic_mat)[1]
         for j in 1:size(pic_mat)[2]
             x = j/width
             y = i/height
-            pic_mat[i,j] = mandelbrot(x+y*im, 99)
+            pic_mat[i,j] = mandelbrot(x+y*im, 99, my_func)
         end
     end
     return pic_mat
@@ -57,16 +57,31 @@ function py_imshow_dp(matrix)
     return pic
 end
 
+# f(z) = z^9
+# py_imshow_dp(make_picture(500, 500, f))
 
+# py_imshow_dp(make_picture(500, 500, z -> z^π))
 
-my_pic = make_picture(5000, 5000)
+# * Save Picture
+#------------------------------------------------------------
+my_pic = make_picture(500, 500, z -> z^2)
 save_picture("/tmp/a.fits", my_pic)
-# View in VSCode
-# py_imshow_dp(make_picture(100, 100))
-# View with Plotly
-# plotly_matrix(make_picture(100, 100))
 
-# @time make_picture(20000, 20000)
+#* View in VSCode
+#------------------------------------------------------------
+# py_imshow_dp(make_picture(100, 100, z -> z^2))
+# View with Plotly
+# plotly_matrix(make_picture(100, 100, z -> z^2))
+
+
+# * View External for scripting
+#------------------------------------------------------------
+# using GR
+# GR.imshow(make_picture(500, 500, z -> z^2))
+# print("Press any key")
+# readline()
+
+# @time make_picture(20000, 20000, z -> z^2)
 #
 # Scale appears to be linear
 #   100^2 is 0.003
