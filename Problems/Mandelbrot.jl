@@ -41,23 +41,11 @@ end
 total = Dates.now() - start
 
 
-# # Plot and save the Image using 
-# using GR
-# hm = GR.imshow(pic_mat)
-# GR.savefig("/tmp/gr")
-# # This doesn't preserve quality...
-
-size(pic_mat)
-
 # Plot the Image using matplotlib (inside vscode)
 using PyPlot
 pic = PyPlot.imshow(pic_mat,interpolation="none")
-# colorbar()
 #PyPlot.savefig("/tmp/pyplot.tiff", dpi = 999)
-display(gcf())
-
 PyPlot.display_figs()
-
 
 if false
     using PlotlyJS
