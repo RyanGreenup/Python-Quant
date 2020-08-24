@@ -19,98 +19,640 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
-    \entry{lehmanReadingsMathematicsComputer2010}{online}{}
+    \entry{DataStructuresPython}{online}{}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labeltitlesource}{title}
+      \field{title}{5. {{Data Structures}} — {{Python}} 3.8.5 Documentation}
+      \field{urlday}{24}
+      \field{urlmonth}{8}
+      \field{urlyear}{2020}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/QG9FMCDF/datastructures.html
+      \endverb
+      \verb{urlraw}
+      \verb https://docs.python.org/3/tutorial/datastructures.html
+      \endverb
+      \verb{url}
+      \verb https://docs.python.org/3/tutorial/datastructures.html
+      \endverb
+    \endentry
+    \entry{benanderEmpiricalAnalysisDebugging2000}{article}{}
       \name{author}{3}{}{%
-        {{hash=e9354f7da9d5e5cbaf657bca9e1daf67}{%
-           family={Lehman},
-           familyi={L\bibinitperiod},
-           given={Eric},
-           giveni={E\bibinitperiod}}}%
-        {{hash=24aa5c49395c3600019d9a672fb58a9a}{%
-           family={Leighton},
-           familyi={L\bibinitperiod},
-           given={Tom},
-           giveni={T\bibinitperiod}}}%
-        {{hash=af3075f8415a9256e7a556b4abd5d97a}{%
-           family={Meyer},
-           familyi={M\bibinitperiod},
-           given={Albert},
-           giveni={A\bibinitperiod}}}%
+        {{hash=25b4351cde3e224050571a9d320f2bc1}{%
+           family={Benander},
+           familyi={B\bibinitperiod},
+           given={A.\bibnamedelimi C},
+           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=3ccbd7b906222aa35d1425fa084bc065}{%
+           family={Benander},
+           familyi={B\bibinitperiod},
+           given={B.\bibnamedelimi A},
+           giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=d01984c2a561f9744c121669ff911110}{%
+           family={Sang},
+           familyi={S\bibinitperiod},
+           given={Janche},
+           giveni={J\bibinitperiod}}}%
       }
-      \strng{namehash}{f16e742b1dc4d2cf7bf2d04c2faca163}
-      \strng{fullhash}{f16e742b1dc4d2cf7bf2d04c2faca163}
-      \strng{bibnamehash}{f16e742b1dc4d2cf7bf2d04c2faca163}
-      \strng{authorbibnamehash}{f16e742b1dc4d2cf7bf2d04c2faca163}
-      \strng{authornamehash}{f16e742b1dc4d2cf7bf2d04c2faca163}
-      \strng{authorfullhash}{f16e742b1dc4d2cf7bf2d04c2faca163}
-      \field{sortinit}{L}
-      \field{sortinithash}{dad3efd0836470093a7b4a7bb756eb8c}
+      \strng{namehash}{186c8e8927e7f601694ad5eec6e60897}
+      \strng{fullhash}{186c8e8927e7f601694ad5eec6e60897}
+      \strng{bibnamehash}{186c8e8927e7f601694ad5eec6e60897}
+      \strng{authorbibnamehash}{186c8e8927e7f601694ad5eec6e60897}
+      \strng{authornamehash}{186c8e8927e7f601694ad5eec6e60897}
+      \strng{authorfullhash}{186c8e8927e7f601694ad5eec6e60897}
+      \field{sortinit}{B}
+      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{This section contains the course notes, Mathematics for Computer Science.}
-      \field{day}{8}
-      \field{journaltitle}{MIT Open Courseware}
+      \field{abstract}{An experiment involving more than 500 responses from over 250 subjects was conducted for the purpose of identifying differences in debugging performance among subjects who debugged iterative code and those who debugged recursive code. The subjects, classified as novices or experienced, based on programming experience, were asked to locate and fix a single logical bug in small segments of C code. Two different tasks – searching a linked list and copying a linked list, were used in the experiment. Statistical analyses yielded the following significant results: (i) 63.2\% of all subjects located the bug in the recursive constructs compared to 41.5\% for the iterative constructs (p{$<$}.00001); (ii) Grouped by task, and level of programmer experience, there were significantly more correct responses for the recursive code than for the iterative code (p{$<$}.02 in all four groupings); (iii) In terms of locating and fixing the bug, more responses were correct for the recursive version of the copy task than for the iterative version (p=.01875). Results of a t-test procedure showed no significant difference between the iterative and recursive constructs in terms of mean times needed for successful completion of the debugging tasks.}
+      \field{day}{30}
+      \field{issn}{0164-1212}
+      \field{journaltitle}{Journal of Systems and Software}
       \field{langid}{english}
       \field{month}{9}
-      \field{title}{Readings | {{Mathematics}} for {{Computer Science}} | {{Electrical Engineering}} and {{Computer Science}} | {{MIT OpenCourseWare}}}
-      \field{urlday}{10}
+      \field{number}{1}
+      \field{shortjournal}{Journal of Systems and Software}
+      \field{title}{An Empirical Analysis of Debugging Performance – Differences between Iterative and Recursive Constructs}
+      \field{urlday}{24}
+      \field{urlmonth}{8}
+      \field{urlyear}{2020}
+      \field{volume}{54}
+      \field{year}{2000}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{17\bibrangedash 28}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1016/S0164-1212(00)00023-6
+      \endverb
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/DP9MF5B7/benanderEmpiricalAnalysisDebugging2000.pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://www.sciencedirect.com/science/article/pii/S0164121200000236
+      \endverb
+      \verb{url}
+      \verb http://www.sciencedirect.com/science/article/pii/S0164121200000236
+      \endverb
+      \keyw{Debugging,Iteration,Recursion}
+    \endentry
+    \entry{bohmReducingRecursionIteration1986}{incollection}{}
+      \name{author}{1}{}{%
+        {{hash=2f8b5d1197c68ea81b15220f03c509bf}{%
+           family={Böhm},
+           familyi={B\bibinitperiod},
+           given={Corrado},
+           giveni={C\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=999565c842ad466eda83377fd1138fad}{%
+           family={Robinet},
+           familyi={R\bibinitperiod},
+           given={Bernard},
+           giveni={B\bibinitperiod}}}%
+        {{hash=9802a5637b3d98da7452e0ef8d245e5d}{%
+           family={Wilhelm},
+           familyi={W\bibinitperiod},
+           given={Reinhard},
+           giveni={R\bibinitperiod}}}%
+      }
+      \name{editorb}{12}{}{%
+        {{hash=1410100ca4fa17218066c24260b3fe02}{%
+           family={Goos},
+           familyi={G\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=383e5d552f1181e9b6fef5fae3fdee70}{%
+           family={Hartmanis},
+           familyi={H\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=ae99cadbcf254cd9509e07a80a88a990}{%
+           family={Barstow},
+           familyi={B\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=7564ee86b8252b4cf98e90856fb3f4e7}{%
+           family={Brauer},
+           familyi={B\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+        {{hash=0317ee98749191619b6f6ac7fee27deb}{%
+           family={Brinch\bibnamedelima Hansen},
+           familyi={B\bibinitperiod\bibinitdelim H\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=ba4e7e635387d19ff36533005ac62452}{%
+           family={Gries},
+           familyi={G\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=ce4e6424b341dc7c5884e5deabead411}{%
+           family={Luckham},
+           familyi={L\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=da4084e6ef1e80b2ea7568d1f1fd8d29}{%
+           family={Moler},
+           familyi={M\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=e84ce1b23682e35f78bc43024826a300}{%
+           family={Pnueli},
+           familyi={P\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=90f788f7f6529b6a02aae779e715bce0}{%
+           family={Seegmüller},
+           familyi={S\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=3ff2a63397fad1c9dd5ef11b61e0139a}{%
+           family={Stoer},
+           familyi={S\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=7f7aa633cbf63c5b9fb436e4c03d4ec2}{%
+           family={Wirth},
+           familyi={W\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer Berlin Heidelberg}%
+      }
+      \strng{namehash}{2f8b5d1197c68ea81b15220f03c509bf}
+      \strng{fullhash}{2f8b5d1197c68ea81b15220f03c509bf}
+      \strng{bibnamehash}{2f8b5d1197c68ea81b15220f03c509bf}
+      \strng{authorbibnamehash}{2f8b5d1197c68ea81b15220f03c509bf}
+      \strng{authornamehash}{2f8b5d1197c68ea81b15220f03c509bf}
+      \strng{authorfullhash}{2f8b5d1197c68ea81b15220f03c509bf}
+      \strng{editorbibnamehash}{615388917d7231adffedab4bd419a0f5}
+      \strng{editornamehash}{615388917d7231adffedab4bd419a0f5}
+      \strng{editorfullhash}{615388917d7231adffedab4bd419a0f5}
+      \strng{editorbbibnamehash}{7c0426af966886e0e86ee4244f38b3f3}
+      \strng{editorbnamehash}{7c0426af966886e0e86ee4244f38b3f3}
+      \strng{editorbfullhash}{92c3074310f80097c370ede3f6382879}
+      \field{extraname}{1}
+      \field{sortinit}{B}
+      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{booktitle}{{{ESOP}} 86}
+      \field{editorbtype}{redactor}
+      \field{isbn}{978-3-540-16442-5 978-3-540-39782-3}
+      \field{langid}{english}
+      \field{series}{Lecture {{Notes}} in {{Computer Science}}}
+      \field{shorttitle}{Reducing Recursion to Iteration by Algebraic Extension}
+      \field{title}{Reducing Recursion to Iteration by Algebraic Extension: {{Extended}} Abstract}
+      \field{urlday}{24}
+      \field{urlmonth}{8}
+      \field{urlyear}{2020}
+      \field{volume}{213}
+      \field{year}{1986}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{111\bibrangedash 118}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1007/3-540-16442-1_8
+      \endverb
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/63ZAE96Y/bohmReducingRecursionIteration1986.pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://link.springer.com/10.1007/3-540-16442-1_8
+      \endverb
+      \verb{url}
+      \verb http://link.springer.com/10.1007/3-540-16442-1_8
+      \endverb
+    \endentry
+    \entry{bohmReducingRecursionIteration1988}{incollection}{}
+      \name{author}{1}{}{%
+        {{hash=2f8b5d1197c68ea81b15220f03c509bf}{%
+           family={Böhm},
+           familyi={B\bibinitperiod},
+           given={Corrado},
+           giveni={C\bibinitperiod}}}%
+      }
+      \name{editor}{3}{}{%
+        {{hash=f7c56bf9a2f08843ce00b1cea8edaf10}{%
+           family={Boscarol},
+           familyi={B\bibinitperiod},
+           given={Mauro},
+           giveni={M\bibinitperiod}}}%
+        {{hash=11bfb9fc004a3c2aacc825c7c9f1ee63}{%
+           family={Carlucci\bibnamedelima Aiello},
+           familyi={C\bibinitperiod\bibinitdelim A\bibinitperiod},
+           given={Luigia},
+           giveni={L\bibinitperiod}}}%
+        {{hash=29755ad1b90edf13841fb9d65760a85b}{%
+           family={Levi},
+           familyi={L\bibinitperiod},
+           given={Giorgio},
+           giveni={G\bibinitperiod}}}%
+      }
+      \name{editorb}{12}{}{%
+        {{hash=1410100ca4fa17218066c24260b3fe02}{%
+           family={Goos},
+           familyi={G\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=383e5d552f1181e9b6fef5fae3fdee70}{%
+           family={Hartmanis},
+           familyi={H\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=ae99cadbcf254cd9509e07a80a88a990}{%
+           family={Barstow},
+           familyi={B\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=7564ee86b8252b4cf98e90856fb3f4e7}{%
+           family={Brauer},
+           familyi={B\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+        {{hash=0317ee98749191619b6f6ac7fee27deb}{%
+           family={Brinch\bibnamedelima Hansen},
+           familyi={B\bibinitperiod\bibinitdelim H\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=ba4e7e635387d19ff36533005ac62452}{%
+           family={Gries},
+           familyi={G\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=ce4e6424b341dc7c5884e5deabead411}{%
+           family={Luckham},
+           familyi={L\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=da4084e6ef1e80b2ea7568d1f1fd8d29}{%
+           family={Moler},
+           familyi={M\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=e84ce1b23682e35f78bc43024826a300}{%
+           family={Pnueli},
+           familyi={P\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=90f788f7f6529b6a02aae779e715bce0}{%
+           family={Seegmüller},
+           familyi={S\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=3ff2a63397fad1c9dd5ef11b61e0139a}{%
+           family={Stoer},
+           familyi={S\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=7f7aa633cbf63c5b9fb436e4c03d4ec2}{%
+           family={Wirth},
+           familyi={W\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer Berlin Heidelberg}%
+      }
+      \strng{namehash}{2f8b5d1197c68ea81b15220f03c509bf}
+      \strng{fullhash}{2f8b5d1197c68ea81b15220f03c509bf}
+      \strng{bibnamehash}{2f8b5d1197c68ea81b15220f03c509bf}
+      \strng{authorbibnamehash}{2f8b5d1197c68ea81b15220f03c509bf}
+      \strng{authornamehash}{2f8b5d1197c68ea81b15220f03c509bf}
+      \strng{authorfullhash}{2f8b5d1197c68ea81b15220f03c509bf}
+      \strng{editorbibnamehash}{00af05d2e2e41891098abcf742453c68}
+      \strng{editornamehash}{00af05d2e2e41891098abcf742453c68}
+      \strng{editorfullhash}{00af05d2e2e41891098abcf742453c68}
+      \strng{editorbbibnamehash}{7c0426af966886e0e86ee4244f38b3f3}
+      \strng{editorbnamehash}{7c0426af966886e0e86ee4244f38b3f3}
+      \strng{editorbfullhash}{92c3074310f80097c370ede3f6382879}
+      \field{extraname}{2}
+      \field{sortinit}{B}
+      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Foundations of {{Logic}} and {{Functional Programming}}}
+      \field{editorbtype}{redactor}
+      \field{isbn}{978-3-540-19129-2 978-3-540-39126-5}
+      \field{series}{Lecture {{Notes}} in {{Computer Science}}}
+      \field{title}{Reducing Recursion to Iteration by Means of Pairs and {{N}}-Tuples}
+      \field{urlday}{24}
+      \field{urlmonth}{8}
+      \field{urlyear}{2020}
+      \field{volume}{306}
+      \field{year}{1988}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{58\bibrangedash 66}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1007/3-540-19129-1_3
+      \endverb
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/LH5I6MZL/bohmReducingRecursionIteration1988.pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://link.springer.com/10.1007/3-540-19129-1_3
+      \endverb
+      \verb{url}
+      \verb http://link.springer.com/10.1007/3-540-19129-1_3
+      \endverb
+    \endentry
+    \entry{friedMathematicsSciencePatterns2010}{article}{}
+      \name{author}{1}{}{%
+        {{hash=22440b5abbbf40d01e65812a4acb6305}{%
+           family={Fried},
+           familyi={F\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{22440b5abbbf40d01e65812a4acb6305}
+      \strng{fullhash}{22440b5abbbf40d01e65812a4acb6305}
+      \strng{bibnamehash}{22440b5abbbf40d01e65812a4acb6305}
+      \strng{authorbibnamehash}{22440b5abbbf40d01e65812a4acb6305}
+      \strng{authornamehash}{22440b5abbbf40d01e65812a4acb6305}
+      \strng{authorfullhash}{22440b5abbbf40d01e65812a4acb6305}
+      \field{sortinit}{F}
+      \field{sortinithash}{fb0c0faa89eb6abae8213bf60e6799ea}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{entrysubtype}{magazine}
+      \field{journaltitle}{Convergence}
+      \field{month}{8}
+      \field{title}{Mathematics as the {{Science}} of {{Patterns}} - {{Mathematics}} as the {{Science}} of {{Patterns}} | {{Mathematical Association}} of {{America}}}
+      \field{urlday}{24}
       \field{urlmonth}{8}
       \field{urlyear}{2020}
       \field{year}{2010}
       \field{dateera}{ce}
       \field{urldateera}{ce}
-      \verb{file}
-      \verb /home/ryan/Zotero/storage/T8MH77LS/readings.html
-      \endverb
       \verb{urlraw}
-      \verb https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/readings/
+      \verb https://www.maa.org/press/periodicals/convergence/mathematics-as-the-science-of-patterns-mathematics-as-the-science-of-patterns
       \endverb
       \verb{url}
-      \verb https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/readings/
+      \verb https://www.maa.org/press/periodicals/convergence/mathematics-as-the-science-of-patterns-mathematics-as-the-science-of-patterns
       \endverb
     \endentry
-    \entry{nicodemiIntroductionAbstractAlgebra2007}{book}{}
-      \name{author}{3}{}{%
-        {{hash=c4c18a360dba4df7294730d2aa312b46}{%
-           family={Nicodemi},
-           familyi={N\bibinitperiod},
-           given={Olympia},
-           giveni={O\bibinitperiod}}}%
-        {{hash=251e87cdbe6e2d924c77289bb1ee47d6}{%
-           family={Sutherland},
-           familyi={S\bibinitperiod},
-           given={Melissa\bibnamedelima A.},
-           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=085b8b7f038738c294ca1b1711b92971}{%
-           family={Towsley},
-           familyi={T\bibinitperiod},
-           given={Gary\bibnamedelima W.},
-           giveni={G\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+    \entry{hardyMathematicianApology2012}{book}{}
+      \name{author}{1}{}{%
+        {{hash=9d761c354d534c74e69f17afcc78fea8}{%
+           family={Hardy},
+           familyi={H\bibinitperiod},
+           given={G.\bibnamedelimi H},
+           giveni={G\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
       }
-      \list{location}{1}{%
-        {Upper Saddle River, NJ}%
-      }
-      \list{publisher}{1}{%
-        {Pearson Prentice Hall}%
-      }
-      \strng{namehash}{c65809013899687a317846080ba75019}
-      \strng{fullhash}{c65809013899687a317846080ba75019}
-      \strng{bibnamehash}{c65809013899687a317846080ba75019}
-      \strng{authorbibnamehash}{c65809013899687a317846080ba75019}
-      \strng{authornamehash}{c65809013899687a317846080ba75019}
-      \strng{authorfullhash}{c65809013899687a317846080ba75019}
-      \field{sortinit}{N}
-      \field{sortinithash}{98cf339a479c0454fe09153a08675a15}
+      \strng{namehash}{9d761c354d534c74e69f17afcc78fea8}
+      \strng{fullhash}{9d761c354d534c74e69f17afcc78fea8}
+      \strng{bibnamehash}{9d761c354d534c74e69f17afcc78fea8}
+      \strng{authorbibnamehash}{9d761c354d534c74e69f17afcc78fea8}
+      \strng{authornamehash}{9d761c354d534c74e69f17afcc78fea8}
+      \strng{authorfullhash}{9d761c354d534c74e69f17afcc78fea8}
+      \field{sortinit}{H}
+      \field{sortinithash}{6db6145dae8dc9e1271a8d556090b50a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{annotation}{Includes bibliographic references (S. 391-394) and index}
-      \field{isbn}{978-0-13-101963-8}
+      \field{isbn}{978-1-107-29559-9 978-1-107-60463-6}
       \field{langid}{english}
-      \field{note}{OCLC: 253915717}
-      \field{pagetotal}{436}
-      \field{title}{An Introduction to Abstract Algebra with Notes to the Future Teacher}
-      \field{year}{2007}
+      \field{note}{OCLC: 1172189203}
+      \field{title}{A {{Mathematician}}'s {{Apology}}}
+      \field{urlday}{24}
+      \field{urlmonth}{8}
+      \field{urlyear}{2020}
+      \field{year}{2012}
       \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1017/CBO9781107295599
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1017/CBO9781107295599
+      \endverb
+    \endentry
+    \entry{hazratMathematicaProblemCenteredApproach2015}{book}{}
+      \name{author}{1}{}{%
+        {{hash=0d3a339c84be049fd891824f62a4e6ee}{%
+           family={Hazrat},
+           familyi={H\bibinitperiod},
+           given={Roozbeh},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer International Publishing : Imprint: Springer}%
+      }
+      \strng{namehash}{0d3a339c84be049fd891824f62a4e6ee}
+      \strng{fullhash}{0d3a339c84be049fd891824f62a4e6ee}
+      \strng{bibnamehash}{0d3a339c84be049fd891824f62a4e6ee}
+      \strng{authorbibnamehash}{0d3a339c84be049fd891824f62a4e6ee}
+      \strng{authornamehash}{0d3a339c84be049fd891824f62a4e6ee}
+      \strng{authorfullhash}{0d3a339c84be049fd891824f62a4e6ee}
+      \field{sortinit}{H}
+      \field{sortinithash}{6db6145dae8dc9e1271a8d556090b50a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{This textbook introduces the vast array of features and powerful mathematical functions of Mathematica using a multitude of clearly presented examples and worked-out problems. Each section starts with a description of a new topic and some basic examples. The author then demonstrates the use of new commands through three categories of problems - the first category highlights those essential parts of the text that demonstrate the use of new commands in Mathematica whilst solving each problem presented; - the second comprises problems that further demonstrate the use of commands previously introduced to tackle different situations; and - the third presents more challenging problems for further study. The intention is to enable the reader to learn from the codes, thus avoiding long and exhausting explanations. While based on a computer algebra course taught to undergraduate students of mathematics, science, engineering and finance, the book also includes chapters on calculus and solving equations, and graphics, thus covering all the basic topics in Mathematica. With its strong focus upon programming and problem solving, and an emphasis on using numerical problems that do not need any particular background in mathematics, this book is also ideal for self-study and as an introduction to researchers who wish to use Mathematica as a computational tool. This new edition has been extensively revised and updated, and includes new chapters with problems and worked examples}
+      \field{annotation}{Introduction -- Basics -- Defining functions -- Lists -- Changing heads! -- A bit of logic and set theory -- Sums and products -- Loops and repetitions -- Substitutions, Mathematica rules -- Pattern matching -- Functions with multiple definitions -- Recursive functions -- Linear algebra -- Graphics -- Calculus and equations -- Worked out projects -- Projects -- Solutions to the Exercises -- Further reading -- Bibliography -- Index}
+      \field{edition}{2nd ed. 2015}
+      \field{isbn}{978-3-319-27585-7}
+      \field{pagetotal}{1}
+      \field{series}{Springer {{Undergraduate Mathematics Series}}}
+      \field{shorttitle}{{{Mathematica}}®}
+      \field{title}{{{Mathematica}}®: {{A Problem}}-{{Centered Approach}}}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \verb{doi}
+      \verb 10.1007/978-3-319-27585-7
+      \endverb
+      \keyw{Computer science-Mathematics,Computer software,Mathematical Software,Programming languages (Electronic computers),Programming Languages; Compilers; Interpreters,Symbolic and Algebraic Manipulation}
+    \endentry
+    \entry{IterationVsRecursion2016}{online}{}
+      \field{sortinit}{I}
+      \field{sortinithash}{9417e9a1288a9371e2691d999083ed39}
+      \field{labeltitlesource}{title}
+      \field{day}{19}
+      \field{month}{12}
+      \field{title}{Iteration vs. Recursion - {{CS 61A Wiki}}}
+      \field{urlday}{24}
+      \field{urlmonth}{8}
+      \field{urlyear}{2020}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/SVFCL3XP/Iteration_vs.html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.ocf.berkeley.edu/~shidi/cs61a/wiki/Iteration_vs._recursion
+      \endverb
+      \verb{url}
+      \verb https://www.ocf.berkeley.edu/~shidi/cs61a/wiki/Iteration_vs._recursion
+      \endverb
+    \endentry
+    \entry{MultidimensionalArraysJulia}{online}{}
+      \field{sortinit}{M}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labeltitlesource}{title}
+      \field{title}{Multi-Dimensional {{Arrays}} · {{The Julia Language}}}
+      \field{urlday}{24}
+      \field{urlmonth}{8}
+      \field{urlyear}{2020}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/QBD52U27/arrays.html
+      \endverb
+      \verb{urlraw}
+      \verb https://docs.julialang.org/en/v1/manual/arrays/#man-comprehensions-1
+      \endverb
+      \verb{url}
+      \verb https://docs.julialang.org/en/v1/manual/arrays/#man-comprehensions-1
+      \endverb
+    \endentry
+    \entry{sinhaCognitiveFitEmpirical1992}{article}{}
+      \name{author}{2}{}{%
+        {{hash=7494081aa768a3b6bc7105bac4d28c38}{%
+           family={Sinha},
+           familyi={S\bibinitperiod},
+           given={A.P.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=aa4d59904472062f50abab8f83dc8117}{%
+           family={Vessey},
+           familyi={V\bibinitperiod},
+           given={I.},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{b01e000780f20bebc65276d7a2e8ca52}
+      \strng{fullhash}{b01e000780f20bebc65276d7a2e8ca52}
+      \strng{bibnamehash}{b01e000780f20bebc65276d7a2e8ca52}
+      \strng{authorbibnamehash}{b01e000780f20bebc65276d7a2e8ca52}
+      \strng{authornamehash}{b01e000780f20bebc65276d7a2e8ca52}
+      \strng{authorfullhash}{b01e000780f20bebc65276d7a2e8ca52}
+      \field{sortinit}{S}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{annotation}{Choose the Right Language for the Right Job}
+      \field{issn}{00985589}
+      \field{journaltitle}{IEEE Transactions on Software Engineering}
+      \field{month}{5}
+      \field{number}{5}
+      \field{shortjournal}{IIEEE Trans. Software Eng.}
+      \field{shorttitle}{Cognitive Fit}
+      \field{title}{Cognitive Fit: An Empirical Study of Recursion and Iteration}
+      \field{urlday}{24}
+      \field{urlmonth}{8}
+      \field{urlyear}{2020}
+      \field{volume}{18}
+      \field{year}{1992}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{368\bibrangedash 379}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1109/32.135770
+      \endverb
+      \verb{urlraw}
+      \verb http://ieeexplore.ieee.org/document/135770/
+      \endverb
+      \verb{url}
+      \verb http://ieeexplore.ieee.org/document/135770/
+      \endverb
+    \endentry
+    \entry{smolarskiMath60Notes2000}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=a0b7f48c792f9a06d32bbf9eef40111b}{%
+           family={Smolarski},
+           familyi={S\bibinitperiod},
+           given={S},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Santa Clara University, Department of Mathematics and Computer Science}%
+      }
+      \strng{namehash}{a0b7f48c792f9a06d32bbf9eef40111b}
+      \strng{fullhash}{a0b7f48c792f9a06d32bbf9eef40111b}
+      \strng{bibnamehash}{a0b7f48c792f9a06d32bbf9eef40111b}
+      \strng{authorbibnamehash}{a0b7f48c792f9a06d32bbf9eef40111b}
+      \strng{authornamehash}{a0b7f48c792f9a06d32bbf9eef40111b}
+      \strng{authorfullhash}{a0b7f48c792f9a06d32bbf9eef40111b}
+      \field{sortinit}{S}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{9}
+      \field{month}{2}
+      \field{title}{Math 60 -- {{Notes A3}}: {{Recursion}} vs. {{Iteration}}}
+      \field{urlday}{24}
+      \field{urlmonth}{8}
+      \field{urlyear}{2020}
+      \field{year}{2000}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/AYCTGZVE/notesa3.html
+      \endverb
+      \verb{urlraw}
+      \verb http://math.scu.edu/~dsmolars/ma60/notesa3.html
+      \endverb
+      \verb{url}
+      \verb http://math.scu.edu/~dsmolars/ma60/notesa3.html
+      \endverb
+    \endentry
+    \entry{spraulHowSoftwareWorks2015}{book}{}
+      \name{author}{1}{}{%
+        {{hash=0376c62842c5d2fafb48383212587700}{%
+           family={Spraul},
+           familyi={S\bibinitperiod},
+           given={V.\bibnamedelimi Anton},
+           giveni={V\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {San Francisco}%
+      }
+      \list{publisher}{1}{%
+        {No Starch Press}%
+      }
+      \strng{namehash}{0376c62842c5d2fafb48383212587700}
+      \strng{fullhash}{0376c62842c5d2fafb48383212587700}
+      \strng{bibnamehash}{0376c62842c5d2fafb48383212587700}
+      \strng{authorbibnamehash}{0376c62842c5d2fafb48383212587700}
+      \strng{authornamehash}{0376c62842c5d2fafb48383212587700}
+      \strng{authorfullhash}{0376c62842c5d2fafb48383212587700}
+      \field{sortinit}{S}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{"A guide for non-technical readers that explores topics like data encryption; computer graphics creation; password protection; video compression; how data is found in huge databases; how programs can work together on the same problem without conflict; and how map software finds routes."--}
+      \field{annotation}{Includes index}
+      \field{isbn}{978-1-59327-666-9}
+      \field{pagetotal}{198}
+      \field{shorttitle}{How Software Works}
+      \field{title}{How Software Works: The Magic behind Encryption, {{CGI}}, Search Engines, and Other Everyday Technologies}
+      \field{urlday}{24}
+      \field{urlmonth}{8}
+      \field{urlyear}{2020}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://learning.oreilly.com/library/view/how-software-works/9781457189968/
+      \endverb
+      \verb{url}
+      \verb https://learning.oreilly.com/library/view/how-software-works/9781457189968/
+      \endverb
+      \keyw{Computer networks,Computer software,Electronic data processing,Popular works}
     \endentry
   \enddatalist
 \endrefsection

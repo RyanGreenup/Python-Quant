@@ -34,7 +34,11 @@
 % Titlesec is incompatible with org-mode
 % *** Multi Column
 \setlength{\tabcolsep}{6pt}
-\twocolumn
+% \twocolumn
+\RequirePackage{cuted} % https://tex.stackexchange.com/a/255115 This let's us
+                       % use \begin{strip}\end{strip} which forces an equation
+                       % over all columns
+
 % ** Styles
 %\RequirePackage{titlesec} % Section Colours
 % *** Colours

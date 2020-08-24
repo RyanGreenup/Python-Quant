@@ -1,4 +1,4 @@
-#+TITLE: Research Outline
+#+TITLE: Thinking about Problems
 :PREAMBLE:
 #+OPTIONS: broken-links:auto todo:nil H:9
 #+STARTUP: content
@@ -26,42 +26,269 @@
 #+LATEX_HEADER: \addbibresource{../Resources/references.bib}
 :END:
 
+* Introduction
 
+During preperation for this outline, an article published by the /Mathematical
+Association of America/ caught my attention, in which mathematics is referred to
+as the /Science of Patterns/ cite:friedMathematicsSciencePatterns2010, this I
+feel, frames very well the essence of the research we are looking at in this
+project. Mathematics, generally, is primarily concerned with problem solving
+(that isn't, however, to say that the problems need to have any
+application[fn:rv]), and it's fairly obvious that different strategies work
+better for different problems. That's what we want to investigate, Different to
+attack a problem, different ways of thinking, different ways of framing
+questions.
+
+The central focus of this investigation will be with computer algebra and the
+various libraries and packages that exist in the free open source [fn:op] space to solve
+and visualise numeric and symbolic problems, these include:
+
+    + Programming Languages and CAS
+      - Julia
+        + SymEngine
+      - Maxima
+        + Being the oldest there is probably a lot too learn
+      - Julia
+      - Reduce
+      - Xcas/Gias
+      - Python
+        + Numpy
+        + Sympy
+    + Visualisation
+      - Makie
+      - Plotly
+      - GNUPlot
+
+
+Many problems that look complex upon initial inspection can be solved trivially
+by using computer algebra packages and our interest is in the different
+approaches that can be taken to /attack/ each problem. Of course however this leads to the question:
+
+
+#+begin_quote
+Can all mathematical problems be solved by some application of some set of rules?
+#+end_quote
+
+This is not really a question that we can answer, however, determinism with
+respect to systems is appears to make a very good area of investigation with respect to finding ways to deal with problems.
+
+This is not an easy question to answer, however, while investigating this problem
+
+
+
+Determinism
+
+Are problems deterministic? can the be broken down into a step by step way? For
+example if we /discover all the rules/ can we then simply solve all the problems?
+
+chaos to look at patterns generally to get a deeper understanding of patterns
+and problems, loops and recursion generally.
+
+To investigate different ways of thinking about math problems our investigation
+
+laplaces demon
+
+but then heisenberg,
+
+but then chaos and meh.
+
+** Preliminary Problems
+*** Iteration and Recursion
+   :PROPERTIES:
+   :CUSTOM_ID: series-and-recursion
+   :END:
+To illustrate an example of different ways of thinking about a problem, consider the series shown in eqref:eq:rec-ser[fn:pja] :
+
+\begin{align}
+    g\left( k \right) &=  \frac{\sqrt{2} }{2} \cdot   \frac{\sqrt{2+  \sqrt{3}}  }{3} \frac{\sqrt{2 +  \sqrt{3 +  \sqrt{4} } } }{4} \cdot  \ldots \frac{\sqrt{2 +  \sqrt{3 +  \ldots +  \sqrt{k} } } }{k} \label{eq:rec-ser}
+\end{align}
+
+let's modify this for the sake of discussion:
+
+\begin{align}
+h\left( k \right) = \frac{\sqrt{2}  }{2} \cdot  \frac{\sqrt{3 +  \sqrt{2} } }{3} \cdot  \frac{\sqrt{4 +  \sqrt{3 +  \sqrt{2} } } }{4} \cdot  \ldots \cdot  \frac{\sqrt{k +  \sqrt{k - 1 +  \ldots \sqrt{3 + \sqrt{2}  } } } }{k} \label{eq:rec-ser-mod}
+\end{align}
+
+The function $h$ can be expressed by the series:
+
+$$\begin{aligned}
+h\left( k \right) = \prod^k_{i = 2} \left( \frac{f_i}{i}  \right)  \quad : \quad f_i = \sqrt{i +  f_{i - 1}}, \enspace f_{1} = 1
+\end{aligned}$$
+
+Within /Python/, it isn't difficult to express $h$, the series can be expressed with recursion as shown in listing [[rec-one]], this is a very natural way to define series and sequences and is consistent with familiar mathematical thought and notation. Individuals more familiar with programming than analysis may find it more comfortable to use an iterator as shown in listing [[it-one]].
+
+#+NAME: rec-one
+#+CAPTION: Solving eqref:eq:rec-ser-mod using recursion.
+#+BEGIN_SRC python
+from sympy import *
+def h(k):
+    if k > 2:
+        return f(k) * f(k-1)
+    else:
+        return 1
+
+def f(i):
+    expr = 0
+    if i > 2:
+        return sqrt(i + f(i -1))
+    else:
+        return 1
+#+END_SRC
+
+
+#+NAME: it-one
+#+CAPTION: Solving eqref:eq:rec-ser-mod by using a ~for~ loop.
+#+BEGIN_SRC python
+  from sympy import *
+  def h(k):
+      k = k + 1 # OBOB
+      l = [f(i) for i in range(1,k)]
+      return prod(l)
+
+  def f(k):
+      expr = 0
+      for i in range(2, k+2):
+          expr = sqrt(i + expr, evaluate=False)
+      return expr/(k+1)
+#+END_SRC
+
+Any function that can be defined by using iteration, can always be defined via
+recursion and vice versa,
+cite:bohmReducingRecursionIteration1988,bohmReducingRecursionIteration1986
+see also
+cite:smolarskiMath60Notes2000,IterationVsRecursion2016
+
+there is, however, evidence to suggest that recursive functions are easier for people to understand cite:benanderEmpiricalAnalysisDebugging2000 . Although independent research has shown that the specific language chosen can have a bigger effect on how well recursive as opposed to iterative code is understood cite:sinhaCognitiveFitEmpirical1992.
+
+The relevant question is which method is often more appropriate, generally the process for
+determining which is more appropriate is to the effect of:
+
+1. Write the problem in a way that is easier to write or is more
+   appropriate for demonstration
+2. If performance is a concern then consider restructuring in favour of iteration
+   - For interpreted languages such */R/* and /Python/, loops are usually
+     faster, because of the overheads involved in creating functions
+     cite:smolarskiMath60Notes2000 although there may be exceptions to this and
+     I'm not sure if this would be true for compiled languages such as /Julia/,
+     /Java/, */C/* etc.
+
+**** Some Functions are more difficult to express with Recursion in
+:PROPERTIES:
+    :CUSTOM_ID: some-functions-are-more-difficult-to-express-with-recursion-in-python
+    :END:
+
+Attacking a problem recursively isn't always the best approach, consider the function $g\left( k \right)$ from eqref:eq:rec-ser:
+
+
+\begin{align}
+    g\left( k \right) &=  \frac{\sqrt{2} }{2} \cdot   \frac{\sqrt{2+  \sqrt{3}}  }{3} \frac{\sqrt{2 +  \sqrt{3 +  \sqrt{4} } } }{4} \cdot  \ldots \frac{\sqrt{2 +  \sqrt{3 +  \ldots +  \sqrt{k} } } }{k} \nonumber \\
+    &=  \prod^k_{i = 2} \left( \frac{f_i}{i}  \right) \quad : \quad f_{i} = \sqrt{i +  f_{i+1}} \nonumber
+\end{align}
+
+Observe that the difference between eqref:eq:rec-ser and eqref:eq:rec-ser-mod is
+that the sequence essentially /looks/ forward, not back. To solve using a =for=
+loop, this distinction is a non-concern because the list can be reversed using a built-in
+such as =rev=, =reversed= or =reverse= in /Python/, */R/* and /Julia/
+respectively, which means the same expression can be implemented.
+
+To implement recursion however, the series needs to be restructured and this can become a little clumsy, see eqref:eq:clumsy:
+
+\begin{align}
+    g\left( k \right) &=  \prod^k_{i = 2} \left( \frac{f_i}{i}  \right) \quad : \quad f_{i} = \sqrt{\left( k- i \right)  +  f_{k - i - 1}} \label{eq:clumsy}
+\end{align}
+
+Now the function could be performed recursively in /Python/ in a similar
+way as shown in listing [[rec-two]], but it's also significantly more confusing because the $f$ function now has $k$ as a parameter and this is only made significantly more complicated by the variable scope of functions across common languages used in Mathematics and Data science such as ~bash~, /Python/, */R/* and /Julia/ (see section [[#variable-scope-nested]]).
+
+
+If however, the =for= loop approach was implemented, as shown in listing
+[[iter-two]], the function would not significantly change, because the =reversed()= function can be
+used to flip the list around.
+
+What this demonstrates is that taking a different approach to simply describing
+this function can lead to big differences in the complexity involved in solving
+this problem.
+
+#+NAME: rec-two
+#+CAPTION: Using Recursion to Solve eqref:eq:rec-ser
+#+BEGIN_SRC python
+from sympy import *
+def h(k):
+    if k > 2:
+        return f(k, k) * f(k, k-1)
+    else:
+        return 1
+
+def f(k, i):
+    if k > i:
+        return 1
+    if i > 2:
+        return sqrt((k-i) + f(k, k - i -1))
+    else:
+        return 1
+#+END_SRC
+
+
+#+NAME: iter-two
+#+CAPTION: Using Iteration to Solve eqref:eq:rec-ser
+#+BEGIN_SRC python
+from sympy import *
+def h(k):
+    k = k + 1 # OBOB
+    l = [f(i) for i in range(1,k)]
+    return prod(l)
+
+def f(k):
+    expr = 0
+    for i in reversed(range(2, k+2)):
+        expr = sqrt(i + expr, evaluate=False)
+    return expr/(k+1)
+#+END_SRC
+
+**** TODO Variable Scope of Nested Functions
+:PROPERTIES:
+:CUSTOM_ID: variable-scope-nested
+:END:
+*** TODO Fibonacci Sequency has some Math and leads into Chaos
+**** Show Ratios
+*** Persian Recursion
+*** MandelBrot
 
 * Outline
 1. Intro Prob
-2. Problem Showing Recursion
+2. Variable Scope
+3. Problem Showing Recursion
    + All Different Methods
      - Discuss all Different Methods
      - Discuss Vectorisation
      - Is this needed in Julia
      - Comment on Faster to go column Wise
-3. Discuss Loops
-4. Show Rug
-5. Fibonacci
+4. Discuss Loops
+5. Show Rug
+6. Fibonacci
    + The ratio of fibonacci converges to \phi
    + Golden Ratio
      - If you make a rectangle with the golden ratio you can cut it up under
        recursion to get another one, keep doing this and eventually a logarithmic
        spiral pops out, also the areas follow a fibonacci sequence.
-6. Discuss isomorphisms for recursive Relations
-7. Jump to Lorenz Attractor
-8. Now Talk about Morphogenesis
-9. Fractals
-   + Many Occur in Nature
-     - Mountain Ranges, compare to MandelBrot
-     - Sun Flowers
-     - Show the golden Ratio
-   + Fractals are all about recursion and iteration, so this gives me an excuse to look at them
-     - Show MandelBrot
-       + Python
-         - Sympy Slow
-         - Numpy Fast
-       + Julia brings Both Benefits
-         - Show Large MandelBrot
-       + Show Julia Set
-         - Show Julia Set Gif
-10. Things I'd like to show
+7. Discuss isomorphisms for recursive Relations
+8. Jump to Lorenz Attractor
+9. Now Talk about Morphogenesis
+10. Fractals
+    + Many Occur in Nature
+      - Mountain Ranges, compare to MandelBrot
+      - Sun Flowers
+      - Show the golden Ratio
+    + Fractals are all about recursion and iteration, so this gives me an excuse to look at them
+      - Show MandelBrot
+        + Python
+          - Sympy Slow
+          - Numpy Fast
+        + Julia brings Both Benefits
+          - Show Large MandelBrot
+        + Show Julia Set
+          - Show Julia Set Gif
+11. Things I'd like to show
     + Simulate stripes and animal patterns
     + Show some math behind spirals in Nautilus Shells
     + Golden Rectangle
@@ -73,11 +300,12 @@
     + Lorrenz Attractor
       - How is this connected to the lorrenz attractor
     + What are the connections between discrete iteration and continuous systems such as the julia set and the lorrenz attractor
-11. Things I'd like to Try (in order to see different ways to approach Problems)
+12. Things I'd like to Try (in order to see different ways to approach Problems)
     + Programming Languages and CAS
       - Julia
         + SymEngine
       - Maxima
+      - Julia
     + Visualisation
       - Makie
       - Plotly
@@ -401,10 +629,546 @@ AVOID DETAILS, JUST SKETCH THE PROJECT OUT.
 *** Slides In Org Mode
 - [[https://orgmode.org/worg/org-tutorials/non-beamer-presentations.html][Without Beamer]]
 - [[https://orgmode.org/worg/exporters/beamer/tutorial.html][With Beamer]]
+* Undecided
+*** Determinant
+Computational thinking can be useful in problems related to modelling, consider
+for example some matrix $n\times n$ matrix $B_n$ described by eqref:eq:bn-matrix :
 
+\begin{align}
+b_{ij} = \begin{cases}
+\frac{1}{2j- i^2}, &\text{ if } i > j \\
+\frac{i}{i- j}+  \frac{1}{n^2- j - i}, &\text{ if } j>i \\
+0 &\text{ if } i = j
+\end{cases} \label{eq:bn-matrix}
+\end{align}
+
+Is there a way to predict the determinant of such a matrix for large values?
+
+From the perspective of linear algebra this is an immensely difficult problem
+and there isn't really a clear place to start.
+
+From a numerical modelling perspective however, as will be shown, this a fairly trivial problem.
+
+
+**** Create the Matrix
+   :PROPERTIES:
+   :CUSTOM_ID: create-the-matrix
+   :END:
+
+Using /Python/ and =numpy=, a matrix can be generated as an =array= and by
+iterating through each element of the matrix values can be attributed like so:
+
+#+BEGIN_SRC python
+import numpy as np
+n = 2
+mymat = np.empty([n, n])
+for i in range(mymat.shape[0]):
+    for j in range(mymat.shape[1]):
+        print("(" + str(i) + "," + str(j) + ")")
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  (0,0)
+  (0,1)
+  (1,0)
+  (1,1)
+#+END_EXAMPLE
+
+and so to assign the values based on the condition in eqref:eq:bn-matrix, an
+=if= test can be used:
+
+#+BEGIN_SRC python
+  def BuildMat(n):
+      mymat = np.empty([n, n])
+      for i in range(n):
+          for j in range(n):
+              # Increment i and j by one because they count from zero
+              i += 1; j += 1
+              if (i > j):
+                  v = 1/(2*j - i**2)
+              elif (j > i):
+                  v = 1/(i-j) + 1/(n**2 - j - i)
+              else:
+                  v = 0
+              # Decrement i and j so the index lines up
+              i -= 1; j -= 1
+              mymat[j, i] = v
+      return mymat
+
+  BuildMat(3)
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  array([[ 0.        , -0.5       , -0.14285714],
+         [-0.83333333,  0.        , -0.2       ],
+         [-0.3       , -0.75      ,  0.        ]])
+#+END_EXAMPLE
+
+**** Find the Determinant
+   :PROPERTIES:
+   :CUSTOM_ID: find-the-determinant
+   :END:
+
+/Python/, being an object orientated language has methods belonging to objects of different types, in this case the =linalg= method has a =det= function that can be used to return the determinant of any given matrix like so:
+
+#+NAME: make-det
+#+CAPTION: Building a Function to return the determinant of the matrix described in eqref:eq:bn-matrix
+#+BEGIN_SRC python
+  def detMat(n):
+      ## Sympy
+      # return Determinant(BuildMat(n)).doit()
+      ## Numpy
+      return np.linalg.det(BuildMat(n))
+  detMat(3)
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  -0.11928571428571424
+#+END_EXAMPLE
+
+**** Find the Determinant of Various Values
+   :PROPERTIES:
+   :CUSTOM_ID: find-the-determinant-of-various-values
+   :END:
+
+To solve this problem, all that needs to be considered is the size of the $n$ and the corresponding determinant, this could be expressed as a set as shown in eqref:eq:set-determ:
+
+\begin{align}
+\left\{ \mathrm{det}\left( M(n) \right) \mid M \in \mathbb{Z}^{+} \leq 30  \right\} \label{eqref:eq:set-determ}
+\end{align}
+where:
+- $M$ is a function that transforms an integer to a matrix as per eqref:eq:bn-matrix
+
+Although describing the results as a set eqref:eqref:eq:set-determ is a little odd, it is consistent with the idea of list and set comprehension in /Python/ cite:DataStructuresPython and /Julia/ cite:MultidimensionalArraysJulia as shown in listing [[list-comp]]
+
+***** Generate a list of values
+    :PROPERTIES:
+    :CUSTOM_ID: instead-use-absolute-value
+    :END:
+Using the function created in listing [[make-det]], a corresponding list of values can be generated:
+
+#+NAME: list-comp
+#+CAPTION: Generate a list using list-comprehension
+#+BEGIN_SRC python
+  def detMat(n):
+      return abs(np.linalg.det(BuildMat(n)))
+
+  # We double all numbers using map()
+  result = map(detMat, range(30))
+
+  # print(list(result))
+  [round(num, 3) for num in list(result)]
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  [1.0,
+   0.0,
+   0.0,
+   0.119,
+   0.035,
+   0.018,
+   0.013,
+   0.01,
+   0.008,
+   0.006,
+   0.005,
+   0.004,
+   0.004,
+   0.003,
+   0.003,
+   0.002,
+   0.002,
+   0.002,
+   0.002,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001]
+#+END_EXAMPLE
+
+***** Create a Data Frame
+    :PROPERTIES:
+    :CUSTOM_ID: create-a-data-frame
+    :END:
+
+#+BEGIN_SRC python
+  import pandas as pd
+
+  data = {'Matrix.Size': range(30),
+          'Determinant.Value': list(map(detMat, range(30)))
+  }
+
+
+
+  df = pd.DataFrame(data, columns = ['Matrix.Size', 'Determinant.Value'])
+
+  print(df)
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  Matrix.Size  Determinant.Value
+  0             0           1.000000
+  1             1           0.000000
+  2             2           0.000000
+  3             3           0.119286
+  4             4           0.035258
+  5             5           0.018062
+  6             6           0.013023
+  7             7           0.009959
+  8             8           0.007822
+  9             9           0.006288
+  10           10           0.005158
+  11           11           0.004304
+  12           12           0.003645
+  13           13           0.003125
+  14           14           0.002708
+  15           15           0.002369
+  16           16           0.002090
+  17           17           0.001857
+  18           18           0.001661
+  19           19           0.001494
+  20           20           0.001351
+  21           21           0.001228
+  22           22           0.001121
+  23           23           0.001027
+  24           24           0.000945
+  25           25           0.000872
+  26           26           0.000807
+  27           27           0.000749
+  28           28           0.000697
+  29           29           0.000650
+#+END_EXAMPLE
+
+***** Plot the Data frame
+    :PROPERTIES:
+    :CUSTOM_ID: plot-the-data-frame
+    :END:
+
+Observe that it is necessary to use =copy=, /Julia/ and /Python/
+*unlike* /Mathematica/ and */R/* only create links between data, they do
+not create new objects, this can cause headaches when rounding data.
+
+#+BEGIN_SRC python
+  from plotnine import *
+  import copy
+
+  df_plot = copy.copy(df[3:])
+  df_plot['Determinant.Value'] = df_plot['Determinant.Value'].astype(float).round(3)
+  df_plot
+
+  (
+      ggplot(df_plot, aes(x = 'Matrix.Size', y = 'Determinant.Value')) +
+          geom_point() +
+          theme_bw() +
+          labs(x = "Matrix Size", y = "|Determinant Value|") +
+          ggtitle('Magnitude of Determinant Given Matrix Size')
+
+  )
+
+
+
+
+#+END_SRC
+
+[[file:e3d03c21dd72428e88b7fc2c722737046510dbb2.png]]
+
+#+BEGIN_EXAMPLE
+  <ggplot: (8770001690691)>
+#+END_EXAMPLE
+
+In this case it appears that the determinant scales exponentially, we
+can attempt to model that linearly using =scikit=, this is significantly
+more complex than simply using */R/*.
+[[https://towardsdatascience.com/linear-regression-in-6-lines-of-python-5e1d0cd05b8d][^lrpy]]
+
+#+BEGIN_SRC python
+  import numpy as np
+  import matplotlib.pyplot as plt  # To visualize
+  import pandas as pd  # To read data
+  from sklearn.linear_model import LinearRegression
+
+  df_slice = df[3:]
+
+  X = df_slice.iloc[:, 0].values.reshape(-1, 1)  # values converts it into a numpy array
+  Y = df_slice.iloc[:, 1].values.reshape(-1, 1)  # -1 means that calculate the dimension of rows, but have 1 column
+  linear_regressor = LinearRegression()  # create object for the class
+  linear_regressor.fit(X, Y)  # perform linear regression
+  Y_pred = linear_regressor.predict(X)  # make predictions
+
+
+
+  plt.scatter(X, Y)
+  plt.plot(X, Y_pred, color='red')
+  plt.show()
+#+END_SRC
+
+[[file:cabe1ce27b757dccdde64927e4d7938241825327.png]]
+
+#+BEGIN_SRC python
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  array([5.37864677])
+#+END_EXAMPLE
+
+**** Log Transform the Data
+   :PROPERTIES:
+   :CUSTOM_ID: log-transform-the-data
+   :END:
+
+The =log= function is actually provided by =sympy=, to do this quicker
+in =numpy= use =np.log()=
+
+#+BEGIN_SRC python
+  # # pyperclip.copy(df.columns[0])
+  # #df['Determinant.Value'] =
+  # #[ np.log(val) for val in df['Determinant.Value']]
+
+  df_log = df
+
+  df_log['Determinant.Value'] = [ np.log(val) for val in df['Determinant.Value'] ]
+
+#+END_SRC
+
+In order to only have well defined values, consider only after size 3
+
+#+BEGIN_SRC python
+  df_plot = df_log[3:]
+  df_plot
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+      Matrix.Size  Determinant.Value
+  3             3          -2.126234
+  4             4          -3.345075
+  5             5          -4.013934
+  6             6          -4.341001
+  7             7          -4.609294
+  8             8          -4.850835
+  9             9          -5.069048
+  10           10          -5.267129
+  11           11          -5.448099
+  12           12          -5.614501
+  13           13          -5.768414
+  14           14          -5.911529
+  15           15          -6.045230
+  16           16          -6.170659
+  17           17          -6.288765
+  18           18          -6.400347
+  19           19          -6.506082
+  20           20          -6.606547
+  21           21          -6.702237
+  22           22          -6.793585
+  23           23          -6.880964
+  24           24          -6.964704
+  25           25          -7.045094
+  26           26          -7.122390
+  27           27          -7.196822
+  28           28          -7.268592
+  29           29          -7.337885
+#+END_EXAMPLE
+
+A limitation of the /Python/ =plotnine= library (compared to /Ggplot2/
+in */R/*) is that it isn't possible to round values in the =aesthetics=
+layer, a further limitation with =pandas= also exists when compared to
+*/R/* that makes rounding data very clusy to do.
+
+In order to round data use the =numpy= library:
+
+#+BEGIN_SRC python
+  import pandas as pd
+  import numpy as np
+  df_plot['Determinant.Value'] = df_plot['Determinant.Value'].astype(float).round(3)
+  df_plot
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+      Matrix.Size  Determinant.Value
+  3             3             -2.126
+  4             4             -3.345
+  5             5             -4.014
+  6             6             -4.341
+  7             7             -4.609
+  8             8             -4.851
+  9             9             -5.069
+  10           10             -5.267
+  11           11             -5.448
+  12           12             -5.615
+  13           13             -5.768
+  14           14             -5.912
+  15           15             -6.045
+  16           16             -6.171
+  17           17             -6.289
+  18           18             -6.400
+  19           19             -6.506
+  20           20             -6.607
+  21           21             -6.702
+  22           22             -6.794
+  23           23             -6.881
+  24           24             -6.965
+  25           25             -7.045
+  26           26             -7.122
+  27           27             -7.197
+  28           28             -7.269
+  29           29             -7.338
+#+END_EXAMPLE
+
+#+BEGIN_SRC python
+  from plotnine import *
+
+
+  (ggplot(df_plot[3:], aes(x = 'Matrix.Size', y = 'Determinant.Value')) +
+     geom_point(fill= "Blue") +
+     labs(x = "Matrix Size", y = "Determinant Value",
+          title = "Plot of Determinant Values") +
+     theme_bw() +
+     stat_smooth(method = 'lm')
+  )
+#+END_SRC
+
+[[file:8e37d51e9bb78ed1d460f8a955f5bf56fafcfca2.png]]
+
+#+BEGIN_EXAMPLE
+  <ggplot: (8770002281897)>
+#+END_EXAMPLE
+
+#+BEGIN_SRC python
+  from sklearn.linear_model import LinearRegression
+
+  df_slice = df_plot[3:]
+
+  X = df_slice.iloc[:, 0].values.reshape(-1, 1)  # values converts it into a numpy array
+  Y = df_slice.iloc[:, 1].values.reshape(-1, 1)  # -1 means that calculate the dimension of rows, but have 1 column
+  linear_regressor = LinearRegression()  # create object for the class
+  linear_regressor.fit(X, Y)  # perform linear regression
+  Y_pred = linear_regressor.predict(X)  # make predictions
+
+
+
+  plt.scatter(X, Y)
+  plt.plot(X, Y_pred, color='red')
+  plt.show()
+#+END_SRC
+
+[[file:a0ba199b47f114fb4224946304b31b9f0b555f92.png]]
+
+#+BEGIN_SRC python
+  m = linear_regressor.fit(X, Y).coef_[0][0]
+  b = linear_regressor.fit(X, Y).intercept_[0]
+
+  print("y = " + str(m.round(2)) + "* x" + str(b.round(2)))
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  y = -0.12* x-4.02
+#+END_EXAMPLE
+
+So the model is:
+
+$$
+\text{abs}(\text{Det}(M)) = -4n - 0.12
+$$
+
+where:
+
+- $n$ is the size of the square matrix
+
+**** Largest Percentage Error
+   :PROPERTIES:
+   :CUSTOM_ID: largest-percentage-error
+   :END:
+
+To find the largest percentage error for $n \in [30, 50]$ it will be
+necessary to calculate the determinants for the larger range,
+compressing all the previous steps and calculating the model based on
+the larger amount of data:
+
+#+BEGIN_SRC python
+  import pandas as pd
+
+  data = {'Matrix.Size': range(30, 50),
+          'Determinant.Value': list(map(detMat, range(30, 50)))
+  }
+  df = pd.DataFrame(data, columns = ['Matrix.Size', 'Determinant.Value'])
+  df['Determinant.Value'] = [ np.log(val) for val in df['Determinant.Value']]
+  df
+  from sklearn.linear_model import LinearRegression
+
+
+  X = df.iloc[:, 0].values.reshape(-1, 1)  # values converts it into a numpy array
+  Y = df.iloc[:, 1].values.reshape(-1, 1)  # -1 means that calculate the dimension of rows, but have 1 column
+  linear_regressor = LinearRegression()  # create object for the class
+  linear_regressor.fit(X, Y)  # perform linear regression
+  Y_pred = linear_regressor.predict(X)  # make predictions
+
+  m = linear_regressor.fit(X, Y).coef_[0][0]
+  b = linear_regressor.fit(X, Y).intercept_[0]
+
+  print("y = " + str(m.round(2)) + "* x" + str(b.round(2)))
+
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  y = -0.05* x-5.92
+#+END_EXAMPLE
+
+#+BEGIN_SRC python
+  Y_hat = linear_regressor.predict(X)
+  res_per = (Y - Y_hat)/Y_hat
+  res_per
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  array([[-5.41415364e-03],
+         [-3.51384602e-03],
+         [-1.90798428e-03],
+         [-5.74487234e-04],
+         [ 5.06726599e-04],
+         [ 1.35396448e-03],
+         [ 1.98395424e-03],
+         [ 2.41201322e-03],
+         [ 2.65219545e-03],
+         [ 2.71742022e-03],
+         [ 2.61958495e-03],
+         [ 2.36966444e-03],
+         [ 1.97779855e-03],
+         [ 1.45336983e-03],
+         [ 8.05072416e-04],
+         [ 4.09734813e-05],
+         [-8.31432011e-04],
+         [-1.80517224e-03],
+         [-2.87375452e-03],
+         [-4.03112573e-03]])
+#+END_EXAMPLE
+
+#+BEGIN_SRC python
+  max_res = np.max(res_per)
+  max_ind = np.where(res_per == max_res)[0][0] + 30
+
+  print("The Maximum Percentage error is " + str(max_res.round(4) * 100) + "% which corresponds to a matrix of size " + str(max_ind))
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  The Maximum Percentage error is 0.27% which corresponds to a matrix of size 39
+#+END_EXAMPLE
 * TODO What we're looking for
 
 - Would a reader know what the project is about?
 - Would a reader become interested in the upcoming report?
 - Is it brief but well prepared?
 - Are the major parts or phases sketched out
+
+* Footnotes
+
+[fn:pja] This problem is taken from Project A (44) of Dr. Hazrat's /Mathematica: A Problem Centred Approach/ cite:hazratMathematicaProblemCenteredApproach2015
+
+[fn:op] Although proprietary software such as Magma, Mathematica and Maple is very good, the restrictive licence makes them undesirable for study because there is no means by which to inspect the problem solving tecniques implemented, build on top of the work and moreover the lock-in nature of the software makes it a risky investment with respect to time.
+
+[fn:rv] Although Hardy made a good defence of pure math in his 1940s Apology cite:hardyMathematicianApology2012, it isn't rare at all for pure math to be found applications, for example much number theory was probably seen as fairly pure before RSA Encryption cite:spraulHowSoftwareWorks2015.

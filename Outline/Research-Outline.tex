@@ -1,4 +1,4 @@
-% Created 2020-08-24 Mon 15:46
+% Created 2020-08-25 Tue 00:04
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -20,10 +20,10 @@
 \addbibresource{../Resources/references.bib}
 \author{Ryan Greenup \& James Guerra}
 \date{\today}
-\title{Research Outline}
+\title{Thinking about Problems}
 \hypersetup{
  pdfauthor={Ryan Greenup \& James Guerra},
- pdftitle={Research Outline},
+ pdftitle={Thinking about Problems},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.1 (Org mode 9.4)}, 
@@ -33,98 +33,346 @@
 \maketitle
 \tableofcontents
 
-\begin{minted}[]{bash}
-code /home/ryan/Dropbox/Studies/QuantProject/Current/Python-Quant/ & disown
-\end{minted}
 
-Here's what I gatthered from the week 3 slides
+\section{Introduction}
+\label{sec:orgef6fd2a}
 
-\section{Give a brief Sketch of the project}
-\label{sec:org039101c}
+During preperation for this outline, an article published by the \emph{Mathematical
+Association of America} caught my attention, in which mathematics is referred to
+as the \emph{Science of Patterns} \cite{friedMathematicsSciencePatterns2010}, this I
+feel, frames very well the essence of the research we are looking at in this
+project. Mathematics, generally, is primarily concerned with problem solving
+(that isn't, however, to say that the problems need to have any
+application\footnote{Although Hardy made a good defence of pure math in his 1940s Apology \cite{hardyMathematicianApology2012}, it isn't rare at all for pure math to be found applications, for example much number theory was probably seen as fairly pure before RSA Encryption \cite{spraulHowSoftwareWorks2015}.}), and it's fairly obvious that different strategies work
+better for different problems. That's what we want to investigate, Different to
+attack a problem, different ways of thinking, different ways of framing
+questions.
 
+The central focus of this investigation will be with computer algebra and the
+various libraries and packages that exist in the free open source \footnote{Although proprietary software such as Magma, Mathematica and Maple is very good, the restrictive licence makes them undesirable for study because there is no means by which to inspect the problem solving tecniques implemented, build on top of the work and moreover the lock-in nature of the software makes it a risky investment with respect to time.} space to solve
+and visualise numeric and symbolic problems, these include:
 
-So here is a citation \cite{lehmanReadingsMathematicsComputer2010}
-I got another one here though \cite{nicodemiIntroductionAbstractAlgebra2007}
-\subsection{Topic / Context}
-\label{sec:orgc8ee0a5}
-We are interested in the theory of problem solving, but in particular the
-different approaches that can be taken to attacking a problem.
-
-Essentially this boils down to looking at how a computer scientist and
-mathematician attack a problem, although originally I thought there was no
-difference, after seeing the odd way Roozbeh attacks problems I see there is a big difference.
-\subsection{Motivation}
-\label{sec:org9aff6e5}
-
-\subsection{Basic Ideas}
-\label{sec:orgfd2ddab}
 \begin{itemize}
-\item Look at FOSS CAS Systems
+\item Programming Languages and CAS
 \begin{itemize}
-\item Python (Sympy)
 \item Julia
 \begin{itemize}
-\item Sympy integration
-\item symEngine
-\item Reduce.jl
-\item Symata.jl
+\item SymEngine
 \end{itemize}
-\end{itemize}
-
-\item Maybe look at interactive sessions:
+\item Maxima
 \begin{itemize}
-\item Like Jupyter
-\item Hydrogen
-\item TeXmacs
-\item org-mode?
+\item Being the oldest there is probably a lot too learn
 \end{itemize}
-\end{itemize}
-
-After getting an overview of SymPy let's look at problems that are interesting (chaos, morphogenesis and order from disarray etc.)
-
-
-\subsection{Where are the Mathematics}
-\label{sec:org55da4e2}
-
+\item Julia
+\item Reduce
+\item Xcas/Gias
+\item Python
 \begin{itemize}
-\item Trying to look at the algorithms underlying functions in Python/Sympy and other Computer algebra tools such as Maxima, Maple, Mathematica, Sage, GAP and Xcas/Giac, Yacas, Symata.jl, Reduce.jl, SymEngine.jl
+\item Numpy
+\item Sympy
+\end{itemize}
+\end{itemize}
+\item Visualisation
 \begin{itemize}
-\item For Example Recursive Relations
+\item Makie
+\item Plotly
+\item GNUPlot
 \end{itemize}
-\item Look at solving some problems related to chaos theory maybe
+\end{itemize}
+
+
+Many problems that look complex upon initial inspection can be solved trivially
+by using computer algebra packages and our interest is in the different
+approaches that can be taken to \emph{attack} each problem. Of course however this leads to the question:
+
+
+\begin{quote}
+Can all mathematical problems be solved by some application of some set of rules?
+\end{quote}
+
+This is not really a question that we can answer, however, determinism with
+respect to systems is appears to make a very good area of investigation with respect to finding ways to deal with problems.
+
+This is not an easy question to answer, however, while investigating this problem
+
+
+
+Determinism
+
+Are problems deterministic? can the be broken down into a step by step way? For
+example if we \emph{discover all the rules} can we then simply solve all the problems?
+
+chaos to look at patterns generally to get a deeper understanding of patterns
+and problems, loops and recursion generally.
+
+To investigate different ways of thinking about math problems our investigation
+
+laplaces demon
+
+but then heisenberg,
+
+but then chaos and meh.
+
+\subsection{Preliminary Problems}
+\label{sec:orgb81d2d2}
+\subsubsection{Recursion}
+\label{sec:orga2939f7}
+\subsubsection{Iteration and Recursion}
+\label{series-and-recursion}
+To illustrate an example of different ways of thinking about a problem, consider the series shown in \eqref{eq:rec-ser}\footnote{This problem is taken from Project A (44) of Dr. Hazrat's \emph{Mathematica: A Problem Centred Approach} \cite{hazratMathematicaProblemCenteredApproach2015}} :
+
+\begin{align}
+    g\left( k \right) &=  \frac{\sqrt{2} }{2} \cdot   \frac{\sqrt{2+  \sqrt{3}}  }{3} \frac{\sqrt{2 +  \sqrt{3 +  \sqrt{4} } } }{4} \cdot  \ldots \frac{\sqrt{2 +  \sqrt{3 +  \ldots +  \sqrt{k} } } }{k} \label{eq:rec-ser}
+\end{align}
+
+let's modify this for the sake of discussion:
+
+\begin{align}
+h\left( k \right) = \frac{\sqrt{2}  }{2} \cdot  \frac{\sqrt{3 +  \sqrt{2} } }{3} \cdot  \frac{\sqrt{4 +  \sqrt{3 +  \sqrt{2} } } }{4} \cdot  \ldots \cdot  \frac{\sqrt{k +  \sqrt{k - 1 +  \ldots \sqrt{3 + \sqrt{2}  } } } }{k} \label{eq:rec-ser-mod}
+\end{align}
+
+The function \(h\) can be expressed by the series:
+
+$$\begin{aligned}
+h\left( k \right) = \prod^k_{i = 2} \left( \frac{f_i}{i}  \right)  \quad : \quad f_i = \sqrt{i +  f_{i - 1}}, \enspace f_{1} = 1
+\end{aligned}$$
+
+Within \emph{Python}, it isn't difficult to express \(h\), the series can be expressed with recursion as shown in listing \ref{rec-one}, this is a very natural way to define series and sequences and is consistent with familiar mathematical thought and notation. Individuals more familiar with programming than analysis may find it more comfortable to use an iterator as shown in listing \ref{it-one}.
+
+\begin{listing}[htbp]
+\begin{minted}[]{python}
+from sympy import *
+def h(k):
+    if k > 2:
+        return f(k) * f(k-1)
+    else:
+        return 1
+
+def f(i):
+    expr = 0
+    if i > 2:
+        return sqrt(i + f(i -1))
+    else:
+        return 1
+\end{minted}
+\caption{\label{rec-one}Solving \eqref{eq:rec-ser-mod} using recursion.}
+\end{listing}
+
+
+\begin{listing}[htbp]
+\begin{minted}[]{python}
+  from sympy import *
+  def h(k):
+      k = k + 1 # OBOB
+      l = [f(i) for i in range(1,k)]
+      return prod(l)
+
+  def f(k):
+      expr = 0
+      for i in range(2, k+2):
+          expr = sqrt(i + expr, evaluate=False)
+      return expr/(k+1)
+\end{minted}
+\caption{\label{it-one}Solving \eqref{eq:rec-ser-mod} by using a \texttt{for} loop.}
+\end{listing}
+
+Any function that can be defined by using iteration, can always be defined via
+recursion and vice versa,
+\cite{bohmReducingRecursionIteration1988,bohmReducingRecursionIteration1986}
+see also
+\cite{smolarskiMath60Notes2000,IterationVsRecursion2016}
+
+there is, however, evidence to suggest that recursive functions are easier for people to understand \cite{benanderEmpiricalAnalysisDebugging2000} . Although independent research has shown that the specific language chosen can have a bigger effect on how well recursive as opposed to iterative code is understood \cite{sinhaCognitiveFitEmpirical1992}.
+
+The relevant question is which method is often more appropriate, generally the process for
+determining which is more appropriate is to the effect of:
+
+\begin{enumerate}
+\item Write the problem in a way that is easier to write or is more
+appropriate for demonstration
+\item If performance is a concern then consider restructuring in favour of iteration
 \begin{itemize}
-\item Mandelbrot and Julia Sets
+\item For interpreted languages such \textbf{\emph{R}} and \emph{Python}, loops are usually
+faster, because of the overheads involved in creating functions
+\cite{smolarskiMath60Notes2000} although there may be exceptions to this and
+I'm not sure if this would be true for compiled languages such as \emph{Julia},
+\emph{Java}, \textbf{\emph{C}} etc.
 \end{itemize}
-\item Look at solving some problems related to Fourier Transforms maybe
-\end{itemize}
+\end{enumerate}
+
+\paragraph{Some Functions are more difficult to express with Recursion in}
+\label{some-functions-are-more-difficult-to-express-with-recursion-in-python}
+Attacking a problem recursively isn't always the best approach, consider the function \(g\left( k \right)\) from \eqref{eq:rec-ser}:
 
 
-AVOID DETAILS, JUST SKETCH THE PROJECT OUT.
+\begin{align}
+    g\left( k \right) &=  \frac{\sqrt{2} }{2} \cdot   \frac{\sqrt{2+  \sqrt{3}}  }{3} \frac{\sqrt{2 +  \sqrt{3 +  \sqrt{4} } } }{4} \cdot  \ldots \frac{\sqrt{2 +  \sqrt{3 +  \ldots +  \sqrt{k} } } }{k} \nonumber \\
+    &=  \prod^k_{i = 2} \left( \frac{f_i}{i}  \right) \quad : \quad f_{i} = \sqrt{i +  f_{i+1}} \nonumber
+\end{align}
+
+Observe that the difference between \eqref{eq:rec-ser} and \eqref{eq:rec-ser-mod} is
+that the sequence essentially \emph{looks} forward, not back. To solve using a \texttt{for}
+loop, this distinction is a non-concern because the list can be reversed using a built-in
+such as \texttt{rev}, \texttt{reversed} or \texttt{reverse} in \emph{Python}, \textbf{\emph{R}} and \emph{Julia}
+respectively, which means the same expression can be implemented.
+
+To implement recursion however, the series needs to be restructured and this can become a little clumsy, see \eqref{eq:clumsy}:
+
+\begin{align}
+    g\left( k \right) &=  \prod^k_{i = 2} \left( \frac{f_i}{i}  \right) \quad : \quad f_{i} = \sqrt{\left( k- i \right)  +  f_{k - i - 1}} \label{eq:clumsy}
+\end{align}
+
+Now the function could be performed recursively in \emph{Python} in a similar
+way as shown in listing \ref{rec-two}, but it's also significantly more confusing because the \(f\) function now has \(k\) as a parameter and this is only made significantly more complicated by the variable scope of functions across common languages used in Mathematics and Data science such as \texttt{bash}, \emph{Python}, \textbf{\emph{R}} and \emph{Julia} (see section \ref{variable-scope-nested}).
 
 
-\subsection{Don't Forget we need a talk}
-\label{sec:org87ed653}
-\subsubsection{Slides In Org Mode}
-\label{sec:org27f2a0a}
+If however, the \texttt{for} loop approach was implemented, as shown in listing
+\ref{iter-two}, the function would not significantly change, because the \texttt{reversed()} function can be
+used to flip the list around.
+
+What this demonstrates is that taking a different approach to simply describing
+this function can lead to big differences in the complexity involved in solving
+this problem.
+
+\begin{listing}[htbp]
+\begin{minted}[]{python}
+from sympy import *
+def h(k):
+    if k > 2:
+        return f(k, k) * f(k, k-1)
+    else:
+        return 1
+
+def f(k, i):
+    if k > i:
+        return 1
+    if i > 2:
+        return sqrt((k-i) + f(k, k - i -1))
+    else:
+        return 1
+\end{minted}
+\caption{\label{rec-two}Using Recursion to Solve \eqref{eq:rec-ser}}
+\end{listing}
+
+
+\begin{listing}[htbp]
+\begin{minted}[]{python}
+from sympy import *
+def h(k):
+    k = k + 1 # OBOB
+    l = [f(i) for i in range(1,k)]
+    return prod(l)
+
+def f(k):
+    expr = 0
+    for i in reversed(range(2, k+2)):
+        expr = sqrt(i + expr, evaluate=False)
+    return expr/(k+1)
+\end{minted}
+\caption{\label{iter-two}Using Iteration to Solve \eqref{eq:rec-ser}}
+\end{listing}
+
+\subsubsection{Variable Scope of Nested Functions}
+\label{variable-scope-nested}
+
+\section{Outline}
+\label{sec:org34ac963}
+\begin{enumerate}
+\item Intro Prob
+\item Variable Scope
+\item Problem Showing Recursion
 \begin{itemize}
-\item \href{https://orgmode.org/worg/org-tutorials/non-beamer-presentations.html}{Without Beamer}
-\item \href{https://orgmode.org/worg/exporters/beamer/tutorial.html}{With Beamer}
-\end{itemize}
-
-\section{What we're looking for}
-\label{sec:orgbf0050f}
-
+\item All Different Methods
 \begin{itemize}
-\item Would a reader know what the project is about?
-\item Would a reader become interested in the upcoming report?
-\item Is it brief but well prepared?
-\item Are the major parts or phases sketched out
+\item Discuss all Different Methods
+\item Discuss Vectorisation
+\item Is this needed in Julia
+\item Comment on Faster to go column Wise
 \end{itemize}
-
-
+\end{itemize}
+\item Discuss Loops
+\item Show Rug
+\item Fibonacci
+\begin{itemize}
+\item The ratio of fibonacci converges to \(\phi\)
+\item Golden Ratio
+\begin{itemize}
+\item If you make a rectangle with the golden ratio you can cut it up under
+recursion to get another one, keep doing this and eventually a logarithmic
+spiral pops out, also the areas follow a fibonacci sequence.
+\end{itemize}
+\end{itemize}
+\item Discuss isomorphisms for recursive Relations
+\item Jump to Lorenz Attractor
+\item Now Talk about Morphogenesis
+\item Fractals
+\begin{itemize}
+\item Many Occur in Nature
+\begin{itemize}
+\item Mountain Ranges, compare to MandelBrot
+\item Sun Flowers
+\item Show the golden Ratio
+\end{itemize}
+\item Fractals are all about recursion and iteration, so this gives me an excuse to look at them
+\begin{itemize}
+\item Show MandelBrot
+\begin{itemize}
+\item Python
+\begin{itemize}
+\item Sympy Slow
+\item Numpy Fast
+\end{itemize}
+\item Julia brings Both Benefits
+\begin{itemize}
+\item Show Large MandelBrot
+\end{itemize}
+\item Show Julia Set
+\begin{itemize}
+\item Show Julia Set Gif
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\item Things I'd like to show
+\begin{itemize}
+\item Simulate stripes and animal patterns
+\item Show some math behind spirals in Nautilus Shells
+\item Golden Rectangle
+\begin{itemize}
+\item Throw in some recursion
+\item Watch the spiral come out
+\item Record the areas and show that they are Fibonacci
+\end{itemize}
+\item That the ratio of Fibonacci Converges to Phi
+\item What on Earth is the Reimann Sphere
+\item Lorrenz Attractor
+\begin{itemize}
+\item How is this connected to the lorrenz attractor
+\end{itemize}
+\item What are the connections between discrete iteration and continuous systems such as the julia set and the lorrenz attractor
+\end{itemize}
+\item Things I'd like to Try (in order to see different ways to approach Problems)
+\begin{itemize}
+\item Programming Languages and CAS
+\begin{itemize}
+\item Julia
+\begin{itemize}
+\item SymEngine
+\end{itemize}
+\item Maxima
+\item Julia
+\end{itemize}
+\item Visualisation
+\begin{itemize}
+\item Makie
+\item Plotly
+\item GNUPlot
+\end{itemize}
+\end{itemize}
+\end{enumerate}
 
 \section{Download RevealJS}
-\label{sec:org518cfab}
+\label{sec:org09a576b}
 So first do \texttt{M-x package-install ox-reveal} then do \texttt{M-x load-library} and then look for \texttt{ox-reveal}
 
 \begin{minted}[]{elisp}
@@ -142,7 +390,7 @@ mv reveal.js-master reveal.js
 
 Then just do \texttt{C-c e e R R} to export with RevealJS as opposed to PHP you won't need a fancy server, just open it in the browser.
 \section{GNU Plot}
-\label{sec:orged5cfe1}
+\label{sec:org7a1ee34}
 \href{https://rosettacode.org/wiki/Find\_limit\_of\_recursion\#gnuplot}{limit of recursion is 250}
 
 \begin{minted}[]{gnuplot}
@@ -214,12 +462,611 @@ splot [-2 : .8] [-1.4 : 1.4] mandelbrot (complex (0, 0), complex (x, y), 0) noti
 
 
 \section{Heres a Gif}
-\label{sec:orgb5bf6d0}
-
-
+\label{sec:orgccade84}
 So this is a very big Gif that I'm using:
 
 How did I make the Gif??
 
 \url{https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0}
+
+\section{Give a brief Sketch of the project}
+\label{sec:org790e88b}
+
+\begin{minted}[]{bash}
+code /home/ryan/Dropbox/Studies/QuantProject/Current/Python-Quant/ & disown
+\end{minted}
+
+Here's what I gatthered from the week 3 slides
+
+\subsection{Topic / Context}
+\label{sec:orgd09abda}
+We are interested in the theory of problem solving, but in particular the
+different approaches that can be taken to attacking a problem.
+
+Essentially this boils down to looking at how a computer scientist and
+mathematician attack a problem, although originally I thought there was no
+difference, after seeing the odd way Roozbeh attacks problems I see there is a big difference.
+\subsection{Motivation}
+\label{sec:orgb027b09}
+
+\subsection{Basic Ideas}
+\label{sec:org1475b3b}
+\begin{itemize}
+\item Look at FOSS CAS Systems
+\begin{itemize}
+\item Python (Sympy)
+\item Julia
+\begin{itemize}
+\item Sympy integration
+\item symEngine
+\item Reduce.jl
+\item Symata.jl
+\end{itemize}
+\end{itemize}
+
+\item Maybe look at interactive sessions:
+\begin{itemize}
+\item Like Jupyter
+\item Hydrogen
+\item TeXmacs
+\item org-mode?
+\end{itemize}
+\end{itemize}
+
+After getting an overview of SymPy let's look at problems that are interesting (chaos, morphogenesis and order from disarray etc.)
+
+\subsection{Where are the Mathematics}
+\label{sec:org6ff2eae}
+
+\begin{itemize}
+\item Trying to look at the algorithms underlying functions in Python/Sympy and other Computer algebra tools such as Maxima, Maple, Mathematica, Sage, GAP and Xcas/Giac, Yacas, Symata.jl, Reduce.jl, SymEngine.jl
+\begin{itemize}
+\item For Example Recursive Relations
+\end{itemize}
+\item Look at solving some problems related to chaos theory maybe
+\begin{itemize}
+\item Mandelbrot and Julia Sets
+\end{itemize}
+\item Look at solving some problems related to Fourier Transforms maybe
+\end{itemize}
+
+
+AVOID DETAILS, JUST SKETCH THE PROJECT OUT.
+
+\subsection{Don't Forget we need a talk}
+\label{sec:org7e0ff23}
+\subsubsection{Slides In Org Mode}
+\label{sec:org6409f9c}
+\begin{itemize}
+\item \href{https://orgmode.org/worg/org-tutorials/non-beamer-presentations.html}{Without Beamer}
+\item \href{https://orgmode.org/worg/exporters/beamer/tutorial.html}{With Beamer}
+\end{itemize}
+\section{Undecided}
+\label{sec:org5114791}
+\subsubsection{Determinant}
+\label{sec:org370fc3e}
+Computational thinking can be useful in problems related to modelling, consider
+for example some matrix \(n\times n\) matrix \(B_n\) described by \eqref{eq:bn-matrix} :
+
+\begin{align}
+b_{ij} = \begin{cases}
+\frac{1}{2j- i^2}, &\text{ if } i > j \\
+\frac{i}{i- j}+  \frac{1}{n^2- j - i}, &\text{ if } j>i \\
+0 &\text{ if } i = j
+\end{cases} \label{eq:bn-matrix}
+\end{align}
+
+Is there a way to predict the determinant of such a matrix for large values?
+
+From the perspective of linear algebra this is an immensely difficult problem
+and there isn't really a clear place to start.
+
+From a numerical modelling perspective however, as will be shown, this a fairly trivial problem.
+
+
+\paragraph{Create the Matrix}
+\label{create-the-matrix}
+Using \emph{Python} and \texttt{numpy}, a matrix can be generated as an \texttt{array} and by
+iterating through each element of the matrix values can be attributed like so:
+
+\begin{minted}[]{python}
+import numpy as np
+n = 2
+mymat = np.empty([n, n])
+for i in range(mymat.shape[0]):
+    for j in range(mymat.shape[1]):
+        print("(" + str(i) + "," + str(j) + ")")
+\end{minted}
+
+\begin{verbatim}
+  (0,0)
+  (0,1)
+  (1,0)
+  (1,1)
+\end{verbatim}
+
+and so to assign the values based on the condition in \eqref{eq:bn-matrix}, an
+\texttt{if} test can be used:
+
+\begin{minted}[]{python}
+  def BuildMat(n):
+      mymat = np.empty([n, n])
+      for i in range(n):
+          for j in range(n):
+              # Increment i and j by one because they count from zero
+              i += 1; j += 1
+              if (i > j):
+                  v = 1/(2*j - i**2)
+              elif (j > i):
+                  v = 1/(i-j) + 1/(n**2 - j - i)
+              else:
+                  v = 0
+              # Decrement i and j so the index lines up
+              i -= 1; j -= 1
+              mymat[j, i] = v
+      return mymat
+
+  BuildMat(3)
+\end{minted}
+
+\begin{verbatim}
+  array([[ 0.        , -0.5       , -0.14285714],
+         [-0.83333333,  0.        , -0.2       ],
+         [-0.3       , -0.75      ,  0.        ]])
+\end{verbatim}
+
+\paragraph{Find the Determinant}
+\label{find-the-determinant}
+\emph{Python}, being an object orientated language has methods belonging to objects of different types, in this case the \texttt{linalg} method has a \texttt{det} function that can be used to return the determinant of any given matrix like so:
+
+\begin{listing}[htbp]
+\begin{minted}[]{python}
+  def detMat(n):
+      ## Sympy
+      # return Determinant(BuildMat(n)).doit()
+      ## Numpy
+      return np.linalg.det(BuildMat(n))
+  detMat(3)
+\end{minted}
+\caption{\label{make-det}Building a Function to return the determinant of the matrix described in \eqref{eq:bn-matrix}}
+\end{listing}
+
+\begin{verbatim}
+  -0.11928571428571424
+\end{verbatim}
+
+\paragraph{Find the Determinant of Various Values}
+\label{find-the-determinant-of-various-values}
+To solve this problem, all that needs to be considered is the size of the \(n\) and the corresponding determinant, this could be expressed as a set as shown in \eqref{eq:set-determ}:
+
+\begin{align}
+\left\{ \mathrm{det}\left( M(n) \right) \mid M \in \mathbb{Z}^{+} \leq 30  \right\} \label{eqref:eq:set-determ}
+\end{align}
+where:
+\begin{itemize}
+\item \(M\) is a function that transforms an integer to a matrix as per \eqref{eq:bn-matrix}
+\end{itemize}
+
+Although describing the results as a set \eqref{eqref:eq:set-determ} is a little odd, it is consistent with the idea of list and set comprehension in \emph{Python} \cite{DataStructuresPython} and \emph{Julia} \cite{MultidimensionalArraysJulia} as shown in listing \ref{list-comp}
+
+\subparagraph{Generate a list of values}
+\label{instead-use-absolute-value}
+Using the function created in listing \ref{make-det}, a corresponding list of values can be generated:
+
+\begin{listing}[htbp]
+\begin{minted}[]{python}
+  def detMat(n):
+      return abs(np.linalg.det(BuildMat(n)))
+
+  # We double all numbers using map()
+  result = map(detMat, range(30))
+
+  # print(list(result))
+  [round(num, 3) for num in list(result)]
+\end{minted}
+\caption{\label{list-comp}Generate a list using list-comprehension}
+\end{listing}
+
+\begin{verbatim}
+  [1.0,
+   0.0,
+   0.0,
+   0.119,
+   0.035,
+   0.018,
+   0.013,
+   0.01,
+   0.008,
+   0.006,
+   0.005,
+   0.004,
+   0.004,
+   0.003,
+   0.003,
+   0.002,
+   0.002,
+   0.002,
+   0.002,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001]
+\end{verbatim}
+
+\subparagraph{Create a Data Frame}
+\label{create-a-data-frame}
+\begin{minted}[]{python}
+  import pandas as pd
+
+  data = {'Matrix.Size': range(30),
+          'Determinant.Value': list(map(detMat, range(30)))
+  }
+
+
+
+  df = pd.DataFrame(data, columns = ['Matrix.Size', 'Determinant.Value'])
+
+  print(df)
+\end{minted}
+
+\begin{verbatim}
+  Matrix.Size  Determinant.Value
+  0             0           1.000000
+  1             1           0.000000
+  2             2           0.000000
+  3             3           0.119286
+  4             4           0.035258
+  5             5           0.018062
+  6             6           0.013023
+  7             7           0.009959
+  8             8           0.007822
+  9             9           0.006288
+  10           10           0.005158
+  11           11           0.004304
+  12           12           0.003645
+  13           13           0.003125
+  14           14           0.002708
+  15           15           0.002369
+  16           16           0.002090
+  17           17           0.001857
+  18           18           0.001661
+  19           19           0.001494
+  20           20           0.001351
+  21           21           0.001228
+  22           22           0.001121
+  23           23           0.001027
+  24           24           0.000945
+  25           25           0.000872
+  26           26           0.000807
+  27           27           0.000749
+  28           28           0.000697
+  29           29           0.000650
+\end{verbatim}
+
+\subparagraph{Plot the Data frame}
+\label{plot-the-data-frame}
+Observe that it is necessary to use \texttt{copy}, \emph{Julia} and \emph{Python}
+\textbf{unlike} \emph{Mathematica} and \textbf{\emph{R}} only create links between data, they do
+not create new objects, this can cause headaches when rounding data.
+
+\begin{minted}[]{python}
+  from plotnine import *
+  import copy
+
+  df_plot = copy.copy(df[3:])
+  df_plot['Determinant.Value'] = df_plot['Determinant.Value'].astype(float).round(3)
+  df_plot
+
+  (
+      ggplot(df_plot, aes(x = 'Matrix.Size', y = 'Determinant.Value')) +
+          geom_point() +
+          theme_bw() +
+          labs(x = "Matrix Size", y = "|Determinant Value|") +
+          ggtitle('Magnitude of Determinant Given Matrix Size')
+
+  )
+
+
+
+
+\end{minted}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{e3d03c21dd72428e88b7fc2c722737046510dbb2.png}
+\end{center}
+
+\begin{verbatim}
+  <ggplot: (8770001690691)>
+\end{verbatim}
+
+In this case it appears that the determinant scales exponentially, we
+can attempt to model that linearly using \texttt{scikit}, this is significantly
+more complex than simply using \textbf{\emph{R}}.
+\href{https://towardsdatascience.com/linear-regression-in-6-lines-of-python-5e1d0cd05b8d}{\^{}lrpy}
+
+\begin{minted}[]{python}
+  import numpy as np
+  import matplotlib.pyplot as plt  # To visualize
+  import pandas as pd  # To read data
+  from sklearn.linear_model import LinearRegression
+
+  df_slice = df[3:]
+
+  X = df_slice.iloc[:, 0].values.reshape(-1, 1)  # values converts it into a numpy array
+  Y = df_slice.iloc[:, 1].values.reshape(-1, 1)  # -1 means that calculate the dimension of rows, but have 1 column
+  linear_regressor = LinearRegression()  # create object for the class
+  linear_regressor.fit(X, Y)  # perform linear regression
+  Y_pred = linear_regressor.predict(X)  # make predictions
+
+
+
+  plt.scatter(X, Y)
+  plt.plot(X, Y_pred, color='red')
+  plt.show()
+\end{minted}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{cabe1ce27b757dccdde64927e4d7938241825327.png}
+\end{center}
+
+\begin{verbatim}
+  array([5.37864677])
+\end{verbatim}
+
+\paragraph{Log Transform the Data}
+\label{log-transform-the-data}
+The \texttt{log} function is actually provided by \texttt{sympy}, to do this quicker
+in \texttt{numpy} use \texttt{np.log()}
+
+\begin{minted}[]{python}
+  # # pyperclip.copy(df.columns[0])
+  # #df['Determinant.Value'] =
+  # #[ np.log(val) for val in df['Determinant.Value']]
+
+  df_log = df
+
+  df_log['Determinant.Value'] = [ np.log(val) for val in df['Determinant.Value'] ]
+
+\end{minted}
+
+In order to only have well defined values, consider only after size 3
+
+\begin{minted}[]{python}
+  df_plot = df_log[3:]
+  df_plot
+\end{minted}
+
+\begin{verbatim}
+      Matrix.Size  Determinant.Value
+  3             3          -2.126234
+  4             4          -3.345075
+  5             5          -4.013934
+  6             6          -4.341001
+  7             7          -4.609294
+  8             8          -4.850835
+  9             9          -5.069048
+  10           10          -5.267129
+  11           11          -5.448099
+  12           12          -5.614501
+  13           13          -5.768414
+  14           14          -5.911529
+  15           15          -6.045230
+  16           16          -6.170659
+  17           17          -6.288765
+  18           18          -6.400347
+  19           19          -6.506082
+  20           20          -6.606547
+  21           21          -6.702237
+  22           22          -6.793585
+  23           23          -6.880964
+  24           24          -6.964704
+  25           25          -7.045094
+  26           26          -7.122390
+  27           27          -7.196822
+  28           28          -7.268592
+  29           29          -7.337885
+\end{verbatim}
+
+A limitation of the \emph{Python} \texttt{plotnine} library (compared to \emph{Ggplot2}
+in \textbf{\emph{R}}) is that it isn't possible to round values in the \texttt{aesthetics}
+layer, a further limitation with \texttt{pandas} also exists when compared to
+\textbf{\emph{R}} that makes rounding data very clusy to do.
+
+In order to round data use the \texttt{numpy} library:
+
+\begin{minted}[]{python}
+  import pandas as pd
+  import numpy as np
+  df_plot['Determinant.Value'] = df_plot['Determinant.Value'].astype(float).round(3)
+  df_plot
+\end{minted}
+
+\begin{verbatim}
+      Matrix.Size  Determinant.Value
+  3             3             -2.126
+  4             4             -3.345
+  5             5             -4.014
+  6             6             -4.341
+  7             7             -4.609
+  8             8             -4.851
+  9             9             -5.069
+  10           10             -5.267
+  11           11             -5.448
+  12           12             -5.615
+  13           13             -5.768
+  14           14             -5.912
+  15           15             -6.045
+  16           16             -6.171
+  17           17             -6.289
+  18           18             -6.400
+  19           19             -6.506
+  20           20             -6.607
+  21           21             -6.702
+  22           22             -6.794
+  23           23             -6.881
+  24           24             -6.965
+  25           25             -7.045
+  26           26             -7.122
+  27           27             -7.197
+  28           28             -7.269
+  29           29             -7.338
+\end{verbatim}
+
+\begin{minted}[]{python}
+  from plotnine import *
+
+
+  (ggplot(df_plot[3:], aes(x = 'Matrix.Size', y = 'Determinant.Value')) +
+     geom_point(fill= "Blue") +
+     labs(x = "Matrix Size", y = "Determinant Value",
+          title = "Plot of Determinant Values") +
+     theme_bw() +
+     stat_smooth(method = 'lm')
+  )
+\end{minted}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{8e37d51e9bb78ed1d460f8a955f5bf56fafcfca2.png}
+\end{center}
+
+\begin{verbatim}
+  <ggplot: (8770002281897)>
+\end{verbatim}
+
+\begin{minted}[]{python}
+  from sklearn.linear_model import LinearRegression
+
+  df_slice = df_plot[3:]
+
+  X = df_slice.iloc[:, 0].values.reshape(-1, 1)  # values converts it into a numpy array
+  Y = df_slice.iloc[:, 1].values.reshape(-1, 1)  # -1 means that calculate the dimension of rows, but have 1 column
+  linear_regressor = LinearRegression()  # create object for the class
+  linear_regressor.fit(X, Y)  # perform linear regression
+  Y_pred = linear_regressor.predict(X)  # make predictions
+
+
+
+  plt.scatter(X, Y)
+  plt.plot(X, Y_pred, color='red')
+  plt.show()
+\end{minted}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{a0ba199b47f114fb4224946304b31b9f0b555f92.png}
+\end{center}
+
+\begin{minted}[]{python}
+  m = linear_regressor.fit(X, Y).coef_[0][0]
+  b = linear_regressor.fit(X, Y).intercept_[0]
+
+  print("y = " + str(m.round(2)) + "* x" + str(b.round(2)))
+\end{minted}
+
+\begin{verbatim}
+  y = -0.12* x-4.02
+\end{verbatim}
+
+So the model is:
+
+$$
+\text{abs}(\text{Det}(M)) = -4n - 0.12
+$$
+
+where:
+
+\begin{itemize}
+\item \(n\) is the size of the square matrix
+\end{itemize}
+
+\paragraph{Largest Percentage Error}
+\label{largest-percentage-error}
+To find the largest percentage error for \(n \in [30, 50]\) it will be
+necessary to calculate the determinants for the larger range,
+compressing all the previous steps and calculating the model based on
+the larger amount of data:
+
+\begin{minted}[]{python}
+  import pandas as pd
+
+  data = {'Matrix.Size': range(30, 50),
+          'Determinant.Value': list(map(detMat, range(30, 50)))
+  }
+  df = pd.DataFrame(data, columns = ['Matrix.Size', 'Determinant.Value'])
+  df['Determinant.Value'] = [ np.log(val) for val in df['Determinant.Value']]
+  df
+  from sklearn.linear_model import LinearRegression
+
+
+  X = df.iloc[:, 0].values.reshape(-1, 1)  # values converts it into a numpy array
+  Y = df.iloc[:, 1].values.reshape(-1, 1)  # -1 means that calculate the dimension of rows, but have 1 column
+  linear_regressor = LinearRegression()  # create object for the class
+  linear_regressor.fit(X, Y)  # perform linear regression
+  Y_pred = linear_regressor.predict(X)  # make predictions
+
+  m = linear_regressor.fit(X, Y).coef_[0][0]
+  b = linear_regressor.fit(X, Y).intercept_[0]
+
+  print("y = " + str(m.round(2)) + "* x" + str(b.round(2)))
+
+\end{minted}
+
+\begin{verbatim}
+  y = -0.05* x-5.92
+\end{verbatim}
+
+\begin{minted}[]{python}
+  Y_hat = linear_regressor.predict(X)
+  res_per = (Y - Y_hat)/Y_hat
+  res_per
+\end{minted}
+
+\begin{verbatim}
+  array([[-5.41415364e-03],
+         [-3.51384602e-03],
+         [-1.90798428e-03],
+         [-5.74487234e-04],
+         [ 5.06726599e-04],
+         [ 1.35396448e-03],
+         [ 1.98395424e-03],
+         [ 2.41201322e-03],
+         [ 2.65219545e-03],
+         [ 2.71742022e-03],
+         [ 2.61958495e-03],
+         [ 2.36966444e-03],
+         [ 1.97779855e-03],
+         [ 1.45336983e-03],
+         [ 8.05072416e-04],
+         [ 4.09734813e-05],
+         [-8.31432011e-04],
+         [-1.80517224e-03],
+         [-2.87375452e-03],
+         [-4.03112573e-03]])
+\end{verbatim}
+
+\begin{minted}[]{python}
+  max_res = np.max(res_per)
+  max_ind = np.where(res_per == max_res)[0][0] + 30
+
+  print("The Maximum Percentage error is " + str(max_res.round(4) * 100) + "% which corresponds to a matrix of size " + str(max_ind))
+\end{minted}
+
+\begin{verbatim}
+  The Maximum Percentage error is 0.27% which corresponds to a matrix of size 39
+\end{verbatim}
+\section{What we're looking for}
+\label{sec:org08b39d7}
+
+\begin{itemize}
+\item Would a reader know what the project is about?
+\item Would a reader become interested in the upcoming report?
+\item Is it brief but well prepared?
+\item Are the major parts or phases sketched out
+\end{itemize}
 \end{document}
