@@ -1,4 +1,4 @@
-% Created 2020-08-24 Mon 15:18
+% Created 2020-08-24 Mon 15:46
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -40,10 +40,13 @@ code /home/ryan/Dropbox/Studies/QuantProject/Current/Python-Quant/ & disown
 Here's what I gatthered from the week 3 slides
 
 \section{Give a brief Sketch of the project}
-\label{sec:orgb321674}
+\label{sec:org039101c}
 
+
+So here is a citation \cite{lehmanReadingsMathematicsComputer2010}
+I got another one here though \cite{nicodemiIntroductionAbstractAlgebra2007}
 \subsection{Topic / Context}
-\label{sec:org55f4360}
+\label{sec:orgc8ee0a5}
 We are interested in the theory of problem solving, but in particular the
 different approaches that can be taken to attacking a problem.
 
@@ -51,10 +54,10 @@ Essentially this boils down to looking at how a computer scientist and
 mathematician attack a problem, although originally I thought there was no
 difference, after seeing the odd way Roozbeh attacks problems I see there is a big difference.
 \subsection{Motivation}
-\label{sec:orgccbd7ea}
+\label{sec:org9aff6e5}
 
 \subsection{Basic Ideas}
-\label{sec:orgb16a446}
+\label{sec:orgfd2ddab}
 \begin{itemize}
 \item Look at FOSS CAS Systems
 \begin{itemize}
@@ -81,7 +84,7 @@ After getting an overview of SymPy let's look at problems that are interesting (
 
 
 \subsection{Where are the Mathematics}
-\label{sec:org1c71f22}
+\label{sec:org55da4e2}
 
 \begin{itemize}
 \item Trying to look at the algorithms underlying functions in Python/Sympy and other Computer algebra tools such as Maxima, Maple, Mathematica, Sage, GAP and Xcas/Giac, Yacas, Symata.jl, Reduce.jl, SymEngine.jl
@@ -100,16 +103,16 @@ AVOID DETAILS, JUST SKETCH THE PROJECT OUT.
 
 
 \subsection{Don't Forget we need a talk}
-\label{sec:org93e3d04}
+\label{sec:org87ed653}
 \subsubsection{Slides In Org Mode}
-\label{sec:org4921905}
+\label{sec:org27f2a0a}
 \begin{itemize}
 \item \href{https://orgmode.org/worg/org-tutorials/non-beamer-presentations.html}{Without Beamer}
 \item \href{https://orgmode.org/worg/exporters/beamer/tutorial.html}{With Beamer}
 \end{itemize}
 
 \section{What we're looking for}
-\label{sec:org2be1b18}
+\label{sec:orgbf0050f}
 
 \begin{itemize}
 \item Would a reader know what the project is about?
@@ -121,8 +124,12 @@ AVOID DETAILS, JUST SKETCH THE PROJECT OUT.
 
 
 \section{Download RevealJS}
-\label{sec:orgad35b54}
+\label{sec:org518cfab}
 So first do \texttt{M-x package-install ox-reveal} then do \texttt{M-x load-library} and then look for \texttt{ox-reveal}
+
+\begin{minted}[]{elisp}
+(load "/home/ryan/.emacs.d/.local/straight/build/ox-reveal/ox-reveal.el")
+\end{minted}
 
 Download Reveal.js and put it in the directory as \texttt{./reveal.js}, you can do that with something like this:
 
@@ -135,7 +142,7 @@ mv reveal.js-master reveal.js
 
 Then just do \texttt{C-c e e R R} to export with RevealJS as opposed to PHP you won't need a fancy server, just open it in the browser.
 \section{GNU Plot}
-\label{sec:org92db9c8}
+\label{sec:orged5cfe1}
 \href{https://rosettacode.org/wiki/Find\_limit\_of\_recursion\#gnuplot}{limit of recursion is 250}
 
 \begin{minted}[]{gnuplot}
@@ -202,4 +209,17 @@ splot [-2 : .8] [-1.4 : 1.4] mandelbrot (complex (0, 0), complex (x, y), 0) noti
 \begin{center}
 \includesvg[width=.9\linewidth]{three}
 \end{center}
+
+
+
+
+\section{Heres a Gif}
+\label{sec:orgb5bf6d0}
+
+
+So this is a very big Gif that I'm using:
+
+How did I make the Gif??
+
+\url{https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0}
 \end{document}
