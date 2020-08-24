@@ -8,7 +8,7 @@ src="https://img.shields.io/badge/Contributors-2%20Member-green" /> <img src="ht
 See [[https://shields.io/][Shields io]]
 #+end_comment
 
-
+[[https://ryangreenup.github.io/Python-Quant/Outline/Research-Outline.html][* Slides]]
 
 * Emailed Problems
 ** Exam Questions
