@@ -1,0 +1,168 @@
+% Created 2020-08-15 Sat 10:46
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[export]{adjustbox}
+\usepackage[citestyle=numeric, bibstyle=numeric,hyperref=true,backref=true, maxcitenames=3,url=true,backend=biber,natbib=true]{biblatex}
+\AtEndDocument{\printbibliography}
+\addbibresource{../Resources/references.bib}
+\author{
+    \LARGE{
+    Ryan Greenup\\
+    \Large
+    \textit{17805315}
+    }
+    \and
+    \LARGE{
+    James Guerra\\
+    \Large
+    \textit{19045229}
+    }
+    \vspace{30mm}
+}
+\date{}
+\title{
+    \rule{\textwidth}{1pt}
+    \Huge\textbf{Problem Solving with Python}
+    \rule{\textwidth}{1pt}
+    \vspace{30mm}
+    }
+\hypersetup{
+ pdfauthor={Ryan Greenup \& James Guerra},
+ pdftitle={Research Outline},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.1 (Org mode 9.4)}, 
+ pdflang={English}}
+
+\begin{document}
+\maketitle
+
+\begin{figure}[b]
+    \centering{\includegraphics[scale=0.5,right]{western_logo.png}}
+\end{figure}
+
+\newpage
+\tableofcontents    
+\newpage
+
+\begin{verbatim}
+code /home/ryan/Dropbox/Studies/QuantProject/Current/Python-Quant/ & disown
+\end{verbatim}
+
+Here's what I gatthered from the week 3 slides
+
+\section{Introduction}
+\label{sec:org1de827a}
+Python has become one of the most used programming languages to date. It can be applied in Web and Software Development, Desktop GUI’s and Science to name a few \href{https://www.python.org/about/apps/}{https://www.python.org/about/apps/}. In the first part of this report, we will use python to solve mathematical problems which are difficult to solve using just a pen and paper. We wanted to show that there are numerous ways to approach a problem in python. To do this, we used the help of Prof. Roozbeh Hazrat’s textbook, “Mathematica®: A Problem-Centered Approach”. This led to understanding the different modules and functions available in python, which allowed us to explore different methods to solve the problems. This will effectively provide insight into the importance and advantages of computational thinking. The second part of this report focuses on dynamical systems, in particular chaos theory, Mandelbrot's set and fractals. Dynamical systems became an intriguing theory to research and with the help of python we can visually display the mathematics behind it.
+
+\section{Basics}
+\label{sec:orge9c184f}
+
+Learning the following fundamental features of python is going to be essential for the upcoming problems. It begins with understanding:
+\begin{itemize}
+    \item Lists
+    \item Functions
+    \item Loops
+\end{itemize}
+
+\subsection{Lists}
+Lists are one of the most useful data types and are widely used within our research. Lists can hold multiple pieces of data and hence can represent matrices, co-ordinate pairs, vectors, etc. An example of a list is: 
+\begin{verbatim}
+    lst = [1, [2, 3], "4"]
+\end{verbatim}
+\textit{The preceding code is a list containing a range of data types.}
+
+\subsection{Functions}
+Simply put, functions are blocks of code that perform tasks. They are either built-in or programmer defined. The key benefits of a function is code re-usability, readability and to break down bigger tasks. An example of a programmer defined function is: 
+\begin{verbatim}
+    def sum(m, n):
+        return m + n
+\end{verbatim}  
+\textit{The preceding code requires two arguments which will return their sum.}
+\href{https://www.tutorialspoint.com/python/pdf/python_functions.pdf}{https://www.tutorialspoint.com/python/pdf/python_functions.pdf}\\
+
+\subsection{Loops}
+Needing to perform a task multiples times is majorly common when programming. It is certainly a tedious task hard coding repetition, especially over a large range like $10^{10}$ for example. Hence, loops are created as a means to mitigate this monotonous task by sequentially passing through iterable objects such as lists, \textbf{ranges}, \textbf{strings} etc. An example is: 
+\begin{verbatim}
+    for item in range(1, 10):
+        print(item**2)
+\end{verbatim}
+\textit{The preceding code will display squared numbers ranging from 1 to 9.}
+
+\section{Computational Thinking}
+\textbf{Problem 1}\\
+Let m be a natural number and $A = \frac{(m + 3)^3 + 1}{3m}$ . Find all the integers m less than 500 such that A is an integer.\\
+
+\textbf{Solution}\\
+Let $S = \{m_1, m_2, . . . , m_k\}$ be the solution set to $A \epsilon Z$. Where $m_k$ is an integer that satisfies $A$. Now, consider the following statement
+\begin{align*}
+(m+3)^3+1 &\equiv0~(mod~3m) \\ 
+m^3+9m^2+27m+28 &\equiv0~(mod~3m) \\
+m^3 + 28 &\equiv0~(mod~3m)
+\end{align*}
+By inspection:\\
+$m=1$ gives:
+\begin{align*}
+(1)^3 + 28 &\equiv0~(mod~3\cdot1)\\
+29 &\not\equiv0~(mod~3)\\
+\end{align*}
+$m=2$ gives:
+\begin{align*}
+(2)^3 + 28 &\equiv0~(mod~3\cdot2)\\
+36 &\equiv0~(mod~6)\\
+0 &\equiv0~(mod~6)\\
+\end{align*}
+\begin{center}
+.\\
+.\\
+.\\    
+\end{center}
+$m = 449$ gives:
+\begin{align*}
+(499)^3 + 28 &\equiv0~(mod~3\cdot499)\\
+124251527 &\equiv0~(mod~1497)\\
+527 &\not\equiv0~(mod~6)\\
+\end{align*}
+It turns out by inspection $S = \{2, 14\}$ is the solution set.\\
+Now let's see how we approach this in python.
+\begin{verbatim}
+    p = lambda n: ((n+3)**3 + 1)
+    print([i for i in range(1, 500) if (p(i) % (3*i)) == 0])
+\end{verbatim}
+\begin{verbatim}
+    [2, 14]
+\end{verbatim}
+Understanding the mathematics first can sometimes allow you to transfer the same principles into python. First call python's lambda function to create a mathematical function $p(n) = (n+3)^3 + 1$, use the modulo operator \% to find if the remainder does in fact equal $0$ (mod $3m$), then place this inside a list comprehension to return a list of all $n$ values.
+
+\section{Dynamical Systems}
+\section{Appendices}
+\appendix
+\section{Appendix A: Data Types}
+\subsection*{A.1 Strings}
+Strings are a list of characters put together. A character in the string can be accessed by typing 
+\begin{verbatim}
+string_name[index(s)]}
+\end{verbatim}. 
+Strings have numerous methods which can be used to amend them. 
+
+\subsection{Integers, Floats and Complex Numbers}
+Integers, floats and complex numbers are all numeric type variables. They allow for mathematical operations and incrementing. 
+
+\subsection{Booleans}
+Boolean values take two forms, either `True` or `False`. Sometimes conditions or statements need to be checked such as, “3 < 10”, python will interpret this and will display `True` since the statement is true.\\
+\href{https://www.w3schools.com/python/python_booleans.asp}{https://www.w3schools.com/python/python_booleans.asp}
+\end{document}
