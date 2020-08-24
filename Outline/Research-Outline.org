@@ -91,6 +91,13 @@ AVOID DETAILS, JUST SKETCH THE PROJECT OUT.
 * Download RevealJS
 So first do ~M-x package-install ox-reveal~ then do ~M-x load-library~ and then look for ~ox-reveal~
 
+#+begin_src elisp
+(load "/home/ryan/.emacs.d/.local/straight/build/ox-reveal/ox-reveal.el")
+#+end_src
+
+#+RESULTS:
+: t
+
 Download Reveal.js and put it in the directory as ~./reveal.js~, you can do that with something like this:
 
 #+begin_src bash
