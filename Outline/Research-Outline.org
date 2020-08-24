@@ -21,14 +21,9 @@
 # results: table (or output or whatever)
 :END:
 :LATEX:
-# #+STARTUP: latexpreview
-# TexFrag Doesn't work with relative paths.
-:END:
-:LATEXBIB:
-#+latex_header:\usepackage[citestyle=numeric, bibstyle=numeric,hyperref=true,backref=true, maxcitenames=3,url=true,backend=biber,natbib=true]{biblatex}
-#+latex_header:\AtEndDocument{\printbibliography}
-# #+LATEX_HEADER: \usepackage{style}
-#+latex_header: \addbibresource{../Resources/references.bib}
+#+LATEX_HEADER: \IfFileExists{./resources/style.sty}{\usepackage{./resources/style}}{}
+#+LATEX_HEADER: \IfFileExists{./resources/referencing.sty}{\usepackage{./resources/referencing}}{}
+#+LATEX_HEADER: \addbibresource{../Resources/references.bib}
 :END:
 
 
@@ -41,7 +36,12 @@ Here's what I gatthered from the week 3 slides
 * Give a brief Sketch of the project
 
 ** Topic / Context
+We are interested in the theory of problem solving, but in particular the
+different approaches that can be taken to attacking a problem.
 
+Essentially this boils down to looking at how a computer scientist and
+mathematician attack a problem, although originally I thought there was no
+difference, after seeing the odd way Roozbeh attacks problems I see there is a big difference.
 ** Motivation
 
 ** Basic Ideas
@@ -91,7 +91,14 @@ AVOID DETAILS, JUST SKETCH THE PROJECT OUT.
 * Download RevealJS
 So first do ~M-x package-install ox-reveal~ then do ~M-x load-library~ and then look for ~ox-reveal~
 
-Download Reveal.js and put it in the directory as ~./reveal.js~, you can do that with something like this:
+#+begin_src elisp
+(load "/home/ryan/.emacs.d/.local/straight/build/ox-reveal/ox-reveal.el")
+#+end_src
+
+#+RESULTS:
+: t
+
+Download Reveal.js and put it in the directory as =./reveal.js=, you can do that with something like this:
 
 #+begin_src bash
 # cd /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/
@@ -100,4 +107,254 @@ tar -xzvf master.tar.gz && rm master.tar.gz
 mv reveal.js-master reveal.js
 #+end_src
 
+#+RESULTS:
+| reveal.js-master/                                                                     |
+| reveal.js-master/.github/                                                             |
+| reveal.js-master/.github/FUNDING.yml                                                  |
+| reveal.js-master/.github/workflows/                                                   |
+| reveal.js-master/.github/workflows/js.yml                                             |
+| reveal.js-master/.gitignore                                                           |
+| reveal.js-master/.npmignore                                                           |
+| reveal.js-master/CONTRIBUTING.md                                                      |
+| reveal.js-master/LICENSE                                                              |
+| reveal.js-master/README.md                                                            |
+| reveal.js-master/css/                                                                 |
+| reveal.js-master/css/layout.scss                                                      |
+| reveal.js-master/css/print/                                                           |
+| reveal.js-master/css/print/paper.scss                                                 |
+| reveal.js-master/css/print/pdf.scss                                                   |
+| reveal.js-master/css/reveal.scss                                                      |
+| reveal.js-master/css/theme/                                                           |
+| reveal.js-master/css/theme/README.md                                                  |
+| reveal.js-master/css/theme/source/                                                    |
+| reveal.js-master/css/theme/source/beige.scss                                          |
+| reveal.js-master/css/theme/source/black.scss                                          |
+| reveal.js-master/css/theme/source/blood.scss                                          |
+| reveal.js-master/css/theme/source/league.scss                                         |
+| reveal.js-master/css/theme/source/moon.scss                                           |
+| reveal.js-master/css/theme/source/night.scss                                          |
+| reveal.js-master/css/theme/source/serif.scss                                          |
+| reveal.js-master/css/theme/source/simple.scss                                         |
+| reveal.js-master/css/theme/source/sky.scss                                            |
+| reveal.js-master/css/theme/source/solarized.scss                                      |
+| reveal.js-master/css/theme/source/white.scss                                          |
+| reveal.js-master/css/theme/template/                                                  |
+| reveal.js-master/css/theme/template/exposer.scss                                      |
+| reveal.js-master/css/theme/template/mixins.scss                                       |
+| reveal.js-master/css/theme/template/settings.scss                                     |
+| reveal.js-master/css/theme/template/theme.scss                                        |
+| reveal.js-master/demo.html                                                            |
+| reveal.js-master/dist/                                                                |
+| reveal.js-master/dist/reset.css                                                       |
+| reveal.js-master/dist/reveal.css                                                      |
+| reveal.js-master/dist/reveal.esm.js                                                   |
+| reveal.js-master/dist/reveal.js                                                       |
+| reveal.js-master/dist/theme/                                                          |
+| reveal.js-master/dist/theme/beige.css                                                 |
+| reveal.js-master/dist/theme/black.css                                                 |
+| reveal.js-master/dist/theme/blood.css                                                 |
+| reveal.js-master/dist/theme/fonts/                                                    |
+| reveal.js-master/dist/theme/fonts/league-gothic/                                      |
+| reveal.js-master/dist/theme/fonts/league-gothic/LICENSE                               |
+| reveal.js-master/dist/theme/fonts/league-gothic/league-gothic.css                     |
+| reveal.js-master/dist/theme/fonts/league-gothic/league-gothic.eot                     |
+| reveal.js-master/dist/theme/fonts/league-gothic/league-gothic.ttf                     |
+| reveal.js-master/dist/theme/fonts/league-gothic/league-gothic.woff                    |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/                                    |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/LICENSE                             |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-italic.eot          |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-italic.ttf          |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-italic.woff         |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-regular.eot         |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-regular.ttf         |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-regular.woff        |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-semibold.eot        |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-semibold.ttf        |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-semibold.woff       |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-semibolditalic.eot  |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-semibolditalic.ttf  |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-semibolditalic.woff |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro.css                 |
+| reveal.js-master/dist/theme/league.css                                                |
+| reveal.js-master/dist/theme/moon.css                                                  |
+| reveal.js-master/dist/theme/night.css                                                 |
+| reveal.js-master/dist/theme/serif.css                                                 |
+| reveal.js-master/dist/theme/simple.css                                                |
+| reveal.js-master/dist/theme/sky.css                                                   |
+| reveal.js-master/dist/theme/solarized.css                                             |
+| reveal.js-master/dist/theme/white.css                                                 |
+| reveal.js-master/examples/                                                            |
+| reveal.js-master/examples/assets/                                                     |
+| reveal.js-master/examples/assets/beeping.txt                                          |
+| reveal.js-master/examples/assets/beeping.wav                                          |
+| reveal.js-master/examples/assets/image1.png                                           |
+| reveal.js-master/examples/assets/image2.png                                           |
+| reveal.js-master/examples/auto-animate.html                                           |
+| reveal.js-master/examples/backgrounds.html                                            |
+| reveal.js-master/examples/barebones.html                                              |
+| reveal.js-master/examples/layout-helpers.html                                         |
+| reveal.js-master/examples/markdown.html                                               |
+| reveal.js-master/examples/markdown.md                                                 |
+| reveal.js-master/examples/math.html                                                   |
+| reveal.js-master/examples/media.html                                                  |
+| reveal.js-master/examples/multiple-presentations.html                                 |
+| reveal.js-master/examples/transitions.html                                            |
+| reveal.js-master/gulpfile.js                                                          |
+| reveal.js-master/index.html                                                           |
+| reveal.js-master/js/                                                                  |
+| reveal.js-master/js/components/                                                       |
+| reveal.js-master/js/components/playback.js                                            |
+| reveal.js-master/js/config.js                                                         |
+| reveal.js-master/js/controllers/                                                      |
+| reveal.js-master/js/controllers/autoanimate.js                                        |
+| reveal.js-master/js/controllers/backgrounds.js                                        |
+| reveal.js-master/js/controllers/controls.js                                           |
+| reveal.js-master/js/controllers/focus.js                                              |
+| reveal.js-master/js/controllers/fragments.js                                          |
+| reveal.js-master/js/controllers/keyboard.js                                           |
+| reveal.js-master/js/controllers/location.js                                           |
+| reveal.js-master/js/controllers/notes.js                                              |
+| reveal.js-master/js/controllers/overview.js                                           |
+| reveal.js-master/js/controllers/plugins.js                                            |
+| reveal.js-master/js/controllers/pointer.js                                            |
+| reveal.js-master/js/controllers/print.js                                              |
+| reveal.js-master/js/controllers/progress.js                                           |
+| reveal.js-master/js/controllers/slidecontent.js                                       |
+| reveal.js-master/js/controllers/slidenumber.js                                        |
+| reveal.js-master/js/controllers/touch.js                                              |
+| reveal.js-master/js/index.js                                                          |
+| reveal.js-master/js/reveal.js                                                         |
+| reveal.js-master/js/utils/                                                            |
+| reveal.js-master/js/utils/color.js                                                    |
+| reveal.js-master/js/utils/constants.js                                                |
+| reveal.js-master/js/utils/device.js                                                   |
+| reveal.js-master/js/utils/loader.js                                                   |
+| reveal.js-master/js/utils/util.js                                                     |
+| reveal.js-master/package-lock.json                                                    |
+| reveal.js-master/package.json                                                         |
+| reveal.js-master/plugin/                                                              |
+| reveal.js-master/plugin/highlight/                                                    |
+| reveal.js-master/plugin/highlight/highlight.esm.js                                    |
+| reveal.js-master/plugin/highlight/highlight.js                                        |
+| reveal.js-master/plugin/highlight/monokai.css                                         |
+| reveal.js-master/plugin/highlight/plugin.js                                           |
+| reveal.js-master/plugin/highlight/zenburn.css                                         |
+| reveal.js-master/plugin/markdown/                                                     |
+| reveal.js-master/plugin/markdown/markdown.esm.js                                      |
+| reveal.js-master/plugin/markdown/markdown.js                                          |
+| reveal.js-master/plugin/markdown/plugin.js                                            |
+| reveal.js-master/plugin/math/                                                         |
+| reveal.js-master/plugin/math/math.esm.js                                              |
+| reveal.js-master/plugin/math/math.js                                                  |
+| reveal.js-master/plugin/math/plugin.js                                                |
+| reveal.js-master/plugin/notes/                                                        |
+| reveal.js-master/plugin/notes/notes.esm.js                                            |
+| reveal.js-master/plugin/notes/notes.js                                                |
+| reveal.js-master/plugin/notes/plugin.js                                               |
+| reveal.js-master/plugin/notes/speaker-view.html                                       |
+| reveal.js-master/plugin/search/                                                       |
+| reveal.js-master/plugin/search/plugin.js                                              |
+| reveal.js-master/plugin/search/search.esm.js                                          |
+| reveal.js-master/plugin/search/search.js                                              |
+| reveal.js-master/plugin/zoom/                                                         |
+| reveal.js-master/plugin/zoom/plugin.js                                                |
+| reveal.js-master/plugin/zoom/zoom.esm.js                                              |
+| reveal.js-master/plugin/zoom/zoom.js                                                  |
+| reveal.js-master/test/                                                                |
+| reveal.js-master/test/assets/                                                         |
+| reveal.js-master/test/assets/external-script-a.js                                     |
+| reveal.js-master/test/assets/external-script-b.js                                     |
+| reveal.js-master/test/assets/external-script-c.js                                     |
+| reveal.js-master/test/assets/external-script-d.js                                     |
+| reveal.js-master/test/simple.md                                                       |
+| reveal.js-master/test/test-auto-animate.html                                          |
+| reveal.js-master/test/test-dependencies-async.html                                    |
+| reveal.js-master/test/test-dependencies.html                                          |
+| reveal.js-master/test/test-grid-navigation.html                                       |
+| reveal.js-master/test/test-iframe-backgrounds.html                                    |
+| reveal.js-master/test/test-iframes.html                                               |
+| reveal.js-master/test/test-markdown.html                                              |
+| reveal.js-master/test/test-multiple-instances-es5.html                                |
+| reveal.js-master/test/test-multiple-instances.html                                    |
+| reveal.js-master/test/test-pdf.html                                                   |
+| reveal.js-master/test/test-plugins.html                                               |
+| reveal.js-master/test/test-state.html                                                 |
+| reveal.js-master/test/test.html                                                       |
+
 Then just do ~C-c e e R R~ to export with RevealJS as opposed to PHP you won't need a fancy server, just open it in the browser.
+* GNU Plot
+[[https://rosettacode.org/wiki/Find_limit_of_recursion#gnuplot][limit of recursion is 250]]
+
+#+BEGIN_SRC gnuplot :cache no :exports both :results output graphics :file one.svg :eval never-export
+complex(x,y) = x*{1,0}+y*{0,1}
+mandel(x,y,z,n) = (abs(z)>2.0 || n>=200) ? \
+                  n : mandel(x,y,z*z+complex(x,y),n+1)
+
+set xrange [-1.5:0.5]
+set yrange [-1:1]
+set logscale z
+set isosample 200
+set hidden3d
+set contour
+splot mandel(x,y,{0,0},0) notitle
+#+end_src
+
+#+RESULTS:
+[[file:one.svg]]
+
+
+[[http://folk.uio.no/inf3330/scripting/doc/gnuplot/Kawano/fractal/mandelbrot-e.html][reference for image]]
+
+,#+begin_src gnuplot
+#+BEGIN_SRC gnuplot :cache yes :exports both :results output graphics :file two.svg :eval never-export
+
+complex(x,y) = x*{1,0}+y*{0,1}
+mandel(x,y,z,n) = (abs(z)>2.0 || n>=200) ? \
+                  n : mandel(x,y,z*z+complex(x,y),n+1)
+
+set xrange [-0.5:0.5]
+set yrange [-0.5:0.5]
+set logscale z
+set isosample 100
+set hidden3d
+set contour
+a= -0.37
+b= -0.612
+splot mandel(a,b,complex(x,y),0) notitle
+#+end_src
+
+#+RESULTS[313c56881c08a31863c80601137a9a89347e52cf]:
+[[file:two.svg]]
+
+
+
+
+[[https://rosettacode.org/wiki/Mandelbrot_set#Python][reference]]
+
+
+#+BEGIN_SRC gnuplot :cache yes :exports both :results output graphics :file three.svg :eval never-export
+rmax = 2
+nmax = 100
+complex (x, y) = x * {1, 0} + y * {0, 1}
+mandelbrot (z, z0, n) = n == nmax || abs (z) > rmax ? n : mandelbrot (z ** 2 + z0, z0, n + 1)
+set samples 200
+set isosamples 200
+set pm3d map
+set size square
+splot [-2 : .8] [-1.4 : 1.4] mandelbrot (complex (0, 0), complex (x, y), 0) notitle
+#+end_src
+
+#+RESULTS[6f4570cfd26a3574d696e18a2348c68289265d90]:
+[[file:three.svg]]
+
+
+
+
+* Heres a Gif
+
+
+So this is a very big Gif that I'm using:
+
+How did I make the Gif??
+
+[[https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0]]
