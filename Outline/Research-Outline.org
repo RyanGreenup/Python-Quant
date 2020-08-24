@@ -28,66 +28,60 @@
 
 
 
-* Give a brief Sketch of the project
-
-#+begin_src bash
-code /home/ryan/Dropbox/Studies/QuantProject/Current/Python-Quant/ & disown
-#+end_src
-
-Here's what I gatthered from the week 3 slides
-
-** Topic / Context
-We are interested in the theory of problem solving, but in particular the
-different approaches that can be taken to attacking a problem.
-
-Essentially this boils down to looking at how a computer scientist and
-mathematician attack a problem, although originally I thought there was no
-difference, after seeing the odd way Roozbeh attacks problems I see there is a big difference.
-** Motivation
-
-** Basic Ideas
-- Look at FOSS CAS Systems
-  - Python (Sympy)
-  - Julia
-    - Sympy integration
-    - symEngine
-    - Reduce.jl
-    - Symata.jl
-
-- Maybe look at interactive sessions:
-  - Like Jupyter
-  - Hydrogen
-  - TeXmacs
-  - org-mode?
-
-After getting an overview of SymPy let's look at problems that are interesting (chaos, morphogenesis and order from disarray etc.)
-
-
-** Where are the Mathematics
-
-- Trying to look at the algorithms underlying functions in Python/Sympy and other Computer algebra tools such as Maxima, Maple, Mathematica, Sage, GAP and Xcas/Giac, Yacas, Symata.jl, Reduce.jl, SymEngine.jl
-  - For Example Recursive Relations
-- Look at solving some problems related to chaos theory maybe
-  - Mandelbrot and Julia Sets
-- Look at solving some problems related to Fourier Transforms maybe
-
-
-AVOID DETAILS, JUST SKETCH THE PROJECT OUT.
-
-
-** Don't Forget we need a talk
-*** Slides In Org Mode
-- [[https://orgmode.org/worg/org-tutorials/non-beamer-presentations.html][Without Beamer]]
-- [[https://orgmode.org/worg/exporters/beamer/tutorial.html][With Beamer]]
-
-* What we're looking for
-
-- Would a reader know what the project is about?
-- Would a reader become interested in the upcoming report?
-- Is it brief but well prepared?
-- Are the major parts or phases sketched out
-
-
+* Outline
+1. Intro Prob
+2. Problem Showing Recursion
+   + All Different Methods
+     - Discuss all Different Methods
+     - Discuss Vectorisation
+     - Is this needed in Julia
+     - Comment on Faster to go column Wise
+3. Discuss Loops
+4. Show Rug
+5. Fibonacci
+   + The ratio of fibonacci converges to \phi
+   + Golden Ratio
+     - If you make a rectangle with the golden ratio you can cut it up under
+       recursion to get another one, keep doing this and eventually a logarithmic
+       spiral pops out, also the areas follow a fibonacci sequence.
+6. Discuss isomorphisms for recursive Relations
+7. Jump to Lorenz Attractor
+8. Now Talk about Morphogenesis
+9. Fractals
+   + Many Occur in Nature
+     - Mountain Ranges, compare to MandelBrot
+     - Sun Flowers
+     - Show the golden Ratio
+   + Fractals are all about recursion and iteration, so this gives me an excuse to look at them
+     - Show MandelBrot
+       + Python
+         - Sympy Slow
+         - Numpy Fast
+       + Julia brings Both Benefits
+         - Show Large MandelBrot
+       + Show Julia Set
+         - Show Julia Set Gif
+10. Things I'd like to show
+    + Simulate stripes and animal patterns
+    + Show some math behind spirals in Nautilus Shells
+    + Golden Rectangle
+      - Throw in some recursion
+      - Watch the spiral come out
+      - Record the areas and show that they are Fibonacci
+    + That the ratio of Fibonacci Converges to Phi
+    + What on Earth is the Reimann Sphere
+    + Lorrenz Attractor
+      - How is this connected to the lorrenz attractor
+    + What are the connections between discrete iteration and continuous systems such as the julia set and the lorrenz attractor
+11. Things I'd like to Try (in order to see different ways to approach Problems)
+    + Programming Languages and CAS
+      - Julia
+        + SymEngine
+      - Maxima
+    + Visualisation
+      - Makie
+      - Plotly
+      - GNUPlot
 
 * Download RevealJS
 So first do ~M-x package-install ox-reveal~ then do ~M-x load-library~ and then look for ~ox-reveal~
@@ -352,10 +346,65 @@ splot [-2 : .8] [-1.4 : 1.4] mandelbrot (complex (0, 0), complex (x, y), 0) noti
 
 
 * Heres a Gif
-
-
 So this is a very big Gif that I'm using:
 
 How did I make the Gif??
 
 [[https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0]]
+
+* TODO Give a brief Sketch of the project
+
+#+begin_src bash
+code /home/ryan/Dropbox/Studies/QuantProject/Current/Python-Quant/ & disown
+#+end_src
+
+Here's what I gatthered from the week 3 slides
+
+** TODO Topic / Context
+We are interested in the theory of problem solving, but in particular the
+different approaches that can be taken to attacking a problem.
+
+Essentially this boils down to looking at how a computer scientist and
+mathematician attack a problem, although originally I thought there was no
+difference, after seeing the odd way Roozbeh attacks problems I see there is a big difference.
+** TODO Motivation
+
+** TODO Basic Ideas
+- Look at FOSS CAS Systems
+  - Python (Sympy)
+  - Julia
+    - Sympy integration
+    - symEngine
+    - Reduce.jl
+    - Symata.jl
+
+- Maybe look at interactive sessions:
+  - Like Jupyter
+  - Hydrogen
+  - TeXmacs
+  - org-mode?
+
+After getting an overview of SymPy let's look at problems that are interesting (chaos, morphogenesis and order from disarray etc.)
+
+** TODO Where are the Mathematics
+
+- Trying to look at the algorithms underlying functions in Python/Sympy and other Computer algebra tools such as Maxima, Maple, Mathematica, Sage, GAP and Xcas/Giac, Yacas, Symata.jl, Reduce.jl, SymEngine.jl
+  - For Example Recursive Relations
+- Look at solving some problems related to chaos theory maybe
+  - Mandelbrot and Julia Sets
+- Look at solving some problems related to Fourier Transforms maybe
+
+
+AVOID DETAILS, JUST SKETCH THE PROJECT OUT.
+
+** TODO Don't Forget we need a talk
+*** Slides In Org Mode
+- [[https://orgmode.org/worg/org-tutorials/non-beamer-presentations.html][Without Beamer]]
+- [[https://orgmode.org/worg/exporters/beamer/tutorial.html][With Beamer]]
+
+* TODO What we're looking for
+
+- Would a reader know what the project is about?
+- Would a reader become interested in the upcoming report?
+- Is it brief but well prepared?
+- Are the major parts or phases sketched out
