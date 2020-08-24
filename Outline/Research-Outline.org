@@ -101,3 +101,22 @@ mv reveal.js-master reveal.js
 #+end_src
 
 Then just do ~C-c e e R R~ to export with RevealJS as opposed to PHP you won't need a fancy server, just open it in the browser.
+* GNU Plot
+
+#+begin_src gnuplot
+complex(x,y) = x*{1,0}+y*{0,1}
+mandel(x,y,z,n) = (abs(z)>2.0 || n>=10) ? \
+                  n : mandel(x,y,z*z+complex(x,y),n+1)
+
+set xrange [-0.5:0.5]
+set yrange [-0.5:0.5]
+set logscale z
+set isosample 50
+set hidden3d
+set contour
+a= -0.37
+b= -0.612
+splot mandel(a,b,complex(x,y),0) notitle
+#+end_src
+
+#+RESULTS:
