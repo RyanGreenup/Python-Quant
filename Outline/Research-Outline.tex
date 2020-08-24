@@ -1,4 +1,4 @@
-% Created 2020-08-12 Wed 16:21
+% Created 2020-08-24 Mon 15:18
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -15,8 +15,8 @@
 \usepackage{capt-of}
 \usepackage{hyperref}
 \usepackage{minted}
-\usepackage[citestyle=numeric, bibstyle=numeric,hyperref=true,backref=true, maxcitenames=3,url=true,backend=biber,natbib=true]{biblatex}
-\AtEndDocument{\printbibliography}
+\IfFileExists{./resources/style.sty}{\usepackage{./resources/style}}{}
+\IfFileExists{./resources/referencing.sty}{\usepackage{./resources/referencing}}{}
 \addbibresource{../Resources/references.bib}
 \author{Ryan Greenup \& James Guerra}
 \date{\today}
@@ -26,7 +26,7 @@
  pdftitle={Research Outline},
  pdfkeywords={},
  pdfsubject={},
- pdfcreator={Emacs 26.3 (Org mode 9.4)}, 
+ pdfcreator={Emacs 27.1 (Org mode 9.4)}, 
  pdflang={English}}
 \begin{document}
 
@@ -40,16 +40,21 @@ code /home/ryan/Dropbox/Studies/QuantProject/Current/Python-Quant/ & disown
 Here's what I gatthered from the week 3 slides
 
 \section{Give a brief Sketch of the project}
-\label{sec:orgce8eada}
+\label{sec:orgb321674}
 
 \subsection{Topic / Context}
-\label{sec:org587bcb4}
+\label{sec:org55f4360}
+We are interested in the theory of problem solving, but in particular the
+different approaches that can be taken to attacking a problem.
 
+Essentially this boils down to looking at how a computer scientist and
+mathematician attack a problem, although originally I thought there was no
+difference, after seeing the odd way Roozbeh attacks problems I see there is a big difference.
 \subsection{Motivation}
-\label{sec:org84dfa04}
+\label{sec:orgccbd7ea}
 
 \subsection{Basic Ideas}
-\label{sec:orgd98c738}
+\label{sec:orgb16a446}
 \begin{itemize}
 \item Look at FOSS CAS Systems
 \begin{itemize}
@@ -76,7 +81,7 @@ After getting an overview of SymPy let's look at problems that are interesting (
 
 
 \subsection{Where are the Mathematics}
-\label{sec:org9fe3ac9}
+\label{sec:org1c71f22}
 
 \begin{itemize}
 \item Trying to look at the algorithms underlying functions in Python/Sympy and other Computer algebra tools such as Maxima, Maple, Mathematica, Sage, GAP and Xcas/Giac, Yacas, Symata.jl, Reduce.jl, SymEngine.jl
@@ -95,16 +100,16 @@ AVOID DETAILS, JUST SKETCH THE PROJECT OUT.
 
 
 \subsection{Don't Forget we need a talk}
-\label{sec:org60dd603}
+\label{sec:org93e3d04}
 \subsubsection{Slides In Org Mode}
-\label{sec:org849fcff}
+\label{sec:org4921905}
 \begin{itemize}
 \item \href{https://orgmode.org/worg/org-tutorials/non-beamer-presentations.html}{Without Beamer}
 \item \href{https://orgmode.org/worg/exporters/beamer/tutorial.html}{With Beamer}
 \end{itemize}
 
 \section{What we're looking for}
-\label{sec:orgdaa04a3}
+\label{sec:org2be1b18}
 
 \begin{itemize}
 \item Would a reader know what the project is about?
@@ -112,4 +117,89 @@ AVOID DETAILS, JUST SKETCH THE PROJECT OUT.
 \item Is it brief but well prepared?
 \item Are the major parts or phases sketched out
 \end{itemize}
+
+
+
+\section{Download RevealJS}
+\label{sec:orgad35b54}
+So first do \texttt{M-x package-install ox-reveal} then do \texttt{M-x load-library} and then look for \texttt{ox-reveal}
+
+Download Reveal.js and put it in the directory as \texttt{./reveal.js}, you can do that with something like this:
+
+\begin{minted}[]{bash}
+# cd /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/
+wget https://github.com/hakimel/reveal.js/archive/master.tar.gz
+tar -xzvf master.tar.gz && rm master.tar.gz
+mv reveal.js-master reveal.js
+\end{minted}
+
+Then just do \texttt{C-c e e R R} to export with RevealJS as opposed to PHP you won't need a fancy server, just open it in the browser.
+\section{GNU Plot}
+\label{sec:org92db9c8}
+\href{https://rosettacode.org/wiki/Find\_limit\_of\_recursion\#gnuplot}{limit of recursion is 250}
+
+\begin{minted}[]{gnuplot}
+complex(x,y) = x*{1,0}+y*{0,1}
+mandel(x,y,z,n) = (abs(z)>2.0 || n>=200) ? \
+                  n : mandel(x,y,z*z+complex(x,y),n+1)
+
+set xrange [-1.5:0.5]
+set yrange [-1:1]
+set logscale z
+set isosample 200
+set hidden3d
+set contour
+splot mandel(x,y,{0,0},0) notitle
+\end{minted}
+
+\begin{center}
+\includesvg[width=.9\linewidth]{one}
+\end{center}
+
+
+\href{http://folk.uio.no/inf3330/scripting/doc/gnuplot/Kawano/fractal/mandelbrot-e.html}{reference for image}
+
+,\#+begin\textsubscript{src} gnuplot
+\begin{minted}[]{gnuplot}
+
+complex(x,y) = x*{1,0}+y*{0,1}
+mandel(x,y,z,n) = (abs(z)>2.0 || n>=200) ? \
+                  n : mandel(x,y,z*z+complex(x,y),n+1)
+
+set xrange [-0.5:0.5]
+set yrange [-0.5:0.5]
+set logscale z
+set isosample 100
+set hidden3d
+set contour
+a= -0.37
+b= -0.612
+splot mandel(a,b,complex(x,y),0) notitle
+\end{minted}
+
+\begin{center}
+\includesvg[width=.9\linewidth]{two}
+\end{center}
+
+
+
+
+\href{https://rosettacode.org/wiki/Mandelbrot\_set\#Python}{reference}
+
+
+\begin{minted}[]{gnuplot}
+rmax = 2
+nmax = 100
+complex (x, y) = x * {1, 0} + y * {0, 1}
+mandelbrot (z, z0, n) = n == nmax || abs (z) > rmax ? n : mandelbrot (z ** 2 + z0, z0, n + 1)
+set samples 200
+set isosamples 200
+set pm3d map
+set size square
+splot [-2 : .8] [-1.4 : 1.4] mandelbrot (complex (0, 0), complex (x, y), 0) notitle
+\end{minted}
+
+\begin{center}
+\includesvg[width=.9\linewidth]{three}
+\end{center}
 \end{document}

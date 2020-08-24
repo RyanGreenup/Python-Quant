@@ -4,4 +4,14 @@ Learning-Sympy/.vscode
 Report/texfrag
 Problems/Chaos/Fractals/Julia-Mandelbrot/0
 Problems/Chaos/mandelbrot-400mpx.fits
-Outline/.DS_Store
+**/.DS_Store
+**/.auctex-auto
+**/texfrag
+**/_minted*
+**/_region_*
+**/*.log
+**/livepreview/*
+**/livepreview
+Outline/reveal.js
+Outline/large-gnuplot-mandelbrot.svg
+Problems/.vscode

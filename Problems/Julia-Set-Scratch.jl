@@ -115,12 +115,38 @@ plotly_matrix(make_picture(100, 100, z -> z^2))
 
 # * Simulate various fractals
 
-for j in (3:8)
-    for i in (1:80)/(2*π)
-        py_imshow_dp(make_picture(100, 100, z -> z^(j/2) + 0.8*exp(im*i)))
-        sleep(1/600)
+for j in (1:10)
+    for i in (1:8)/(2*π)
+        py_imshow_dp(make_picture(100, 100, z -> z^2 + j/10*exp(im*i)))
+        sleep(1/6000)
     end
 end
+
+
+# * Try something logarithmic
+for i in (1:80)/(2*4*π)
+    py_imshow_dp(make_picture(100, 100, z -> (1-z^3/6)/(z-z/z^2)^2  ))
+    sleep(1/6000)
+end
+
+
+py_imshow_dp(make_picture(1000, 1000, z -> (1-z^3/6)/(z-z/z^2)^2  ))
+py_imshow_dp(make_picture(100, 100, z -> log(z^2 -1) ))
+
+
+# ** Herman Ring
+
+# * Try something logarithmic
+for i in (1:80)/(2*π)
+    py_imshow_dp(make_picture(100, 100, z -> ((2^2*(z-i))/(z-sqrt(i)))  ))
+    sleep(1/6000)
+end
+
+τ = (sqrt(5)-1)/2
+py_imshow_dp(make_picture(100, 100, z -> exp(2*pi*im*τ)*z^2*(z-4)/(1-4*z)  ))
+py_imshow_dp(make_picture(100, 100, z -> z^z-0.9  ))
+
+
 
 
 # * Use GR to Save a Bunch of Images
