@@ -27,13 +27,14 @@
 :END:
 
 
+
+* Give a brief Sketch of the project
+
 #+begin_src bash
 code /home/ryan/Dropbox/Studies/QuantProject/Current/Python-Quant/ & disown
 #+end_src
 
 Here's what I gatthered from the week 3 slides
-
-* Give a brief Sketch of the project
 
 ** Topic / Context
 We are interested in the theory of problem solving, but in particular the
