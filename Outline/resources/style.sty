@@ -28,14 +28,14 @@
 \RequirePackage{lipsum}
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
-\RequirePackage[margin=0.3in]{geometry}
+\RequirePackage[margin=2cm]{geometry}
 \addtolength{\skip\footins}{2pc plus 5pt} %Add whitespace before footnotes`
 %\RequirePackage{tgadventor}
 % Titlesec is incompatible with org-mode
 % *** Multi Column
 \setlength{\tabcolsep}{6pt}
 % \twocolumn
-\RequirePackage{cuted} % https://tex.stackexchange.com/a/255115 This let's us
+% \RequirePackage{cuted} % https://tex.stackexchange.com/a/255115 This let's us
                        % use \begin{strip}\end{strip} which forces an equation
                        % over all columns
 
@@ -208,11 +208,10 @@
 % Use tcolorbox, even though it breaks html conversion, it makes it way easier,
   %if you need to fix the html conversion just remove the box by commenting this out.
 \BeforeBeginEnvironment{minted}{\begin{tcolorbox}[
-		colback=blue!1!white,colframe=blue!75!black,colbacktitle=red!20!blue!8, 
+		colback=blue!1!white,colframe=blue!75!black,colbacktitle=red!20!blue!8,
 		coltitle=blue,
 %		title=\textbf{\textit{R}}\ ,fonttitle=\it,
 		left=0.6cm, %Indent for the line numbers, % use line numbers because line-breaks
 		 /tcb/left skip=0.5 cm %Indent the whole box
 		 ]}%
-	\AfterEndEnvironment{minted}{\end{tcolorbox}}%
-
+	\AfterEndEnvironment{minted}{  \end{tcolorbox} }%

@@ -42,49 +42,7 @@ function save_picture(filename, matrix)
     close(f)
 end
 
-using PlotlyJS
-function plotly_matrix(matrix)
-    trace = PlotlyJS.heatmap(
-        z=matrix
-    )
-    plot(trace)
-end
-
-using PyPlot
-function py_imshow_dp(matrix)
-    pic = PyPlot.imshow(matrix, interpolation = "none")
-    PyPlot.display_figs()
-    return pic
-end
-
-# f(z) = z^9
-# py_imshow_dp(make_picture(500, 500, f))
-
-# py_imshow_dp(make_picture(500, 500, z -> z^π))
-
 # * Save Picture
 #------------------------------------------------------------
-my_pic = make_picture(500, 500, z -> z^2)
+my_pic = make_picture(60000, 60000, z -> z^2)
 save_picture("/tmp/a.fits", my_pic)
-
-#* View in VSCode
-#------------------------------------------------------------
-# py_imshow_dp(make_picture(100, 100, z -> z^2))
-# View with Plotly
-# plotly_matrix(make_picture(100, 100, z -> z^2))
-
-
-# * View External for scripting
-#------------------------------------------------------------
-# using GR
-# GR.imshow(make_picture(500, 500, z -> z^2))
-# print("Press any key")
-# readline()
-
-# @time make_picture(20000, 20000, z -> z^2)
-#
-# Scale appears to be linear
-#   100^2 is 0.003
-#  1000^2 is 0.3
-# 10000^2 is 30
-# 20000^2 is 180s
