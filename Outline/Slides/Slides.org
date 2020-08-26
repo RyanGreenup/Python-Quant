@@ -17,6 +17,7 @@
 :END:
 :R:
 #+PROPERTY: header-args:R :session TADMain :dir ./ :cache yes :eval never-export :exports both
+#+PROPERTY: :eval never-export
 # exports: both (or code or whatever)
 # results: table (or output or whatever)
 :END:
@@ -24,6 +25,9 @@
 #+LATEX_HEADER: \IfFileExists{../resources/style.sty}{\usepackage{../resources/style}}{}
 #+LATEX_HEADER: \IfFileExists{../resources/referencing.sty}{\usepackage{../resources/referencing}}{}
 #+LATEX_HEADER: \addbibresource{./bibtex-refs.bib}
+:END:
+:REVEAL:
+#+REVEAL_THEME: sky
 :END:
 
 * Follow along
@@ -45,10 +49,9 @@ qrencode -o qrcode.png \
 
 
 
-
 * Introduction
-
-Our title vague because our project is broad, which is awesome!
+** What we are doing (ish)
+Our title is vague because our project is broad, which is awesome!
 
 We are looking at the concept of computational thinking:
 
@@ -58,8 +61,6 @@ We are looking at the concept of computational thinking:
   + With a primary focus on FOSS and Modern technologies (like /Sympy🐍/ and
     /Julia/)
 - Investigate patterns, fractals, chaos and dynamical systems.
-
-
 
 ** Interesting Technologies
 
@@ -332,7 +333,7 @@ the function first (I'm not sure if this feature exists in /Julia/?):
     :CUSTOM_ID: julia
     :END:
 
-#+BEGIN_EXAMPLE
+#+BEGIN_SRC julia
   function outer()
       x=subfunction()
       print(x)
@@ -342,22 +343,6 @@ the function first (I'm not sure if this feature exists in /Julia/?):
       x=4
       return x
   end
-
-  outer()
-#+END_EXAMPLE
-
-#+BEGIN_EXAMPLE
-  3
-#+END_EXAMPLE
-
-#+BEGIN_SRC python
-  def outer():
-      x = inner()
-      print(str(x))
-
-  def inner():
-      x = 3
-      return x
 
   outer()
 #+END_SRC
@@ -373,27 +358,27 @@ the function first (I'm not sure if this feature exists in /Julia/?):
 
 In Julia observe that the following will not work:
 
-#+BEGIN_EXAMPLE
-      i=6
-      while i < 9
-          print(i)
-          i = i + 1
-      end
-#+END_EXAMPLE
+#+BEGIN_SRC julia
+i=6
+while i < 9
+    print(i)
+    i = i + 1
+end
+#+END_SRC
 
 Where as wrapping it in a function will rectify the issue:
 
-#+BEGIN_EXAMPLE
-  function blah()
-      i=6
-      while i < 9
-          print(i)
-          i = i + 1
-      end
-  end
+#+BEGIN_SRC julia
+function blah()
+    i=6
+    while i < 9
+        print(i)
+        i = i + 1
+    end
+end
 
-  blah()
-#+END_EXAMPLE
+blah()
+#+END_SRC
 
 Odd huh.
 
@@ -412,7 +397,6 @@ F_n = F_{n-1} + F_{n-2} \label{eq:fib-def}
 
 
 #+NAME: fib-rec-0
-#+CAPTION: Defining the /Fibonacci Sequence/ eqref:eq:fib-def using Recursion
 #+BEGIN_SRC python
   def rec_fib(k):
       if type(k) is not int:
@@ -922,10 +906,17 @@ We'll come back to this later on when looking at spirals and fractals.
 This can also be shown by using analysis, let $L=\lim_{n \rightarrow \infty} \left[ \frac{F_{n+1}}{F_{n}} \right], then:
 
 * Persian Recursion
+** What is it?
+This is a simple process that produces complex structured patterns in response
+to feedback and iteration.
 
-1. Decide on some four variable function with a finite domain and range of size $m$, for the example shown at listing [[persian-recursion-python]] and in figure [[6-rug]] the function $f(w,x,y,z)=(w+x+y+z) \mod m$ was chosen.
-2. Assign this value to the centre row and centre column of the matrix
-3. Repeat this for each newly enclosed subsmatrix.
+1. Decide on some four variable function to describe a set of colours, e.g.:
+   a. $f(w,x,y,z)=(w+x+y+z) \mod m$
+2. Assign this value to the centre row and centre column of a matrix
+3. Repeat this for each newly enclosed sub-matrix.
+
+** Implementing with Python
+*** Plan of Attack
 
 This can be implemented computationally by defining a function that:
 
@@ -935,7 +926,7 @@ This can be implemented computationally by defining a function that:
 - then calls itself on the corners of the four new sub-matrices enclosed by the
   coloured row and column
 
-** Implementing with Python
+*** Implementation
 
 #+NAME: persian-recursion-python
 #+CAPTION: Implementation of the persian recursion scheme in /Python/
@@ -986,7 +977,6 @@ def cx(l, r, t, b, m):
 
 main(5,6, 1, cx)
 #+end_src
-
 
 ** The Output
 
@@ -1048,77 +1038,71 @@ main(8, 8, 1, cx)
 #+RESULTS: new-func2-code
 [[file:../persian-recursion-new-func2.svg]]
 
-
 ** Emergence of Patterns
+:PROPERTIES:
+:ID:       c33e2a2b-7dd1-4c5b-a3e2-7a84b0878407
+:DIR:      /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/Slides/attachments/
+:END:
 
 Many patterns that occur in nature can be explained by relatively simple rules
-that are exposed to feedback and iteration
-[[cite:peitgenChaosFractalsNew2004][p. 16]], this is a centreal theme of Alan
-Turing's /The Chemical Basis For Morphogenesis/
-cite:turingChemicalBasisMorphogenesis1952 which we hope to look in the course of
-this research.
+that are exposed to feedback and iteration, this is a centreal theme of Alan
+Turing's /The Chemical Basis For Morphogenesis/ which we hope to look in the
+course of this research.
 
 
-* Julia
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+[[attachment:_20200826_172316screenshot.png]]
+
+* Julia Sets
 ** Motivation
-Consider the iterative process $x \rightarrow x^{2}, \enspace x \in \mathbb{R}$,
-for values of $x>1$ this process will diverge and for $x<1$ it will converge.
+*** The Problem
+- Consider the iterative process $x \rightarrow x^{2}, \enspace x \in \mathbb{R}$,
+  - $x\leq 1 \implies$ convergence
+  - $x>1 \implies$ divergence
+- Now Consider the iterative process $z \rightarrow z^{2}, \enspace z \in \mathbb{C}$,
+  - $\left\lvert z  \right \rvert  \leq 1 \implies$ convergence
+  - $\left\lvert z  \right \rvert   >1 \implies$ divergence
 
-Now Consider the iterative process $z \rightarrow z^{2}, \enspace z \in \mathbb{C}$,
-for values of $\left\lvert z \right\rvert >1$ this process will diverge and for $\left\lvert z \right\rvert <1$ it will converge.
-
+*** The Generalisation
 Although this seems trivial this can be generalised.
 
 Consider:
 
-- The complex plane for $\left\lvert z \right\rvert \leq 1$
-- Some function $f_{c}(z) = z^{2} + c, \quad c \leq 1 \in \mathbb{C}$ that can be used to iterate with
+$$f_{c}(z) = z^{2} + c, \quad \left\lvert c  \right \rvert  \left\lvert z  \right \rvert   \leq 1 \in \mathbb{C}$$
 
-Every value on that plane will belong to one of the two following sets
 
-- $P_{c}$
-  + The set of values on the plane that converge to zero (prisoners)
-  + Define $Q^{(k)}_{c}$ to be the the set of values confirmed as prisoners after $k$ iterations of $f_{c}$
+
+
+Every value on that plane will belong to one of the two following sets:
+
+- $E_{c}$ :: The set of values on the plane that tend to $\infty$ (escapees)
+- $P_{c}$ :: The set of values on the plane that converge to zero (prisoners)
+
+#+REVEAL: split
+
+- Define $Q^{(k)}_{c}$ to be the the set of values confirmed as prisoners after $k$ iterations of $f_{c}$
     - this implies $\lim_{k \rightarrow \infty} \left[ Q^{(k)}_{c}  \right] = P_{c}$
-- $E_{c}$
-  + The set of values on the plane that tend to $\infty$ (escapees)
 
-In the case of $f_{0}(z) = z^{2}$ all values $\left\lvert z  \right \rvert \leq 1$ are bounded with $\left\lvert z  \right \rvert = 1$ being an unstable stationary circle, but let's investigate what happens for different iterative functions like $f_{1}(z) = z^{2} - 1$, despite how trivial this seems at first glance.
-
-** Plotting the Sets                                                           :ATTACH:
+$$
+\ \\ \\
+$$
+This is what must be used in practice.
+** Plotting the Sets
 :PROPERTIES:
 :ID:       baa21085-5d8f-4390-9bb7-43c3b51d940d
 :END:
-Although the convergence of values may appear simple at first, we'll implement a
-strategy to plot the prisoner and escape sets on the complex plane.
-
-Because this involves iteration and /Python/ is a little slow, We'll denote
-complex values as a vector[fn:vc] and define the operations as described in
-listing [[complex-vec]].[fn:ma]
-
 *** Implementing this
 
-To implement this test we'll consider a function called ~escape_test~ that applies an
-iteration (in this case $f_{0}: z \rightarrow z^{2}$) until that value diverges or converges.
+To implement this map a function over the elements of a matrix and map that
+matrix to the complex plane, this will produce a matrix of values (this is a
+picture!)
 
-While iterating with $f_{c}$ once $\left\lvert z \right\rvert > \mathrm{max}\left(\left\{c, 2\right\}\right)$, the value must diverge because
-$\left\lvert c \rvert\right \leq 1$, so rather than record whether or not the
-value converges or diverges, the ~escape_test~ can instead record the number of
-iterations $(k)$ until the value has crossed that boundary and this will provide
-a measurement of the rate of divergence.
-
-Then the ~escape_test~ function can be mapped over a matrix, where each element
-of that matrix is in turn mapped to a point on the cartesian plane, the resulting matrix
-can be visualised as an image [fn:im], this is implemented in listing
-[[py-circle-code]] and the corresponding output shown in [[py-circle-plot]].
-
-with respect to listing [[py-circle-code]]:
-
-- Observe that the ~magnitude~ function wasn't used:
-   a. This is because a ~sqrt~ is a costly operation and comparing two squares saves an operation
+- ~escape_test~ :: applies iteration until divergence or convergence
+  + Divergence is concluded if $z > \max{2, c}$, and convergence is conceded some number of iterations.
 
 *** The Code
-
+**** Defining Complex Values
 
 #+NAME: complex-vec
 #+CAPTION: Defining Complex Operations with vectors
@@ -1141,6 +1125,10 @@ def cMult(u, v):
     y = u[1]*v[0]+u[0]*v[1]
     return [x, y]
 #+end_src
+
+#+RESULTS: complex-vec
+
+**** Coding the Julia Set
 
 #+NAME: py-circle-code
 #+CAPTION: Circle of Convergence of $z$ under recursion
@@ -1192,54 +1180,55 @@ plt.imshow(pic)
 
 #+end_src
 
-
-#+attr_html: :width 400px
-#+attr_latex: :width 9cm
+#+REVEAL: split
 
 
-#+attr_html: :width 400px
-#+attr_latex: :width 9cm
 #+NAME: py-circle-plot
-#+CAPTION: Circle of Convergence for $f_{0}: z \rightarrow z^{2}$
-
-This is precisely what we expected, but this is where things get interesting,
-consider now the result if we apply this same procedure to $f_{1}: z \rightarrow
-z^{2} - 1$ or something arbitrary like $f_{\frac{1}{4} + \frac{i}{2}}: z
-\rightarrow z^{2} + (\frac{1}{4} + \frac{i}{2})$, the result is something
-particularly unexpected, as shown in figures [[py-jl-1-plot]] and [[py-jl-rab-plot]].
-
-
-#+attr_html: :width 400px
+#+attr_html: :width 600px
 #+attr_latex: :width 9cm
-#+NAME: py-jl-1-plot
-#+CAPTION: Circle of Convergence for $f_{0}: z \rightarrow z^{2} - 1$
-[[file:./julia-1.svg]]
+#+RESULTS: py-circle-code
+[[file:./circle-of-convergence.svg]]
 
+Now at this stage nothing's remarkable, obviously it's a circle, when we
+perform $z \rightarrow z^{2}$ values converge for $\left\lvert z  \right \rvert \leq 1$.
 
-#+attr_html: :width 400px
+But what if we try something like:
+
+\begin{align}
+f_{\frac{1}{4} + \frac{i}{2}}&: z \rightarrow z^{2} + (\frac{1}{4} + \frac{i}{2}) \\
+f_{-1}&: z \rightarrow z^{2} - 1
+\end{align}
+
+#+REVEAL: split
+
+#+attr_html: :width 800px
 #+attr_latex: :width 9cm
 #+NAME: py-jl-rab-plot
 #+CAPTION: Circle of Convergence for $f_{\frac{1}{4} + \frac{i}{2}}: z \rightarrow z^{2} + \frac{1}{4} + \frac{i}{2}$
 [[file:./julia-rab.svg]]
 
-Now this is particularly interesting, to investigate this further consider the
-more general function $f_{0.8 e^{\pi i \tau}}: z \rightarrow z^{2} + 0.8 e^{\pi
-i \tau}, \enspace \tau \in \mathbb{R}$, many fractals can be generated using
-this set by varying the value of $\tau$[fn:wk].
 
-/Python/ is too slow for this, but the /Julia/ programming language, as a
-compiled language, is significantly faster and has the benefit of treating
-complex numbers as first class citizens, these images can be generated in
-/Julia/ in a similar fashion as before, with the specifics shown in listing
-[[julia-gen-fracs]]. The ~GR~ package appears to be the best plotting library
-performance wise and so was used to save corresponding images to disc, this is
-demonstrated in listing [[GR-save]] where 1200 pictures at a 2.25 MP resolution were produced. [fn:tm]
+#+REVEAL: split
 
-A subset of these images can be combined using /ImageMagick/ and ~bash~ to
-create a collage, /ImageMagick/ can also be used to produce a ~gif~ but it often
-fails and a superior approach is to use ~ffmpeg~, this is demonstrated in
-listing [[bash-frac-join]], the collage is shown in figure [[montage-frac]] and a corresponding
-animation is [[https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0][available online]][fn:ln]].
+#+attr_html: :width 800px
+#+attr_latex: :width 9cm
+#+NAME: py-jl-1-plot
+#+CAPTION: Circle of Convergence for $f_{0}: z \rightarrow z^{2} - 1$
+[[file:./julia-1.svg]]
+
+*** Broader Investigation
+**** Approach
+Consider the equation:
+$$
+f_{0.8 e^{\pi i \tau}}: z \rightarrow z^{2} + 0.8 e^{\pi
+i \tau}, \enspace \tau \in \mathbb{R}
+$$
+
+If the value $\tau$ is iterated over some range a series of snapshots can be
+created.
+**** Code
+/Python/ is too slow, I had to instead use /Julia/ and I produced and this how
+im implemented it:
 
 #+NAME: julia-gen-fracs
 #+CAPTION: Produce a series of fractals using julia
@@ -1286,6 +1275,10 @@ end
 
 #+end_src
 
+#+REVEAL: split
+
+To save the images I looped over the function and saved.
+
 #+NAME: GR-save
 #+CAPTION: Generate and save the images with GR
 #+begin_src julia
@@ -1308,14 +1301,29 @@ end
 
 save_images(1200, 1500) # Number  and Res
 #+end_src
+**** Viewing the Results
+***** What we Have                                                          :ATTACH:
+:PROPERTIES:
+:DIR:      /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/Slides/attachments/
+:END:
+We just have a bunch of images now:
+
+
+#+attr_html: :width 800px
+#+attr_latex: :width 9cm
+[[attachment:_20200826_223550screenshot.png]]
+
+***** How to work with it
+
+With /ImageMagick/ and ~ffmpeg~ an animation can be produced, here's how
 
 #+NAME: bash-frac-join
 #+CAPTION: Using ~bash~, ~ffmpeg~ and /ImageMagick/ to combine the images and produce an animation.
 #+begin_src bash
 # Use montage multiple times to get recursion for fun
-montage (ls *png | sed -n '1p;0~600p') 0a.png
+montage  (ls *png | sed -n '1p;0~600p') 0a.png
 montage (ls *png | sed -n '1p;0~100p') a.png
-montage (ls *png | sed -n '1p;0~50p')  a.png
+montage -geometry 1000x1000 (ls *png | sed -n '1p;0~50p')  a.png
 
 # Use ImageMagick to Produce a gif (unreliable)
 convert -delay 10 *.png 0.gif
@@ -1331,21 +1339,49 @@ ffmpeg                    \
 
 #+end_src
 
+***** Montage
+:PROPERTIES:
+:DIR:      /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/Slides/attachments/
+:END:
+
+
+#+attr_html: :width 1000px
+#+attr_latex: :width 9cm
 #+NAME: montage-frac
 #+CAPTION: Various fracals corresponding to $f_{0.8 e^{\pi i \tau}}$
 [[attachment:_20200826_005334a.png]]
 
-* MandelBrot
-Investigating these fractals, a natural question might be whether or not any
-given $c$ value will produce a fractal that is an open disc or a closed disc.
+***** Gif
 
-So pick a value $\left\lvert \gamma \right \rvert < 1$ in the complex plane and
-use it to produce the julia set $f_{\gamma}$, if the corresponding prisoner set
-$P$ is closed we this value is defined as belonging to the /Mandelbrot/ set.
+#+attr_html: :width 1200px
+#+attr_latex: :width 9cm
+[[https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0]]
 
-It can be shown (and I intend to show it generally), that this set is equivalent to re-implementing the previous strategy such that $z \rightarrow z^{2} + z_{0}$ where $z_{0}$ is unchanging.
 
-This strategy is implemented in listing [[mandelbrot-py]]
+*** The *Why*?
+- These shapes and patterns occur in nature all the time
+  + Math is somewhat the science of patterns
+- It's fun
+
+* MandelBrot Set
+** Motivation
+Notice that some of prisoner sets were closed and some were open? A natural
+question arises:
+
+/for which values of $c$ will they be open and for which values will they be closed?/
+
+It can be shown (and I intend to show it generally), that the distribution of
+these values is equivallent to the julia set where:
+
+$$
+f_{\gamma}: z -> z^{2} + \gamma \enspace : \enspace \gamma = z
+$$
+
+*** Implementing This
+
+Implementing this in /Python/ is pretty much the same as before but some care
+needs to be taken with respect to storing $z$ as a constant to use in place of
+$c$
 
 #+NAME: py-mandelbrot-code
 #+CAPTION: All values of $c$ that lead to a closed /Julia-set/
@@ -1392,13 +1428,21 @@ plt.imshow(pic)
 # plt.show()
 #+end_src
 
+**** Output Set
+
+
+#+attr_html: :width 800px
+#+attr_latex: :width 9cm
 #+RESULTS: py-mandelbrot-code
 [[file:./mandelbrot-py.svg]]
 
+*** Push the envelope
+
 This is however fairly underwhelming, by using a more powerful language a much
 larger image can be produced, in /Julia/ producing a 4 GB, 400 MP image will
-take about 10 minutes, this is demonstrated in listing [[julia-large-mandelbrot]]
-and the corresponding FITS image is [[https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0][available-online.]][fn:ft]
+take about 10 minutes
+
+**** Code
 
 #+NAME:
 #+begin_src julia
@@ -1453,10 +1497,34 @@ save_picture("/tmp/a.fits", my_pic)
 
 #+end_src
 
-** GNU Plot
-Another approach to visualise this set is by creating a 3d surface plot where the z-axis is mapped to the time taken until divergence, this can be acheived by using gnuplot as demonstrated in listing [[gnuplot-mandelbrot-initial]].[fn:jp]
+**** Visualisation of Set
+I've taken some techniques from Astronomy and encoded the image as a /FITS/,
+which is basically a big matrix, it image is [[https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0][available-online]] but I can show you
+here:
 
-[[https://rosettacode.org/wiki/Find_limit_of_recursion#gnuplot][limit of recursion is 250]]
+#+begin_src bash
+xdg-open /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Problems/Chaos/mandelbrot-400mpx.fits & disown
+#+end_src
+
+I tried to go bigger but ~AstroFits.JL~ would not write the file, I think this
+has something to do with ~/tmp~ having a 15GB File restriction but I'm not sure.
+
+** GNU Plot
+*** What is GNUPlot
+It's a Free (as in speech) visualisation library.
+
+We can use it to map the time until convergence to the z-axis which also reveals interesting patterns.
+
+All the following code was adapted from online sources, they correspond to an older release
+and newer versions of GNUPlot:
+
+- have a recursion limit
+ - methods to loop functions
+
+so one of our desires in this project is to visualise a much more detailed 3d
+model in GNUPlot by modifying the code to use iteration as opposed to recursion.
+
+**** Mandelbrot
 
 #+NAME: gnuplot-mandelbrot-initial
 #+CAPTION: Visualising the Mandelbrot set as a 3D surface Plot
@@ -1474,12 +1542,14 @@ set contour
 splot mandel(x,y,{0,0},0) notitle
 #+end_src
 
+#+REVEAL: split
+
 #+RESULTS: gnuplot-mandelbrot-initial
 [[file:one.svg]]
 
 
+**** Julia
 
-[[http://folk.uio.no/inf3330/scripting/doc/gnuplot/Kawano/fractal/mandelbrot-e.html][reference for image]]
 
 #+NAME: gnuplot-julia
 #+CAPTION: Use GNUPlot to produce plot of  julia set
@@ -1500,16 +1570,14 @@ b= 0.75
 splot mandel(a,b,complex(x,y),0) notitle
 #+end_src
 
+#+REVEAL: split
+
 #+RESULTS[e065d7a76464baa900fc7f9562aea3913aa29980]: gnuplot-julia
 [[file:two.svg]]
 
 
 
-
-
-
-GNU Plot can also make excellent 2d renditions of fractals, an example of how to
-perform this can be found on /Rosetta Code/ cite:MandelbrotSetRosetta and is demonstrated in listing [[flat-gnuplot]].
+*** 2d Mandelbrot
 
 
 #+NAME: flat-gnuplot
@@ -1526,990 +1594,16 @@ set size square
 splot [-2 : 2] [-2 : 2] mandelbrot (complex (0, 0), complex (x, y), 0) notitle
 #+end_src
 
+#+REVEAL: split
+
 #+RESULTS[6f4570cfd26a3574d696e18a2348c68289265d90]:
 [[file:three.svg]]
 
+** Again, why?
 
+This self Similarity occurs all the time in nature, one of these is synthetic, can you spot it?
 
-** Determinant??
-
-* Outline
-1. Intro Prob
-2. Variable Scope
-3. Problem Showing Recursion
-   + All Different Methods
-     - Discuss all Different Methods
-     - Discuss Vectorisation
-     - Is this needed in Julia
-     - Comment on Faster to go column Wise
-4. Discuss Loops
-5. Show Rug
-6. Fibonacci
-   + The ratio of fibonacci converges to \phi
-   + Golden Ratio
-     - If you make a rectangle with the golden ratio you can cut it up under
-       recursion to get another one, keep doing this and eventually a logarithmic
-       spiral pops out, also the areas follow a fibonacci sequence.
-     - Look at the spiral of nautilus shells
-7. Discuss isomorphisms for recursive Relations
-8. Jump to Lorenz Attractor
-9. Now Talk about Morphogenesis
-10. Fractals
-    + Many Occur in Nature
-      - Mountain Ranges, compare to MandelBrot
-      - Sun Flowers
-      - Show the golden Ratio
-    + Fractals are all about recursion and iteration, so this gives me an excuse to look at them
-      - Show MandelBrot
-        + Python
-          - Sympy Slow
-          - Numpy Fast
-        + Julia brings Both Benefits
-          - Show Large MandelBrot
-        + Show Julia Set
-          - Show Julia Set Gif
-11. Things I'd like to show
-    + Simulate stripes and animal patterns
-    + Show some math behind spirals in Nautilus Shells
-    + Golden Rectangle
-      - Throw in some recursion
-      - Watch the spiral come out
-      - Record the areas and show that they are Fibonacci
-    + That the ratio of Fibonacci Converges to Phi
-    + Any Connection to the Reimann Sphere
-    + Lorrenz Attractor
-      - How is this connected to the lorrenz attractor
-    + What are the connections between discrete iteration and continuous systems such as the julia set and the lorrenz attractor
-12. Things I'd like to Try (in order to see different ways to approach Problems)
-    + Programming Languages and CAS
-      - Julia
-        + SymEngine
-      - Maxima
-      - Julia
-    + Visualisation
-      - Makie
-      - Plotly
-      - GNUPlot
-13. Open Questions:
-    - can we simulate animal patterns
-    - can we simulate leaves
-    - can we show that the gen func deriv [[#Derivative-exp-gen-function]]
-    - can we prove homogenous recursive relation
-    - I want to look at the lorrenz attractor
-    - when partiles are created by the the LHC, do they follow a fractal like pattern?
-    - Create a Fractal Landscape, does this resemble things seen in nautre? [[cite:peitgenChaosFractalsNew2004][p. 464]]
-    - Can I write an algorighm to build a tree in the winter?
-    - Can I develop my own type of persian recursion?
-    - Show the relationship between the golden ratio and the logarithmic spiral.
-      + and show that the fibonacci numbers pop out as area
-        - Prove this
-    - Is there any relationship between the Cantor Prisoner set and the Julia Sets?
-    - Work with Matt to investigate Julia Sets for Quaternion [[cite:peitgenChaosFractalsNew2004][\textsection 13.9]]
-* Download RevealJS
-So first do ~M-x package-install ox-reveal~ then do ~M-x load-library~ and then look for ~ox-reveal~
-
-#+begin_src elisp
-(load "/home/ryan/.emacs.d/.local/straight/build/ox-reveal/ox-reveal.el")
-#+end_src
-
-#+RESULTS:
-: t
-
-Download Reveal.js and put it in the directory as =./reveal.js=, you can do that with something like this:
-
-#+begin_src bash
-# cd /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/
-wget https://github.com/hakimel/reveal.js/archive/master.tar.gz
-tar -xzvf master.tar.gz && rm master.tar.gz
-mv reveal.js-master reveal.js
-#+end_src
-
-#+RESULTS:
-| reveal.js-master/                                                                     |
-| reveal.js-master/.github/                                                             |
-| reveal.js-master/.github/FUNDING.yml                                                  |
-| reveal.js-master/.github/workflows/                                                   |
-| reveal.js-master/.github/workflows/js.yml                                             |
-| reveal.js-master/.gitignore                                                           |
-| reveal.js-master/.npmignore                                                           |
-| reveal.js-master/CONTRIBUTING.md                                                      |
-| reveal.js-master/LICENSE                                                              |
-| reveal.js-master/README.md                                                            |
-| reveal.js-master/css/                                                                 |
-| reveal.js-master/css/layout.scss                                                      |
-| reveal.js-master/css/print/                                                           |
-| reveal.js-master/css/print/paper.scss                                                 |
-| reveal.js-master/css/print/pdf.scss                                                   |
-| reveal.js-master/css/reveal.scss                                                      |
-| reveal.js-master/css/theme/                                                           |
-| reveal.js-master/css/theme/README.md                                                  |
-| reveal.js-master/css/theme/source/                                                    |
-| reveal.js-master/css/theme/source/beige.scss                                          |
-| reveal.js-master/css/theme/source/black.scss                                          |
-| reveal.js-master/css/theme/source/blood.scss                                          |
-| reveal.js-master/css/theme/source/league.scss                                         |
-| reveal.js-master/css/theme/source/moon.scss                                           |
-| reveal.js-master/css/theme/source/night.scss                                          |
-| reveal.js-master/css/theme/source/serif.scss                                          |
-| reveal.js-master/css/theme/source/simple.scss                                         |
-| reveal.js-master/css/theme/source/sky.scss                                            |
-| reveal.js-master/css/theme/source/solarized.scss                                      |
-| reveal.js-master/css/theme/source/white.scss                                          |
-| reveal.js-master/css/theme/template/                                                  |
-| reveal.js-master/css/theme/template/exposer.scss                                      |
-| reveal.js-master/css/theme/template/mixins.scss                                       |
-| reveal.js-master/css/theme/template/settings.scss                                     |
-| reveal.js-master/css/theme/template/theme.scss                                        |
-| reveal.js-master/demo.html                                                            |
-| reveal.js-master/dist/                                                                |
-| reveal.js-master/dist/reset.css                                                       |
-| reveal.js-master/dist/reveal.css                                                      |
-| reveal.js-master/dist/reveal.esm.js                                                   |
-| reveal.js-master/dist/reveal.js                                                       |
-| reveal.js-master/dist/theme/                                                          |
-| reveal.js-master/dist/theme/beige.css                                                 |
-| reveal.js-master/dist/theme/black.css                                                 |
-| reveal.js-master/dist/theme/blood.css                                                 |
-| reveal.js-master/dist/theme/fonts/                                                    |
-| reveal.js-master/dist/theme/fonts/league-gothic/                                      |
-| reveal.js-master/dist/theme/fonts/league-gothic/LICENSE                               |
-| reveal.js-master/dist/theme/fonts/league-gothic/league-gothic.css                     |
-| reveal.js-master/dist/theme/fonts/league-gothic/league-gothic.eot                     |
-| reveal.js-master/dist/theme/fonts/league-gothic/league-gothic.ttf                     |
-| reveal.js-master/dist/theme/fonts/league-gothic/league-gothic.woff                    |
-| reveal.js-master/dist/theme/fonts/source-sans-pro/                                    |
-| reveal.js-master/dist/theme/fonts/source-sans-pro/LICENSE                             |
-| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-italic.eot          |
-| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-italic.ttf          |
-| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-italic.woff         |
-| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-regular.eot         |
-| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-regular.ttf         |
-| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-regular.woff        |
-| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-semibold.eot        |
-| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-semibold.ttf        |
-| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-semibold.woff       |
-| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-semibolditalic.eot  |
-| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-semibolditalic.ttf  |
-| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-semibolditalic.woff |
-| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro.css                 |
-| reveal.js-master/dist/theme/league.css                                                |
-| reveal.js-master/dist/theme/moon.css                                                  |
-| reveal.js-master/dist/theme/night.css                                                 |
-| reveal.js-master/dist/theme/serif.css                                                 |
-| reveal.js-master/dist/theme/simple.css                                                |
-| reveal.js-master/dist/theme/sky.css                                                   |
-| reveal.js-master/dist/theme/solarized.css                                             |
-| reveal.js-master/dist/theme/white.css                                                 |
-| reveal.js-master/examples/                                                            |
-| reveal.js-master/examples/assets/                                                     |
-| reveal.js-master/examples/assets/beeping.txt                                          |
-| reveal.js-master/examples/assets/beeping.wav                                          |
-| reveal.js-master/examples/assets/image1.png                                           |
-| reveal.js-master/examples/assets/image2.png                                           |
-| reveal.js-master/examples/auto-animate.html                                           |
-| reveal.js-master/examples/backgrounds.html                                            |
-| reveal.js-master/examples/barebones.html                                              |
-| reveal.js-master/examples/layout-helpers.html                                         |
-| reveal.js-master/examples/markdown.html                                               |
-| reveal.js-master/examples/markdown.md                                                 |
-| reveal.js-master/examples/math.html                                                   |
-| reveal.js-master/examples/media.html                                                  |
-| reveal.js-master/examples/multiple-presentations.html                                 |
-| reveal.js-master/examples/transitions.html                                            |
-| reveal.js-master/gulpfile.js                                                          |
-| reveal.js-master/index.html                                                           |
-| reveal.js-master/js/                                                                  |
-| reveal.js-master/js/components/                                                       |
-| reveal.js-master/js/components/playback.js                                            |
-| reveal.js-master/js/config.js                                                         |
-| reveal.js-master/js/controllers/                                                      |
-| reveal.js-master/js/controllers/autoanimate.js                                        |
-| reveal.js-master/js/controllers/backgrounds.js                                        |
-| reveal.js-master/js/controllers/controls.js                                           |
-| reveal.js-master/js/controllers/focus.js                                              |
-| reveal.js-master/js/controllers/fragments.js                                          |
-| reveal.js-master/js/controllers/keyboard.js                                           |
-| reveal.js-master/js/controllers/location.js                                           |
-| reveal.js-master/js/controllers/notes.js                                              |
-| reveal.js-master/js/controllers/overview.js                                           |
-| reveal.js-master/js/controllers/plugins.js                                            |
-| reveal.js-master/js/controllers/pointer.js                                            |
-| reveal.js-master/js/controllers/print.js                                              |
-| reveal.js-master/js/controllers/progress.js                                           |
-| reveal.js-master/js/controllers/slidecontent.js                                       |
-| reveal.js-master/js/controllers/slidenumber.js                                        |
-| reveal.js-master/js/controllers/touch.js                                              |
-| reveal.js-master/js/index.js                                                          |
-| reveal.js-master/js/reveal.js                                                         |
-| reveal.js-master/js/utils/                                                            |
-| reveal.js-master/js/utils/color.js                                                    |
-| reveal.js-master/js/utils/constants.js                                                |
-| reveal.js-master/js/utils/device.js                                                   |
-| reveal.js-master/js/utils/loader.js                                                   |
-| reveal.js-master/js/utils/util.js                                                     |
-| reveal.js-master/package-lock.json                                                    |
-| reveal.js-master/package.json                                                         |
-| reveal.js-master/plugin/                                                              |
-| reveal.js-master/plugin/highlight/                                                    |
-| reveal.js-master/plugin/highlight/highlight.esm.js                                    |
-| reveal.js-master/plugin/highlight/highlight.js                                        |
-| reveal.js-master/plugin/highlight/monokai.css                                         |
-| reveal.js-master/plugin/highlight/plugin.js                                           |
-| reveal.js-master/plugin/highlight/zenburn.css                                         |
-| reveal.js-master/plugin/markdown/                                                     |
-| reveal.js-master/plugin/markdown/markdown.esm.js                                      |
-| reveal.js-master/plugin/markdown/markdown.js                                          |
-| reveal.js-master/plugin/markdown/plugin.js                                            |
-| reveal.js-master/plugin/math/                                                         |
-| reveal.js-master/plugin/math/math.esm.js                                              |
-| reveal.js-master/plugin/math/math.js                                                  |
-| reveal.js-master/plugin/math/plugin.js                                                |
-| reveal.js-master/plugin/notes/                                                        |
-| reveal.js-master/plugin/notes/notes.esm.js                                            |
-| reveal.js-master/plugin/notes/notes.js                                                |
-| reveal.js-master/plugin/notes/plugin.js                                               |
-| reveal.js-master/plugin/notes/speaker-view.html                                       |
-| reveal.js-master/plugin/search/                                                       |
-| reveal.js-master/plugin/search/plugin.js                                              |
-| reveal.js-master/plugin/search/search.esm.js                                          |
-| reveal.js-master/plugin/search/search.js                                              |
-| reveal.js-master/plugin/zoom/                                                         |
-| reveal.js-master/plugin/zoom/plugin.js                                                |
-| reveal.js-master/plugin/zoom/zoom.esm.js                                              |
-| reveal.js-master/plugin/zoom/zoom.js                                                  |
-| reveal.js-master/test/                                                                |
-| reveal.js-master/test/assets/                                                         |
-| reveal.js-master/test/assets/external-script-a.js                                     |
-| reveal.js-master/test/assets/external-script-b.js                                     |
-| reveal.js-master/test/assets/external-script-c.js                                     |
-| reveal.js-master/test/assets/external-script-d.js                                     |
-| reveal.js-master/test/simple.md                                                       |
-| reveal.js-master/test/test-auto-animate.html                                          |
-| reveal.js-master/test/test-dependencies-async.html                                    |
-| reveal.js-master/test/test-dependencies.html                                          |
-| reveal.js-master/test/test-grid-navigation.html                                       |
-| reveal.js-master/test/test-iframe-backgrounds.html                                    |
-| reveal.js-master/test/test-iframes.html                                               |
-| reveal.js-master/test/test-markdown.html                                              |
-| reveal.js-master/test/test-multiple-instances-es5.html                                |
-| reveal.js-master/test/test-multiple-instances.html                                    |
-| reveal.js-master/test/test-pdf.html                                                   |
-| reveal.js-master/test/test-plugins.html                                               |
-| reveal.js-master/test/test-state.html                                                 |
-| reveal.js-master/test/test.html                                                       |
-
-Then just do ~C-c e e R R~ to export with RevealJS as opposed to PHP you won't need a fancy server, just open it in the browser.
-
-* Heres a Gif
-So this is a very big Gif that I'm using:
-
-How did I make the Gif??
-
-[[https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0]]
-
-* TODO Give a brief Sketch of the project
-
-Of particular interest are the:
-- gik
-- fits image
-
-#+begin_src bash
-code /home/ryan/Dropbox/Studies/QuantProject/Current/Python-Quant/ & disown
-xdg-open /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Problems/Chaos/mandelbrot-400mpx.fits
-#+end_src
-
-
-#+RESULTS:
-
-Here's what I gatthered from the week 3 slides
-
-** TODO Topic / Context
-We are interested in the theory of problem solving, but in particular the
-different approaches that can be taken to attacking a problem.
-
-Essentially this boils down to looking at how a computer scientist and
-mathematician attack a problem, although originally I thought there was no
-difference, after seeing the odd way Roozbeh attacks problems I see there is a big difference.
-** TODO Motivation
-
-** TODO Basic Ideas
-- Look at FOSS CAS Systems
-  - Python (Sympy)
-  - Julia
-    - Sympy integration
-    - symEngine
-    - Reduce.jl
-    - Symata.jl
-
-- Maybe look at interactive sessions:
-  - Like Jupyter
-  - Hydrogen
-  - TeXmacs
-  - org-mode?
-
-After getting an overview of SymPy let's look at problems that are interesting (chaos, morphogenesis and order from disarray etc.)
-
-** TODO Where are the Mathematics
-
-- Trying to look at the algorithms underlying functions in Python/Sympy and other Computer algebra tools such as Maxima, Maple, Mathematica, Sage, GAP and Xcas/Giac, Yacas, Symata.jl, Reduce.jl, SymEngine.jl
-  - For Example Recursive Relations
-- Look at solving some problems related to chaos theory maybe
-  - Mandelbrot and Julia Sets
-- Look at solving some problems related to Fourier Transforms maybe
-
-
-AVOID DETAILS, JUST SKETCH THE PROJECT OUT.
-
-** TODO Don't Forget we need a talk
-*** Slides In Org Mode
-- [[https://orgmode.org/worg/org-tutorials/non-beamer-presentations.html][Without Beamer]]
-- [[https://orgmode.org/worg/exporters/beamer/tutorial.html][With Beamer]]
-* Undecided
-** Determinant
-Computational thinking can be useful in problems related to modelling, consider
-for example some matrix $n\times n$ matrix $B_n$ described by eqref:eq:bn-matrix :
-
-#+begin_comment
-\begin{align}
-b_{ij} = \begin{cases}
-\frac{1}{2j- i^2}, &\text{ if } i > j \\
-\frac{i}{i- j}+  \frac{1}{n^2- j - i}, &\text{ if } j>i \\
-0 &\text{ if } i = j
-\end{cases} \label{eq:bn-matrix}
-\end{align}
-#+end_comment
-
-Is there a way to predict the determinant of such a matrix for large values?
-
-From the perspective of linear algebra this is an immensely difficult problem
-and there isn't really a clear place to start.
-
-From a numerical modelling perspective however, as will be shown, this a fairly trivial problem.
-
-*** Create the Matrix
-   :PROPERTIES:
-   :CUSTOM_ID: create-the-matrix
-   :END:
-
-Using /Python/ and =numpy=, a matrix can be generated as an =array= and by
-iterating through each element of the matrix values can be attributed like so:
-
-#+BEGIN_SRC python
-import numpy as np
-n = 2
-mymat = np.empty([n, n])
-for i in range(mymat.shape[0]):
-    for j in range(mymat.shape[1]):
-        print("(" + str(i) + "," + str(j) + ")")
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-  (0,0)
-  (0,1)
-  (1,0)
-  (1,1)
-#+END_EXAMPLE
-
-and so to assign the values based on the condition in eqref:eq:bn-matrix, an
-=if= test can be used:
-
-#+BEGIN_SRC python
-  def BuildMat(n):
-      mymat = np.empty([n, n])
-      for i in range(n):
-          for j in range(n):
-              # Increment i and j by one because they count from zero
-              i += 1; j += 1
-              if (i > j):
-                  v = 1/(2*j - i**2)
-              elif (j > i):
-                  v = 1/(i-j) + 1/(n**2 - j - i)
-              else:
-                  v = 0
-              # Decrement i and j so the index lines up
-              i -= 1; j -= 1
-              mymat[j, i] = v
-      return mymat
-
-  BuildMat(3)
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-  array([[ 0.        , -0.5       , -0.14285714],
-         [-0.83333333,  0.        , -0.2       ],
-         [-0.3       , -0.75      ,  0.        ]])
-#+END_EXAMPLE
-
-*** Find the Determinant
-   :PROPERTIES:
-   :CUSTOM_ID: find-the-determinant
-   :END:
-
-/Python/, being an object orientated language has methods belonging to objects of different types, in this case the =linalg= method has a =det= function that can be used to return the determinant of any given matrix like so:
-
-#+NAME: make-det
-#+CAPTION: Building a Function to return the determinant of the matrix described in eqref:eq:bn-matrix
-#+BEGIN_SRC python
-  def detMat(n):
-      ## Sympy
-      # return Determinant(BuildMat(n)).doit()
-      ## Numpy
-      return np.linalg.det(BuildMat(n))
-  detMat(3)
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-  -0.11928571428571424
-#+END_EXAMPLE
-
-*** Find the Determinant of Various Values
-   :PROPERTIES:
-   :CUSTOM_ID: find-the-determinant-of-various-values
-   :END:
-
-To solve this problem, all that needs to be considered is the size of the $n$ and the corresponding determinant, this could be expressed as a set as shown in eqref:eq:set-determ:
-
-\begin{align}
-\left\{ \mathrm{det}\left( M(n) \right) \mid M \in \mathbb{Z}^{+} \leq 30  \right\} \label{eqref:eq:set-determ}
-\end{align}
-where:
-- $M$ is a function that transforms an integer to a matrix as per eqref:eq:bn-matrix
-
-Although describing the results as a set eqref:eqref:eq:set-determ is a little odd, it is consistent with the idea of list and set comprehension in /Python/ cite:DataStructuresPython and /Julia/ cite:MultidimensionalArraysJulia as shown in listing [[list-comp]]
-
-**** Generate a list of values
-    :PROPERTIES:
-    :CUSTOM_ID: instead-use-absolute-value
-    :END:
-Using the function created in listing [[make-det]], a corresponding list of values can be generated:
-
-#+NAME: list-comp
-#+CAPTION: Generate a list using list-comprehension
-#+BEGIN_SRC python
-  def detMat(n):
-      return abs(np.linalg.det(BuildMat(n)))
-
-  # We double all numbers using map()
-  result = map(detMat, range(30))
-
-  # print(list(result))
-  [round(num, 3) for num in list(result)]
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-  [1.0,
-   0.0,
-   0.0,
-   0.119,
-   0.035,
-   0.018,
-   0.013,
-   0.01,
-   0.008,
-   0.006,
-   0.005,
-   0.004,
-   0.004,
-   0.003,
-   0.003,
-   0.002,
-   0.002,
-   0.002,
-   0.002,
-   0.001,
-   0.001,
-   0.001,
-   0.001,
-   0.001,
-   0.001,
-   0.001,
-   0.001,
-   0.001,
-   0.001,
-   0.001]
-#+END_EXAMPLE
-
-**** Create a Data Frame
-    :PROPERTIES:
-    :CUSTOM_ID: create-a-data-frame
-    :END:
-
-#+BEGIN_SRC python
-  import pandas as pd
-
-  data = {'Matrix.Size': range(30),
-          'Determinant.Value': list(map(detMat, range(30)))
-  }
-
-
-
-  df = pd.DataFrame(data, columns = ['Matrix.Size', 'Determinant.Value'])
-
-  print(df)
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-  Matrix.Size  Determinant.Value
-  0             0           1.000000
-  1             1           0.000000
-  2             2           0.000000
-  3             3           0.119286
-  4             4           0.035258
-  5             5           0.018062
-  6             6           0.013023
-  7             7           0.009959
-  8             8           0.007822
-  9             9           0.006288
-  10           10           0.005158
-  11           11           0.004304
-  12           12           0.003645
-  13           13           0.003125
-  14           14           0.002708
-  15           15           0.002369
-  16           16           0.002090
-  17           17           0.001857
-  18           18           0.001661
-  19           19           0.001494
-  20           20           0.001351
-  21           21           0.001228
-  22           22           0.001121
-  23           23           0.001027
-  24           24           0.000945
-  25           25           0.000872
-  26           26           0.000807
-  27           27           0.000749
-  28           28           0.000697
-  29           29           0.000650
-#+END_EXAMPLE
-
-**** Plot the Data frame
-    :PROPERTIES:
-    :CUSTOM_ID: plot-the-data-frame
-    :END:
-
-Observe that it is necessary to use =copy=, /Julia/ and /Python/
-*unlike* /Mathematica/ and */R/* only create links between data, they do
-not create new objects, this can cause headaches when rounding data.
-
-#+BEGIN_SRC python
-  from plotnine import *
-  import copy
-
-  df_plot = copy.copy(df[3:])
-  df_plot['Determinant.Value'] = df_plot['Determinant.Value'].astype(float).round(3)
-  df_plot
-
-  (
-      ggplot(df_plot, aes(x = 'Matrix.Size', y = 'Determinant.Value')) +
-          geom_point() +
-          theme_bw() +
-          labs(x = "Matrix Size", y = "|Determinant Value|") +
-          ggtitle('Magnitude of Determinant Given Matrix Size')
-
-  )
-
-
-
-
-#+END_SRC
-
-[[file:e3d03c21dd72428e88b7fc2c722737046510dbb2.png]]
-
-#+BEGIN_EXAMPLE
-  <ggplot: (8770001690691)>
-#+END_EXAMPLE
-
-In this case it appears that the determinant scales exponentially, we
-can attempt to model that linearly using =scikit=, this is significantly
-more complex than simply using */R/*.
-[[https://towardsdatascience.com/linear-regression-in-6-lines-of-python-5e1d0cd05b8d][^lrpy]]
-
-#+BEGIN_SRC python
-  import numpy as np
-  import matplotlib.pyplot as plt  # To visualize
-  import pandas as pd  # To read data
-  from sklearn.linear_model import LinearRegression
-
-  df_slice = df[3:]
-
-  X = df_slice.iloc[:, 0].values.reshape(-1, 1)  # values converts it into a numpy array
-  Y = df_slice.iloc[:, 1].values.reshape(-1, 1)  # -1 means that calculate the dimension of rows, but have 1 column
-  linear_regressor = LinearRegression()  # create object for the class
-  linear_regressor.fit(X, Y)  # perform linear regression
-  Y_pred = linear_regressor.predict(X)  # make predictions
-
-
-
-  plt.scatter(X, Y)
-  plt.plot(X, Y_pred, color='red')
-  plt.show()
-#+END_SRC
-
-[[file:cabe1ce27b757dccdde64927e4d7938241825327.png]]
-
-#+BEGIN_SRC python
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-  array([5.37864677])
-#+END_EXAMPLE
-
-*** Log Transform the Data
-   :PROPERTIES:
-   :CUSTOM_ID: log-transform-the-data
-   :END:
-
-The =log= function is actually provided by =sympy=, to do this quicker
-in =numpy= use =np.log()=
-
-#+BEGIN_SRC python
-  # # pyperclip.copy(df.columns[0])
-  # #df['Determinant.Value'] =
-  # #[ np.log(val) for val in df['Determinant.Value']]
-
-  df_log = df
-
-  df_log['Determinant.Value'] = [ np.log(val) for val in df['Determinant.Value'] ]
-
-#+END_SRC
-
-In order to only have well defined values, consider only after size 3
-
-#+BEGIN_SRC python
-  df_plot = df_log[3:]
-  df_plot
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-      Matrix.Size  Determinant.Value
-  3             3          -2.126234
-  4             4          -3.345075
-  5             5          -4.013934
-  6             6          -4.341001
-  7             7          -4.609294
-  8             8          -4.850835
-  9             9          -5.069048
-  10           10          -5.267129
-  11           11          -5.448099
-  12           12          -5.614501
-  13           13          -5.768414
-  14           14          -5.911529
-  15           15          -6.045230
-  16           16          -6.170659
-  17           17          -6.288765
-  18           18          -6.400347
-  19           19          -6.506082
-  20           20          -6.606547
-  21           21          -6.702237
-  22           22          -6.793585
-  23           23          -6.880964
-  24           24          -6.964704
-  25           25          -7.045094
-  26           26          -7.122390
-  27           27          -7.196822
-  28           28          -7.268592
-  29           29          -7.337885
-#+END_EXAMPLE
-
-A limitation of the /Python/ =plotnine= library (compared to /Ggplot2/
-in */R/*) is that it isn't possible to round values in the =aesthetics=
-layer, a further limitation with =pandas= also exists when compared to
-*/R/* that makes rounding data very clusy to do.
-
-In order to round data use the =numpy= library:
-
-#+BEGIN_SRC python
-  import pandas as pd
-  import numpy as np
-  df_plot['Determinant.Value'] = df_plot['Determinant.Value'].astype(float).round(3)
-  df_plot
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-      Matrix.Size  Determinant.Value
-  3             3             -2.126
-  4             4             -3.345
-  5             5             -4.014
-  6             6             -4.341
-  7             7             -4.609
-  8             8             -4.851
-  9             9             -5.069
-  10           10             -5.267
-  11           11             -5.448
-  12           12             -5.615
-  13           13             -5.768
-  14           14             -5.912
-  15           15             -6.045
-  16           16             -6.171
-  17           17             -6.289
-  18           18             -6.400
-  19           19             -6.506
-  20           20             -6.607
-  21           21             -6.702
-  22           22             -6.794
-  23           23             -6.881
-  24           24             -6.965
-  25           25             -7.045
-  26           26             -7.122
-  27           27             -7.197
-  28           28             -7.269
-  29           29             -7.338
-#+END_EXAMPLE
-
-#+BEGIN_SRC python
-  from plotnine import *
-
-
-  (ggplot(df_plot[3:], aes(x = 'Matrix.Size', y = 'Determinant.Value')) +
-     geom_point(fill= "Blue") +
-     labs(x = "Matrix Size", y = "Determinant Value",
-          title = "Plot of Determinant Values") +
-     theme_bw() +
-     stat_smooth(method = 'lm')
-  )
-#+END_SRC
-
-[[file:8e37d51e9bb78ed1d460f8a955f5bf56fafcfca2.png]]
-
-#+BEGIN_EXAMPLE
-  <ggplot: (8770002281897)>
-#+END_EXAMPLE
-
-#+BEGIN_SRC python
-  from sklearn.linear_model import LinearRegression
-
-  df_slice = df_plot[3:]
-
-  X = df_slice.iloc[:, 0].values.reshape(-1, 1)  # values converts it into a numpy array
-  Y = df_slice.iloc[:, 1].values.reshape(-1, 1)  # -1 means that calculate the dimension of rows, but have 1 column
-  linear_regressor = LinearRegression()  # create object for the class
-  linear_regressor.fit(X, Y)  # perform linear regression
-  Y_pred = linear_regressor.predict(X)  # make predictions
-
-
-
-  plt.scatter(X, Y)
-  plt.plot(X, Y_pred, color='red')
-  plt.show()
-#+END_SRC
-
-[[file:a0ba199b47f114fb4224946304b31b9f0b555f92.png]]
-
-#+BEGIN_SRC python
-  m = linear_regressor.fit(X, Y).coef_[0][0]
-  b = linear_regressor.fit(X, Y).intercept_[0]
-
-  print("y = " + str(m.round(2)) + "* x" + str(b.round(2)))
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-  y = -0.12* x-4.02
-#+END_EXAMPLE
-
-So the model is:
-
-$$
-\text{abs}(\text{Det}(M)) = -4n - 0.12
-$$
-
-where:
-
-- $n$ is the size of the square matrix
-
-*** Largest Percentage Error
-   :PROPERTIES:
-   :CUSTOM_ID: largest-percentage-error
-   :END:
-
-To find the largest percentage error for $n \in [30, 50]$ it will be
-necessary to calculate the determinants for the larger range,
-compressing all the previous steps and calculating the model based on
-the larger amount of data:
-
-#+BEGIN_SRC python
-  import pandas as pd
-
-  data = {'Matrix.Size': range(30, 50),
-          'Determinant.Value': list(map(detMat, range(30, 50)))
-  }
-  df = pd.DataFrame(data, columns = ['Matrix.Size', 'Determinant.Value'])
-  df['Determinant.Value'] = [ np.log(val) for val in df['Determinant.Value']]
-  df
-  from sklearn.linear_model import LinearRegression
-
-
-  X = df.iloc[:, 0].values.reshape(-1, 1)  # values converts it into a numpy array
-  Y = df.iloc[:, 1].values.reshape(-1, 1)  # -1 means that calculate the dimension of rows, but have 1 column
-  linear_regressor = LinearRegression()  # create object for the class
-  linear_regressor.fit(X, Y)  # perform linear regression
-  Y_pred = linear_regressor.predict(X)  # make predictions
-
-  m = linear_regressor.fit(X, Y).coef_[0][0]
-  b = linear_regressor.fit(X, Y).intercept_[0]
-
-  print("y = " + str(m.round(2)) + "* x" + str(b.round(2)))
-
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-  y = -0.05* x-5.92
-#+END_EXAMPLE
-
-#+BEGIN_SRC python
-  Y_hat = linear_regressor.predict(X)
-  res_per = (Y - Y_hat)/Y_hat
-  res_per
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-  array([[-5.41415364e-03],
-         [-3.51384602e-03],
-         [-1.90798428e-03],
-         [-5.74487234e-04],
-         [ 5.06726599e-04],
-         [ 1.35396448e-03],
-         [ 1.98395424e-03],
-         [ 2.41201322e-03],
-         [ 2.65219545e-03],
-         [ 2.71742022e-03],
-         [ 2.61958495e-03],
-         [ 2.36966444e-03],
-         [ 1.97779855e-03],
-         [ 1.45336983e-03],
-         [ 8.05072416e-04],
-         [ 4.09734813e-05],
-         [-8.31432011e-04],
-         [-1.80517224e-03],
-         [-2.87375452e-03],
-         [-4.03112573e-03]])
-#+END_EXAMPLE
-
-#+BEGIN_SRC python
-  max_res = np.max(res_per)
-  max_ind = np.where(res_per == max_res)[0][0] + 30
-
-  print("The Maximum Percentage error is " + str(max_res.round(4) * 100) + "% which corresponds to a matrix of size " + str(max_ind))
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-  The Maximum Percentage error is 0.27% which corresponds to a matrix of size 39
-#+END_EXAMPLE
-* TODO What we're looking for
-
-- Would a reader know what the project is about?
-- Would a reader become interested in the upcoming report?
-- Is it brief but well prepared?
-- Are the major parts or phases sketched out
-
-
-* Appendix
-
-#+NAME: py-env
-#+CAPTION: Preamble for /Python/ Environment
-#+BEGIN_SRC python
-  from __future__ import division
-  from sympy import *
-  x, y, z, t = symbols('x y z t')
-  k, m, n = symbols('k m n', integer=True)
-  f, g, h = symbols('f g h', cls=Function)
-  init_printing()
-  init_printing(use_latex='mathjax', latex_mode='equation')
-
-
-  import pyperclip
-  def lx(expr):
-      pyperclip.copy(latex(expr))
-      print(expr)
-
-  import numpy as np
-  import matplotlib as plt
-
-  import time
-
-  def timeit(k):
-      start = time.time()
-      k
-      print(str(round(time.time() - start, 9)) + "seconds")
-#+END_SRC
-
-** Persian Recursian Examples
-:PROPERTIES:
-:CUSTOM_ID: persian-recursion-examples
-:END:
-
-
-#+NAME: 8-fold-code
-#+CAPTION: Modify listing [[persian-recursion-python]] to create 9 folds
-#+BEGIN_SRC ipython :exports output :results raw :eval never-export :session persian-recursion :eval never-export :ipyfile ./persian-recursion-large.svg
-%config InlineBackend.figure_format = 'svg'
-main(5, 9, 1, cx)
-#+END_SRC
-
-
-
-#+attr_html: :width 400px
+#+attr_html: :width 700px
 #+attr_latex: :width 9cm
-#+NAME: 8-fold-plot
-#+CAPTION: Output produced by listing [[persian-recursion-python]] with 9 folds
+[[file:media/out.png]]
 
-#+NAME: new-func-code
-#+CAPTION: Modify the Function to use $f(w,x,y,z) = (w + x + y + z - 7) \mod 8$
-#+BEGIN_SRC ipython :exports both :results raw drawer :eval never-export :session persian-recursion :eval never-export :ipyfile ./persian-recursion-new-func.svg
-%config InlineBackend.figure_format = 'svg'
-def cx(l, r, t, b, m):
-    new_col = (main.mat[t,l] + main.mat[t,r] +  main.mat[b,l] + main.mat[b,r]-7) % m
-    return new_col.astype(int)
-main(8, 8, 1, cx)
-#+END_SRC
-
-#+attr_html: :width 400px
-#+attr_latex: :width 9cm
-#+NAME: new-func-plot
-#+CAPTION: Output produced by listing [[new-func-code]] using $f(w,x,y,z) = (w + x + y + z - 7) \mod 8$
-#+RESULTS: new-func-code
-[[file:./persian-recursion-new-func.svg]]
-
-
-#+NAME: new-func2-code
-#+CAPTION: Modify the function to use $f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1$
-#+BEGIN_SRC ipython :exports both :results raw drawer :eval never-export :session persian-recursion :eval never-export :ipyfile ./persian-recursion-new-func2.svg
-%config InlineBackend.figure_format = 'svg'
-import numpy as np
-def cx(l, r, t, b, m):
-    new_col = (main.mat[t,l] + main.mat[t,r]*m +  main.mat[b,l]*(m) + main.mat[b,r]*(m))**1 % m + 1
-    return new_col.astype(int)
-main(8, 8, 1, cx)
-#+END_SRC
-
-
-#+attr_html: :width 400px
-#+attr_latex: :width 9cm
-#+NAME: new-func2-plot
-#+CAPTION: Output produced by listing [[new-func2-code]] using $f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1$
-#+RESULTS: new-func2-code
-[[file:./persian-recursion-new-func2.svg]]
-** Figures
-
-#+NAME: xkcd-complex-numbers
-#+CAPTION: XKCD 2028: Complex Numbers
-[[file:complex_numbers.png]]
-
-* Footnotes
-
-[fn:jp] See cite:GnuplotFractalMandelbrot for an excellent, albeit quite old, resource on GNUPlot.
-
-[fn:ft] [[https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0][https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0]]
-
-[fn:tm] On my system this took about 30 minutes.
-
-[fn:ln] [[https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0][https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0]]
-
-[fn:wk] This approach was inspired by an animation on the /Julia Set/ Wikipedia article cite:JuliaSet2020
-
-[fn:im] these cascading values are much like brightness in Astronomy
-
-[fn:ma] This technique was adapted from Chapter 7 of /Math adventures with Python/ cite:farrellMathAdventuresPython2019
-
-[fn:vc] See figure [[xkcd-im]] for the obligatory /XKCD/ Comic
-
-[fn:op] Although proprietary software such as Magma, Mathematica and Maple is very good, the restrictive licence makes them undesirable for study because there is no means by which to inspect the problem solving tecniques implemented, build on top of the work and moreover the lock-in nature of the software makes it a risky investment with respect to time.
