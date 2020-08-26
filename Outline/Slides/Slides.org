@@ -34,13 +34,17 @@ Scan the QR Code with your phone to follow along!
 # #+CAPTION: Export Relevant link as a QR Code.
 #+begin_src bash :exports both :results output graphics file :file qrcode.png :eval never-export
 qrencode -o qrcode.png \
-    "http://ryansnotes.org/x/00Slides/Slides/Slides.html"
+    "https://ryangreenup.github.io/Python-Quant/Outline/Slides/Slides.html"
+#    "http://ryansnotes.org/x/00Slides/Slides/Slides.html"
 #+end_src
 
 
 #+attr_html: :width 400px
 #+attr_latex: :width 9cm
+#+RESULTS:
 [[file:qrcode.png]]
+
+
 
 
 * Introduction
