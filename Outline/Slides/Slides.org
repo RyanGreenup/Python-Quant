@@ -733,7 +733,7 @@ course of this research.
 
 #+attr_html: :width 400px
 #+attr_latex: :width 9cm
-[[attachment:_20200826_172316screenshot.png]]
+[[file:attachments/_20200826_172316screenshot.png]]
 
 * Julia Sets
 ** Motivation
