@@ -994,7 +994,8 @@ We just have a bunch of images now:
 
 #+attr_html: :width 800px
 #+attr_latex: :width 9cm
-[[Outline/Slides/attachments/_20200826_223550screenshot.png]]
+[[file:attachments/_20200826_223550screenshot.png]]
+
 
 ***** How to work with it
 
