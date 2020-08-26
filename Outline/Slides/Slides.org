@@ -392,8 +392,8 @@ blah()
 
 Odd huh.
 
-* TODO Fibonacci Sequence
-** TODO Computational Approach
+* Fibonacci Sequence
+** Computational Approach
    :PROPERTIES:
    :CUSTOM_ID: define-the-fibonacci-numbers
    :END:
@@ -404,24 +404,19 @@ F_n = F_{n-1} + F_{n-2} \label{eq:fib-def}
 \end{align}
 
 ** Defining Recursively in Python
-
-
 #+NAME: fib-rec-0
+#+CAPTION: Defining the /Fibonacci Sequence/ using Recursion
 #+BEGIN_SRC python
   def rec_fib(k):
       if type(k) is not int:
-          print("Error: Require integer values")
+          Print("Error: Require integer values")
           return 0
       elif k == 0:
           return 0
       elif k <= 2:
           return 1
       return rec_fib(k-1) + rec_fib(k-2)
-#+END_SRC
 
-#+NAME: time-slow
-#+CAPTION: Using the function from listing [[fib-rec-0]] is quite slow.
-#+BEGIN_SRC python
   start = time.time()
   rec_fib(35)
   print(str(round(time.time() - start, 3)) + "seconds")
@@ -451,23 +446,17 @@ F_n = F_{n-1} + F_{n-2} \label{eq:fib-def}
 start = time.time()
 rec_fib(35)
 print(str(round(time.time() - start, 3)) + "seconds")
+new_start = time.time()
+rec_fib(6000)
+print(str(round(time.time() - new_start, 3)) + "seconds")
 ## 0.0seconds
-#+END_SRC
-
-#+BEGIN_SRC python
-  start = time.time()
-  rec_fib(6000)
-  print(str(round(time.time() - start, 9)) + "seconds")
-
 ## 8.3923e-05seconds
 #+END_SRC
-
-Restructuring the problem to use iteration will allow for even greater performance as demonstrated by finding $F_{10^{6}}$ in listing [[fib-iter]]. Using a compiled language such as /Julia/ however would be thousands of times faster still, as demonstrated in listing [[julia-fib]].
 
 ** Solving Iteratively
 
 #+NAME: fib-iter
-#+CAPTION: Using Iteration to Solve the Fibonacci Sequence
+#+CAPTION: Results are substantially faster
 #+BEGIN_SRC python
   def my_it_fib(k):
       if k == 0:
@@ -475,14 +464,11 @@ Restructuring the problem to use iteration will allow for even greater performan
       elif type(k) is not int:
           print("ERROR: Integer Required")
           return 0
-      # Hence k must be a positive integer
 
-      i  = 1
-      n1 = 1
-      n2 = 1
+      i, n1, n2  = 1, 1, 1
 
-      # if k <=2:
-      #     return 1
+      if k <=2:
+          return 1
 
       while i < k:
          no = n1
@@ -501,7 +487,6 @@ Restructuring the problem to use iteration will allow for even greater performan
 ** Solving With Julia is even Faster
 
 #+NAME: julia-fib
-#+CAPTION: Using Julia with an iterative approach to solve the 1 millionth fibonacci number
 #+begin_src julia :results output
 function my_it_fib(k)
     if k == 0
@@ -516,8 +501,9 @@ function my_it_fib(k)
     n1 = 1
     n2 = 1
 
-    # if k <=2:
-    #     return 1
+    if k <= 2:
+        return 1
+
     while i < k
        no = n1
        n1 = n2
@@ -529,13 +515,9 @@ end
 
 @time my_it_fib(10^6)
 
-##  my_it_fib (generic function with 1 method)
-##    0.000450 seconds
+##  0.000450 seconds
 #+end_src
 
-In this case however an analytic solution can be found by relating discrete
-mathematical problems to continuous ones as discussed below at section
-[[#exp-gen-function]].
 ** Exponential Generating Functions
 :PROPERTIES:
 :CUSTOM_ID: exp-gen-func-fib-seq
@@ -545,376 +527,65 @@ mathematical problems to continuous ones as discussed below at section
     :CUSTOM_ID: motivation
     :END:
 
-Consider the /Fibonacci Sequence/ from eqref:eq:fib-def:
-
+Consider the /Fibonacci Sequence/
 
 \begin{align}
-    a_{n}&= a_{n - 1} + a_{n - 2} \nonumber \\
-\iff a_{n+  2} &= a_{n+  1} +  a_n \label{eq:fib-def-shift}
+    a_{n+  2} &= a_{n+  1} +  a_n \label{eq:fib-def-shift}
 \end{align}
 
-
-from observation, this appears similar in structure to the following /ordinary
-differential equation/, which would be fairly easy to deal with:
-
+Compare it to the following /differential equation/
 
 \begin{align*}
 f''\left( x \right)- f'\left( x \right)- f\left( x \right)=  0
 \end{align*}
 
-
-This would imply that $f\left( x \right) \propto e^{mx}, \quad \exists m \in \mathbb{Z}$ because
-$\frac{\mathrm{d}\left( e^x \right) }{\mathrm{d} x} = e^x$, and so by using a power series it's quite feasable to move between discrete and continuous problems:
-
-
+#+REVEAL: split
+Solving this we get:
 \begin{align*}
-f\left( x \right)= e^{rx} = \sum^{\infty}_{n= 0}   \left[ r \frac{x^n}{n!} \right]
-\end{align*}
-
-*** Example
-    :PROPERTIES:
-    :CUSTOM_ID: solving-the-sequence
-    :END:
-
-Consider using the following generating function, (the derivative of the
-generating function as in eqref:eq:exp-gen-def-2 and eqref:eq:exp-gen-def-3 is
-provided in section [[#Derivative-exp-gen-function]])
-
-
-
-
+f\left( x \right)= c_1 ⋅ \mathrm{exp}\left[ \left( \frac{1- \sqrt{5} }{2} \right)x \right] + c_2 ⋅ \mathrm{exp}\left[ \left( \frac{1 + \sqrt{5} }{2} \right)x \right] \end{align*}
+Now consider:
 \begin{alignat}{2}
-    f \left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n} \cdot  \frac{x^n}{n!} \right]   &= e^x \label{eq:exp-gen-def-1} \\
-    f'\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n+1} \cdot  \frac{x^n}{n!} \right]  &= e^x  \label{eq:exp-gen-def-2} \\
-    f''\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n+2} \cdot  \frac{x^n}{n!} \right] &= e^x  \label{eq:exp-gen-def-3}
+f \left( x \right) &= ∑_{n= 0}^\infty \left[ a_n ⋅ \frac{x^n}{n!} \right] &= e^x
 \end{alignat}
 
-
-So the recursive relation from eqref:eq:fib-def-shift  could be expressed :
-
-
+#+REVEAL: split
 \begin{align*}
-a_{n+  2}    &= a_{n+  1} +  a_{n}\\
-\frac{x^n}{n!}   a_{n+  2}    &= \frac{x^n}{n!}\left( a_{n+  1} +  a_{n}  \right)\\
-\sum^{\infty}_{n= 0} \left[ \frac{x^n}{n!}   a_{n+  2} \right]        &= \sum^{\infty}_{n= 0}   \left[ \frac{x^n}{n!} a_{n+  1} \right]  + \sum^{\infty}_{n= 0}   \left[ \frac{x^n}{n!} a_{n}  \right]  \\
-f''\left( x \right) &= f'\left( x \right)+  f\left( x \right)
+f\left( x \right)&= ∑_{n= 0}^\infty \left[ \left( c_1\left( \frac{1- \sqrt{5} }{2} \right)^n + c_2 ⋅ \left( \frac{1+ \sqrt{5} }{2} \right)^n \right) ⋅ \frac{x^n}{n!} \right]
 \end{align*}
 
-
-Using the theory of higher order linear differential equations with
-constant coefficients it can be shown:
-
-
+By equating the above two equations we deduce that:
 \begin{align*}
-f\left( x \right)= c_1 \cdot  \mathrm{exp}\left[ \left( \frac{1- \sqrt{5} }{2} \right)x \right] +  c_2 \cdot  \mathrm{exp}\left[ \left( \frac{1 +  \sqrt{5} }{2} \right) \right]
+a_n = c_1⋅ \left( \frac{1- \sqrt{5} }{2} \right)^n + c_2 \left( \frac{1+ \sqrt{5} }{2} \right)
 \end{align*}
 
-
-By equating this to the power series:
-
-
-\begin{align*}
-f\left( x \right)&= \sum^{\infty}_{n= 0}   \left[ \left( c_1\left( \frac{1- \sqrt{5} }{2} \right)^n +  c_2 \cdot  \left( \frac{1+ \sqrt{5} }{2} \right)^n \right) \cdot  \frac{x^n}{n} \right]
-\end{align*}
-
-
-Now given that:
-
+#+REVEAL: split
+Solving $c_1$ and $c_2$ by the initial conditions gives:
 
 \begin{align*}
-f\left( x \right)= \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right]
+a_n &= \frac{1}{\sqrt{5} } \left[ \left( \frac{1+ \sqrt{5} }{2} \right)^n - \left( \frac{1- \sqrt{5} }{2} \right)^n \right] \newline
+&= \frac{\varphi^n - ψ^n}{\sqrt{5} } \newline
+&=\frac{\varphi^n - ψ^n}{\varphi - ψ}
 \end{align*}
-
-
-We can conclude that:
-
-
-\begin{align*}
-a_n = c_1\cdot  \left( \frac{1- \sqrt{5} }{2} \right)^n +  c_2 \cdot  \left( \frac{1+  \sqrt{5} }{2} \right)
-\end{align*}
-
-
-By applying the initial conditions:
-
-
-\begin{align*}
-a_0= c_1 +  c_2  \implies  c_1= - c_2\\
-a_1= c_1 \left( \frac{1+ \sqrt{5} }{2} \right) -  c_1 \frac{1-\sqrt{5} }{2}  \implies  c_1 = \frac{1}{\sqrt{5} }
-\end{align*}
-
-
-And so finally we have the solution to the /Fibonacci Sequence/ ref:eq:fib-def-shift:
-
-
-\begin{align}
-    a_n &= \frac{1}{\sqrt{5} } \left[ \left( \frac{1+  \sqrt{5} }{2}  \right)^n -  \left( \frac{1- \sqrt{5} }{2} \right)^n \right] \nonumber \\
-&= \frac{\varphi^n - \psi^n}{\sqrt{5} } \nonumber\\
-&=\frac{\varphi^n -  \psi^n}{\varphi - \psi} \label{eq:fib-sol}
-\end{align}
-
-
-where:
-
-- $\varphi = \frac{1+ \sqrt{5} }{2} \approx 1.61\ldots$
-- $\psi = 1-\varphi = \frac{1- \sqrt{5} }{2} \approx 0.61\ldots$
-
-*** Derivative of the Exponential Generating Function
-    :PROPERTIES:
-    :CUSTOM_ID: Derivative-exp-gen-function
-    :END:
-    Differentiating the exponential generating function has the effect of shifting the sequence to the backward: cite:lehmanReadingsMathematicsComputer2010
-
-\begin{align}
-    f\left( x \right) &= \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right] \label{eq:exp-pow-series} \\
-f'\left( x \right)) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right]  \right) \nonumber \\
-&= \frac{\mathrm{d}}{\mathrm{d} x} \left( a_0 \frac{x^0}{0!} +  a_1 \frac{x^1}{1!} +  a_2 \frac{x^2}{2!}+  a_3 \frac{x^3}{3! } +  \ldots \frac{x^k}{k!} \right) \nonumber \\
-&= \sum^{\infty}_{n= 0}   \left[ \frac{\mathrm{d} }{\mathrm{d} x}\left( a_n \frac{x^n}{n!} \right) \right] \nonumber \\
-&= \sum^{\infty}_{n= 0}   {\left[{ \frac{a_n}{{\left({ n- 1 }\right)!}} } x^{n- 1}  \right]} \nonumber \\
-\implies f'(x) &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}a_{n+  1} }\right]} \label{eq:exp-pow-series-sol}
-\end{align}
-
-If $f\left( x \right)= \sum^{\infty}_{n= 0 } \left[ a_n \frac{x^n}{n!} \right]$ can it be shown by induction that $\frac{\mathrm{d}^k }{\mathrm{d} x^k} \left(  f\left( x \right) \right)= f^{k} \left( x \right) \sum^{\infty}_{n= 0}   \left[ x^n \frac{a_{n+  k}}{n!} \right]$
-
-*** TODO Homogeneous Proof
-An equation of the form:
-
-\begin{align}
-\sum^{\infty}_{n=0} \left[ c_{i} \cdot f^{(n)}(x) \right] = 0 \label{eq:hom-ode}
-\end{align}
-
-is said to be a homogenous linear ODE: [[cite:zillDifferentialEquations2009a][Ch. 2]]
-
-- Linear :: because the equation is linear with respect to $f(x)$
-- Ordinary :: because there are no partial derivatives (e.g. $\frac{\partial }{\partial x}{\left({ f{\left({ x }\right)} }\right)}$  )
-- Differential :: because the derivates of the function are concerned
-- Homogenous :: because the */RHS/* is 0
-  - A non-homogeous equation would have a non-zero RHS
-
-There will be $k$ solutions to a $k^{\mathrm{th}}$ order linear ODE, each may be summed to produce a superposition which will also be a solution to the equation, [[cite:zillDifferentialEquations2009a][Ch. 4]]  this will be considered as the desired complete solution (and this will be shown to be the only solution for the recurrence relation eqref:eq:recurrence-relation-def). These $k$ solutions will be in one of two forms:
-
-1. $f(x)=c_{i} \cdot e^{m_{i}x}$
-2. $f(x)=c_{i} \cdot x^{j}\cdot e^{m_{i}x}$
-
-where:
-
-- $\sum^{k}_{i=0}\left[  c_{i}m^{k-i} \right] = 0$
-  - This is referred to the characteristic equation of the recurrence relation or ODE cite:levinSolvingRecurrenceRelations2018
-- $\exists i,j \in \mathbb{Z}^{+} \cap \left[0,k\right]$
-  - These is often referred to as repeated roots cite:levinSolvingRecurrenceRelations2018,zillMatrixExponential2009 with a multiplicity corresponding to the number of repetitions of that root [[cite:nicodemiIntroductionAbstractAlgebra2007][\textsection 3.2]]
-
-**** Unique Roots of Characteristic Equation
-:PROPERTIES:
-:CUSTOM_ID: uniq-roots-recurrence
-:END:
-***** Example
-An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section [[#solving-the-sequence]].
-***** Proof
-Consider the linear recurrence relation eqref:eq:recurrence-relation-def:
-
-\begin{align}
-\sum^{\infty}_{n= 0}   \left[ c_i \cdot  a_n \right] = 0, \quad \exists c \in
-\mathbb{R}, \enspace \forall i<k\in\mathbb{Z}^+ \nonumber
-\end{align}
-
-By implementing the exponential generating function as shown in eqref:eq:exp-gen-def-1, this provides:
-
-
-\begin{align}
-    \sum^{k}_{i= 0}   {\left[{ c_i \cdot a_n } \right]} = 0 \nonumber \\
-    \intertext{By Multiplying through and summing: } \notag \\
-     \implies  \sum^{k}_{i= 0}   {\left[{ \sum^{\infty}_{n= 0}   {\left[{ c_i a_n \frac{x^n}{n!} }\right]}  }\right]}  \nonumber = 0 \\
-     \sum^{k}_{i= 0}    {\left[{ c_i \sum^{\infty}_{n= 0}   {\left[{  a_n \frac{x^n}{n!} }\right]}  }\right]}  \nonumber = 0 \\
-\end{align}
-
-Recall from eqref:eq:exp-gen-def-1 the generating function $f{\left({ x }\right)}$:
-
-\begin{align}
-\sum^{k}_{i= 0}   {\left[{ c_i f^{{\left({ k }\right)} } } {\left({ x }\right)} \right]} \label{eq:exp-gen-def-proof}  &= 0
-\end{align}
-
-
-Now assume that the solution exists and all roots of the characteristic polynomial are unique (i.e. the solution is of the form $f{\left({ x }\right)} \propto e^{m_i x}: \quad m_i \neq m_j \forall i\neq j$), this implies that  [[cite:zillDifferentialEquations2009a][Ch. 4]] :
-
-\begin{align}
-    f{\left({ x }\right)} = \sum^{k}_{i= 0}   {\left[{ k_i e^{m_i x} }\right]}, \quad \exists m,k \in \mathbb{C} \nonumber
-\end{align}
-
-This can be re-expressed in terms of the exponential power series, in order to relate the solution of the function $f{\left({ x }\right)}$ back to a solution of the sequence $a_n$, (see section [[#prove-exp-power-series]] for a derivation of the exponential power series):
-
-\begin{align}
-    \sum^{k}_{i= 0}   {\left[{ k_i e^{m_i x}  }\right]}  &= \sum^{k}_{i= 0}   {\left[{ k_i \sum^{\infty}_{n= 0}   \frac{{\left({ m_i x }\right)}^n}{n!}  }\right]}  \nonumber \\
-							 &= \sum^{k}_{i= 0}  \sum^{\infty}_{n= 0}   k_i m_i^n \frac{x^n}{n!} \nonumber\\
-							 &=    \sum^{\infty}_{n= 0} \sum^{k}_{i= 0}   k_i m_i^n \frac{x^n}{n!} \nonumber \\
-							 &= \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}  \sum^{k}_{i=0}   {\left[{ k_im^n_i }\right]}  }\right]}, \quad \exists k_i \in \mathbb{C}, \enspace \forall i \in \mathbb{Z}^+\cap {\left[{ 1, k }\right]}     \label{eq:unique-root-sol-power-series-form}
-\end{align}
-
-Recall the definition of the generating function from ref:eq:exp-gen-def-proof, by relating this to eqref:eq:unique-root-sol-power-series-form:
-
-\begin{align}
-    f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{  \frac{x^n}{n!} a_n }\right]} \nonumber \\
-&= \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}  \sum^{k}_{i=0}   {\left[{ k_im^n_i }\right]}  }\right]}  \nonumber \\
-      \implies  a_n &= \sum^{k}_{n= 0} {\left[{ k_im_i^n }\right]}     \nonumber \\ \nonumber
-\square
-\end{align}
-
-This can be verified by the fibonacci sequence as shown in section [[#solving-the-sequence]], the solution to the characteristic equation is $m_1 = \varphi, m_2 = {\left({ 1-\varphi }\right)}$ and the corresponding solution to the linear ODE and recursive relation are:
-
-\begin{alignat}{4}
-    f{\left({ x }\right)} &= &c_1 e^{\varphi x} +  &c_2 e^{{\left({ 1-\varphi }\right)} x}, \quad &\exists c_1, c_2 \in \mathbb{R} \subset \mathbb{C} \nonumber \\
-    \iff  a_n &= &k_1 n^{\varphi} +  &k_2 n^{1- \varphi}, &\exists k_1, k_2 \in \mathbb{R} \subset \mathbb{C} \nonumber
-\end{alignat}
-
-**** Repeated Roots of Characteristic Equation
-:PROPERTIES:
-:CUSTOM_ID: rep-roots-recurrence
-:END:
-***** Example
-Consider the following recurrence relation:
-
-\begin{align}
-    a_n -  10a_{n+ 1} +  25a_{n+  2}&= 0 \label{eq:hom-repeated-roots-recurrence} \\
-    \implies  \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]} - 10 \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}+    }\right]} + 25 \sum^{\infty}_{n= 0 }   {\left[{  a_{n+  2 }\frac{x^n}{n!} }\right]}&= 0 \nonumber
-\end{align}
-
-By applying the definition of the exponential generating function at eqref:eq:exp-gen-def-1 :
-
-\begin{align}
-    f''{\left({ x }\right)}- 10f'{\left({ x }\right)}+  25f{\left({ x }\right)}= 0 \nonumber \label{eq:rep-roots-func-ode}
-\end{align}
-
-By implementing the already well-established theory of linear ODE's, the characteristic equation for eqref:eq:rep-roots-func-ode can be expressed as:
-
-\begin{align}
-    m^2- 10m+  25 = 0 \nonumber \\
-    {\left({ m- 5 }\right)}^2 = 0 \nonumber \\
-    m= 5 \label{eq:rep-roots-recurrence-char-sol}
-\end{align}
-
-Herein lies a complexity, in order to solve this, the solution produced from eqref:eq:rep-roots-recurrence-char-sol can be used with the /Reduction of Order/ technique to produce a solution that will be of the form [[cite:zillMatrixExponential2009][\textsection 4.3]].
-
-\begin{align}
-    f{\left({ x }\right)}= c_1e^{5x} +  c_2 x e^{5x} \label{eq:rep-roots-ode-sol}
-\end{align}
-
-eqref:eq:rep-roots-ode-sol can be expressed in terms of the exponential power series in order to try and relate the solution for the function back to the generating function,
-observe however the following power series identity (TODO Prove this in section [[#prove-ext-exp-power-series-rep-roots]]):
-
-\begin{align}
-    x^ke^x &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}, \quad \exists k \in \mathbb{Z}^+ \label{eq:uniq-roots-pow-series-ident}
-\end{align}
-
-by applying identity eqref:eq:uniq-roots-pow-series-ident to equation eqref:eq:rep-roots-ode-sol
-
-\begin{align}
-    \implies  f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{ c_1 \frac{{\left({ 5x }\right)}^n}{n!} }\right]}  +  \sum^{\infty}_{n= 0}   {\left[{ c_2 n \frac{{\left({ 5x^n }\right)}}{n{\left({ n-1 }\right)}!} }\right]} \nonumber \\
- &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!} {\left({ c_{1}5^n +  c_2 n 5^n   }\right)} }\right]} \nonumber
-\end{align}
-
-Given the defenition of the exponential generating function from eqref:eq:exp-gen-def-1
-
-\begin{align}
-    f{\left({ x }\right)}&=     \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]} \nonumber \\
-    \iff a_n &= c_{15}^n +  c_2n_5^n \nonumber \\ \nonumber
-    \ \nonumber \\
-    \square \nonumber
-\end{align}
-***** Generalised Example
-
-***** TODO Proof
-In order to prove the the solution for a $k^{\mathrm{th}}$ order recurrence relation with $k$ repeated
-
-
-Consider a recurrence relation of the form:
-
-\begin{align}
-     \sum^{k}_{n= 0}   {\left[{ c_i a_n }\right]}  = 0 \nonumber \\
-      \implies  \sum^{\infty}_{n= 0}   \sum^{k}_{i= 0}   c_i a_n \frac{x^n}{n!} = 0 \nonumber \\
-      \sum^{k}_{i= 0}   \sum^{\infty}_{n= 0}   c_i a_n \frac{x^n}{n!} \nonumber
-\end{align}
-
-By substituting for the value of the generating function (from eqref:eq:exp-gen-def-1):
-
-\begin{align}
-    \sum^{k}_{i= 0}   {\left[{ c_if^{{\left({ k }\right)}}  {\left({ x }\right)}    }\right]} \label{eq:gen-form-rep-roots-ode}
-\end{align}
-
-Assume that eqref:eq:gen-form-rep-roots-ode corresponds to a charecteristic polynomial with only 1 root of multiplicity $k$, the solution would hence be of the form:
-
-\begin{align}
-			 & \sum^{k}_{i= 0}   {\left[{ c_i m^i }\right]} = 0 \wedge m=B, \enspace  \exists! B \in \mathbb{C} \nonumber \\
- \implies      f{\left({ x }\right)}&= \sum^{k}_{i= 0}   {\left[{ x^i A_i e^{mx} }\right]}, \quad \exists A \in \mathbb{C}^+, \enspace \forall i \in {\left[{ 1,k }\right]} \cap \mathbb{N}  \label{eq:sol-rep-roots-ode} \\
-\end{align}
-
-Recall the following power series identity (proved in section xxx):
-
-\begin{align}
-x^k e^x = \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}     \nonumber
-\end{align}
-
-By applying this to eqref:eq:sol-rep-roots-ode :
-
-\begin{align}
-f{\left({ x }\right)}&=     \sum^{k}_{i= 0}   {\left[{ A_i \sum^{\infty}_{n= 0}   {\left[{ \frac{{\left({ x m }\right)}^n}{{\left({ n- i }\right)}!} }\right]}  }\right]} \nonumber \\
-&=     \sum^{\infty}_{n= 0}   {\left[{ \sum^{k}_{i=0} {\left[{ \frac{x^n}{n!}  \frac{n!}{{\left({ n- i }\right)}} A_i m^n }\right]}       }\right]} # \\
-&=     \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}   \sum^{k}_{i=0} {\left[{  \frac{n!}{{\left({ n- i }\right)}} A_i m^n }\right]}       }\right]}
-\end{align}
-
-Recall the generating function that was used to get ref:eq:gen-form-rep-roots-ode:
-
-\begin{align}
-f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]}      \nonumber \\
- \implies  a_n &= \sum^{k}_{i= 0}   {\left[{ A_i \frac{n!}{{\left({ n- i }\right)}!} m^n  }\right]} \nonumber \\
- &= \sum^{k}_{i= 0}   {\left[{ m^n A_i \prod_{0}^{k} {\left[{ n- {\left({ i- 1 }\right)} }\right]}   }\right]}
-& \intertext{$\because \enspace i \leq k$} \notag \\
- &= \sum^{k}_{i= 0} {\left[{ A_i^* m^n n^i }\right]}, \quad \exists A_i \in \mathbb{C}, \enspace \forall i\leqk \in \mathbb{Z}^+ \nonumber \\
-\ \nonumber \\
-\square \nonumber
-\end{align}
-
-
-
-**** TODO General Proof
-In sections [[#uniq-roots-recurrence]] and [[*Unique Roots of Characteristic Equation]] it was shown that a recurrence relation can be related to an ODE and then that solution can be transformed to provide a solution for the recurrence relation, when the charecteristic polynomial has either complex roots or 1 repeated root. Generally the solution to a linear ODE will be a superposition of solutions for each root, repeated or unique and so here it will be shown that these two can be combined and that the solution will still hold.
-
-Consider a Recursive relation with constant coefficients:
-
-$$
-\sum^{\infty}_{n= 0}   \left[ c_i \cdot  a_n \right] = 0, \quad \exists c \in
-\mathbb{R}, \enspace \forall i<k\in\mathbb{Z}^+
-$$
-
-This can be expressed in terms of the exponential generating function:
-
-$$
-\sum^{\infty}_{n= 0}   \left[ c_i \cdot  a_n \right] = 0\\
-\implies \sum^{\infty}_{n= 0}   \left[\sum^{\infty}_{n= 0}   \left[ c_i \cdot
-a_n  \right]   \right] = 0
-$$
-
-- Use the Generating function to get an ODE
-- The ODE will have a solution that is a combination of the above two forms
-- The solution will translate back to a combination of both above forms
-
-** Fibonacci Sequence and the Golden Ratio
-:PROPERTIES:
-:CUSTOM_ID: fib-golden-ratio-proof
-:END:
-The /Fibonacci Sequence/ is actually very interesting, observe that the ratios of the terms converge to the /Golden Ratio/:
-
-\begin{align*}
-    F_n &= \frac{\varphi^n-\psi^n}{\varphi-\psi} = \frac{\varphi^n-\psi^n}{\sqrt 5} \\
-    \iff \frac{F_{n+1}}{F_n}	&= \frac{\varphi^{n+ 1} - \psi^{n+  1}}{\varphi^{n} - \psi^{n}} \\
-    \iff \lim_{n \rightarrow \infty}\left[ \frac{F_{n+1}}{F_n} \right]	&= \lim_{n \rightarrow \infty}\left[ \frac{\varphi^{n+ 1} - \psi^{n+  1}}{\varphi^{n} - \psi^{n}} \right] \\
-&= \frac{\varphi^{n+ 1} -\lim_{n \rightarrow \infty}\left[ \psi^{n +  1} \right] }{\varphi^{n} - \lim_{n \rightarrow \infty}\left[ \psi^n \right] } \\
-\text{because $\mid \psi \mid < 0$ $n \rightarrow \infty \implies \psi^{n} \rightarrow 0$:} \\
-&= \frac{\varphi^{n+  1} -  0}{\varphi^{n} -  0} \\
-&= \varphi
-\end{align*}
-
-We'll come back to this later on when looking at spirals and fractals.
-
-This can also be shown by using analysis, let $L=\lim_{n \rightarrow \infty} \left[ \frac{F_{n+1}}{F_{n}} \right], then:
-
+Where:
+$\varphi = \frac{1+ \sqrt{5} }{2} ≈ 1.61\ldots$
+$ψ = 1-\varphi = \frac{1- \sqrt{5} }{2} ≈ 0.61\ldots$
+
+** The Golden Ratio $\varphi$
+*** Where does it come from?
+#+ATTR_REVEAL: :frag (appear)
+- $\frac{F_{n+1}}{F_n}$ or $\frac{a}{b} = \frac{a+b}{a}$
+- $\sqrt{1+\sqrt{1+\sqrt{1+...}}}$
+- $1+\frac{1}{1+\frac{1}{1+\frac{1}{1+...}}}$
+*** Why is it so interesting?
+#+ATTR_HTML: :height 40%, :width 40%
+[[/tmp/Python-Quant/Outline/Slides/Images/golden_ratio.png]]
+#+REVEAL: split
+[[/tmp/Python-Quant/Outline/Slides/Images/spirals.jpeg]]
+
+** Image References:
+Golden Rectangle: https://evstudio.com/functional-schematic-design-trick-use-the-golden-rectangle/
+
+Spirals: https://blog.prototypr.io/golden-ratio-what-it-is-and-why-should-you-use-it-in-design-7c3f43bcf98
 * Persian Recursion
 ** What is it?
 This is a simple process that produces complex structured patterns in response
