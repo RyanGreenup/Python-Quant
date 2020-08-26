@@ -49,139 +49,159 @@ org_html_manager.setup();  // activate after the parameters are set
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide"><h1 class="title">Math with Computers</h1><h2 class="author">Ryan Greenup &amp; James Guerra</h2><p class="date">Created: 2020-08-26 Wed 13:18</p>
+<section id="sec-title-slide"><h1 class="title">Math with Computers</h1><h2 class="author">Ryan Greenup &amp; James Guerra</h2><p class="date">Created: 2020-08-26 Wed 13:33</p>
 </section>
 <section id="table-of-contents"><div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#/slide-orgdbb8626">1. Introduction</a>
+<li><a href="#/slide-org485e053">1. Follow along</a></li>
+<li><a href="#/slide-orge4f2eae">2. Introduction</a>
 <ul>
-<li><a href="#/slide-org3f6d2d4">1.1. Interesting Technologies</a></li>
-<li><a href="#/slide-org94023a9">1.2. Things we hope to look at</a></li>
-<li><a href="#/slide-org8867a30">1.3. Motivation</a></li>
-<li><a href="#/slide-orgfb79083">1.4. Preliminary Problems</a>
+<li><a href="#/slide-org829113d">2.1. Interesting Technologies</a></li>
+<li><a href="#/slide-orgf365199">2.2. Some open Questions</a></li>
+<li><a href="#/slide-org177e535">2.3. Motivation</a></li>
+<li><a href="#/slide-org7185f42">2.4. Preliminary Problems</a>
 <ul>
-<li><a href="#/slide-series-and-recursion">1.4.1. Iteration and Recursion</a>
+<li><a href="#/slide-series-and-recursion">2.4.1. Iteration and Recursion</a>
 <ul>
-<li><a href="#/slide-some-functions-are-more-difficult-to-express-with-recursion-in-python">1.4.1.1. Some Functions are more difficult to express with Recursion in</a></li>
-<li><a href="#/slide-variable-scope-nested">1.4.1.2. Variable Scope of Nested Functions</a>
+<li><a href="#/slide-some-functions-are-more-difficult-to-express-with-recursion-in-python">2.4.1.1. Some Functions are more difficult to express with Recursion in</a></li>
+<li><a href="#/slide-variable-scope-nested">2.4.1.2. Variable Scope of Nested Functions</a>
 <ul>
-<li><a href="#/slide-languages-that-pass-variables-up-to-parents">1.4.1.2.1. Languages that pass variables up to parents</a></li>
-<li><a href="#/slide-r">1.4.1.2.2. <b><i>R</i></b></a></li>
-<li><a href="#/slide-bash">1.4.1.2.3. <code>bash</code></a></li>
-<li><a href="#/slide-languages-that-dont-pass-variables-up-to-parents">1.4.1.2.4. Languages that don&rsquo;t pass variables up to parents</a>
+<li><a href="#/slide-languages-that-pass-variables-up-to-parents">2.4.1.2.1. Languages that pass variables up to parents</a></li>
+<li><a href="#/slide-r">2.4.1.2.2. <b><i>R</i></b></a></li>
+<li><a href="#/slide-bash">2.4.1.2.3. <code>bash</code></a></li>
+<li><a href="#/slide-languages-that-dont-pass-variables-up-to-parents">2.4.1.2.4. Languages that don&rsquo;t pass variables up to parents</a>
 <ul>
-<li><a href="#/slide-using-attributes">1.4.1.2.4.1. Using Attributes</a></li>
-<li><a href="#/slide-using-return">1.4.1.2.4.2. Using Return</a></li>
-<li><a href="#/slide-julia">1.4.1.2.4.3. Julia</a></li>
+<li><a href="#/slide-using-attributes">2.4.1.2.4.1. Using Attributes</a></li>
+<li><a href="#/slide-using-return">2.4.1.2.4.2. Using Return</a></li>
+<li><a href="#/slide-julia">2.4.1.2.4.3. Julia</a></li>
 </ul>
 </li>
-<li><a href="#/slide-julia-scope-of-for-loops">1.4.1.2.5. Julia Scope of <code>for</code> loops</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#/slide-orgdb40fb5">1.4.2. Fibonacci Sequence</a>
-<ul>
-<li><a href="#/slide-define-the-fibonacci-numbers">1.4.2.1. Computational Approach</a></li>
-<li><a href="#/slide-exp-gen-func-fib-seq">1.4.2.2. Exponential Generating Functions</a>
-<ul>
-<li><a href="#/slide-motivation">1.4.2.2.1. Motivation</a></li>
-<li><a href="#/slide-solving-the-sequence">1.4.2.2.2. Example</a></li>
-<li><a href="#/slide-Derivative-exp-gen-function">1.4.2.2.3. Derivative of the Exponential Generating Function</a></li>
-<li><a href="#/slide-org336feb5">1.4.2.2.4. Homogeneous Proof</a>
-<ul>
-<li><a href="#/slide-uniq-roots-recurrence">1.4.2.2.4.1. Unique Roots of Characteristic Equation</a>
-<ul>
-<li><a href="#/slide-orgc8db3a4">1.4.2.2.4.1.1. Example</a></li>
-<li><a href="#/slide-org006c41d">1.4.2.2.4.1.2. Proof</a></li>
-</ul>
-</li>
-<li><a href="#/slide-rep-roots-recurrence">1.4.2.2.4.2. Repeated Roots of Characteristic Equation</a>
-<ul>
-<li><a href="#/slide-orgc4b994d">1.4.2.2.4.2.1. Example</a></li>
-<li><a href="#/slide-org2d89019">1.4.2.2.4.2.2. Generalised Example</a></li>
-<li><a href="#/slide-orge3880f1">1.4.2.2.4.2.3. Proof</a></li>
-</ul>
-</li>
-<li><a href="#/slide-org7ea3529">1.4.2.2.4.3. General Proof</a></li>
+<li><a href="#/slide-julia-scope-of-for-loops">2.4.1.2.5. Julia Scope of <code>for</code> loops</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#/slide-fib-golden-ratio-proof">1.4.2.3. Fibonacci Sequence and the Golden Ratio</a></li>
-</ul>
-</li>
-<li><a href="#/slide-orgd581e54">1.4.3. Persian Recursion</a></li>
-<li><a href="#/slide-org97f0f8a">1.4.4. Julia</a>
+<li><a href="#/slide-org5183e45">2.4.2. Fibonacci Sequence</a>
 <ul>
-<li><a href="#/slide-org5a8b72c">1.4.4.1. Motivation</a></li>
-<li><a href="#/slide-org9fa7936">1.4.4.2. Plotting the Sets</a></li>
-</ul>
-</li>
-<li><a href="#/slide-org2eebad0">1.4.5. MandelBrot</a></li>
-<li><a href="#/slide-orgc5efd0a">1.4.6. GNU Plot</a></li>
-<li><a href="#/slide-orga912f0c">1.4.7. Determinant??</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#/slide-org3bf35bd">2. Outline</a></li>
-<li><a href="#/slide-org1895856">3. Download RevealJS</a></li>
-<li><a href="#/slide-org67be213">4. Heres a Gif</a></li>
-<li><a href="#/slide-orgd2ac6f3">5. Give a brief Sketch of the project</a>
+<li><a href="#/slide-define-the-fibonacci-numbers">2.4.2.1. Computational Approach</a></li>
+<li><a href="#/slide-exp-gen-func-fib-seq">2.4.2.2. Exponential Generating Functions</a>
 <ul>
-<li><a href="#/slide-org318b7bf">5.1. Topic / Context</a></li>
-<li><a href="#/slide-orgac9feca">5.2. Motivation</a></li>
-<li><a href="#/slide-orgfa9475f">5.3. Basic Ideas</a></li>
-<li><a href="#/slide-orgc9d593e">5.4. Where are the Mathematics</a></li>
-<li><a href="#/slide-orgf72a282">5.5. Don&rsquo;t Forget we need a talk</a>
+<li><a href="#/slide-motivation">2.4.2.2.1. Motivation</a></li>
+<li><a href="#/slide-solving-the-sequence">2.4.2.2.2. Example</a></li>
+<li><a href="#/slide-Derivative-exp-gen-function">2.4.2.2.3. Derivative of the Exponential Generating Function</a></li>
+<li><a href="#/slide-org7d7f224">2.4.2.2.4. Homogeneous Proof</a>
 <ul>
-<li><a href="#/slide-org323831f">5.5.1. Slides In Org Mode</a></li>
+<li><a href="#/slide-uniq-roots-recurrence">2.4.2.2.4.1. Unique Roots of Characteristic Equation</a>
+<ul>
+<li><a href="#/slide-org5dd193d">2.4.2.2.4.1.1. Example</a></li>
+<li><a href="#/slide-org51e2d79">2.4.2.2.4.1.2. Proof</a></li>
+</ul>
+</li>
+<li><a href="#/slide-rep-roots-recurrence">2.4.2.2.4.2. Repeated Roots of Characteristic Equation</a>
+<ul>
+<li><a href="#/slide-org7e8a92b">2.4.2.2.4.2.1. Example</a></li>
+<li><a href="#/slide-org3fcd72d">2.4.2.2.4.2.2. Generalised Example</a></li>
+<li><a href="#/slide-org59e468c">2.4.2.2.4.2.3. Proof</a></li>
+</ul>
+</li>
+<li><a href="#/slide-org131fe01">2.4.2.2.4.3. General Proof</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#/slide-org22198d4">6. Undecided</a>
+<li><a href="#/slide-fib-golden-ratio-proof">2.4.2.3. Fibonacci Sequence and the Golden Ratio</a></li>
+</ul>
+</li>
+<li><a href="#/slide-org7009f1c">2.4.3. Persian Recursion</a></li>
+<li><a href="#/slide-orgebfd9c7">2.4.4. Julia</a>
+<ul>
+<li><a href="#/slide-org1421b08">2.4.4.1. Motivation</a></li>
+<li><a href="#/slide-org5fa606b">2.4.4.2. Plotting the Sets</a></li>
+</ul>
+</li>
+<li><a href="#/slide-orgb062805">2.4.5. MandelBrot</a></li>
+<li><a href="#/slide-org0018e04">2.4.6. GNU Plot</a></li>
+<li><a href="#/slide-org6731ad5">2.4.7. Determinant??</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#/slide-org0dc2abc">3. Outline</a></li>
+<li><a href="#/slide-org685510f">4. Download RevealJS</a></li>
+<li><a href="#/slide-orgdae7db1">5. Heres a Gif</a></li>
+<li><a href="#/slide-orgee0948e">6. Give a brief Sketch of the project</a>
+<ul>
+<li><a href="#/slide-org5254f39">6.1. Topic / Context</a></li>
+<li><a href="#/slide-org85797d6">6.2. Motivation</a></li>
+<li><a href="#/slide-org5d7cb65">6.3. Basic Ideas</a></li>
+<li><a href="#/slide-org6b6e3c4">6.4. Where are the Mathematics</a></li>
+<li><a href="#/slide-orge074b16">6.5. Don&rsquo;t Forget we need a talk</a>
+<ul>
+<li><a href="#/slide-org361da34">6.5.1. Slides In Org Mode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#/slide-org787db44">7. Undecided</a>
 <ul>
 <li>
 <ul>
-<li><a href="#/slide-org7ac6ebe">6.0.1. Determinant</a>
+<li><a href="#/slide-org988292f">7.0.1. Determinant</a>
 <ul>
-<li><a href="#/slide-create-the-matrix">6.0.1.1. Create the Matrix</a></li>
-<li><a href="#/slide-find-the-determinant">6.0.1.2. Find the Determinant</a></li>
-<li><a href="#/slide-find-the-determinant-of-various-values">6.0.1.3. Find the Determinant of Various Values</a>
+<li><a href="#/slide-create-the-matrix">7.0.1.1. Create the Matrix</a></li>
+<li><a href="#/slide-find-the-determinant">7.0.1.2. Find the Determinant</a></li>
+<li><a href="#/slide-find-the-determinant-of-various-values">7.0.1.3. Find the Determinant of Various Values</a>
 <ul>
-<li><a href="#/slide-instead-use-absolute-value">6.0.1.3.1. Generate a list of values</a></li>
-<li><a href="#/slide-create-a-data-frame">6.0.1.3.2. Create a Data Frame</a></li>
-<li><a href="#/slide-plot-the-data-frame">6.0.1.3.3. Plot the Data frame</a></li>
+<li><a href="#/slide-instead-use-absolute-value">7.0.1.3.1. Generate a list of values</a></li>
+<li><a href="#/slide-create-a-data-frame">7.0.1.3.2. Create a Data Frame</a></li>
+<li><a href="#/slide-plot-the-data-frame">7.0.1.3.3. Plot the Data frame</a></li>
 </ul>
 </li>
-<li><a href="#/slide-log-transform-the-data">6.0.1.4. Log Transform the Data</a></li>
-<li><a href="#/slide-largest-percentage-error">6.0.1.5. Largest Percentage Error</a></li>
+<li><a href="#/slide-log-transform-the-data">7.0.1.4. Log Transform the Data</a></li>
+<li><a href="#/slide-largest-percentage-error">7.0.1.5. Largest Percentage Error</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#/slide-org3f00871">7. What we&rsquo;re looking for</a></li>
-<li><a href="#/slide-org9b441e8">8. Appendix</a>
+<li><a href="#/slide-org5de4932">8. What we&rsquo;re looking for</a></li>
+<li><a href="#/slide-org763234a">9. Appendix</a>
 <ul>
-<li><a href="#/slide-persian-recursion-examples">8.1. Persian Recursian Examples</a></li>
-<li><a href="#/slide-org5e63e9f">8.2. Figures</a></li>
+<li><a href="#/slide-persian-recursion-examples">9.1. Persian Recursian Examples</a></li>
+<li><a href="#/slide-orgb1cd1e3">9.2. Figures</a></li>
 </ul>
 </li>
-<li><a href="#/slide-org32c60e7">9. Bibliography</a></li>
+<li><a href="#/slide-org3f226d4">10. Bibliography</a></li>
 </ul>
 </div>
 </div>
 </section>
 
 <section>
-<section id="slide-orgdbb8626">
-<h2 id="orgdbb8626"><span class="section-number-2">1</span> Introduction</h2>
+<section id="slide-org485e053">
+<h2 id="org485e053"><span class="section-number-2">1</span> Follow along</h2>
+<div class="org-src-container">
+
+<pre  class="src src-bash"><code trim>qrencode -o qrcode.png <span style="color: #008000;">"http://ryansnotes.org/x/00Slides/Slides/Slides.html"</span>
+</code></pre>
+</div>
+
+
+
+<div class="figure">
+<p><img src="qrcode.png" alt="qrcode.png" width="400px" />
+</p>
+</div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orge4f2eae">
+<h2 id="orge4f2eae"><span class="section-number-2">2</span> Introduction</h2>
 <p>
 Our title sucks because our project is broad, which is awesome!
 </p>
@@ -192,28 +212,22 @@ We are looking at the concept of computational thinking:
 
 <ul>
 <li>How to solve mathematical problems computationally</li>
-<li>Investigating the methods implemented by other <i>Computer Algebra Software</i> (CAS)
+<li>Investigating the methods implemented by other <i>Computer Algebra Software</i>
+(CAS)
 <ul>
-<li>With a primary focus on FOSS and Modern technologies (like <i>Sympy🐍</i> and <i>Julia</i>)</li>
+<li>With a primary focus on FOSS and Modern technologies (like <i>Sympy🐍</i> and
+<i>Julia</i>)</li>
 
 </ul></li>
-<li>Investigate patterns, fractals, chaos and dynamical systems.
-<ul>
-<li>Can we model the patterns on animals?</li>
-<li>What is the relationship between Julia Sets, the Cantor set and structures in nature.</li>
-<li>Can we simulate things like the spiral of a nautilus shell?
-<ul>
-<li>How is this related to the Fibonacci Sequence and \(\phi\)</li>
-
-</ul></li>
-
-</ul></li>
+<li>Investigate patterns, fractals, chaos and dynamical systems.</li>
 
 </ul>
 
+
+
 </section>
-<section id="slide-org3f6d2d4">
-<h3 id="org3f6d2d4"><span class="section-number-3">1.1</span> Interesting Technologies</h3>
+<section id="slide-org829113d">
+<h3 id="org829113d"><span class="section-number-3">2.1</span> Interesting Technologies</h3>
 <p>
 Some of the technologies we intend to look at in order to understand the methods implemented for problem solving are:
 </p>
@@ -272,141 +286,40 @@ Some of the technologies we intend to look at in order to understand the methods
     <img src="http://maxima.sourceforge.net/i/logo.png"/></p>
 
 </section>
-<section id="slide-org94023a9">
-<h3 id="org94023a9"><span class="section-number-3">1.2</span> Things we hope to look at</h3>
-<p style="font-size:3px">
-<ol type="1">
-<li>Intro Prob</li>
-<li>Variable Scope</li>
-<li>Problem Showing Recursion
-<ul>
-<li>All Different Methods
-<ul>
-<li>Discuss all Different Methods</li>
-<li>Discuss Vectorisation</li>
-<li>Is this needed in Julia</li>
-<li>Comment on Faster to go column Wise</li>
-</ul></li>
-</ul></li>
-<li>Discuss Loops</li>
-<li>Show Rug</li>
-<li>Fibonacci
-<ul>
-<li>The ratio of fibonacci converges to </li>
-<li>Golden Ratio
-<ul>
-<li>If you make a rectangle with the golden ratio you can cut it up under recursion to get another one, keep doing this and eventually a logarithmic spiral pops out, also the areas follow a fibonacci sequence.</li>
-<li>Look at the spiral of nautilus shells</li>
-</ul></li>
-</ul></li>
-<li>Discuss isomorphisms for recursive Relations</li>
-<li>Jump to Lorenz Attractor</li>
-<li>Now Talk about Morphogenesis</li>
-<li>Fractals
-<ul>
-<li>Many Occur in Nature
-<ul>
-<li>Mountain Ranges, compare to MandelBrot</li>
-<li>Sun Flowers</li>
-<li>Show the golden Ratio</li>
-</ul></li>
-<li>Fractals are all about recursion and iteration, so this gives me an excuse to look at them
-<ul>
-<li>Show MandelBrot
-<ul>
-<li>Python
-<ul>
-<li>Sympy Slow</li>
-<li>Numpy Fast</li>
-</ul></li>
-<li>Julia brings Both Benefits
-<ul>
-<li>Show Large MandelBrot</li>
-</ul></li>
-<li>Show Julia Set
-<ul>
-<li>Show Julia Set Gif</li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li>Things I’d like to show
-<ul>
-<li>Simulate stripes and animal patterns</li>
-<li>Show some math behind spirals in Nautilus Shells</li>
-<li>Golden Rectangle
-<ul>
-<li>Throw in some recursion</li>
-<li>Watch the spiral come out</li>
-<li>Record the areas and show that they are Fibonacci</li>
-</ul></li>
-<li>That the ratio of Fibonacci Converges to Phi</li>
-<li>Any Connection to the Reimann Sphere</li>
-<li>Lorrenz Attractor
-<ul>
-<li>How is this connected to the lorrenz attractor</li>
-</ul></li>
-<li>What are the connections between discrete iteration and continuous systems such as the julia set and the lorrenz attractor</li>
-</ul></li>
-<li>Things I’d like to Try (in order to see different ways to approach Problems)
-<ul>
-<li>Programming Languages and CAS
-<ul>
-<li>Julia
-<ul>
-<li>SymEngine</li>
-</ul></li>
-<li>Maxima</li>
-<li>Julia</li>
-</ul></li>
-<li>Visualisation
-<ul>
-<li>Makie</li>
-<li>Plotly</li>
-<li>GNUPlot</li>
-</ul></li>
-</ul></li>
-<li>Open Questions:
-<ul>
-<li>can we simulate animal patterns</li>
-<li>can we simulate leaves</li>
-<li>can we show that the gen func deriv [[#Derivative-exp-gen-function]]</li>
-<li>can we prove homogenous recursive relation</li>
-<li>I want to look at the lorrenz attractor</li>
-<li>when partiles are created by the the LHC, do they follow a fractal like pattern?</li>
-<li>Create a Fractal Landscape, does this resemble things seen in nautre? [[cite:peitgenChaosFractalsNew2004][p. 464]]</li>
-<li>Can I write an algorighm to build a tree in the winter?</li>
-<li>Can I develop my own type of persian recursion?</li>
-<li>Show the relationship between the golden ratio and the logarithmic spiral.
-<ul>
-<li>and show that the fibonacci numbers pop out as area
-<ul>
-<li>Prove this</li>
-</ul></li>
-</ul></li>
-<li>Is there any relationship between the Cantor Prisoner set and the Julia Sets?</li>
-<li>Work with Matt to investigate Julia Sets for Quaternion [[cite:peitgenChaosFractalsNew2004][]]</li>
-</ul></li>
-</ol>
+<section id="slide-orgf365199">
+<h3 id="orgf365199"><span class="section-number-3">2.2</span> Some open Questions</h3>
+<p>
+Some of the problems that we wanted to work on:
 </p>
 
+<ul>
+<li>Can we model the patterns on animals?</li>
+<li>What is the relationship between Julia Sets, the Cantor set, the lorenz attractor and structures in nature.</li>
+<li>Can Julia Sets be extended to the quaternions</li>
+<li>Can we simulate things like the spiral of a nautilus shell?
+<ul>
+<li>How is this related to the Fibonacci Sequence and \(\phi\)</li>
+
+</ul></li>
+
+</ul>
 
 </section>
-<section id="slide-org8867a30">
-<h3 id="org8867a30"><span class="section-number-3">1.3</span> Motivation</h3>
+<section id="slide-org177e535">
+<h3 id="org177e535"><span class="section-number-3">2.3</span> Motivation</h3>
 <p>
 Many problems that look complex upon initial inspection can be solved trivially.
 </p>
 
 
 </section>
-<section id="slide-orgfb79083">
-<h3 id="orgfb79083"><span class="section-number-3">1.4</span> Preliminary Problems</h3>
-<div class="outline-text-3" id="text-1-4">
+<section id="slide-org7185f42">
+<h3 id="org7185f42"><span class="section-number-3">2.4</span> Preliminary Problems</h3>
+<div class="outline-text-3" id="text-2-4">
 </div>
 </section>
 <section id="slide-series-and-recursion">
-<h4 id="series-and-recursion"><span class="section-number-4">1.4.1</span> Iteration and Recursion</h4>
+<h4 id="series-and-recursion"><span class="section-number-4">2.4.1</span> Iteration and Recursion</h4>
 <p>
 To illustrate an example of different ways of thinking about a problem, consider the series shown in \eqref{eq:rec-ser}<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup> :
 </p>
@@ -440,7 +353,7 @@ h\left( k \right) = \prod^k_{i = 2} \left( \frac{f_i}{i}  \right)  \quad : \quad
 </p>
 
 <p>
-Within <i>Python</i>, it isn&rsquo;t difficult to express \(h\), the series can be expressed with recursion as shown in listing <a href="#/slide-org89b2cdb">1</a>, this is a very natural way to define series and sequences and is consistent with familiar mathematical thought and notation. Individuals more familiar with programming than analysis may find it more comfortable to use an iterator as shown in listing <a href="#/slide-org1e9635b">2</a>.
+Within <i>Python</i>, it isn&rsquo;t difficult to express \(h\), the series can be expressed with recursion as shown in listing <a href="#/slide-org9da2e82">1</a>, this is a very natural way to define series and sequences and is consistent with familiar mathematical thought and notation. Individuals more familiar with programming than analysis may find it more comfortable to use an iterator as shown in listing <a href="#/slide-org5bb7474">2</a>.
 </p>
 
 <div class="org-src-container">
@@ -513,7 +426,7 @@ I&rsquo;m not sure if this would be true for compiled languages such as <i>Julia
 
 </section>
 <section id="slide-some-functions-are-more-difficult-to-express-with-recursion-in-python">
-<h5 id="some-functions-are-more-difficult-to-express-with-recursion-in-python"><span class="section-number-5">1.4.1.1</span> Some Functions are more difficult to express with Recursion in</h5>
+<h5 id="some-functions-are-more-difficult-to-express-with-recursion-in-python"><span class="section-number-5">2.4.1.1</span> Some Functions are more difficult to express with Recursion in</h5>
 <p>
 Attacking a problem recursively isn&rsquo;t always the best approach, consider the function \(g\left( k \right)\) from \eqref{eq:rec-ser}:
 </p>
@@ -548,13 +461,13 @@ To implement recursion however, the series needs to be restructured and this can
 
 <p>
 Now the function could be performed recursively in <i>Python</i> in a similar
-way as shown in listing <a href="#/slide-org66c9c13">3</a>, but it&rsquo;s also significantly more confusing because the \(f\) function now has \(k\) as a parameter and this is only made significantly more complicated by the variable scope of functions across common languages used in Mathematics and Data science such as <code>bash</code>, <i>Python</i>, <b><i>R</i></b> and <i>Julia</i> (see section <a href="#/slide-variable-scope-nested">1.4.1.2</a>).
+way as shown in listing <a href="#/slide-orged8c5ae">3</a>, but it&rsquo;s also significantly more confusing because the \(f\) function now has \(k\) as a parameter and this is only made significantly more complicated by the variable scope of functions across common languages used in Mathematics and Data science such as <code>bash</code>, <i>Python</i>, <b><i>R</i></b> and <i>Julia</i> (see section <a href="#/slide-variable-scope-nested">2.4.1.2</a>).
 </p>
 
 
 <p>
 If however, the <code>for</code> loop approach was implemented, as shown in listing
-<a href="#/slide-orgb5d7f55">4</a>, the function would not significantly change, because the <code>reversed()</code> function can be
+<a href="#/slide-org71411f5">4</a>, the function would not significantly change, because the <code>reversed()</code> function can be
 used to flip the list around.
 </p>
 
@@ -602,7 +515,7 @@ this problem.
 
 </section>
 <section id="slide-variable-scope-nested">
-<h5 id="variable-scope-nested"><span class="section-number-5">1.4.1.2</span> Variable Scope of Nested Functions</h5>
+<h5 id="variable-scope-nested"><span class="section-number-5">2.4.1.2</span> Variable Scope of Nested Functions</h5>
 <p>
 Using Python and Julia can be very confusing if you are used to using
 <b><i>R</i></b> and <code>bash</code>.
@@ -610,7 +523,7 @@ Using Python and Julia can be very confusing if you are used to using
 
 </section>
 <section id="slide-languages-that-pass-variables-up-to-parents">
-<h6 id="languages-that-pass-variables-up-to-parents"><span class="section-number-6">1.4.1.2.1</span> Languages that pass variables up to parents</h6>
+<h6 id="languages-that-pass-variables-up-to-parents"><span class="section-number-6">2.4.1.2.1</span> Languages that pass variables up to parents</h6>
 <p>
 Functions defined in <b><i>R</i></b> and <code>bash</code> will <i>pass</i> variables up into
 there parent function, for example consider the following:
@@ -618,7 +531,7 @@ there parent function, for example consider the following:
 
 </section>
 <section id="slide-r">
-<h6 id="r"><span class="section-number-6">1.4.1.2.2</span> <b><i>R</i></b></h6>
+<h6 id="r"><span class="section-number-6">2.4.1.2.2</span> <b><i>R</i></b></h6>
 <div class="org-src-container">
 
 <pre  class="src src-R"><code trim>  <span style="color: #006699;">outer</span> <span style="color: #D0372D;">&lt;-</span> <span style="color: #0000FF;">function</span>() {
@@ -640,7 +553,7 @@ there parent function, for example consider the following:
 
 </section>
 <section id="slide-bash">
-<h6 id="bash"><span class="section-number-6">1.4.1.2.3</span> <code>bash</code></h6>
+<h6 id="bash"><span class="section-number-6">2.4.1.2.3</span> <code>bash</code></h6>
 <div class="org-src-container">
 
 <pre  class="src src-sh"><code trim>  outer<span style="color: #707183;">()</span> <span style="color: #707183;">{</span>
@@ -662,10 +575,10 @@ there parent function, for example consider the following:
 
 </section>
 <section id="slide-languages-that-dont-pass-variables-up-to-parents">
-<h6 id="languages-that-dont-pass-variables-up-to-parents"><span class="section-number-6">1.4.1.2.4</span> Languages that don&rsquo;t pass variables up to parents</h6>
+<h6 id="languages-that-dont-pass-variables-up-to-parents"><span class="section-number-6">2.4.1.2.4</span> Languages that don&rsquo;t pass variables up to parents</h6>
 </section>
 <section id="slide-using-attributes">
-<h7 id="using-attributes"><span class="section-number-7">1.4.1.2.4.1</span> Using Attributes</h7>
+<h7 id="using-attributes"><span class="section-number-7">2.4.1.2.4.1</span> Using Attributes</h7>
 <p>
 whereas in <i>Python</i> you would need to make the variable an attribute of
 the function first (I&rsquo;m not sure if this feature exists in <i>Julia</i>?):
@@ -686,11 +599,11 @@ the function first (I&rsquo;m not sure if this feature exists in <i>Julia</i>?):
 
 </section>
 <section id="slide-using-return">
-<h7 id="using-return"><span class="section-number-7">1.4.1.2.4.2</span> Using Return</h7>
+<h7 id="using-return"><span class="section-number-7">2.4.1.2.4.2</span> Using Return</h7>
 
 </section>
 <section id="slide-julia">
-<h7 id="julia"><span class="section-number-7">1.4.1.2.4.3</span> Julia</h7>
+<h7 id="julia"><span class="section-number-7">2.4.1.2.4.3</span> Julia</h7>
 <pre class="example">
   function outer()
       x=subfunction()
@@ -729,7 +642,7 @@ the function first (I&rsquo;m not sure if this feature exists in <i>Julia</i>?):
 
 </section>
 <section id="slide-julia-scope-of-for-loops">
-<h6 id="julia-scope-of-for-loops"><span class="section-number-6">1.4.1.2.5</span> Julia Scope of <code>for</code> loops</h6>
+<h6 id="julia-scope-of-for-loops"><span class="section-number-6">2.4.1.2.5</span> Julia Scope of <code>for</code> loops</h6>
 <p>
 In Julia observe that the following will not work:
 </p>
@@ -763,13 +676,13 @@ Odd huh.
 </p>
 
 </section>
-<section id="slide-orgdb40fb5">
-<h4 id="orgdb40fb5"><span class="section-number-4">1.4.2</span> Fibonacci Sequence</h4>
-<div class="outline-text-4" id="text-1-4-2">
+<section id="slide-org5183e45">
+<h4 id="org5183e45"><span class="section-number-4">2.4.2</span> Fibonacci Sequence</h4>
+<div class="outline-text-4" id="text-2-4-2">
 </div>
 </section>
 <section id="slide-define-the-fibonacci-numbers">
-<h5 id="define-the-fibonacci-numbers"><span class="section-number-5">1.4.2.1</span> Computational Approach</h5>
+<h5 id="define-the-fibonacci-numbers"><span class="section-number-5">2.4.2.1</span> Computational Approach</h5>
 <p>
 The <i>Fibonacci</i> Numbers are given by:
 </p>
@@ -783,8 +696,8 @@ F_n = F_{n-1} + F_{n-2} \label{eq:fib-def}
 
 <p>
 This type of recursive relation can be expressed in <i>Python</i> by using recursion,
-as shown in listing <a href="#/slide-org078ef2f">5</a>, however using this function will reveal that it
-is extraordinarily slow, as shown in listing <a href="#/slide-org5bc1538">6</a>, this is because the
+as shown in listing <a href="#/slide-org77e308c">5</a>, however using this function will reveal that it
+is extraordinarily slow, as shown in listing <a href="#/slide-org236f6ea">6</a>, this is because the
 results of the function are not cached and every time the function is called
 every value is recalculated<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>, meaning that the workload scales in
 exponential as opposed to polynomial time.
@@ -795,7 +708,7 @@ The <code>functools</code> library for python includes the <code>@functools.lru_
 which will modify a defined function to cache results in memory
 (NO<sub>ITEM</sub><sub>DATA</sub>:FunctoolsHigherorderFunctions), this means that the recursive function will
 only need to calculate each result once and it will hence scale in polynomial
-time, this is implemented in listing <a href="#/slide-orgc0737d7">7</a>.
+time, this is implemented in listing <a href="#/slide-orgd33c69e">7</a>.
 </p>
 
 
@@ -814,7 +727,7 @@ time, this is implemented in listing <a href="#/slide-orgc0737d7">7</a>.
 </div>
 
 <div class="org-src-container">
-<label class="org-src-name">Using the function from listing <a href="#/slide-org078ef2f">5</a> is quite slow.</label>
+<label class="org-src-name">Using the function from listing <a href="#/slide-org77e308c">5</a> is quite slow.</label>
 <pre  class="src src-python" id="time-slow"><code trim>  <span style="color: #BA36A5;">start</span> = time.time()
   rec_fib(<span style="color: #D0372D;">35</span>)
   <span style="color: #0000FF;">print</span>(<span style="color: #006FE0;">str</span>(<span style="color: #006FE0;">round</span>(time.time() - start, <span style="color: #D0372D;">3</span>)) + <span style="color: #008000;">"seconds"</span>)
@@ -825,7 +738,7 @@ time, this is implemented in listing <a href="#/slide-orgc0737d7">7</a>.
 
 
 <div class="org-src-container">
-<label class="org-src-name">Caching the results of the function previously defined <a href="#/slide-org5bc1538">6</a></label>
+<label class="org-src-name">Caching the results of the function previously defined <a href="#/slide-org236f6ea">6</a></label>
 <pre  class="src src-python" id="fib-cache"><code trim>  <span style="color: #0000FF;">from</span> functools <span style="color: #0000FF;">import</span> lru_cache
 
   <span style="color: #6434A3;">@lru_cache</span>(maxsize=<span style="color: #D0372D;">9999</span>)
@@ -858,7 +771,7 @@ rec_fib(<span style="color: #D0372D;">35</span>)
 </div>
 
 <p>
-Restructuring the problem to use iteration will allow for even greater performance as demonstrated by finding \(F_{10^{6}}\) in listing <a href="#/slide-org9ffd223">8</a>. Using a compiled language such as <i>Julia</i> however would be thousands of times faster still, as demonstrated in listing <a href="#/slide-orge9b6ec6">9</a>.
+Restructuring the problem to use iteration will allow for even greater performance as demonstrated by finding \(F_{10^{6}}\) in listing <a href="#/slide-orgcccf237">8</a>. Using a compiled language such as <i>Julia</i> however would be thousands of times faster still, as demonstrated in listing <a href="#/slide-org7c6c914">9</a>.
 </p>
 
 
@@ -934,10 +847,10 @@ mathematical problems to continuous ones as discussed below at section .
 </p>
 </section>
 <section id="slide-exp-gen-func-fib-seq">
-<h5 id="exp-gen-func-fib-seq"><span class="section-number-5">1.4.2.2</span> Exponential Generating Functions</h5>
+<h5 id="exp-gen-func-fib-seq"><span class="section-number-5">2.4.2.2</span> Exponential Generating Functions</h5>
 </section>
 <section id="slide-motivation">
-<h6 id="motivation"><span class="section-number-6">1.4.2.2.1</span> Motivation</h6>
+<h6 id="motivation"><span class="section-number-6">2.4.2.2.1</span> Motivation</h6>
 <p>
 Consider the <i>Fibonacci Sequence</i> from \eqref{eq:fib-def}:
 </p>
@@ -981,11 +894,11 @@ f\left( x \right)= e^{rx} = \sum^{\infty}_{n= 0}   \left[ r \frac{x^n}{n!} \righ
 
 </section>
 <section id="slide-solving-the-sequence">
-<h6 id="solving-the-sequence"><span class="section-number-6">1.4.2.2.2</span> Example</h6>
+<h6 id="solving-the-sequence"><span class="section-number-6">2.4.2.2.2</span> Example</h6>
 <p>
 Consider using the following generating function, (the derivative of the
 generating function as in \eqref{eq:exp-gen-def-2} and \eqref{eq:exp-gen-def-3} is
-provided in section <a href="#/slide-Derivative-exp-gen-function">1.4.2.2.3</a>)
+provided in section <a href="#/slide-Derivative-exp-gen-function">2.4.2.2.3</a>)
 </p>
 
 
@@ -1111,7 +1024,7 @@ where:
 
 </section>
 <section id="slide-Derivative-exp-gen-function">
-<h6 id="Derivative-exp-gen-function"><span class="section-number-6">1.4.2.2.3</span> Derivative of the Exponential Generating Function</h6>
+<h6 id="Derivative-exp-gen-function"><span class="section-number-6">2.4.2.2.3</span> Derivative of the Exponential Generating Function</h6>
 <p>
 Differentiating the exponential generating function has the effect of shifting the sequence to the backward: (NO<sub>ITEM</sub><sub>DATA</sub>:lehmanReadingsMathematicsComputer2010)
 </p>
@@ -1133,8 +1046,8 @@ If \(f\left( x \right)= \sum^{\infty}_{n= 0 } \left[ a_n \frac{x^n}{n!} \right]\
 </p>
 
 </section>
-<section id="slide-org336feb5">
-<h6 id="org336feb5"><span class="section-number-6">1.4.2.2.4</span> Homogeneous Proof</h6>
+<section id="slide-org7d7f224">
+<h6 id="org7d7f224"><span class="section-number-6">2.4.2.2.4</span> Homogeneous Proof</h6>
 <p>
 An equation of the form:
 </p>
@@ -1147,7 +1060,7 @@ An equation of the form:
 </div>
 
 <p>
-is said to be a homogenous linear ODE: (Ch. <a href="#/slide-orgd344729">Dennis G Zill and Cullen, n.d., 2</a>)
+is said to be a homogenous linear ODE: (Ch. <a href="#/slide-orgccbd797">Dennis G Zill and Cullen, n.d., 2</a>)
 </p>
 
 <dl>
@@ -1163,7 +1076,7 @@ is said to be a homogenous linear ODE: (Ch. <a href="#/slide-orgd344729">Dennis 
 </dl>
 
 <p>
-There will be \(k\) solutions to a \(k^{\mathrm{th}}\) order linear ODE, each may be summed to produce a superposition which will also be a solution to the equation, (Ch. <a href="#/slide-orgd344729">Dennis G Zill and Cullen, n.d., 4</a>)  this will be considered as the desired complete solution (and this will be shown to be the only solution for the recurrence relation \eqref{eq:recurrence-relation-def}). These \(k\) solutions will be in one of two forms:
+There will be \(k\) solutions to a \(k^{\mathrm{th}}\) order linear ODE, each may be summed to produce a superposition which will also be a solution to the equation, (Ch. <a href="#/slide-orgccbd797">Dennis G Zill and Cullen, n.d., 4</a>)  this will be considered as the desired complete solution (and this will be shown to be the only solution for the recurrence relation \eqref{eq:recurrence-relation-def}). These \(k\) solutions will be in one of two forms:
 </p>
 
 <ol>
@@ -1184,7 +1097,7 @@ where:
 </ul></li>
 <li>\(\exists i,j \in \mathbb{Z}^{+} \cap \left[0,k\right]\)
 <ul>
-<li>These is often referred to as repeated roots (NO<sub>ITEM</sub><sub>DATA</sub>:levinSolvingRecurrenceRelations2018; <a href="#/slide-orgca9f7bd">Dennis G. Zill and Cullen, n.d.</a>) with a multiplicity corresponding to the number of repetitions of that root (\textsection <a href="#/slide-orgc124ff1">Nicodemi, Sutherland, and Towsley, n.d., 3.2</a>)</li>
+<li>These is often referred to as repeated roots (NO<sub>ITEM</sub><sub>DATA</sub>:levinSolvingRecurrenceRelations2018; <a href="#/slide-org86e7c45">Dennis G. Zill and Cullen, n.d.</a>) with a multiplicity corresponding to the number of repetitions of that root (\textsection <a href="#/slide-org4930c1f">Nicodemi, Sutherland, and Towsley, n.d., 3.2</a>)</li>
 
 </ul></li>
 
@@ -1192,16 +1105,16 @@ where:
 
 </section>
 <section id="slide-uniq-roots-recurrence">
-<h7 id="uniq-roots-recurrence"><span class="section-number-7">1.4.2.2.4.1</span> Unique Roots of Characteristic Equation</h7>
+<h7 id="uniq-roots-recurrence"><span class="section-number-7">2.4.2.2.4.1</span> Unique Roots of Characteristic Equation</h7>
 </section>
-<section id="slide-orgc8db3a4">
-<h8 id="orgc8db3a4"><span class="section-number-8">1.4.2.2.4.1.1</span> Example</h8>
+<section id="slide-org5dd193d">
+<h8 id="org5dd193d"><span class="section-number-8">2.4.2.2.4.1.1</span> Example</h8>
 <p>
-An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section <a href="#/slide-solving-the-sequence">1.4.2.2.2</a>.
+An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section <a href="#/slide-solving-the-sequence">2.4.2.2.2</a>.
 </p>
 </section>
-<section id="slide-org006c41d">
-<h8 id="org006c41d"><span class="section-number-8">1.4.2.2.4.1.2</span> Proof</h8>
+<section id="slide-org51e2d79">
+<h8 id="org51e2d79"><span class="section-number-8">2.4.2.2.4.1.2</span> Proof</h8>
 <p>
 Consider the linear recurrence relation \eqref{eq:recurrence-relation-def}:
 </p>
@@ -1242,7 +1155,7 @@ Recall from \eqref{eq:exp-gen-def-1} the generating function \(f{\left({ x }\rig
 
 
 <p>
-Now assume that the solution exists and all roots of the characteristic polynomial are unique (i.e. the solution is of the form \(f{\left({ x }\right)} \propto e^{m_i x}: \quad m_i \neq m_j \forall i\neq j\)), this implies that  (Ch. <a href="#/slide-orgd344729">Dennis G Zill and Cullen, n.d., 4</a>) :
+Now assume that the solution exists and all roots of the characteristic polynomial are unique (i.e. the solution is of the form \(f{\left({ x }\right)} \propto e^{m_i x}: \quad m_i \neq m_j \forall i\neq j\)), this implies that  (Ch. <a href="#/slide-orgccbd797">Dennis G Zill and Cullen, n.d., 4</a>) :
 </p>
 
 <div>
@@ -1281,7 +1194,7 @@ Recall the definition of the generating function from <a href="#/slide-eq:exp-ge
 </div>
 
 <p>
-This can be verified by the fibonacci sequence as shown in section <a href="#/slide-solving-the-sequence">1.4.2.2.2</a>, the solution to the characteristic equation is \(m_1 = \varphi, m_2 = {\left({ 1-\varphi }\right)}\) and the corresponding solution to the linear ODE and recursive relation are:
+This can be verified by the fibonacci sequence as shown in section <a href="#/slide-solving-the-sequence">2.4.2.2.2</a>, the solution to the characteristic equation is \(m_1 = \varphi, m_2 = {\left({ 1-\varphi }\right)}\) and the corresponding solution to the linear ODE and recursive relation are:
 </p>
 
 <div>
@@ -1294,10 +1207,10 @@ This can be verified by the fibonacci sequence as shown in section <a href="#/sl
 
 </section>
 <section id="slide-rep-roots-recurrence">
-<h7 id="rep-roots-recurrence"><span class="section-number-7">1.4.2.2.4.2</span> Repeated Roots of Characteristic Equation</h7>
+<h7 id="rep-roots-recurrence"><span class="section-number-7">2.4.2.2.4.2</span> Repeated Roots of Characteristic Equation</h7>
 </section>
-<section id="slide-orgc4b994d">
-<h8 id="orgc4b994d"><span class="section-number-8">1.4.2.2.4.2.1</span> Example</h8>
+<section id="slide-org7e8a92b">
+<h8 id="org7e8a92b"><span class="section-number-8">2.4.2.2.4.2.1</span> Example</h8>
 <p>
 Consider the following recurrence relation:
 </p>
@@ -1335,7 +1248,7 @@ By implementing the already well-established theory of linear ODE&rsquo;s, the c
 </div>
 
 <p>
-Herein lies a complexity, in order to solve this, the solution produced from \eqref{eq:rep-roots-recurrence-char-sol} can be used with the <i>Reduction of Order</i> technique to produce a solution that will be of the form (\textsection <a href="#/slide-orgca9f7bd">Dennis G. Zill and Cullen, n.d., 4.3</a>).
+Herein lies a complexity, in order to solve this, the solution produced from \eqref{eq:rep-roots-recurrence-char-sol} can be used with the <i>Reduction of Order</i> technique to produce a solution that will be of the form (\textsection <a href="#/slide-org86e7c45">Dennis G. Zill and Cullen, n.d., 4.3</a>).
 </p>
 
 <div>
@@ -1383,12 +1296,12 @@ Given the defenition of the exponential generating function from \eqref{eq:exp-g
 
 </div>
 </section>
-<section id="slide-org2d89019">
-<h8 id="org2d89019"><span class="section-number-8">1.4.2.2.4.2.2</span> Generalised Example</h8>
+<section id="slide-org3fcd72d">
+<h8 id="org3fcd72d"><span class="section-number-8">2.4.2.2.4.2.2</span> Generalised Example</h8>
 
 </section>
-<section id="slide-orge3880f1">
-<h8 id="orge3880f1"><span class="section-number-8">1.4.2.2.4.2.3</span> Proof</h8>
+<section id="slide-org59e468c">
+<h8 id="org59e468c"><span class="section-number-8">2.4.2.2.4.2.3</span> Proof</h8>
 <p>
 In order to prove the the solution for a \(k^{\mathrm{th}}\) order recurrence relation with \(k\) repeated
 </p>
@@ -1474,10 +1387,10 @@ f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\rig
 
 
 </section>
-<section id="slide-org7ea3529">
-<h7 id="org7ea3529"><span class="section-number-7">1.4.2.2.4.3</span> General Proof</h7>
+<section id="slide-org131fe01">
+<h7 id="org131fe01"><span class="section-number-7">2.4.2.2.4.3</span> General Proof</h7>
 <p>
-In sections <a href="#/slide-uniq-roots-recurrence">1.4.2.2.4.1</a> and <a href="#/slide-uniq-roots-recurrence">1.4.2.2.4.1</a> it was shown that a recurrence relation can be related to an ODE and then that solution can be transformed to provide a solution for the recurrence relation, when the charecteristic polynomial has either complex roots or 1 repeated root. Generally the solution to a linear ODE will be a superposition of solutions for each root, repeated or unique and so here it will be shown that these two can be combined and that the solution will still hold.
+In sections <a href="#/slide-uniq-roots-recurrence">2.4.2.2.4.1</a> and <a href="#/slide-uniq-roots-recurrence">2.4.2.2.4.1</a> it was shown that a recurrence relation can be related to an ODE and then that solution can be transformed to provide a solution for the recurrence relation, when the charecteristic polynomial has either complex roots or 1 repeated root. Generally the solution to a linear ODE will be a superposition of solutions for each root, repeated or unique and so here it will be shown that these two can be combined and that the solution will still hold.
 </p>
 
 <p>
@@ -1512,7 +1425,7 @@ a_n  \right]   \right] = 0
 
 </section>
 <section id="slide-fib-golden-ratio-proof">
-<h5 id="fib-golden-ratio-proof"><span class="section-number-5">1.4.2.3</span> Fibonacci Sequence and the Golden Ratio</h5>
+<h5 id="fib-golden-ratio-proof"><span class="section-number-5">2.4.2.3</span> Fibonacci Sequence and the Golden Ratio</h5>
 <p>
 The <i>Fibonacci Sequence</i> is actually very interesting, observe that the ratios of the terms converge to the <i>Golden Ratio</i>:
 </p>
@@ -1553,10 +1466,10 @@ Se  <a href="https://mathcs.holycross.edu/~groberts/Courses/MA242/HW/hw4-sols.pd
 </p>
 
 </section>
-<section id="slide-orgd581e54">
-<h4 id="orgd581e54"><span class="section-number-4">1.4.3</span> Persian Recursion</h4>
+<section id="slide-org7009f1c">
+<h4 id="org7009f1c"><span class="section-number-4">2.4.3</span> Persian Recursion</h4>
 <p>
-Although some recursive problems are a good fit for mathematical thinking such as the <i>Fibonacci Sequence</i> discussed in section <a href="#/slide-exp-gen-func-fib-seq">1.4.2.2</a> other problems
+Although some recursive problems are a good fit for mathematical thinking such as the <i>Fibonacci Sequence</i> discussed in section <a href="#/slide-exp-gen-func-fib-seq">2.4.2.2</a> other problems
 can be be easily interpreted computationally but they don&rsquo;t really carry over to any mathematical perspective, one good example of this is <i>the persian recursion</i>, which is a simple procedure developed by Anne Burns in the 90s (NO<sub>ITEM</sub><sub>DATA</sub>:burnsPersianRecursion1997) that produces fantastic patterns upon feedback and iteration
 </p>
 
@@ -1566,7 +1479,7 @@ The procedure begins with an empty or zero square matrix with sides \(2^{n}+1,
 </p>
 
 <ol>
-<li>Decide on some four variable function with a finite domain and range of size \(m\), for the example shown at listing <a href="#/slide-org95d67ce">10</a> and in figure <a href="#/slide-orgc418d05">1</a> the function \(f(w,x,y,z)=(w+x+y+z) \mod m\) was chosen.</li>
+<li>Decide on some four variable function with a finite domain and range of size \(m\), for the example shown at listing <a href="#/slide-orgb7a95ca">10</a> and in figure <a href="#/slide-org1410606">2</a> the function \(f(w,x,y,z)=(w+x+y+z) \mod m\) was chosen.</li>
 <li>Assign this value to the centre row and centre column of the matrix</li>
 <li>Repeat this for each newly enclosed subsmatrix.</li>
 
@@ -1586,7 +1499,7 @@ coloured row and column</li>
 </ul>
 
 <p>
-This is demonstrated in listing <a href="#/slide-org95d67ce">10</a> with python and produces the output shown in figures <a href="#/slide-orgc418d05">1</a>, various interesting examples are provided in the appendix at section <a href="#/slide-persian-recursion-examples">8.1</a>.
+This is demonstrated in listing <a href="#/slide-orgb7a95ca">10</a> with python and produces the output shown in figures <a href="#/slide-org1410606">2</a>, various interesting examples are provided in the appendix at section <a href="#/slide-persian-recursion-examples">9.1</a>.
 </p>
 
 <p>
@@ -1666,21 +1579,21 @@ main(<span style="color: #D0372D;">5</span>,<span style="color: #D0372D;">6</spa
 
 
 
-<div id="orgc418d05" class="figure">
+<div id="org1410606" class="figure">
 <p><object type="image/svg+xml" data="./persian-recursion-0.svg" class="org-svg" width="400px">
 Sorry, your browser does not support SVG.</object>
 </p>
-<p><span class="figure-number">Figure 1: </span>Output produced by listing <a href="#/slide-org95d67ce">10</a> with 6 folds</p>
+<p><span class="figure-number">Figure 2: </span>Output produced by listing <a href="#/slide-orgb7a95ca">10</a> with 6 folds</p>
 </div>
 
 </section>
-<section id="slide-org97f0f8a">
-<h4 id="org97f0f8a"><span class="section-number-4">1.4.4</span> Julia</h4>
-<div class="outline-text-4" id="text-1-4-4">
+<section id="slide-orgebfd9c7">
+<h4 id="orgebfd9c7"><span class="section-number-4">2.4.4</span> Julia</h4>
+<div class="outline-text-4" id="text-2-4-4">
 </div>
 </section>
-<section id="slide-org5a8b72c">
-<h5 id="org5a8b72c"><span class="section-number-5">1.4.4.1</span> Motivation</h5>
+<section id="slide-org1421b08">
+<h5 id="org1421b08"><span class="section-number-5">2.4.4.1</span> Motivation</h5>
 <p>
 Consider the iterative process \(x \rightarrow x^{2}, \enspace x \in \mathbb{R}\),
 for values of \(x>1\) this process will diverge and for \(x<1\) it will converge.
@@ -1733,8 +1646,8 @@ In the case of \(f_{0}(z) = z^{2}\) all values \(\left\lvert z  \right \rvert \l
 </p>
 
 </section>
-<section id="slide-org9fa7936">
-<h5 id="org9fa7936"><span class="section-number-5">1.4.4.2</span> Plotting the Sets&#xa0;&#xa0;&#xa0;<span class="tag"><span class="ATTACH">ATTACH</span></span></h5>
+<section id="slide-org5fa606b">
+<h5 id="org5fa606b"><span class="section-number-5">2.4.4.2</span> Plotting the Sets&#xa0;&#xa0;&#xa0;<span class="tag"><span class="ATTACH">ATTACH</span></span></h5>
 <p>
 Although the convergence of values may appear simple at first, we&rsquo;ll implement a
 strategy to plot the prisoner and escape sets on the complex plane.
@@ -1743,7 +1656,7 @@ strategy to plot the prisoner and escape sets on the complex plane.
 <p>
 Because this involves iteration and <i>Python</i> is a little slow, We&rsquo;ll denote
 complex values as a vector<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup> and define the operations as described in
-listing <a href="#/slide-orgde9c089">11</a>.<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>
+listing <a href="#/slide-org37af498">11</a>.<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>
 </p>
 
 <p>
@@ -1764,11 +1677,11 @@ a measurement of the rate of divergence.
 Then the <code>escape_test</code> function can be mapped over a matrix, where each element
 of that matrix is in turn mapped to a point on the cartesian plane, the resulting matrix
 can be visualised as an image <sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup>, this is implemented in listing
-<a href="#/slide-orge058171">12</a> and the corresponding output shown in .
+<a href="#/slide-org4850c26">12</a> and the corresponding output shown in .
 </p>
 
 <p>
-with respect to listing <a href="#/slide-orge058171">12</a>:
+with respect to listing <a href="#/slide-org4850c26">12</a>:
 </p>
 
 <ul>
@@ -1860,25 +1773,25 @@ This is precisely what we expected, but this is where things get interesting,
 consider now the result if we apply this same procedure to \(f_{1}: z \rightarrow
 z^{2} - 1\) or something arbitrary like \(f_{\frac{1}{4} + \frac{i}{2}}: z
 \rightarrow z^{2} + (\frac{1}{4} + \frac{i}{2})\), the result is something
-particularly unexpected, as shown in figures <a href="#/slide-orgdf4cebb">2</a> and <a href="#/slide-org647030c">3</a>.
+particularly unexpected, as shown in figures <a href="#/slide-org350542b">3</a> and <a href="#/slide-org72f6465">4</a>.
 </p>
 
 
 
-<div id="orgdf4cebb" class="figure">
+<div id="org350542b" class="figure">
 <p><object type="image/svg+xml" data="./julia-1.svg" class="org-svg" width="400px">
 Sorry, your browser does not support SVG.</object>
 </p>
-<p><span class="figure-number">Figure 2: </span>Circle of Convergence for \(f_{0}: z \rightarrow z^{2} - 1\)</p>
+<p><span class="figure-number">Figure 3: </span>Circle of Convergence for \(f_{0}: z \rightarrow z^{2} - 1\)</p>
 </div>
 
 
 
-<div id="org647030c" class="figure">
+<div id="org72f6465" class="figure">
 <p><object type="image/svg+xml" data="./julia-rab.svg" class="org-svg" width="400px">
 Sorry, your browser does not support SVG.</object>
 </p>
-<p><span class="figure-number">Figure 3: </span>Circle of Convergence for \(f_{\frac{1}{4} + \frac{i}{2}}: z \rightarrow z^{2} + \frac{1}{4} + \frac{i}{2}\)</p>
+<p><span class="figure-number">Figure 4: </span>Circle of Convergence for \(f_{\frac{1}{4} + \frac{i}{2}}: z \rightarrow z^{2} + \frac{1}{4} + \frac{i}{2}\)</p>
 </div>
 
 <p>
@@ -1893,16 +1806,16 @@ this set by varying the value of \(\tau\)<sup><a id="fnr.6" class="footref" href
 compiled language, is significantly faster and has the benefit of treating
 complex numbers as first class citizens, these images can be generated in
 <i>Julia</i> in a similar fashion as before, with the specifics shown in listing
-<a href="#/slide-org784417f">13</a>. The <code>GR</code> package appears to be the best plotting library
+<a href="#/slide-org3781f24">13</a>. The <code>GR</code> package appears to be the best plotting library
 performance wise and so was used to save corresponding images to disc, this is
-demonstrated in listing <a href="#/slide-org9258a89">14</a> where 1200 pictures at a 2.25 MP resolution were produced. <sup><a id="fnr.7" class="footref" href="#fn.7">7</a></sup>
+demonstrated in listing <a href="#/slide-org7b8ba49">14</a> where 1200 pictures at a 2.25 MP resolution were produced. <sup><a id="fnr.7" class="footref" href="#fn.7">7</a></sup>
 </p>
 
 <p>
 A subset of these images can be combined using <i>ImageMagick</i> and <code>bash</code> to
 create a collage, <i>ImageMagick</i> can also be used to produce a <code>gif</code> but it often
 fails and a superior approach is to use <code>ffmpeg</code>, this is demonstrated in
-listing <a href="#/slide-orgf7ea33b">15</a>, the collage is shown in figure <a href="#/slide-org782ae7e">4</a> and a corresponding
+listing <a href="#/slide-orga161127">15</a>, the collage is shown in figure <a href="#/slide-org435bdf3">5</a> and a corresponding
 animation is <a href="https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0">available online</a><sup><a id="fnr.8" class="footref" href="#fn.8">8</a></sup>].
 </p>
 
@@ -1997,15 +1910,15 @@ ffmpeg                    <span style="color: #008000;">\</span>
 </div>
 
 
-<div id="org782ae7e" class="figure">
+<div id="org435bdf3" class="figure">
 <p><img src="file:///home/ryan/Notes/Org/.attach/ba/a21085-5d8f-4390-9bb7-43c3b51d940d/_20200826_005334a.png" alt="_20200826_005334a.png" />
 </p>
-<p><span class="figure-number">Figure 4: </span>Various fracals corresponding to \(f_{0.8 e^{\pi i \tau}}\)</p>
+<p><span class="figure-number">Figure 5: </span>Various fracals corresponding to \(f_{0.8 e^{\pi i \tau}}\)</p>
 </div>
 
 </section>
-<section id="slide-org2eebad0">
-<h4 id="org2eebad0"><span class="section-number-4">1.4.5</span> MandelBrot</h4>
+<section id="slide-orgb062805">
+<h4 id="orgb062805"><span class="section-number-4">2.4.5</span> MandelBrot</h4>
 <p>
 Investigating these fractals, a natural question might be whether or not any
 given \(c\) value will produce a fractal that is an open disc or a closed disc.
@@ -2139,10 +2052,10 @@ save_picture(<span style="color: #008000;">"/tmp/a.fits"</span>, my_pic)
 </div>
 
 </section>
-<section id="slide-orgc5efd0a">
-<h4 id="orgc5efd0a"><span class="section-number-4">1.4.6</span> GNU Plot</h4>
+<section id="slide-org0018e04">
+<h4 id="org0018e04"><span class="section-number-4">2.4.6</span> GNU Plot</h4>
 <p>
-Another approach to visualise this set is by creating a 3d surface plot where the z-axis is mapped to the time taken until divergence, this can be acheived by using gnuplot as demonstrated in listing <a href="#/slide-orgf9a4d2d">17</a>.<sup><a id="fnr.10" class="footref" href="#fn.10">10</a></sup>
+Another approach to visualise this set is by creating a 3d surface plot where the z-axis is mapped to the time taken until divergence, this can be acheived by using gnuplot as demonstrated in listing <a href="#/slide-orge82bfaf">17</a>.<sup><a id="fnr.10" class="footref" href="#fn.10">10</a></sup>
 </p>
 
 <p>
@@ -2211,7 +2124,7 @@ Sorry, your browser does not support SVG.</object>
 
 <p>
 GNU Plot can also make excellent 2d renditions of fractals, an example of how to
-perform this can be found on <i>Rosetta Code</i> (NO<sub>ITEM</sub><sub>DATA</sub>:MandelbrotSetRosetta) and is demonstrated in listing <a href="#/slide-org39b3aec">19</a>.
+perform this can be found on <i>Rosetta Code</i> (NO<sub>ITEM</sub><sub>DATA</sub>:MandelbrotSetRosetta) and is demonstrated in listing <a href="#/slide-org1d4126e">19</a>.
 </p>
 
 
@@ -2232,14 +2145,14 @@ mandelbrot (z, z0, <span style="color: #BA36A5;">n) =</span> <span style="color:
 
 
 </section>
-<section id="slide-orga912f0c">
-<h4 id="orga912f0c"><span class="section-number-4">1.4.7</span> Determinant??</h4>
+<section id="slide-org6731ad5">
+<h4 id="org6731ad5"><span class="section-number-4">2.4.7</span> Determinant??</h4>
 
 </section>
 </section>
 <section>
-<section id="slide-org3bf35bd">
-<h2 id="org3bf35bd"><span class="section-number-2">2</span> Outline</h2>
+<section id="slide-org0dc2abc">
+<h2 id="org0dc2abc"><span class="section-number-2">3</span> Outline</h2>
 <ol>
 <li>Intro Prob</li>
 <li>Variable Scope</li>
@@ -2355,7 +2268,7 @@ spiral pops out, also the areas follow a fibonacci sequence.</li>
 <ul>
 <li>can we simulate animal patterns</li>
 <li>can we simulate leaves</li>
-<li>can we show that the gen func deriv <a href="#/slide-Derivative-exp-gen-function">1.4.2.2.3</a></li>
+<li>can we show that the gen func deriv <a href="#/slide-Derivative-exp-gen-function">2.4.2.2.3</a></li>
 <li>can we prove homogenous recursive relation</li>
 <li>I want to look at the lorrenz attractor</li>
 <li>when partiles are created by the the LHC, do they follow a fractal like pattern?</li>
@@ -2380,8 +2293,8 @@ spiral pops out, also the areas follow a fibonacci sequence.</li>
 </section>
 </section>
 <section>
-<section id="slide-org1895856">
-<h2 id="org1895856"><span class="section-number-2">3</span> Download RevealJS</h2>
+<section id="slide-org685510f">
+<h2 id="org685510f"><span class="section-number-2">4</span> Download RevealJS</h2>
 <p>
 So first do <code>M-x package-install ox-reveal</code> then do <code>M-x load-library</code> and then look for <code>ox-reveal</code>
 </p>
@@ -2412,8 +2325,8 @@ Then just do <code>C-c e e R R</code> to export with RevealJS as opposed to PHP 
 </section>
 </section>
 <section>
-<section id="slide-org67be213">
-<h2 id="org67be213"><span class="section-number-2">4</span> Heres a Gif</h2>
+<section id="slide-orgdae7db1">
+<h2 id="orgdae7db1"><span class="section-number-2">5</span> Heres a Gif</h2>
 <p>
 So this is a very big Gif that I&rsquo;m using:
 </p>
@@ -2431,8 +2344,8 @@ How did I make the Gif??
 </section>
 </section>
 <section>
-<section id="slide-orgd2ac6f3">
-<h2 id="orgd2ac6f3"><span class="section-number-2">5</span> Give a brief Sketch of the project</h2>
+<section id="slide-orgee0948e">
+<h2 id="orgee0948e"><span class="section-number-2">6</span> Give a brief Sketch of the project</h2>
 <p>
 Of particular interest are the:
 </p>
@@ -2454,8 +2367,8 @@ Here&rsquo;s what I gatthered from the week 3 slides
 </p>
 
 </section>
-<section id="slide-org318b7bf">
-<h3 id="org318b7bf"><span class="section-number-3">5.1</span> Topic / Context</h3>
+<section id="slide-org5254f39">
+<h3 id="org5254f39"><span class="section-number-3">6.1</span> Topic / Context</h3>
 <p>
 We are interested in the theory of problem solving, but in particular the
 different approaches that can be taken to attacking a problem.
@@ -2467,12 +2380,12 @@ mathematician attack a problem, although originally I thought there was no
 difference, after seeing the odd way Roozbeh attacks problems I see there is a big difference.
 </p>
 </section>
-<section id="slide-orgac9feca">
-<h3 id="orgac9feca"><span class="section-number-3">5.2</span> Motivation</h3>
+<section id="slide-org85797d6">
+<h3 id="org85797d6"><span class="section-number-3">6.2</span> Motivation</h3>
 
 </section>
-<section id="slide-orgfa9475f">
-<h3 id="orgfa9475f"><span class="section-number-3">5.3</span> Basic Ideas</h3>
+<section id="slide-org5d7cb65">
+<h3 id="org5d7cb65"><span class="section-number-3">6.3</span> Basic Ideas</h3>
 <ul>
 <li>Look at FOSS CAS Systems
 <ul>
@@ -2504,8 +2417,8 @@ After getting an overview of SymPy let&rsquo;s look at problems that are interes
 </p>
 
 </section>
-<section id="slide-orgc9d593e">
-<h3 id="orgc9d593e"><span class="section-number-3">5.4</span> Where are the Mathematics</h3>
+<section id="slide-org6b6e3c4">
+<h3 id="org6b6e3c4"><span class="section-number-3">6.4</span> Where are the Mathematics</h3>
 <ul>
 <li>Trying to look at the algorithms underlying functions in Python/Sympy and other Computer algebra tools such as Maxima, Maple, Mathematica, Sage, GAP and Xcas/Giac, Yacas, Symata.jl, Reduce.jl, SymEngine.jl
 <ul>
@@ -2527,13 +2440,13 @@ AVOID DETAILS, JUST SKETCH THE PROJECT OUT.
 </p>
 
 </section>
-<section id="slide-orgf72a282">
-<h3 id="orgf72a282"><span class="section-number-3">5.5</span> Don&rsquo;t Forget we need a talk</h3>
-<div class="outline-text-3" id="text-5-5">
+<section id="slide-orge074b16">
+<h3 id="orge074b16"><span class="section-number-3">6.5</span> Don&rsquo;t Forget we need a talk</h3>
+<div class="outline-text-3" id="text-6-5">
 </div>
 </section>
-<section id="slide-org323831f">
-<h4 id="org323831f"><span class="section-number-4">5.5.1</span> Slides In Org Mode</h4>
+<section id="slide-org361da34">
+<h4 id="org361da34"><span class="section-number-4">6.5.1</span> Slides In Org Mode</h4>
 <ul>
 <li><a href="https://orgmode.org/worg/org-tutorials/non-beamer-presentations.html">Without Beamer</a></li>
 <li><a href="https://orgmode.org/worg/exporters/beamer/tutorial.html">With Beamer</a></li>
@@ -2542,13 +2455,13 @@ AVOID DETAILS, JUST SKETCH THE PROJECT OUT.
 </section>
 </section>
 <section>
-<section id="slide-org22198d4">
-<h2 id="org22198d4"><span class="section-number-2">6</span> Undecided</h2>
-<div class="outline-text-2" id="text-6">
+<section id="slide-org787db44">
+<h2 id="org787db44"><span class="section-number-2">7</span> Undecided</h2>
+<div class="outline-text-2" id="text-7">
 </div>
 </section>
-<section id="slide-org7ac6ebe">
-<h4 id="org7ac6ebe"><span class="section-number-4">6.0.1</span> Determinant</h4>
+<section id="slide-org988292f">
+<h4 id="org988292f"><span class="section-number-4">7.0.1</span> Determinant</h4>
 <p>
 Computational thinking can be useful in problems related to modelling, consider
 for example some matrix \(n\times n\) matrix \(B_n\) described by \eqref{eq:bn-matrix} :
@@ -2580,7 +2493,7 @@ From a numerical modelling perspective however, as will be shown, this a fairly 
 
 </section>
 <section id="slide-create-the-matrix">
-<h5 id="create-the-matrix"><span class="section-number-5">6.0.1.1</span> Create the Matrix</h5>
+<h5 id="create-the-matrix"><span class="section-number-5">7.0.1.1</span> Create the Matrix</h5>
 <p>
 Using <i>Python</i> and <code>numpy</code>, a matrix can be generated as an <code>array</code> and by
 iterating through each element of the matrix values can be attributed like so:
@@ -2640,7 +2553,7 @@ and so to assign the values based on the condition in \eqref{eq:bn-matrix}, an
 
 </section>
 <section id="slide-find-the-determinant">
-<h5 id="find-the-determinant"><span class="section-number-5">6.0.1.2</span> Find the Determinant</h5>
+<h5 id="find-the-determinant"><span class="section-number-5">7.0.1.2</span> Find the Determinant</h5>
 <p>
 <i>Python</i>, being an object orientated language has methods belonging to objects of different types, in this case the <code>linalg</code> method has a <code>det</code> function that can be used to return the determinant of any given matrix like so:
 </p>
@@ -2662,7 +2575,7 @@ and so to assign the values based on the condition in \eqref{eq:bn-matrix}, an
 
 </section>
 <section id="slide-find-the-determinant-of-various-values">
-<h5 id="find-the-determinant-of-various-values"><span class="section-number-5">6.0.1.3</span> Find the Determinant of Various Values</h5>
+<h5 id="find-the-determinant-of-various-values"><span class="section-number-5">7.0.1.3</span> Find the Determinant of Various Values</h5>
 <p>
 To solve this problem, all that needs to be considered is the size of the \(n\) and the corresponding determinant, this could be expressed as a set as shown in \eqref{eq:set-determ}:
 </p>
@@ -2682,14 +2595,14 @@ where:
 </ul>
 
 <p>
-Although describing the results as a set \eqref{eqref:eq:set-determ} is a little odd, it is consistent with the idea of list and set comprehension in <i>Python</i> (NO<sub>ITEM</sub><sub>DATA</sub>:DataStructuresPython) and <i>Julia</i> (NO<sub>ITEM</sub><sub>DATA</sub>:MultidimensionalArraysJulia) as shown in listing <a href="#/slide-orgf1cd0ec">21</a>
+Although describing the results as a set \eqref{eqref:eq:set-determ} is a little odd, it is consistent with the idea of list and set comprehension in <i>Python</i> (NO<sub>ITEM</sub><sub>DATA</sub>:DataStructuresPython) and <i>Julia</i> (NO<sub>ITEM</sub><sub>DATA</sub>:MultidimensionalArraysJulia) as shown in listing <a href="#/slide-org446aa33">21</a>
 </p>
 
 </section>
 <section id="slide-instead-use-absolute-value">
-<h6 id="instead-use-absolute-value"><span class="section-number-6">6.0.1.3.1</span> Generate a list of values</h6>
+<h6 id="instead-use-absolute-value"><span class="section-number-6">7.0.1.3.1</span> Generate a list of values</h6>
 <p>
-Using the function created in listing <a href="#/slide-orgb9eaad0">20</a>, a corresponding list of values can be generated:
+Using the function created in listing <a href="#/slide-orga436252">20</a>, a corresponding list of values can be generated:
 </p>
 
 <div class="org-src-container">
@@ -2740,7 +2653,7 @@ Using the function created in listing <a href="#/slide-orgb9eaad0">20</a>, a cor
 
 </section>
 <section id="slide-create-a-data-frame">
-<h6 id="create-a-data-frame"><span class="section-number-6">6.0.1.3.2</span> Create a Data Frame</h6>
+<h6 id="create-a-data-frame"><span class="section-number-6">7.0.1.3.2</span> Create a Data Frame</h6>
 <div class="org-src-container">
 
 <pre  class="src src-python"><code trim>  <span style="color: #0000FF;">import</span> pandas <span style="color: #0000FF;">as</span> pd
@@ -2793,7 +2706,7 @@ Using the function created in listing <a href="#/slide-orgb9eaad0">20</a>, a cor
 
 </section>
 <section id="slide-plot-the-data-frame">
-<h6 id="plot-the-data-frame"><span class="section-number-6">6.0.1.3.3</span> Plot the Data frame</h6>
+<h6 id="plot-the-data-frame"><span class="section-number-6">7.0.1.3.3</span> Plot the Data frame</h6>
 <p>
 Observe that it is necessary to use <code>copy</code>, <i>Julia</i> and <i>Python</i>
 <b>unlike</b> <i>Mathematica</i> and <b><i>R</i></b> only create links between data, they do
@@ -2882,7 +2795,7 @@ more complex than simply using <b><i>R</i></b>.
 
 </section>
 <section id="slide-log-transform-the-data">
-<h5 id="log-transform-the-data"><span class="section-number-5">6.0.1.4</span> Log Transform the Data</h5>
+<h5 id="log-transform-the-data"><span class="section-number-5">7.0.1.4</span> Log Transform the Data</h5>
 <p>
 The <code>log</code> function is actually provided by <code>sympy</code>, to do this quicker
 in <code>numpy</code> use <code>np.log()</code>
@@ -3079,7 +2992,7 @@ where:
 
 </section>
 <section id="slide-largest-percentage-error">
-<h5 id="largest-percentage-error"><span class="section-number-5">6.0.1.5</span> Largest Percentage Error</h5>
+<h5 id="largest-percentage-error"><span class="section-number-5">7.0.1.5</span> Largest Percentage Error</h5>
 <p>
 To find the largest percentage error for \(n \in [30, 50]\) it will be
 necessary to calculate the determinants for the larger range,
@@ -3164,8 +3077,8 @@ the larger amount of data:
 </section>
 </section>
 <section>
-<section id="slide-org3f00871">
-<h2 id="org3f00871"><span class="section-number-2">7</span> What we&rsquo;re looking for</h2>
+<section id="slide-org5de4932">
+<h2 id="org5de4932"><span class="section-number-2">8</span> What we&rsquo;re looking for</h2>
 <ul>
 <li>Would a reader know what the project is about?</li>
 <li>Would a reader become interested in the upcoming report?</li>
@@ -3178,8 +3091,8 @@ the larger amount of data:
 </section>
 </section>
 <section>
-<section id="slide-org9b441e8">
-<h2 id="org9b441e8"><span class="section-number-2">8</span> Appendix</h2>
+<section id="slide-org763234a">
+<h2 id="org763234a"><span class="section-number-2">9</span> Appendix</h2>
 <div class="org-src-container">
 <label class="org-src-name">Preamble for <i>Python</i> Environment</label>
 <pre  class="src src-python" id="py-env"><code trim>  <span style="color: #0000FF;">from</span> __future__ <span style="color: #0000FF;">import</span> division
@@ -3210,9 +3123,9 @@ the larger amount of data:
 
 </section>
 <section id="slide-persian-recursion-examples">
-<h3 id="persian-recursion-examples"><span class="section-number-3">8.1</span> Persian Recursian Examples</h3>
+<h3 id="persian-recursion-examples"><span class="section-number-3">9.1</span> Persian Recursian Examples</h3>
 <div class="org-src-container">
-<label class="org-src-name">Modify listing <a href="#/slide-org95d67ce">10</a> to create 9 folds</label>
+<label class="org-src-name">Modify listing <a href="#/slide-orgb7a95ca">10</a> to create 9 folds</label>
 <pre  class="src src-ipython" id="8-fold-code"><code trim>%config <span style="color: #BA36A5;">InlineBackend.figure_format</span> = <span style="color: #008000;">'svg'</span>
 main(<span style="color: #D0372D;">5</span>, <span style="color: #D0372D;">9</span>, <span style="color: #D0372D;">1</span>, cx)
 </code></pre>
@@ -3231,11 +3144,11 @@ main(<span style="color: #D0372D;">8</span>, <span style="color: #D0372D;">8</sp
 </div>
 
 
-<div id="orga48f2b5" class="figure">
+<div id="org5f740a5" class="figure">
 <p><object type="image/svg+xml" data="./persian-recursion-new-func.svg" class="org-svg" width="400px">
 Sorry, your browser does not support SVG.</object>
 </p>
-<p><span class="figure-number">Figure 13: </span>Output produced by listing <a href="#/slide-org7ca0e98">24</a> using \(f(w,x,y,z) = (w + x + y + z - 7) \mod 8\)</p>
+<p><span class="figure-number">Figure 14: </span>Output produced by listing <a href="#/slide-org00dd94a">24</a> using \(f(w,x,y,z) = (w + x + y + z - 7) \mod 8\)</p>
 </div>
 
 
@@ -3252,37 +3165,37 @@ main(<span style="color: #D0372D;">8</span>, <span style="color: #D0372D;">8</sp
 
 
 
-<div id="orgbc8cdd6" class="figure">
+<div id="orge7c9af0" class="figure">
 <p><object type="image/svg+xml" data="./persian-recursion-new-func2.svg" class="org-svg" width="400px">
 Sorry, your browser does not support SVG.</object>
 </p>
-<p><span class="figure-number">Figure 14: </span>Output produced by listing <a href="#/slide-org208e05b">25</a> using \(f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1\)</p>
+<p><span class="figure-number">Figure 15: </span>Output produced by listing <a href="#/slide-org3785fb5">25</a> using \(f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1\)</p>
 </div>
 </section>
-<section id="slide-org5e63e9f">
-<h3 id="org5e63e9f"><span class="section-number-3">8.2</span> Figures</h3>
+<section id="slide-orgb1cd1e3">
+<h3 id="orgb1cd1e3"><span class="section-number-3">9.2</span> Figures</h3>
 
-<div id="orged0abce" class="figure">
+<div id="org5a4b55b" class="figure">
 <p><img src="complex_numbers.png" alt="complex_numbers.png" />
 </p>
-<p><span class="figure-number">Figure 15: </span>XKCD 2028: Complex Numbers</p>
+<p><span class="figure-number">Figure 16: </span>XKCD 2028: Complex Numbers</p>
 </div>
 
 </section>
 </section>
 <section>
-<section id="slide-org32c60e7">
-<h2 id="org32c60e7"><span class="section-number-2">9</span> Bibliography</h2>
+<section id="slide-org3f226d4">
+<h2 id="org3f226d4"><span class="section-number-2">10</span> Bibliography</h2>
 <p>
-<a id="orgc124ff1"></a>Nicodemi, Olympia, Melissa A. Sutherland, and Gary W. Towsley. n.d. <i>An Introduction to Abstract Algebra with Notes to the Future Teacher</i>. Pearson Prentice Hall.
+<a id="org4930c1f"></a>Nicodemi, Olympia, Melissa A. Sutherland, and Gary W. Towsley. n.d. <i>An Introduction to Abstract Algebra with Notes to the Future Teacher</i>. Pearson Prentice Hall.
 </p>
 
 <p>
-<a id="orgd344729"></a>Zill, Dennis G, and Michael R Cullen. n.d. <i>Differential Equations</i> (version 7). 7th ed. Brooks/Cole.
+<a id="orgccbd797"></a>Zill, Dennis G, and Michael R Cullen. n.d. <i>Differential Equations</i> (version 7). 7th ed. Brooks/Cole.
 </p>
 
 <p>
-<a id="orgca9f7bd"></a>Zill, Dennis G., and Michael R. Cullen. n.d. “8.4 Matrix Exponential.” In <i>Differential Equations with Boundary-Value Problems</i>, 7th ed. Brooks/Cole, Cengage Learning.
+<a id="org86e7c45"></a>Zill, Dennis G., and Michael R. Cullen. n.d. “8.4 Matrix Exponential.” In <i>Differential Equations with Boundary-Value Problems</i>, 7th ed. Brooks/Cole, Cengage Learning.
 </p>
 
 <p>

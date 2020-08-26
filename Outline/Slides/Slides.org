@@ -26,6 +26,20 @@
 #+LATEX_HEADER: \addbibresource{../Resources/references.bib}
 :END:
 
+* Follow along
+
+# #+NAME: qcode
+# #+CAPTION: Export Relevant link as a QR Code.
+#+begin_src bash :exports both :results output graphics file :file qrcode.png :eval never-export
+qrencode -o qrcode.png "http://ryansnotes.org/x/00Slides/Slides/Slides.html"
+#+end_src
+
+
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+[[file:qrcode.png]]
+
+
 * Introduction
 
 Our title sucks because our project is broad, which is awesome!
@@ -38,6 +52,8 @@ We are looking at the concept of computational thinking:
   + With a primary focus on FOSS and Modern technologies (like /Sympy🐍/ and
     /Julia/)
 - Investigate patterns, fractals, chaos and dynamical systems.
+
+
 
 ** Interesting Technologies
 
