@@ -596,6 +596,12 @@ to feedback and iteration.
 2. Assign this value to the centre row and centre column of a matrix
 3. Repeat this for each newly enclosed sub-matrix.
 
+*** Heres a diagram
+
+#+attr_html: :width 800px
+#+attr_latex: :width 6cm
+[[file:persian.svg]]
+
 ** Implementing with Python
 *** Plan of Attack
 
