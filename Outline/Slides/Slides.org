@@ -28,10 +28,13 @@
 
 * Follow along
 
+Scan the QR Code with your phone to follow along!
+
 # #+NAME: qcode
 # #+CAPTION: Export Relevant link as a QR Code.
 #+begin_src bash :exports both :results output graphics file :file qrcode.png :eval never-export
-qrencode -o qrcode.png "http://ryansnotes.org/x/00Slides/Slides/Slides.html"
+qrencode -o qrcode.png \
+    "http://ryansnotes.org/x/00Slides/Slides/Slides.html"
 #+end_src
 
 
