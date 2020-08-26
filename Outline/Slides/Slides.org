@@ -686,7 +686,7 @@ main(5, 9, 1, cx)
 #+attr_latex: :width 9cm
 #+NAME: 8-fold-plot
 #+CAPTION: Output produced by listing [[persian-recursion-python]] with 9 folds
-[[file:~/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/persian-recursion-large.svg]]
+[[file:../persian-recursion-large.svg]]
 
 *** Different Function
 #+NAME: new-func-code
