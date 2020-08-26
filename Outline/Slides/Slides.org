@@ -62,38 +62,30 @@ We are looking at the concept of computational thinking:
     /Julia/)
 - Investigate patterns, fractals, chaos and dynamical systems.
 
-** Interesting Technologies
-
-Some of the technologies we intend to look at in order to understand the methods implemented for problem solving are:
+** Technologies
 
 
-+------------------------------------------+-------------+
-| CAS Systems                              |Visualisation|
-|                                          |             |
-|                                          |             |
-+------------------------------------------+-------------+
-|      Python                              |             |
-|          - Sympy                         |             |
-|          - Numpy                         |             |
-|       Julia                              |   Makie     |
-|          - SymEngine                     |   Plotly    |
-|          - Symata                        |   GNUPlot   |
-|          - DifferentialEquations.jl      |             |
-|      Maxima                              |             |
-|      Julia                               |             |
-|      Reduce                              |             |
-|      Xcas/Gias                           |             |
-+------------------------------------------+-------------+
-
++---------------------------------------------------+-------------+
+| CAS Systems                                       |Visualisation|
++--------------------------------------+------------+-------------+
+|      Python                          | Maxima     |    Makie    |
+|          - Sympy                     | Reduce     |    Plotly   |
+|          - Numpy                     | XCas/Gias  |    GNUPlot  |
+|       Julia                          |            |             |
+|          - SymEngine                 |            |             |
+|          - Symata                    |            |             |
+|          - DifferentialEquations.jl  |            |             |
++--------------------------------------+------------+-------------+
 
 #+begin_export html
-<p><img src="https://www.sympy.org/static/images/logo.png" width="100"/>
-    <img src="https://julialang.org/assets/infra/logo.svg" width="100"/>
-    <img src="https://makie.juliaplots.org/stable/assets/logo.png" width="100"/>
-    <img src="https://numpy.org/images/logos/numpy.svg" width="100"/>
-    <img src="https://www-fourier.ujf-grenoble.fr/~parisse/logo.png" width="100"/>
+<p><img src="https://www.sympy.org/static/images/logo.png" width="50"/>
+    <img src="https://julialang.org/assets/infra/logo.svg" width="50"/>
+    <img src="https://makie.juliaplots.org/stable/assets/logo.png" width="50"/>
+    <img src="https://numpy.org/images/logos/numpy.svg" width="50"/>
+    <img src="https://www-fourier.ujf-grenoble.fr/~parisse/logo.png" width="50"/>
     <img src="http://maxima.sourceforge.net/i/logo.png"/></p>
 #+end_export
+
 
 ** Some open Questions
 
@@ -107,7 +99,9 @@ Some of the problems that we wanted to work on:
 
 ** Motivation
 
-Many problems that look complex upon initial inspection can be solved trivially.
+Many problems that look complex upon initial inspection can be solved trivially
+with CAS systems, learning how to effectively approach problems with that in
+mind can lead to new insights.
 
 *** Iteration and Recursion
 **** Series
@@ -167,14 +161,18 @@ Another approach is iteration.
 
 - Any function that can be defined by using iteration, can always be defined via
   recursion and vice versa
+#+begin_notes
 - Evidence suggests that recursive functions are easier for people to understand
   - Although independent research has shown that the specific language chosen can be more important.
+- Not sure if this is true for would be true for compiled languages such as
+  /Julia/, /Java/, */C/* etc.
+- Loops are usually faster because of the overheads involved in creating
+  functions
+  + Also there are often recursion limits that aren't an issue in iterated methods.
+#+end_notes
 
 - For interpreted languages such */R/* and /Python/, loops are usually
-  faster, because of the overheads involved in creating functions
-  - Not sure if this is true for would be true for compiled languages such as
-    /Julia/, /Java/, */C/* etc.
-
+  faster.
 
 **** Some Problems are tricky
 :PROPERTIES:
@@ -190,8 +188,11 @@ function $g\left( k \right)$ from before:
 
 - The sequence looks forward not back
 
+#+REVEAL: split
+
 So to implement recursion it must be restructured, however, this can be a bit
 clumsy:
+
 
 \begin{align}
     g\left( k \right) &=  \prod^k_{i = 2} \left( \frac{f_i}{i}  \right) \quad \nonumber \\
@@ -199,10 +200,15 @@ clumsy:
 \end{align}
 
 ***** Solving with Recursion
+
+- $f$ is now two variabled
+- This can get very confusing with nested functions because of scope
+#+begin_notes
 To Implement a recursive definition in /Python/ requires additional variables to be used.
 
 This can get very confusing because */R/* and ~bash~ have a different
 implementation of scope than /Python/ and /Julia/!
+#+end_notes
 
 #+NAME: rec-two
 #+BEGIN_SRC python
@@ -246,6 +252,10 @@ def f(k):
 :END:
 Using Python and Julia can be very confusing if you are used to using
 */R/* and =bash=.
+#+begin_notes
+- R and bash are concerned with where functions are called
+- Python and Julia are concerned with where functions are defined.
+#+end_notes
 
 ***** Languages that pass variables up to parents
    :PROPERTIES:
@@ -1192,6 +1202,8 @@ plt.imshow(pic)
 Now at this stage nothing's remarkable, obviously it's a circle, when we
 perform $z \rightarrow z^{2}$ values converge for $\left\lvert z  \right \rvert \leq 1$.
 
+#+REVEAL: split
+
 But what if we try something like:
 
 \begin{align}
@@ -1596,7 +1608,6 @@ splot [-2 : 2] [-2 : 2] mandelbrot (complex (0, 0), complex (x, y), 0) notitle
 
 #+REVEAL: split
 
-#+RESULTS[6f4570cfd26a3574d696e18a2348c68289265d90]:
 [[file:three.svg]]
 
 ** Again, why?
