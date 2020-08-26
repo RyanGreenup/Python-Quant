@@ -21,9 +21,9 @@
 # results: table (or output or whatever)
 :END:
 :LATEX:
-#+LATEX_HEADER: \IfFileExists{./resources/style.sty}{\usepackage{./resources/style}}{}
-#+LATEX_HEADER: \IfFileExists{./resources/referencing.sty}{\usepackage{./resources/referencing}}{}
-#+LATEX_HEADER: \addbibresource{../Resources/references.bib}
+#+LATEX_HEADER: \IfFileExists{../resources/style.sty}{\usepackage{../resources/style}}{}
+#+LATEX_HEADER: \IfFileExists{../resources/referencing.sty}{\usepackage{../resources/referencing}}{}
+#+LATEX_HEADER: \addbibresource{./bibtex-refs.bib}
 :END:
 
 * Follow along
@@ -41,7 +41,6 @@ qrencode -o qrcode.png \
 
 #+attr_html: :width 400px
 #+attr_latex: :width 9cm
-#+RESULTS:
 [[file:qrcode.png]]
 
 
@@ -49,7 +48,7 @@ qrencode -o qrcode.png \
 
 * Introduction
 
-Our title sucks because our project is broad, which is awesome!
+Our title vague because our project is broad, which is awesome!
 
 We are looking at the concept of computational thinking:
 
@@ -109,36 +108,27 @@ Some of the problems that we wanted to work on:
 
 Many problems that look complex upon initial inspection can be solved trivially.
 
-
-** Preliminary Problems
 *** Iteration and Recursion
+**** Series
    :PROPERTIES:
    :CUSTOM_ID: series-and-recursion
    :END:
-To illustrate an example of different ways of thinking about a problem, consider the series shown in eqref:eq:rec-ser[fn:pja] :
-
+Consider the following two series
 \begin{align}
-    g\left( k \right) &=  \frac{\sqrt{2} }{2} \cdot   \frac{\sqrt{2+  \sqrt{3}}  }{3} \frac{\sqrt{2 +  \sqrt{3 +  \sqrt{4} } } }{4} \cdot  \ldots \frac{\sqrt{2 +  \sqrt{3 +  \ldots +  \sqrt{k} } } }{k} \label{eq:rec-ser}
+    g\left( k \right) &=  \frac{\sqrt{2} }{2} \cdot   \frac{\sqrt{2+  \sqrt{3}}  }{3} \frac{\sqrt{2 +  \sqrt{3 +  \sqrt{4} } } }{4}  \ldots \label{eq:rec-ser}
 \end{align}
 
 let's modify this for the sake of discussion:
 
 \begin{align}
-h\left( k \right) = \frac{\sqrt{2}  }{2} \cdot  \frac{\sqrt{3 +  \sqrt{2} } }{3} \cdot  \frac{\sqrt{4 +  \sqrt{3 +  \sqrt{2} } } }{4} \cdot  \ldots \cdot  \frac{\sqrt{k +  \sqrt{k - 1 +  \ldots \sqrt{3 + \sqrt{2}  } } } }{k} \label{eq:rec-ser-mod}
+h\left( k \right) = \frac{\sqrt{2}  }{2} \cdot  \frac{\sqrt{3 +  \sqrt{2} } }{3} \cdot  \frac{\sqrt{4 +  \sqrt{3 +  \sqrt{2} } } }{4} \ldots   \label{eq:rec-ser-mod}
 \end{align}
 
-The function $h$ can be expressed by the series:
-
-$$\begin{aligned}
-h\left( k \right) = \prod^k_{i = 2} \left( \frac{f_i}{i}  \right)  \quad : \quad f_i = \sqrt{i +  f_{i - 1}}, \enspace f_{1} = 1
-\end{aligned}$$
-
-Within /Python/, it isn't difficult to express $h$, the series can be expressed with recursion as shown in listing [[rec-one]], this is a very natural way to define series and sequences and is consistent with familiar mathematical thought and notation. Individuals more familiar with programming than analysis may find it more comfortable to use an iterator as shown in listing [[it-one]].
+**** Recursion
+This can be expressed with recursion:
 
 #+NAME: rec-one
-#+CAPTION: Solving eqref:eq:rec-ser-mod using recursion.
 #+BEGIN_SRC python
-################################################################################
 from sympy import *
 def h(k):
     if k > 2:
@@ -154,9 +144,10 @@ def f(i):
         return 1
 #+END_SRC
 
+**** Iteration
+Another approach is iteration.
 
 #+NAME: it-one
-#+CAPTION: Solving eqref:eq:rec-ser-mod by using a ~for~ loop.
 #+BEGIN_SRC python
   from sympy import *
   def h(k):
@@ -171,65 +162,48 @@ def f(i):
       return expr/(k+1)
 #+END_SRC
 
-Any function that can be defined by using iteration, can always be defined via
-recursion and vice versa,
-cite:bohmReducingRecursionIteration1988,bohmReducingRecursionIteration1986
-see also
-cite:smolarskiMath60Notes2000,IterationVsRecursion2016
+**** Recursion or Iteration
 
-there is, however, evidence to suggest that recursive functions are easier for people to understand cite:benanderEmpiricalAnalysisDebugging2000 . Although independent research has shown that the specific language chosen can have a bigger effect on how well recursive as opposed to iterative code is understood cite:sinhaCognitiveFitEmpirical1992.
+- Any function that can be defined by using iteration, can always be defined via
+  recursion and vice versa
+- Evidence suggests that recursive functions are easier for people to understand
+  - Although independent research has shown that the specific language chosen can be more important.
 
-The relevant question is which method is often more appropriate, generally the process for
-determining which is more appropriate is to the effect of:
+- For interpreted languages such */R/* and /Python/, loops are usually
+  faster, because of the overheads involved in creating functions
+  - Not sure if this is true for would be true for compiled languages such as
+    /Julia/, /Java/, */C/* etc.
 
-1. Write the problem in a way that is easier to write or is more
-   appropriate for demonstration
-2. If performance is a concern then consider restructuring in favour of iteration
-   - For interpreted languages such */R/* and /Python/, loops are usually
-     faster, because of the overheads involved in creating functions
-     cite:smolarskiMath60Notes2000 although there may be exceptions to this and
-     I'm not sure if this would be true for compiled languages such as /Julia/,
-     /Java/, */C/* etc.
 
-**** Some Functions are more difficult to express with Recursion in
+**** Some Problems are tricky
 :PROPERTIES:
     :CUSTOM_ID: some-functions-are-more-difficult-to-express-with-recursion-in-python
     :END:
-
-Attacking a problem recursively isn't always the best approach, consider the function $g\left( k \right)$ from eqref:eq:rec-ser:
+Attacking a problem recursively isn't always the best approach, consider the
+function $g\left( k \right)$ from before:
 
 
 \begin{align}
-    g\left( k \right) &=  \frac{\sqrt{2} }{2} \cdot   \frac{\sqrt{2+  \sqrt{3}}  }{3} \frac{\sqrt{2 +  \sqrt{3 +  \sqrt{4} } } }{4} \cdot  \ldots \frac{\sqrt{2 +  \sqrt{3 +  \ldots +  \sqrt{k} } } }{k} \nonumber \\
-    &=  \prod^k_{i = 2} \left( \frac{f_i}{i}  \right) \quad : \quad f_{i} = \sqrt{i +  f_{i+1}} \nonumber
+    g\left( k \right) &=  \frac{\sqrt{2} }{2} \cdot   \frac{\sqrt{2+  \sqrt{3}}  }{3} \frac{\sqrt{2 +  \sqrt{3 +  \sqrt{4} } } }{4} \cdot \nonumber \\
 \end{align}
 
-Observe that the difference between eqref:eq:rec-ser and eqref:eq:rec-ser-mod is
-that the sequence essentially /looks/ forward, not back. To solve using a =for=
-loop, this distinction is a non-concern because the list can be reversed using a built-in
-such as =rev=, =reversed= or =reverse= in /Python/, */R/* and /Julia/
-respectively, which means the same expression can be implemented.
+- The sequence looks forward not back
 
-To implement recursion however, the series needs to be restructured and this can become a little clumsy, see eqref:eq:clumsy:
+So to implement recursion it must be restructured, however, this can be a bit
+clumsy:
 
 \begin{align}
-    g\left( k \right) &=  \prod^k_{i = 2} \left( \frac{f_i}{i}  \right) \quad : \quad f_{i} = \sqrt{\left( k- i \right)  +  f_{k - i - 1}} \label{eq:clumsy}
+    g\left( k \right) &=  \prod^k_{i = 2} \left( \frac{f_i}{i}  \right) \quad \nonumber \\
+& \quad f_{i} = \sqrt{\left( k- i \right)  +  f_{k - i - 1}} \label{eq:clumsy}
 \end{align}
 
-Now the function could be performed recursively in /Python/ in a similar
-way as shown in listing [[rec-two]], but it's also significantly more confusing because the $f$ function now has $k$ as a parameter and this is only made significantly more complicated by the variable scope of functions across common languages used in Mathematics and Data science such as ~bash~, /Python/, */R/* and /Julia/ (see section [[#variable-scope-nested]]).
+***** Solving with Recursion
+To Implement a recursive definition in /Python/ requires additional variables to be used.
 
-
-If however, the =for= loop approach was implemented, as shown in listing
-[[iter-two]], the function would not significantly change, because the =reversed()= function can be
-used to flip the list around.
-
-What this demonstrates is that taking a different approach to simply describing
-this function can lead to big differences in the complexity involved in solving
-this problem.
+This can get very confusing because */R/* and ~bash~ have a different
+implementation of scope than /Python/ and /Julia/!
 
 #+NAME: rec-two
-#+CAPTION: Using Recursion to Solve eqref:eq:rec-ser
 #+BEGIN_SRC python
 from sympy import *
 def h(k):
@@ -247,9 +221,10 @@ def f(k, i):
         return 1
 #+END_SRC
 
+***** Solving with Iteration
+by using ~reversed~ this essentially stays the same.
 
 #+NAME: iter-two
-#+CAPTION: Using Iteration to Solve eqref:eq:rec-ser
 #+BEGIN_SRC python
 from sympy import *
 def h(k):
@@ -422,8 +397,8 @@ Where as wrapping it in a function will rectify the issue:
 
 Odd huh.
 
-*** TODO Fibonacci Sequence
-**** TODO Computational Approach
+* TODO Fibonacci Sequence
+** TODO Computational Approach
    :PROPERTIES:
    :CUSTOM_ID: define-the-fibonacci-numbers
    :END:
@@ -433,18 +408,7 @@ The /Fibonacci/ Numbers are given by:
 F_n = F_{n-1} + F_{n-2} \label{eq:fib-def}
 \end{align}
 
-This type of recursive relation can be expressed in /Python/ by using recursion,
-as shown in listing [[fib-rec-0]], however using this function will reveal that it
-is extraordinarily slow, as shown in listing [[time-slow]], this is because the
-results of the function are not cached and every time the function is called
-every value is recalculated[fn:cch], meaning that the workload scales in
-exponential as opposed to polynomial time.
-
-The ~functools~ library for python includes the ~@functools.lru_cache~ decorator
-which will modify a defined function to cache results in memory
-cite:FunctoolsHigherorderFunctions, this means that the recursive function will
-only need to calculate each result once and it will hence scale in polynomial
-time, this is implemented in listing [[fib-cache]].
+** Defining Recursively in Python
 
 
 #+NAME: fib-rec-0
@@ -471,6 +435,7 @@ time, this is implemented in listing [[fib-cache]].
 ## 2.245seconds
 #+END_SRC
 
+** Caching to Memory
 
 #+NAME: fib-cache
 #+CAPTION: Caching the results of the function previously defined [[time-slow]]
@@ -505,7 +470,7 @@ print(str(round(time.time() - start, 3)) + "seconds")
 
 Restructuring the problem to use iteration will allow for even greater performance as demonstrated by finding $F_{10^{6}}$ in listing [[fib-iter]]. Using a compiled language such as /Julia/ however would be thousands of times faster still, as demonstrated in listing [[julia-fib]].
 
-
+** Solving Iteratively
 
 #+NAME: fib-iter
 #+CAPTION: Using Iteration to Solve the Fibonacci Sequence
@@ -538,6 +503,8 @@ Restructuring the problem to use iteration will allow for even greater performan
 
  ## 6.975890398seconds
 #+END_SRC
+
+** Solving With Julia is even Faster
 
 #+NAME: julia-fib
 #+CAPTION: Using Julia with an iterative approach to solve the 1 millionth fibonacci number
@@ -573,12 +540,13 @@ end
 #+end_src
 
 In this case however an analytic solution can be found by relating discrete
-mathematical problems to continuous ones as discussed below at section [[#exp-gen-function]].
-**** Exponential Generating Functions
+mathematical problems to continuous ones as discussed below at section
+[[#exp-gen-function]].
+** Exponential Generating Functions
 :PROPERTIES:
 :CUSTOM_ID: exp-gen-func-fib-seq
 :END:
-***** Motivation
+*** Motivation
     :PROPERTIES:
     :CUSTOM_ID: motivation
     :END:
@@ -609,7 +577,7 @@ $\frac{\mathrm{d}\left( e^x \right) }{\mathrm{d} x} = e^x$, and so by using a po
 f\left( x \right)= e^{rx} = \sum^{\infty}_{n= 0}   \left[ r \frac{x^n}{n!} \right]
 \end{align*}
 
-***** Example
+*** Example
     :PROPERTIES:
     :CUSTOM_ID: solving-the-sequence
     :END:
@@ -696,7 +664,7 @@ where:
 - $\varphi = \frac{1+ \sqrt{5} }{2} \approx 1.61\ldots$
 - $\psi = 1-\varphi = \frac{1- \sqrt{5} }{2} \approx 0.61\ldots$
 
-***** Derivative of the Exponential Generating Function
+*** Derivative of the Exponential Generating Function
     :PROPERTIES:
     :CUSTOM_ID: Derivative-exp-gen-function
     :END:
@@ -713,7 +681,7 @@ f'\left( x \right)) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 
 
 If $f\left( x \right)= \sum^{\infty}_{n= 0 } \left[ a_n \frac{x^n}{n!} \right]$ can it be shown by induction that $\frac{\mathrm{d}^k }{\mathrm{d} x^k} \left(  f\left( x \right) \right)= f^{k} \left( x \right) \sum^{\infty}_{n= 0}   \left[ x^n \frac{a_{n+  k}}{n!} \right]$
 
-***** TODO Homogeneous Proof
+*** TODO Homogeneous Proof
 An equation of the form:
 
 \begin{align}
@@ -740,13 +708,13 @@ where:
 - $\exists i,j \in \mathbb{Z}^{+} \cap \left[0,k\right]$
   - These is often referred to as repeated roots cite:levinSolvingRecurrenceRelations2018,zillMatrixExponential2009 with a multiplicity corresponding to the number of repetitions of that root [[cite:nicodemiIntroductionAbstractAlgebra2007][\textsection 3.2]]
 
-****** Unique Roots of Characteristic Equation
+**** Unique Roots of Characteristic Equation
 :PROPERTIES:
 :CUSTOM_ID: uniq-roots-recurrence
 :END:
-******* Example
+***** Example
 An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section [[#solving-the-sequence]].
-******* Proof
+***** Proof
 Consider the linear recurrence relation eqref:eq:recurrence-relation-def:
 
 \begin{align}
@@ -802,11 +770,11 @@ This can be verified by the fibonacci sequence as shown in section [[#solving-th
     \iff  a_n &= &k_1 n^{\varphi} +  &k_2 n^{1- \varphi}, &\exists k_1, k_2 \in \mathbb{R} \subset \mathbb{C} \nonumber
 \end{alignat}
 
-****** Repeated Roots of Characteristic Equation
+**** Repeated Roots of Characteristic Equation
 :PROPERTIES:
 :CUSTOM_ID: rep-roots-recurrence
 :END:
-******* Example
+***** Example
 Consider the following recurrence relation:
 
 \begin{align}
@@ -856,9 +824,9 @@ Given the defenition of the exponential generating function from eqref:eq:exp-ge
     \ \nonumber \\
     \square \nonumber
 \end{align}
-******* Generalised Example
+***** Generalised Example
 
-******* TODO Proof
+***** TODO Proof
 In order to prove the the solution for a $k^{\mathrm{th}}$ order recurrence relation with $k$ repeated
 
 
@@ -911,7 +879,7 @@ f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\rig
 
 
 
-****** TODO General Proof
+**** TODO General Proof
 In sections [[#uniq-roots-recurrence]] and [[*Unique Roots of Characteristic Equation]] it was shown that a recurrence relation can be related to an ODE and then that solution can be transformed to provide a solution for the recurrence relation, when the charecteristic polynomial has either complex roots or 1 repeated root. Generally the solution to a linear ODE will be a superposition of solutions for each root, repeated or unique and so here it will be shown that these two can be combined and that the solution will still hold.
 
 Consider a Recursive relation with constant coefficients:
@@ -933,7 +901,7 @@ $$
 - The ODE will have a solution that is a combination of the above two forms
 - The solution will translate back to a combination of both above forms
 
-**** Fibonacci Sequence and the Golden Ratio
+** Fibonacci Sequence and the Golden Ratio
 :PROPERTIES:
 :CUSTOM_ID: fib-golden-ratio-proof
 :END:
@@ -953,24 +921,7 @@ We'll come back to this later on when looking at spirals and fractals.
 
 This can also be shown by using analysis, let $L=\lim_{n \rightarrow \infty} \left[ \frac{F_{n+1}}{F_{n}} \right], then:
 
-
-\begin{align}
-L&= \frac{F_{n+ 1} }{f_n} \label{eq:fib-r-def} \\
-&= \frac{F_n +  F_{n- 1} }{F_n} \\
-&= 1 +  \frac{F_{n - 1} }{F_n}  \\
-\ldots
-\text{by monotone convergence}
-L^2 - L - 1 = 0
-\implies  L = \phi
-\end{aligned}
-Se  [[https://mathcs.holycross.edu/~groberts/Courses/MA242/HW/hw4-sols.pdf][This Tutorial]]
-
-*** Persian Recursion
-Although some recursive problems are a good fit for mathematical thinking such as the /Fibonacci Sequence/ discussed in section [[#exp-gen-func-fib-seq]] other problems
-can be be easily interpreted computationally but they don't really carry over to any mathematical perspective, one good example of this is /the persian recursion/, which is a simple procedure developed by Anne Burns in the 90s cite:burnsPersianRecursion1997 that produces fantastic patterns upon feedback and iteration
-
-The procedure begins with an empty or zero square matrix with sides $2^{n}+1,
-\enspace \exists n\in \mathbb{Z}^{+}$ and some value given to the edges:
+* Persian Recursion
 
 1. Decide on some four variable function with a finite domain and range of size $m$, for the example shown at listing [[persian-recursion-python]] and in figure [[6-rug]] the function $f(w,x,y,z)=(w+x+y+z) \mod m$ was chosen.
 2. Assign this value to the centre row and centre column of the matrix
@@ -984,26 +935,7 @@ This can be implemented computationally by defining a function that:
 - then calls itself on the corners of the four new sub-matrices enclosed by the
   coloured row and column
 
-This is demonstrated in listing [[persian-recursion-python]] with python and produces the output shown in figures [[6-rug]], various interesting examples are provided in the appendix at section [[#persian-recursion-examples]].
-
-By mapping the values to colours, patterns emerge, this emergence of complex
-patterns from simple rules is a well known and general phenomena that occurs in nature
-cite:EmergenceHowStupid2017,kivelsonDefiningEmergencePhysics2016, as a matter of fact:
-# Chaos and Fractals/ 2nd ed.:
-
-#+begin_quote
-One of the suprising impacts of fractal geometry is that in the presence of
-complex patterns there is a good chance that a very simple process is
-responsible for it.
-#+end_quote
-
-
-Many patterns that occur in nature can be explained by relatively simple rules
-that are exposed to feedback and iteration
-[[cite:peitgenChaosFractalsNew2004][p. 16]], this is a centreal theme of Alan
-Turing's /The Chemical Basis For Morphogenesis/
-cite:turingChemicalBasisMorphogenesis1952 which we hope to look in the course of
-this research.
+** Implementing with Python
 
 #+NAME: persian-recursion-python
 #+CAPTION: Implementation of the persian recursion scheme in /Python/
@@ -1056,16 +988,79 @@ main(5,6, 1, cx)
 #+end_src
 
 
+** The Output
 
+*** 6 Folds
 #+attr_html: :width 400px
 #+attr_latex: :width 6cm
 #+NAME: 6-rug
 #+CAPTION: Output produced by listing [[persian-recursion-python]] with 6 folds
-#+RESULTS: persian-recursion-python
-[[file:./persian-recursion-0.svg]]
+[[file:../persian-recursion-0.svg]]
+*** 9 Folds
 
-*** Julia
-**** Motivation
+#+NAME: 8-fold-code
+#+CAPTION: Modify listing [[persian-recursion-python]] to create 9 folds
+#+BEGIN_SRC ipython :exports output :results raw :eval never-export :session persian-recursion :eval never-export :ipyfile ./persian-recursion-large.svg
+%config InlineBackend.figure_format = 'svg'
+main(5, 9, 1, cx)
+#+END_SRC
+
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+#+NAME: 8-fold-plot
+#+CAPTION: Output produced by listing [[persian-recursion-python]] with 9 folds
+[[file:~/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/persian-recursion-large.svg]]
+
+*** Different Function
+#+NAME: new-func-code
+#+BEGIN_SRC ipython :exports both :results raw drawer :eval never-export :session persian-recursion :eval never-export :ipyfile ./persian-recursion-new-func.svg
+%config InlineBackend.figure_format = 'svg'
+def cx(l, r, t, b, m):
+    new_col = (main.mat[t,l] + main.mat[t,r] +  main.mat[b,l] + main.mat[b,r]-7) % m
+    return new_col.astype(int)
+main(8, 8, 1, cx)
+#+END_SRC
+
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+#+NAME: new-func-plot
+#+CAPTION: Output produced by listing [[new-func-code]] using $f(w,x,y,z) = (w + x + y + z - 7) \mod 8$
+#+RESULTS: new-func-code
+[[file:../persian-recursion-new-func.svg]]
+
+*** Different Function
+
+#+NAME: new-func2-code
+#+BEGIN_SRC ipython :exports both :results raw drawer :eval never-export :session persian-recursion :eval never-export :ipyfile ./persian-recursion-new-func2.svg
+%config InlineBackend.figure_format = 'svg'
+import numpy as np
+def cx(l, r, t, b, m):
+    new_col = (main.mat[t,l] + main.mat[t,r]*m +  main.mat[b,l]*(m) + main.mat[b,r]*(m))**1 % m + 1
+    return new_col.astype(int)
+main(8, 8, 1, cx)
+#+END_SRC
+
+
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+#+NAME: new-func2-plot
+#+CAPTION: Output produced by listing [[new-func2-code]] using $f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1$
+#+RESULTS: new-func2-code
+[[file:../persian-recursion-new-func2.svg]]
+
+
+** Emergence of Patterns
+
+Many patterns that occur in nature can be explained by relatively simple rules
+that are exposed to feedback and iteration
+[[cite:peitgenChaosFractalsNew2004][p. 16]], this is a centreal theme of Alan
+Turing's /The Chemical Basis For Morphogenesis/
+cite:turingChemicalBasisMorphogenesis1952 which we hope to look in the course of
+this research.
+
+
+* Julia
+** Motivation
 Consider the iterative process $x \rightarrow x^{2}, \enspace x \in \mathbb{R}$,
 for values of $x>1$ this process will diverge and for $x<1$ it will converge.
 
@@ -1090,7 +1085,7 @@ Every value on that plane will belong to one of the two following sets
 
 In the case of $f_{0}(z) = z^{2}$ all values $\left\lvert z  \right \rvert \leq 1$ are bounded with $\left\lvert z  \right \rvert = 1$ being an unstable stationary circle, but let's investigate what happens for different iterative functions like $f_{1}(z) = z^{2} - 1$, despite how trivial this seems at first glance.
 
-**** Plotting the Sets                                                       :ATTACH:
+** Plotting the Sets                                                           :ATTACH:
 :PROPERTIES:
 :ID:       baa21085-5d8f-4390-9bb7-43c3b51d940d
 :END:
@@ -1101,11 +1096,12 @@ Because this involves iteration and /Python/ is a little slow, We'll denote
 complex values as a vector[fn:vc] and define the operations as described in
 listing [[complex-vec]].[fn:ma]
 
+*** Implementing this
+
 To implement this test we'll consider a function called ~escape_test~ that applies an
 iteration (in this case $f_{0}: z \rightarrow z^{2}$) until that value diverges or converges.
 
-While iterating with $f_{c}$ once $\left\lvert z \right\rvert >
-\mathrm{max}\left(\left\{c, 2\}\right)$, the value must diverge because
+While iterating with $f_{c}$ once $\left\lvert z \right\rvert > \mathrm{max}\left(\left\{c, 2\right\}\right)$, the value must diverge because
 $\left\lvert c \rvert\right \leq 1$, so rather than record whether or not the
 value converges or diverges, the ~escape_test~ can instead record the number of
 iterations $(k)$ until the value has crossed that boundary and this will provide
@@ -1121,6 +1117,7 @@ with respect to listing [[py-circle-code]]:
 - Observe that the ~magnitude~ function wasn't used:
    a. This is because a ~sqrt~ is a costly operation and comparing two squares saves an operation
 
+*** The Code
 
 
 #+NAME: complex-vec
@@ -1338,7 +1335,7 @@ ffmpeg                    \
 #+CAPTION: Various fracals corresponding to $f_{0.8 e^{\pi i \tau}}$
 [[attachment:_20200826_005334a.png]]
 
-*** MandelBrot
+* MandelBrot
 Investigating these fractals, a natural question might be whether or not any
 given $c$ value will produce a fractal that is an open disc or a closed disc.
 
@@ -1456,7 +1453,7 @@ save_picture("/tmp/a.fits", my_pic)
 
 #+end_src
 
-*** GNU Plot
+** GNU Plot
 Another approach to visualise this set is by creating a 3d surface plot where the z-axis is mapped to the time taken until divergence, this can be acheived by using gnuplot as demonstrated in listing [[gnuplot-mandelbrot-initial]].[fn:jp]
 
 [[https://rosettacode.org/wiki/Find_limit_of_recursion#gnuplot][limit of recursion is 250]]
@@ -1534,7 +1531,7 @@ splot [-2 : 2] [-2 : 2] mandelbrot (complex (0, 0), complex (x, y), 0) notitle
 
 
 
-*** Determinant??
+** Determinant??
 
 * Outline
 1. Intro Prob
@@ -1868,10 +1865,11 @@ AVOID DETAILS, JUST SKETCH THE PROJECT OUT.
 - [[https://orgmode.org/worg/org-tutorials/non-beamer-presentations.html][Without Beamer]]
 - [[https://orgmode.org/worg/exporters/beamer/tutorial.html][With Beamer]]
 * Undecided
-*** Determinant
+** Determinant
 Computational thinking can be useful in problems related to modelling, consider
 for example some matrix $n\times n$ matrix $B_n$ described by eqref:eq:bn-matrix :
 
+#+begin_comment
 \begin{align}
 b_{ij} = \begin{cases}
 \frac{1}{2j- i^2}, &\text{ if } i > j \\
@@ -1879,6 +1877,7 @@ b_{ij} = \begin{cases}
 0 &\text{ if } i = j
 \end{cases} \label{eq:bn-matrix}
 \end{align}
+#+end_comment
 
 Is there a way to predict the determinant of such a matrix for large values?
 
@@ -1887,7 +1886,7 @@ and there isn't really a clear place to start.
 
 From a numerical modelling perspective however, as will be shown, this a fairly trivial problem.
 
-**** Create the Matrix
+*** Create the Matrix
    :PROPERTIES:
    :CUSTOM_ID: create-the-matrix
    :END:
@@ -1941,7 +1940,7 @@ and so to assign the values based on the condition in eqref:eq:bn-matrix, an
          [-0.3       , -0.75      ,  0.        ]])
 #+END_EXAMPLE
 
-**** Find the Determinant
+*** Find the Determinant
    :PROPERTIES:
    :CUSTOM_ID: find-the-determinant
    :END:
@@ -1963,7 +1962,7 @@ and so to assign the values based on the condition in eqref:eq:bn-matrix, an
   -0.11928571428571424
 #+END_EXAMPLE
 
-**** Find the Determinant of Various Values
+*** Find the Determinant of Various Values
    :PROPERTIES:
    :CUSTOM_ID: find-the-determinant-of-various-values
    :END:
@@ -1978,7 +1977,7 @@ where:
 
 Although describing the results as a set eqref:eqref:eq:set-determ is a little odd, it is consistent with the idea of list and set comprehension in /Python/ cite:DataStructuresPython and /Julia/ cite:MultidimensionalArraysJulia as shown in listing [[list-comp]]
 
-***** Generate a list of values
+**** Generate a list of values
     :PROPERTIES:
     :CUSTOM_ID: instead-use-absolute-value
     :END:
@@ -2030,7 +2029,7 @@ Using the function created in listing [[make-det]], a corresponding list of valu
    0.001]
 #+END_EXAMPLE
 
-***** Create a Data Frame
+**** Create a Data Frame
     :PROPERTIES:
     :CUSTOM_ID: create-a-data-frame
     :END:
@@ -2083,7 +2082,7 @@ Using the function created in listing [[make-det]], a corresponding list of valu
   29           29           0.000650
 #+END_EXAMPLE
 
-***** Plot the Data frame
+**** Plot the Data frame
     :PROPERTIES:
     :CUSTOM_ID: plot-the-data-frame
     :END:
@@ -2155,7 +2154,7 @@ more complex than simply using */R/*.
   array([5.37864677])
 #+END_EXAMPLE
 
-**** Log Transform the Data
+*** Log Transform the Data
    :PROPERTIES:
    :CUSTOM_ID: log-transform-the-data
    :END:
@@ -2317,7 +2316,7 @@ where:
 
 - $n$ is the size of the square matrix
 
-**** Largest Percentage Error
+*** Largest Percentage Error
    :PROPERTIES:
    :CUSTOM_ID: largest-percentage-error
    :END:
@@ -2513,11 +2512,4 @@ main(8, 8, 1, cx)
 
 [fn:vc] See figure [[xkcd-im]] for the obligatory /XKCD/ Comic
 
-[fn:cch] Dr. Hazrat mentions something similar in his book with respect to
-/Mathematica/\textsuperscript{\textregistered}
-[[cite:hazratMathematicaProblemCenteredApproach2015][Ch. 13]]
-
-[fn:pja] This problem is taken from Project A (44) of Dr. Hazrat's /Mathematica: A Problem Centred Approach/ cite:hazratMathematicaProblemCenteredApproach2015
-
 [fn:op] Although proprietary software such as Magma, Mathematica and Maple is very good, the restrictive licence makes them undesirable for study because there is no means by which to inspect the problem solving tecniques implemented, build on top of the work and moreover the lock-in nature of the software makes it a risky investment with respect to time.
-
