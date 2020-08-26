@@ -1298,12 +1298,12 @@ mandelbrot(x,y,z,n) = (abs(z)>2.0 || n>=200) ? \
                   n : mandelbrot(x,y,z*z+complex(x,y),n+1)
 
 set xrange [-2:2]
-set yrange [-2:2]
+set yrange [-1.1:2]
 set logscale z
 set isosample 240
 set hidden3d
 set contour
-splot mandel(x,y,{0,0},0) notitle
+splot mandelbrot(x,y,{0,0},0) notitle
 #+end_src
 
 #+RESULTS: gnuplot-mandelbrot-initial
