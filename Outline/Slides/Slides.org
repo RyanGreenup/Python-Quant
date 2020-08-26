@@ -1033,7 +1033,7 @@ ffmpeg                    \
 #+attr_latex: :width 9cm
 #+NAME: montage-frac
 #+CAPTION: Various fracals corresponding to $f_{0.8 e^{\pi i \tau}}$
-[[Outline/Slides/attachments/_20200826_005334a.png]]
+[[file:attachments/_20200826_005334a.png]]
 
 ***** Gif
 
