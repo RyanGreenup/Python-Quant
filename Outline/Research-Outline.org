@@ -777,7 +777,23 @@ The /Fibonacci Sequence/ is actually very interesting, observe that the ratios o
 &= \frac{\varphi^{n+  1} -  0}{\varphi^{n} -  0} \\
 &= \varphi
 \end{align*}
+
 We'll come back to this later on when looking at spirals and fractals.
+
+This can also be shown by using analysis, let $L=\lim_{n \rightarrow \infty} \left[ \frac{F_{n+1}}{F_{n}} \right], then:
+
+
+\begin{align}
+L&= \frac{F_{n+ 1} }{f_n} \label{eq:fib-r-def} \\
+&= \frac{F_n +  F_{n- 1} }{F_n} \\
+&= 1 +  \frac{F_{n - 1} }{F_n}  \\
+\ldots
+\text{by monotone convergence}
+L^2 - L - 1 = 0
+\implies  L = \phi
+\end{aligned}
+Se  [[https://mathcs.holycross.edu/~groberts/Courses/MA242/HW/hw4-sols.pdf][This Tutorial]]
+
 
 *** Persian Recursion
 Although some recursive problems are a good fit for mathematical thinking such as the /Fibonacci Sequence/ discussed in section [[#exp-gen-func-fib-seq]] other problems
