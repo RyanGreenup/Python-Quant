@@ -553,9 +553,9 @@ f \left( x \right) &= ∑_{n= 0}^\infty \left[ a_n ⋅ \frac{x^n}{n!} \right] &=
 f\left( x \right)&= ∑_{n= 0}^\infty \left[ \left( c_1\left( \frac{1- \sqrt{5} }{2} \right)^n + c_2 ⋅ \left( \frac{1+ \sqrt{5} }{2} \right)^n \right) ⋅ \frac{x^n}{n!} \right]
 \end{align*}
 
-By equating the above two equations we deduce that:
+By equating the above two equations it can be seen that:
 \begin{align*}
-a_n = c_1⋅ \left( \frac{1- \sqrt{5} }{2} \right)^n + c_2 \left( \frac{1+ \sqrt{5} }{2} \right)
+a_n = c_1⋅ \left( \frac{1- \sqrt{5} }{2} \right)^n + c_2 \left( \frac{1+ \sqrt{5} }{2} \right)^{n}
 \end{align*}
 
 #+REVEAL: split
