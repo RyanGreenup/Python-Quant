@@ -1,0 +1,2500 @@
+#+TITLE: Math with Computers
+:PREAMBLE:
+#+OPTIONS: broken-links:auto todo:nil H:9
+#+STARTUP: content
+#+OPTIONS: tags:not-in-toc d:nil
+#+AUTHOR: Ryan Greenup & James Guerra
+#+INFOJS_OPT: view:showall toc:3
+#+PLOT: title:"Citas" ind:1 deps:(3) type:2d with:histograms set:"yrange [0:]"
+#+OPTIONS: tex:t
+# #+TODO: TODO IN-PROGRESS WAITING DONE
+#+CATEGORY: TAD
+:END:
+:HTML:
+#+INFOJS_OPT: view:info toc:3
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="style.css">
+# #+CSL_STYLE: /home/ryan/Templates/CSL/nature.csl
+:END:
+:R:
+#+PROPERTY: header-args:R :session TADMain :dir ./ :cache yes :eval never-export :exports both
+# exports: both (or code or whatever)
+# results: table (or output or whatever)
+:END:
+:LATEX:
+#+LATEX_HEADER: \IfFileExists{./resources/style.sty}{\usepackage{./resources/style}}{}
+#+LATEX_HEADER: \IfFileExists{./resources/referencing.sty}{\usepackage{./resources/referencing}}{}
+#+LATEX_HEADER: \addbibresource{../Resources/references.bib}
+:END:
+
+* Introduction
+
+Our title sucks because our project is broad, which is awesome!
+
+We are looking at the concept of computational thinking:
+
+- How to solve mathematical problems computationally
+- Investigating the methods implemented by other /Computer Algebra Software/
+  (CAS)
+  + With a primary focus on FOSS and Modern technologies (like /Sympy🐍/ and
+    /Julia/)
+- Investigate patterns, fractals, chaos and dynamical systems.
+
+** Interesting Technologies
+
+Some of the technologies we intend to look at in order to understand the methods implemented for problem solving are:
+
+
++------------------------------------------+-------------+
+| CAS Systems                              |Visualisation|
+|                                          |             |
+|                                          |             |
++------------------------------------------+-------------+
+|      Python                              |             |
+|          - Sympy                         |             |
+|          - Numpy                         |             |
+|       Julia                              |   Makie     |
+|          - SymEngine                     |   Plotly    |
+|          - Symata                        |   GNUPlot   |
+|          - DifferentialEquations.jl      |             |
+|      Maxima                              |             |
+|      Julia                               |             |
+|      Reduce                              |             |
+|      Xcas/Gias                           |             |
++------------------------------------------+-------------+
+
+
+#+begin_export html
+<p><img src="https://www.sympy.org/static/images/logo.png" width="100"/>
+    <img src="https://julialang.org/assets/infra/logo.svg" width="100"/>
+    <img src="https://makie.juliaplots.org/stable/assets/logo.png" width="100"/>
+    <img src="https://numpy.org/images/logos/numpy.svg" width="100"/>
+    <img src="https://www-fourier.ujf-grenoble.fr/~parisse/logo.png" width="100"/>
+    <img src="http://maxima.sourceforge.net/i/logo.png"/></p>
+#+end_export
+
+** Some open Questions
+
+Some of the problems that we wanted to work on:
+
++ Can we model the patterns on animals?
++ What is the relationship between Julia Sets, the Cantor set, the lorenz attractor and structures in nature.
++ Can Julia Sets be extended to the quaternions
++ Can we simulate things like the spiral of a nautilus shell?
+  - How is this related to the Fibonacci Sequence and $\phi$
+
+** Motivation
+
+Many problems that look complex upon initial inspection can be solved trivially.
+
+
+** Preliminary Problems
+*** Iteration and Recursion
+   :PROPERTIES:
+   :CUSTOM_ID: series-and-recursion
+   :END:
+To illustrate an example of different ways of thinking about a problem, consider the series shown in eqref:eq:rec-ser[fn:pja] :
+
+\begin{align}
+    g\left( k \right) &=  \frac{\sqrt{2} }{2} \cdot   \frac{\sqrt{2+  \sqrt{3}}  }{3} \frac{\sqrt{2 +  \sqrt{3 +  \sqrt{4} } } }{4} \cdot  \ldots \frac{\sqrt{2 +  \sqrt{3 +  \ldots +  \sqrt{k} } } }{k} \label{eq:rec-ser}
+\end{align}
+
+let's modify this for the sake of discussion:
+
+\begin{align}
+h\left( k \right) = \frac{\sqrt{2}  }{2} \cdot  \frac{\sqrt{3 +  \sqrt{2} } }{3} \cdot  \frac{\sqrt{4 +  \sqrt{3 +  \sqrt{2} } } }{4} \cdot  \ldots \cdot  \frac{\sqrt{k +  \sqrt{k - 1 +  \ldots \sqrt{3 + \sqrt{2}  } } } }{k} \label{eq:rec-ser-mod}
+\end{align}
+
+The function $h$ can be expressed by the series:
+
+$$\begin{aligned}
+h\left( k \right) = \prod^k_{i = 2} \left( \frac{f_i}{i}  \right)  \quad : \quad f_i = \sqrt{i +  f_{i - 1}}, \enspace f_{1} = 1
+\end{aligned}$$
+
+Within /Python/, it isn't difficult to express $h$, the series can be expressed with recursion as shown in listing [[rec-one]], this is a very natural way to define series and sequences and is consistent with familiar mathematical thought and notation. Individuals more familiar with programming than analysis may find it more comfortable to use an iterator as shown in listing [[it-one]].
+
+#+NAME: rec-one
+#+CAPTION: Solving eqref:eq:rec-ser-mod using recursion.
+#+BEGIN_SRC python
+################################################################################
+from sympy import *
+def h(k):
+    if k > 2:
+        return f(k) * f(k-1)
+    else:
+        return 1
+
+def f(i):
+    expr = 0
+    if i > 2:
+        return sqrt(i + f(i -1))
+    else:
+        return 1
+#+END_SRC
+
+
+#+NAME: it-one
+#+CAPTION: Solving eqref:eq:rec-ser-mod by using a ~for~ loop.
+#+BEGIN_SRC python
+  from sympy import *
+  def h(k):
+      k = k + 1 # OBOB
+      l = [f(i) for i in range(1,k)]
+      return prod(l)
+
+  def f(k):
+      expr = 0
+      for i in range(2, k+2):
+          expr = sqrt(i + expr, evaluate=False)
+      return expr/(k+1)
+#+END_SRC
+
+Any function that can be defined by using iteration, can always be defined via
+recursion and vice versa,
+cite:bohmReducingRecursionIteration1988,bohmReducingRecursionIteration1986
+see also
+cite:smolarskiMath60Notes2000,IterationVsRecursion2016
+
+there is, however, evidence to suggest that recursive functions are easier for people to understand cite:benanderEmpiricalAnalysisDebugging2000 . Although independent research has shown that the specific language chosen can have a bigger effect on how well recursive as opposed to iterative code is understood cite:sinhaCognitiveFitEmpirical1992.
+
+The relevant question is which method is often more appropriate, generally the process for
+determining which is more appropriate is to the effect of:
+
+1. Write the problem in a way that is easier to write or is more
+   appropriate for demonstration
+2. If performance is a concern then consider restructuring in favour of iteration
+   - For interpreted languages such */R/* and /Python/, loops are usually
+     faster, because of the overheads involved in creating functions
+     cite:smolarskiMath60Notes2000 although there may be exceptions to this and
+     I'm not sure if this would be true for compiled languages such as /Julia/,
+     /Java/, */C/* etc.
+
+**** Some Functions are more difficult to express with Recursion in
+:PROPERTIES:
+    :CUSTOM_ID: some-functions-are-more-difficult-to-express-with-recursion-in-python
+    :END:
+
+Attacking a problem recursively isn't always the best approach, consider the function $g\left( k \right)$ from eqref:eq:rec-ser:
+
+
+\begin{align}
+    g\left( k \right) &=  \frac{\sqrt{2} }{2} \cdot   \frac{\sqrt{2+  \sqrt{3}}  }{3} \frac{\sqrt{2 +  \sqrt{3 +  \sqrt{4} } } }{4} \cdot  \ldots \frac{\sqrt{2 +  \sqrt{3 +  \ldots +  \sqrt{k} } } }{k} \nonumber \\
+    &=  \prod^k_{i = 2} \left( \frac{f_i}{i}  \right) \quad : \quad f_{i} = \sqrt{i +  f_{i+1}} \nonumber
+\end{align}
+
+Observe that the difference between eqref:eq:rec-ser and eqref:eq:rec-ser-mod is
+that the sequence essentially /looks/ forward, not back. To solve using a =for=
+loop, this distinction is a non-concern because the list can be reversed using a built-in
+such as =rev=, =reversed= or =reverse= in /Python/, */R/* and /Julia/
+respectively, which means the same expression can be implemented.
+
+To implement recursion however, the series needs to be restructured and this can become a little clumsy, see eqref:eq:clumsy:
+
+\begin{align}
+    g\left( k \right) &=  \prod^k_{i = 2} \left( \frac{f_i}{i}  \right) \quad : \quad f_{i} = \sqrt{\left( k- i \right)  +  f_{k - i - 1}} \label{eq:clumsy}
+\end{align}
+
+Now the function could be performed recursively in /Python/ in a similar
+way as shown in listing [[rec-two]], but it's also significantly more confusing because the $f$ function now has $k$ as a parameter and this is only made significantly more complicated by the variable scope of functions across common languages used in Mathematics and Data science such as ~bash~, /Python/, */R/* and /Julia/ (see section [[#variable-scope-nested]]).
+
+
+If however, the =for= loop approach was implemented, as shown in listing
+[[iter-two]], the function would not significantly change, because the =reversed()= function can be
+used to flip the list around.
+
+What this demonstrates is that taking a different approach to simply describing
+this function can lead to big differences in the complexity involved in solving
+this problem.
+
+#+NAME: rec-two
+#+CAPTION: Using Recursion to Solve eqref:eq:rec-ser
+#+BEGIN_SRC python
+from sympy import *
+def h(k):
+    if k > 2:
+        return f(k, k) * f(k, k-1)
+    else:
+        return 1
+
+def f(k, i):
+    if k > i:
+        return 1
+    if i > 2:
+        return sqrt((k-i) + f(k, k - i -1))
+    else:
+        return 1
+#+END_SRC
+
+
+#+NAME: iter-two
+#+CAPTION: Using Iteration to Solve eqref:eq:rec-ser
+#+BEGIN_SRC python
+from sympy import *
+def h(k):
+    k = k + 1 # OBOB
+    l = [f(i) for i in range(1,k)]
+    return prod(l)
+
+def f(k):
+    expr = 0
+    for i in reversed(range(2, k+2)):
+        expr = sqrt(i + expr, evaluate=False)
+    return expr/(k+1)
+#+END_SRC
+
+**** TODO Variable Scope of Nested Functions
+:PROPERTIES:
+:CUSTOM_ID: variable-scope-nested
+:END:
+Using Python and Julia can be very confusing if you are used to using
+*/R/* and =bash=.
+
+***** Languages that pass variables up to parents
+   :PROPERTIES:
+   :CUSTOM_ID: languages-that-pass-variables-up-to-parents
+   :END:
+
+Functions defined in */R/* and =bash= will /pass/ variables up into
+there parent function, for example consider the following:
+
+***** */R/*
+   :PROPERTIES:
+   :CUSTOM_ID: r
+   :END:
+
+#+BEGIN_SRC R
+  outer <- function() {
+    inner()
+    print(x)
+  }
+
+  inner <- function() {
+    x <- 3
+  }
+
+  outer()
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  3
+#+END_EXAMPLE
+
+***** =bash=
+   :PROPERTIES:
+   :CUSTOM_ID: bash
+   :END:
+
+#+BEGIN_SRC sh
+  outer() {
+    inner
+    echo "${x}"
+  }
+
+  inner() {
+    x=3
+  }
+
+  outer
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  3
+#+END_EXAMPLE
+
+***** Languages that don't pass variables up to parents
+   :PROPERTIES:
+   :CUSTOM_ID: languages-that-dont-pass-variables-up-to-parents
+   :END:
+
+****** Using Attributes
+    :PROPERTIES:
+    :CUSTOM_ID: using-attributes
+    :END:
+
+whereas in /Python/ you would need to make the variable an attribute of
+the function first (I'm not sure if this feature exists in /Julia/?):
+
+#+BEGIN_SRC python
+  def outer():
+      x = inner()
+      print(str(inner.x))
+
+  def inner():
+      inner.x = 3
+
+  outer()
+#+END_SRC
+
+****** Using Return
+    :PROPERTIES:
+    :CUSTOM_ID: using-return
+    :END:
+
+****** Julia
+    :PROPERTIES:
+    :CUSTOM_ID: julia
+    :END:
+
+#+BEGIN_EXAMPLE
+  function outer()
+      x=subfunction()
+      print(x)
+  end
+
+  function subfunction()
+      x=4
+      return x
+  end
+
+  outer()
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  3
+#+END_EXAMPLE
+
+#+BEGIN_SRC python
+  def outer():
+      x = inner()
+      print(str(x))
+
+  def inner():
+      x = 3
+      return x
+
+  outer()
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  3
+#+END_EXAMPLE
+
+***** Julia Scope of =for= loops
+   :PROPERTIES:
+   :CUSTOM_ID: julia-scope-of-for-loops
+   :END:
+
+In Julia observe that the following will not work:
+
+#+BEGIN_EXAMPLE
+      i=6
+      while i < 9
+          print(i)
+          i = i + 1
+      end
+#+END_EXAMPLE
+
+Where as wrapping it in a function will rectify the issue:
+
+#+BEGIN_EXAMPLE
+  function blah()
+      i=6
+      while i < 9
+          print(i)
+          i = i + 1
+      end
+  end
+
+  blah()
+#+END_EXAMPLE
+
+Odd huh.
+
+*** TODO Fibonacci Sequence
+**** TODO Computational Approach
+   :PROPERTIES:
+   :CUSTOM_ID: define-the-fibonacci-numbers
+   :END:
+The /Fibonacci/ Numbers are given by:
+
+\begin{align}
+F_n = F_{n-1} + F_{n-2} \label{eq:fib-def}
+\end{align}
+
+This type of recursive relation can be expressed in /Python/ by using recursion,
+as shown in listing [[fib-rec-0]], however using this function will reveal that it
+is extraordinarily slow, as shown in listing [[time-slow]], this is because the
+results of the function are not cached and every time the function is called
+every value is recalculated[fn:cch], meaning that the workload scales in
+exponential as opposed to polynomial time.
+
+The ~functools~ library for python includes the ~@functools.lru_cache~ decorator
+which will modify a defined function to cache results in memory
+cite:FunctoolsHigherorderFunctions, this means that the recursive function will
+only need to calculate each result once and it will hence scale in polynomial
+time, this is implemented in listing [[fib-cache]].
+
+
+#+NAME: fib-rec-0
+#+CAPTION: Defining the /Fibonacci Sequence/ eqref:eq:fib-def using Recursion
+#+BEGIN_SRC python
+  def rec_fib(k):
+      if type(k) is not int:
+          print("Error: Require integer values")
+          return 0
+      elif k == 0:
+          return 0
+      elif k <= 2:
+          return 1
+      return rec_fib(k-1) + rec_fib(k-2)
+#+END_SRC
+
+#+NAME: time-slow
+#+CAPTION: Using the function from listing [[fib-rec-0]] is quite slow.
+#+BEGIN_SRC python
+  start = time.time()
+  rec_fib(35)
+  print(str(round(time.time() - start, 3)) + "seconds")
+
+## 2.245seconds
+#+END_SRC
+
+
+#+NAME: fib-cache
+#+CAPTION: Caching the results of the function previously defined [[time-slow]]
+#+BEGIN_SRC python
+  from functools import lru_cache
+
+  @lru_cache(maxsize=9999)
+  def rec_fib(k):
+      if type(k) is not int:
+          print("Error: Require Integer Values")
+          return 0
+      elif k == 0:
+          return 0
+      elif k <= 2:
+          return 1
+      return rec_fib(k-1) + rec_fib(k-2)
+
+
+start = time.time()
+rec_fib(35)
+print(str(round(time.time() - start, 3)) + "seconds")
+## 0.0seconds
+#+END_SRC
+
+#+BEGIN_SRC python
+  start = time.time()
+  rec_fib(6000)
+  print(str(round(time.time() - start, 9)) + "seconds")
+
+## 8.3923e-05seconds
+#+END_SRC
+
+Restructuring the problem to use iteration will allow for even greater performance as demonstrated by finding $F_{10^{6}}$ in listing [[fib-iter]]. Using a compiled language such as /Julia/ however would be thousands of times faster still, as demonstrated in listing [[julia-fib]].
+
+
+
+#+NAME: fib-iter
+#+CAPTION: Using Iteration to Solve the Fibonacci Sequence
+#+BEGIN_SRC python
+  def my_it_fib(k):
+      if k == 0:
+          return k
+      elif type(k) is not int:
+          print("ERROR: Integer Required")
+          return 0
+      # Hence k must be a positive integer
+
+      i  = 1
+      n1 = 1
+      n2 = 1
+
+      # if k <=2:
+      #     return 1
+
+      while i < k:
+         no = n1
+         n1 = n2
+         n2 = no + n2
+         i = i + 1
+      return (n1)
+
+  start = time.time()
+  my_it_fib(10**6)
+  print(str(round(time.time() - start, 9)) + "seconds")
+
+ ## 6.975890398seconds
+#+END_SRC
+
+#+NAME: julia-fib
+#+CAPTION: Using Julia with an iterative approach to solve the 1 millionth fibonacci number
+#+begin_src julia :results output
+function my_it_fib(k)
+    if k == 0
+        return k
+    elseif typeof(k) != Int
+        print("ERROR: Integer Required")
+        return 0
+    end
+    # Hence k must be a positive integer
+
+    i  = 1
+    n1 = 1
+    n2 = 1
+
+    # if k <=2:
+    #     return 1
+    while i < k
+       no = n1
+       n1 = n2
+       n2 = no + n2
+       i = i + 1
+    end
+    return (n1)
+end
+
+@time my_it_fib(10^6)
+
+##  my_it_fib (generic function with 1 method)
+##    0.000450 seconds
+#+end_src
+
+In this case however an analytic solution can be found by relating discrete
+mathematical problems to continuous ones as discussed below at section [[#exp-gen-function]].
+**** Exponential Generating Functions
+:PROPERTIES:
+:CUSTOM_ID: exp-gen-func-fib-seq
+:END:
+***** Motivation
+    :PROPERTIES:
+    :CUSTOM_ID: motivation
+    :END:
+
+Consider the /Fibonacci Sequence/ from eqref:eq:fib-def:
+
+
+\begin{align}
+    a_{n}&= a_{n - 1} + a_{n - 2} \nonumber \\
+\iff a_{n+  2} &= a_{n+  1} +  a_n \label{eq:fib-def-shift}
+\end{align}
+
+
+from observation, this appears similar in structure to the following /ordinary
+differential equation/, which would be fairly easy to deal with:
+
+
+\begin{align*}
+f''\left( x \right)- f'\left( x \right)- f\left( x \right)=  0
+\end{align*}
+
+
+This would imply that $f\left( x \right) \propto e^{mx}, \quad \exists m \in \mathbb{Z}$ because
+$\frac{\mathrm{d}\left( e^x \right) }{\mathrm{d} x} = e^x$, and so by using a power series it's quite feasable to move between discrete and continuous problems:
+
+
+\begin{align*}
+f\left( x \right)= e^{rx} = \sum^{\infty}_{n= 0}   \left[ r \frac{x^n}{n!} \right]
+\end{align*}
+
+***** Example
+    :PROPERTIES:
+    :CUSTOM_ID: solving-the-sequence
+    :END:
+
+Consider using the following generating function, (the derivative of the
+generating function as in eqref:eq:exp-gen-def-2 and eqref:eq:exp-gen-def-3 is
+provided in section [[#Derivative-exp-gen-function]])
+
+
+
+
+\begin{alignat}{2}
+    f \left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n} \cdot  \frac{x^n}{n!} \right]   &= e^x \label{eq:exp-gen-def-1} \\
+    f'\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n+1} \cdot  \frac{x^n}{n!} \right]  &= e^x  \label{eq:exp-gen-def-2} \\
+    f''\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n+2} \cdot  \frac{x^n}{n!} \right] &= e^x  \label{eq:exp-gen-def-3}
+\end{alignat}
+
+
+So the recursive relation from eqref:eq:fib-def-shift  could be expressed :
+
+
+\begin{align*}
+a_{n+  2}    &= a_{n+  1} +  a_{n}\\
+\frac{x^n}{n!}   a_{n+  2}    &= \frac{x^n}{n!}\left( a_{n+  1} +  a_{n}  \right)\\
+\sum^{\infty}_{n= 0} \left[ \frac{x^n}{n!}   a_{n+  2} \right]        &= \sum^{\infty}_{n= 0}   \left[ \frac{x^n}{n!} a_{n+  1} \right]  + \sum^{\infty}_{n= 0}   \left[ \frac{x^n}{n!} a_{n}  \right]  \\
+f''\left( x \right) &= f'\left( x \right)+  f\left( x \right)
+\end{align*}
+
+
+Using the theory of higher order linear differential equations with
+constant coefficients it can be shown:
+
+
+\begin{align*}
+f\left( x \right)= c_1 \cdot  \mathrm{exp}\left[ \left( \frac{1- \sqrt{5} }{2} \right)x \right] +  c_2 \cdot  \mathrm{exp}\left[ \left( \frac{1 +  \sqrt{5} }{2} \right) \right]
+\end{align*}
+
+
+By equating this to the power series:
+
+
+\begin{align*}
+f\left( x \right)&= \sum^{\infty}_{n= 0}   \left[ \left( c_1\left( \frac{1- \sqrt{5} }{2} \right)^n +  c_2 \cdot  \left( \frac{1+ \sqrt{5} }{2} \right)^n \right) \cdot  \frac{x^n}{n} \right]
+\end{align*}
+
+
+Now given that:
+
+
+\begin{align*}
+f\left( x \right)= \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right]
+\end{align*}
+
+
+We can conclude that:
+
+
+\begin{align*}
+a_n = c_1\cdot  \left( \frac{1- \sqrt{5} }{2} \right)^n +  c_2 \cdot  \left( \frac{1+  \sqrt{5} }{2} \right)
+\end{align*}
+
+
+By applying the initial conditions:
+
+
+\begin{align*}
+a_0= c_1 +  c_2  \implies  c_1= - c_2\\
+a_1= c_1 \left( \frac{1+ \sqrt{5} }{2} \right) -  c_1 \frac{1-\sqrt{5} }{2}  \implies  c_1 = \frac{1}{\sqrt{5} }
+\end{align*}
+
+
+And so finally we have the solution to the /Fibonacci Sequence/ ref:eq:fib-def-shift:
+
+
+\begin{align}
+    a_n &= \frac{1}{\sqrt{5} } \left[ \left( \frac{1+  \sqrt{5} }{2}  \right)^n -  \left( \frac{1- \sqrt{5} }{2} \right)^n \right] \nonumber \\
+&= \frac{\varphi^n - \psi^n}{\sqrt{5} } \nonumber\\
+&=\frac{\varphi^n -  \psi^n}{\varphi - \psi} \label{eq:fib-sol}
+\end{align}
+
+
+where:
+
+- $\varphi = \frac{1+ \sqrt{5} }{2} \approx 1.61\ldots$
+- $\psi = 1-\varphi = \frac{1- \sqrt{5} }{2} \approx 0.61\ldots$
+
+***** Derivative of the Exponential Generating Function
+    :PROPERTIES:
+    :CUSTOM_ID: Derivative-exp-gen-function
+    :END:
+    Differentiating the exponential generating function has the effect of shifting the sequence to the backward: cite:lehmanReadingsMathematicsComputer2010
+
+\begin{align}
+    f\left( x \right) &= \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right] \label{eq:exp-pow-series} \\
+f'\left( x \right)) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right]  \right) \nonumber \\
+&= \frac{\mathrm{d}}{\mathrm{d} x} \left( a_0 \frac{x^0}{0!} +  a_1 \frac{x^1}{1!} +  a_2 \frac{x^2}{2!}+  a_3 \frac{x^3}{3! } +  \ldots \frac{x^k}{k!} \right) \nonumber \\
+&= \sum^{\infty}_{n= 0}   \left[ \frac{\mathrm{d} }{\mathrm{d} x}\left( a_n \frac{x^n}{n!} \right) \right] \nonumber \\
+&= \sum^{\infty}_{n= 0}   {\left[{ \frac{a_n}{{\left({ n- 1 }\right)!}} } x^{n- 1}  \right]} \nonumber \\
+\implies f'(x) &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}a_{n+  1} }\right]} \label{eq:exp-pow-series-sol}
+\end{align}
+
+If $f\left( x \right)= \sum^{\infty}_{n= 0 } \left[ a_n \frac{x^n}{n!} \right]$ can it be shown by induction that $\frac{\mathrm{d}^k }{\mathrm{d} x^k} \left(  f\left( x \right) \right)= f^{k} \left( x \right) \sum^{\infty}_{n= 0}   \left[ x^n \frac{a_{n+  k}}{n!} \right]$
+
+***** TODO Homogeneous Proof
+An equation of the form:
+
+\begin{align}
+\sum^{\infty}_{n=0} \left[ c_{i} \cdot f^{(n)}(x) \right] = 0 \label{eq:hom-ode}
+\end{align}
+
+is said to be a homogenous linear ODE: [[cite:zillDifferentialEquations2009a][Ch. 2]]
+
+- Linear :: because the equation is linear with respect to $f(x)$
+- Ordinary :: because there are no partial derivatives (e.g. $\frac{\partial }{\partial x}{\left({ f{\left({ x }\right)} }\right)}$  )
+- Differential :: because the derivates of the function are concerned
+- Homogenous :: because the */RHS/* is 0
+  - A non-homogeous equation would have a non-zero RHS
+
+There will be $k$ solutions to a $k^{\mathrm{th}}$ order linear ODE, each may be summed to produce a superposition which will also be a solution to the equation, [[cite:zillDifferentialEquations2009a][Ch. 4]]  this will be considered as the desired complete solution (and this will be shown to be the only solution for the recurrence relation eqref:eq:recurrence-relation-def). These $k$ solutions will be in one of two forms:
+
+1. $f(x)=c_{i} \cdot e^{m_{i}x}$
+2. $f(x)=c_{i} \cdot x^{j}\cdot e^{m_{i}x}$
+
+where:
+
+- $\sum^{k}_{i=0}\left[  c_{i}m^{k-i} \right] = 0$
+  - This is referred to the characteristic equation of the recurrence relation or ODE cite:levinSolvingRecurrenceRelations2018
+- $\exists i,j \in \mathbb{Z}^{+} \cap \left[0,k\right]$
+  - These is often referred to as repeated roots cite:levinSolvingRecurrenceRelations2018,zillMatrixExponential2009 with a multiplicity corresponding to the number of repetitions of that root [[cite:nicodemiIntroductionAbstractAlgebra2007][\textsection 3.2]]
+
+****** Unique Roots of Characteristic Equation
+:PROPERTIES:
+:CUSTOM_ID: uniq-roots-recurrence
+:END:
+******* Example
+An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section [[#solving-the-sequence]].
+******* Proof
+Consider the linear recurrence relation eqref:eq:recurrence-relation-def:
+
+\begin{align}
+\sum^{\infty}_{n= 0}   \left[ c_i \cdot  a_n \right] = 0, \quad \exists c \in
+\mathbb{R}, \enspace \forall i<k\in\mathbb{Z}^+ \nonumber
+\end{align}
+
+By implementing the exponential generating function as shown in eqref:eq:exp-gen-def-1, this provides:
+
+
+\begin{align}
+    \sum^{k}_{i= 0}   {\left[{ c_i \cdot a_n } \right]} = 0 \nonumber \\
+    \intertext{By Multiplying through and summing: } \notag \\
+     \implies  \sum^{k}_{i= 0}   {\left[{ \sum^{\infty}_{n= 0}   {\left[{ c_i a_n \frac{x^n}{n!} }\right]}  }\right]}  \nonumber = 0 \\
+     \sum^{k}_{i= 0}    {\left[{ c_i \sum^{\infty}_{n= 0}   {\left[{  a_n \frac{x^n}{n!} }\right]}  }\right]}  \nonumber = 0 \\
+\end{align}
+
+Recall from eqref:eq:exp-gen-def-1 the generating function $f{\left({ x }\right)}$:
+
+\begin{align}
+\sum^{k}_{i= 0}   {\left[{ c_i f^{{\left({ k }\right)} } } {\left({ x }\right)} \right]} \label{eq:exp-gen-def-proof}  &= 0
+\end{align}
+
+
+Now assume that the solution exists and all roots of the characteristic polynomial are unique (i.e. the solution is of the form $f{\left({ x }\right)} \propto e^{m_i x}: \quad m_i \neq m_j \forall i\neq j$), this implies that  [[cite:zillDifferentialEquations2009a][Ch. 4]] :
+
+\begin{align}
+    f{\left({ x }\right)} = \sum^{k}_{i= 0}   {\left[{ k_i e^{m_i x} }\right]}, \quad \exists m,k \in \mathbb{C} \nonumber
+\end{align}
+
+This can be re-expressed in terms of the exponential power series, in order to relate the solution of the function $f{\left({ x }\right)}$ back to a solution of the sequence $a_n$, (see section [[#prove-exp-power-series]] for a derivation of the exponential power series):
+
+\begin{align}
+    \sum^{k}_{i= 0}   {\left[{ k_i e^{m_i x}  }\right]}  &= \sum^{k}_{i= 0}   {\left[{ k_i \sum^{\infty}_{n= 0}   \frac{{\left({ m_i x }\right)}^n}{n!}  }\right]}  \nonumber \\
+							 &= \sum^{k}_{i= 0}  \sum^{\infty}_{n= 0}   k_i m_i^n \frac{x^n}{n!} \nonumber\\
+							 &=    \sum^{\infty}_{n= 0} \sum^{k}_{i= 0}   k_i m_i^n \frac{x^n}{n!} \nonumber \\
+							 &= \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}  \sum^{k}_{i=0}   {\left[{ k_im^n_i }\right]}  }\right]}, \quad \exists k_i \in \mathbb{C}, \enspace \forall i \in \mathbb{Z}^+\cap {\left[{ 1, k }\right]}     \label{eq:unique-root-sol-power-series-form}
+\end{align}
+
+Recall the definition of the generating function from ref:eq:exp-gen-def-proof, by relating this to eqref:eq:unique-root-sol-power-series-form:
+
+\begin{align}
+    f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{  \frac{x^n}{n!} a_n }\right]} \nonumber \\
+&= \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}  \sum^{k}_{i=0}   {\left[{ k_im^n_i }\right]}  }\right]}  \nonumber \\
+      \implies  a_n &= \sum^{k}_{n= 0} {\left[{ k_im_i^n }\right]}     \nonumber \\ \nonumber
+\square
+\end{align}
+
+This can be verified by the fibonacci sequence as shown in section [[#solving-the-sequence]], the solution to the characteristic equation is $m_1 = \varphi, m_2 = {\left({ 1-\varphi }\right)}$ and the corresponding solution to the linear ODE and recursive relation are:
+
+\begin{alignat}{4}
+    f{\left({ x }\right)} &= &c_1 e^{\varphi x} +  &c_2 e^{{\left({ 1-\varphi }\right)} x}, \quad &\exists c_1, c_2 \in \mathbb{R} \subset \mathbb{C} \nonumber \\
+    \iff  a_n &= &k_1 n^{\varphi} +  &k_2 n^{1- \varphi}, &\exists k_1, k_2 \in \mathbb{R} \subset \mathbb{C} \nonumber
+\end{alignat}
+
+****** Repeated Roots of Characteristic Equation
+:PROPERTIES:
+:CUSTOM_ID: rep-roots-recurrence
+:END:
+******* Example
+Consider the following recurrence relation:
+
+\begin{align}
+    a_n -  10a_{n+ 1} +  25a_{n+  2}&= 0 \label{eq:hom-repeated-roots-recurrence} \\
+    \implies  \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]} - 10 \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}+    }\right]} + 25 \sum^{\infty}_{n= 0 }   {\left[{  a_{n+  2 }\frac{x^n}{n!} }\right]}&= 0 \nonumber
+\end{align}
+
+By applying the definition of the exponential generating function at eqref:eq:exp-gen-def-1 :
+
+\begin{align}
+    f''{\left({ x }\right)}- 10f'{\left({ x }\right)}+  25f{\left({ x }\right)}= 0 \nonumber \label{eq:rep-roots-func-ode}
+\end{align}
+
+By implementing the already well-established theory of linear ODE's, the characteristic equation for eqref:eq:rep-roots-func-ode can be expressed as:
+
+\begin{align}
+    m^2- 10m+  25 = 0 \nonumber \\
+    {\left({ m- 5 }\right)}^2 = 0 \nonumber \\
+    m= 5 \label{eq:rep-roots-recurrence-char-sol}
+\end{align}
+
+Herein lies a complexity, in order to solve this, the solution produced from eqref:eq:rep-roots-recurrence-char-sol can be used with the /Reduction of Order/ technique to produce a solution that will be of the form [[cite:zillMatrixExponential2009][\textsection 4.3]].
+
+\begin{align}
+    f{\left({ x }\right)}= c_1e^{5x} +  c_2 x e^{5x} \label{eq:rep-roots-ode-sol}
+\end{align}
+
+eqref:eq:rep-roots-ode-sol can be expressed in terms of the exponential power series in order to try and relate the solution for the function back to the generating function,
+observe however the following power series identity (TODO Prove this in section [[#prove-ext-exp-power-series-rep-roots]]):
+
+\begin{align}
+    x^ke^x &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}, \quad \exists k \in \mathbb{Z}^+ \label{eq:uniq-roots-pow-series-ident}
+\end{align}
+
+by applying identity eqref:eq:uniq-roots-pow-series-ident to equation eqref:eq:rep-roots-ode-sol
+
+\begin{align}
+    \implies  f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{ c_1 \frac{{\left({ 5x }\right)}^n}{n!} }\right]}  +  \sum^{\infty}_{n= 0}   {\left[{ c_2 n \frac{{\left({ 5x^n }\right)}}{n{\left({ n-1 }\right)}!} }\right]} \nonumber \\
+ &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!} {\left({ c_{1}5^n +  c_2 n 5^n   }\right)} }\right]} \nonumber
+\end{align}
+
+Given the defenition of the exponential generating function from eqref:eq:exp-gen-def-1
+
+\begin{align}
+    f{\left({ x }\right)}&=     \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]} \nonumber \\
+    \iff a_n &= c_{15}^n +  c_2n_5^n \nonumber \\ \nonumber
+    \ \nonumber \\
+    \square \nonumber
+\end{align}
+******* Generalised Example
+
+******* TODO Proof
+In order to prove the the solution for a $k^{\mathrm{th}}$ order recurrence relation with $k$ repeated
+
+
+Consider a recurrence relation of the form:
+
+\begin{align}
+     \sum^{k}_{n= 0}   {\left[{ c_i a_n }\right]}  = 0 \nonumber \\
+      \implies  \sum^{\infty}_{n= 0}   \sum^{k}_{i= 0}   c_i a_n \frac{x^n}{n!} = 0 \nonumber \\
+      \sum^{k}_{i= 0}   \sum^{\infty}_{n= 0}   c_i a_n \frac{x^n}{n!} \nonumber
+\end{align}
+
+By substituting for the value of the generating function (from eqref:eq:exp-gen-def-1):
+
+\begin{align}
+    \sum^{k}_{i= 0}   {\left[{ c_if^{{\left({ k }\right)}}  {\left({ x }\right)}    }\right]} \label{eq:gen-form-rep-roots-ode}
+\end{align}
+
+Assume that eqref:eq:gen-form-rep-roots-ode corresponds to a charecteristic polynomial with only 1 root of multiplicity $k$, the solution would hence be of the form:
+
+\begin{align}
+			 & \sum^{k}_{i= 0}   {\left[{ c_i m^i }\right]} = 0 \wedge m=B, \enspace  \exists! B \in \mathbb{C} \nonumber \\
+ \implies      f{\left({ x }\right)}&= \sum^{k}_{i= 0}   {\left[{ x^i A_i e^{mx} }\right]}, \quad \exists A \in \mathbb{C}^+, \enspace \forall i \in {\left[{ 1,k }\right]} \cap \mathbb{N}  \label{eq:sol-rep-roots-ode} \\
+\end{align}
+
+Recall the following power series identity (proved in section xxx):
+
+\begin{align}
+x^k e^x = \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}     \nonumber
+\end{align}
+
+By applying this to eqref:eq:sol-rep-roots-ode :
+
+\begin{align}
+f{\left({ x }\right)}&=     \sum^{k}_{i= 0}   {\left[{ A_i \sum^{\infty}_{n= 0}   {\left[{ \frac{{\left({ x m }\right)}^n}{{\left({ n- i }\right)}!} }\right]}  }\right]} \nonumber \\
+&=     \sum^{\infty}_{n= 0}   {\left[{ \sum^{k}_{i=0} {\left[{ \frac{x^n}{n!}  \frac{n!}{{\left({ n- i }\right)}} A_i m^n }\right]}       }\right]} # \\
+&=     \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}   \sum^{k}_{i=0} {\left[{  \frac{n!}{{\left({ n- i }\right)}} A_i m^n }\right]}       }\right]}
+\end{align}
+
+Recall the generating function that was used to get ref:eq:gen-form-rep-roots-ode:
+
+\begin{align}
+f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]}      \nonumber \\
+ \implies  a_n &= \sum^{k}_{i= 0}   {\left[{ A_i \frac{n!}{{\left({ n- i }\right)}!} m^n  }\right]} \nonumber \\
+ &= \sum^{k}_{i= 0}   {\left[{ m^n A_i \prod_{0}^{k} {\left[{ n- {\left({ i- 1 }\right)} }\right]}   }\right]}
+& \intertext{$\because \enspace i \leq k$} \notag \\
+ &= \sum^{k}_{i= 0} {\left[{ A_i^* m^n n^i }\right]}, \quad \exists A_i \in \mathbb{C}, \enspace \forall i\leqk \in \mathbb{Z}^+ \nonumber \\
+\ \nonumber \\
+\square \nonumber
+\end{align}
+
+
+
+****** TODO General Proof
+In sections [[#uniq-roots-recurrence]] and [[*Unique Roots of Characteristic Equation]] it was shown that a recurrence relation can be related to an ODE and then that solution can be transformed to provide a solution for the recurrence relation, when the charecteristic polynomial has either complex roots or 1 repeated root. Generally the solution to a linear ODE will be a superposition of solutions for each root, repeated or unique and so here it will be shown that these two can be combined and that the solution will still hold.
+
+Consider a Recursive relation with constant coefficients:
+
+$$
+\sum^{\infty}_{n= 0}   \left[ c_i \cdot  a_n \right] = 0, \quad \exists c \in
+\mathbb{R}, \enspace \forall i<k\in\mathbb{Z}^+
+$$
+
+This can be expressed in terms of the exponential generating function:
+
+$$
+\sum^{\infty}_{n= 0}   \left[ c_i \cdot  a_n \right] = 0\\
+\implies \sum^{\infty}_{n= 0}   \left[\sum^{\infty}_{n= 0}   \left[ c_i \cdot
+a_n  \right]   \right] = 0
+$$
+
+- Use the Generating function to get an ODE
+- The ODE will have a solution that is a combination of the above two forms
+- The solution will translate back to a combination of both above forms
+
+**** Fibonacci Sequence and the Golden Ratio
+:PROPERTIES:
+:CUSTOM_ID: fib-golden-ratio-proof
+:END:
+The /Fibonacci Sequence/ is actually very interesting, observe that the ratios of the terms converge to the /Golden Ratio/:
+
+\begin{align*}
+    F_n &= \frac{\varphi^n-\psi^n}{\varphi-\psi} = \frac{\varphi^n-\psi^n}{\sqrt 5} \\
+    \iff \frac{F_{n+1}}{F_n}	&= \frac{\varphi^{n+ 1} - \psi^{n+  1}}{\varphi^{n} - \psi^{n}} \\
+    \iff \lim_{n \rightarrow \infty}\left[ \frac{F_{n+1}}{F_n} \right]	&= \lim_{n \rightarrow \infty}\left[ \frac{\varphi^{n+ 1} - \psi^{n+  1}}{\varphi^{n} - \psi^{n}} \right] \\
+&= \frac{\varphi^{n+ 1} -\lim_{n \rightarrow \infty}\left[ \psi^{n +  1} \right] }{\varphi^{n} - \lim_{n \rightarrow \infty}\left[ \psi^n \right] } \\
+\text{because $\mid \psi \mid < 0$ $n \rightarrow \infty \implies \psi^{n} \rightarrow 0$:} \\
+&= \frac{\varphi^{n+  1} -  0}{\varphi^{n} -  0} \\
+&= \varphi
+\end{align*}
+
+We'll come back to this later on when looking at spirals and fractals.
+
+This can also be shown by using analysis, let $L=\lim_{n \rightarrow \infty} \left[ \frac{F_{n+1}}{F_{n}} \right], then:
+
+
+\begin{align}
+L&= \frac{F_{n+ 1} }{f_n} \label{eq:fib-r-def} \\
+&= \frac{F_n +  F_{n- 1} }{F_n} \\
+&= 1 +  \frac{F_{n - 1} }{F_n}  \\
+\ldots
+\text{by monotone convergence}
+L^2 - L - 1 = 0
+\implies  L = \phi
+\end{aligned}
+Se  [[https://mathcs.holycross.edu/~groberts/Courses/MA242/HW/hw4-sols.pdf][This Tutorial]]
+
+*** Persian Recursion
+Although some recursive problems are a good fit for mathematical thinking such as the /Fibonacci Sequence/ discussed in section [[#exp-gen-func-fib-seq]] other problems
+can be be easily interpreted computationally but they don't really carry over to any mathematical perspective, one good example of this is /the persian recursion/, which is a simple procedure developed by Anne Burns in the 90s cite:burnsPersianRecursion1997 that produces fantastic patterns upon feedback and iteration
+
+The procedure begins with an empty or zero square matrix with sides $2^{n}+1,
+\enspace \exists n\in \mathbb{Z}^{+}$ and some value given to the edges:
+
+1. Decide on some four variable function with a finite domain and range of size $m$, for the example shown at listing [[persian-recursion-python]] and in figure [[6-rug]] the function $f(w,x,y,z)=(w+x+y+z) \mod m$ was chosen.
+2. Assign this value to the centre row and centre column of the matrix
+3. Repeat this for each newly enclosed subsmatrix.
+
+This can be implemented computationally by defining a function that:
+
+- takes the index of four corners enclosing a square sub-matrix of some matrix as input,
+- proceeds only if that square is some positive real value.
+- colours the centre column and row corresponding to a function of those four values
+- then calls itself on the corners of the four new sub-matrices enclosed by the
+  coloured row and column
+
+This is demonstrated in listing [[persian-recursion-python]] with python and produces the output shown in figures [[6-rug]], various interesting examples are provided in the appendix at section [[#persian-recursion-examples]].
+
+By mapping the values to colours, patterns emerge, this emergence of complex
+patterns from simple rules is a well known and general phenomena that occurs in nature
+cite:EmergenceHowStupid2017,kivelsonDefiningEmergencePhysics2016, as a matter of fact:
+# Chaos and Fractals/ 2nd ed.:
+
+#+begin_quote
+One of the suprising impacts of fractal geometry is that in the presence of
+complex patterns there is a good chance that a very simple process is
+responsible for it.
+#+end_quote
+
+
+Many patterns that occur in nature can be explained by relatively simple rules
+that are exposed to feedback and iteration
+[[cite:peitgenChaosFractalsNew2004][p. 16]], this is a centreal theme of Alan
+Turing's /The Chemical Basis For Morphogenesis/
+cite:turingChemicalBasisMorphogenesis1952 which we hope to look in the course of
+this research.
+
+#+NAME: persian-recursion-python
+#+CAPTION: Implementation of the persian recursion scheme in /Python/
+#+BEGIN_SRC ipython :exports both :results raw drawer :eval never-export :session persian-recursion :ipyfile ./persian-recursion-0.svg
+%matplotlib inline
+# m is colours
+# n is number of folds
+# Z is number for border
+# cx is a function to transform the variables
+def main(m, n, z, cx):
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    # Make the Empty Matrix
+    mat = np.empty([2**n+1, 2**n+1])
+    main.mat = mat
+
+    # Fill the Borders
+    mat[:,0] = mat[:,-1] = mat[0,:] = mat[-1,:] = z
+
+    # Colour the Grid
+    colorgrid(0, mat.shape[0]-1, 0, mat.shape[0]-1, m)
+
+    # Plot the Matrix
+    plt.matshow(mat)
+
+# Define Helper Functions
+def colorgrid(l, r, t, b, m):
+    # print(l, r, t, b)
+    if (l < r -1):
+        ## define the centre column and row
+        mc = int((l+r)/2); mr = int((t+b)/2)
+
+        ## Assign the colour
+        main.mat[(t+1):b,mc] = cx(l, r, t, b, m)
+        main.mat[mr,(l+1):r] = cx(l, r, t, b, m)
+
+        ## Now Recall this function on the four new squares
+                #l r   t   b
+        colorgrid(l, mc, t, mr, m)    # NW
+        colorgrid(mc, r, t, mr, m)    # NE
+        colorgrid(l, mc, mr, b, m)    # SW
+        colorgrid(mc, r, mr, b, m)    # SE
+
+def cx(l, r, t, b, m):
+    new_col = (main.mat[t,l] + main.mat[t,r] +  main.mat[b,l] + main.mat[b,r]) % m
+    return new_col.astype(int)
+
+main(5,6, 1, cx)
+#+end_src
+
+
+
+#+attr_html: :width 400px
+#+attr_latex: :width 6cm
+#+NAME: 6-rug
+#+CAPTION: Output produced by listing [[persian-recursion-python]] with 6 folds
+#+RESULTS: persian-recursion-python
+[[file:./persian-recursion-0.svg]]
+
+*** Julia
+**** Motivation
+Consider the iterative process $x \rightarrow x^{2}, \enspace x \in \mathbb{R}$,
+for values of $x>1$ this process will diverge and for $x<1$ it will converge.
+
+Now Consider the iterative process $z \rightarrow z^{2}, \enspace z \in \mathbb{C}$,
+for values of $\left\lvert z \right\rvert >1$ this process will diverge and for $\left\lvert z \right\rvert <1$ it will converge.
+
+Although this seems trivial this can be generalised.
+
+Consider:
+
+- The complex plane for $\left\lvert z \right\rvert \leq 1$
+- Some function $f_{c}(z) = z^{2} + c, \quad c \leq 1 \in \mathbb{C}$ that can be used to iterate with
+
+Every value on that plane will belong to one of the two following sets
+
+- $P_{c}$
+  + The set of values on the plane that converge to zero (prisoners)
+  + Define $Q^{(k)}_{c}$ to be the the set of values confirmed as prisoners after $k$ iterations of $f_{c}$
+    - this implies $\lim_{k \rightarrow \infty} \left[ Q^{(k)}_{c}  \right] = P_{c}$
+- $E_{c}$
+  + The set of values on the plane that tend to $\infty$ (escapees)
+
+In the case of $f_{0}(z) = z^{2}$ all values $\left\lvert z  \right \rvert \leq 1$ are bounded with $\left\lvert z  \right \rvert = 1$ being an unstable stationary circle, but let's investigate what happens for different iterative functions like $f_{1}(z) = z^{2} - 1$, despite how trivial this seems at first glance.
+
+**** Plotting the Sets                                                       :ATTACH:
+:PROPERTIES:
+:ID:       baa21085-5d8f-4390-9bb7-43c3b51d940d
+:END:
+Although the convergence of values may appear simple at first, we'll implement a
+strategy to plot the prisoner and escape sets on the complex plane.
+
+Because this involves iteration and /Python/ is a little slow, We'll denote
+complex values as a vector[fn:vc] and define the operations as described in
+listing [[complex-vec]].[fn:ma]
+
+To implement this test we'll consider a function called ~escape_test~ that applies an
+iteration (in this case $f_{0}: z \rightarrow z^{2}$) until that value diverges or converges.
+
+While iterating with $f_{c}$ once $\left\lvert z \right\rvert >
+\mathrm{max}\left(\left\{c, 2\}\right)$, the value must diverge because
+$\left\lvert c \rvert\right \leq 1$, so rather than record whether or not the
+value converges or diverges, the ~escape_test~ can instead record the number of
+iterations $(k)$ until the value has crossed that boundary and this will provide
+a measurement of the rate of divergence.
+
+Then the ~escape_test~ function can be mapped over a matrix, where each element
+of that matrix is in turn mapped to a point on the cartesian plane, the resulting matrix
+can be visualised as an image [fn:im], this is implemented in listing
+[[py-circle-code]] and the corresponding output shown in [[py-circle-plot]].
+
+with respect to listing [[py-circle-code]]:
+
+- Observe that the ~magnitude~ function wasn't used:
+   a. This is because a ~sqrt~ is a costly operation and comparing two squares saves an operation
+
+
+
+#+NAME: complex-vec
+#+CAPTION: Defining Complex Operations with vectors
+#+BEGIN_SRC ipython :exports both :results raw :eval never-export :session julia-set :eval never-export
+from math import sqrt
+def magnitude(z):
+    # return sqrt(z[0]**2 + z[1]**2)
+    x = z[0]
+    y = z[1]
+    return sqrt(sum(map(lambda x: x**2, [x, y])))
+
+def cAdd(a, b):
+    x = a[0] + b[0]
+    y = a[1] + b[1]
+    return [x, y]
+
+
+def cMult(u, v):
+    x = u[0]*v[0]-u[1]*v[1]
+    y = u[1]*v[0]+u[0]*v[1]
+    return [x, y]
+#+end_src
+
+#+NAME: py-circle-code
+#+CAPTION: Circle of Convergence of $z$ under recursion
+#+BEGIN_SRC ipython :exports both :results raw :eval never-export :session julia-set :eval never-export :ipyfile ./circle-of-convergence.svg
+%matplotlib inline
+%config InlineBackend.figure_format = 'svg'
+import numpy as np
+def escape_test(z, num):
+    ''' runs the process num amount of times and returns the count of
+    divergence'''
+    c = [0, 0]
+    count = 0
+    z1 = z  #Remember the original value that we are working with
+    # Iterate num times
+    while count <= num:
+        dist = sum([n**2 for n in z1])
+        distc = sum([n**2 for n in c])
+        # check for divergence
+        if dist > max(2, distc):
+            #return the step it diverged on
+            return count
+        #iterate z
+        z1 = cAdd(cMult(z1, z1), c)
+        count+=1
+        #if z hasn't diverged by the end
+    return num
+
+
+
+p = 0.25 #horizontal, vertical, pinch (zoom)
+res = 200
+h = res/2
+v = res/2
+
+pic = np.zeros([res, res])
+for i in range(pic.shape[0]):
+    for j in range(pic.shape[1]):
+        x = (j - h)/(p*res)
+        y = (i-v)/(p*res)
+        z = [x, y]
+        col = escape_test(z, 100)
+        pic[i, j] = col
+
+import matplotlib.pyplot as plt
+
+plt.axis('off')
+plt.imshow(pic)
+# plt.show()
+
+#+end_src
+
+
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+
+
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+#+NAME: py-circle-plot
+#+CAPTION: Circle of Convergence for $f_{0}: z \rightarrow z^{2}$
+
+This is precisely what we expected, but this is where things get interesting,
+consider now the result if we apply this same procedure to $f_{1}: z \rightarrow
+z^{2} - 1$ or something arbitrary like $f_{\frac{1}{4} + \frac{i}{2}}: z
+\rightarrow z^{2} + (\frac{1}{4} + \frac{i}{2})$, the result is something
+particularly unexpected, as shown in figures [[py-jl-1-plot]] and [[py-jl-rab-plot]].
+
+
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+#+NAME: py-jl-1-plot
+#+CAPTION: Circle of Convergence for $f_{0}: z \rightarrow z^{2} - 1$
+[[file:./julia-1.svg]]
+
+
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+#+NAME: py-jl-rab-plot
+#+CAPTION: Circle of Convergence for $f_{\frac{1}{4} + \frac{i}{2}}: z \rightarrow z^{2} + \frac{1}{4} + \frac{i}{2}$
+[[file:./julia-rab.svg]]
+
+Now this is particularly interesting, to investigate this further consider the
+more general function $f_{0.8 e^{\pi i \tau}}: z \rightarrow z^{2} + 0.8 e^{\pi
+i \tau}, \enspace \tau \in \mathbb{R}$, many fractals can be generated using
+this set by varying the value of $\tau$[fn:wk].
+
+/Python/ is too slow for this, but the /Julia/ programming language, as a
+compiled language, is significantly faster and has the benefit of treating
+complex numbers as first class citizens, these images can be generated in
+/Julia/ in a similar fashion as before, with the specifics shown in listing
+[[julia-gen-fracs]]. The ~GR~ package appears to be the best plotting library
+performance wise and so was used to save corresponding images to disc, this is
+demonstrated in listing [[GR-save]] where 1200 pictures at a 2.25 MP resolution were produced. [fn:tm]
+
+A subset of these images can be combined using /ImageMagick/ and ~bash~ to
+create a collage, /ImageMagick/ can also be used to produce a ~gif~ but it often
+fails and a superior approach is to use ~ffmpeg~, this is demonstrated in
+listing [[bash-frac-join]], the collage is shown in figure [[montage-frac]] and a corresponding
+animation is [[https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0][available online]][fn:ln]].
+
+#+NAME: julia-gen-fracs
+#+CAPTION: Produce a series of fractals using julia
+#+begin_src julia
+# * Define the Julia Set
+"""
+Determine whether or not a value will converge under iteration
+"""
+function juliaSet(z, num, my_func)
+    count = 1
+    # Remember the value of z
+    z1 = z
+    # Iterate num times
+    while count ≤ num
+        # check for divergence
+        if abs(z1)>2
+            return Int(count)
+        end
+        #iterate z
+        z1 = my_func(z1) # + z
+        count=count+1
+    end
+        #if z hasn't diverged by the end
+    return Int(num)
+end
+
+# * Make a Picture
+"""
+Loop over a matrix and apply apply the julia-set function to
+the corresponding complex value
+"""
+function make_picture(width, height, my_func)
+    pic_mat = zeros(width, height)
+    zoom = 0.3
+    for i in 1:size(pic_mat)[1]
+        for j in 1:size(pic_mat)[2]
+            x = (j-width/2)/(width*zoom)
+            y = (i-height/2)/(height*zoom)
+            pic_mat[i,j] = juliaSet(x+y*im, 256, my_func)
+        end
+    end
+    return pic_mat
+end
+
+#+end_src
+
+#+NAME: GR-save
+#+CAPTION: Generate and save the images with GR
+#+begin_src julia
+# * Use GR to Save a Bunch of Images
+  ## GR is faster than PyPlot
+using GR
+function save_images(count, res)
+    try
+        mkdir("/tmp/gifs")
+    catch
+    end
+    j = 1
+    for i in (1:count)/(40*2*π)
+        j = j + 1
+        GR.imshow(make_picture(res, res, z -> z^2 + 0.8*exp(i*im*9/2))) # PyPlot uses interpolation = "None"
+        name = string("/tmp/gifs/j", lpad(j, 5, "0"), ".png")
+        GR.savefig(name)
+    end
+end
+
+save_images(1200, 1500) # Number  and Res
+#+end_src
+
+#+NAME: bash-frac-join
+#+CAPTION: Using ~bash~, ~ffmpeg~ and /ImageMagick/ to combine the images and produce an animation.
+#+begin_src bash
+# Use montage multiple times to get recursion for fun
+montage (ls *png | sed -n '1p;0~600p') 0a.png
+montage (ls *png | sed -n '1p;0~100p') a.png
+montage (ls *png | sed -n '1p;0~50p')  a.png
+
+# Use ImageMagick to Produce a gif (unreliable)
+convert -delay 10 *.png 0.gif
+
+# Use FFMpeg to produce a Gif instead
+ffmpeg                    \
+    -framerate 60         \
+    -pattern_type glob    \
+    -i '*.png'            \
+    -r 15                 \
+    out.mov
+
+
+#+end_src
+
+#+NAME: montage-frac
+#+CAPTION: Various fracals corresponding to $f_{0.8 e^{\pi i \tau}}$
+[[attachment:_20200826_005334a.png]]
+
+*** MandelBrot
+Investigating these fractals, a natural question might be whether or not any
+given $c$ value will produce a fractal that is an open disc or a closed disc.
+
+So pick a value $\left\lvert \gamma \right \rvert < 1$ in the complex plane and
+use it to produce the julia set $f_{\gamma}$, if the corresponding prisoner set
+$P$ is closed we this value is defined as belonging to the /Mandelbrot/ set.
+
+It can be shown (and I intend to show it generally), that this set is equivalent to re-implementing the previous strategy such that $z \rightarrow z^{2} + z_{0}$ where $z_{0}$ is unchanging.
+
+This strategy is implemented in listing [[mandelbrot-py]]
+
+#+NAME: py-mandelbrot-code
+#+CAPTION: All values of $c$ that lead to a closed /Julia-set/
+#+BEGIN_SRC ipython :exports both :results raw :eval never-export :session julia-set :eval never-export :ipyfile ./mandelbrot-py.svg
+%matplotlib inline
+%config InlineBackend.figure_format = 'svg'
+def mandelbrot(z, num):
+    ''' runs the process num amount of times and returns the count of
+    divergence'''
+    count = 0
+    # Define z1 as z
+    z1 = z
+    # Iterate num times
+    while count <= num:
+        # check for divergence
+        if magnitude(z1) > 2.0:
+            #return the step it diverged on
+            return count
+        #iterate z
+        z1 = cAdd(cMult(z1, z1),z)
+        count+=1
+        #if z hasn't diverged by the end
+    return num
+
+import numpy as np
+
+
+p = 0.25 # horizontal, vertical, pinch (zoom)
+res = 200
+h = res/2
+v = res/2
+
+pic = np.zeros([res, res])
+for i in range(pic.shape[0]):
+    for j in range(pic.shape[1]):
+        x = (j - h)/(p*res)
+        y = (i-v)/(p*res)
+        z = [x, y]
+        col = mandelbrot(z, 100)
+        pic[i, j] = col
+
+import matplotlib.pyplot as plt
+plt.imshow(pic)
+# plt.show()
+#+end_src
+
+#+RESULTS: py-mandelbrot-code
+[[file:./mandelbrot-py.svg]]
+
+This is however fairly underwhelming, by using a more powerful language a much
+larger image can be produced, in /Julia/ producing a 4 GB, 400 MP image will
+take about 10 minutes, this is demonstrated in listing [[julia-large-mandelbrot]]
+and the corresponding FITS image is [[https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0][available-online.]][fn:ft]
+
+#+NAME:
+#+begin_src julia
+function mandelbrot(z, num, my_func)
+    count = 1
+    # Define z1 as z
+    z1 = z
+    # Iterate num times
+    while count ≤ num
+        # check for divergence
+        if abs(z1)>2
+            return Int(count)
+        end
+        #iterate z
+        z1 = my_func(z1) + z
+        count=count+1
+    end
+        #if z hasn't diverged by the end
+    return Int(num)
+end
+
+function make_picture(width, height, my_func)
+    pic_mat = zeros(width, height)
+    for i in 1:size(pic_mat)[1]
+        for j in 1:size(pic_mat)[2]
+            x = j/width
+            y = i/height
+            pic_mat[i,j] = mandelbrot(x+y*im, 99, my_func)
+        end
+    end
+    return pic_mat
+end
+
+
+using FITSIO
+function save_picture(filename, matrix)
+    f = FITS(filename, "w");
+    # data = reshape(1:100, 5, 20)
+    # data = pic_mat
+    write(f, matrix)  # Write a new image extension with the data
+
+    data = Dict("col1"=>[1., 2., 3.], "col2"=>[1, 2, 3]);
+    write(f, data)  # write a new binary table to a new extension
+
+    close(f)
+end
+
+# * Save Picture
+#------------------------------------------------------------
+my_pic = make_picture(20000, 20000, z -> z^2) 2000^2 is 4 GB
+save_picture("/tmp/a.fits", my_pic)
+
+#+end_src
+
+*** GNU Plot
+Another approach to visualise this set is by creating a 3d surface plot where the z-axis is mapped to the time taken until divergence, this can be acheived by using gnuplot as demonstrated in listing [[gnuplot-mandelbrot-initial]].[fn:jp]
+
+[[https://rosettacode.org/wiki/Find_limit_of_recursion#gnuplot][limit of recursion is 250]]
+
+#+NAME: gnuplot-mandelbrot-initial
+#+CAPTION: Visualising the Mandelbrot set as a 3D surface Plot
+#+BEGIN_SRC gnuplot :cache no :exports both :results output graphics :file one.svg :eval never-export
+complex(x,y) = x*{1,0}+y*{0,1}
+mandelbrot(x,y,z,n) = (abs(z)>2.0 || n>=200) ? \
+                  n : mandelbrot(x,y,z*z+complex(x,y),n+1)
+
+set xrange [-2:2]
+set yrange [-2:2]
+set logscale z
+set isosample 240
+set hidden3d
+set contour
+splot mandel(x,y,{0,0},0) notitle
+#+end_src
+
+#+RESULTS: gnuplot-mandelbrot-initial
+[[file:one.svg]]
+
+
+
+[[http://folk.uio.no/inf3330/scripting/doc/gnuplot/Kawano/fractal/mandelbrot-e.html][reference for image]]
+
+#+NAME: gnuplot-julia
+#+CAPTION: Use GNUPlot to produce plot of  julia set
+#+BEGIN_SRC gnuplot :exports both :results output graphics :file two.svg :eval never-export
+
+complex(x,y) = x*{1,0}+y*{0,1}
+julia(x,y,z,n) = (abs(z)>2.0 || k>=200) ? \
+                  k : julia(x,y,z*z+complex(x,y),n+1)
+
+set xrange [-1.5:1.5]
+set yrange [-1.5:1.5]
+set logscale z
+set isosample 150
+set hidden3d
+set contour
+a= 0.25
+b= 0.75
+splot mandel(a,b,complex(x,y),0) notitle
+#+end_src
+
+#+RESULTS[e065d7a76464baa900fc7f9562aea3913aa29980]: gnuplot-julia
+[[file:two.svg]]
+
+
+
+
+
+
+GNU Plot can also make excellent 2d renditions of fractals, an example of how to
+perform this can be found on /Rosetta Code/ cite:MandelbrotSetRosetta and is demonstrated in listing [[flat-gnuplot]].
+
+
+#+NAME: flat-gnuplot
+#+CAPTION: Flat Mandelbrot set built using rosetta code.
+#+BEGIN_SRC gnuplot :cache yes :exports both :results output graphics :file three.svg :eval never-export
+R = 2
+k = 100
+complex (x, y) = x * {1, 0} + y * {0, 1}
+mandelbrot (z, z0, n) = n == k || abs (z) > R ? n : mandelbrot (z ** 2 + z0, z0, n + 1)
+set samples 200
+set isosamples 200
+set pm3d map
+set size square
+splot [-2 : 2] [-2 : 2] mandelbrot (complex (0, 0), complex (x, y), 0) notitle
+#+end_src
+
+#+RESULTS[6f4570cfd26a3574d696e18a2348c68289265d90]:
+[[file:three.svg]]
+
+
+
+*** Determinant??
+
+* Outline
+1. Intro Prob
+2. Variable Scope
+3. Problem Showing Recursion
+   + All Different Methods
+     - Discuss all Different Methods
+     - Discuss Vectorisation
+     - Is this needed in Julia
+     - Comment on Faster to go column Wise
+4. Discuss Loops
+5. Show Rug
+6. Fibonacci
+   + The ratio of fibonacci converges to \phi
+   + Golden Ratio
+     - If you make a rectangle with the golden ratio you can cut it up under
+       recursion to get another one, keep doing this and eventually a logarithmic
+       spiral pops out, also the areas follow a fibonacci sequence.
+     - Look at the spiral of nautilus shells
+7. Discuss isomorphisms for recursive Relations
+8. Jump to Lorenz Attractor
+9. Now Talk about Morphogenesis
+10. Fractals
+    + Many Occur in Nature
+      - Mountain Ranges, compare to MandelBrot
+      - Sun Flowers
+      - Show the golden Ratio
+    + Fractals are all about recursion and iteration, so this gives me an excuse to look at them
+      - Show MandelBrot
+        + Python
+          - Sympy Slow
+          - Numpy Fast
+        + Julia brings Both Benefits
+          - Show Large MandelBrot
+        + Show Julia Set
+          - Show Julia Set Gif
+11. Things I'd like to show
+    + Simulate stripes and animal patterns
+    + Show some math behind spirals in Nautilus Shells
+    + Golden Rectangle
+      - Throw in some recursion
+      - Watch the spiral come out
+      - Record the areas and show that they are Fibonacci
+    + That the ratio of Fibonacci Converges to Phi
+    + Any Connection to the Reimann Sphere
+    + Lorrenz Attractor
+      - How is this connected to the lorrenz attractor
+    + What are the connections between discrete iteration and continuous systems such as the julia set and the lorrenz attractor
+12. Things I'd like to Try (in order to see different ways to approach Problems)
+    + Programming Languages and CAS
+      - Julia
+        + SymEngine
+      - Maxima
+      - Julia
+    + Visualisation
+      - Makie
+      - Plotly
+      - GNUPlot
+13. Open Questions:
+    - can we simulate animal patterns
+    - can we simulate leaves
+    - can we show that the gen func deriv [[#Derivative-exp-gen-function]]
+    - can we prove homogenous recursive relation
+    - I want to look at the lorrenz attractor
+    - when partiles are created by the the LHC, do they follow a fractal like pattern?
+    - Create a Fractal Landscape, does this resemble things seen in nautre? [[cite:peitgenChaosFractalsNew2004][p. 464]]
+    - Can I write an algorighm to build a tree in the winter?
+    - Can I develop my own type of persian recursion?
+    - Show the relationship between the golden ratio and the logarithmic spiral.
+      + and show that the fibonacci numbers pop out as area
+        - Prove this
+    - Is there any relationship between the Cantor Prisoner set and the Julia Sets?
+    - Work with Matt to investigate Julia Sets for Quaternion [[cite:peitgenChaosFractalsNew2004][\textsection 13.9]]
+* Download RevealJS
+So first do ~M-x package-install ox-reveal~ then do ~M-x load-library~ and then look for ~ox-reveal~
+
+#+begin_src elisp
+(load "/home/ryan/.emacs.d/.local/straight/build/ox-reveal/ox-reveal.el")
+#+end_src
+
+#+RESULTS:
+: t
+
+Download Reveal.js and put it in the directory as =./reveal.js=, you can do that with something like this:
+
+#+begin_src bash
+# cd /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/
+wget https://github.com/hakimel/reveal.js/archive/master.tar.gz
+tar -xzvf master.tar.gz && rm master.tar.gz
+mv reveal.js-master reveal.js
+#+end_src
+
+#+RESULTS:
+| reveal.js-master/                                                                     |
+| reveal.js-master/.github/                                                             |
+| reveal.js-master/.github/FUNDING.yml                                                  |
+| reveal.js-master/.github/workflows/                                                   |
+| reveal.js-master/.github/workflows/js.yml                                             |
+| reveal.js-master/.gitignore                                                           |
+| reveal.js-master/.npmignore                                                           |
+| reveal.js-master/CONTRIBUTING.md                                                      |
+| reveal.js-master/LICENSE                                                              |
+| reveal.js-master/README.md                                                            |
+| reveal.js-master/css/                                                                 |
+| reveal.js-master/css/layout.scss                                                      |
+| reveal.js-master/css/print/                                                           |
+| reveal.js-master/css/print/paper.scss                                                 |
+| reveal.js-master/css/print/pdf.scss                                                   |
+| reveal.js-master/css/reveal.scss                                                      |
+| reveal.js-master/css/theme/                                                           |
+| reveal.js-master/css/theme/README.md                                                  |
+| reveal.js-master/css/theme/source/                                                    |
+| reveal.js-master/css/theme/source/beige.scss                                          |
+| reveal.js-master/css/theme/source/black.scss                                          |
+| reveal.js-master/css/theme/source/blood.scss                                          |
+| reveal.js-master/css/theme/source/league.scss                                         |
+| reveal.js-master/css/theme/source/moon.scss                                           |
+| reveal.js-master/css/theme/source/night.scss                                          |
+| reveal.js-master/css/theme/source/serif.scss                                          |
+| reveal.js-master/css/theme/source/simple.scss                                         |
+| reveal.js-master/css/theme/source/sky.scss                                            |
+| reveal.js-master/css/theme/source/solarized.scss                                      |
+| reveal.js-master/css/theme/source/white.scss                                          |
+| reveal.js-master/css/theme/template/                                                  |
+| reveal.js-master/css/theme/template/exposer.scss                                      |
+| reveal.js-master/css/theme/template/mixins.scss                                       |
+| reveal.js-master/css/theme/template/settings.scss                                     |
+| reveal.js-master/css/theme/template/theme.scss                                        |
+| reveal.js-master/demo.html                                                            |
+| reveal.js-master/dist/                                                                |
+| reveal.js-master/dist/reset.css                                                       |
+| reveal.js-master/dist/reveal.css                                                      |
+| reveal.js-master/dist/reveal.esm.js                                                   |
+| reveal.js-master/dist/reveal.js                                                       |
+| reveal.js-master/dist/theme/                                                          |
+| reveal.js-master/dist/theme/beige.css                                                 |
+| reveal.js-master/dist/theme/black.css                                                 |
+| reveal.js-master/dist/theme/blood.css                                                 |
+| reveal.js-master/dist/theme/fonts/                                                    |
+| reveal.js-master/dist/theme/fonts/league-gothic/                                      |
+| reveal.js-master/dist/theme/fonts/league-gothic/LICENSE                               |
+| reveal.js-master/dist/theme/fonts/league-gothic/league-gothic.css                     |
+| reveal.js-master/dist/theme/fonts/league-gothic/league-gothic.eot                     |
+| reveal.js-master/dist/theme/fonts/league-gothic/league-gothic.ttf                     |
+| reveal.js-master/dist/theme/fonts/league-gothic/league-gothic.woff                    |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/                                    |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/LICENSE                             |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-italic.eot          |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-italic.ttf          |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-italic.woff         |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-regular.eot         |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-regular.ttf         |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-regular.woff        |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-semibold.eot        |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-semibold.ttf        |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-semibold.woff       |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-semibolditalic.eot  |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-semibolditalic.ttf  |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro-semibolditalic.woff |
+| reveal.js-master/dist/theme/fonts/source-sans-pro/source-sans-pro.css                 |
+| reveal.js-master/dist/theme/league.css                                                |
+| reveal.js-master/dist/theme/moon.css                                                  |
+| reveal.js-master/dist/theme/night.css                                                 |
+| reveal.js-master/dist/theme/serif.css                                                 |
+| reveal.js-master/dist/theme/simple.css                                                |
+| reveal.js-master/dist/theme/sky.css                                                   |
+| reveal.js-master/dist/theme/solarized.css                                             |
+| reveal.js-master/dist/theme/white.css                                                 |
+| reveal.js-master/examples/                                                            |
+| reveal.js-master/examples/assets/                                                     |
+| reveal.js-master/examples/assets/beeping.txt                                          |
+| reveal.js-master/examples/assets/beeping.wav                                          |
+| reveal.js-master/examples/assets/image1.png                                           |
+| reveal.js-master/examples/assets/image2.png                                           |
+| reveal.js-master/examples/auto-animate.html                                           |
+| reveal.js-master/examples/backgrounds.html                                            |
+| reveal.js-master/examples/barebones.html                                              |
+| reveal.js-master/examples/layout-helpers.html                                         |
+| reveal.js-master/examples/markdown.html                                               |
+| reveal.js-master/examples/markdown.md                                                 |
+| reveal.js-master/examples/math.html                                                   |
+| reveal.js-master/examples/media.html                                                  |
+| reveal.js-master/examples/multiple-presentations.html                                 |
+| reveal.js-master/examples/transitions.html                                            |
+| reveal.js-master/gulpfile.js                                                          |
+| reveal.js-master/index.html                                                           |
+| reveal.js-master/js/                                                                  |
+| reveal.js-master/js/components/                                                       |
+| reveal.js-master/js/components/playback.js                                            |
+| reveal.js-master/js/config.js                                                         |
+| reveal.js-master/js/controllers/                                                      |
+| reveal.js-master/js/controllers/autoanimate.js                                        |
+| reveal.js-master/js/controllers/backgrounds.js                                        |
+| reveal.js-master/js/controllers/controls.js                                           |
+| reveal.js-master/js/controllers/focus.js                                              |
+| reveal.js-master/js/controllers/fragments.js                                          |
+| reveal.js-master/js/controllers/keyboard.js                                           |
+| reveal.js-master/js/controllers/location.js                                           |
+| reveal.js-master/js/controllers/notes.js                                              |
+| reveal.js-master/js/controllers/overview.js                                           |
+| reveal.js-master/js/controllers/plugins.js                                            |
+| reveal.js-master/js/controllers/pointer.js                                            |
+| reveal.js-master/js/controllers/print.js                                              |
+| reveal.js-master/js/controllers/progress.js                                           |
+| reveal.js-master/js/controllers/slidecontent.js                                       |
+| reveal.js-master/js/controllers/slidenumber.js                                        |
+| reveal.js-master/js/controllers/touch.js                                              |
+| reveal.js-master/js/index.js                                                          |
+| reveal.js-master/js/reveal.js                                                         |
+| reveal.js-master/js/utils/                                                            |
+| reveal.js-master/js/utils/color.js                                                    |
+| reveal.js-master/js/utils/constants.js                                                |
+| reveal.js-master/js/utils/device.js                                                   |
+| reveal.js-master/js/utils/loader.js                                                   |
+| reveal.js-master/js/utils/util.js                                                     |
+| reveal.js-master/package-lock.json                                                    |
+| reveal.js-master/package.json                                                         |
+| reveal.js-master/plugin/                                                              |
+| reveal.js-master/plugin/highlight/                                                    |
+| reveal.js-master/plugin/highlight/highlight.esm.js                                    |
+| reveal.js-master/plugin/highlight/highlight.js                                        |
+| reveal.js-master/plugin/highlight/monokai.css                                         |
+| reveal.js-master/plugin/highlight/plugin.js                                           |
+| reveal.js-master/plugin/highlight/zenburn.css                                         |
+| reveal.js-master/plugin/markdown/                                                     |
+| reveal.js-master/plugin/markdown/markdown.esm.js                                      |
+| reveal.js-master/plugin/markdown/markdown.js                                          |
+| reveal.js-master/plugin/markdown/plugin.js                                            |
+| reveal.js-master/plugin/math/                                                         |
+| reveal.js-master/plugin/math/math.esm.js                                              |
+| reveal.js-master/plugin/math/math.js                                                  |
+| reveal.js-master/plugin/math/plugin.js                                                |
+| reveal.js-master/plugin/notes/                                                        |
+| reveal.js-master/plugin/notes/notes.esm.js                                            |
+| reveal.js-master/plugin/notes/notes.js                                                |
+| reveal.js-master/plugin/notes/plugin.js                                               |
+| reveal.js-master/plugin/notes/speaker-view.html                                       |
+| reveal.js-master/plugin/search/                                                       |
+| reveal.js-master/plugin/search/plugin.js                                              |
+| reveal.js-master/plugin/search/search.esm.js                                          |
+| reveal.js-master/plugin/search/search.js                                              |
+| reveal.js-master/plugin/zoom/                                                         |
+| reveal.js-master/plugin/zoom/plugin.js                                                |
+| reveal.js-master/plugin/zoom/zoom.esm.js                                              |
+| reveal.js-master/plugin/zoom/zoom.js                                                  |
+| reveal.js-master/test/                                                                |
+| reveal.js-master/test/assets/                                                         |
+| reveal.js-master/test/assets/external-script-a.js                                     |
+| reveal.js-master/test/assets/external-script-b.js                                     |
+| reveal.js-master/test/assets/external-script-c.js                                     |
+| reveal.js-master/test/assets/external-script-d.js                                     |
+| reveal.js-master/test/simple.md                                                       |
+| reveal.js-master/test/test-auto-animate.html                                          |
+| reveal.js-master/test/test-dependencies-async.html                                    |
+| reveal.js-master/test/test-dependencies.html                                          |
+| reveal.js-master/test/test-grid-navigation.html                                       |
+| reveal.js-master/test/test-iframe-backgrounds.html                                    |
+| reveal.js-master/test/test-iframes.html                                               |
+| reveal.js-master/test/test-markdown.html                                              |
+| reveal.js-master/test/test-multiple-instances-es5.html                                |
+| reveal.js-master/test/test-multiple-instances.html                                    |
+| reveal.js-master/test/test-pdf.html                                                   |
+| reveal.js-master/test/test-plugins.html                                               |
+| reveal.js-master/test/test-state.html                                                 |
+| reveal.js-master/test/test.html                                                       |
+
+Then just do ~C-c e e R R~ to export with RevealJS as opposed to PHP you won't need a fancy server, just open it in the browser.
+
+* Heres a Gif
+So this is a very big Gif that I'm using:
+
+How did I make the Gif??
+
+[[https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0]]
+
+* TODO Give a brief Sketch of the project
+
+Of particular interest are the:
+- gik
+- fits image
+
+#+begin_src bash
+code /home/ryan/Dropbox/Studies/QuantProject/Current/Python-Quant/ & disown
+xdg-open /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Problems/Chaos/mandelbrot-400mpx.fits
+#+end_src
+
+
+#+RESULTS:
+
+Here's what I gatthered from the week 3 slides
+
+** TODO Topic / Context
+We are interested in the theory of problem solving, but in particular the
+different approaches that can be taken to attacking a problem.
+
+Essentially this boils down to looking at how a computer scientist and
+mathematician attack a problem, although originally I thought there was no
+difference, after seeing the odd way Roozbeh attacks problems I see there is a big difference.
+** TODO Motivation
+
+** TODO Basic Ideas
+- Look at FOSS CAS Systems
+  - Python (Sympy)
+  - Julia
+    - Sympy integration
+    - symEngine
+    - Reduce.jl
+    - Symata.jl
+
+- Maybe look at interactive sessions:
+  - Like Jupyter
+  - Hydrogen
+  - TeXmacs
+  - org-mode?
+
+After getting an overview of SymPy let's look at problems that are interesting (chaos, morphogenesis and order from disarray etc.)
+
+** TODO Where are the Mathematics
+
+- Trying to look at the algorithms underlying functions in Python/Sympy and other Computer algebra tools such as Maxima, Maple, Mathematica, Sage, GAP and Xcas/Giac, Yacas, Symata.jl, Reduce.jl, SymEngine.jl
+  - For Example Recursive Relations
+- Look at solving some problems related to chaos theory maybe
+  - Mandelbrot and Julia Sets
+- Look at solving some problems related to Fourier Transforms maybe
+
+
+AVOID DETAILS, JUST SKETCH THE PROJECT OUT.
+
+** TODO Don't Forget we need a talk
+*** Slides In Org Mode
+- [[https://orgmode.org/worg/org-tutorials/non-beamer-presentations.html][Without Beamer]]
+- [[https://orgmode.org/worg/exporters/beamer/tutorial.html][With Beamer]]
+* Undecided
+*** Determinant
+Computational thinking can be useful in problems related to modelling, consider
+for example some matrix $n\times n$ matrix $B_n$ described by eqref:eq:bn-matrix :
+
+\begin{align}
+b_{ij} = \begin{cases}
+\frac{1}{2j- i^2}, &\text{ if } i > j \\
+\frac{i}{i- j}+  \frac{1}{n^2- j - i}, &\text{ if } j>i \\
+0 &\text{ if } i = j
+\end{cases} \label{eq:bn-matrix}
+\end{align}
+
+Is there a way to predict the determinant of such a matrix for large values?
+
+From the perspective of linear algebra this is an immensely difficult problem
+and there isn't really a clear place to start.
+
+From a numerical modelling perspective however, as will be shown, this a fairly trivial problem.
+
+**** Create the Matrix
+   :PROPERTIES:
+   :CUSTOM_ID: create-the-matrix
+   :END:
+
+Using /Python/ and =numpy=, a matrix can be generated as an =array= and by
+iterating through each element of the matrix values can be attributed like so:
+
+#+BEGIN_SRC python
+import numpy as np
+n = 2
+mymat = np.empty([n, n])
+for i in range(mymat.shape[0]):
+    for j in range(mymat.shape[1]):
+        print("(" + str(i) + "," + str(j) + ")")
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  (0,0)
+  (0,1)
+  (1,0)
+  (1,1)
+#+END_EXAMPLE
+
+and so to assign the values based on the condition in eqref:eq:bn-matrix, an
+=if= test can be used:
+
+#+BEGIN_SRC python
+  def BuildMat(n):
+      mymat = np.empty([n, n])
+      for i in range(n):
+          for j in range(n):
+              # Increment i and j by one because they count from zero
+              i += 1; j += 1
+              if (i > j):
+                  v = 1/(2*j - i**2)
+              elif (j > i):
+                  v = 1/(i-j) + 1/(n**2 - j - i)
+              else:
+                  v = 0
+              # Decrement i and j so the index lines up
+              i -= 1; j -= 1
+              mymat[j, i] = v
+      return mymat
+
+  BuildMat(3)
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  array([[ 0.        , -0.5       , -0.14285714],
+         [-0.83333333,  0.        , -0.2       ],
+         [-0.3       , -0.75      ,  0.        ]])
+#+END_EXAMPLE
+
+**** Find the Determinant
+   :PROPERTIES:
+   :CUSTOM_ID: find-the-determinant
+   :END:
+
+/Python/, being an object orientated language has methods belonging to objects of different types, in this case the =linalg= method has a =det= function that can be used to return the determinant of any given matrix like so:
+
+#+NAME: make-det
+#+CAPTION: Building a Function to return the determinant of the matrix described in eqref:eq:bn-matrix
+#+BEGIN_SRC python
+  def detMat(n):
+      ## Sympy
+      # return Determinant(BuildMat(n)).doit()
+      ## Numpy
+      return np.linalg.det(BuildMat(n))
+  detMat(3)
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  -0.11928571428571424
+#+END_EXAMPLE
+
+**** Find the Determinant of Various Values
+   :PROPERTIES:
+   :CUSTOM_ID: find-the-determinant-of-various-values
+   :END:
+
+To solve this problem, all that needs to be considered is the size of the $n$ and the corresponding determinant, this could be expressed as a set as shown in eqref:eq:set-determ:
+
+\begin{align}
+\left\{ \mathrm{det}\left( M(n) \right) \mid M \in \mathbb{Z}^{+} \leq 30  \right\} \label{eqref:eq:set-determ}
+\end{align}
+where:
+- $M$ is a function that transforms an integer to a matrix as per eqref:eq:bn-matrix
+
+Although describing the results as a set eqref:eqref:eq:set-determ is a little odd, it is consistent with the idea of list and set comprehension in /Python/ cite:DataStructuresPython and /Julia/ cite:MultidimensionalArraysJulia as shown in listing [[list-comp]]
+
+***** Generate a list of values
+    :PROPERTIES:
+    :CUSTOM_ID: instead-use-absolute-value
+    :END:
+Using the function created in listing [[make-det]], a corresponding list of values can be generated:
+
+#+NAME: list-comp
+#+CAPTION: Generate a list using list-comprehension
+#+BEGIN_SRC python
+  def detMat(n):
+      return abs(np.linalg.det(BuildMat(n)))
+
+  # We double all numbers using map()
+  result = map(detMat, range(30))
+
+  # print(list(result))
+  [round(num, 3) for num in list(result)]
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  [1.0,
+   0.0,
+   0.0,
+   0.119,
+   0.035,
+   0.018,
+   0.013,
+   0.01,
+   0.008,
+   0.006,
+   0.005,
+   0.004,
+   0.004,
+   0.003,
+   0.003,
+   0.002,
+   0.002,
+   0.002,
+   0.002,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001]
+#+END_EXAMPLE
+
+***** Create a Data Frame
+    :PROPERTIES:
+    :CUSTOM_ID: create-a-data-frame
+    :END:
+
+#+BEGIN_SRC python
+  import pandas as pd
+
+  data = {'Matrix.Size': range(30),
+          'Determinant.Value': list(map(detMat, range(30)))
+  }
+
+
+
+  df = pd.DataFrame(data, columns = ['Matrix.Size', 'Determinant.Value'])
+
+  print(df)
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  Matrix.Size  Determinant.Value
+  0             0           1.000000
+  1             1           0.000000
+  2             2           0.000000
+  3             3           0.119286
+  4             4           0.035258
+  5             5           0.018062
+  6             6           0.013023
+  7             7           0.009959
+  8             8           0.007822
+  9             9           0.006288
+  10           10           0.005158
+  11           11           0.004304
+  12           12           0.003645
+  13           13           0.003125
+  14           14           0.002708
+  15           15           0.002369
+  16           16           0.002090
+  17           17           0.001857
+  18           18           0.001661
+  19           19           0.001494
+  20           20           0.001351
+  21           21           0.001228
+  22           22           0.001121
+  23           23           0.001027
+  24           24           0.000945
+  25           25           0.000872
+  26           26           0.000807
+  27           27           0.000749
+  28           28           0.000697
+  29           29           0.000650
+#+END_EXAMPLE
+
+***** Plot the Data frame
+    :PROPERTIES:
+    :CUSTOM_ID: plot-the-data-frame
+    :END:
+
+Observe that it is necessary to use =copy=, /Julia/ and /Python/
+*unlike* /Mathematica/ and */R/* only create links between data, they do
+not create new objects, this can cause headaches when rounding data.
+
+#+BEGIN_SRC python
+  from plotnine import *
+  import copy
+
+  df_plot = copy.copy(df[3:])
+  df_plot['Determinant.Value'] = df_plot['Determinant.Value'].astype(float).round(3)
+  df_plot
+
+  (
+      ggplot(df_plot, aes(x = 'Matrix.Size', y = 'Determinant.Value')) +
+          geom_point() +
+          theme_bw() +
+          labs(x = "Matrix Size", y = "|Determinant Value|") +
+          ggtitle('Magnitude of Determinant Given Matrix Size')
+
+  )
+
+
+
+
+#+END_SRC
+
+[[file:e3d03c21dd72428e88b7fc2c722737046510dbb2.png]]
+
+#+BEGIN_EXAMPLE
+  <ggplot: (8770001690691)>
+#+END_EXAMPLE
+
+In this case it appears that the determinant scales exponentially, we
+can attempt to model that linearly using =scikit=, this is significantly
+more complex than simply using */R/*.
+[[https://towardsdatascience.com/linear-regression-in-6-lines-of-python-5e1d0cd05b8d][^lrpy]]
+
+#+BEGIN_SRC python
+  import numpy as np
+  import matplotlib.pyplot as plt  # To visualize
+  import pandas as pd  # To read data
+  from sklearn.linear_model import LinearRegression
+
+  df_slice = df[3:]
+
+  X = df_slice.iloc[:, 0].values.reshape(-1, 1)  # values converts it into a numpy array
+  Y = df_slice.iloc[:, 1].values.reshape(-1, 1)  # -1 means that calculate the dimension of rows, but have 1 column
+  linear_regressor = LinearRegression()  # create object for the class
+  linear_regressor.fit(X, Y)  # perform linear regression
+  Y_pred = linear_regressor.predict(X)  # make predictions
+
+
+
+  plt.scatter(X, Y)
+  plt.plot(X, Y_pred, color='red')
+  plt.show()
+#+END_SRC
+
+[[file:cabe1ce27b757dccdde64927e4d7938241825327.png]]
+
+#+BEGIN_SRC python
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  array([5.37864677])
+#+END_EXAMPLE
+
+**** Log Transform the Data
+   :PROPERTIES:
+   :CUSTOM_ID: log-transform-the-data
+   :END:
+
+The =log= function is actually provided by =sympy=, to do this quicker
+in =numpy= use =np.log()=
+
+#+BEGIN_SRC python
+  # # pyperclip.copy(df.columns[0])
+  # #df['Determinant.Value'] =
+  # #[ np.log(val) for val in df['Determinant.Value']]
+
+  df_log = df
+
+  df_log['Determinant.Value'] = [ np.log(val) for val in df['Determinant.Value'] ]
+
+#+END_SRC
+
+In order to only have well defined values, consider only after size 3
+
+#+BEGIN_SRC python
+  df_plot = df_log[3:]
+  df_plot
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+      Matrix.Size  Determinant.Value
+  3             3          -2.126234
+  4             4          -3.345075
+  5             5          -4.013934
+  6             6          -4.341001
+  7             7          -4.609294
+  8             8          -4.850835
+  9             9          -5.069048
+  10           10          -5.267129
+  11           11          -5.448099
+  12           12          -5.614501
+  13           13          -5.768414
+  14           14          -5.911529
+  15           15          -6.045230
+  16           16          -6.170659
+  17           17          -6.288765
+  18           18          -6.400347
+  19           19          -6.506082
+  20           20          -6.606547
+  21           21          -6.702237
+  22           22          -6.793585
+  23           23          -6.880964
+  24           24          -6.964704
+  25           25          -7.045094
+  26           26          -7.122390
+  27           27          -7.196822
+  28           28          -7.268592
+  29           29          -7.337885
+#+END_EXAMPLE
+
+A limitation of the /Python/ =plotnine= library (compared to /Ggplot2/
+in */R/*) is that it isn't possible to round values in the =aesthetics=
+layer, a further limitation with =pandas= also exists when compared to
+*/R/* that makes rounding data very clusy to do.
+
+In order to round data use the =numpy= library:
+
+#+BEGIN_SRC python
+  import pandas as pd
+  import numpy as np
+  df_plot['Determinant.Value'] = df_plot['Determinant.Value'].astype(float).round(3)
+  df_plot
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+      Matrix.Size  Determinant.Value
+  3             3             -2.126
+  4             4             -3.345
+  5             5             -4.014
+  6             6             -4.341
+  7             7             -4.609
+  8             8             -4.851
+  9             9             -5.069
+  10           10             -5.267
+  11           11             -5.448
+  12           12             -5.615
+  13           13             -5.768
+  14           14             -5.912
+  15           15             -6.045
+  16           16             -6.171
+  17           17             -6.289
+  18           18             -6.400
+  19           19             -6.506
+  20           20             -6.607
+  21           21             -6.702
+  22           22             -6.794
+  23           23             -6.881
+  24           24             -6.965
+  25           25             -7.045
+  26           26             -7.122
+  27           27             -7.197
+  28           28             -7.269
+  29           29             -7.338
+#+END_EXAMPLE
+
+#+BEGIN_SRC python
+  from plotnine import *
+
+
+  (ggplot(df_plot[3:], aes(x = 'Matrix.Size', y = 'Determinant.Value')) +
+     geom_point(fill= "Blue") +
+     labs(x = "Matrix Size", y = "Determinant Value",
+          title = "Plot of Determinant Values") +
+     theme_bw() +
+     stat_smooth(method = 'lm')
+  )
+#+END_SRC
+
+[[file:8e37d51e9bb78ed1d460f8a955f5bf56fafcfca2.png]]
+
+#+BEGIN_EXAMPLE
+  <ggplot: (8770002281897)>
+#+END_EXAMPLE
+
+#+BEGIN_SRC python
+  from sklearn.linear_model import LinearRegression
+
+  df_slice = df_plot[3:]
+
+  X = df_slice.iloc[:, 0].values.reshape(-1, 1)  # values converts it into a numpy array
+  Y = df_slice.iloc[:, 1].values.reshape(-1, 1)  # -1 means that calculate the dimension of rows, but have 1 column
+  linear_regressor = LinearRegression()  # create object for the class
+  linear_regressor.fit(X, Y)  # perform linear regression
+  Y_pred = linear_regressor.predict(X)  # make predictions
+
+
+
+  plt.scatter(X, Y)
+  plt.plot(X, Y_pred, color='red')
+  plt.show()
+#+END_SRC
+
+[[file:a0ba199b47f114fb4224946304b31b9f0b555f92.png]]
+
+#+BEGIN_SRC python
+  m = linear_regressor.fit(X, Y).coef_[0][0]
+  b = linear_regressor.fit(X, Y).intercept_[0]
+
+  print("y = " + str(m.round(2)) + "* x" + str(b.round(2)))
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  y = -0.12* x-4.02
+#+END_EXAMPLE
+
+So the model is:
+
+$$
+\text{abs}(\text{Det}(M)) = -4n - 0.12
+$$
+
+where:
+
+- $n$ is the size of the square matrix
+
+**** Largest Percentage Error
+   :PROPERTIES:
+   :CUSTOM_ID: largest-percentage-error
+   :END:
+
+To find the largest percentage error for $n \in [30, 50]$ it will be
+necessary to calculate the determinants for the larger range,
+compressing all the previous steps and calculating the model based on
+the larger amount of data:
+
+#+BEGIN_SRC python
+  import pandas as pd
+
+  data = {'Matrix.Size': range(30, 50),
+          'Determinant.Value': list(map(detMat, range(30, 50)))
+  }
+  df = pd.DataFrame(data, columns = ['Matrix.Size', 'Determinant.Value'])
+  df['Determinant.Value'] = [ np.log(val) for val in df['Determinant.Value']]
+  df
+  from sklearn.linear_model import LinearRegression
+
+
+  X = df.iloc[:, 0].values.reshape(-1, 1)  # values converts it into a numpy array
+  Y = df.iloc[:, 1].values.reshape(-1, 1)  # -1 means that calculate the dimension of rows, but have 1 column
+  linear_regressor = LinearRegression()  # create object for the class
+  linear_regressor.fit(X, Y)  # perform linear regression
+  Y_pred = linear_regressor.predict(X)  # make predictions
+
+  m = linear_regressor.fit(X, Y).coef_[0][0]
+  b = linear_regressor.fit(X, Y).intercept_[0]
+
+  print("y = " + str(m.round(2)) + "* x" + str(b.round(2)))
+
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  y = -0.05* x-5.92
+#+END_EXAMPLE
+
+#+BEGIN_SRC python
+  Y_hat = linear_regressor.predict(X)
+  res_per = (Y - Y_hat)/Y_hat
+  res_per
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  array([[-5.41415364e-03],
+         [-3.51384602e-03],
+         [-1.90798428e-03],
+         [-5.74487234e-04],
+         [ 5.06726599e-04],
+         [ 1.35396448e-03],
+         [ 1.98395424e-03],
+         [ 2.41201322e-03],
+         [ 2.65219545e-03],
+         [ 2.71742022e-03],
+         [ 2.61958495e-03],
+         [ 2.36966444e-03],
+         [ 1.97779855e-03],
+         [ 1.45336983e-03],
+         [ 8.05072416e-04],
+         [ 4.09734813e-05],
+         [-8.31432011e-04],
+         [-1.80517224e-03],
+         [-2.87375452e-03],
+         [-4.03112573e-03]])
+#+END_EXAMPLE
+
+#+BEGIN_SRC python
+  max_res = np.max(res_per)
+  max_ind = np.where(res_per == max_res)[0][0] + 30
+
+  print("The Maximum Percentage error is " + str(max_res.round(4) * 100) + "% which corresponds to a matrix of size " + str(max_ind))
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  The Maximum Percentage error is 0.27% which corresponds to a matrix of size 39
+#+END_EXAMPLE
+* TODO What we're looking for
+
+- Would a reader know what the project is about?
+- Would a reader become interested in the upcoming report?
+- Is it brief but well prepared?
+- Are the major parts or phases sketched out
+
+
+* Appendix
+
+#+NAME: py-env
+#+CAPTION: Preamble for /Python/ Environment
+#+BEGIN_SRC python
+  from __future__ import division
+  from sympy import *
+  x, y, z, t = symbols('x y z t')
+  k, m, n = symbols('k m n', integer=True)
+  f, g, h = symbols('f g h', cls=Function)
+  init_printing()
+  init_printing(use_latex='mathjax', latex_mode='equation')
+
+
+  import pyperclip
+  def lx(expr):
+      pyperclip.copy(latex(expr))
+      print(expr)
+
+  import numpy as np
+  import matplotlib as plt
+
+  import time
+
+  def timeit(k):
+      start = time.time()
+      k
+      print(str(round(time.time() - start, 9)) + "seconds")
+#+END_SRC
+
+** Persian Recursian Examples
+:PROPERTIES:
+:CUSTOM_ID: persian-recursion-examples
+:END:
+
+
+#+NAME: 8-fold-code
+#+CAPTION: Modify listing [[persian-recursion-python]] to create 9 folds
+#+BEGIN_SRC ipython :exports output :results raw :eval never-export :session persian-recursion :eval never-export :ipyfile ./persian-recursion-large.svg
+%config InlineBackend.figure_format = 'svg'
+main(5, 9, 1, cx)
+#+END_SRC
+
+
+
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+#+NAME: 8-fold-plot
+#+CAPTION: Output produced by listing [[persian-recursion-python]] with 9 folds
+
+#+NAME: new-func-code
+#+CAPTION: Modify the Function to use $f(w,x,y,z) = (w + x + y + z - 7) \mod 8$
+#+BEGIN_SRC ipython :exports both :results raw drawer :eval never-export :session persian-recursion :eval never-export :ipyfile ./persian-recursion-new-func.svg
+%config InlineBackend.figure_format = 'svg'
+def cx(l, r, t, b, m):
+    new_col = (main.mat[t,l] + main.mat[t,r] +  main.mat[b,l] + main.mat[b,r]-7) % m
+    return new_col.astype(int)
+main(8, 8, 1, cx)
+#+END_SRC
+
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+#+NAME: new-func-plot
+#+CAPTION: Output produced by listing [[new-func-code]] using $f(w,x,y,z) = (w + x + y + z - 7) \mod 8$
+#+RESULTS: new-func-code
+[[file:./persian-recursion-new-func.svg]]
+
+
+#+NAME: new-func2-code
+#+CAPTION: Modify the function to use $f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1$
+#+BEGIN_SRC ipython :exports both :results raw drawer :eval never-export :session persian-recursion :eval never-export :ipyfile ./persian-recursion-new-func2.svg
+%config InlineBackend.figure_format = 'svg'
+import numpy as np
+def cx(l, r, t, b, m):
+    new_col = (main.mat[t,l] + main.mat[t,r]*m +  main.mat[b,l]*(m) + main.mat[b,r]*(m))**1 % m + 1
+    return new_col.astype(int)
+main(8, 8, 1, cx)
+#+END_SRC
+
+
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+#+NAME: new-func2-plot
+#+CAPTION: Output produced by listing [[new-func2-code]] using $f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1$
+#+RESULTS: new-func2-code
+[[file:./persian-recursion-new-func2.svg]]
+** Figures
+
+#+NAME: xkcd-complex-numbers
+#+CAPTION: XKCD 2028: Complex Numbers
+[[file:complex_numbers.png]]
+
+* Footnotes
+
+[fn:jp] See cite:GnuplotFractalMandelbrot for an excellent, albeit quite old, resource on GNUPlot.
+
+[fn:ft] [[https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0][https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0]]
+
+[fn:tm] On my system this took about 30 minutes.
+
+[fn:ln] [[https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0][https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0]]
+
+[fn:wk] This approach was inspired by an animation on the /Julia Set/ Wikipedia article cite:JuliaSet2020
+
+[fn:im] these cascading values are much like brightness in Astronomy
+
+[fn:ma] This technique was adapted from Chapter 7 of /Math adventures with Python/ cite:farrellMathAdventuresPython2019
+
+[fn:vc] See figure [[xkcd-im]] for the obligatory /XKCD/ Comic
+
+[fn:cch] Dr. Hazrat mentions something similar in his book with respect to
+/Mathematica/\textsuperscript{\textregistered}
+[[cite:hazratMathematicaProblemCenteredApproach2015][Ch. 13]]
+
+[fn:pja] This problem is taken from Project A (44) of Dr. Hazrat's /Mathematica: A Problem Centred Approach/ cite:hazratMathematicaProblemCenteredApproach2015
+
+[fn:op] Although proprietary software such as Magma, Mathematica and Maple is very good, the restrictive licence makes them undesirable for study because there is no means by which to inspect the problem solving tecniques implemented, build on top of the work and moreover the lock-in nature of the software makes it a risky investment with respect to time.
+
