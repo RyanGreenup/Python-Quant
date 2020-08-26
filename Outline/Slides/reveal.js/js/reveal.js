@@ -2587,3 +2587,6 @@ export default function( revealElement, options ) {
 	return API;
 
 };
+
+document.querySelector( '.reveal' ).style.width = '50vw';
+Reveal.layout();
