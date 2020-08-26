@@ -39,7 +39,7 @@ import numpy as np
 
 
 p = 0.1 #horizontal, vertical, pinch (zoom)
-res = 2000
+res = 200
 h = res/2
 v = res/2
 
