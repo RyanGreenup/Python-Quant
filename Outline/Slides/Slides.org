@@ -985,7 +985,7 @@ end
 save_images(1200, 1500) # Number  and Res
 #+end_src
 **** Viewing the Results
-***** What we Have                                                          :ATTACH:
+***** What we Have                                                       
 :PROPERTIES:
 :DIR:      /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/Slides/attachments/
 :END:
@@ -994,7 +994,7 @@ We just have a bunch of images now:
 
 #+attr_html: :width 800px
 #+attr_latex: :width 9cm
-[[attachment:_20200826_223550screenshot.png]]
+[[Outline/Slides/attachments/_20200826_223550screenshot.png]]
 
 ***** How to work with it
 
@@ -1032,7 +1032,7 @@ ffmpeg                    \
 #+attr_latex: :width 9cm
 #+NAME: montage-frac
 #+CAPTION: Various fracals corresponding to $f_{0.8 e^{\pi i \tau}}$
-[[attachment:_20200826_005334a.png]]
+[[Outline/Slides/attachments/_20200826_005334a.png]]
 
 ***** Gif
 
