@@ -49,12 +49,17 @@ org_html_manager.setup();  // activate after the parameters are set
 <body>
 <div class="reveal">
 <div class="slides">
+<<<<<<< HEAD
 <section id="sec-title-slide"><h1 class="title">Math with Computers</h1><h2 class="author">Ryan Greenup &amp; James Guerra</h2><p class="date">Created: 2020-08-27 Thu 01:38</p>
+=======
+<section id="sec-title-slide"><h1 class="title">Math with Computers</h1><h2 class="author">Ryan Greenup &amp; James Guerra</h2><p class="date">Created: 2020-08-27 Thu 01:39</p>
+>>>>>>> master
 </section>
 <section id="table-of-contents"><div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
+<<<<<<< HEAD
 <li><a href="#/slide-org6f97ab0">1. Follow along</a></li>
 <li><a href="#/slide-org8651dc7">2. Introduction</a>
 <ul>
@@ -73,6 +78,26 @@ org_html_manager.setup();  // activate after the parameters are set
 <ul>
 <li><a href="#/slide-org0eb540b">2.4.1.5.1. Solving with Recursion</a></li>
 <li><a href="#/slide-orgfe67330">2.4.1.5.2. Solving with Iteration</a></li>
+=======
+<li><a href="#/slide-org85fb459">1. Follow along</a></li>
+<li><a href="#/slide-org2ad8d7c">2. Introduction</a>
+<ul>
+<li><a href="#/slide-org24c2483">2.1. What we are doing (ish)</a></li>
+<li><a href="#/slide-org0fdf364">2.2. Technologies</a></li>
+<li><a href="#/slide-org265612d">2.3. Some open Questions</a></li>
+<li><a href="#/slide-org20ff3b1">2.4. Motivation</a>
+<ul>
+<li><a href="#/slide-orgbeed2da">2.4.1. Iteration and Recursion</a>
+<ul>
+<li><a href="#/slide-series-and-recursion">2.4.1.1. Series</a></li>
+<li><a href="#/slide-orgf50e5b6">2.4.1.2. Recursion</a></li>
+<li><a href="#/slide-orgd104dfa">2.4.1.3. Iteration</a></li>
+<li><a href="#/slide-org9ccb131">2.4.1.4. Recursion or Iteration</a></li>
+<li><a href="#/slide-some-functions-are-more-difficult-to-express-with-recursion-in-python">2.4.1.5. Some Problems are tricky</a>
+<ul>
+<li><a href="#/slide-orgf21c9fd">2.4.1.5.1. Solving with Recursion</a></li>
+<li><a href="#/slide-orgb581763">2.4.1.5.2. Solving with Iteration</a></li>
+>>>>>>> master
 </ul>
 </li>
 <li><a href="#/slide-variable-scope-nested">2.4.1.6. Variable Scope of Nested Functions</a>
@@ -96,6 +121,7 @@ org_html_manager.setup();  // activate after the parameters are set
 </li>
 </ul>
 </li>
+<<<<<<< HEAD
 <li><a href="#/slide-org17d80c1">3. Fibonacci Sequence</a>
 <ul>
 <li><a href="#/slide-define-the-fibonacci-numbers">3.1. Computational Approach</a></li>
@@ -103,11 +129,21 @@ org_html_manager.setup();  // activate after the parameters are set
 <li><a href="#/slide-orgc6aa9fa">3.3. Caching to Memory</a></li>
 <li><a href="#/slide-org5076085">3.4. Solving Iteratively</a></li>
 <li><a href="#/slide-org46d264d">3.5. Solving With Julia is even Faster</a></li>
+=======
+<li><a href="#/slide-org6625e87">3. Fibonacci Sequence</a>
+<ul>
+<li><a href="#/slide-define-the-fibonacci-numbers">3.1. Computational Approach</a></li>
+<li><a href="#/slide-orgd798cf2">3.2. Defining Recursively in Python</a></li>
+<li><a href="#/slide-org96e0aa2">3.3. Caching to Memory</a></li>
+<li><a href="#/slide-org07e5b02">3.4. Solving Iteratively</a></li>
+<li><a href="#/slide-org6a10ec8">3.5. Solving With Julia is even Faster</a></li>
+>>>>>>> master
 <li><a href="#/slide-exp-gen-func-fib-seq">3.6. Exponential Generating Functions</a>
 <ul>
 <li><a href="#/slide-motivation">3.6.1. Motivation</a></li>
 </ul>
 </li>
+<<<<<<< HEAD
 <li><a href="#/slide-org05e9d6f">3.7. The Golden Ratio \(\varphi\)</a>
 <ul>
 <li><a href="#/slide-org6b6a248">3.7.1. Where does it come from?</a></li>
@@ -164,15 +200,78 @@ org_html_manager.setup();  // activate after the parameters are set
 <li><a href="#/slide-orgfffaa09">5.2.3.3.2. How to work with it</a></li>
 <li><a href="#/slide-orgaf742c9">5.2.3.3.3. Montage</a></li>
 <li><a href="#/slide-orgd2b7f8d">5.2.3.3.4. Gif</a></li>
+=======
+<li><a href="#/slide-org8feaeb7">3.7. The Golden Ratio \(\varphi\)</a>
+<ul>
+<li><a href="#/slide-org680bc15">3.7.1. Where does it come from?</a></li>
+<li><a href="#/slide-org4f14258">3.7.2. Why is it so interesting?</a></li>
+</ul>
+</li>
+<li><a href="#/slide-org001c8f2">3.8. Image References:</a></li>
+</ul>
+</li>
+<li><a href="#/slide-orgc9bfe6c">4. Persian Recursion</a>
+<ul>
+<li><a href="#/slide-org2d154ec">4.1. What is it?</a></li>
+<li><a href="#/slide-orgd5d1d16">4.2. Implementing with Python</a>
+<ul>
+<li><a href="#/slide-orgff3f8f4">4.2.1. Plan of Attack</a></li>
+<li><a href="#/slide-orgcb8b8fd">4.2.2. Implementation</a></li>
+</ul>
+</li>
+<li><a href="#/slide-orgc8b99b2">4.3. The Output</a>
+<ul>
+<li><a href="#/slide-org68e22f1">4.3.1. 6 Folds</a></li>
+<li><a href="#/slide-orgfc5298b">4.3.2. 9 Folds</a></li>
+<li><a href="#/slide-org3c8eff2">4.3.3. Different Function</a></li>
+<li><a href="#/slide-org4df4ba0">4.3.4. Different Function</a></li>
+</ul>
+</li>
+<li><a href="#/slide-org9be298c">4.4. Emergence of Patterns</a></li>
+</ul>
+</li>
+<li><a href="#/slide-org5826f44">5. Julia Sets</a>
+<ul>
+<li><a href="#/slide-org80dba76">5.1. Motivation</a>
+<ul>
+<li><a href="#/slide-orgfb113c6">5.1.1. The Problem</a></li>
+<li><a href="#/slide-org8bd8913">5.1.2. The Generalisation</a></li>
+</ul>
+</li>
+<li><a href="#/slide-org3c228b8">5.2. Plotting the Sets</a>
+<ul>
+<li><a href="#/slide-org91f680d">5.2.1. Implementing this</a></li>
+<li><a href="#/slide-orgac47053">5.2.2. The Code</a>
+<ul>
+<li><a href="#/slide-org6ada850">5.2.2.1. Defining Complex Values</a></li>
+<li><a href="#/slide-org4a4aa3a">5.2.2.2. Coding the Julia Set</a></li>
+</ul>
+</li>
+<li><a href="#/slide-org3929c6f">5.2.3. Broader Investigation</a>
+<ul>
+<li><a href="#/slide-orgfcef0f6">5.2.3.1. Approach</a></li>
+<li><a href="#/slide-org72becfb">5.2.3.2. Code</a></li>
+<li><a href="#/slide-orgf29c2f3">5.2.3.3. Viewing the Results</a>
+<ul>
+<li><a href="#/slide-orgb0a1ba6">5.2.3.3.1. What we Have</a></li>
+<li><a href="#/slide-org7609492">5.2.3.3.2. How to work with it</a></li>
+<li><a href="#/slide-org8a23178">5.2.3.3.3. Montage</a></li>
+<li><a href="#/slide-org339ec45">5.2.3.3.4. Gif</a></li>
+>>>>>>> master
 </ul>
 </li>
 </ul>
 </li>
+<<<<<<< HEAD
 <li><a href="#/slide-org8eb9f69">5.2.4. The <b>Why</b>?</a></li>
+=======
+<li><a href="#/slide-orgaaca395">5.2.4. The <b>Why</b>?</a></li>
+>>>>>>> master
 </ul>
 </li>
 </ul>
 </li>
+<<<<<<< HEAD
 <li><a href="#/slide-org49293ff">6. MandelBrot Set</a>
 <ul>
 <li><a href="#/slide-org5490f33">6.1. Motivation</a>
@@ -186,10 +285,26 @@ org_html_manager.setup();  // activate after the parameters are set
 <ul>
 <li><a href="#/slide-orge8a5844">6.1.2.1. Code</a></li>
 <li><a href="#/slide-orgc41cfa7">6.1.2.2. Visualisation of Set</a></li>
+=======
+<li><a href="#/slide-org23ee1cf">6. MandelBrot Set</a>
+<ul>
+<li><a href="#/slide-org90e1502">6.1. Motivation</a>
+<ul>
+<li><a href="#/slide-org7d5339a">6.1.1. Implementing This</a>
+<ul>
+<li><a href="#/slide-org8a4c178">6.1.1.1. Output Set</a></li>
+</ul>
+</li>
+<li><a href="#/slide-orgb5f68a3">6.1.2. Push the envelope</a>
+<ul>
+<li><a href="#/slide-org96f4cc6">6.1.2.1. Code</a></li>
+<li><a href="#/slide-orgd51b2bf">6.1.2.2. Visualisation of Set</a></li>
+>>>>>>> master
 </ul>
 </li>
 </ul>
 </li>
+<<<<<<< HEAD
 <li><a href="#/slide-org5acee9a">6.2. GNU Plot</a>
 <ul>
 <li><a href="#/slide-org2d97693">6.2.1. What is GNUPlot</a>
@@ -202,6 +317,20 @@ org_html_manager.setup();  // activate after the parameters are set
 </ul>
 </li>
 <li><a href="#/slide-org6796def">6.3. Again, why?</a></li>
+=======
+<li><a href="#/slide-orgdac0ae3">6.2. GNU Plot</a>
+<ul>
+<li><a href="#/slide-org861640e">6.2.1. What is GNUPlot</a>
+<ul>
+<li><a href="#/slide-org221c0f5">6.2.1.1. Mandelbrot</a></li>
+<li><a href="#/slide-org44d1c62">6.2.1.2. Julia</a></li>
+</ul>
+</li>
+<li><a href="#/slide-orgf73c7f6">6.2.2. 2d Mandelbrot</a></li>
+</ul>
+</li>
+<li><a href="#/slide-org2cca5f3">6.3. Again, why?</a></li>
+>>>>>>> master
 </ul>
 </li>
 </ul>
@@ -210,8 +339,13 @@ org_html_manager.setup();  // activate after the parameters are set
 </section>
 
 <section>
+<<<<<<< HEAD
 <section id="slide-org6f97ab0">
 <h2 id="org6f97ab0"><span class="section-number-2">1</span> Follow along</h2>
+=======
+<section id="slide-org85fb459">
+<h2 id="org85fb459"><span class="section-number-2">1</span> Follow along</h2>
+>>>>>>> master
 <p>
 Scan the QR Code with your phone to follow along!
 </p>
@@ -236,6 +370,7 @@ Scan the QR Code with your phone to follow along!
 </section>
 </section>
 <section>
+<<<<<<< HEAD
 <section id="slide-org8651dc7">
 <h2 id="org8651dc7"><span class="section-number-2">2</span> Introduction</h2>
 <div class="outline-text-2" id="text-2">
@@ -243,6 +378,15 @@ Scan the QR Code with your phone to follow along!
 </section>
 <section id="slide-org6f329d0">
 <h3 id="org6f329d0"><span class="section-number-3">2.1</span> What we are doing (ish)</h3>
+=======
+<section id="slide-org2ad8d7c">
+<h2 id="org2ad8d7c"><span class="section-number-2">2</span> Introduction</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+</section>
+<section id="slide-org24c2483">
+<h3 id="org24c2483"><span class="section-number-3">2.1</span> What we are doing (ish)</h3>
+>>>>>>> master
 <p>
 Our title is vague because our project is broad, which is awesome!
 </p>
@@ -265,8 +409,13 @@ We are looking at the concept of computational thinking:
 </ul>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-org57da682">
 <h3 id="org57da682"><span class="section-number-3">2.2</span> Technologies</h3>
+=======
+<section id="slide-org0fdf364">
+<h3 id="org0fdf364"><span class="section-number-3">2.2</span> Technologies</h3>
+>>>>>>> master
 <!-- This HTML table template is generated by emacs 27.1 -->
 <table border="1">
   <tr>
@@ -317,8 +466,13 @@ We are looking at the concept of computational thinking:
 
 
 </section>
+<<<<<<< HEAD
 <section id="slide-orga786992">
 <h3 id="orga786992"><span class="section-number-3">2.3</span> Some open Questions</h3>
+=======
+<section id="slide-org265612d">
+<h3 id="org265612d"><span class="section-number-3">2.3</span> Some open Questions</h3>
+>>>>>>> master
 <p>
 Some of the problems that we wanted to work on:
 </p>
@@ -336,8 +490,13 @@ Some of the problems that we wanted to work on:
 </ul>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-org89199f1">
 <h3 id="org89199f1"><span class="section-number-3">2.4</span> Motivation</h3>
+=======
+<section id="slide-org20ff3b1">
+<h3 id="org20ff3b1"><span class="section-number-3">2.4</span> Motivation</h3>
+>>>>>>> master
 <p>
 Many problems that look complex upon initial inspection can be solved trivially
 with CAS systems, learning how to effectively approach problems with that in
@@ -345,8 +504,13 @@ mind can lead to new insights.
 </p>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-org23affdd">
 <h4 id="org23affdd"><span class="section-number-4">2.4.1</span> Iteration and Recursion</h4>
+=======
+<section id="slide-orgbeed2da">
+<h4 id="orgbeed2da"><span class="section-number-4">2.4.1</span> Iteration and Recursion</h4>
+>>>>>>> master
 <div class="outline-text-4" id="text-2-4-1">
 </div>
 </section>
@@ -374,8 +538,13 @@ h\left( k \right) = \frac{\sqrt{2}  }{2} \cdot  \frac{\sqrt{3 +  \sqrt{2} } }{3}
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-orgb3d420f">
 <h5 id="orgb3d420f"><span class="section-number-5">2.4.1.2</span> Recursion</h5>
+=======
+<section id="slide-orgf50e5b6">
+<h5 id="orgf50e5b6"><span class="section-number-5">2.4.1.2</span> Recursion</h5>
+>>>>>>> master
 <p>
 This can be expressed with recursion:
 </p>
@@ -399,8 +568,13 @@ This can be expressed with recursion:
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-org230abe5">
 <h5 id="org230abe5"><span class="section-number-5">2.4.1.3</span> Iteration</h5>
+=======
+<section id="slide-orgd104dfa">
+<h5 id="orgd104dfa"><span class="section-number-5">2.4.1.3</span> Iteration</h5>
+>>>>>>> master
 <p>
 Another approach is iteration.
 </p>
@@ -422,8 +596,13 @@ Another approach is iteration.
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-org2221cfe">
 <h5 id="org2221cfe"><span class="section-number-5">2.4.1.4</span> Recursion or Iteration</h5>
+=======
+<section id="slide-org9ccb131">
+<h5 id="org9ccb131"><span class="section-number-5">2.4.1.4</span> Recursion or Iteration</h5>
+>>>>>>> master
 <ul>
 <li>Any function that can be defined by using iteration, can always be defined via
 recursion and vice versa</li>
@@ -494,8 +673,13 @@ clumsy:
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-org0eb540b">
 <h6 id="org0eb540b"><span class="section-number-6">2.4.1.5.1</span> Solving with Recursion</h6>
+=======
+<section id="slide-orgf21c9fd">
+<h6 id="orgf21c9fd"><span class="section-number-6">2.4.1.5.1</span> Solving with Recursion</h6>
+>>>>>>> master
 <ul>
 <li>\(f\) is now two variabled</li>
 <li>This can get very confusing with nested functions because of scope</li>
@@ -533,8 +717,13 @@ implementation of scope than <i>Python</i> and <i>Julia</i>!
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-orgfe67330">
 <h6 id="orgfe67330"><span class="section-number-6">2.4.1.5.2</span> Solving with Iteration</h6>
+=======
+<section id="slide-orgb581763">
+<h6 id="orgb581763"><span class="section-number-6">2.4.1.5.2</span> Solving with Iteration</h6>
+>>>>>>> master
 <p>
 by using <code>reversed</code> this essentially stays the same.
 </p>
@@ -716,8 +905,13 @@ Odd huh.
 </section>
 </section>
 <section>
+<<<<<<< HEAD
 <section id="slide-org17d80c1">
 <h2 id="org17d80c1"><span class="section-number-2">3</span> Fibonacci Sequence</h2>
+=======
+<section id="slide-org6625e87">
+<h2 id="org6625e87"><span class="section-number-2">3</span> Fibonacci Sequence</h2>
+>>>>>>> master
 <div class="outline-text-2" id="text-3">
 </div>
 </section>
@@ -735,8 +929,13 @@ F_n = F_{n-1} + F_{n-2} \label{eq:fib-def}
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-orgad2f2ff">
 <h3 id="orgad2f2ff"><span class="section-number-3">3.2</span> Defining Recursively in Python</h3>
+=======
+<section id="slide-orgd798cf2">
+<h3 id="orgd798cf2"><span class="section-number-3">3.2</span> Defining Recursively in Python</h3>
+>>>>>>> master
 <div class="org-src-container">
 <label class="org-src-name">Defining the <i>Fibonacci Sequence</i> using Recursion</label>
 <pre  class="src src-python" id="fib-rec-0"><code trim>  <span style="color: #51afef;">def</span> <span style="color: #c678dd;">rec_fib</span>(k):
@@ -758,8 +957,13 @@ F_n = F_{n-1} + F_{n-2} \label{eq:fib-def}
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-orgc6aa9fa">
 <h3 id="orgc6aa9fa"><span class="section-number-3">3.3</span> Caching to Memory</h3>
+=======
+<section id="slide-org96e0aa2">
+<h3 id="org96e0aa2"><span class="section-number-3">3.3</span> Caching to Memory</h3>
+>>>>>>> master
 <div class="org-src-container">
 <label class="org-src-name">Caching the results of the function previously defined </label>
 <pre  class="src src-python" id="fib-cache"><code trim>  <span style="color: #51afef;">from</span> functools <span style="color: #51afef;">import</span> lru_cache
@@ -788,8 +992,13 @@ rec_fib(<span style="color: #da8548; font-weight: bold;">6000</span>)
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-org5076085">
 <h3 id="org5076085"><span class="section-number-3">3.4</span> Solving Iteratively</h3>
+=======
+<section id="slide-org07e5b02">
+<h3 id="org07e5b02"><span class="section-number-3">3.4</span> Solving Iteratively</h3>
+>>>>>>> master
 <div class="org-src-container">
 <label class="org-src-name">Results are substantially faster</label>
 <pre  class="src src-python" id="fib-iter"><code trim>  <span style="color: #51afef;">def</span> <span style="color: #c678dd;">my_it_fib</span>(k):
@@ -820,8 +1029,13 @@ rec_fib(<span style="color: #da8548; font-weight: bold;">6000</span>)
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-org46d264d">
 <h3 id="org46d264d"><span class="section-number-3">3.5</span> Solving With Julia is even Faster</h3>
+=======
+<section id="slide-org6a10ec8">
+<h3 id="org6a10ec8"><span class="section-number-3">3.5</span> Solving With Julia is even Faster</h3>
+>>>>>>> master
 <div class="org-src-container">
 
 <pre  class="src src-julia" id="julia-fib"><code trim><span style="color: #51afef;">function</span> <span style="color: #c678dd;">my_it_fib</span>(k)
@@ -943,6 +1157,7 @@ Where:
 </p>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-org05e9d6f">
 <h3 id="org05e9d6f"><span class="section-number-3">3.7</span> The Golden Ratio \(\varphi\)</h3>
 <div class="outline-text-3" id="text-3-7">
@@ -950,6 +1165,15 @@ Where:
 </section>
 <section id="slide-org6b6a248">
 <h4 id="org6b6a248"><span class="section-number-4">3.7.1</span> Where does it come from?</h4>
+=======
+<section id="slide-org8feaeb7">
+<h3 id="org8feaeb7"><span class="section-number-3">3.7</span> The Golden Ratio \(\varphi\)</h3>
+<div class="outline-text-3" id="text-3-7">
+</div>
+</section>
+<section id="slide-org680bc15">
+<h4 id="org680bc15"><span class="section-number-4">3.7.1</span> Where does it come from?</h4>
+>>>>>>> master
 <ul>
 <li class="fragment appear">\(\frac{F_{n+1}}{F_n}\) or \(\frac{a}{b} = \frac{a+b}{a}\)</li>
 <li class="fragment appear">\(\sqrt{1+\sqrt{1+\sqrt{1+...}}}\)</li>
@@ -957,15 +1181,24 @@ Where:
 
 </ul>
 </section>
+<<<<<<< HEAD
 <section id="slide-org955eb88">
 <h4 id="org955eb88"><span class="section-number-4">3.7.2</span> Why is it so interesting?</h4>
+=======
+<section id="slide-org4f14258">
+<h4 id="org4f14258"><span class="section-number-4">3.7.2</span> Why is it so interesting?</h4>
+>>>>>>> master
 
 <div class="figure">
 <p><img src="file:///tmp/Python-Quant/Outline/Slides/Images/golden_ratio.png" alt="golden_ratio.png" height="40%," width="40%" />
 </p>
 </div>
 </section>
+<<<<<<< HEAD
 <section id="slide-org955eb88-split">
+=======
+<section id="slide-org4f14258-split">
+>>>>>>> master
 
 <div class="figure">
 <p><img src="file:///tmp/Python-Quant/Outline/Slides/Images/spirals.jpeg" alt="spirals.jpeg" />
@@ -973,8 +1206,13 @@ Where:
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-orgba52b84">
 <h3 id="orgba52b84"><span class="section-number-3">3.8</span> Image References:</h3>
+=======
+<section id="slide-org001c8f2">
+<h3 id="org001c8f2"><span class="section-number-3">3.8</span> Image References:</h3>
+>>>>>>> master
 <p>
 Golden Rectangle: <a href="https://evstudio.com/functional-schematic-design-trick-use-the-golden-rectangle/">https://evstudio.com/functional-schematic-design-trick-use-the-golden-rectangle/</a>
 </p>
@@ -985,6 +1223,7 @@ Spirals: <a href="https://blog.prototypr.io/golden-ratio-what-it-is-and-why-shou
 </section>
 </section>
 <section>
+<<<<<<< HEAD
 <section id="slide-org65562b1">
 <h2 id="org65562b1"><span class="section-number-2">4</span> Persian Recursion</h2>
 <div class="outline-text-2" id="text-4">
@@ -992,6 +1231,15 @@ Spirals: <a href="https://blog.prototypr.io/golden-ratio-what-it-is-and-why-shou
 </section>
 <section id="slide-orgba13ca2">
 <h3 id="orgba13ca2"><span class="section-number-3">4.1</span> What is it?</h3>
+=======
+<section id="slide-orgc9bfe6c">
+<h2 id="orgc9bfe6c"><span class="section-number-2">4</span> Persian Recursion</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+</section>
+<section id="slide-org2d154ec">
+<h3 id="org2d154ec"><span class="section-number-3">4.1</span> What is it?</h3>
+>>>>>>> master
 <p>
 This is a simple process that produces complex structured patterns in response
 to feedback and iteration.
@@ -1009,6 +1257,7 @@ to feedback and iteration.
 </ol>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-org279f095">
 <h3 id="org279f095"><span class="section-number-3">4.2</span> Implementing with Python</h3>
 <div class="outline-text-3" id="text-4-2">
@@ -1016,6 +1265,15 @@ to feedback and iteration.
 </section>
 <section id="slide-org4d0518f">
 <h4 id="org4d0518f"><span class="section-number-4">4.2.1</span> Plan of Attack</h4>
+=======
+<section id="slide-orgd5d1d16">
+<h3 id="orgd5d1d16"><span class="section-number-3">4.2</span> Implementing with Python</h3>
+<div class="outline-text-3" id="text-4-2">
+</div>
+</section>
+<section id="slide-orgff3f8f4">
+<h4 id="orgff3f8f4"><span class="section-number-4">4.2.1</span> Plan of Attack</h4>
+>>>>>>> master
 <p>
 This can be implemented computationally by defining a function that:
 </p>
@@ -1030,8 +1288,13 @@ coloured row and column</li>
 </ul>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-org3b2a973">
 <h4 id="org3b2a973"><span class="section-number-4">4.2.2</span> Implementation</h4>
+=======
+<section id="slide-orgcb8b8fd">
+<h4 id="orgcb8b8fd"><span class="section-number-4">4.2.2</span> Implementation</h4>
+>>>>>>> master
 <div class="org-src-container">
 <label class="org-src-name">Implementation of the persian recursion scheme in <i>Python</i></label>
 <pre  class="src src-ipython" id="persian-recursion-python"><code trim>%matplotlib inline
@@ -1083,6 +1346,7 @@ main(<span style="color: #da8548; font-weight: bold;">5</span>,<span style="colo
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-org0a29cb6">
 <h3 id="org0a29cb6"><span class="section-number-3">4.3</span> The Output</h3>
 <div class="outline-text-3" id="text-4-3">
@@ -1102,12 +1366,34 @@ Sorry, your browser does not support SVG.</object>
 <h4 id="org7abb3d4"><span class="section-number-4">4.3.2</span> 9 Folds</h4>
 <div class="org-src-container">
 <label class="org-src-name">Modify listing <a href="#/slide-org2e60008">4</a> to create 9 folds</label>
+=======
+<section id="slide-orgc8b99b2">
+<h3 id="orgc8b99b2"><span class="section-number-3">4.3</span> The Output</h3>
+<div class="outline-text-3" id="text-4-3">
+</div>
+</section>
+<section id="slide-org68e22f1">
+<h4 id="org68e22f1"><span class="section-number-4">4.3.1</span> 6 Folds</h4>
+
+<div id="orgd0952da" class="figure">
+<p><object type="image/svg+xml" data="../persian-recursion-0.svg" class="org-svg" width="400px">
+Sorry, your browser does not support SVG.</object>
+</p>
+<p><span class="figure-number">Figure 4: </span>Output produced by listing <a href="#/slide-orgdf936cf">4</a> with 6 folds</p>
+</div>
+</section>
+<section id="slide-orgfc5298b">
+<h4 id="orgfc5298b"><span class="section-number-4">4.3.2</span> 9 Folds</h4>
+<div class="org-src-container">
+<label class="org-src-name">Modify listing <a href="#/slide-orgdf936cf">4</a> to create 9 folds</label>
+>>>>>>> master
 <pre  class="src src-ipython" id="8-fold-code"><code trim>%config <span style="color: #dcaeea;">InlineBackend.figure_format</span> = <span style="color: #98be65;">'svg'</span>
 main(<span style="color: #da8548; font-weight: bold;">5</span>, <span style="color: #da8548; font-weight: bold;">9</span>, <span style="color: #da8548; font-weight: bold;">1</span>, cx)
 </code></pre>
 </div>
 
 
+<<<<<<< HEAD
 <div id="orgc5e608d" class="figure">
 <p><object type="image/svg+xml" data="file:///home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/persian-recursion-large.svg" class="org-svg" width="400px">
 Sorry, your browser does not support SVG.</object>
@@ -1118,6 +1404,18 @@ Sorry, your browser does not support SVG.</object>
 </section>
 <section id="slide-orgfae41e3">
 <h4 id="orgfae41e3"><span class="section-number-4">4.3.3</span> Different Function</h4>
+=======
+<div id="orgf4d8e6b" class="figure">
+<p><object type="image/svg+xml" data="file:///home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/persian-recursion-large.svg" class="org-svg" width="400px">
+Sorry, your browser does not support SVG.</object>
+</p>
+<p><span class="figure-number">Figure 5: </span>Output produced by listing <a href="#/slide-orgdf936cf">4</a> with 9 folds</p>
+</div>
+
+</section>
+<section id="slide-org3c8eff2">
+<h4 id="org3c8eff2"><span class="section-number-4">4.3.3</span> Different Function</h4>
+>>>>>>> master
 <div class="org-src-container">
 
 <pre  class="src src-ipython" id="new-func-code"><code trim>%config <span style="color: #dcaeea;">InlineBackend.figure_format</span> = <span style="color: #98be65;">'svg'</span>
@@ -1129,6 +1427,7 @@ main(<span style="color: #da8548; font-weight: bold;">8</span>, <span style="col
 </div>
 
 
+<<<<<<< HEAD
 <div id="org7043cf4" class="figure">
 <p><object type="image/svg+xml" data="../persian-recursion-new-func.svg" class="org-svg" width="400px">
 Sorry, your browser does not support SVG.</object>
@@ -1139,6 +1438,18 @@ Sorry, your browser does not support SVG.</object>
 </section>
 <section id="slide-org02a1532">
 <h4 id="org02a1532"><span class="section-number-4">4.3.4</span> Different Function</h4>
+=======
+<div id="orgd94303b" class="figure">
+<p><object type="image/svg+xml" data="../persian-recursion-new-func.svg" class="org-svg" width="400px">
+Sorry, your browser does not support SVG.</object>
+</p>
+<p><span class="figure-number">Figure 6: </span>Output produced by listing <a href="#/slide-orge117458">6</a> using \(f(w,x,y,z) = (w + x + y + z - 7) \mod 8\)</p>
+</div>
+
+</section>
+<section id="slide-org4df4ba0">
+<h4 id="org4df4ba0"><span class="section-number-4">4.3.4</span> Different Function</h4>
+>>>>>>> master
 <div class="org-src-container">
 
 <pre  class="src src-ipython" id="new-func2-code"><code trim>%config <span style="color: #dcaeea;">InlineBackend.figure_format</span> = <span style="color: #98be65;">'svg'</span>
@@ -1152,6 +1463,7 @@ main(<span style="color: #da8548; font-weight: bold;">8</span>, <span style="col
 
 
 
+<<<<<<< HEAD
 <div id="orgfd67c0d" class="figure">
 <p><object type="image/svg+xml" data="../persian-recursion-new-func2.svg" class="org-svg" width="400px">
 Sorry, your browser does not support SVG.</object>
@@ -1162,6 +1474,18 @@ Sorry, your browser does not support SVG.</object>
 </section>
 <section id="slide-org50530c0">
 <h3 id="org50530c0"><span class="section-number-3">4.4</span> Emergence of Patterns</h3>
+=======
+<div id="org51616b3" class="figure">
+<p><object type="image/svg+xml" data="../persian-recursion-new-func2.svg" class="org-svg" width="400px">
+Sorry, your browser does not support SVG.</object>
+</p>
+<p><span class="figure-number">Figure 7: </span>Output produced by listing <a href="#/slide-org08df53c">6</a> using \(f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1\)</p>
+</div>
+
+</section>
+<section id="slide-org9be298c">
+<h3 id="org9be298c"><span class="section-number-3">4.4</span> Emergence of Patterns</h3>
+>>>>>>> master
 <p>
 Many patterns that occur in nature can be explained by relatively simple rules
 that are exposed to feedback and iteration, this is a centreal theme of Alan
@@ -1179,6 +1503,7 @@ course of this research.
 </section>
 </section>
 <section>
+<<<<<<< HEAD
 <section id="slide-org446558b">
 <h2 id="org446558b"><span class="section-number-2">5</span> Julia Sets</h2>
 <div class="outline-text-2" id="text-5">
@@ -1191,6 +1516,20 @@ course of this research.
 </section>
 <section id="slide-org5799398">
 <h4 id="org5799398"><span class="section-number-4">5.1.1</span> The Problem</h4>
+=======
+<section id="slide-org5826f44">
+<h2 id="org5826f44"><span class="section-number-2">5</span> Julia Sets</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+</section>
+<section id="slide-org80dba76">
+<h3 id="org80dba76"><span class="section-number-3">5.1</span> Motivation</h3>
+<div class="outline-text-3" id="text-5-1">
+</div>
+</section>
+<section id="slide-orgfb113c6">
+<h4 id="orgfb113c6"><span class="section-number-4">5.1.1</span> The Problem</h4>
+>>>>>>> master
 <ul>
 <li>Consider the iterative process \(x \rightarrow x^{2}, \enspace x \in \mathbb{R}\),
 <ul>
@@ -1208,8 +1547,13 @@ course of this research.
 </ul>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-orga39abd5">
 <h4 id="orga39abd5"><span class="section-number-4">5.1.2</span> The Generalisation</h4>
+=======
+<section id="slide-org8bd8913">
+<h4 id="org8bd8913"><span class="section-number-4">5.1.2</span> The Generalisation</h4>
+>>>>>>> master
 <p>
 Although this seems trivial this can be generalised.
 </p>
@@ -1236,7 +1580,11 @@ Every value on that plane will belong to one of the two following sets:
 </dl>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-orga39abd5-split">
+=======
+<section id="slide-org8bd8913-split">
+>>>>>>> master
 
 <ul>
 <li>Define \(Q^{(k)}_{c}\) to be the the set of values confirmed as prisoners after \(k\) iterations of \(f_{c}\)
@@ -1254,11 +1602,19 @@ Every value on that plane will belong to one of the two following sets:
 This is what must be used in practice.
 </p>
 </section>
+<<<<<<< HEAD
 <section id="slide-orgd644d58">
 <h3 id="orgd644d58"><span class="section-number-3">5.2</span> Plotting the Sets</h3>
 </section>
 <section id="slide-orge0af34b">
 <h4 id="orge0af34b"><span class="section-number-4">5.2.1</span> Implementing this</h4>
+=======
+<section id="slide-org3c228b8">
+<h3 id="org3c228b8"><span class="section-number-3">5.2</span> Plotting the Sets</h3>
+</section>
+<section id="slide-org91f680d">
+<h4 id="org91f680d"><span class="section-number-4">5.2.1</span> Implementing this</h4>
+>>>>>>> master
 <p>
 To implement this map a function over the elements of a matrix and map that
 matrix to the complex plane, this will produce a matrix of values (this is a
@@ -1275,6 +1631,7 @@ picture!)
 </dl>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-org27943a6">
 <h4 id="org27943a6"><span class="section-number-4">5.2.2</span> The Code</h4>
 <div class="outline-text-4" id="text-5-2-2">
@@ -1282,6 +1639,15 @@ picture!)
 </section>
 <section id="slide-orgd771cb2">
 <h5 id="orgd771cb2"><span class="section-number-5">5.2.2.1</span> Defining Complex Values</h5>
+=======
+<section id="slide-orgac47053">
+<h4 id="orgac47053"><span class="section-number-4">5.2.2</span> The Code</h4>
+<div class="outline-text-4" id="text-5-2-2">
+</div>
+</section>
+<section id="slide-org6ada850">
+<h5 id="org6ada850"><span class="section-number-5">5.2.2.1</span> Defining Complex Values</h5>
+>>>>>>> master
 <div class="org-src-container">
 <label class="org-src-name">Defining Complex Operations with vectors</label>
 <pre  class="src src-ipython" id="complex-vec"><code trim><span style="color: #51afef;">from</span> math <span style="color: #51afef;">import</span> sqrt
@@ -1305,8 +1671,13 @@ picture!)
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-orgc447c42">
 <h5 id="orgc447c42"><span class="section-number-5">5.2.2.2</span> Coding the Julia Set</h5>
+=======
+<section id="slide-org4a4aa3a">
+<h5 id="org4a4aa3a"><span class="section-number-5">5.2.2.2</span> Coding the Julia Set</h5>
+>>>>>>> master
 <div class="org-src-container">
 <label class="org-src-name">Circle of Convergence of \(z\) under recursion</label>
 <pre  class="src src-ipython" id="py-circle-code"><code trim>%matplotlib inline
@@ -1358,11 +1729,19 @@ plt.imshow(pic)
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-orgc447c42-split">
 
 
 
 <div id="org4dfd1c6" class="figure">
+=======
+<section id="slide-org4a4aa3a-split">
+
+
+
+<div id="org2fd9375" class="figure">
+>>>>>>> master
 <p><object type="image/svg+xml" data="./circle-of-convergence.svg" class="org-svg" width="600px">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -1374,7 +1753,11 @@ perform \(z \rightarrow z^{2}\) values converge for \(\left\lvert z  \right \rve
 </p>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-orgc447c42-split">
+=======
+<section id="slide-org4a4aa3a-split">
+>>>>>>> master
 
 <p>
 But what if we try something like:
@@ -1389,10 +1772,17 @@ f_{-1}&: z \rightarrow z^{2} - 1
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-orgc447c42-split">
 
 
 <div id="org45edd30" class="figure">
+=======
+<section id="slide-org4a4aa3a-split">
+
+
+<div id="orgf8c41b8" class="figure">
+>>>>>>> master
 <p><object type="image/svg+xml" data="./julia-rab.svg" class="org-svg" width="800px">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -1401,10 +1791,17 @@ Sorry, your browser does not support SVG.</object>
 
 
 </section>
+<<<<<<< HEAD
 <section id="slide-orgc447c42-split">
 
 
 <div id="org436821a" class="figure">
+=======
+<section id="slide-org4a4aa3a-split">
+
+
+<div id="org21d067c" class="figure">
+>>>>>>> master
 <p><object type="image/svg+xml" data="./julia-1.svg" class="org-svg" width="800px">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -1412,6 +1809,7 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-org78908ae">
 <h4 id="org78908ae"><span class="section-number-4">5.2.3</span> Broader Investigation</h4>
 <div class="outline-text-4" id="text-5-2-3">
@@ -1419,6 +1817,15 @@ Sorry, your browser does not support SVG.</object>
 </section>
 <section id="slide-org35fbc17">
 <h5 id="org35fbc17"><span class="section-number-5">5.2.3.1</span> Approach</h5>
+=======
+<section id="slide-org3929c6f">
+<h4 id="org3929c6f"><span class="section-number-4">5.2.3</span> Broader Investigation</h4>
+<div class="outline-text-4" id="text-5-2-3">
+</div>
+</section>
+<section id="slide-orgfcef0f6">
+<h5 id="orgfcef0f6"><span class="section-number-5">5.2.3.1</span> Approach</h5>
+>>>>>>> master
 <p>
 Consider the equation:
 \[
@@ -1432,8 +1839,13 @@ If the value \(\tau\) is iterated over some range a series of snapshots can be
 created.
 </p>
 </section>
+<<<<<<< HEAD
 <section id="slide-org12414bc">
 <h5 id="org12414bc"><span class="section-number-5">5.2.3.2</span> Code</h5>
+=======
+<section id="slide-org72becfb">
+<h5 id="org72becfb"><span class="section-number-5">5.2.3.2</span> Code</h5>
+>>>>>>> master
 <p>
 <i>Python</i> is too slow, I had to instead use <i>Julia</i> and I produced and this how
 im implemented it:
@@ -1485,7 +1897,11 @@ im implemented it:
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-org12414bc-split">
+=======
+<section id="slide-org72becfb-split">
+>>>>>>> master
 
 <p>
 To save the images I looped over the function and saved.
@@ -1514,6 +1930,7 @@ save_images(<span style="color: #da8548; font-weight: bold;">1200</span>, <span 
 </code></pre>
 </div>
 </section>
+<<<<<<< HEAD
 <section id="slide-orgb04facf">
 <h5 id="orgb04facf"><span class="section-number-5">5.2.3.3</span> Viewing the Results</h5>
 <div class="outline-text-5" id="text-5-2-3-3">
@@ -1521,6 +1938,15 @@ save_images(<span style="color: #da8548; font-weight: bold;">1200</span>, <span 
 </section>
 <section id="slide-org200890b">
 <h6 id="org200890b"><span class="section-number-6">5.2.3.3.1</span> What we Have&#xa0;&#xa0;&#xa0;<span class="tag"><span class="ATTACH">ATTACH</span></span></h6>
+=======
+<section id="slide-orgf29c2f3">
+<h5 id="orgf29c2f3"><span class="section-number-5">5.2.3.3</span> Viewing the Results</h5>
+<div class="outline-text-5" id="text-5-2-3-3">
+</div>
+</section>
+<section id="slide-orgb0a1ba6">
+<h6 id="orgb0a1ba6"><span class="section-number-6">5.2.3.3.1</span> What we Have&#xa0;&#xa0;&#xa0;<span class="tag"><span class="ATTACH">ATTACH</span></span></h6>
+>>>>>>> master
 <p>
 We just have a bunch of images now:
 </p>
@@ -1533,8 +1959,13 @@ We just have a bunch of images now:
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-orgfffaa09">
 <h6 id="orgfffaa09"><span class="section-number-6">5.2.3.3.2</span> How to work with it</h6>
+=======
+<section id="slide-org7609492">
+<h6 id="org7609492"><span class="section-number-6">5.2.3.3.2</span> How to work with it</h6>
+>>>>>>> master
 <p>
 With <i>ImageMagick</i> and <code>ffmpeg</code> an animation can be produced, here&rsquo;s how
 </p>
@@ -1562,18 +1993,30 @@ ffmpeg                    <span style="color: #98be65;">\</span>
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-orgaf742c9">
 <h6 id="orgaf742c9"><span class="section-number-6">5.2.3.3.3</span> Montage</h6>
 
 <div id="org4fb27ff" class="figure">
+=======
+<section id="slide-org8a23178">
+<h6 id="org8a23178"><span class="section-number-6">5.2.3.3.3</span> Montage</h6>
+
+<div id="orgf278d4e" class="figure">
+>>>>>>> master
 <p><img src="file:///home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/Slides/attachments/_20200826_005334a.png" alt="_20200826_005334a.png" width="1000px" />
 </p>
 <p><span class="figure-number">Figure 13: </span>Various fracals corresponding to \(f_{0.8 e^{\pi i \tau}}\)</p>
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-orgd2b7f8d">
 <h6 id="orgd2b7f8d"><span class="section-number-6">5.2.3.3.4</span> Gif</h6>
+=======
+<section id="slide-org339ec45">
+<h6 id="org339ec45"><span class="section-number-6">5.2.3.3.4</span> Gif</h6>
+>>>>>>> master
 
 <div class="figure">
 <p><img src="https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0" alt="out.gif?dl=0" width="1200px" />
@@ -1582,8 +2025,13 @@ ffmpeg                    <span style="color: #98be65;">\</span>
 
 
 </section>
+<<<<<<< HEAD
 <section id="slide-org8eb9f69">
 <h4 id="org8eb9f69"><span class="section-number-4">5.2.4</span> The <b>Why</b>?</h4>
+=======
+<section id="slide-orgaaca395">
+<h4 id="orgaaca395"><span class="section-number-4">5.2.4</span> The <b>Why</b>?</h4>
+>>>>>>> master
 <ul>
 <li>These shapes and patterns occur in nature all the time
 <ul>
@@ -1597,6 +2045,7 @@ ffmpeg                    <span style="color: #98be65;">\</span>
 </section>
 </section>
 <section>
+<<<<<<< HEAD
 <section id="slide-org49293ff">
 <h2 id="org49293ff"><span class="section-number-2">6</span> MandelBrot Set</h2>
 <div class="outline-text-2" id="text-6">
@@ -1604,6 +2053,15 @@ ffmpeg                    <span style="color: #98be65;">\</span>
 </section>
 <section id="slide-org5490f33">
 <h3 id="org5490f33"><span class="section-number-3">6.1</span> Motivation</h3>
+=======
+<section id="slide-org23ee1cf">
+<h2 id="org23ee1cf"><span class="section-number-2">6</span> MandelBrot Set</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+</section>
+<section id="slide-org90e1502">
+<h3 id="org90e1502"><span class="section-number-3">6.1</span> Motivation</h3>
+>>>>>>> master
 <p>
 Notice that some of prisoner sets were closed and some were open? A natural
 question arises:
@@ -1625,8 +2083,13 @@ f_{\gamma}: z -> z^{2} + \gamma \enspace : \enspace \gamma = z
 </p>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-orgfc10b68">
 <h4 id="orgfc10b68"><span class="section-number-4">6.1.1</span> Implementing This</h4>
+=======
+<section id="slide-org7d5339a">
+<h4 id="org7d5339a"><span class="section-number-4">6.1.1</span> Implementing This</h4>
+>>>>>>> master
 <p>
 Implementing this in <i>Python</i> is pretty much the same as before but some care
 needs to be taken with respect to storing \(z\) as a constant to use in place of
@@ -1679,8 +2142,13 @@ plt.imshow(pic)
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-orga400acb">
 <h5 id="orga400acb"><span class="section-number-5">6.1.1.1</span> Output Set</h5>
+=======
+<section id="slide-org8a4c178">
+<h5 id="org8a4c178"><span class="section-number-5">6.1.1.1</span> Output Set</h5>
+>>>>>>> master
 
 <div class="figure">
 <p><object type="image/svg+xml" data="./mandelbrot-py.svg" class="org-svg" width="800px">
@@ -1689,8 +2157,13 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-org941a79b">
 <h4 id="org941a79b"><span class="section-number-4">6.1.2</span> Push the envelope</h4>
+=======
+<section id="slide-orgb5f68a3">
+<h4 id="orgb5f68a3"><span class="section-number-4">6.1.2</span> Push the envelope</h4>
+>>>>>>> master
 <p>
 This is however fairly underwhelming, by using a more powerful language a much
 larger image can be produced, in <i>Julia</i> producing a 4 GB, 400 MP image will
@@ -1698,8 +2171,13 @@ take about 10 minutes
 </p>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-orge8a5844">
 <h5 id="orge8a5844"><span class="section-number-5">6.1.2.1</span> Code</h5>
+=======
+<section id="slide-org96f4cc6">
+<h5 id="org96f4cc6"><span class="section-number-5">6.1.2.1</span> Code</h5>
+>>>>>>> master
 <div class="org-src-container">
 
 <pre  class="src src-julia" id=""><code trim><span style="color: #51afef;">function</span> <span style="color: #c678dd;">mandelbrot</span>(z, num, my_func)
@@ -1755,8 +2233,13 @@ save_picture(<span style="color: #98be65;">"/tmp/a.fits"</span>, my_pic)
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-orgc41cfa7">
 <h5 id="orgc41cfa7"><span class="section-number-5">6.1.2.2</span> Visualisation of Set</h5>
+=======
+<section id="slide-orgd51b2bf">
+<h5 id="orgd51b2bf"><span class="section-number-5">6.1.2.2</span> Visualisation of Set</h5>
+>>>>>>> master
 <p>
 I&rsquo;ve taken some techniques from Astronomy and encoded the image as a <i>FITS</i>,
 which is basically a big matrix, it image is <a href="https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0">available-online</a> but I can show you
@@ -1775,6 +2258,7 @@ has something to do with <code>/tmp</code> having a 15GB File restriction but I&
 </p>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-org5acee9a">
 <h3 id="org5acee9a"><span class="section-number-3">6.2</span> GNU Plot</h3>
 <div class="outline-text-3" id="text-6-2">
@@ -1782,6 +2266,15 @@ has something to do with <code>/tmp</code> having a 15GB File restriction but I&
 </section>
 <section id="slide-org2d97693">
 <h4 id="org2d97693"><span class="section-number-4">6.2.1</span> What is GNUPlot</h4>
+=======
+<section id="slide-orgdac0ae3">
+<h3 id="orgdac0ae3"><span class="section-number-3">6.2</span> GNU Plot</h3>
+<div class="outline-text-3" id="text-6-2">
+</div>
+</section>
+<section id="slide-org861640e">
+<h4 id="org861640e"><span class="section-number-4">6.2.1</span> What is GNUPlot</h4>
+>>>>>>> master
 <p>
 It&rsquo;s a Free (as in speech) visualisation library.
 </p>
@@ -1810,8 +2303,13 @@ model in GNUPlot by modifying the code to use iteration as opposed to recursion.
 </p>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-orge9ab411">
 <h5 id="orge9ab411"><span class="section-number-5">6.2.1.1</span> Mandelbrot</h5>
+=======
+<section id="slide-org221c0f5">
+<h5 id="org221c0f5"><span class="section-number-5">6.2.1.1</span> Mandelbrot</h5>
+>>>>>>> master
 <div class="org-src-container">
 <label class="org-src-name">Visualising the Mandelbrot set as a 3D surface Plot</label>
 <pre  class="src src-gnuplot" id="gnuplot-mandelbrot-initial"><code trim><span style="color: #dcaeea;">complex(x,y) =</span> x*{1,0}+y*{0,1}
@@ -1829,7 +2327,11 @@ model in GNUPlot by modifying the code to use iteration as opposed to recursion.
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-orge9ab411-split">
+=======
+<section id="slide-org221c0f5-split">
+>>>>>>> master
 
 
 <div class="figure">
@@ -1840,8 +2342,13 @@ Sorry, your browser does not support SVG.</object>
 
 
 </section>
+<<<<<<< HEAD
 <section id="slide-orgac5c738">
 <h5 id="orgac5c738"><span class="section-number-5">6.2.1.2</span> Julia</h5>
+=======
+<section id="slide-org44d1c62">
+<h5 id="org44d1c62"><span class="section-number-5">6.2.1.2</span> Julia</h5>
+>>>>>>> master
 <div class="org-src-container">
 <label class="org-src-name">Use GNUPlot to produce plot of  julia set</label>
 <pre  class="src src-gnuplot" id="gnuplot-julia"><code trim>
@@ -1862,7 +2369,11 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-orgac5c738-split">
+=======
+<section id="slide-org44d1c62-split">
+>>>>>>> master
 
 
 <div class="figure">
@@ -1874,8 +2385,13 @@ Sorry, your browser does not support SVG.</object>
 
 
 </section>
+<<<<<<< HEAD
 <section id="slide-org0839002">
 <h4 id="org0839002"><span class="section-number-4">6.2.2</span> 2d Mandelbrot</h4>
+=======
+<section id="slide-orgf73c7f6">
+<h4 id="orgf73c7f6"><span class="section-number-4">6.2.2</span> 2d Mandelbrot</h4>
+>>>>>>> master
 <div class="org-src-container">
 <label class="org-src-name">Flat Mandelbrot set built using rosetta code.</label>
 <pre  class="src src-gnuplot" id="flat-gnuplot"><code trim><span style="color: #dcaeea;">R =</span> 2
@@ -1891,7 +2407,11 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-org0839002-split">
+=======
+<section id="slide-orgf73c7f6-split">
+>>>>>>> master
 
 
 <div class="figure">
@@ -1901,8 +2421,13 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 </section>
+<<<<<<< HEAD
 <section id="slide-org6796def">
 <h3 id="org6796def"><span class="section-number-3">6.3</span> Again, why?</h3>
+=======
+<section id="slide-org2cca5f3">
+<h3 id="org2cca5f3"><span class="section-number-3">6.3</span> Again, why?</h3>
+>>>>>>> master
 <p>
 This self Similarity occurs all the time in nature, one of these is synthetic, can you spot it?
 </p>

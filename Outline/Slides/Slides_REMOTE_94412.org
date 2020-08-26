@@ -1,0 +1,1291 @@
+#+TITLE: Math with Computers
+:PREAMBLE:
+#+OPTIONS: broken-links:auto todo:nil H:9
+#+STARTUP: content
+#+OPTIONS: tags:not-in-toc d:nil
+#+AUTHOR: Ryan Greenup & James Guerra
+#+INFOJS_OPT: view:showall toc:3
+#+PLOT: title:"Citas" ind:1 deps:(3) type:2d with:histograms set:"yrange [0:]"
+#+OPTIONS: tex:t
+# #+TODO: TODO IN-PROGRESS WAITING DONE
+#+CATEGORY: TAD
+:END:
+:HTML:
+#+INFOJS_OPT: view:info toc:3
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="style.css">
+# #+CSL_STYLE: /home/ryan/Templates/CSL/nature.csl
+:END:
+:R:
+#+PROPERTY: header-args:R :session TADMain :dir ./ :cache yes :eval never-export :exports both
+#+PROPERTY: :eval never-export
+# exports: both (or code or whatever)
+# results: table (or output or whatever)
+:END:
+:LATEX:
+#+LATEX_HEADER: \IfFileExists{../resources/style.sty}{\usepackage{../resources/style}}{}
+#+LATEX_HEADER: \IfFileExists{../resources/referencing.sty}{\usepackage{../resources/referencing}}{}
+#+LATEX_HEADER: \addbibresource{./bibtex-refs.bib}
+:END:
+:REVEAL:
+#+REVEAL_THEME: sky
+:END:
+
+* Follow along
+
+Scan the QR Code with your phone to follow along!
+
+# #+NAME: qcode
+# #+CAPTION: Export Relevant link as a QR Code.
+#+begin_src bash :exports both :results output graphics file :file qrcode.png :eval never-export
+qrencode -o qrcode.png \
+    "https://ryangreenup.github.io/Python-Quant/Outline/Slides/Slides.html"
+#    "http://ryansnotes.org/x/00Slides/Slides/Slides.html"
+#+end_src
+
+
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+[[file:qrcode.png]]
+
+
+
+* Introduction
+** What we are doing (ish)
+Our title is vague because our project is broad, which is awesome!
+
+We are looking at the concept of computational thinking:
+
+- How to solve mathematical problems computationally
+- Investigating the methods implemented by other /Computer Algebra Software/
+  (CAS)
+  + With a primary focus on FOSS and Modern technologies (like /Sympy🐍/ and
+    /Julia/)
+- Investigate patterns, fractals, chaos and dynamical systems.
+
+** Technologies
+
+
++---------------------------------------------------+-------------+
+| CAS Systems                                       |Visualisation|
++--------------------------------------+------------+-------------+
+|      Python                          | Maxima     |    Makie    |
+|          - Sympy                     | Reduce     |    Plotly   |
+|          - Numpy                     | XCas/Gias  |    GNUPlot  |
+|       Julia                          |            |             |
+|          - SymEngine                 |            |             |
+|          - Symata                    |            |             |
+|          - DifferentialEquations.jl  |            |             |
++--------------------------------------+------------+-------------+
+
+#+begin_export html
+<p><img src="https://www.sympy.org/static/images/logo.png" width="50"/>
+    <img src="https://julialang.org/assets/infra/logo.svg" width="50"/>
+    <img src="https://makie.juliaplots.org/stable/assets/logo.png" width="50"/>
+    <img src="https://numpy.org/images/logos/numpy.svg" width="50"/>
+    <img src="https://www-fourier.ujf-grenoble.fr/~parisse/logo.png" width="50"/>
+    <img src="http://maxima.sourceforge.net/i/logo.png"/></p>
+#+end_export
+
+
+** Some open Questions
+
+Some of the problems that we wanted to work on:
+
++ Can we model the patterns on animals?
++ What is the relationship between Julia Sets, the Cantor set, the lorenz attractor and structures in nature.
++ Can Julia Sets be extended to the quaternions
++ Can we simulate things like the spiral of a nautilus shell?
+  - How is this related to the Fibonacci Sequence and $\phi$
+
+** Motivation
+
+Many problems that look complex upon initial inspection can be solved trivially
+with CAS systems, learning how to effectively approach problems with that in
+mind can lead to new insights.
+
+*** Iteration and Recursion
+**** Series
+   :PROPERTIES:
+   :CUSTOM_ID: series-and-recursion
+   :END:
+Consider the following two series
+\begin{align}
+    g\left( k \right) &=  \frac{\sqrt{2} }{2} \cdot   \frac{\sqrt{2+  \sqrt{3}}  }{3} \frac{\sqrt{2 +  \sqrt{3 +  \sqrt{4} } } }{4}  \ldots \label{eq:rec-ser}
+\end{align}
+
+let's modify this for the sake of discussion:
+
+\begin{align}
+h\left( k \right) = \frac{\sqrt{2}  }{2} \cdot  \frac{\sqrt{3 +  \sqrt{2} } }{3} \cdot  \frac{\sqrt{4 +  \sqrt{3 +  \sqrt{2} } } }{4} \ldots   \label{eq:rec-ser-mod}
+\end{align}
+
+**** Recursion
+This can be expressed with recursion:
+
+#+NAME: rec-one
+#+BEGIN_SRC python
+from sympy import *
+def h(k):
+    if k > 2:
+        return f(k) * f(k-1)
+    else:
+        return 1
+
+def f(i):
+    expr = 0
+    if i > 2:
+        return sqrt(i + f(i -1))
+    else:
+        return 1
+#+END_SRC
+
+**** Iteration
+Another approach is iteration.
+
+#+NAME: it-one
+#+BEGIN_SRC python
+  from sympy import *
+  def h(k):
+      k = k + 1 # OBOB
+      l = [f(i) for i in range(1,k)]
+      return prod(l)
+
+  def f(k):
+      expr = 0
+      for i in range(2, k+2):
+          expr = sqrt(i + expr, evaluate=False)
+      return expr/(k+1)
+#+END_SRC
+
+**** Recursion or Iteration
+
+- Any function that can be defined by using iteration, can always be defined via
+  recursion and vice versa
+#+begin_notes
+- Evidence suggests that recursive functions are easier for people to understand
+  - Although independent research has shown that the specific language chosen can be more important.
+- Not sure if this is true for would be true for compiled languages such as
+  /Julia/, /Java/, */C/* etc.
+- Loops are usually faster because of the overheads involved in creating
+  functions
+  + Also there are often recursion limits that aren't an issue in iterated methods.
+#+end_notes
+
+- For interpreted languages such */R/* and /Python/, loops are usually
+  faster.
+
+**** Some Problems are tricky
+:PROPERTIES:
+    :CUSTOM_ID: some-functions-are-more-difficult-to-express-with-recursion-in-python
+    :END:
+Attacking a problem recursively isn't always the best approach, consider the
+function $g\left( k \right)$ from before:
+
+
+\begin{align}
+    g\left( k \right) &=  \frac{\sqrt{2} }{2} \cdot   \frac{\sqrt{2+  \sqrt{3}}  }{3} \frac{\sqrt{2 +  \sqrt{3 +  \sqrt{4} } } }{4} \cdot \nonumber \\
+\end{align}
+
+- The sequence looks forward not back
+
+#+REVEAL: split
+
+So to implement recursion it must be restructured, however, this can be a bit
+clumsy:
+
+
+\begin{align}
+    g\left( k \right) &=  \prod^k_{i = 2} \left( \frac{f_i}{i}  \right) \quad \nonumber \\
+& \quad f_{i} = \sqrt{\left( k- i \right)  +  f_{k - i - 1}} \label{eq:clumsy}
+\end{align}
+
+***** Solving with Recursion
+
+- $f$ is now two variabled
+- This can get very confusing with nested functions because of scope
+#+begin_notes
+To Implement a recursive definition in /Python/ requires additional variables to be used.
+
+This can get very confusing because */R/* and ~bash~ have a different
+implementation of scope than /Python/ and /Julia/!
+#+end_notes
+
+#+NAME: rec-two
+#+BEGIN_SRC python
+from sympy import *
+def h(k):
+    if k > 2:
+        return f(k, k) * f(k, k-1)
+    else:
+        return 1
+
+def f(k, i):
+    if k > i:
+        return 1
+    if i > 2:
+        return sqrt((k-i) + f(k, k - i -1))
+    else:
+        return 1
+#+END_SRC
+
+***** Solving with Iteration
+by using ~reversed~ this essentially stays the same.
+
+#+NAME: iter-two
+#+BEGIN_SRC python
+from sympy import *
+def h(k):
+    k = k + 1 # OBOB
+    l = [f(i) for i in range(1,k)]
+    return prod(l)
+
+def f(k):
+    expr = 0
+    for i in reversed(range(2, k+2)):
+        expr = sqrt(i + expr, evaluate=False)
+    return expr/(k+1)
+#+END_SRC
+
+**** TODO Variable Scope of Nested Functions
+:PROPERTIES:
+:CUSTOM_ID: variable-scope-nested
+:END:
+Using Python and Julia can be very confusing if you are used to using
+*/R/* and =bash=.
+#+begin_notes
+- R and bash are concerned with where functions are called
+- Python and Julia are concerned with where functions are defined.
+#+end_notes
+
+***** Languages that pass variables up to parents
+   :PROPERTIES:
+   :CUSTOM_ID: languages-that-pass-variables-up-to-parents
+   :END:
+
+Functions defined in */R/* and =bash= will /pass/ variables up into
+there parent function, for example consider the following:
+
+***** */R/*
+   :PROPERTIES:
+   :CUSTOM_ID: r
+   :END:
+
+#+BEGIN_SRC R
+  outer <- function() {
+    inner()
+    print(x)
+  }
+
+  inner <- function() {
+    x <- 3
+  }
+
+  outer()
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  3
+#+END_EXAMPLE
+
+***** =bash=
+   :PROPERTIES:
+   :CUSTOM_ID: bash
+   :END:
+
+#+BEGIN_SRC sh
+  outer() {
+    inner
+    echo "${x}"
+  }
+
+  inner() {
+    x=3
+  }
+
+  outer
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  3
+#+END_EXAMPLE
+
+***** Languages that don't pass variables up to parents
+   :PROPERTIES:
+   :CUSTOM_ID: languages-that-dont-pass-variables-up-to-parents
+   :END:
+
+****** Using Attributes
+    :PROPERTIES:
+    :CUSTOM_ID: using-attributes
+    :END:
+
+whereas in /Python/ you would need to make the variable an attribute of
+the function first (I'm not sure if this feature exists in /Julia/?):
+
+#+BEGIN_SRC python
+  def outer():
+      x = inner()
+      print(str(inner.x))
+
+  def inner():
+      inner.x = 3
+
+  outer()
+#+END_SRC
+
+****** Using Return
+    :PROPERTIES:
+    :CUSTOM_ID: using-return
+    :END:
+
+****** Julia
+    :PROPERTIES:
+    :CUSTOM_ID: julia
+    :END:
+
+#+BEGIN_SRC julia
+  function outer()
+      x=subfunction()
+      print(x)
+  end
+
+  function subfunction()
+      x=4
+      return x
+  end
+
+  outer()
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  3
+#+END_EXAMPLE
+
+***** Julia Scope of =for= loops
+   :PROPERTIES:
+   :CUSTOM_ID: julia-scope-of-for-loops
+   :END:
+
+In Julia observe that the following will not work:
+
+#+BEGIN_SRC julia
+i=6
+while i < 9
+    print(i)
+    i = i + 1
+end
+#+END_SRC
+
+Where as wrapping it in a function will rectify the issue:
+
+#+BEGIN_SRC julia
+function blah()
+    i=6
+    while i < 9
+        print(i)
+        i = i + 1
+    end
+end
+
+blah()
+#+END_SRC
+
+Odd huh.
+
+* Fibonacci Sequence
+** Computational Approach
+   :PROPERTIES:
+   :CUSTOM_ID: define-the-fibonacci-numbers
+   :END:
+The /Fibonacci/ Numbers are given by:
+
+\begin{align}
+F_n = F_{n-1} + F_{n-2} \label{eq:fib-def}
+\end{align}
+
+** Defining Recursively in Python
+#+NAME: fib-rec-0
+#+CAPTION: Defining the /Fibonacci Sequence/ using Recursion
+#+BEGIN_SRC python
+  def rec_fib(k):
+      if type(k) is not int:
+          Print("Error: Require integer values")
+          return 0
+      elif k == 0:
+          return 0
+      elif k <= 2:
+          return 1
+      return rec_fib(k-1) + rec_fib(k-2)
+
+  start = time.time()
+  rec_fib(35)
+  print(str(round(time.time() - start, 3)) + "seconds")
+
+## 2.245seconds
+#+END_SRC
+
+** Caching to Memory
+
+#+NAME: fib-cache
+#+CAPTION: Caching the results of the function previously defined [[time-slow]]
+#+BEGIN_SRC python
+  from functools import lru_cache
+
+  @lru_cache(maxsize=9999)
+  def rec_fib(k):
+      if type(k) is not int:
+          print("Error: Require Integer Values")
+          return 0
+      elif k == 0:
+          return 0
+      elif k <= 2:
+          return 1
+      return rec_fib(k-1) + rec_fib(k-2)
+
+
+start = time.time()
+rec_fib(35)
+print(str(round(time.time() - start, 3)) + "seconds")
+new_start = time.time()
+rec_fib(6000)
+print(str(round(time.time() - new_start, 3)) + "seconds")
+## 0.0seconds
+## 8.3923e-05seconds
+#+END_SRC
+
+** Solving Iteratively
+
+#+NAME: fib-iter
+#+CAPTION: Results are substantially faster
+#+BEGIN_SRC python
+  def my_it_fib(k):
+      if k == 0:
+          return k
+      elif type(k) is not int:
+          print("ERROR: Integer Required")
+          return 0
+
+      i, n1, n2  = 1, 1, 1
+
+      if k <=2:
+          return 1
+
+      while i < k:
+         no = n1
+         n1 = n2
+         n2 = no + n2
+         i = i + 1
+      return (n1)
+
+  start = time.time()
+  my_it_fib(10**6)
+  print(str(round(time.time() - start, 9)) + "seconds")
+
+ ## 6.975890398seconds
+#+END_SRC
+
+** Solving With Julia is even Faster
+
+#+NAME: julia-fib
+#+begin_src julia :results output
+function my_it_fib(k)
+    if k == 0
+        return k
+    elseif typeof(k) != Int
+        print("ERROR: Integer Required")
+        return 0
+    end
+    # Hence k must be a positive integer
+
+    i  = 1
+    n1 = 1
+    n2 = 1
+
+    if k <= 2:
+        return 1
+
+    while i < k
+       no = n1
+       n1 = n2
+       n2 = no + n2
+       i = i + 1
+    end
+    return (n1)
+end
+
+@time my_it_fib(10^6)
+
+##  0.000450 seconds
+#+end_src
+
+** Exponential Generating Functions
+:PROPERTIES:
+:CUSTOM_ID: exp-gen-func-fib-seq
+:END:
+*** Motivation
+    :PROPERTIES:
+    :CUSTOM_ID: motivation
+    :END:
+
+Consider the /Fibonacci Sequence/
+
+\begin{align}
+    a_{n+  2} &= a_{n+  1} +  a_n \label{eq:fib-def-shift}
+\end{align}
+
+Compare it to the following /differential equation/
+
+\begin{align*}
+f''\left( x \right)- f'\left( x \right)- f\left( x \right)=  0
+\end{align*}
+
+#+REVEAL: split
+Solving this we get:
+\begin{align*}
+f\left( x \right)= c_1 ⋅ \mathrm{exp}\left[ \left( \frac{1- \sqrt{5} }{2} \right)x \right] + c_2 ⋅ \mathrm{exp}\left[ \left( \frac{1 + \sqrt{5} }{2} \right)x \right] \end{align*}
+Now consider:
+\begin{alignat}{2}
+f \left( x \right) &= ∑_{n= 0}^\infty \left[ a_n ⋅ \frac{x^n}{n!} \right] &= e^x
+\end{alignat}
+
+#+REVEAL: split
+\begin{align*}
+f\left( x \right)&= ∑_{n= 0}^\infty \left[ \left( c_1\left( \frac{1- \sqrt{5} }{2} \right)^n + c_2 ⋅ \left( \frac{1+ \sqrt{5} }{2} \right)^n \right) ⋅ \frac{x^n}{n!} \right]
+\end{align*}
+
+By equating the above two equations we deduce that:
+\begin{align*}
+a_n = c_1⋅ \left( \frac{1- \sqrt{5} }{2} \right)^n + c_2 \left( \frac{1+ \sqrt{5} }{2} \right)
+\end{align*}
+
+#+REVEAL: split
+Solving $c_1$ and $c_2$ by the initial conditions gives:
+
+\begin{align*}
+a_n &= \frac{1}{\sqrt{5} } \left[ \left( \frac{1+ \sqrt{5} }{2} \right)^n - \left( \frac{1- \sqrt{5} }{2} \right)^n \right] \newline
+&= \frac{\varphi^n - ψ^n}{\sqrt{5} } \newline
+&=\frac{\varphi^n - ψ^n}{\varphi - ψ}
+\end{align*}
+Where:
+$\varphi = \frac{1+ \sqrt{5} }{2} ≈ 1.61\ldots$
+$ψ = 1-\varphi = \frac{1- \sqrt{5} }{2} ≈ 0.61\ldots$
+
+** The Golden Ratio $\varphi$
+*** Where does it come from?
+#+ATTR_REVEAL: :frag (appear)
+- $\frac{F_{n+1}}{F_n}$ or $\frac{a}{b} = \frac{a+b}{a}$
+- $\sqrt{1+\sqrt{1+\sqrt{1+...}}}$
+- $1+\frac{1}{1+\frac{1}{1+\frac{1}{1+...}}}$
+*** Why is it so interesting?
+#+ATTR_HTML: :height 40%, :width 40%
+[[file:Images/golden_ratio.png]]
+#+REVEAL: split
+[[file:Images/spirals.jpeg]]
+
+** Image References:
+Golden Rectangle: https://evstudio.com/functional-schematic-design-trick-use-the-golden-rectangle/
+
+Spirals: https://blog.prototypr.io/golden-ratio-what-it-is-and-why-should-you-use-it-in-design-7c3f43bcf98
+* Persian Recursion
+** What is it?
+This is a simple process that produces complex structured patterns in response
+to feedback and iteration.
+
+1. Decide on some four variable function to describe a set of colours, e.g.:
+   a. $f(w,x,y,z)=(w+x+y+z) \mod m$
+2. Assign this value to the centre row and centre column of a matrix
+3. Repeat this for each newly enclosed sub-matrix.
+
+** Implementing with Python
+*** Plan of Attack
+
+This can be implemented computationally by defining a function that:
+
+- takes the index of four corners enclosing a square sub-matrix of some matrix as input,
+- proceeds only if that square is some positive real value.
+- colours the centre column and row corresponding to a function of those four values
+- then calls itself on the corners of the four new sub-matrices enclosed by the
+  coloured row and column
+
+*** Implementation
+
+#+NAME: persian-recursion-python
+#+CAPTION: Implementation of the persian recursion scheme in /Python/
+#+BEGIN_SRC ipython :exports both :results raw drawer :eval never-export :session persian-recursion :ipyfile ./persian-recursion-0.svg
+%matplotlib inline
+# m is colours
+# n is number of folds
+# Z is number for border
+# cx is a function to transform the variables
+def main(m, n, z, cx):
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    # Make the Empty Matrix
+    mat = np.empty([2**n+1, 2**n+1])
+    main.mat = mat
+
+    # Fill the Borders
+    mat[:,0] = mat[:,-1] = mat[0,:] = mat[-1,:] = z
+
+    # Colour the Grid
+    colorgrid(0, mat.shape[0]-1, 0, mat.shape[0]-1, m)
+
+    # Plot the Matrix
+    plt.matshow(mat)
+
+# Define Helper Functions
+def colorgrid(l, r, t, b, m):
+    # print(l, r, t, b)
+    if (l < r -1):
+        ## define the centre column and row
+        mc = int((l+r)/2); mr = int((t+b)/2)
+
+        ## Assign the colour
+        main.mat[(t+1):b,mc] = cx(l, r, t, b, m)
+        main.mat[mr,(l+1):r] = cx(l, r, t, b, m)
+
+        ## Now Recall this function on the four new squares
+                #l r   t   b
+        colorgrid(l, mc, t, mr, m)    # NW
+        colorgrid(mc, r, t, mr, m)    # NE
+        colorgrid(l, mc, mr, b, m)    # SW
+        colorgrid(mc, r, mr, b, m)    # SE
+
+def cx(l, r, t, b, m):
+    new_col = (main.mat[t,l] + main.mat[t,r] +  main.mat[b,l] + main.mat[b,r]) % m
+    return new_col.astype(int)
+
+main(5,6, 1, cx)
+#+end_src
+
+** The Output
+
+*** 6 Folds
+#+attr_html: :width 400px
+#+attr_latex: :width 6cm
+#+NAME: 6-rug
+#+CAPTION: Output produced by listing [[persian-recursion-python]] with 6 folds
+[[file:../persian-recursion-0.svg]]
+*** 9 Folds
+
+#+NAME: 8-fold-code
+#+CAPTION: Modify listing [[persian-recursion-python]] to create 9 folds
+#+BEGIN_SRC ipython :exports output :results raw :eval never-export :session persian-recursion :eval never-export :ipyfile ./persian-recursion-large.svg
+%config InlineBackend.figure_format = 'svg'
+main(5, 9, 1, cx)
+#+END_SRC
+
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+#+NAME: 8-fold-plot
+#+CAPTION: Output produced by listing [[persian-recursion-python]] with 9 folds
+[[file:~/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/persian-recursion-large.svg]]
+
+*** Different Function
+#+NAME: new-func-code
+#+BEGIN_SRC ipython :exports both :results raw drawer :eval never-export :session persian-recursion :eval never-export :ipyfile ./persian-recursion-new-func.svg
+%config InlineBackend.figure_format = 'svg'
+def cx(l, r, t, b, m):
+    new_col = (main.mat[t,l] + main.mat[t,r] +  main.mat[b,l] + main.mat[b,r]-7) % m
+    return new_col.astype(int)
+main(8, 8, 1, cx)
+#+END_SRC
+
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+#+NAME: new-func-plot
+#+CAPTION: Output produced by listing [[new-func-code]] using $f(w,x,y,z) = (w + x + y + z - 7) \mod 8$
+#+RESULTS: new-func-code
+[[file:../persian-recursion-new-func.svg]]
+
+*** Different Function
+
+#+NAME: new-func2-code
+#+BEGIN_SRC ipython :exports both :results raw drawer :eval never-export :session persian-recursion :eval never-export :ipyfile ./persian-recursion-new-func2.svg
+%config InlineBackend.figure_format = 'svg'
+import numpy as np
+def cx(l, r, t, b, m):
+    new_col = (main.mat[t,l] + main.mat[t,r]*m +  main.mat[b,l]*(m) + main.mat[b,r]*(m))**1 % m + 1
+    return new_col.astype(int)
+main(8, 8, 1, cx)
+#+END_SRC
+
+
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+#+NAME: new-func2-plot
+#+CAPTION: Output produced by listing [[new-func2-code]] using $f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1$
+#+RESULTS: new-func2-code
+[[file:../persian-recursion-new-func2.svg]]
+
+** Emergence of Patterns
+:PROPERTIES:
+:ID:       c33e2a2b-7dd1-4c5b-a3e2-7a84b0878407
+:DIR:      /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/Slides/attachments/
+:END:
+
+Many patterns that occur in nature can be explained by relatively simple rules
+that are exposed to feedback and iteration, this is a centreal theme of Alan
+Turing's /The Chemical Basis For Morphogenesis/ which we hope to look in the
+course of this research.
+
+
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+[[attachment:_20200826_172316screenshot.png]]
+
+* Julia Sets
+** Motivation
+*** The Problem
+- Consider the iterative process $x \rightarrow x^{2}, \enspace x \in \mathbb{R}$,
+  - $x\leq 1 \implies$ convergence
+  - $x>1 \implies$ divergence
+- Now Consider the iterative process $z \rightarrow z^{2}, \enspace z \in \mathbb{C}$,
+  - $\left\lvert z  \right \rvert  \leq 1 \implies$ convergence
+  - $\left\lvert z  \right \rvert   >1 \implies$ divergence
+
+*** The Generalisation
+Although this seems trivial this can be generalised.
+
+Consider:
+
+$$f_{c}(z) = z^{2} + c, \quad \left\lvert c  \right \rvert  \left\lvert z  \right \rvert   \leq 1 \in \mathbb{C}$$
+
+
+
+
+Every value on that plane will belong to one of the two following sets:
+
+- $E_{c}$ :: The set of values on the plane that tend to $\infty$ (escapees)
+- $P_{c}$ :: The set of values on the plane that converge to zero (prisoners)
+
+#+REVEAL: split
+
+- Define $Q^{(k)}_{c}$ to be the the set of values confirmed as prisoners after $k$ iterations of $f_{c}$
+    - this implies $\lim_{k \rightarrow \infty} \left[ Q^{(k)}_{c}  \right] = P_{c}$
+
+$$
+\ \\ \\
+$$
+This is what must be used in practice.
+** Plotting the Sets
+:PROPERTIES:
+:ID:       baa21085-5d8f-4390-9bb7-43c3b51d940d
+:END:
+*** Implementing this
+
+To implement this map a function over the elements of a matrix and map that
+matrix to the complex plane, this will produce a matrix of values (this is a
+picture!)
+
+- ~escape_test~ :: applies iteration until divergence or convergence
+  + Divergence is concluded if $z > \max{2, c}$, and convergence is conceded some number of iterations.
+
+*** The Code
+**** Defining Complex Values
+
+#+NAME: complex-vec
+#+CAPTION: Defining Complex Operations with vectors
+#+BEGIN_SRC ipython :exports both :results raw :eval never-export :session julia-set :eval never-export
+from math import sqrt
+def magnitude(z):
+    # return sqrt(z[0]**2 + z[1]**2)
+    x = z[0]
+    y = z[1]
+    return sqrt(sum(map(lambda x: x**2, [x, y])))
+
+def cAdd(a, b):
+    x = a[0] + b[0]
+    y = a[1] + b[1]
+    return [x, y]
+
+
+def cMult(u, v):
+    x = u[0]*v[0]-u[1]*v[1]
+    y = u[1]*v[0]+u[0]*v[1]
+    return [x, y]
+#+end_src
+
+#+RESULTS: complex-vec
+
+**** Coding the Julia Set
+
+#+NAME: py-circle-code
+#+CAPTION: Circle of Convergence of $z$ under recursion
+#+BEGIN_SRC ipython :exports both :results raw :eval never-export :session julia-set :eval never-export :ipyfile ./circle-of-convergence.svg
+%matplotlib inline
+%config InlineBackend.figure_format = 'svg'
+import numpy as np
+def escape_test(z, num):
+    ''' runs the process num amount of times and returns the count of
+    divergence'''
+    c = [0, 0]
+    count = 0
+    z1 = z  #Remember the original value that we are working with
+    # Iterate num times
+    while count <= num:
+        dist = sum([n**2 for n in z1])
+        distc = sum([n**2 for n in c])
+        # check for divergence
+        if dist > max(2, distc):
+            #return the step it diverged on
+            return count
+        #iterate z
+        z1 = cAdd(cMult(z1, z1), c)
+        count+=1
+        #if z hasn't diverged by the end
+    return num
+
+
+
+p = 0.25 #horizontal, vertical, pinch (zoom)
+res = 200
+h = res/2
+v = res/2
+
+pic = np.zeros([res, res])
+for i in range(pic.shape[0]):
+    for j in range(pic.shape[1]):
+        x = (j - h)/(p*res)
+        y = (i-v)/(p*res)
+        z = [x, y]
+        col = escape_test(z, 100)
+        pic[i, j] = col
+
+import matplotlib.pyplot as plt
+
+plt.axis('off')
+plt.imshow(pic)
+# plt.show()
+
+#+end_src
+
+#+REVEAL: split
+
+
+#+NAME: py-circle-plot
+#+attr_html: :width 600px
+#+attr_latex: :width 9cm
+#+RESULTS: py-circle-code
+[[file:./circle-of-convergence.svg]]
+
+Now at this stage nothing's remarkable, obviously it's a circle, when we
+perform $z \rightarrow z^{2}$ values converge for $\left\lvert z  \right \rvert \leq 1$.
+
+#+REVEAL: split
+
+But what if we try something like:
+
+\begin{align}
+f_{\frac{1}{4} + \frac{i}{2}}&: z \rightarrow z^{2} + (\frac{1}{4} + \frac{i}{2}) \\
+f_{-1}&: z \rightarrow z^{2} - 1
+\end{align}
+
+#+REVEAL: split
+
+#+attr_html: :width 800px
+#+attr_latex: :width 9cm
+#+NAME: py-jl-rab-plot
+#+CAPTION: Circle of Convergence for $f_{\frac{1}{4} + \frac{i}{2}}: z \rightarrow z^{2} + \frac{1}{4} + \frac{i}{2}$
+[[file:./julia-rab.svg]]
+
+
+#+REVEAL: split
+
+#+attr_html: :width 800px
+#+attr_latex: :width 9cm
+#+NAME: py-jl-1-plot
+#+CAPTION: Circle of Convergence for $f_{0}: z \rightarrow z^{2} - 1$
+[[file:./julia-1.svg]]
+
+*** Broader Investigation
+**** Approach
+Consider the equation:
+$$
+f_{0.8 e^{\pi i \tau}}: z \rightarrow z^{2} + 0.8 e^{\pi
+i \tau}, \enspace \tau \in \mathbb{R}
+$$
+
+If the value $\tau$ is iterated over some range a series of snapshots can be
+created.
+**** Code
+/Python/ is too slow, I had to instead use /Julia/ and I produced and this how
+im implemented it:
+
+#+NAME: julia-gen-fracs
+#+CAPTION: Produce a series of fractals using julia
+#+begin_src julia
+# * Define the Julia Set
+"""
+Determine whether or not a value will converge under iteration
+"""
+function juliaSet(z, num, my_func)
+    count = 1
+    # Remember the value of z
+    z1 = z
+    # Iterate num times
+    while count ≤ num
+        # check for divergence
+        if abs(z1)>2
+            return Int(count)
+        end
+        #iterate z
+        z1 = my_func(z1) # + z
+        count=count+1
+    end
+        #if z hasn't diverged by the end
+    return Int(num)
+end
+
+# * Make a Picture
+"""
+Loop over a matrix and apply apply the julia-set function to
+the corresponding complex value
+"""
+function make_picture(width, height, my_func)
+    pic_mat = zeros(width, height)
+    zoom = 0.3
+    for i in 1:size(pic_mat)[1]
+        for j in 1:size(pic_mat)[2]
+            x = (j-width/2)/(width*zoom)
+            y = (i-height/2)/(height*zoom)
+            pic_mat[i,j] = juliaSet(x+y*im, 256, my_func)
+        end
+    end
+    return pic_mat
+end
+
+#+end_src
+
+#+REVEAL: split
+
+To save the images I looped over the function and saved.
+
+#+NAME: GR-save
+#+CAPTION: Generate and save the images with GR
+#+begin_src julia
+# * Use GR to Save a Bunch of Images
+  ## GR is faster than PyPlot
+using GR
+function save_images(count, res)
+    try
+        mkdir("/tmp/gifs")
+    catch
+    end
+    j = 1
+    for i in (1:count)/(40*2*π)
+        j = j + 1
+        GR.imshow(make_picture(res, res, z -> z^2 + 0.8*exp(i*im*9/2))) # PyPlot uses interpolation = "None"
+        name = string("/tmp/gifs/j", lpad(j, 5, "0"), ".png")
+        GR.savefig(name)
+    end
+end
+
+save_images(1200, 1500) # Number  and Res
+#+end_src
+**** Viewing the Results
+***** What we Have                                                          :ATTACH:
+:PROPERTIES:
+:DIR:      /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/Slides/attachments/
+:END:
+We just have a bunch of images now:
+
+
+#+attr_html: :width 800px
+#+attr_latex: :width 9cm
+[[attachment:_20200826_223550screenshot.png]]
+
+***** How to work with it
+
+With /ImageMagick/ and ~ffmpeg~ an animation can be produced, here's how
+
+#+NAME: bash-frac-join
+#+CAPTION: Using ~bash~, ~ffmpeg~ and /ImageMagick/ to combine the images and produce an animation.
+#+begin_src bash
+# Use montage multiple times to get recursion for fun
+montage  (ls *png | sed -n '1p;0~600p') 0a.png
+montage (ls *png | sed -n '1p;0~100p') a.png
+montage -geometry 1000x1000 (ls *png | sed -n '1p;0~50p')  a.png
+
+# Use ImageMagick to Produce a gif (unreliable)
+convert -delay 10 *.png 0.gif
+
+# Use FFMpeg to produce a Gif instead
+ffmpeg                    \
+    -framerate 60         \
+    -pattern_type glob    \
+    -i '*.png'            \
+    -r 15                 \
+    out.mov
+
+
+#+end_src
+
+***** Montage
+:PROPERTIES:
+:DIR:      /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/Slides/attachments/
+:END:
+
+
+#+attr_html: :width 1000px
+#+attr_latex: :width 9cm
+#+NAME: montage-frac
+#+CAPTION: Various fracals corresponding to $f_{0.8 e^{\pi i \tau}}$
+[[attachment:_20200826_005334a.png]]
+
+***** Gif
+
+#+attr_html: :width 1200px
+#+attr_latex: :width 9cm
+[[https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0]]
+
+
+*** The *Why*?
+- These shapes and patterns occur in nature all the time
+  + Math is somewhat the science of patterns
+- It's fun
+
+* MandelBrot Set
+** Motivation
+Notice that some of prisoner sets were closed and some were open? A natural
+question arises:
+
+/for which values of $c$ will they be open and for which values will they be closed?/
+
+It can be shown (and I intend to show it generally), that the distribution of
+these values is equivallent to the julia set where:
+
+$$
+f_{\gamma}: z -> z^{2} + \gamma \enspace : \enspace \gamma = z
+$$
+
+*** Implementing This
+
+Implementing this in /Python/ is pretty much the same as before but some care
+needs to be taken with respect to storing $z$ as a constant to use in place of
+$c$
+
+#+NAME: py-mandelbrot-code
+#+CAPTION: All values of $c$ that lead to a closed /Julia-set/
+#+BEGIN_SRC ipython :exports both :results raw :eval never-export :session julia-set :eval never-export :ipyfile ./mandelbrot-py.svg
+%matplotlib inline
+%config InlineBackend.figure_format = 'svg'
+def mandelbrot(z, num):
+    ''' runs the process num amount of times and returns the count of
+    divergence'''
+    count = 0
+    # Define z1 as z
+    z1 = z
+    # Iterate num times
+    while count <= num:
+        # check for divergence
+        if magnitude(z1) > 2.0:
+            #return the step it diverged on
+            return count
+        #iterate z
+        z1 = cAdd(cMult(z1, z1),z)
+        count+=1
+        #if z hasn't diverged by the end
+    return num
+
+import numpy as np
+
+
+p = 0.25 # horizontal, vertical, pinch (zoom)
+res = 200
+h = res/2
+v = res/2
+
+pic = np.zeros([res, res])
+for i in range(pic.shape[0]):
+    for j in range(pic.shape[1]):
+        x = (j - h)/(p*res)
+        y = (i-v)/(p*res)
+        z = [x, y]
+        col = mandelbrot(z, 100)
+        pic[i, j] = col
+
+import matplotlib.pyplot as plt
+plt.imshow(pic)
+# plt.show()
+#+end_src
+
+**** Output Set
+
+
+#+attr_html: :width 800px
+#+attr_latex: :width 9cm
+#+RESULTS: py-mandelbrot-code
+[[file:./mandelbrot-py.svg]]
+
+*** Push the envelope
+
+This is however fairly underwhelming, by using a more powerful language a much
+larger image can be produced, in /Julia/ producing a 4 GB, 400 MP image will
+take about 10 minutes
+
+**** Code
+
+#+NAME:
+#+begin_src julia
+function mandelbrot(z, num, my_func)
+    count = 1
+    # Define z1 as z
+    z1 = z
+    # Iterate num times
+    while count ≤ num
+        # check for divergence
+        if abs(z1)>2
+            return Int(count)
+        end
+        #iterate z
+        z1 = my_func(z1) + z
+        count=count+1
+    end
+        #if z hasn't diverged by the end
+    return Int(num)
+end
+
+function make_picture(width, height, my_func)
+    pic_mat = zeros(width, height)
+    for i in 1:size(pic_mat)[1]
+        for j in 1:size(pic_mat)[2]
+            x = j/width
+            y = i/height
+            pic_mat[i,j] = mandelbrot(x+y*im, 99, my_func)
+        end
+    end
+    return pic_mat
+end
+
+
+using FITSIO
+function save_picture(filename, matrix)
+    f = FITS(filename, "w");
+    # data = reshape(1:100, 5, 20)
+    # data = pic_mat
+    write(f, matrix)  # Write a new image extension with the data
+
+    data = Dict("col1"=>[1., 2., 3.], "col2"=>[1, 2, 3]);
+    write(f, data)  # write a new binary table to a new extension
+
+    close(f)
+end
+
+# * Save Picture
+#------------------------------------------------------------
+my_pic = make_picture(20000, 20000, z -> z^2) 2000^2 is 4 GB
+save_picture("/tmp/a.fits", my_pic)
+
+#+end_src
+
+**** Visualisation of Set
+I've taken some techniques from Astronomy and encoded the image as a /FITS/,
+which is basically a big matrix, it image is [[https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0][available-online]] but I can show you
+here:
+
+#+begin_src bash
+xdg-open /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Problems/Chaos/mandelbrot-400mpx.fits & disown
+#+end_src
+
+I tried to go bigger but ~AstroFits.JL~ would not write the file, I think this
+has something to do with ~/tmp~ having a 15GB File restriction but I'm not sure.
+
+** GNU Plot
+*** What is GNUPlot
+It's a Free (as in speech) visualisation library.
+
+We can use it to map the time until convergence to the z-axis which also reveals interesting patterns.
+
+All the following code was adapted from online sources, they correspond to an older release
+and newer versions of GNUPlot:
+
+- have a recursion limit
+ - methods to loop functions
+
+so one of our desires in this project is to visualise a much more detailed 3d
+model in GNUPlot by modifying the code to use iteration as opposed to recursion.
+
+**** Mandelbrot
+
+#+NAME: gnuplot-mandelbrot-initial
+#+CAPTION: Visualising the Mandelbrot set as a 3D surface Plot
+#+BEGIN_SRC gnuplot :cache no :exports both :results output graphics :file one.svg :eval never-export
+complex(x,y) = x*{1,0}+y*{0,1}
+mandelbrot(x,y,z,n) = (abs(z)>2.0 || n>=200) ? \
+                  n : mandelbrot(x,y,z*z+complex(x,y),n+1)
+
+set xrange [-2:2]
+set yrange [-2:2]
+set logscale z
+set isosample 240
+set hidden3d
+set contour
+splot mandel(x,y,{0,0},0) notitle
+#+end_src
+
+#+REVEAL: split
+
+#+RESULTS: gnuplot-mandelbrot-initial
+[[file:one.svg]]
+
+
+**** Julia
+
+
+#+NAME: gnuplot-julia
+#+CAPTION: Use GNUPlot to produce plot of  julia set
+#+BEGIN_SRC gnuplot :exports both :results output graphics :file two.svg :eval never-export
+
+complex(x,y) = x*{1,0}+y*{0,1}
+julia(x,y,z,n) = (abs(z)>2.0 || k>=200) ? \
+                  k : julia(x,y,z*z+complex(x,y),n+1)
+
+set xrange [-1.5:1.5]
+set yrange [-1.5:1.5]
+set logscale z
+set isosample 150
+set hidden3d
+set contour
+a= 0.25
+b= 0.75
+splot mandel(a,b,complex(x,y),0) notitle
+#+end_src
+
+#+REVEAL: split
+
+#+RESULTS[e065d7a76464baa900fc7f9562aea3913aa29980]: gnuplot-julia
+[[file:two.svg]]
+
+
+
+*** 2d Mandelbrot
+
+
+#+NAME: flat-gnuplot
+#+CAPTION: Flat Mandelbrot set built using rosetta code.
+#+BEGIN_SRC gnuplot :cache yes :exports both :results output graphics :file three.svg :eval never-export
+R = 2
+k = 100
+complex (x, y) = x * {1, 0} + y * {0, 1}
+mandelbrot (z, z0, n) = n == k || abs (z) > R ? n : mandelbrot (z ** 2 + z0, z0, n + 1)
+set samples 200
+set isosamples 200
+set pm3d map
+set size square
+splot [-2 : 2] [-2 : 2] mandelbrot (complex (0, 0), complex (x, y), 0) notitle
+#+end_src
+
+#+REVEAL: split
+
+[[file:three.svg]]
+
+** Again, why?
+
+This self Similarity occurs all the time in nature, one of these is synthetic, can you spot it?
+
+#+attr_html: :width 700px
+#+attr_latex: :width 9cm
+[[file:media/out.png]]
+
