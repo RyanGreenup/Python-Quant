@@ -578,9 +578,9 @@ $ψ = 1-\varphi = \frac{1- \sqrt{5} }{2} ≈ 0.61\ldots$
 - $1+\frac{1}{1+\frac{1}{1+\frac{1}{1+...}}}$
 *** Why is it so interesting?
 #+ATTR_HTML: :height 40%, :width 40%
-[[/tmp/Python-Quant/Outline/Slides/Images/golden_ratio.png]]
+[[file:Images/golden_ratio.png]]
 #+REVEAL: split
-[[/tmp/Python-Quant/Outline/Slides/Images/spirals.jpeg]]
+[[file:Images/spirals.jpeg]]
 
 ** Image References:
 Golden Rectangle: https://evstudio.com/functional-schematic-design-trick-use-the-golden-rectangle/
