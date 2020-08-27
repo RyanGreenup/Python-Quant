@@ -305,7 +305,7 @@ time, this is implemented in listing [[fib-cache]].
 #+CAPTION: Caching the results of the function previously defined [[time-slow]]
 #+BEGIN_SRC python
   from functools import lru_cache
- 
+
   @lru_cache(maxsize=9999)
   def rec_fib(k):
       if type(k) is not int:
@@ -1150,7 +1150,7 @@ montage (ls *png | sed -n '1p;0~100p') a.png
 montage (ls *png | sed -n '1p;0~50p')  a.png
 
 # Use ImageMagick to Produce a gif (unreliable)
-convert -delay 10 *.png 0.gif      
+convert -delay 10 *.png 0.gif
 
 # Use FFMpeg to produce a Gif instead
 ffmpeg                    \
@@ -1218,7 +1218,7 @@ for i in range(pic.shape[0]):
         z = [x, y]
         col = mandelbrot(z, 100)
         pic[i, j] = col
-       
+
 import matplotlib.pyplot as plt
 plt.imshow(pic)
 # plt.show()
@@ -2177,4 +2177,3 @@ main(8, 8, 1, cx)
 [fn:op] Although proprietary software such as Magma, Mathematica and Maple is very good, the restrictive licence makes them undesirable for study because there is no means by which to inspect the problem solving tecniques implemented, build on top of the work and moreover the lock-in nature of the software makes it a risky investment with respect to time.
 
 [fn:rv] Although Hardy made a good defence of pure math in his 1940s Apology cite:hardyMathematicianApology2012, it isn't rare at all for pure math to be found applications, for example much number theory was probably seen as fairly pure before RSA Encryption cite:spraulHowSoftwareWorks2015.
-

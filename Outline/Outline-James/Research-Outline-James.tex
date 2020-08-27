@@ -1,4 +1,4 @@
-% Created 2020-08-27 Thu 23:02
+% Created 2020-08-27 Thu 22:56
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -35,7 +35,7 @@
 
 
 \section{Introduction}
-\label{sec:org2e83b6b}
+\label{sec:org74028f8}
 
 During preperation for this outline, an article published by the \emph{Mathematical
 Association of America} caught my attention, in which mathematics is referred to
@@ -114,7 +114,7 @@ but then heisenberg,
 but then chaos and meh.
 
 \subsection{Preliminary Problems}
-\label{sec:org374d4d4}
+\label{sec:org70c9455}
 \subsubsection{Iteration and Recursion}
 \label{series-and-recursion}
 To illustrate an example of different ways of thinking about a problem, consider the series shown in \eqref{eq:rec-ser}\footnote{This problem is taken from Project A (44) of Dr. Hazrat's \emph{Mathematica: A Problem Centred Approach} \cite{hazratMathematicaProblemCenteredApproach2015}} :
@@ -275,7 +275,7 @@ def f(k):
 \label{variable-scope-nested}
 
 \subsubsection{Fibonacci Sequence}
-\label{sec:orgd9af6a2}
+\label{sec:org4fde81a}
 \paragraph{Computational Approach}
 \label{define-the-fibonacci-numbers}
 The \emph{Fibonacci} Numbers are given by:
@@ -330,7 +330,7 @@ time, this is implemented in listing \ref{fib-cache}.
 \begin{listing}[htbp]
 \begin{minted}[]{python}
   from functools import lru_cache
-
+ 
   @lru_cache(maxsize=9999)
   def rec_fib(k):
       if type(k) is not int:
@@ -564,7 +564,7 @@ f'\left( x \right)) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 
 If \(f\left( x \right)= \sum^{\infty}_{n= 0 } \left[ a_n \frac{x^n}{n!} \right]\) can it be shown by induction that \(\frac{\mathrm{d}^k }{\mathrm{d} x^k} \left(  f\left( x \right) \right)= f^{k} \left( x \right) \sum^{\infty}_{n= 0}   \left[ x^n \frac{a_{n+  k}}{n!} \right]\)
 
 \subparagraph{Homogeneous Proof}
-\label{sec:orgc3799c5}
+\label{sec:org87dd608}
 An equation of the form:
 
 \begin{align}
@@ -608,10 +608,10 @@ where:
 \label{uniq-roots-recurrence}
 \begin{enumerate}
 \item Example
-\label{sec:org12ee9cd}
+\label{sec:org719b18c}
 An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section \ref{solving-the-sequence}.
 \item Proof
-\label{sec:orgb761041}
+\label{sec:orgb825d41}
 Consider the linear recurrence relation \eqref{eq:recurrence-relation-def}:
 
 \begin{align}
@@ -672,7 +672,7 @@ This can be verified by the fibonacci sequence as shown in section \ref{solving-
 \label{rep-roots-recurrence}
 \begin{enumerate}
 \item Example
-\label{sec:org5348cc6}
+\label{sec:orgc03d12a}
 Consider the following recurrence relation:
 
 \begin{align}
@@ -723,10 +723,10 @@ Given the defenition of the exponential generating function from \eqref{eq:exp-g
     \square \nonumber
 \end{align}
 \item Generalised Example
-\label{sec:orgd0bdedd}
+\label{sec:orgdf7560e}
 
 \item Proof
-\label{sec:orgef02d1d}
+\label{sec:orgc709b7f}
 In order to prove the the solution for a \(k^{\mathrm{th}}\) order recurrence relation with \(k\) repeated
 
 
@@ -781,7 +781,7 @@ f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\rig
 
 
 \item General Proof
-\label{sec:org9bf23aa}
+\label{sec:org0618612}
 In sections \ref{uniq-roots-recurrence} and \ref{uniq-roots-recurrence} it was shown that a recurrence relation can be related to an ODE and then that solution can be transformed to provide a solution for the recurrence relation, when the charecteristic polynomial has either complex roots or 1 repeated root. Generally the solution to a linear ODE will be a superposition of solutions for each root, repeated or unique and so here it will be shown that these two can be combined and that the solution will still hold.
 
 Consider a Recursive relation with constant coefficients:
@@ -837,7 +837,7 @@ L\textsuperscript{2} - L - 1 = 0
 Se  \href{https://mathcs.holycross.edu/\~groberts/Courses/MA242/HW/hw4-sols.pdf}{This Tutorial}
 
 \subsubsection{Persian Recursion}
-\label{sec:org2478052}
+\label{sec:org2e4c2f5}
 Although some recursive problems are a good fit for mathematical thinking such as the \emph{Fibonacci Sequence} discussed in section \ref{exp-gen-func-fib-seq} other problems
 can be be easily interpreted computationally but they don't really carry over to any mathematical perspective, one good example of this is \emph{the persian recursion}, which is a simple procedure developed by Anne Burns in the 90s \cite{burnsPersianRecursion1997} that produces fantastic patterns upon feedback and iteration
 
@@ -940,9 +940,9 @@ main(5,6, 1, cx)
 \end{figure}
 
 \subsubsection{Julia}
-\label{sec:org070d345}
+\label{sec:orgb86b658}
 \paragraph{Motivation}
-\label{sec:org4db6852}
+\label{sec:orgdcd2d83}
 Consider the iterative process \(x \rightarrow x^{2}, \enspace x \in \mathbb{R}\),
 for values of \(x>1\) this process will diverge and for \(x<1\) it will converge.
 
@@ -978,7 +978,7 @@ Every value on that plane will belong to one of the two following sets
 In the case of \(f_{0}(z) = z^{2}\) all values \(\left\lvert z  \right \rvert \leq 1\) are bounded with \(\left\lvert z  \right \rvert = 1\) being an unstable stationary circle, but let's investigate what happens for different iterative functions like \(f_{1}(z) = z^{2} - 1\), despite how trivial this seems at first glance.
 
 \paragraph[Plotting the Sets]{Plotting the Sets\hfill{}\textsc{ATTACH}}
-\label{sec:org5d283d8}
+\label{sec:org94d7f98}
 Although the convergence of values may appear simple at first, we'll implement a
 strategy to plot the prisoner and escape sets on the complex plane.
 
@@ -1204,7 +1204,7 @@ montage (ls *png | sed -n '1p;0~100p') a.png
 montage (ls *png | sed -n '1p;0~50p')  a.png
 
 # Use ImageMagick to Produce a gif (unreliable)
-convert -delay 10 *.png 0.gif
+convert -delay 10 *.png 0.gif      
 
 # Use FFMpeg to produce a Gif instead
 ffmpeg                    \
@@ -1221,12 +1221,12 @@ ffmpeg                    \
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=.9\linewidth]{/home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/_20200826_005334a.png}
+\includegraphics[width=.9\linewidth]{/home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/Outline-James/_20200826_005334a.png}
 \caption{\label{montage-frac}Various fracals corresponding to \(f_{0.8 e^{\pi i \tau}}\)}
 \end{figure}
 
 \subsubsection{MandelBrot}
-\label{sec:org3c0a94e}
+\label{sec:org9eb19dd}
 Investigating these fractals, a natural question might be whether or not any
 given \(c\) value will produce a fractal that is an open disc or a closed disc.
 
@@ -1276,7 +1276,7 @@ for i in range(pic.shape[0]):
         z = [x, y]
         col = mandelbrot(z, 100)
         pic[i, j] = col
-
+       
 import matplotlib.pyplot as plt
 plt.imshow(pic)
 # plt.show()
@@ -1346,7 +1346,7 @@ save_picture("/tmp/a.fits", my_pic)
 \end{minted}
 
 \subsubsection{GNU Plot}
-\label{sec:org94450b3}
+\label{sec:org3140551}
 Another approach to visualise this set is by creating a 3d surface plot where the z-axis is mapped to the time taken until divergence, this can be acheived by using gnuplot as demonstrated in listing \ref{gnuplot-mandelbrot-initial}.\footnote{See \cite{GnuplotFractalMandelbrot} for an excellent, albeit quite old, resource on GNUPlot.}
 
 \href{https://rosettacode.org/wiki/Find\_limit\_of\_recursion\#gnuplot}{limit of recursion is 250}
@@ -1427,10 +1427,10 @@ splot [-2 : 2] [-2 : 2] mandelbrot (complex (0, 0), complex (x, y), 0) notitle
 
 
 \subsubsection{Determinant??}
-\label{sec:orga8aecc6}
+\label{sec:orgd91eea2}
 
 \section{Outline}
-\label{sec:orgc98a808}
+\label{sec:org7b9bcca}
 \begin{enumerate}
 \item Intro Prob
 \item Variable Scope
@@ -1547,7 +1547,7 @@ spiral pops out, also the areas follow a fibonacci sequence.
 \end{itemize}
 \end{enumerate}
 \section{Download RevealJS}
-\label{sec:org6688d7a}
+\label{sec:org3983961}
 So first do \texttt{M-x package-install ox-reveal} then do \texttt{M-x load-library} and then look for \texttt{ox-reveal}
 
 \begin{minted}[]{elisp}
@@ -1566,7 +1566,7 @@ mv reveal.js-master reveal.js
 Then just do \texttt{C-c e e R R} to export with RevealJS as opposed to PHP you won't need a fancy server, just open it in the browser.
 
 \section{Heres a Gif}
-\label{sec:orgfcad2ce}
+\label{sec:orgdeab77a}
 So this is a very big Gif that I'm using:
 
 How did I make the Gif??
@@ -1574,7 +1574,7 @@ How did I make the Gif??
 \url{https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0}
 
 \section{Give a brief Sketch of the project}
-\label{sec:org9b7e330}
+\label{sec:org17afa4d}
 
 Of particular interest are the:
 \begin{itemize}
@@ -1590,7 +1590,7 @@ xdg-open /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant
 Here's what I gatthered from the week 3 slides
 
 \subsection{Topic / Context}
-\label{sec:orga6c40a2}
+\label{sec:orgeff8ce4}
 We are interested in the theory of problem solving, but in particular the
 different approaches that can be taken to attacking a problem.
 
@@ -1598,10 +1598,10 @@ Essentially this boils down to looking at how a computer scientist and
 mathematician attack a problem, although originally I thought there was no
 difference, after seeing the odd way Roozbeh attacks problems I see there is a big difference.
 \subsection{Motivation}
-\label{sec:org08be66c}
+\label{sec:orge75a8be}
 
 \subsection{Basic Ideas}
-\label{sec:org226fd06}
+\label{sec:orgb93e4d2}
 \begin{itemize}
 \item Look at FOSS CAS Systems
 \begin{itemize}
@@ -1627,7 +1627,7 @@ difference, after seeing the odd way Roozbeh attacks problems I see there is a b
 After getting an overview of SymPy let's look at problems that are interesting (chaos, morphogenesis and order from disarray etc.)
 
 \subsection{Where are the Mathematics}
-\label{sec:org076c572}
+\label{sec:org1be8faa}
 
 \begin{itemize}
 \item Trying to look at the algorithms underlying functions in Python/Sympy and other Computer algebra tools such as Maxima, Maple, Mathematica, Sage, GAP and Xcas/Giac, Yacas, Symata.jl, Reduce.jl, SymEngine.jl
@@ -1645,17 +1645,17 @@ After getting an overview of SymPy let's look at problems that are interesting (
 AVOID DETAILS, JUST SKETCH THE PROJECT OUT.
 
 \subsection{Don't Forget we need a talk}
-\label{sec:orga307818}
+\label{sec:org06591a3}
 \subsubsection{Slides In Org Mode}
-\label{sec:org60ffe47}
+\label{sec:orgd976e37}
 \begin{itemize}
 \item \href{https://orgmode.org/worg/org-tutorials/non-beamer-presentations.html}{Without Beamer}
 \item \href{https://orgmode.org/worg/exporters/beamer/tutorial.html}{With Beamer}
 \end{itemize}
 \section{Undecided}
-\label{sec:org2a2c7a8}
+\label{sec:orgd21660c}
 \subsubsection{Determinant}
-\label{sec:org15454bb}
+\label{sec:orgb917047}
 Computational thinking can be useful in problems related to modelling, consider
 for example some matrix \(n\times n\) matrix \(B_n\) described by \eqref{eq:bn-matrix} :
 
@@ -2171,7 +2171,7 @@ the larger amount of data:
   The Maximum Percentage error is 0.27% which corresponds to a matrix of size 39
 \end{verbatim}
 \section{What we're looking for}
-\label{sec:org95757c8}
+\label{sec:org9e24697}
 
 \begin{itemize}
 \item Would a reader know what the project is about?
@@ -2182,7 +2182,7 @@ the larger amount of data:
 
 
 \section{Appendix}
-\label{sec:org095e3d0}
+\label{sec:orgd08afc7}
 
 \begin{listing}[htbp]
 \begin{minted}[]{python}
@@ -2262,7 +2262,7 @@ main(8, 8, 1, cx)
 \caption{\label{new-func2-plot}Output produced by listing \ref{new-func2-code} using \(f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1\)}
 \end{figure}
 \subsection{Figures}
-\label{sec:orgc4cfc77}
+\label{sec:orgdf72290}
 
 \begin{figure}[htbp]
 \centering
