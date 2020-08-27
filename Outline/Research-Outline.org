@@ -582,8 +582,8 @@ An example of a recurrence relation with all unique roots is the fibonacci seque
 Consider the linear recurrence relation eqref:eq:recurrence-relation-def:
 
 \begin{align}
-\sum^{\infty}_{n= 0}   \left[ c_i \cdot  a_n \right] = 0, \quad \exists c \in
-\mathbb{R}, \enspace \forall i<k\in\mathbb{Z}^+ \nonumber
+\sum^{n}_{i= 0}   \left[ c_i \cdot  a_i \right] = 0, \quad \exists c \in
+\mathbb{R}, \enspace \forall i<k\in\mathbb{Z}^+ \nonumber \label{eq:recurrence-relation-def}
 \end{align}
 
 By implementing the exponential generating function as shown in eqref:eq:exp-gen-def-1, this provides:

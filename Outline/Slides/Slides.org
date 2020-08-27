@@ -47,8 +47,6 @@ qrencode -o qrcode.png \
 #+attr_latex: :width 9cm
 [[file:qrcode.png]]
 
-
-
 * Introduction
 ** What we are doing (ish)
 Our title is vague because our project is broad, which is awesome!
@@ -85,7 +83,6 @@ We are looking at the concept of computational thinking:
     <img src="https://www-fourier.ujf-grenoble.fr/~parisse/logo.png" width="50"/>
     <img src="http://maxima.sourceforge.net/i/logo.png"/></p>
 #+end_export
-
 
 ** Some open Questions
 
@@ -1213,6 +1210,8 @@ and newer versions of GNUPlot:
 
 so one of our desires in this project is to visualise a much more detailed 3d
 model in GNUPlot by modifying the code to use iteration as opposed to recursion.
+
+I'd also like to write a program to generate the golden spiral as shown in figure [[golden-spiral]].
 
 **** Mandelbrot
 
