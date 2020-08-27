@@ -581,7 +581,7 @@ eqref:eq:exp-pow-series-sol, all derivates will.
 An equation of the form:
 
 \begin{align}
-\sum^{\infty}_{n=0} \left[ c_{i} \cdot f^{(n)}(x) \right] = 0 \label{eq:hom-ode}
+\sum^{n}_{i=0} \left[ c_{i} \cdot f^{(i)}(x) \right] = 0 \label{eq:hom-ode}
 \end{align}
 
 is said to be a homogenous linear ODE: [[cite:zillDifferentialEquations2009a][Ch. 2]]
@@ -617,21 +617,20 @@ Consider the linear recurrence relation eqref:eq:recurrence-relation-def:
 \sum^{n}_{i= 0}   \left[ c_i \cdot  a_i \right] = 0, \quad \exists c \in
 \mathbb{R}, \enspace \forall i<k\in\mathbb{Z}^+ \nonumber \label{eq:recurrence-relation-def}
 \end{align}
-
-By implementing the exponential generating function as shown in eqref:eq:exp-gen-def-1, this provides:
+This implies:
 
 
 \begin{align}
-    \sum^{k}_{i= 0}   {\left[{ c_i \cdot a_n } \right]} = 0 \nonumber \\
-    \intertext{By Multiplying through and summing: } \notag \\
-     \implies  \sum^{k}_{i= 0}   {\left[{ \sum^{\infty}_{n= 0}   {\left[{ c_i a_n \frac{x^n}{n!} }\right]}  }\right]}  \nonumber = 0 \\
-     \sum^{k}_{i= 0}    {\left[{ c_i \sum^{\infty}_{n= 0}   {\left[{  a_n \frac{x^n}{n!} }\right]}  }\right]}  \nonumber = 0 \\
+    \sum^{\infty}_{n= 0}   \left[ \sum^{k}_{i= 0}   \left[ \frac{x^n}{n!} c_i a_n \right]  \right]  &= 0 \\
+    \sum^{\infty}_{n= 0}    \sum^{k}_{i= 0}    \frac{x^n}{n!} c_i a_n    &= 0 \\
+        \sum^{k}_{i= 0} c_i \sum^{\infty}_{n= 0}    \frac{x^n}{n!}  a_n    &= 0
 \end{align}
 
-Recall from eqref:eq:exp-gen-def-1 the generating function $f{\left({ x }\right)}$:
+By implementing the exponential generating function as shown in
+eqref:eq:exp-gen-def-1, this provides:
 
 \begin{align}
-\sum^{k}_{i= 0}   {\left[{ c_i f^{{\left({ k }\right)} } } {\left({ x }\right)} \right]} \label{eq:exp-gen-def-proof}  &= 0
+   \sum^{k}_{i= 0}   \left[ c_i f^{\left( i \right)}\left( x \right) \right]
 \end{align}
 
 
@@ -720,8 +719,6 @@ Given the defenition of the exponential generating function from eqref:eq:exp-ge
     \ \nonumber \\
     \square \nonumber
 \end{align}
-****** Generalised Example
-
 ****** TODO Proof
 In order to prove the the solution for a $k^{\mathrm{th}}$ order recurrence relation with $k$ repeated
 
@@ -747,10 +744,10 @@ Assume that eqref:eq:gen-form-rep-roots-ode corresponds to a charecteristic poly
  \implies      f{\left({ x }\right)}&= \sum^{k}_{i= 0}   {\left[{ x^i A_i e^{mx} }\right]}, \quad \exists A \in \mathbb{C}^+, \enspace \forall i \in {\left[{ 1,k }\right]} \cap \mathbb{N}  \label{eq:sol-rep-roots-ode} \\
 \end{align}
 
-Recall the following power series identity (proved in section xxx):
+If we assume that (see section [[#power-series-comb]]):
 
 \begin{align}
-x^k e^x = \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}     \nonumber
+k \in \mathbb{Z} \implies x^k e^x = \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}     \label{eq:power-series-comb}
 \end{align}
 
 By applying this to eqref:eq:sol-rep-roots-ode :
@@ -776,22 +773,24 @@ f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\rig
 
 
 ***** TODO General Proof
-In sections [[#uniq-roots-recurrence]] and [[*Unique Roots of Characteristic Equation]] it was shown that a recurrence relation can be related to an ODE and then that solution can be transformed to provide a solution for the recurrence relation, when the charecteristic polynomial has either complex roots or 1 repeated root. Generally the solution to a linear ODE will be a superposition of solutions for each root, repeated or unique and so here it will be shown that these two can be combined and that the solution will still hold.
+:PROPERTIES:
+:CUSTOM_ID: general-gen-func-proof
+:END:
+In sections [[#uniq-roots-recurrence]] and [[*Unique Roots of Characteristic Equation]]
+it was shown that a recurrence relation can be related to an ODE and then that
+solution can be transformed to provide a solution for the recurrence relation,
+when the charecteristic polynomial has either complex roots or 1 repeated root.
+Generally the solution to a linear ODE will be a superposition of solutions for
+each root, repeated or unique and so a goal of our research will be to put this
+together to find a general solution for homogenous linear recurrence relations.
+****** Power Series
+:PROPERTIES:
+:CUSTOM_ID: power-series-comb
+:END:
+A further goal will be to prove eqref:eq:power-series-comb for the case of the
+integers.
 
-Consider a Recursive relation with constant coefficients:
-
-$$
-\sum^{\infty}_{n= 0}   \left[ c_i \cdot  a_n \right] = 0, \quad \exists c \in
-\mathbb{R}, \enspace \forall i<k\in\mathbb{Z}^+
-$$
-
-This can be expressed in terms of the exponential generating function:
-
-$$
-\sum^{\infty}_{n= 0}   \left[ c_i \cdot  a_n \right] = 0\\
-\implies \sum^{\infty}_{n= 0}   \left[\sum^{\infty}_{n= 0}   \left[ c_i \cdot
-a_n  \right]   \right] = 0
-$$
+Sketching out an approach for this:
 
 - Use the Generating function to get an ODE
 - The ODE will have a solution that is a combination of the above two forms
