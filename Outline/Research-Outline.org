@@ -1413,6 +1413,11 @@ splot [-2 : 2] [-2 : 2] mandelbrot (complex (0, 0), complex (x, y), 0) notitle
 
 #+RESULTS[6f4570cfd26a3574d696e18a2348c68289265d90]:
 [[file:three.svg]]
+** Relevant Sources
+To guide research in this area the following books were going to act as guides, in particular /Chaos and Fractals/ by Otto is a primary resource:
+
+
+List the books from Dropbox here.
 
 * Outline
 1. Intro Prob
