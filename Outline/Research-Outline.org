@@ -254,7 +254,12 @@ def f(k):
 :END:
 
 ** TODO Fibonacci Sequence
-This pops up all the time in natural sequences and fractals so we'll deal with it now
+This pops up all the time in natural sequences and fractals so we'll deal with ways to solve it
+The /Fibonacci Sequence/
+The /Fibonacci Sequence/ and the /Golden Ratio/ both occur in patterns observed in nature and are fundamentally related (see section [[#fib-golden-ratio-proof]]), in this section we lay out a strategy to find an analytic solution to the /Fibonacci Sequence/ by relating it to a continuous series and generalise this approach to any homogenous linear recurrence relation.
+
+The hope is that by identifying relationships between discrete and continuos systems insights can be drawn with regard to the occurrence of patterns related to the /Fibonacci Sequence/ and /Golden Ratio/ in nature.
+
 *** TODO Computational Approach
    :PROPERTIES:
    :CUSTOM_ID: define-the-fibonacci-numbers
@@ -770,7 +775,6 @@ f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\rig
 \end{align}
 
 
-
 ***** TODO General Proof
 :PROPERTIES:
 :CUSTOM_ID: general-gen-func-proof
@@ -816,9 +820,6 @@ We'll come back to this later on when looking at spirals and fractals.
 We hope to demonstrate this relationship between the ratio of successive terms
 of the fibonacci sequence without relying on ODEs and generating functions and
 by instead using limits and the /Monotone Convergence Theorem/, the hope being that this will reveal deeper underlying relationships between the /Fibonacci Sequence/ and the /Golden Ratio/ given that the both appear to occur in patterns observed in nature.
-
-This can also be shown by using analysis, let $L=\lim_{n \rightarrow \infty}
-\left[ \frac{F_{n+1}}{F_{n}} \right], then:
 
 ** Persian Recursion
 Although some recursive problems are a good fit for mathematical thinking such as the /Fibonacci Sequence/ discussed in section [[#exp-gen-func-fib-seq]] other problems
