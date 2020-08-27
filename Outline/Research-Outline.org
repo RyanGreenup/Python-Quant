@@ -432,14 +432,14 @@ differential equation/, which would be fairly easy to deal with:
 f''\left( x \right)- f'\left( x \right)- f\left( x \right)=  0
 \end{align*}
 
-
-This would imply that $f\left( x \right) \propto e^{mx}, \quad \exists m \in \mathbb{Z}$ because
-$\frac{\mathrm{d}\left( e^x \right) }{\mathrm{d} x} = e^x$, and so by using a power series it's quite feasable to move between discrete and continuous problems:
-
+By ODE Theory we have $y \propto e^{m_{i}x}, \enspace i = 1, 2$:
 
 \begin{align*}
-f\left( x \right)= e^{rx} = \sum^{\infty}_{n= 0}   \left[ r \frac{x^n}{n!} \right]
+f\left( x \right)= e^{mx} = \sum^{\infty}_{n= 0}   \left[ r^{m} \frac{x^n}{n!} \right]
 \end{align*}
+
+So using some sort of a transformation involving a power series may help to
+relate the discrete problem back to a continuous one.
 
 **** Example
     :PROPERTIES:
@@ -453,11 +453,11 @@ provided in section [[#Derivative-exp-gen-function]])
 
 
 
-\begin{alignat}{2}
-    f \left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n} \cdot  \frac{x^n}{n!} \right]   &= e^x \label{eq:exp-gen-def-1} \\
-    f'\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n+1} \cdot  \frac{x^n}{n!} \right]  &= e^x  \label{eq:exp-gen-def-2} \\
-    f''\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n+2} \cdot  \frac{x^n}{n!} \right] &= e^x  \label{eq:exp-gen-def-3}
-\end{alignat}
+\begin{align}
+    f\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n} \cdot  \frac{x^n}{n!} \right]   \label{eq:exp-gen-def-1} \\
+ \implies   f'\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n+1} \cdot  \frac{x^n}{n!} \right]   \label{eq:exp-gen-def-2} \\
+\implies    f''\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n+2} \cdot  \frac{x^n}{n!} \right]   \label{eq:exp-gen-def-3}
+\end{align}
 
 
 So the recursive relation from eqref:eq:fib-def-shift  could be expressed :
@@ -467,8 +467,13 @@ So the recursive relation from eqref:eq:fib-def-shift  could be expressed :
 a_{n+  2}    &= a_{n+  1} +  a_{n}\\
 \frac{x^n}{n!}   a_{n+  2}    &= \frac{x^n}{n!}\left( a_{n+  1} +  a_{n}  \right)\\
 \sum^{\infty}_{n= 0} \left[ \frac{x^n}{n!}   a_{n+  2} \right]        &= \sum^{\infty}_{n= 0}   \left[ \frac{x^n}{n!} a_{n+  1} \right]  + \sum^{\infty}_{n= 0}   \left[ \frac{x^n}{n!} a_{n}  \right]  \\
-f''\left( x \right) &= f'\left( x \right)+  f\left( x \right)
 \end{align*}
+
+And hence by applying eqref:eq:exp-gen-def-1:
+
+\begin{align}
+f''\left( x \right) &= f'\left( x \right)+  f\left( x \right)
+\end{align}
 
 
 Using the theory of higher order linear differential equations with
@@ -543,7 +548,34 @@ f'\left( x \right)) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 
 \implies f'(x) &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}a_{n+  1} }\right]} \label{eq:exp-pow-series-sol}
 \end{align}
 
-If $f\left( x \right)= \sum^{\infty}_{n= 0 } \left[ a_n \frac{x^n}{n!} \right]$ can it be shown by induction that $\frac{\mathrm{d}^k }{\mathrm{d} x^k} \left(  f\left( x \right) \right)= f^{k} \left( x \right) \sum^{\infty}_{n= 0}   \left[ x^n \frac{a_{n+  k}}{n!} \right]$
+***** Inductive Proof                                                       :James:
+This can be shown for all derivatives by way of induction, for
+
+\begin{align}
+f^{(k)}\left(x\right) = \sum_{n=0}^\infty\frac{a_{n+k}\cdot x^n}{n!} \quad \text{for}~k \ge 0
+\end{align}
+
+Assume that. $f^{(k)}\left(x\right) = \sum_{n=0}^\infty\frac{a_{n+k}\cdot x^n}{n!}$
+
+Using this assumption, prove for the next element $k+1$\\
+
+We need $f^{(k+1)}(x) = \sum_{n=0}^\infty\frac{a_{n+k+1}\cdot x^n}{n!}$
+
+\begin{align*}
+    \text{LHS} &= f^{(k+1)}(x)\\
+    &= \frac{\mathrm{d}}{\mathrm{d}x}\left(f^{(k)}(x)\right)\\
+    &= \frac{\mathrm{d}}{\mathrm{d}x}\left(\sum_{n=0}^\infty\frac{a_{n+k}\cdot x^n}{n!}\right)\quad \text{by assumption}\\
+    &= \sum_{n=0}^\infty\frac{a_{n+k}\cdot n\cdot x^{n-1}}{n!}\\
+    &= \sum_{n=1}^\infty\frac{a_{n+k}\cdot x^{n-1}}{(n-1)!}\\
+    &= \sum_{n=0}^\infty\frac{a_{n+k+1}\cdot x^{n}}{n!}\\
+    &= \text{RHS}
+\end{align*}
+
+Thus, if the derivative of the series shown in eqref:eq:exp-gen-def-1 shifts the
+sequence across, then every derivative thereafter does so as well, because the
+first derivative has been shown to express this property
+eqref:eq:exp-pow-series-sol, all derivates will.
+
 
 **** TODO Homogeneous Proof
 An equation of the form:
