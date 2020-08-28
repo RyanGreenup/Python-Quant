@@ -1311,7 +1311,7 @@ ffmpeg                    \
 #+CAPTION: Various fracals corresponding to $f_{0.8 e^{\pi i \tau}}$
 [[attachment:_20200826_005334a.png]]
 
-* MandelBrot                                                                    :Ryan:ATTACH:
+* MandelBrot                                                                    :Ryan:
 :PROPERTIES:
 :ID:       c0c790f2-93a7-44f1-9f76-4a20bcd66c62
 :DIR:      /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/
