@@ -1177,7 +1177,7 @@ This is precisely what we expected, but this is where things get interesting,
 consider now the result if we apply this same procedure to $f_{1}: z \rightarrow
 z^{2} - 1$ or something arbitrary like $f_{\frac{1}{4} + \frac{i}{2}}: z
 \rightarrow z^{2} + (\frac{1}{4} + \frac{i}{2})$, the result is something
-particularly unexpected, as shown in figures [[py-jl-1-plot]] and [[py-jl-rab-plot]].
+remarkebly unexpected, as shown in figures [[py-jl-1-plot]] and [[py-jl-rab-plot]].
 
 
 #+attr_html: :width 400px
@@ -1193,7 +1193,7 @@ particularly unexpected, as shown in figures [[py-jl-1-plot]] and [[py-jl-rab-pl
 #+CAPTION: Circle of Convergence for $f_{\frac{1}{4} + \frac{i}{2}}: z \rightarrow z^{2} + \frac{1}{4} + \frac{i}{2}$
 [[file:./julia-rab.svg]]
 
-Now this is particularly interesting, to investigate this further consider the
+To investigate this further consider the
 more general function $f_{0.8 e^{\pi i \tau}}: z \rightarrow z^{2} + 0.8 e^{\pi
 i \tau}, \enspace \tau \in \mathbb{R}$, many fractals can be generated using
 this set by varying the value of $\tau$[fn:wk].
@@ -1207,7 +1207,7 @@ performance wise and so was used to save corresponding images to disc, this is
 demonstrated in listing [[GR-save]] where 1200 pictures at a 2.25 MP resolution were produced. [fn:tm]
 
 A subset of these images can be combined using /ImageMagick/ and ~bash~ to
-create a collage, /ImageMagick/ can also be used to produce a ~gif~ but it often
+create a collage, /ImageMagick/ can also be used to produce an animation but it often
 fails and a superior approach is to use ~ffmpeg~, this is demonstrated in
 listing [[bash-frac-join]], the collage is shown in figure [[montage-frac]] and a corresponding
 animation is [[https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0][available online]][fn:ln]].
@@ -1306,7 +1306,11 @@ ffmpeg                    \
 #+CAPTION: Various fracals corresponding to $f_{0.8 e^{\pi i \tau}}$
 [[attachment:_20200826_005334a.png]]
 
-** MandelBrot                                                                  :Ryan:
+** MandelBrot                                                                  :Ryan:ATTACH:
+:PROPERTIES:
+:ID:       c0c790f2-93a7-44f1-9f76-4a20bcd66c62
+:DIR:      /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/
+:END:
 Investigating these fractals, a natural question might be whether or not any
 given $c$ value will produce a fractal that is an open disc or a closed disc.
 
@@ -1317,11 +1321,11 @@ $P$ is closed we this value is defined as belonging to the /Mandelbrot/ set.
 It can be shown (and I intend to show it generally), that this set is equivalent to re-implementing the previous strategy such that $z \rightarrow z^{2} + z_{0}$ where $z_{0}$ is unchanging or more clearly as a seqeuence:
 
 \begin{align}
-z_{n+1} &= z^{2}_n + c \label{eq:mb-sequence}
+z_{n+1} &= z^{2}_n + c \label{eq:mb-sequence} \\
 z_{0}   &= c
 \end{align}
 
-This strategy is implemented in listing [[mandelbrot-py]]
+This strategy is implemented in listing [[mandelbrot-py]] and produces the output shown in figure [[mandelbrot-py-pic]].
 
 #+NAME: py-mandelbrot-code
 #+CAPTION: All values of $c$ that lead to a closed /Julia-set/
@@ -1368,12 +1372,16 @@ plt.imshow(pic)
 # plt.show()
 #+end_src
 
+#+attr_html: :width 600px
+#+attr_latex: :width 8cm
+#+NAME: mandelbrot-py-pic
+#+CAPTION: Mandelbrot Set produced in /Python/ as shown in listing [[py-mandelbrot-code]]
 #+RESULTS: py-mandelbrot-code
 [[file:./mandelbrot-py.svg]]
 
-This is however fairly underwhelming, by using a more powerful language a much
-larger image can be produced, in /Julia/ producing a 4 GB, 400 MP image will
-take about 10 minutes, this is demonstrated in listing [[julia-large-mandelbrot]]
+This output although remarkable is however fairly undetailed, by using /Julia/ a much
+larger image can be produced, in /Julia/ producing a 4 GB, 400 MP image can be done in little time
+(about 10 minutes on my system), this is demonstrated in listing [[julia-large-mandelbrot]]
 and the corresponding FITS image is [[https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0][available-online.]][fn:ft]
 
 #+NAME:
@@ -1428,6 +1436,13 @@ my_pic = make_picture(20000, 20000, z -> z^2) 2000^2 is 4 GB
 save_picture("/tmp/a.fits", my_pic)
 
 #+end_src
+
+#+attr_html: :width 500px
+#+attr_latex: :width 10cm
+#+NAME: mandelbrot-screen
+#+CAPTION: Screenshot of Mandelbrot FITS image produced by listing [[julia-large-mandelbrot]]
+[[file:_20200828_233844screenshot.png]]
+
 
 *** GNU Plot
 Another approach to visualise this set is by creating a 3d surface plot where
