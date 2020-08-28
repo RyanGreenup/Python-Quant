@@ -254,9 +254,16 @@ def f(k):
 :END:
 
 ** TODO Fibonacci Sequence
-This pops up all the time in natural sequences and fractals so we'll deal with ways to solve it
-The /Fibonacci Sequence/
-The /Fibonacci Sequence/ and the /Golden Ratio/ both occur in patterns observed in nature and are fundamentally related (see section [[#fib-golden-ratio-proof]]), in this section we lay out a strategy to find an analytic solution to the /Fibonacci Sequence/ by relating it to a continuous series and generalise this approach to any homogenous linear recurrence relation.
+The Fibonacci Sequence occurs in patterns observed in nature very frequently (see
+cite:shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016)
+
+This pops up all the time in natural sequences and fractals so we'll deal with
+ways to solve it The /Fibonacci Sequence/ The /Fibonacci Sequence/ and the
+/Golden Ratio/ both occur in patterns observed in nature and are fundamentally
+related (see section [[#fib-golden-ratio-proof]]), in this section we lay out a
+strategy to find an analytic solution to the /Fibonacci Sequence/ by relating it
+to a continuous series and generalise this approach to any homogenous linear
+recurrence relation.
 
 The hope is that by identifying relationships between discrete and continuos systems insights can be drawn with regard to the occurrence of patterns related to the /Fibonacci Sequence/ and /Golden Ratio/ in nature.
 
@@ -1209,7 +1216,12 @@ So pick a value $\left\lvert \gamma \right \rvert < 1$ in the complex plane and
 use it to produce the julia set $f_{\gamma}$, if the corresponding prisoner set
 $P$ is closed we this value is defined as belonging to the /Mandelbrot/ set.
 
-It can be shown (and I intend to show it generally), that this set is equivalent to re-implementing the previous strategy such that $z \rightarrow z^{2} + z_{0}$ where $z_{0}$ is unchanging.
+It can be shown (and I intend to show it generally), that this set is equivalent to re-implementing the previous strategy such that $z \rightarrow z^{2} + z_{0}$ where $z_{0}$ is unchanging or more clearly as a seqeuence:
+
+\begin{align}
+z_{n+1} &= z^{2}_n + c \label{eq:mb-sequence}
+z_{0}   &= c
+\end{align}
 
 This strategy is implemented in listing [[mandelbrot-py]]
 
@@ -1347,16 +1359,25 @@ I'd also like to implement some process to generate a golden spiral as shown in 
 #+CAPTION: Visualising the Mandelbrot set as a 3D surface Plot
 #+BEGIN_SRC gnuplot :cache no :exports both :results output graphics :file one.svg :eval never-export
 complex(x,y) = x*{1,0}+y*{0,1}
+julia(x,y,z,n) = (abs(z)>2.0 || n>=200) ? \
+                  n : julia(x,y,z*z+complex(x,y),n+1)
+
 mandelbrot(x,y,z,n) = (abs(z)>2.0 || n>=200) ? \
                   n : mandelbrot(x,y,z*z+complex(x,y),n+1)
 
-set xrange [-2:2]
-set yrange [-1.1:2]
+set xrange [-1.5:1.5]
+set yrange [-1.5:1.5]
 set logscale z
-set isosample 240
+set isosample 150
 set hidden3d
 set contour
-splot mandelbrot(x,y,{0,0},0) notitle
+a= 0.36
+b= 0.1
+# Julia Set
+splot julia(a,b,complex(x,y),0)  notitle
+
+# MandelBrot Set
+# splot mandelbrot(x,y,complex(x,y),0) notitle
 #+end_src
 
 #+RESULTS: gnuplot-mandelbrot-initial
@@ -1369,7 +1390,6 @@ splot mandelbrot(x,y,{0,0},0) notitle
 #+NAME: gnuplot-julia
 #+CAPTION: Use GNUPlot to produce plot of  julia set
 #+BEGIN_SRC gnuplot :exports both :results output graphics :file two.svg :eval never-export
-
 complex(x,y) = x*{1,0}+y*{0,1}
 julia(x,y,z,n) = (abs(z)>2.0 || k>=200) ? \
                   k : julia(x,y,z*z+complex(x,y),n+1)
@@ -1382,7 +1402,7 @@ set hidden3d
 set contour
 a= 0.25
 b= 0.75
-splot mandel(a,b,complex(x,y),0) notitle
+splot julia(a,b,complex(x,y),0) notitle
 #+end_src
 
 #+RESULTS[e065d7a76464baa900fc7f9562aea3913aa29980]: gnuplot-julia
@@ -1418,6 +1438,8 @@ To guide research in this area the following books were going to act as guides, 
 
 
 List the books from Dropbox here.
+
+Also Ron Knotts website looks very helpful cite:ronknottFibonacciNumbersGolden2016
 
 * Outline
 1. Intro Prob
