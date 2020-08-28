@@ -473,7 +473,7 @@ constant coefficients it can be shown:
 
 
 \begin{align*}
-f\left( x \right)= c_1 \cdot  \mathrm{exp}\left[ \left( \frac{1- \sqrt{5} }{2} \right)x \right] +  c_2 \cdot  \mathrm{exp}\left[ \left( \frac{1 +  \sqrt{5} }{2} \right) \right]
+f\left( x \right)= c_1 \cdot  \mathrm{exp}\left[ \left( \frac{1- \sqrt{5} }{2} \right)x \right] +  c_2  \mathrm{exp}\left[ \left( \frac{1 +  \sqrt{5} }{2} \right)x \right]
 \end{align*}
 
 
@@ -497,7 +497,7 @@ We can conclude that:
 
 
 \begin{align*}
-a_n = c_1\cdot  \left( \frac{1- \sqrt{5} }{2} \right)^n +  c_2 \cdot  \left( \frac{1+  \sqrt{5} }{2} \right)
+a_n = c_1\cdot  \left( \frac{1- \sqrt{5} }{2} \right)^n +  c_2 \cdot  \left( \frac{1+  \sqrt{5} }{2} \right)^n
 \end{align*}
 
 
@@ -506,7 +506,8 @@ By applying the initial conditions:
 
 \begin{align*}
 a_0= c_1 +  c_2  \implies  c_1= - c_2\\
-a_1= c_1 \left( \frac{1+ \sqrt{5} }{2} \right) -  c_1 \frac{1-\sqrt{5} }{2}  \implies  c_1 = \frac{1}{\sqrt{5} }
+a_1= c_1 \left( \frac{1+ \sqrt{5} }{2} \right) -  c_1 \frac{1-\sqrt{5} }{2}  \implies  c_1 = \frac{1}{\sqrt{5} }\\
+\therefore c_1 = \frac{1}{\sqrt{5}} \text{and} c_2 = -\frac{1}{\sqrt{5}}
 \end{align*}
 
 
@@ -529,24 +530,44 @@ where:
     :PROPERTIES:
     :CUSTOM_ID: Derivative-exp-gen-function
     :END:
-    Differentiating the exponential generating function has the effect of shifting the sequence to the backward: cite:lehmanReadingsMathematicsComputer2010
+    Differentiating the exponential generating function has the effect of shifting the sequence once to the left: cite:lehmanReadingsMathematicsComputer2010
 
 \begin{align}
     f\left( x \right) &= \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right] \label{eq:exp-pow-series} \\
-f'\left( x \right)) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right]  \right) \nonumber \\
-&= \frac{\mathrm{d}}{\mathrm{d} x} \left( a_0 \frac{x^0}{0!} +  a_1 \frac{x^1}{1!} +  a_2 \frac{x^2}{2!}+  a_3 \frac{x^3}{3! } +  \ldots \frac{x^k}{k!} \right) \nonumber \\
+f'\left( x \right) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right]  \right) \nonumber \\
+&= \frac{\mathrm{d}}{\mathrm{d} x} \left( a_0 \frac{x^0}{0!} +  a_1 \frac{x^1}{1!} +  a_2 \frac{x^2}{2!}+  a_3 \frac{x^3}{3! } +  \ldots + \frac{x^k}{k!} \right) \nonumber \\
 &= \sum^{\infty}_{n= 0}   \left[ \frac{\mathrm{d} }{\mathrm{d} x}\left( a_n \frac{x^n}{n!} \right) \right] \nonumber \\
-&= \sum^{\infty}_{n= 0}   {\left[{ \frac{a_n}{{\left({ n- 1 }\right)!}} } x^{n- 1}  \right]} \nonumber \\
+&= \sum^{\infty}_{n= 1}   {\left[{ \frac{a_n}{{\left({ n- 1 }\right)!}} } x^{n- 1}  \right]} \nonumber \\
 \implies f'(x) &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}a_{n+  1} }\right]} \label{eq:exp-pow-series-sol}
 \end{align}
 
-If $f\left( x \right)= \sum^{\infty}_{n= 0 } \left[ a_n \frac{x^n}{n!} \right]$ can it be shown by induction that $\frac{\mathrm{d}^k }{\mathrm{d} x^k} \left(  f\left( x \right) \right)= f^{k} \left( x \right) \sum^{\infty}_{n= 0}   \left[ x^n \frac{a_{n+  k}}{n!} \right]$
+This in fact is true for all $k \ge 0$ and can be proven by induction.
 
-***** TODO Homogeneous Proof
+If $f(x) = \sum_{n=0}^\infty\frac{a_{n}\cdot x^n}{n!}$, prove $f^{(k)}\left(x\right) = \sum_{n=0}^\infty\frac{a_{n+k}\cdot x^n}{n!} \text{for}~k \ge 0$\\
+Test $k=0$
+\begin{align*}
+    LHS &= f^{(0)}(x) = \sum_{n=0}^\infty a_n \cdot \frac{x^n}{n!}\\
+    RHS &= \sum_{n=0}^\infty a_n \cdot \frac{x^n}{n!}\\
+\end{align*}
+Therefore LHS = RHS, so $k=0$ is true \\
+Now assume true for all k, i.e. $f^{(k)}\left(x\right) = \sum_{n=0}^\infty \frac{a_{n+k}\cdot x^n}{n!}$ \\
+Using this assumption, prove for the next element $k+1$ \\
+We need $f^{(k+1)}(x) = \sum_{n=0}^\infty \frac{a_{n+k+1}\cdot x^n}{n!}$ \\
+\begin{align*}
+    \text{LHS} &= f^{(k+1)}(x)\\
+    &= \frac{\mathrm{d}}{\mathrm{d}x}\left(f^{(k)}(x)\right)\\
+    &= \frac{\mathrm{d}}{\mathrm{d}x}\left(\sum_{n=0}^\infty\frac{a_{n+k}\cdot x^n}{n!}\right)\quad \text{(by assumption)}\\
+    &= \sum_{n=0}^\infty\frac{a_{n+k}\cdot n\cdot x^{n-1}}{n!}\\
+    &= \sum_{n=1}^\infty\frac{a_{n+k}\cdot x^{n-1}}{(n-1)!}\\
+    &= \sum_{n=0}^\infty\frac{a_{n+k+1}\cdot x^{n}}{n!}\\
+    &= \text{RHS}
+\end{align*}
+
+***** Differential Equations
 An equation of the form:
 
 \begin{align}
-\sum^{\infty}_{n=0} \left[ c_{i} \cdot f^{(n)}(x) \right] = 0 \label{eq:hom-ode}
+\sum^{k}_{n=0} \left[ c_{i} \cdot f^{(n)}(x) \right] = 0 \label{eq:hom-ode}
 \end{align}
 
 is said to be a homogenous linear ODE: [[cite:zillDifferentialEquations2009a][Ch. 2]]
@@ -557,7 +578,7 @@ is said to be a homogenous linear ODE: [[cite:zillDifferentialEquations2009a][Ch
 - Homogenous :: because the */RHS/* is 0
   - A non-homogeous equation would have a non-zero RHS
 
-There will be $k$ solutions to a $k^{\mathrm{th}}$ order linear ODE, each may be summed to produce a superposition which will also be a solution to the equation, [[cite:zillDifferentialEquations2009a][Ch. 4]]  this will be considered as the desired complete solution (and this will be shown to be the only solution for the recurrence relation eqref:eq:recurrence-relation-def). These $k$ solutions will be in one of two forms:
+There will be $k$ solutions to a $k^{\mathrm{th}}$ order linear ODE, each may be summed to produce a superposition which will also be a solution to the equation, [[cite:zillDifferentialEquations2009a][Ch. 4]]  this will be considered as the desired complete solution. These $k$ solutions will be in one of two forms:
 
 1. $f(x)=c_{i} \cdot e^{m_{i}x}$
 2. $f(x)=c_{i} \cdot x^{j}\cdot e^{m_{i}x}$
@@ -567,7 +588,7 @@ where:
 - $\sum^{k}_{i=0}\left[  c_{i}m^{k-i} \right] = 0$
   - This is referred to the characteristic equation of the recurrence relation or ODE cite:levinSolvingRecurrenceRelations2018
 - $\exists i,j \in \mathbb{Z}^{+} \cap \left[0,k\right]$
-  - These is often referred to as repeated roots cite:levinSolvingRecurrenceRelations2018,zillMatrixExponential2009 with a multiplicity corresponding to the number of repetitions of that root [[cite:nicodemiIntroductionAbstractAlgebra2007][\textsection 3.2]]
+  - These are often referred to as repeated roots cite:levinSolvingRecurrenceRelations2018,zillMatrixExponential2009 with a multiplicity corresponding to the number of repetitions of that root [[cite:nicodemiIntroductionAbstractAlgebra2007][\textsection 3.2]]
 
 ****** Unique Roots of Characteristic Equation
 :PROPERTIES:
@@ -576,7 +597,7 @@ where:
 ******* Example
 An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section [[#solving-the-sequence]].
 ******* Proof
-Consider the linear recurrence relation eqref:eq:recurrence-relation-def:
+Consider the following linear recurrence relation:
 
 \begin{align}
 \sum^{\infty}_{n= 0}   \left[ c_i \cdot  a_n \right] = 0, \quad \exists c \in
@@ -593,7 +614,7 @@ By implementing the exponential generating function as shown in eqref:eq:exp-gen
      \sum^{k}_{i= 0}    {\left[{ c_i \sum^{\infty}_{n= 0}   {\left[{  a_n \frac{x^n}{n!} }\right]}  }\right]}  \nonumber = 0 \\
 \end{align}
 
-Recall from eqref:eq:exp-gen-def-1 the generating function $f{\left({ x }\right)}$:
+Recall from eqref:eq:hom-ode the homogeneous differential equation:
 
 \begin{align}
 \sum^{k}_{i= 0}   {\left[{ c_i f^{{\left({ k }\right)} } } {\left({ x }\right)} \right]} \label{eq:exp-gen-def-proof}  &= 0
@@ -606,7 +627,7 @@ Now assume that the solution exists and all roots of the characteristic polynomi
     f{\left({ x }\right)} = \sum^{k}_{i= 0}   {\left[{ k_i e^{m_i x} }\right]}, \quad \exists m,k \in \mathbb{C} \nonumber
 \end{align}
 
-This can be re-expressed in terms of the exponential power series, in order to relate the solution of the function $f{\left({ x }\right)}$ back to a solution of the sequence $a_n$, (see section [[#prove-exp-power-series]] for a derivation of the exponential power series):
+This can be re-expressed in terms of the exponential power series. Doing this allows us to relate the solution of the function $f{\left({ x }\right)}$ back to a solution of the sequence $a_n$, (see section [[#prove-exp-power-series]] for a de
 
 \begin{align}
     \sum^{k}_{i= 0}   {\left[{ k_i e^{m_i x}  }\right]}  &= \sum^{k}_{i= 0}   {\left[{ k_i \sum^{\infty}_{n= 0}   \frac{{\left({ m_i x }\right)}^n}{n!}  }\right]}  \nonumber \\
@@ -615,10 +636,10 @@ This can be re-expressed in terms of the exponential power series, in order to r
 							 &= \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}  \sum^{k}_{i=0}   {\left[{ k_im^n_i }\right]}  }\right]}, \quad \exists k_i \in \mathbb{C}, \enspace \forall i \in \mathbb{Z}^+\cap {\left[{ 1, k }\right]}     \label{eq:unique-root-sol-power-series-form}
 \end{align}
 
-Recall the definition of the generating function from ref:eq:exp-gen-def-proof, by relating this to eqref:eq:unique-root-sol-power-series-form:
+Recall the exponential generating function gives f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{  \frac{x^n}{n!} a_n }\right]. Equating this to eqref:eq:unique-root-sol-power-series-form will give:
 
 \begin{align}
-    f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{  \frac{x^n}{n!} a_n }\right]} \nonumber \\
+    f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{  \frac{x^n}{n!} a_n }\right]} \nonumber
 &= \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}  \sum^{k}_{i=0}   {\left[{ k_im^n_i }\right]}  }\right]}  \nonumber \\
       \implies  a_n &= \sum^{k}_{n= 0} {\left[{ k_im_i^n }\right]}     \nonumber \\ \nonumber
 \square
@@ -636,17 +657,18 @@ This can be verified by the fibonacci sequence as shown in section [[#solving-th
 :CUSTOM_ID: rep-roots-recurrence
 :END:
 ******* Example
+We have had a look at distinct roots, but what about repeated roots?
 Consider the following recurrence relation:
 
 \begin{align}
     a_n -  10a_{n+ 1} +  25a_{n+  2}&= 0 \label{eq:hom-repeated-roots-recurrence} \\
-    \implies  \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]} - 10 \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}+    }\right]} + 25 \sum^{\infty}_{n= 0 }   {\left[{  a_{n+  2 }\frac{x^n}{n!} }\right]}&= 0 \nonumber
+    \implies  \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]} - 10 \sum^{\infty}_{n= 0}   {\left[a_{n+1}{ \frac{x^n}{n!}   }\right]} + 25 \sum^{\infty}_{n= 0 }   {\left[{  a_{n+  2 }\frac{x^n}{n!} }\right]}&= 0 \nonumber
 \end{align}
 
-By applying the definition of the exponential generating function at eqref:eq:exp-gen-def-1 :
+Again, repeating the same process we did for distinct roots, we get:
 
 \begin{align}
-    f''{\left({ x }\right)}- 10f'{\left({ x }\right)}+  25f{\left({ x }\right)}= 0 \nonumber \label{eq:rep-roots-func-ode}
+    f''{\left({ x }\right)}- 10f'{\left({ x }\right)}+  25f{\left({ x }\right)}= 0 \label{eq:rep-roots-func-ode}
 \end{align}
 
 By implementing the already well-established theory of linear ODE's, the characteristic equation for eqref:eq:rep-roots-func-ode can be expressed as:
@@ -663,31 +685,78 @@ Herein lies a complexity, in order to solve this, the solution produced from eqr
     f{\left({ x }\right)}= c_1e^{5x} +  c_2 x e^{5x} \label{eq:rep-roots-ode-sol}
 \end{align}
 
-eqref:eq:rep-roots-ode-sol can be expressed in terms of the exponential power series in order to try and relate the solution for the function back to the generating function,
-observe however the following power series identity (TODO Prove this in section [[#prove-ext-exp-power-series-rep-roots]]):
+eqref:eq:rep-roots-ode-sol can be expressed in terms of the exponential power series. Similar to that of distinct roots, doing this will allow us to relate the solution for eqref:eq:rep-roots-ode-sol back to the generating function. Effectively giving us a way to find the solution to the recurrence relation eqref:eq:hom-repeated-roots-recurrence.
+
+To do this, let's take a look at the following identity:
 
 \begin{align}
     x^ke^x &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}, \quad \exists k \in \mathbb{Z}^+ \label{eq:uniq-roots-pow-series-ident}
 \end{align}
 
-by applying identity eqref:eq:uniq-roots-pow-series-ident to equation eqref:eq:rep-roots-ode-sol
+*Proof*
+Consider the function $f(x) = xe^x$. Using the taylor series formula we get the following:
+
+\begin{align*}
+    xe^x &= 0+\frac{1}{1!}x+\frac{2}{2!}x^2+\frac{3}{3!}x^3+\frac{4}{4!}x^4+\frac{5}{5!}x^5+\dots\\
+    &= \sum_{n=0}^\infty \frac{nx^n}{n!}\\
+    &= \sum_{n=1}^\infty \frac{x^n}{(n-1)!}
+\end{align*}
+
+Similarly, $f(x) = x^2e^x$ will give:
+\begin{align*}
+    x^2e^x &= \frac{0}{0!} + \frac{0x}{1!} + \frac{2x^2}{2!} + \frac{6x^3}{3!} + \frac{12x^4}{4!} + \frac{20x^5}{5!} + \dots\\
+    &= \frac{2\cdot 1x^2}{2!} + \frac{3\cdot 2 x^3}{3!} + \frac{4\cdot 3x^4}{4!} + \frac{5\cdot 4 x^5}{5!} + \dots\\
+    &= \sum_{n=2}^\infty \frac{n(n-1)x^n}{n!}\\
+    &= \sum_{n=2}^\infty \frac{x^n}{(n-2)!}
+\end{align*}
+
+If we continue this on, we get:
+
+\begin{align*}
+    x^ke^x = \sum_{n=k}^\infty \frac{x^n}{(n-k)!} \quad \text{for}~k \ge 0
+\end{align*}
+
+To verify, let's prove this by induction.
+Prove $f(x) = x^ke^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}$ \text{for} $k \ge 0$ \\
+
+Test $k=0$
+\begin{align*}
+    LHS &= x^0e^x = e^x\\
+    RHS &= \sum_{n=0}^\infty \frac{x^n}{n!} = e^x\\
+\end{align*}
+Therefore LHS = RHS, so $k=0$ is true\\
+
+Now assume true for all k, i.e. $x^k e^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}$\\
+Using this assumption, prove for the next element $k+1$\\
+We need $x^{k+1}e^x = \sum_{n=k+1}^\infty\frac{x^n}{(n-(k+1))!}$\\
+\begin{align*}
+    \text{LHS} &= x^{k+1}e^x\\
+    &= x\cdot x^{k}e^x\\
+    &= x\cdot \sum_{n=k}^\infty\frac{x^n}{(n-k)!} \quad \text{(by assumption)}\\
+    &= \sum_{n=k}^\infty\frac{x^{n+1}}{(n-k)!}\\
+    &= \sum_{n=k+1}^\infty\frac{x^n}{(n-1-k)!} \quad \text{(re-indexing}~ n\text{)}\\
+    &= \sum_{n=k+1}^\infty\frac{x^n}{(n-(k+1))!}\\
+    &= RHS
+\end{align*}
+So by mathematical induction $f(x) = x^ke^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}$ \text{for} $k \ge 0$
+
+Moving on, by applying identity eqref:eq:uniq-roots-pow-series-ident to equation eqref:eq:rep-roots-ode-sol
 
 \begin{align}
-    \implies  f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{ c_1 \frac{{\left({ 5x }\right)}^n}{n!} }\right]}  +  \sum^{\infty}_{n= 0}   {\left[{ c_2 n \frac{{\left({ 5x^n }\right)}}{n{\left({ n-1 }\right)}!} }\right]} \nonumber \\
+    \implies  f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{ c_1 \frac{{\left({ 5x }\right)}^n}{n!} }\right]}  +  \sum^{\infty}_{n= 0}   {\left[{ c_2 \frac{{n\left({ 5x }\right)^n}}{n{\left({ n-1 }\right)}!} }\right]} \nonumber \\
  &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!} {\left({ c_{1}5^n +  c_2 n 5^n   }\right)} }\right]} \nonumber
 \end{align}
 
-Given the defenition of the exponential generating function from eqref:eq:exp-gen-def-1
+Given the definition of the exponential generating function from eqref:eq:exp-gen-def-1
 
 \begin{align}
     f{\left({ x }\right)}&=     \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]} \nonumber \\
-    \iff a_n &= c_{15}^n +  c_2n_5^n \nonumber \\ \nonumber
+    \iff a_n &= c_{1}5^n +  c_2n_5^n \nonumber \\ \nonumber
     \ \nonumber \\
     \square \nonumber
 \end{align}
-******* Generalised Example
-
-******* TODO Proof
+****** Generalised Example
+******* Proof
 In order to prove the the solution for a $k^{\mathrm{th}}$ order recurrence relation with $k$ repeated
 
 
@@ -699,68 +768,35 @@ Consider a recurrence relation of the form:
       \sum^{k}_{i= 0}   \sum^{\infty}_{n= 0}   c_i a_n \frac{x^n}{n!} \nonumber
 \end{align}
 
-By substituting for the value of the generating function (from eqref:eq:exp-gen-def-1):
-
-\begin{align}
-    \sum^{k}_{i= 0}   {\left[{ c_if^{{\left({ k }\right)}}  {\left({ x }\right)}    }\right]} \label{eq:gen-form-rep-roots-ode}
-\end{align}
-
-Assume that eqref:eq:gen-form-rep-roots-ode corresponds to a charecteristic polynomial with only 1 root of multiplicity $k$, the solution would hence be of the form:
+Using the value of the generating function eqref:eq:exp-gen-def-1 and assuming that it corresponds to a charecteristic polynomial with only 1 root of multiplicity $k$, the solution would hence be of the form:
 
 \begin{align}
 			 & \sum^{k}_{i= 0}   {\left[{ c_i m^i }\right]} = 0 \wedge m=B, \enspace  \exists! B \in \mathbb{C} \nonumber \\
  \implies      f{\left({ x }\right)}&= \sum^{k}_{i= 0}   {\left[{ x^i A_i e^{mx} }\right]}, \quad \exists A \in \mathbb{C}^+, \enspace \forall i \in {\left[{ 1,k }\right]} \cap \mathbb{N}  \label{eq:sol-rep-roots-ode} \\
 \end{align}
 
-Recall the following power series identity (proved in section xxx):
+Recall the following power series identity:
 
 \begin{align}
-x^k e^x = \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}     \nonumber
+x^k e^x = \sum^{\infty}_{n= k} {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}     \nonumber
 \end{align}
 
 By applying this to eqref:eq:sol-rep-roots-ode :
 
 \begin{align}
-f{\left({ x }\right)}&=     \sum^{k}_{i= 0}   {\left[{ A_i \sum^{\infty}_{n= 0}   {\left[{ \frac{{\left({ x m }\right)}^n}{{\left({ n- i }\right)}!} }\right]}  }\right]} \nonumber \\
-&=     \sum^{\infty}_{n= 0}   {\left[{ \sum^{k}_{i=0} {\left[{ \frac{x^n}{n!}  \frac{n!}{{\left({ n- i }\right)}} A_i m^n }\right]}       }\right]} # \\
-&=     \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}   \sum^{k}_{i=0} {\left[{  \frac{n!}{{\left({ n- i }\right)}} A_i m^n }\right]}       }\right]}
+f{\left({ x }\right)}&=     \sum^{k}_{i= 0}   {\left[{ A_i \sum^{\infty}_{n= i}   {\left[{ \frac{{\left({ x m }\right)}^n}{{\left({ n- i }\right)}!} }\right]}  }\right]} \nonumber \\
+&=     \sum^{\infty}_{n= i}   {\left[{ \sum^{k}_{i=0} {\left[{ \frac{x^n}{n!}  \frac{n!}{{\left({ n- i }\right)}} A_i m^n }\right]}       }\right]} \nonumber  \\
+&=     \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}   \sum^{k}_{i=0} {\left[{  \frac{n!}{{\left({ n- i }\right)}} A_i m^n }\right]}       }\right]} \label{eq:char-poly}
 \end{align}
 
-Recall the generating function that was used to get ref:eq:gen-form-rep-roots-ode:
+Equating eqref:eq:char-poly to the generating function $f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]}$
 
 \begin{align}
-f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]}      \nonumber \\
  \implies  a_n &= \sum^{k}_{i= 0}   {\left[{ A_i \frac{n!}{{\left({ n- i }\right)}!} m^n  }\right]} \nonumber \\
- &= \sum^{k}_{i= 0}   {\left[{ m^n A_i \prod_{0}^{k} {\left[{ n- {\left({ i- 1 }\right)} }\right]}   }\right]}
-& \intertext{$\because \enspace i \leq k$} \notag \\
+ &= \sum^{k}_{i= 0}   {\left[{ m^n A_i \prod_{0}^{k} {\left[{ n- {\left({ i- 1 }\right)} }\right]}   }\right]} \nonumber\\
  &= \sum^{k}_{i= 0} {\left[{ A_i^* m^n n^i }\right]}, \quad \exists A_i \in \mathbb{C}, \enspace \forall i\leqk \in \mathbb{Z}^+ \nonumber \\
-\ \nonumber \\
 \square \nonumber
 \end{align}
-
-
-
-****** TODO General Proof
-In sections [[#uniq-roots-recurrence]] and [[*Unique Roots of Characteristic Equation]] it was shown that a recurrence relation can be related to an ODE and then that solution can be transformed to provide a solution for the recurrence relation, when the charecteristic polynomial has either complex roots or 1 repeated root. Generally the solution to a linear ODE will be a superposition of solutions for each root, repeated or unique and so here it will be shown that these two can be combined and that the solution will still hold.
-
-Consider a Recursive relation with constant coefficients:
-
-$$
-\sum^{\infty}_{n= 0}   \left[ c_i \cdot  a_n \right] = 0, \quad \exists c \in
-\mathbb{R}, \enspace \forall i<k\in\mathbb{Z}^+
-$$
-
-This can be expressed in terms of the exponential generating function:
-
-$$
-\sum^{\infty}_{n= 0}   \left[ c_i \cdot  a_n \right] = 0\\
-\implies \sum^{\infty}_{n= 0}   \left[\sum^{\infty}_{n= 0}   \left[ c_i \cdot
-a_n  \right]   \right] = 0
-$$
-
-- Use the Generating function to get an ODE
-- The ODE will have a solution that is a combination of the above two forms
-- The solution will translate back to a combination of both above forms
 
 **** Fibonacci Sequence and the Golden Ratio
 :PROPERTIES:
@@ -778,21 +814,10 @@ The /Fibonacci Sequence/ is actually very interesting, observe that the ratios o
 &= \varphi
 \end{align*}
 
-We'll come back to this later on when looking at spirals and fractals.
-
-This can also be shown by using analysis, let $L=\lim_{n \rightarrow \infty} \left[ \frac{F_{n+1}}{F_{n}} \right], then:
-
-
-\begin{align}
-L&= \frac{F_{n+ 1} }{f_n} \label{eq:fib-r-def} \\
-&= \frac{F_n +  F_{n- 1} }{F_n} \\
-&= 1 +  \frac{F_{n - 1} }{F_n}  \\
-\ldots
-\text{by monotone convergence}
-L^2 - L - 1 = 0
-\implies  L = \phi
-\end{aligned}
-Se  [[https://mathcs.holycross.edu/~groberts/Courses/MA242/HW/hw4-sols.pdf][This Tutorial]]
+      We hope to explore this fact more in depth, which will open some research questions such as:
+      - Where does the golden ration come from?
+      - How can a simple recurrence relation such as the Fibonacci sequence explain some of natures patterns, e.g. nautilus shell spirals.
+      - What parts of mathematics is the golden ratio useful in?
 
 *** Persian Recursion
 Although some recursive problems are a good fit for mathematical thinking such as the /Fibonacci Sequence/ discussed in section [[#exp-gen-func-fib-seq]] other problems
