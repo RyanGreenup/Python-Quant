@@ -862,7 +862,7 @@ Imagine that the process a sunflower follows when placing seeds is as follows: [
 3. Rotate some constant angle $\mathtt{\theta}$ (or θ) from the previous seed (with respect to the origin).
 4. Repeat this process until a seed hits some outer boundary.
 
-This process can be simulated in Julia cite:bezansonJuliaFreshApproach2017 as shown in listing [[simulate-sunflower]], which combined with /ImageMagick/ (see e.g. [[montage-frac]]), produces output as shown in figure [[simulate-sunflower-image]] and [[simulate-sunflower-phi]].
+This process can be simulated in Julia cite:bezansonJuliaFreshApproach2017 as shown in listing [[simulate-sunflower]],[fn:un] which combined with /ImageMagick/ (see e.g. [[montage-frac]]), produces output as shown in figure [[simulate-sunflower-image]] and [[simulate-sunflower-phi]].
 
 A distribution of seeds undder this process would be optimal if the amount of empty space was minimised, spirals, stars and swirls contain patterns compromise this.
 
@@ -889,7 +889,7 @@ the correct spirals is also something we intend to look at in this project.
 The bottom right spiral in figure [[simulate-sunflower-image]] has a ratio of rotation of $\frac{1}{\pi}$, the spirals look similar to one direction of the spirals occuring in figure [[simulate-sunflower-phi]], it is not clear if there is any significance to this similarity.
 
 #+NAME: simulate-sunflower
-#+CAPTION: Simulation of the distribution of sunflowers as described in section [[#sunflower-example]] [fn:un]
+#+CAPTION: Simulation of the distribution of sunflowers as described in section [[#sunflower-example]]
 #+begin_src julia :eval never
 φ = 1.61803398875
 ψ = φ^-1
@@ -1595,7 +1595,7 @@ Other packages that are on our radar for want of investigation are listed below,
 
 * Footnotes
 
-[fn:un] Emojis and UTF8 were used in this code, and despite using $\XeLaTeX$ with ~fontspec~ they aren't rendering properly, we intend to have this rectified in time for final submission.
+[fn:un] Emojis and UTF8 were used in this code, and despite using ~xelatex~ with ~fontspec~ they aren't rendering properly, we intend to have this rectified in time for final submission.
 
 [fn:fb] See section [[#fib-golden-ratio-proof ]]
 
