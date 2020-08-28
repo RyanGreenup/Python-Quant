@@ -743,7 +743,7 @@ So by mathematical induction $f(x) = x^ke^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!
 Moving on, by applying identity eqref:eq:uniq-roots-pow-series-ident to equation eqref:eq:rep-roots-ode-sol
 
 \begin{align}
-    \implies  f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{ c_1 \frac{{\left({ 5x }\right)}^n}{n!} }\right]}  +  \sum^{\infty}_{n= 0}   {\left[{ c_2 \frac{{\left({ n 5x }\right)^n}}{n{\left({ n-1 }\right)}!} }\right]} \nonumber \\
+    \implies  f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{ c_1 \frac{{\left({ 5x }\right)}^n}{n!} }\right]}  +  \sum^{\infty}_{n= 0}   {\left[{ c_2 \frac{{n\left({ 5x }\right)^n}}{n{\left({ n-1 }\right)}!} }\right]} \nonumber \\
  &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!} {\left({ c_{1}5^n +  c_2 n 5^n   }\right)} }\right]} \nonumber
 \end{align}
 
@@ -798,7 +798,6 @@ Equating eqref:eq:char-poly to the generating function $f{\left({ x }\right)}&= 
 \square \nonumber
 \end{align}
 
-#+BEGIN_COMMENT
 **** Fibonacci Sequence and the Golden Ratio
 :PROPERTIES:
 :CUSTOM_ID: fib-golden-ratio-proof
@@ -815,21 +814,11 @@ The /Fibonacci Sequence/ is actually very interesting, observe that the ratios o
 &= \varphi
 \end{align*}
 
-We'll come back to this later on when looking at spirals and fractals.
+      We hope to explore this fact more in depth, which will open some research questions such as:
+      - Where does the golden ration come from?
+      - How can a simple recurrence relation such as the Fibonacci sequence explain some of natures patterns, e.g. nautilus shell spirals.
+      - What parts of mathematics is the golden ratio useful in?
 
-This can also be shown by using analysis, let $L=\lim_{n \rightarrow \infty} \left[ \frac{F_{n+1}}{F_{n}} \right], then:
-
-
-\begin{align}
-L&= \frac{F_{n+ 1} }{f_n} \label{eq:fib-r-def} \\
-&= \frac{F_n +  F_{n- 1} }{F_n} \\
-&= 1 +  \frac{F_{n - 1} }{F_n}  \\
-\ldots
-\text{by monotone convergence}
-L^2 - L - 1 = 0
-\implies  L = \phi
-\end{aligned}
-#+END_COMMENT
 *** Persian Recursion
 Although some recursive problems are a good fit for mathematical thinking such as the /Fibonacci Sequence/ discussed in section [[#exp-gen-func-fib-seq]] other problems
 can be be easily interpreted computationally but they don't really carry over to any mathematical perspective, one good example of this is /the persian recursion/, which is a simple procedure developed by Anne Burns in the 90s cite:burnsPersianRecursion1997 that produces fantastic patterns upon feedback and iteration
