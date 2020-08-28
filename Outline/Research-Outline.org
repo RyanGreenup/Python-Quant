@@ -27,13 +27,12 @@
 :END:
 
 * Submission Outline
-** Introduction
-This project at the outset was very broadly concerned with using /Python/ for
-computer algebra, much to the the reluctance of our supervisor we have however
-resolved to look at a broad variety of tools, including /Maxima/ and /GNUPlot/,
+** Introduction                                                                :Ryan:
+This project, at the outset, was very broadly concerned with the use of /Python/ for
+computer algebra. Much to the the reluctance of our supervisor we have however
+resolved to look at a broad variety of tools (see section [[#other-tools]]),
 in particular a language we wanted an opportunity to explore was /Julia/
 cite:bezansonJuliaFreshApproach2017 [fn:jl].
-
 
 In order to give the project a more focused direction we have decided to look into: [fn:nt]
 
@@ -48,13 +47,13 @@ over such software needs to perform very well under recursion and iteration
 (making this a very good focus for this topic generally, and an excuse to work
 with Julia as well).
 
-** Preliminary Problems
-We did a tonne of these but this one really illustrates the sort of things that we're looking at.
+** Programming Recursion                                                       :Ryan:
+As an introduction to /Python/ generally, we undertook many problem questions which have been omitted from this outline, however, this one in particular offered an interesting insight into the difficulties we may encounter when dealing with recursive systems.
 *** Iteration and Recursion
    :PROPERTIES:
    :CUSTOM_ID: series-and-recursion
    :END:
-To illustrate an example of different ways of thinking about a problem, consider the series shown in eqref:eq:rec-ser[fn:pja] :
+Consider the series shown in eqref:eq:rec-ser[fn:pja] :
 
 \begin{align}
     g\left( k \right) &=  \frac{\sqrt{2} }{2} \cdot   \frac{\sqrt{2+  \sqrt{3}}  }{3} \frac{\sqrt{2 +  \sqrt{3 +  \sqrt{4} } } }{4} \cdot  \ldots \frac{\sqrt{2 +  \sqrt{3 +  \ldots +  \sqrt{k} } } }{k} \label{eq:rec-ser}
@@ -72,12 +71,15 @@ $$\begin{aligned}
 h\left( k \right) = \prod^k_{i = 2} \left( \frac{f_i}{i}  \right)  \quad : \quad f_i = \sqrt{i +  f_{i - 1}}, \enspace f_{1} = 1
 \end{aligned}$$
 
-Within /Python/, it isn't difficult to express $h$, the series can be expressed with recursion as shown in listing [[rec-one]], this is a very natural way to define series and sequences and is consistent with familiar mathematical thought and notation. Individuals more familiar with programming than analysis may find it more comfortable to use an iterator as shown in listing [[it-one]].
+Within /Python/, it isn't difficult to express $h$, the series can be expressed
+with recursion as shown in listing [[rec-one]], this is a very natural way to define
+series and sequences and is consistent with familiar mathematical thought and
+notation. Individuals more familiar with programming than analysis may find it
+more comfortable to use an iterator as shown in listing [[it-one]].
 
 #+NAME: rec-one
 #+CAPTION: Solving eqref:eq:rec-ser-mod using recursion.
 #+BEGIN_SRC python
-################################################################################
 from sympy import *
 def h(k):
     if k > 2:
@@ -111,15 +113,19 @@ def f(i):
 #+END_SRC
 
 Any function that can be defined by using iteration, can always be defined via
-recursion and vice versa,
+recursion and vice versa
 cite:bohmReducingRecursionIteration1988,bohmReducingRecursionIteration1986
-see also
-cite:smolarskiMath60Notes2000,IterationVsRecursion2016
+(see also
+cite:smolarskiMath60Notes2000,IterationVsRecursion2016 ),
 
-there is, however, evidence to suggest that recursive functions are easier for people to understand cite:benanderEmpiricalAnalysisDebugging2000 . Although independent research has shown that the specific language chosen can have a bigger effect on how well recursive as opposed to iterative code is understood cite:sinhaCognitiveFitEmpirical1992.
+there is however, evidence to suggest that recursive functions are easier for
+people to understand cite:benanderEmpiricalAnalysisDebugging2000 and so should
+be favoured. Although independent research has shown that the specific language
+chosen can have a bigger effect on how well recursive as opposed to iterative
+code is understood cite:sinhaCognitiveFitEmpirical1992.
 
-The relevant question is which method is often more appropriate, generally the process for
-determining which is more appropriate is to the effect of:
+The relevant question is "/which method is often more appropriate/?", generally
+the process for determining which is more appropriate is to the effect of:
 
 1. Write the problem in a way that is easier to write or is more
    appropriate for demonstration
@@ -135,7 +141,7 @@ determining which is more appropriate is to the effect of:
     :CUSTOM_ID: some-functions-are-more-difficult-to-express-with-recursion-in-python
     :END:
 
-Attacking a problem recursively isn't always the best approach, consider the function $g\left( k \right)$ from eqref:eq:rec-ser:
+Attacking a problem recursively isn't always the best approach however. Consider the function $g\left( k \right)$ from eqref:eq:rec-ser:
 
 
 \begin{align}
@@ -149,15 +155,18 @@ loop, this distinction is a non-concern because the list can be reversed using a
 such as =rev=, =reversed= or =reverse= in /Python/, */R/* and /Julia/
 respectively, which means the same expression can be implemented.
 
-To implement recursion however, the series needs to be restructured and this can become a little clumsy, see eqref:eq:clumsy:
+To implement with recursion however, the series needs to be restructured and
+this can become a little clumsy, see eqref:eq:clumsy:
 
 \begin{align}
     g\left( k \right) &=  \prod^k_{i = 2} \left( \frac{f_i}{i}  \right) \quad : \quad f_{i} = \sqrt{\left( k- i \right)  +  f_{k - i - 1}} \label{eq:clumsy}
 \end{align}
 
-Now the function could be performed recursively in /Python/ in a similar
-way as shown in listing [[rec-two]], but it's also significantly more confusing because the $f$ function now has $k$ as a parameter and this is only made significantly more complicated by the variable scope of functions across common languages used in Mathematics and Data science such as ~bash~, /Python/, */R/* and /Julia/ (see section [[#variable-scope-nested]]).
-
+Now the function could be performed recursively in /Python/ in a similar way as
+shown in listing [[rec-two]], but it's also significantly more confusing because the
+$f$ function now has $k$ as a parameter and this is only made significantly more
+complicated by the differing implementations of variable scope across common
+languages used in Mathematics and Data science such as ~bash~, */R/*, /Julia/, /Python/.
 
 If however, the =for= loop approach was implemented, as shown in listing
 [[iter-two]], the function would not significantly change, because the =reversed()= function can be
@@ -203,31 +212,28 @@ def f(k):
     return expr/(k+1)
 #+END_SRC
 
-**** TODO Variable Scope of Nested Functions
-:PROPERTIES:
-:CUSTOM_ID: variable-scope-nested
-:END:
-
-** TODO Fibonacci Sequence
-The Fibonacci Sequence occurs in patterns observed in nature very frequently
+** TODO Fibonacci Sequence                                                     :Ryan:James:
+*** Introduction                                                              :Ryan:
+The /Fibonacci Sequence/ and /Golden Ratio/ share a deep connection[fn:fb] and occur in patterns observed in nature very frequently
 (see
-cite:shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016), an example of such an occurence is discussed in [[#sunflower-example]].
+cite:shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016), an example of such an occurence is discussed in section [[#sunflower-example]].
 
 
-This pops up all the time in natural sequences and fractals so we'll deal with
-ways to solve it The /Fibonacci Sequence/ The /Fibonacci Sequence/ and the
-/Golden Ratio/ both occur in patterns observed in nature and are fundamentally
-related (see section [[#fib-golden-ratio-proof]]), in this section we lay out a
-strategy to find an analytic solution to the /Fibonacci Sequence/ by relating it
-to a continuous series and generalise this approach to any homogenous linear
-recurrence relation.
+In this section we lay out a strategy to find an analytic solution to the
+/Fibonacci Sequence/ by relating it to a continuous series and generalise this
+approach to any homogenous linear recurrence relation.
 
-The hope is that by identifying relationships between discrete and continuos systems insights can be drawn with regard to the occurrence of patterns related to the /Fibonacci Sequence/ and /Golden Ratio/ in nature.
+This details some open mathematical work for the project and our hope is that by
+identifying relationships between discrete and continuous systems generall we
+will be able to draw insights with regard to the occurrence of patterns related
+to the /Fibonacci Sequence/ and /Golden Ratio/ in nature.
 
-*** TODO Computational Approach
+*** Computational Approach                                                    :Ryan:
    :PROPERTIES:
    :CUSTOM_ID: define-the-fibonacci-numbers
    :END:
+Given that much of our work will involve computational analysis and simulation we begin with a strategy to solve the sequence computationally.
+
 The /Fibonacci/ Numbers are given by:
 
 \begin{align}
@@ -379,7 +385,7 @@ mathematical problems to continuous ones as discussed below at section [[#exp-ge
 :PROPERTIES:
 :CUSTOM_ID: exp-gen-func-fib-seq
 :END:
-**** Motivation
+**** Motivation                                                              :Ryan:
     :PROPERTIES:
     :CUSTOM_ID: motivation
     :END:
@@ -410,7 +416,7 @@ f\left( x \right)= e^{mx} = \sum^{\infty}_{n= 0}   \left[ r^{m} \frac{x^n}{n!} \
 So using some sort of a transformation involving a power series may help to
 relate the discrete problem back to a continuous one.
 
-**** Example
+**** Example                                                                 :Ryan:
     :PROPERTIES:
     :CUSTOM_ID: solving-the-sequence
     :END:
@@ -506,6 +512,7 @@ where:
     :PROPERTIES:
     :CUSTOM_ID: Derivative-exp-gen-function
     :END:
+***** Base                                                                  :Ryan:
     Differentiating the exponential generating function has the effect of shifting the sequence to the backward: cite:lehmanReadingsMathematicsComputer2010
 
 \begin{align}
@@ -517,7 +524,7 @@ f'\left( x \right)) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 
 \implies f'(x) &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}a_{n+  1} }\right]} \label{eq:exp-pow-series-sol}
 \end{align}
 
-***** Inductive Proof                                                       :James:
+***** Bridge                                                                :James:
 This can be shown for all derivatives by way of induction, for
 
 \begin{align}
@@ -572,7 +579,7 @@ where:
 - $\exists i,j \in \mathbb{Z}^{+} \cap \left[0,k\right]$
   - These is often referred to as repeated roots cite:levinSolvingRecurrenceRelations2018,zillMatrixExponential2009 with a multiplicity corresponding to the number of repetitions of that root [[cite:nicodemiIntroductionAbstractAlgebra2007][\textsection 3.2]]
 
-***** Unique Roots of Characteristic Equation
+***** Unique Roots of Characteristic Equation                               :Ryan:
 :PROPERTIES:
 :CUSTOM_ID: uniq-roots-recurrence
 :END:
@@ -633,7 +640,7 @@ This can be verified by the fibonacci sequence as shown in section [[#solving-th
     \iff  a_n &= &k_1 n^{\varphi} +  &k_2 n^{1- \varphi}, &\exists k_1, k_2 \in \mathbb{R} \subset \mathbb{C} \nonumber
 \end{alignat}
 
-***** Repeated Roots of Characteristic Equation
+***** Repeated Roots of Characteristic Equation                             :Ryan:
 :PROPERTIES:
 :CUSTOM_ID: rep-roots-recurrence
 :END:
@@ -781,7 +788,7 @@ Similarly, $f(x) = x^2e^x$ will give:
 We conjecture thatIf we continue this on, we get:
 
 \begin{align*}
-    x^ke^x = \sum_{n=k}^\infty \frac{x^n}{(n-k)!} \quad \text{for}~k\in \mathbb{Z^{+}}
+    x^ke^x = \sum_{n=k}^\infty \frac{x^n}{(n-k)!} \quad \text{for}~k\in \mathbb{Z^{+}}\cap0
 \end{align*}
 ******* Proof by Induction
 To verify, let's prove this by induction.
@@ -812,7 +819,7 @@ So by mathematical induction $f(x) = x^ke^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!
 
 Moving on, by applying identity eqref:eq:uniq-roots-pow-series-ident to equation eqref:eq:rep-roots-ode-sol
 
-*** Fibonacci Sequence and the Golden Ratio
+*** Fibonacci Sequence and the Golden Ratio                                   :Ryan:
 :PROPERTIES:
 :CUSTOM_ID: fib-golden-ratio-proof
 :END:
@@ -878,7 +885,7 @@ the correct spirals is also something we intend to look at in this project.
 The bottom right spiral in figure [[simulate-sunflower-image]] has a ratio of rotation of $\frac{1}{\pi}$, the spirals look similar to one direction of the spirals occuring in figure [[simulate-sunflower-phi]], it is not clear if there is any significance to this similarity.
 
 #+NAME: simulate-sunflower
-#+CAPTION: Simulation of the distribution of sunflowers as described in section [[#sunflower-example]]
+#+CAPTION: Simulation of the distribution of sunflowers as described in section [[#sunflower-example]] [fn:un]
 #+begin_src julia :eval never
 φ = 1.61803398875
 ψ = φ^-1
@@ -921,21 +928,26 @@ end 600 600
 #+CAPTION: Distribution of the seeds of a sunflower (see cite:simonbrassCCSearch2006 licenced under CC)
 [[file:sunflower.jpg]]
 
+** Persian Recursion                                                           :Ryan:
+This section contains an example of how a simple process can lead to the
+development of complex patterns when exposed to feedback and iteration.
 
-** Persian Recursion
-Although some recursive problems are a good fit for mathematical thinking such as the /Fibonacci Sequence/ discussed in section [[#exp-gen-func-fib-seq]] other problems
-can be be easily interpreted computationally but they don't really carry over to any mathematical perspective, one good example of this is /the persian recursion/, which is a simple procedure developed by Anne Burns in the 90s cite:burnsPersianRecursion1997 that produces fantastic patterns upon feedback and iteration
+The /Persian Recursion/ is a simple procedure developed by Anne Burns in the 90s
+cite:burnsPersianRecursion1997 that produces fantastic patterns when provided
+with a relatively simple function.
 
-The procedure is illustrated in figure [[persian-recursion-diagram]] begins with an empty or zero square matrix with sides $2^{n}+1,
+The procedure is begins with an empty or zero square matrix with sides $2^{n}+1,
 \enspace \exists n\in \mathbb{Z}^{+}$ and some value given to the edges:
 
 1. Decide on some four variable function with a finite domain and range of size $m$, for the example shown at listing [[persian-recursion-python]] and in figure [[6-rug]] the function $f(w,x,y,z)=(w+x+y+z) \mod m$ was chosen.
 2. Assign this value to the centre row and centre column of the matrix
 3. Repeat this for each newly enclosed subsmatrix.
 
+This is illustrated in figure [[persian-recursion-diagram]].
+
 This can be implemented computationally by defining a function that:
 
-- takes the index of four corners enclosing a square sub-matrix of some matrix as input,
+- Takes the index of four corners enclosing a square sub-matrix of some matrix as input,
 - proceeds only if that square is some positive real value.
 - colours the centre column and row corresponding to a function of those four values
 - then calls itself on the corners of the four new sub-matrices enclosed by the
@@ -952,19 +964,12 @@ This is demonstrated in listing [[persian-recursion-python]] with python and pro
 
 By mapping the values to colours, patterns emerge, this emergence of complex
 patterns from simple rules is a well known and general phenomena that occurs in nature
-cite:EmergenceHowStupid2017,kivelsonDefiningEmergencePhysics2016, as a matter of fact:
+cite:EmergenceHowStupid2017,kivelsonDefiningEmergencePhysics2016.
 # Chaos and Fractals/ 2nd ed.:
-
-#+begin_quote
-One of the suprising impacts of fractal geometry is that in the presence of
-complex patterns there is a good chance that a very simple process is
-responsible for it.
-#+end_quote
-
 
 Many patterns that occur in nature can be explained by relatively simple rules
 that are exposed to feedback and iteration
-[[cite:peitgenChaosFractalsNew2004][p. 16]], this is a centreal theme of Alan
+[[cite:peitgenChaosFractalsNew2004][p. 16]], this is a central theme of Alan
 Turing's /The Chemical Basis For Morphogenesis/
 cite:turingChemicalBasisMorphogenesis1952 which we hope to look in the course of
 this research.
@@ -1028,7 +1033,7 @@ main(5,6, 1, cx)
 #+RESULTS: persian-recursion-python
 [[file:./persian-recursion-0.svg]]
 
-** Julia
+** Julia Sets                                                                  :Ryan:
 *** Motivation
 Consider the iterative process $x \rightarrow x^{2}, \enspace x \in \mathbb{R}$,
 for values of $x>1$ this process will diverge and for $x<1$ it will converge.
@@ -1054,7 +1059,7 @@ Every value on that plane will belong to one of the two following sets
 
 In the case of $f_{0}(z) = z^{2}$ all values $\left\lvert z  \right \rvert \leq 1$ are bounded with $\left\lvert z  \right \rvert = 1$ being an unstable stationary circle, but let's investigate what happens for different iterative functions like $f_{1}(z) = z^{2} - 1$, despite how trivial this seems at first glance.
 
-*** Plotting the Sets                                                         :ATTACH:
+*** Plotting the Sets
 :PROPERTIES:
 :ID:       baa21085-5d8f-4390-9bb7-43c3b51d940d
 :END:
@@ -1302,7 +1307,7 @@ ffmpeg                    \
 #+CAPTION: Various fracals corresponding to $f_{0.8 e^{\pi i \tau}}$
 [[attachment:_20200826_005334a.png]]
 
-** MandelBrot
+** MandelBrot                                                                  :Ryan:
 Investigating these fractals, a natural question might be whether or not any
 given $c$ value will produce a fractal that is an open disc or a closed disc.
 
@@ -1528,114 +1533,20 @@ splot [-2 : 2] [-2 : 2] mandelbrot (complex (0, 0), complex (x, y), 0) notitle
 #+RESULTS[6f4570cfd26a3574d696e18a2348c68289265d90]:
 [[file:three.svg]]
 ** Relevant Sources
-To guide research in this area the following books were going to act as guides, in particular /Chaos and Fractals/ by Otto is a primary resource:
+To guide research for our topic /Chaos and Fractals/ by Pietgen, Jurgens and Saupe cite:peitgenChaosFractalsNew2004 will act as a map of the topic broadly, other than the sources referenced already, we anticipate referring to the following textbooks that we access to throughout the project:
 
+- /Integration of Fuzzy Logic and Chaos Theory/      cite:liIntegrationFuzzyLogic2006
+- /Advances in Chaos Theory and Intelligent Control/ cite:azarAdvancesChaosTheory2016
+- /NonLinear Dynamics and Chaos/                     cite:strogatzNonlinearDynamicsChaos2015
+- /The NonLinear Universe/                           cite:scottNonlinearUniverseChaos2007
+- /Chaos and Fractals/                               cite:peitgenChaosFractalsNew2004
+- /Turbulent Mirror/                                 cite:briggsTurbulentMirrorIllustrated1989
+- /Fractal Geometry/                                 cite:falconerFractalGeometryMathematical2003b
+- /Math Adventures with Python/                      cite:farrellMathAdventuresPython2019
+- /The Topology of Chaos/                            cite:gilmoreTopologyChaosAlice2002
+- /Chaotic Dynamics/                                 cite:telChaoticDynamicsIntroduction2006
 
-List the books from Dropbox here.
-
-Also Ron Knotts website looks very helpful cite:ronknottFibonacciNumbersGolden2016
-
-* Outline
-1. Intro Prob
-2. Variable Scope
-3. Problem Showing Recursion
-   + All Different Methods
-     - Discuss all Different Methods
-     - Discuss Vectorisation
-     - Is this needed in Julia
-     - Comment on Faster to go column Wise
-4. Discuss Loops
-5. Show Rug
-6. Fibonacci
-   + The ratio of fibonacci converges to \phi
-   + Golden Ratio
-     - If you make a rectangle with the golden ratio you can cut it up under
-       recursion to get another one, keep doing this and eventually a logarithmic
-       spiral pops out, also the areas follow a fibonacci sequence.
-     - Look at the spiral of nautilus shells
-7. Discuss isomorphisms for recursive Relations
-8. Jump to Lorenz Attractor
-9. Now Talk about Morphogenesis
-10. Fractals
-    + Many Occur in Nature
-      - Mountain Ranges, compare to MandelBrot
-      - Sun Flowers
-      - Show the golden Ratio
-    + Fractals are all about recursion and iteration, so this gives me an excuse to look at them
-      - Show MandelBrot
-        + Python
-          - Sympy Slow
-          - Numpy Fast
-        + Julia brings Both Benefits
-          - Show Large MandelBrot
-        + Show Julia Set
-          - Show Julia Set Gif
-11. Things I'd like to show
-    + Simulate stripes and animal patterns
-    + Show some math behind spirals in Nautilus Shells
-    + Golden Rectangle
-      - Throw in some recursion
-      - Watch the spiral come out
-      - Record the areas and show that they are Fibonacci
-    + That the ratio of Fibonacci Converges to Phi
-    + Any Connection to the Reimann Sphere
-    + Lorrenz Attractor
-      - How is this connected to the lorrenz attractor
-    + What are the connections between discrete iteration and continuous systems such as the julia set and the lorrenz attractor
-12. Things I'd like to Try (in order to see different ways to approach Problems)
-    + Programming Languages and CAS
-      - Julia
-        + SymEngine
-      - Maxima
-      - Julia
-    + Visualisation
-      - Makie
-      - Plotly
-      - GNUPlot
-13. Open Questions:
-    - can we simulate animal patterns
-    - can we simulate leaves
-    - can we show that the gen func deriv [[#Derivative-exp-gen-function]]
-    - can we prove homogenous recursive relation
-    - I want to look at the lorrenz attractor
-    - when partiles are created by the the LHC, do they follow a fractal like pattern?
-    - Create a Fractal Landscape, does this resemble things seen in nautre? [[cite:peitgenChaosFractalsNew2004][p. 464]]
-    - Can I write an algorighm to build a tree in the winter?
-    - Can I develop my own type of persian recursion?
-    - Show the relationship between the golden ratio and the logarithmic spiral.
-      + and show that the fibonacci numbers pop out as area
-        - Prove this
-    - Is there any relationship between the Cantor Prisoner set and the Julia Sets?
-    - Work with Matt to investigate Julia Sets for Quaternion [[cite:peitgenChaosFractalsNew2004][\textsection 13.9]]
-    - I'd like to write a program to solve sudoku problems as well
-
-* Download RevealJS
-So first do ~M-x package-install ox-reveal~ then do ~M-x load-library~ and then look for ~ox-reveal~
-
-#+begin_src elisp
-(load "/home/ryan/.emacs.d/.local/straight/build/ox-reveal/ox-reveal.el")
-#+end_src
-
-#+RESULTS:
-: t
-
-Download Reveal.js and put it in the directory as =./reveal.js=, you can do that with something like this:
-
-#+begin_src bash
-# cd /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/
-wget https://github.com/hakimel/reveal.js/archive/master.tar.gz
-tar -xzvf master.tar.gz && rm master.tar.gz
-mv reveal.js-master reveal.js
-#+end_src
-
-Then just do ~C-c e e R R~ to export with RevealJS as opposed to PHP you won't need a fancy server, just open it in the browser.
-
-* Heres a Gif
-So this is a very big Gif that I'm using:
-
-How did I make the Gif??
-
-[[https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0]]
+Ron Knott's website appears also to have a lot of material related to patterns, the /Fibonacci Sequence/ and the /Golden Ratio/, we intend to have a good look through that material as well. cite:ronknottFibonacciNumbersGolden2016
 
 * TODO Give a brief Sketch of the project
 
@@ -1694,541 +1605,12 @@ AVOID DETAILS, JUST SKETCH THE PROJECT OUT.
 *** Slides In Org Mode
 - [[https://orgmode.org/worg/org-tutorials/non-beamer-presentations.html][Without Beamer]]
 - [[https://orgmode.org/worg/exporters/beamer/tutorial.html][With Beamer]]
-* Undecided
-*** Determinant
-Computational thinking can be useful in problems related to modelling, consider
-for example some matrix $n\times n$ matrix $B_n$ described by eqref:eq:bn-matrix :
-
-\begin{align}
-b_{ij} = \begin{cases}
-\frac{1}{2j- i^2}, &\text{ if } i > j \\
-\frac{i}{i- j}+  \frac{1}{n^2- j - i}, &\text{ if } j>i \\
-0 &\text{ if } i = j
-\end{cases} \label{eq:bn-matrix}
-\end{align}
-
-Is there a way to predict the determinant of such a matrix for large values?
-
-From the perspective of linear algebra this is an immensely difficult problem
-and there isn't really a clear place to start.
-
-From a numerical modelling perspective however, as will be shown, this a fairly trivial problem.
-
-**** Create the Matrix
-   :PROPERTIES:
-   :CUSTOM_ID: create-the-matrix
-   :END:
-
-Using /Python/ and =numpy=, a matrix can be generated as an =array= and by
-iterating through each element of the matrix values can be attributed like so:
-
-#+BEGIN_SRC python
-import numpy as np
-n = 2
-mymat = np.empty([n, n])
-for i in range(mymat.shape[0]):
-    for j in range(mymat.shape[1]):
-        print("(" + str(i) + "," + str(j) + ")")
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-  (0,0)
-  (0,1)
-  (1,0)
-  (1,1)
-#+END_EXAMPLE
-
-and so to assign the values based on the condition in eqref:eq:bn-matrix, an
-=if= test can be used:
-
-#+BEGIN_SRC python
-  def BuildMat(n):
-      mymat = np.empty([n, n])
-      for i in range(n):
-          for j in range(n):
-              # Increment i and j by one because they count from zero
-              i += 1; j += 1
-              if (i > j):
-                  v = 1/(2*j - i**2)
-              elif (j > i):
-                  v = 1/(i-j) + 1/(n**2 - j - i)
-              else:
-                  v = 0
-              # Decrement i and j so the index lines up
-              i -= 1; j -= 1
-              mymat[j, i] = v
-      return mymat
-
-  BuildMat(3)
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-  array([[ 0.        , -0.5       , -0.14285714],
-         [-0.83333333,  0.        , -0.2       ],
-         [-0.3       , -0.75      ,  0.        ]])
-#+END_EXAMPLE
-
-**** Find the Determinant
-   :PROPERTIES:
-   :CUSTOM_ID: find-the-determinant
-   :END:
-
-/Python/, being an object orientated language has methods belonging to objects of different types, in this case the =linalg= method has a =det= function that can be used to return the determinant of any given matrix like so:
-
-#+NAME: make-det
-#+CAPTION: Building a Function to return the determinant of the matrix described in eqref:eq:bn-matrix
-#+BEGIN_SRC python
-  def detMat(n):
-      ## Sympy
-      # return Determinant(BuildMat(n)).doit()
-      ## Numpy
-      return np.linalg.det(BuildMat(n))
-  detMat(3)
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-  -0.11928571428571424
-#+END_EXAMPLE
-
-**** Find the Determinant of Various Values
-   :PROPERTIES:
-   :CUSTOM_ID: find-the-determinant-of-various-values
-   :END:
-
-To solve this problem, all that needs to be considered is the size of the $n$ and the corresponding determinant, this could be expressed as a set as shown in eqref:eq:set-determ:
-
-\begin{align}
-\left\{ \mathrm{det}\left( M(n) \right) \mid M \in \mathbb{Z}^{+} \leq 30  \right\} \label{eqref:eq:set-determ}
-\end{align}
-where:
-- $M$ is a function that transforms an integer to a matrix as per eqref:eq:bn-matrix
-
-Although describing the results as a set eqref:eqref:eq:set-determ is a little odd, it is consistent with the idea of list and set comprehension in /Python/ cite:DataStructuresPython and /Julia/ cite:MultidimensionalArraysJulia as shown in listing [[list-comp]]
-
-***** Generate a list of values
-    :PROPERTIES:
-    :CUSTOM_ID: instead-use-absolute-value
-    :END:
-Using the function created in listing [[make-det]], a corresponding list of values can be generated:
-
-#+NAME: list-comp
-#+CAPTION: Generate a list using list-comprehension
-#+BEGIN_SRC python
-  def detMat(n):
-      return abs(np.linalg.det(BuildMat(n)))
-
-  # We double all numbers using map()
-  result = map(detMat, range(30))
-
-  # print(list(result))
-  [round(num, 3) for num in list(result)]
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-  [1.0,
-   0.0,
-   0.0,
-   0.119,
-   0.035,
-   0.018,
-   0.013,
-   0.01,
-   0.008,
-   0.006,
-   0.005,
-   0.004,
-   0.004,
-   0.003,
-   0.003,
-   0.002,
-   0.002,
-   0.002,
-   0.002,
-   0.001,
-   0.001,
-   0.001,
-   0.001,
-   0.001,
-   0.001,
-   0.001,
-   0.001,
-   0.001,
-   0.001,
-   0.001]
-#+END_EXAMPLE
-
-***** Create a Data Frame
-    :PROPERTIES:
-    :CUSTOM_ID: create-a-data-frame
-    :END:
-
-#+BEGIN_SRC python
-  import pandas as pd
-
-  data = {'Matrix.Size': range(30),
-          'Determinant.Value': list(map(detMat, range(30)))
-  }
-
-
-
-  df = pd.DataFrame(data, columns = ['Matrix.Size', 'Determinant.Value'])
-
-  print(df)
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-  Matrix.Size  Determinant.Value
-  0             0           1.000000
-  1             1           0.000000
-  2             2           0.000000
-  3             3           0.119286
-  4             4           0.035258
-  5             5           0.018062
-  6             6           0.013023
-  7             7           0.009959
-  8             8           0.007822
-  9             9           0.006288
-  10           10           0.005158
-  11           11           0.004304
-  12           12           0.003645
-  13           13           0.003125
-  14           14           0.002708
-  15           15           0.002369
-  16           16           0.002090
-  17           17           0.001857
-  18           18           0.001661
-  19           19           0.001494
-  20           20           0.001351
-  21           21           0.001228
-  22           22           0.001121
-  23           23           0.001027
-  24           24           0.000945
-  25           25           0.000872
-  26           26           0.000807
-  27           27           0.000749
-  28           28           0.000697
-  29           29           0.000650
-#+END_EXAMPLE
-
-***** Plot the Data frame
-    :PROPERTIES:
-    :CUSTOM_ID: plot-the-data-frame
-    :END:
-
-Observe that it is necessary to use =copy=, /Julia/ and /Python/
-*unlike* /Mathematica/ and */R/* only create links between data, they do
-not create new objects, this can cause headaches when rounding data.
-
-#+BEGIN_SRC python
-  from plotnine import *
-  import copy
-
-  df_plot = copy.copy(df[3:])
-  df_plot['Determinant.Value'] = df_plot['Determinant.Value'].astype(float).round(3)
-  df_plot
-
-  (
-      ggplot(df_plot, aes(x = 'Matrix.Size', y = 'Determinant.Value')) +
-          geom_point() +
-          theme_bw() +
-          labs(x = "Matrix Size", y = "|Determinant Value|") +
-          ggtitle('Magnitude of Determinant Given Matrix Size')
-
-  )
-
-
-
-
-#+END_SRC
-
-[[file:e3d03c21dd72428e88b7fc2c722737046510dbb2.png]]
-
-#+BEGIN_EXAMPLE
-  <ggplot: (8770001690691)>
-#+END_EXAMPLE
-
-In this case it appears that the determinant scales exponentially, we
-can attempt to model that linearly using =scikit=, this is significantly
-more complex than simply using */R/*.
-[[https://towardsdatascience.com/linear-regression-in-6-lines-of-python-5e1d0cd05b8d][^lrpy]]
-
-#+BEGIN_SRC python
-  import numpy as np
-  import matplotlib.pyplot as plt  # To visualize
-  import pandas as pd  # To read data
-  from sklearn.linear_model import LinearRegression
-
-  df_slice = df[3:]
-
-  X = df_slice.iloc[:, 0].values.reshape(-1, 1)  # values converts it into a numpy array
-  Y = df_slice.iloc[:, 1].values.reshape(-1, 1)  # -1 means that calculate the dimension of rows, but have 1 column
-  linear_regressor = LinearRegression()  # create object for the class
-  linear_regressor.fit(X, Y)  # perform linear regression
-  Y_pred = linear_regressor.predict(X)  # make predictions
-
-
-
-  plt.scatter(X, Y)
-  plt.plot(X, Y_pred, color='red')
-  plt.show()
-#+END_SRC
-
-[[file:cabe1ce27b757dccdde64927e4d7938241825327.png]]
-
-#+BEGIN_SRC python
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-  array([5.37864677])
-#+END_EXAMPLE
-
-**** Log Transform the Data
-   :PROPERTIES:
-   :CUSTOM_ID: log-transform-the-data
-   :END:
-
-The =log= function is actually provided by =sympy=, to do this quicker
-in =numpy= use =np.log()=
-
-#+BEGIN_SRC python
-  # # pyperclip.copy(df.columns[0])
-  # #df['Determinant.Value'] =
-  # #[ np.log(val) for val in df['Determinant.Value']]
-
-  df_log = df
-
-  df_log['Determinant.Value'] = [ np.log(val) for val in df['Determinant.Value'] ]
-
-#+END_SRC
-
-In order to only have well defined values, consider only after size 3
-
-#+BEGIN_SRC python
-  df_plot = df_log[3:]
-  df_plot
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-      Matrix.Size  Determinant.Value
-  3             3          -2.126234
-  4             4          -3.345075
-  5             5          -4.013934
-  6             6          -4.341001
-  7             7          -4.609294
-  8             8          -4.850835
-  9             9          -5.069048
-  10           10          -5.267129
-  11           11          -5.448099
-  12           12          -5.614501
-  13           13          -5.768414
-  14           14          -5.911529
-  15           15          -6.045230
-  16           16          -6.170659
-  17           17          -6.288765
-  18           18          -6.400347
-  19           19          -6.506082
-  20           20          -6.606547
-  21           21          -6.702237
-  22           22          -6.793585
-  23           23          -6.880964
-  24           24          -6.964704
-  25           25          -7.045094
-  26           26          -7.122390
-  27           27          -7.196822
-  28           28          -7.268592
-  29           29          -7.337885
-#+END_EXAMPLE
-
-A limitation of the /Python/ =plotnine= library (compared to /Ggplot2/
-in */R/*) is that it isn't possible to round values in the =aesthetics=
-layer, a further limitation with =pandas= also exists when compared to
-*/R/* that makes rounding data very clusy to do.
-
-In order to round data use the =numpy= library:
-
-#+BEGIN_SRC python
-  import pandas as pd
-  import numpy as np
-  df_plot['Determinant.Value'] = df_plot['Determinant.Value'].astype(float).round(3)
-  df_plot
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-      Matrix.Size  Determinant.Value
-  3             3             -2.126
-  4             4             -3.345
-  5             5             -4.014
-  6             6             -4.341
-  7             7             -4.609
-  8             8             -4.851
-  9             9             -5.069
-  10           10             -5.267
-  11           11             -5.448
-  12           12             -5.615
-  13           13             -5.768
-  14           14             -5.912
-  15           15             -6.045
-  16           16             -6.171
-  17           17             -6.289
-  18           18             -6.400
-  19           19             -6.506
-  20           20             -6.607
-  21           21             -6.702
-  22           22             -6.794
-  23           23             -6.881
-  24           24             -6.965
-  25           25             -7.045
-  26           26             -7.122
-  27           27             -7.197
-  28           28             -7.269
-  29           29             -7.338
-#+END_EXAMPLE
-
-#+BEGIN_SRC python
-  from plotnine import *
-
-
-  (ggplot(df_plot[3:], aes(x = 'Matrix.Size', y = 'Determinant.Value')) +
-     geom_point(fill= "Blue") +
-     labs(x = "Matrix Size", y = "Determinant Value",
-          title = "Plot of Determinant Values") +
-     theme_bw() +
-     stat_smooth(method = 'lm')
-  )
-#+END_SRC
-
-[[file:8e37d51e9bb78ed1d460f8a955f5bf56fafcfca2.png]]
-
-#+BEGIN_EXAMPLE
-  <ggplot: (8770002281897)>
-#+END_EXAMPLE
-
-#+BEGIN_SRC python
-  from sklearn.linear_model import LinearRegression
-
-  df_slice = df_plot[3:]
-
-  X = df_slice.iloc[:, 0].values.reshape(-1, 1)  # values converts it into a numpy array
-  Y = df_slice.iloc[:, 1].values.reshape(-1, 1)  # -1 means that calculate the dimension of rows, but have 1 column
-  linear_regressor = LinearRegression()  # create object for the class
-  linear_regressor.fit(X, Y)  # perform linear regression
-  Y_pred = linear_regressor.predict(X)  # make predictions
-
-
-
-  plt.scatter(X, Y)
-  plt.plot(X, Y_pred, color='red')
-  plt.show()
-#+END_SRC
-
-[[file:a0ba199b47f114fb4224946304b31b9f0b555f92.png]]
-
-#+BEGIN_SRC python
-  m = linear_regressor.fit(X, Y).coef_[0][0]
-  b = linear_regressor.fit(X, Y).intercept_[0]
-
-  print("y = " + str(m.round(2)) + "* x" + str(b.round(2)))
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-  y = -0.12* x-4.02
-#+END_EXAMPLE
-
-So the model is:
-
-$$
-\text{abs}(\text{Det}(M)) = -4n - 0.12
-$$
-
-where:
-
-- $n$ is the size of the square matrix
-
-**** Largest Percentage Error
-   :PROPERTIES:
-   :CUSTOM_ID: largest-percentage-error
-   :END:
-
-To find the largest percentage error for $n \in [30, 50]$ it will be
-necessary to calculate the determinants for the larger range,
-compressing all the previous steps and calculating the model based on
-the larger amount of data:
-
-#+BEGIN_SRC python
-  import pandas as pd
-
-  data = {'Matrix.Size': range(30, 50),
-          'Determinant.Value': list(map(detMat, range(30, 50)))
-  }
-  df = pd.DataFrame(data, columns = ['Matrix.Size', 'Determinant.Value'])
-  df['Determinant.Value'] = [ np.log(val) for val in df['Determinant.Value']]
-  df
-  from sklearn.linear_model import LinearRegression
-
-
-  X = df.iloc[:, 0].values.reshape(-1, 1)  # values converts it into a numpy array
-  Y = df.iloc[:, 1].values.reshape(-1, 1)  # -1 means that calculate the dimension of rows, but have 1 column
-  linear_regressor = LinearRegression()  # create object for the class
-  linear_regressor.fit(X, Y)  # perform linear regression
-  Y_pred = linear_regressor.predict(X)  # make predictions
-
-  m = linear_regressor.fit(X, Y).coef_[0][0]
-  b = linear_regressor.fit(X, Y).intercept_[0]
-
-  print("y = " + str(m.round(2)) + "* x" + str(b.round(2)))
-
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-  y = -0.05* x-5.92
-#+END_EXAMPLE
-
-#+BEGIN_SRC python
-  Y_hat = linear_regressor.predict(X)
-  res_per = (Y - Y_hat)/Y_hat
-  res_per
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-  array([[-5.41415364e-03],
-         [-3.51384602e-03],
-         [-1.90798428e-03],
-         [-5.74487234e-04],
-         [ 5.06726599e-04],
-         [ 1.35396448e-03],
-         [ 1.98395424e-03],
-         [ 2.41201322e-03],
-         [ 2.65219545e-03],
-         [ 2.71742022e-03],
-         [ 2.61958495e-03],
-         [ 2.36966444e-03],
-         [ 1.97779855e-03],
-         [ 1.45336983e-03],
-         [ 8.05072416e-04],
-         [ 4.09734813e-05],
-         [-8.31432011e-04],
-         [-1.80517224e-03],
-         [-2.87375452e-03],
-         [-4.03112573e-03]])
-#+END_EXAMPLE
-
-#+BEGIN_SRC python
-  max_res = np.max(res_per)
-  max_ind = np.where(res_per == max_res)[0][0] + 30
-
-  print("The Maximum Percentage error is " + str(max_res.round(4) * 100) + "% which corresponds to a matrix of size " + str(max_ind))
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-  The Maximum Percentage error is 0.27% which corresponds to a matrix of size 39
-#+END_EXAMPLE
 * TODO What we're looking for
 
 - Would a reader know what the project is about?
 - Would a reader become interested in the upcoming report?
 - Is it brief but well prepared?
 - Are the major parts or phases sketched out
-
 
 * Appendix
 
@@ -2267,12 +1649,12 @@ the larger amount of data:
 
 
 #+NAME: 8-fold-code
-#+CAPTION: Modify listing [[persian-recursion-python]] to create 9 folds
+#+CAPTION: Enhance listing [[persian-recursion-python]] to create 9 folds
 #+BEGIN_SRC ipython :exports output :results raw :eval never-export :session persian-recursion :eval never-export :ipyfile ./persian-recursion-large.svg
 %config InlineBackend.figure_format = 'svg'
 main(5, 9, 1, cx)
 #+END_SRC
-
+[[./persian-recursion-large.svg]]
 
 
 #+attr_html: :width 400px
@@ -2338,6 +1720,9 @@ The reason we resolved to make time to investigate /Julia/ is because we see it 
 - The ~DifferentialEquations.jl~ library is one of the best performing libraries available.
 
 **** Other Pakcages
+:PROPERTIES:
+:CUSTOM_ID: other-tools
+:END:
 Other packages that are on our radar for want of investigation are listed below, in practice it is unlikely that time will permit us to investigate many packages or libraries
 
     + Programming Languages and CAS
@@ -2358,7 +1743,12 @@ Other packages that are on our radar for want of investigation are listed below,
       - Plotly
       - GNUPlot
 
+
 * Footnotes
+
+[fn:un] Emojis and UTF8 were used in this code, and despite using $\XeLaTeX$ with ~fontspec~ they aren't rendering properly, we intend to have this rectified in time for final submission.
+
+[fn:fb] See section [[#fib-golden-ratio-proof ]]
 
 [fn:nt] The amount of independence that our supervisor afforded us to
 investigate other languages is something that we are both extremely grateful for.
