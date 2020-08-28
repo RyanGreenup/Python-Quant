@@ -1,4 +1,4 @@
-% Created 2020-08-27 Thu 23:02
+% Created 2020-08-28 Fri 19:56
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -34,8 +34,10 @@
 \tableofcontents
 
 
-\section{Introduction}
-\label{sec:org2e83b6b}
+\section{Submission Outline}
+\label{sec:org80f7682}
+\subsection{Introduction}
+\label{sec:org17b6389}
 
 During preperation for this outline, an article published by the \emph{Mathematical
 Association of America} caught my attention, in which mathematics is referred to
@@ -114,7 +116,8 @@ but then heisenberg,
 but then chaos and meh.
 
 \subsection{Preliminary Problems}
-\label{sec:org374d4d4}
+\label{sec:org4155872}
+We did a tonne of these but this one really illustrates the sort of things that we're looking at.
 \subsubsection{Iteration and Recursion}
 \label{series-and-recursion}
 To illustrate an example of different ways of thinking about a problem, consider the series shown in \eqref{eq:rec-ser}\footnote{This problem is taken from Project A (44) of Dr. Hazrat's \emph{Mathematica: A Problem Centred Approach} \cite{hazratMathematicaProblemCenteredApproach2015}} :
@@ -274,9 +277,22 @@ def f(k):
 \paragraph{Variable Scope of Nested Functions}
 \label{variable-scope-nested}
 
-\subsubsection{Fibonacci Sequence}
-\label{sec:orgd9af6a2}
-\paragraph{Computational Approach}
+\subsection{Fibonacci Sequence}
+\label{sec:org45d637d}
+The Fibonacci Sequence occurs in patterns observed in nature very frequently (see
+\cite{shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016})
+
+This pops up all the time in natural sequences and fractals so we'll deal with
+ways to solve it The \emph{Fibonacci Sequence} The \emph{Fibonacci Sequence} and the
+\emph{Golden Ratio} both occur in patterns observed in nature and are fundamentally
+related (see section \ref{fib-golden-ratio-proof}), in this section we lay out a
+strategy to find an analytic solution to the \emph{Fibonacci Sequence} by relating it
+to a continuous series and generalise this approach to any homogenous linear
+recurrence relation.
+
+The hope is that by identifying relationships between discrete and continuos systems insights can be drawn with regard to the occurrence of patterns related to the \emph{Fibonacci Sequence} and \emph{Golden Ratio} in nature.
+
+\subsubsection{Computational Approach}
 \label{define-the-fibonacci-numbers}
 The \emph{Fibonacci} Numbers are given by:
 
@@ -432,9 +448,9 @@ end
 
 In this case however an analytic solution can be found by relating discrete
 mathematical problems to continuous ones as discussed below at section .
-\paragraph{Exponential Generating Functions}
+\subsubsection{Exponential Generating Functions}
 \label{exp-gen-func-fib-seq}
-\subparagraph{Motivation}
+\paragraph{Motivation}
 \label{motivation}
 Consider the \emph{Fibonacci Sequence} from \eqref{eq:fib-def}:
 
@@ -453,16 +469,16 @@ differential equation}, which would be fairly easy to deal with:
 f''\left( x \right)- f'\left( x \right)- f\left( x \right)=  0
 \end{align*}
 
-
-This would imply that \(f\left( x \right) \propto e^{mx}, \quad \exists m \in \mathbb{Z}\) because
-\(\frac{\mathrm{d}\left( e^x \right) }{\mathrm{d} x} = e^x\), and so by using a power series it's quite feasable to move between discrete and continuous problems:
-
+By ODE Theory we have \(y \propto e^{m_{i}x}, \enspace i = 1, 2\):
 
 \begin{align*}
-f\left( x \right)= e^{rx} = \sum^{\infty}_{n= 0}   \left[ r \frac{x^n}{n!} \right]
+f\left( x \right)= e^{mx} = \sum^{\infty}_{n= 0}   \left[ r^{m} \frac{x^n}{n!} \right]
 \end{align*}
 
-\subparagraph{Example}
+So using some sort of a transformation involving a power series may help to
+relate the discrete problem back to a continuous one.
+
+\paragraph{Example}
 \label{solving-the-sequence}
 Consider using the following generating function, (the derivative of the
 generating function as in \eqref{eq:exp-gen-def-2} and \eqref{eq:exp-gen-def-3} is
@@ -471,11 +487,11 @@ provided in section \ref{Derivative-exp-gen-function})
 
 
 
-\begin{alignat}{2}
-    f \left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n} \cdot  \frac{x^n}{n!} \right]   &= e^x \label{eq:exp-gen-def-1} \\
-    f'\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n+1} \cdot  \frac{x^n}{n!} \right]  &= e^x  \label{eq:exp-gen-def-2} \\
-    f''\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n+2} \cdot  \frac{x^n}{n!} \right] &= e^x  \label{eq:exp-gen-def-3}
-\end{alignat}
+\begin{align}
+    f\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n} \cdot  \frac{x^n}{n!} \right]   \label{eq:exp-gen-def-1} \\
+ \implies   f'\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n+1} \cdot  \frac{x^n}{n!} \right]   \label{eq:exp-gen-def-2} \\
+\implies    f''\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n+2} \cdot  \frac{x^n}{n!} \right]   \label{eq:exp-gen-def-3}
+\end{align}
 
 
 So the recursive relation from \eqref{eq:fib-def-shift}  could be expressed :
@@ -487,6 +503,12 @@ a_{n+  2}    &= a_{n+  1} +  a_{n}\\
 \sum^{\infty}_{n= 0} \left[ \frac{x^n}{n!}   a_{n+  2} \right]        &= \sum^{\infty}_{n= 0}   \left[ \frac{x^n}{n!} a_{n+  1} \right]  + \sum^{\infty}_{n= 0}   \left[ \frac{x^n}{n!} a_{n}  \right]  \\
 f''\left( x \right) &= f'\left( x \right)+  f\left( x \right)
 \end{align*}
+
+And hence by applying \eqref{eq:exp-gen-def-1}:
+
+\begin{align}
+f''\left( x \right) &= f'\left( x \right)+  f\left( x \right)
+\end{align}
 
 
 Using the theory of higher order linear differential equations with
@@ -548,7 +570,7 @@ where:
 \item \(\psi = 1-\varphi = \frac{1- \sqrt{5} }{2} \approx 0.61\ldots\)
 \end{itemize}
 
-\subparagraph{Derivative of the Exponential Generating Function}
+\paragraph{Derivative of the Exponential Generating Function}
 \label{Derivative-exp-gen-function}
 Differentiating the exponential generating function has the effect of shifting the sequence to the backward: \cite{lehmanReadingsMathematicsComputer2010}
 
@@ -561,14 +583,41 @@ f'\left( x \right)) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 
 \implies f'(x) &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}a_{n+  1} }\right]} \label{eq:exp-pow-series-sol}
 \end{align}
 
-If \(f\left( x \right)= \sum^{\infty}_{n= 0 } \left[ a_n \frac{x^n}{n!} \right]\) can it be shown by induction that \(\frac{\mathrm{d}^k }{\mathrm{d} x^k} \left(  f\left( x \right) \right)= f^{k} \left( x \right) \sum^{\infty}_{n= 0}   \left[ x^n \frac{a_{n+  k}}{n!} \right]\)
+\subparagraph[Inductive Proof]{Inductive Proof\hfill{}\textsc{James}}
+\label{sec:org9047f69}
+This can be shown for all derivatives by way of induction, for
 
-\subparagraph{Homogeneous Proof}
-\label{sec:orgc3799c5}
+\begin{align}
+f^{(k)}\left(x\right) = \sum_{n=0}^\infty\frac{a_{n+k}\cdot x^n}{n!} \quad \text{for}~k \ge 0
+\end{align}
+
+Assume that. \(f^{(k)}\left(x\right) = \sum_{n=0}^\infty\frac{a_{n+k}\cdot x^n}{n!}\)
+
+Using this assumption, prove for the next element \$k+1\$\\
+
+We need \(f^{(k+1)}(x) = \sum_{n=0}^\infty\frac{a_{n+k+1}\cdot x^n}{n!}\)
+
+\begin{align*}
+    \text{LHS} &= f^{(k+1)}(x)\\
+    &= \frac{\mathrm{d}}{\mathrm{d}x}\left(f^{(k)}(x)\right)\\
+    &= \frac{\mathrm{d}}{\mathrm{d}x}\left(\sum_{n=0}^\infty\frac{a_{n+k}\cdot x^n}{n!}\right)\quad \text{by assumption}\\
+    &= \sum_{n=0}^\infty\frac{a_{n+k}\cdot n\cdot x^{n-1}}{n!}\\
+    &= \sum_{n=1}^\infty\frac{a_{n+k}\cdot x^{n-1}}{(n-1)!}\\
+    &= \sum_{n=0}^\infty\frac{a_{n+k+1}\cdot x^{n}}{n!}\\
+    &= \text{RHS}
+\end{align*}
+
+Thus, if the derivative of the series shown in \eqref{eq:exp-gen-def-1} shifts the
+sequence across, then every derivative thereafter does so as well, because the
+first derivative has been shown to express this property
+\eqref{eq:exp-pow-series-sol}, all derivates will.
+
+\paragraph{Homogeneous Proof}
+\label{sec:org624ab51}
 An equation of the form:
 
 \begin{align}
-\sum^{\infty}_{n=0} \left[ c_{i} \cdot f^{(n)}(x) \right] = 0 \label{eq:hom-ode}
+\sum^{n}_{i=0} \left[ c_{i} \cdot f^{(i)}(x) \right] = 0 \label{eq:hom-ode}
 \end{align}
 
 is said to be a homogenous linear ODE: \cite[Ch. 2]{zillDifferentialEquations2009a}
@@ -603,36 +652,34 @@ where:
 \end{itemize}
 \end{itemize}
 
-\begin{enumerate}
-\item Unique Roots of Characteristic Equation
+\subparagraph{Unique Roots of Characteristic Equation}
 \label{uniq-roots-recurrence}
 \begin{enumerate}
 \item Example
-\label{sec:org12ee9cd}
+\label{sec:org9dbe6e0}
 An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section \ref{solving-the-sequence}.
 \item Proof
-\label{sec:orgb761041}
+\label{sec:org03e8a58}
 Consider the linear recurrence relation \eqref{eq:recurrence-relation-def}:
 
 \begin{align}
-\sum^{\infty}_{n= 0}   \left[ c_i \cdot  a_n \right] = 0, \quad \exists c \in
-\mathbb{R}, \enspace \forall i<k\in\mathbb{Z}^+ \nonumber
+\sum^{n}_{i= 0}   \left[ c_i \cdot  a_i \right] = 0, \quad \exists c \in
+\mathbb{R}, \enspace \forall i<k\in\mathbb{Z}^+ \nonumber \label{eq:recurrence-relation-def}
 \end{align}
-
-By implementing the exponential generating function as shown in \eqref{eq:exp-gen-def-1}, this provides:
+This implies:
 
 
 \begin{align}
-    \sum^{k}_{i= 0}   {\left[{ c_i \cdot a_n } \right]} = 0 \nonumber \\
-    \intertext{By Multiplying through and summing: } \notag \\
-     \implies  \sum^{k}_{i= 0}   {\left[{ \sum^{\infty}_{n= 0}   {\left[{ c_i a_n \frac{x^n}{n!} }\right]}  }\right]}  \nonumber = 0 \\
-     \sum^{k}_{i= 0}    {\left[{ c_i \sum^{\infty}_{n= 0}   {\left[{  a_n \frac{x^n}{n!} }\right]}  }\right]}  \nonumber = 0 \\
+    \sum^{\infty}_{n= 0}   \left[ \sum^{k}_{i= 0}   \left[ \frac{x^n}{n!} c_i a_n \right]  \right]  &= 0 \\
+    \sum^{\infty}_{n= 0}    \sum^{k}_{i= 0}    \frac{x^n}{n!} c_i a_n    &= 0 \\
+        \sum^{k}_{i= 0} c_i \sum^{\infty}_{n= 0}    \frac{x^n}{n!}  a_n    &= 0
 \end{align}
 
-Recall from \eqref{eq:exp-gen-def-1} the generating function \(f{\left({ x }\right)}\):
+By implementing the exponential generating function as shown in
+\eqref{eq:exp-gen-def-1}, this provides:
 
 \begin{align}
-\sum^{k}_{i= 0}   {\left[{ c_i f^{{\left({ k }\right)} } } {\left({ x }\right)} \right]} \label{eq:exp-gen-def-proof}  &= 0
+   \sum^{k}_{i= 0}   \left[ c_i f^{\left( i \right)}\left( x \right) \right]
 \end{align}
 
 
@@ -668,11 +715,11 @@ This can be verified by the fibonacci sequence as shown in section \ref{solving-
 \end{alignat}
 \end{enumerate}
 
-\item Repeated Roots of Characteristic Equation
+\subparagraph{Repeated Roots of Characteristic Equation}
 \label{rep-roots-recurrence}
 \begin{enumerate}
 \item Example
-\label{sec:org5348cc6}
+\label{sec:org8618087}
 Consider the following recurrence relation:
 
 \begin{align}
@@ -707,7 +754,54 @@ observe however the following power series identity (TODO Prove this in section 
     x^ke^x &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}, \quad \exists k \in \mathbb{Z}^+ \label{eq:uniq-roots-pow-series-ident}
 \end{align}
 
-by applying identity \eqref{eq:uniq-roots-pow-series-ident} to equation \eqref{eq:rep-roots-ode-sol}
+\textbf{Proof}
+Consider the function \(f(x) = xe^x\). Using the taylor series formula we get the following:
+
+\begin{align*}
+    xe^x &= 0+\frac{1}{1!}x+\frac{2}{2!}x^2+\frac{3}{3!}x^3+\frac{4}{4!}x^4+\frac{5}{5!}x^5+\dots\\
+    &= \sum_{n=0}^\infty \frac{nx^n}{n!}\\
+    &= \sum_{n=1}^\infty \frac{x^n}{(n-1)!}
+\end{align*}
+
+Similarly, \(f(x) = x^2e^x\) will give:
+\begin{align*}
+    x^2e^x &= \frac{0}{0!} + \frac{0x}{1!} + \frac{2x^2}{2!} + \frac{6x^3}{3!} + \frac{12x^4}{4!} + \frac{20x^5}{5!} + \dots\\
+    &= \frac{2\cdot 1x^2}{2!} + \frac{3\cdot 2 x^3}{3!} + \frac{4\cdot 3x^4}{4!} + \frac{5\cdot 4 x^5}{5!} + \dots\\
+    &= \sum_{n=2}^\infty \frac{n(n-1)x^n}{n!}\\
+    &= \sum_{n=2}^\infty \frac{x^n}{(n-2)!}
+\end{align*}
+
+If we continue this on, we get:
+
+\begin{align*}
+    x^ke^x = \sum_{n=k}^\infty \frac{x^n}{(n-k)!} \quad \text{for}~k \ge 0
+\end{align*}
+
+To verify, let's prove this by induction.
+Prove \(f(x) = x^ke^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}\) \text{for} \(k \ge 0\) \\
+
+Test \(k=0\)
+\begin{align*}
+    LHS &= x^0e^x = e^x\\
+    RHS &= \sum_{n=0}^\infty \frac{x^n}{n!} = e^x\\
+\end{align*}
+Therefore LHS = RHS, so \(k=0\) is true\\
+
+Now assume true for all k, i.e. \$x\textsuperscript{k} e\textsuperscript{x} = \(\sum\)\textsubscript{n=k}\^{}\(\infty\)\frac{x^n}{(n-k)!}\$\\
+Using this assumption, prove for the next element \$k+1\$\\
+We need \$x\textsuperscript{k+1}e\textsuperscript{x} = \(\sum\)\textsubscript{n=k+1}\^{}\(\infty\)\frac{x^n}{(n-(k+1))!}\$\\
+\begin{align*}
+    \text{LHS} &= x^{k+1}e^x\\
+    &= x\cdot x^{k}e^x\\
+    &= x\cdot \sum_{n=k}^\infty\frac{x^n}{(n-k)!} \quad \text{(by assumption)}\\
+    &= \sum_{n=k}^\infty\frac{x^{n+1}}{(n-k)!}\\
+    &= \sum_{n=k+1}^\infty\frac{x^n}{(n-1-k)!} \quad \text{(re-indexing}~ n\text{)}\\
+    &= \sum_{n=k+1}^\infty\frac{x^n}{(n-(k+1))!}\\
+    &= RHS
+\end{align*}
+So by mathematical induction \(f(x) = x^ke^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}\) \text{for} \(k \ge 0\)
+
+Moving on, by applying identity \eqref{eq:uniq-roots-pow-series-ident} to equation \eqref{eq:rep-roots-ode-sol}
 
 \begin{align}
     \implies  f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{ c_1 \frac{{\left({ 5x }\right)}^n}{n!} }\right]}  +  \sum^{\infty}_{n= 0}   {\left[{ c_2 n \frac{{\left({ 5x^n }\right)}}{n{\left({ n-1 }\right)}!} }\right]} \nonumber \\
@@ -722,11 +816,12 @@ Given the defenition of the exponential generating function from \eqref{eq:exp-g
     \ \nonumber \\
     \square \nonumber
 \end{align}
+\begin{enumerate}
 \item Generalised Example
-\label{sec:orgd0bdedd}
+\label{sec:orgab372c4}
 
 \item Proof
-\label{sec:orgef02d1d}
+\label{sec:org2fcef27}
 In order to prove the the solution for a \(k^{\mathrm{th}}\) order recurrence relation with \(k\) repeated
 
 
@@ -738,13 +833,7 @@ Consider a recurrence relation of the form:
       \sum^{k}_{i= 0}   \sum^{\infty}_{n= 0}   c_i a_n \frac{x^n}{n!} \nonumber
 \end{align}
 
-By substituting for the value of the generating function (from \eqref{eq:exp-gen-def-1}):
-
-\begin{align}
-    \sum^{k}_{i= 0}   {\left[{ c_if^{{\left({ k }\right)}}  {\left({ x }\right)}    }\right]} \label{eq:gen-form-rep-roots-ode}
-\end{align}
-
-Assume that \eqref{eq:gen-form-rep-roots-ode} corresponds to a charecteristic polynomial with only 1 root of multiplicity \(k\), the solution would hence be of the form:
+Using the value of the generating function \eqref{eq:exp-gen-def-1} and assuming that it corresponds to a charecteristic polynomial with only 1 root of multiplicity \(k\), the solution would hence be of the form:
 
 \begin{align}
 			 & \sum^{k}_{i= 0}   {\left[{ c_i m^i }\right]} = 0 \wedge m=B, \enspace  \exists! B \in \mathbb{C} \nonumber \\
@@ -781,7 +870,7 @@ f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\rig
 
 
 \item General Proof
-\label{sec:org9bf23aa}
+\label{sec:org3662177}
 In sections \ref{uniq-roots-recurrence} and \ref{uniq-roots-recurrence} it was shown that a recurrence relation can be related to an ODE and then that solution can be transformed to provide a solution for the recurrence relation, when the charecteristic polynomial has either complex roots or 1 repeated root. Generally the solution to a linear ODE will be a superposition of solutions for each root, repeated or unique and so here it will be shown that these two can be combined and that the solution will still hold.
 
 Consider a Recursive relation with constant coefficients:
@@ -837,7 +926,7 @@ L\textsuperscript{2} - L - 1 = 0
 Se  \href{https://mathcs.holycross.edu/\~groberts/Courses/MA242/HW/hw4-sols.pdf}{This Tutorial}
 
 \subsubsection{Persian Recursion}
-\label{sec:org2478052}
+\label{sec:org9593c8d}
 Although some recursive problems are a good fit for mathematical thinking such as the \emph{Fibonacci Sequence} discussed in section \ref{exp-gen-func-fib-seq} other problems
 can be be easily interpreted computationally but they don't really carry over to any mathematical perspective, one good example of this is \emph{the persian recursion}, which is a simple procedure developed by Anne Burns in the 90s \cite{burnsPersianRecursion1997} that produces fantastic patterns upon feedback and iteration
 
@@ -859,6 +948,13 @@ This can be implemented computationally by defining a function that:
 \item then calls itself on the corners of the four new sub-matrices enclosed by the
 coloured row and column
 \end{itemize}
+
+
+\begin{figure}[htbp]
+\centering
+\includesvg[width=6cm]{persian}
+\caption{\label{persian-recursion-diagram}Diagram of the Persian Recursion, implemented with \emph{Python} in listing \ref{persian-recursion-python}}
+\end{figure}
 
 This is demonstrated in listing \ref{persian-recursion-python} with python and produces the output shown in figures \ref{6-rug}, various interesting examples are provided in the appendix at section \ref{persian-recursion-examples}.
 
@@ -939,10 +1035,10 @@ main(5,6, 1, cx)
 \caption{\label{6-rug}Output produced by listing \ref{persian-recursion-python} with 6 folds}
 \end{figure}
 
-\subsubsection{Julia}
-\label{sec:org070d345}
-\paragraph{Motivation}
-\label{sec:org4db6852}
+\subsection{Julia}
+\label{sec:org987445d}
+\subsubsection{Motivation}
+\label{sec:org150d7b3}
 Consider the iterative process \(x \rightarrow x^{2}, \enspace x \in \mathbb{R}\),
 for values of \(x>1\) this process will diverge and for \(x<1\) it will converge.
 
@@ -977,8 +1073,8 @@ Every value on that plane will belong to one of the two following sets
 
 In the case of \(f_{0}(z) = z^{2}\) all values \(\left\lvert z  \right \rvert \leq 1\) are bounded with \(\left\lvert z  \right \rvert = 1\) being an unstable stationary circle, but let's investigate what happens for different iterative functions like \(f_{1}(z) = z^{2} - 1\), despite how trivial this seems at first glance.
 
-\paragraph[Plotting the Sets]{Plotting the Sets\hfill{}\textsc{ATTACH}}
-\label{sec:org5d283d8}
+\subsubsection[Plotting the Sets]{Plotting the Sets\hfill{}\textsc{ATTACH}}
+\label{sec:orgd34f354}
 Although the convergence of values may appear simple at first, we'll implement a
 strategy to plot the prisoner and escape sets on the complex plane.
 
@@ -1201,7 +1297,7 @@ save_images(1200, 1500) # Number  and Res
 # Use montage multiple times to get recursion for fun
 montage (ls *png | sed -n '1p;0~600p') 0a.png
 montage (ls *png | sed -n '1p;0~100p') a.png
-montage (ls *png | sed -n '1p;0~50p')  a.png
+montage (ls *png | sed -n '1p;0~50p') -geometry 1000x1000  a.png
 
 # Use ImageMagick to Produce a gif (unreliable)
 convert -delay 10 *.png 0.gif
@@ -1225,8 +1321,8 @@ ffmpeg                    \
 \caption{\label{montage-frac}Various fracals corresponding to \(f_{0.8 e^{\pi i \tau}}\)}
 \end{figure}
 
-\subsubsection{MandelBrot}
-\label{sec:org3c0a94e}
+\subsection{MandelBrot}
+\label{sec:org2418b02}
 Investigating these fractals, a natural question might be whether or not any
 given \(c\) value will produce a fractal that is an open disc or a closed disc.
 
@@ -1234,7 +1330,12 @@ So pick a value \(\left\lvert \gamma \right \rvert < 1\) in the complex plane an
 use it to produce the julia set \(f_{\gamma}\), if the corresponding prisoner set
 \(P\) is closed we this value is defined as belonging to the \emph{Mandelbrot} set.
 
-It can be shown (and I intend to show it generally), that this set is equivalent to re-implementing the previous strategy such that \(z \rightarrow z^{2} + z_{0}\) where \(z_{0}\) is unchanging.
+It can be shown (and I intend to show it generally), that this set is equivalent to re-implementing the previous strategy such that \(z \rightarrow z^{2} + z_{0}\) where \(z_{0}\) is unchanging or more clearly as a seqeuence:
+
+\begin{align}
+z_{n+1} &= z^{2}_n + c \label{eq:mb-sequence}
+z_{0}   &= c
+\end{align}
 
 This strategy is implemented in listing 
 
@@ -1346,24 +1447,54 @@ save_picture("/tmp/a.fits", my_pic)
 \end{minted}
 
 \subsubsection{GNU Plot}
-\label{sec:org94450b3}
-Another approach to visualise this set is by creating a 3d surface plot where the z-axis is mapped to the time taken until divergence, this can be acheived by using gnuplot as demonstrated in listing \ref{gnuplot-mandelbrot-initial}.\footnote{See \cite{GnuplotFractalMandelbrot} for an excellent, albeit quite old, resource on GNUPlot.}
+\label{sec:org5810816}
+Another approach to visualise this set is by creating a 3d surface plot where
+the z-axis is mapped to the time taken until divergence, this can be acheived by
+using gnuplot as demonstrated in listing \ref{gnuplot-mandelbrot-initial}.\footnote{See \cite{GnuplotFractalMandelbrot} for an excellent, albeit quite old, resource on GNUPlot.}
 
-\href{https://rosettacode.org/wiki/Find\_limit\_of\_recursion\#gnuplot}{limit of recursion is 250}
+All the following code was adapted from online sources, they however correspond to an older release
+and newer versions of GNUPlot:
+
+\begin{itemize}
+\item have a recursion limit
+\item methods to loop functions
+\end{itemize}
+
+So one of our desires in this project is to visualise a much more detailed 3d
+model in GNUPlot by modifying the code to use iteration as opposed to recursion. Generally I would like to write a
+
+
+I'd also like to implement some process to generate a golden spiral as shown in figure \ref{golden-spiral}.
+
+
+\begin{figure}[htbp]
+\centering
+\includesvg[width=9cm]{golden-spiral}
+\caption{\label{golden-spiral}Circle of Convergence for \(f_{0}: z \rightarrow z^{2} - 1\)}
+\end{figure}
 
 \begin{listing}[htbp]
 \begin{minted}[]{gnuplot}
 complex(x,y) = x*{1,0}+y*{0,1}
+julia(x,y,z,n) = (abs(z)>2.0 || n>=200) ? \
+                  n : julia(x,y,z*z+complex(x,y),n+1)
+
 mandelbrot(x,y,z,n) = (abs(z)>2.0 || n>=200) ? \
                   n : mandelbrot(x,y,z*z+complex(x,y),n+1)
 
-set xrange [-2:2]
-set yrange [-2:2]
+set xrange [-1.5:1.5]
+set yrange [-1.5:1.5]
 set logscale z
-set isosample 240
+set isosample 150
 set hidden3d
 set contour
-splot mandel(x,y,{0,0},0) notitle
+a= 0.36
+b= 0.1
+# Julia Set
+splot julia(a,b,complex(x,y),0)  notitle
+
+# MandelBrot Set
+# splot mandelbrot(x,y,complex(x,y),0) notitle
 \end{minted}
 \caption{\label{gnuplot-mandelbrot-initial}Visualising the Mandelbrot set as a 3D surface Plot}
 \end{listing}
@@ -1391,7 +1522,7 @@ set hidden3d
 set contour
 a= 0.25
 b= 0.75
-splot mandel(a,b,complex(x,y),0) notitle
+splot julia(a,b,complex(x,y),0) notitle
 \end{minted}
 \caption{\label{gnuplot-julia}Use GNUPlot to produce plot of  julia set}
 \end{listing}
@@ -1423,14 +1554,17 @@ splot [-2 : 2] [-2 : 2] mandelbrot (complex (0, 0), complex (x, y), 0) notitle
 \end{minted}
 \caption{\label{flat-gnuplot}Flat Mandelbrot set built using rosetta code.}
 \end{listing}
+\subsection{Relevant Sources}
+\label{sec:orgbd69560}
+To guide research in this area the following books were going to act as guides, in particular \emph{Chaos and Fractals} by Otto is a primary resource:
 
 
+List the books from Dropbox here.
 
-\subsubsection{Determinant??}
-\label{sec:orga8aecc6}
+Also Ron Knotts website looks very helpful \cite{ronknottFibonacciNumbersGolden2016}
 
 \section{Outline}
-\label{sec:orgc98a808}
+\label{sec:org59bafa8}
 \begin{enumerate}
 \item Intro Prob
 \item Variable Scope
@@ -1544,10 +1678,12 @@ spiral pops out, also the areas follow a fibonacci sequence.
 \end{itemize}
 \item Is there any relationship between the Cantor Prisoner set and the Julia Sets?
 \item Work with Matt to investigate Julia Sets for Quaternion \cite[\textsection 13.9]{peitgenChaosFractalsNew2004}
+\item I'd like to write a program to solve sudoku problems as well
 \end{itemize}
 \end{enumerate}
+
 \section{Download RevealJS}
-\label{sec:org6688d7a}
+\label{sec:org8141e03}
 So first do \texttt{M-x package-install ox-reveal} then do \texttt{M-x load-library} and then look for \texttt{ox-reveal}
 
 \begin{minted}[]{elisp}
@@ -1566,7 +1702,7 @@ mv reveal.js-master reveal.js
 Then just do \texttt{C-c e e R R} to export with RevealJS as opposed to PHP you won't need a fancy server, just open it in the browser.
 
 \section{Heres a Gif}
-\label{sec:orgfcad2ce}
+\label{sec:orgcc7e77d}
 So this is a very big Gif that I'm using:
 
 How did I make the Gif??
@@ -1574,7 +1710,7 @@ How did I make the Gif??
 \url{https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0}
 
 \section{Give a brief Sketch of the project}
-\label{sec:org9b7e330}
+\label{sec:org1a81ba9}
 
 Of particular interest are the:
 \begin{itemize}
@@ -1590,7 +1726,7 @@ xdg-open /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant
 Here's what I gatthered from the week 3 slides
 
 \subsection{Topic / Context}
-\label{sec:orga6c40a2}
+\label{sec:org93c0103}
 We are interested in the theory of problem solving, but in particular the
 different approaches that can be taken to attacking a problem.
 
@@ -1598,10 +1734,10 @@ Essentially this boils down to looking at how a computer scientist and
 mathematician attack a problem, although originally I thought there was no
 difference, after seeing the odd way Roozbeh attacks problems I see there is a big difference.
 \subsection{Motivation}
-\label{sec:org08be66c}
+\label{sec:org0403ad0}
 
 \subsection{Basic Ideas}
-\label{sec:org226fd06}
+\label{sec:orgb1795ae}
 \begin{itemize}
 \item Look at FOSS CAS Systems
 \begin{itemize}
@@ -1627,7 +1763,7 @@ difference, after seeing the odd way Roozbeh attacks problems I see there is a b
 After getting an overview of SymPy let's look at problems that are interesting (chaos, morphogenesis and order from disarray etc.)
 
 \subsection{Where are the Mathematics}
-\label{sec:org076c572}
+\label{sec:org61d92c9}
 
 \begin{itemize}
 \item Trying to look at the algorithms underlying functions in Python/Sympy and other Computer algebra tools such as Maxima, Maple, Mathematica, Sage, GAP and Xcas/Giac, Yacas, Symata.jl, Reduce.jl, SymEngine.jl
@@ -1645,17 +1781,17 @@ After getting an overview of SymPy let's look at problems that are interesting (
 AVOID DETAILS, JUST SKETCH THE PROJECT OUT.
 
 \subsection{Don't Forget we need a talk}
-\label{sec:orga307818}
+\label{sec:org23bdeaf}
 \subsubsection{Slides In Org Mode}
-\label{sec:org60ffe47}
+\label{sec:org6ecb860}
 \begin{itemize}
 \item \href{https://orgmode.org/worg/org-tutorials/non-beamer-presentations.html}{Without Beamer}
 \item \href{https://orgmode.org/worg/exporters/beamer/tutorial.html}{With Beamer}
 \end{itemize}
 \section{Undecided}
-\label{sec:org2a2c7a8}
+\label{sec:orge80e58c}
 \subsubsection{Determinant}
-\label{sec:org15454bb}
+\label{sec:org433f973}
 Computational thinking can be useful in problems related to modelling, consider
 for example some matrix \(n\times n\) matrix \(B_n\) described by \eqref{eq:bn-matrix} :
 
@@ -2171,7 +2307,7 @@ the larger amount of data:
   The Maximum Percentage error is 0.27% which corresponds to a matrix of size 39
 \end{verbatim}
 \section{What we're looking for}
-\label{sec:org95757c8}
+\label{sec:org7d8535b}
 
 \begin{itemize}
 \item Would a reader know what the project is about?
@@ -2182,7 +2318,7 @@ the larger amount of data:
 
 
 \section{Appendix}
-\label{sec:org095e3d0}
+\label{sec:orgb049e2b}
 
 \begin{listing}[htbp]
 \begin{minted}[]{python}
@@ -2262,7 +2398,7 @@ main(8, 8, 1, cx)
 \caption{\label{new-func2-plot}Output produced by listing \ref{new-func2-code} using \(f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1\)}
 \end{figure}
 \subsection{Figures}
-\label{sec:orgc4cfc77}
+\label{sec:org559e186}
 
 \begin{figure}[htbp]
 \centering

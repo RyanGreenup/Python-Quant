@@ -54,32 +54,44 @@
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{one_svg-tex.pdf}}%
-    \put(0.135,0.19366667){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}-1.5\end{tabular}}}}%
+    \put(0.135,0.19366667){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}-2\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{one_svg-tex.pdf}}%
-    \put(0.24816667,0.1695){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}-1\end{tabular}}}}%
+    \put(0.19166667,0.1815){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}-1.5\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{one_svg-tex.pdf}}%
-    \put(0.36133333,0.14516667){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}-0.5\end{tabular}}}}%
+    \put(0.24816667,0.1695){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}-1\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{one_svg-tex.pdf}}%
-    \put(0.4745,0.12083333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}0\end{tabular}}}}%
+    \put(0.30483333,0.15733333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}-0.5\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{one_svg-tex.pdf}}%
-    \put(0.5875,0.09666667){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}0.5\end{tabular}}}}%
+    \put(0.36133333,0.14516667){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}0\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{one_svg-tex.pdf}}%
-    \put(0.6095,0.10133333){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}-1\end{tabular}}}}%
+    \put(0.418,0.133){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}0.5\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=7]{one_svg-tex.pdf}}%
-    \put(0.67483333,0.14333333){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}-0.5\end{tabular}}}}%
+    \put(0.4745,0.12083333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=8]{one_svg-tex.pdf}}%
-    \put(0.74016667,0.1855){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0\end{tabular}}}}%
+    \put(0.531,0.10866667){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1.5\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=9]{one_svg-tex.pdf}}%
-    \put(0.8055,0.2275){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.5\end{tabular}}}}%
+    \put(0.5875,0.09666667){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}2\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=10]{one_svg-tex.pdf}}%
-    \put(0.87083333,0.2695){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1\end{tabular}}}}%
+    \put(0.61783333,0.10683333){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}-1\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=11]{one_svg-tex.pdf}}%
-    \put(0.11316667,0.317){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}1\end{tabular}}}}%
+    \put(0.66,0.13383333){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}-0.5\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=12]{one_svg-tex.pdf}}%
-    \put(0.11316667,0.39166667){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}10\end{tabular}}}}%
+    \put(0.70216667,0.161){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=13]{one_svg-tex.pdf}}%
-    \put(0.11316667,0.46633333){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}100\end{tabular}}}}%
+    \put(0.74433333,0.18816667){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.5\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=14]{one_svg-tex.pdf}}%
+    \put(0.7865,0.21533333){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{one_svg-tex.pdf}}%
+    \put(0.82866667,0.24233333){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1.5\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{one_svg-tex.pdf}}%
+    \put(0.87083333,0.2695){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}2\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{one_svg-tex.pdf}}%
+    \put(0.11316667,0.317){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{one_svg-tex.pdf}}%
+    \put(0.11316667,0.39166667){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}10\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=19]{one_svg-tex.pdf}}%
+    \put(0.11316667,0.46633333){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}100\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=20]{one_svg-tex.pdf}}%
     \put(0.11316667,0.541){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}1000\end{tabular}}}}%
   \end{picture}%
 \endgroup%
