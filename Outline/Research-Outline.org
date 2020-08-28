@@ -841,8 +841,12 @@ We hope to demonstrate this relationship between the ratio of successive terms
 of the fibonacci sequence without relying on ODEs and generating functions and
 by instead using limits and the /Monotone Convergence Theorem/, the hope being
 that this will reveal deeper underlying relationships between the /Fibonacci
-Sequence/, the /Golden Ratio/ and there occurrences in nature (such as the example in section [[#sunflower-example]] given that the both appear to occur in patterns
-observed in nature.
+Sequence/, the /Golden Ratio/ and there occurrences in nature (such as the
+example in section [[#sunflower-example]] given that the both appear to occur in
+patterns observed in nature.
+
+We also hope to find a method to produce the the diagram shown in figure
+[[golden-spiral]] computationally, ideally by using the Turtle function in /Julia/.
 
 **** Fibonacci Sequence in Nature                                            :Ryan:
 :PROPERTIES:
@@ -1444,108 +1448,6 @@ save_picture("/tmp/a.fits", my_pic)
 [[file:_20200828_233844screenshot.png]]
 
 
-*** GNU Plot
-Another approach to visualise this set is by creating a 3d surface plot where
-the z-axis is mapped to the time taken until divergence, this can be acheived by
-using gnuplot as demonstrated in listing [[gnuplot-mandelbrot-initial]].[fn:jp]
-
-All the following code was adapted from online sources, they however correspond to an older release
-and newer versions of GNUPlot:
-
-- have a recursion limit
-- methods to loop functions
-
-So one of our desires in this project is to visualise a much more detailed 3d
-model in GNUPlot by modifying the code to use iteration as opposed to recursion. Generally I would like to write a
-
-
-I'd also like to implement some process to generate a golden spiral as shown in figure [[golden-spiral]].
-
-
-#+attr_html: :width 800px
-#+attr_latex: :width 9cm
-#+NAME: golden-spiral
-#+CAPTION: Circle of Convergence for $f_{0}: z \rightarrow z^{2} - 1$
-[[file:golden-spiral.svg]]
-
-#+NAME: gnuplot-mandelbrot-initial
-#+CAPTION: Visualising the Mandelbrot set as a 3D surface Plot
-#+BEGIN_SRC gnuplot :cache no :exports both :results output graphics :file one.svg :eval never-export
-complex(x,y) = x*{1,0}+y*{0,1}
-julia(x,y,z,n) = (abs(z)>2.0 || n>=200) ? \
-                  n : julia(x,y,z*z+complex(x,y),n+1)
-
-mandelbrot(x,y,z,n) = (abs(z)>2.0 || n>=200) ? \
-                  n : mandelbrot(x,y,z*z+complex(x,y),n+1)
-
-set xrange [-1.5:1.5]
-set yrange [-1.5:1.5]
-set logscale z
-set isosample 150
-set hidden3d
-set contour
-a= 0.36
-b= 0.1
-# Julia Set
-splot julia(a,b,complex(x,y),0)  notitle
-
-# MandelBrot Set
-# splot mandelbrot(x,y,complex(x,y),0) notitle
-#+end_src
-
-#+RESULTS: gnuplot-mandelbrot-initial
-[[file:one.svg]]
-
-
-
-[[http://folk.uio.no/inf3330/scripting/doc/gnuplot/Kawano/fractal/mandelbrot-e.html][reference for image]]
-
-#+NAME: gnuplot-julia
-#+CAPTION: Use GNUPlot to produce plot of  julia set
-#+BEGIN_SRC gnuplot :exports both :results output graphics :file two.svg :eval never-export
-complex(x,y) = x*{1,0}+y*{0,1}
-julia(x,y,z,n) = (abs(z)>2.0 || k>=200) ? \
-                  k : julia(x,y,z*z+complex(x,y),n+1)
-
-set xrange [-1.5:1.5]
-set yrange [-1.5:1.5]
-set logscale z
-set isosample 150
-set hidden3d
-set contour
-a= 0.25
-b= 0.75
-splot julia(a,b,complex(x,y),0) notitle
-#+end_src
-
-#+RESULTS[e065d7a76464baa900fc7f9562aea3913aa29980]: gnuplot-julia
-[[file:two.svg]]
-
-
-
-
-
-
-GNU Plot can also make excellent 2d renditions of fractals, an example of how to
-perform this can be found on /Rosetta Code/ cite:MandelbrotSetRosetta and is demonstrated in listing [[flat-gnuplot]].
-
-
-#+NAME: flat-gnuplot
-#+CAPTION: Flat Mandelbrot set built using rosetta code.
-#+BEGIN_SRC gnuplot :cache yes :exports both :results output graphics :file three.svg :eval never-export
-R = 2
-k = 100
-complex (x, y) = x * {1, 0} + y * {0, 1}
-mandelbrot (z, z0, n) = n == k || abs (z) > R ? n : mandelbrot (z ** 2 + z0, z0, n + 1)
-set samples 200
-set isosamples 200
-set pm3d map
-set size square
-splot [-2 : 2] [-2 : 2] mandelbrot (complex (0, 0), complex (x, y), 0) notitle
-#+end_src
-
-#+RESULTS[6f4570cfd26a3574d696e18a2348c68289265d90]:
-[[file:three.svg]]
 ** Relevant Sources
 To guide research for our topic /Chaos and Fractals/ by Pietgen, Jurgens and Saupe cite:peitgenChaosFractalsNew2004 will act as a map of the topic broadly, other than the sources referenced already, we anticipate referring to the following textbooks that we access to throughout the project:
 
