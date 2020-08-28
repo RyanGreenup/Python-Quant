@@ -1188,7 +1188,7 @@ save_images(1200, 1500) # Number  and Res
 # Use montage multiple times to get recursion for fun
 montage (ls *png | sed -n '1p;0~600p') 0a.png
 montage (ls *png | sed -n '1p;0~100p') a.png
-montage (ls *png | sed -n '1p;0~50p')  a.png
+montage (ls *png | sed -n '1p;0~50p') -geometry 1000x1000  a.png
 
 # Use ImageMagick to Produce a gif (unreliable)
 convert -delay 10 *.png 0.gif
