@@ -1,4 +1,4 @@
-#+TITLE: Thinking about Problems
+#+TITLE: The Emergence of Patterns in Nature and Chaos Theory
 :PREAMBLE:
 #+OPTIONS: broken-links:auto todo:nil H:9
 #+STARTUP: content
@@ -28,70 +28,25 @@
 
 * Submission Outline
 ** Introduction
-
-During preperation for this outline, an article published by the /Mathematical
-Association of America/ caught my attention, in which mathematics is referred to
-as the /Science of Patterns/ cite:friedMathematicsSciencePatterns2010, this I
-feel, frames very well the essence of the research we are looking at in this
-project. Mathematics, generally, is primarily concerned with problem solving
-(that isn't, however, to say that the problems need to have any
-application[fn:rv]), and it's fairly obvious that different strategies work
-better for different problems. That's what we want to investigate, Different to
-attack a problem, different ways of thinking, different ways of framing
-questions.
-
-The central focus of this investigation will be with computer algebra and the
-various libraries and packages that exist in the free open source [fn:op] space to solve
-and visualise numeric and symbolic problems, these include:
-
-    + Programming Languages and CAS
-      - Julia
-        + SymEngine
-      - Maxima
-        + Being the oldest there is probably a lot too learn
-      - Julia
-      - Reduce
-      - Xcas/Gias
-      - Python
-        + Numpy
-        + Sympy
-    + Visualisation
-      - Makie
-      - Plotly
-      - GNUPlot
+This project at the outset was very broadly concerned with using /Python/ for
+computer algebra, much to the the reluctance of our supervisor we have however
+resolved to look at a broad variety of tools, including /Maxima/ and /GNUPlot/,
+in particular a language we wanted an opportunity to explore was /Julia/
+cite:bezansonJuliaFreshApproach2017 [fn:jl].
 
 
-Many problems that look complex upon initial inspection can be solved trivially
-by using computer algebra packages and our interest is in the different
-approaches that can be taken to /attack/ each problem. Of course however this leads to the question:
+In order to give the project a more focused direction we have decided to look into: [fn:nt]
 
+- The Emergence of patterns in Nature
+- Chaos Theory & Dynamical Systems
+- Fractals
 
-#+begin_quote
-Can all mathematical problems be solved by some application of some set of rules?
-#+end_quote
-
-This is not really a question that we can answer, however, determinism with
-respect to systems is appears to make a very good area of investigation with respect to finding ways to deal with problems.
-
-This is not an easy question to answer, however, while investigating this problem
-
-
-
-Determinism
-
-Are problems deterministic? can the be broken down into a step by step way? For
-example if we /discover all the rules/ can we then simply solve all the problems?
-
-chaos to look at patterns generally to get a deeper understanding of patterns
-and problems, loops and recursion generally.
-
-To investigate different ways of thinking about math problems our investigation
-
-laplaces demon
-
-but then heisenberg,
-
-but then chaos and meh.
+These three topics are very tightly connected and so it is difficult to look at
+any one in a vacuum, they also almost necessitate the use of software packages
+due to the fact that these phenomena appear to occur in recursive systems, more
+over such software needs to perform very well under recursion and iteration
+(making this a very good focus for this topic generally, and an excuse to work
+with Julia as well).
 
 ** Preliminary Problems
 We did a tonne of these but this one really illustrates the sort of things that we're looking at.
@@ -254,8 +209,10 @@ def f(k):
 :END:
 
 ** TODO Fibonacci Sequence
-The Fibonacci Sequence occurs in patterns observed in nature very frequently (see
-cite:shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016)
+The Fibonacci Sequence occurs in patterns observed in nature very frequently
+(see
+cite:shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016), an example of such an occurence is discussed in [[#sunflower-example]].
+
 
 This pops up all the time in natural sequences and fractals so we'll deal with
 ways to solve it The /Fibonacci Sequence/ The /Fibonacci Sequence/ and the
@@ -569,7 +526,7 @@ f^{(k)}\left(x\right) = \sum_{n=0}^\infty\frac{a_{n+k}\cdot x^n}{n!} \quad \text
 
 Assume that. $f^{(k)}\left(x\right) = \sum_{n=0}^\infty\frac{a_{n+k}\cdot x^n}{n!}$
 
-Using this assumption, prove for the next element $k+1$\\
+Using this assumption, prove for the next element $k+1$
 
 We need $f^{(k+1)}(x) = \sum_{n=0}^\infty\frac{a_{n+k+1}\cdot x^n}{n!}$
 
@@ -781,7 +738,6 @@ f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\rig
 \square \nonumber
 \end{align}
 
-
 ***** TODO General Proof
 :PROPERTIES:
 :CUSTOM_ID: general-gen-func-proof
@@ -793,18 +749,68 @@ when the charecteristic polynomial has either complex roots or 1 repeated root.
 Generally the solution to a linear ODE will be a superposition of solutions for
 each root, repeated or unique and so a goal of our research will be to put this
 together to find a general solution for homogenous linear recurrence relations.
-****** Power Series
-:PROPERTIES:
-:CUSTOM_ID: power-series-comb
-:END:
-A further goal will be to prove eqref:eq:power-series-comb for the case of the
-integers.
 
 Sketching out an approach for this:
 
 - Use the Generating function to get an ODE
 - The ODE will have a solution that is a combination of the above two forms
 - The solution will translate back to a combination of both above forms
+****** Power Series Combination                                            :James:
+:PROPERTIES:
+:CUSTOM_ID: power-series-comb
+:END:
+In this section a proof for identity ref:eq:power-series-comb is provided.
+******* Motivation
+
+Consider the function $f(x) = xe^x$. Using the taylor series formula we get the following:
+
+\begin{align*}
+    xe^x &= 0+\frac{1}{1!}x+\frac{2}{2!}x^2+\frac{3}{3!}x^3+\frac{4}{4!}x^4+\frac{5}{5!}x^5+\dots\\
+    &= \sum_{n=0}^\infty \frac{nx^n}{n!}\\
+    &= \sum_{n=1}^\infty \frac{x^n}{(n-1)!}
+\end{align*}
+
+Similarly, $f(x) = x^2e^x$ will give:
+\begin{align*}
+    x^2e^x &= \frac{0}{0!} + \frac{0x}{1!} + \frac{2x^2}{2!} + \frac{6x^3}{3!} + \frac{12x^4}{4!} + \frac{20x^5}{5!} + \dots\\
+    &= \frac{2\cdot 1x^2}{2!} + \frac{3\cdot 2 x^3}{3!} + \frac{4\cdot 3x^4}{4!} + \frac{5\cdot 4 x^5}{5!} + \dots\\
+    &= \sum_{n=2}^\infty \frac{n(n-1)x^n}{n!}\\
+    &= \sum_{n=2}^\infty \frac{x^n}{(n-2)!}
+\end{align*}
+
+We conjecture thatIf we continue this on, we get:
+
+\begin{align*}
+    x^ke^x = \sum_{n=k}^\infty \frac{x^n}{(n-k)!} \quad \text{for}~k\in \mathbb{Z^{+}}
+\end{align*}
+******* Proof by Induction
+To verify, let's prove this by induction.
+******** Base
+Test $k=0$
+\begin{align*}
+    LHS &= x^0e^x = e^x\\
+    RHS &= \sum_{n=0}^\infty \frac{x^n}{n!} = e^x\\
+\end{align*}
+Therefore LHS = RHS, so $k=0$ is true
+
+******** Bridge
+Assume $x^k e^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}$
+
+Using this assumption, prove for the next element $k+1$\\
+
+We need $x^{k+1}e^x = \sum_{n=k+1}^\infty\frac{x^n}{(n-(k+1))!}$\\
+\begin{align*}
+    \text{LHS} &= x^{k+1}e^x\\
+    &= x\cdot x^{k}e^x\\
+    &= x\cdot \sum_{n=k}^\infty\frac{x^n}{(n-k)!} \quad \text{(by assumption)}\\
+    &= \sum_{n=k}^\infty\frac{x^{n+1}}{(n-k)!}\\
+    &= \sum_{n=k+1}^\infty\frac{x^n}{(n-1-k)!} \quad \text{(re-indexing}~ n\text{)}\\
+    &= \sum_{n=k+1}^\infty\frac{x^n}{(n-(k+1))!}\\
+    &= RHS
+\end{align*}
+So by mathematical induction $f(x) = x^ke^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}$ \text{for} $k \ge 0$
+
+Moving on, by applying identity eqref:eq:uniq-roots-pow-series-ident to equation eqref:eq:rep-roots-ode-sol
 
 *** Fibonacci Sequence and the Golden Ratio
 :PROPERTIES:
@@ -826,7 +832,95 @@ We'll come back to this later on when looking at spirals and fractals.
 
 We hope to demonstrate this relationship between the ratio of successive terms
 of the fibonacci sequence without relying on ODEs and generating functions and
-by instead using limits and the /Monotone Convergence Theorem/, the hope being that this will reveal deeper underlying relationships between the /Fibonacci Sequence/ and the /Golden Ratio/ given that the both appear to occur in patterns observed in nature.
+by instead using limits and the /Monotone Convergence Theorem/, the hope being
+that this will reveal deeper underlying relationships between the /Fibonacci
+Sequence/, the /Golden Ratio/ and there occurrences in nature (such as the example in section [[#sunflower-example]] given that the both appear to occur in patterns
+observed in nature.
+
+**** Fibonacci Sequence in Nature                                            :Ryan:
+:PROPERTIES:
+:CUSTOM_ID: sunflower-example
+:END:
+The distribution of sunflower seeds is an example of the /Fibonacci Sequence/
+occuring in a pattern observed in nature (see Figure [[sunflower]]).
+
+Imagine that the process a sunflower follows when placing seeds is as follows: [fn:sf]
+
+1. Place a seed
+2. Move some small unit away from the origin
+3. Rotate some constant angle $\mathtt{\theta}$ (or θ) from the previous seed (with respect to the origin).
+4. Repeat this process until a seed hits some outer boundary.
+
+This process can be simulated in Julia cite:bezansonJuliaFreshApproach2017 as shown in listing [[simulate-sunflower]], which combined with /ImageMagick/ (see e.g. [[montage-frac]]), produces output as shown in figure [[simulate-sunflower-image]] and [[simulate-sunflower-phi]].
+
+A distribution of seeds undder this process would be optimal if the amount of empty space was minimised, spirals, stars and swirls contain patterns compromise this.
+
+To minimize this, the proportion of the circle traversed in step 3 must be an
+irrational number, however this alone is not sufficent, the decimal values must
+also be not to approximated by a rational number, for example
+cite:NatureGoldenRatio2018:
+
++ $\pi \mod 1 \approx \frac{1}{7}=0.7142857142857143$
++ $e \mod 1 \approx \frac{5}{7}= 0.14285714285714285$
+
+It can be seen by simulation that $\phi$ and $\psi$ (because $\phi \mod 1 =
+\psi$) are solutions to this optimisation problem as shown in figure
+[[simulate-sunflower-phi]], this solution is unstable, a very minor change to the
+value will result in patterns re-emerging in the distribution.
+
+Another interesting property is that the number of spirals that appear to rotate
+clockwise and anti-clockwise appear to be fibonacci numbers. Connecting this
+occure with the relationship between the /Fibonacci Sequence/ as discussed in
+section [[#fib-golden-ratio-proof]] is something we hope to look at in this project.
+Illustrating this phenomena with /Julia/ by finding the mathematics to colour
+the correct spirals is also something we intend to look at in this project.
+
+The bottom right spiral in figure [[simulate-sunflower-image]] has a ratio of rotation of $\frac{1}{\pi}$, the spirals look similar to one direction of the spirals occuring in figure [[simulate-sunflower-phi]], it is not clear if there is any significance to this similarity.
+
+#+NAME: simulate-sunflower
+#+CAPTION: Simulation of the distribution of sunflowers as described in section [[#sunflower-example]]
+#+begin_src julia :eval never
+φ = 1.61803398875
+ψ = φ^-1
+ψ = 0.61803398875
+function sfSeeds(ratio)
+🐢 = Turtle()
+    for θ in [(ratio*2*π)*i for i in 1:3000]
+        gsave()
+        scale(0.05)
+        rotate(θ)
+#        Pencolor(🐢, rand(1)[1], rand(1)[1], rand(1)[1])
+        Forward(🐢, 1)
+        Rectangle(🐢, 50, 50)
+        grestore()
+    end
+    label = string("Ratio = ", round(ratio, digits = 8))
+    textcentered(label, 100, 200)
+end
+@svg begin
+    sfSeeds(φ)
+end 600 600
+#+end_src
+
+#+attr_html: :width 600px
+#+attr_latex: :width 9cm
+#+NAME: simulate-sunflower-image
+#+CAPTION: Simulated Distribution of Sunflower seeds as described in section [[#sunflower-example]] and listing [[simulate-sunflower]]
+[[file:sunflower-spirals-montage.png]]
+
+#+attr_html: :width 600px
+#+attr_latex: :width 9cm
+#+NAME: simulate-sunflower-phi
+#+CAPTION: Optimisation of simulated distribution of Sunflower seeds occurs for $\theta =2 \varphi  \pi$ as described in section [[#sunflower-example]] and listing [[simulate-sunflower]]
+[[file:golden-flower.svg]]
+
+
+#+attr_html: :width 600px
+#+attr_latex: :width 7cm
+#+NAME: sunflower
+#+CAPTION: Distribution of the seeds of a sunflower (see cite:simonbrassCCSearch2006 licenced under CC)
+[[file:sunflower.jpg]]
+
 
 ** Persian Recursion
 Although some recursive problems are a good fit for mathematical thinking such as the /Fibonacci Sequence/ discussed in section [[#exp-gen-func-fib-seq]] other problems
@@ -2227,8 +2321,56 @@ main(8, 8, 1, cx)
 #+NAME: xkcd-complex-numbers
 #+CAPTION: XKCD 2028: Complex Numbers
 [[file:complex_numbers.png]]
+** Why Julia
+:PROPERTIES:
+:CUSTOM_ID: why-julia
+:END:
+
+The reason we resolved to make time to investigate /Julia/ is because we see it as a very important tool for mathematics in the future, in particular because:
+
+- It is a new modern language, designed primarily with mathematics in mind
+  + First class support for UTF8 symbols
+  + Full Support to call /*R*/ and /Python/.
+- Performance wise it is best in class and only rivalled by compiled languages such as /Fortran/ /Rust/ and */C/*
+  + /Just in Time Compiling/ allows for a very useable /REPL/ making Julia
+    significantly more appealing than compiled languages
+  + The syntax of Julia is very similar to /Python/ and /*R*/
+- The ~DifferentialEquations.jl~ library is one of the best performing libraries available.
+
+**** Other Pakcages
+Other packages that are on our radar for want of investigation are listed below, in practice it is unlikely that time will permit us to investigate many packages or libraries
+
+    + Programming Languages and CAS
+      - Julia
+        + SymEngine.jl
+        + Symata.jl
+        + SymPy.jl
+      - Maxima
+        + Being the oldest there is probably a lot too learn
+      - Julia
+      - Reduce
+      - Xcas/Gias
+      - Python
+        + Numpy
+        + Sympy
+    + Visualisation
+      - Makie
+      - Plotly
+      - GNUPlot
 
 * Footnotes
+
+[fn:nt] The amount of independence that our supervisor afforded us to
+investigate other languages is something that we are both extremely grateful for.
+
+[fn:jl] See section [[why-julia]]
+
+[fn:sf]  This process is simply conjecture, other than seeing a very nice example at [[https://www.mathsisfun.com/numbers/nature-golden-ratio-fibonacci.html][/MathIsFun.com/]]
+cite:NatureGoldenRatio2018, we have no evidence to suggest that this is the way
+that sunflowers distribute there seeds.
+
+However the simulations performed within /Julia/ are very encouraging and
+suggest that this process isn't too far off.
 
 [fn:jp] See cite:GnuplotFractalMandelbrot for an excellent, albeit quite old, resource on GNUPlot.
 

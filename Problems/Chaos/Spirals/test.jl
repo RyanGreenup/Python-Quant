@@ -15,19 +15,29 @@ Forward(Turtle(), 100)
 finish()
 preview()
 
+if 2%1==1
+    print(3)
+else
+    print(7)
+end
+
 
 φ = 1.61803398875
 ψ = φ^-1
 ψ = 0.61803398875
-
-
 function sfSeeds(ratio)
-🐢 = Turtle()
+    🐢 = Turtle()
+    colour = true
     for θ in [(ratio*2*π)*i for i in 1:3000]
         gsave()
         scale(0.05)
         rotate(θ)
-#        Pencolor(🐢, rand(1)[1], rand(1)[1], rand(1)[1])
+        if colour
+            colour = !colour
+            Pencolor(🐢, 0.8, 0.3, 0.3)    
+        else
+            Pencolor(🐢, 0.3, 0.3, 0.8)
+        end
         Forward(🐢, 1)
         Rectangle(🐢, 50, 50)
         grestore()
@@ -36,7 +46,7 @@ function sfSeeds(ratio)
     textcentered(label, 100, 200)
 end
 @svg begin
-    sfSeeds(ψ)
+    sfSeeds(φ)
 end 600 600
 
 
