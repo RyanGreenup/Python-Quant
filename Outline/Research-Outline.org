@@ -1446,8 +1446,6 @@ save_picture("/tmp/a.fits", my_pic)
 #+NAME: mandelbrot-screen
 #+CAPTION: Screenshot of Mandelbrot FITS image produced by listing [[julia-large-mandelbrot]]
 [[file:_20200828_233844screenshot.png]]
-
-
 ** Relevant Sources
 To guide research for our topic /Chaos and Fractals/ by Pietgen, Jurgens and Saupe cite:peitgenChaosFractalsNew2004 will act as a map of the topic broadly, other than the sources referenced already, we anticipate referring to the following textbooks that we access to throughout the project:
 
@@ -1479,48 +1477,6 @@ xdg-open /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant
 #+RESULTS:
 
 Here's what I gatthered from the week 3 slides
-
-** TODO Topic / Context
-We are interested in the theory of problem solving, but in particular the
-different approaches that can be taken to attacking a problem.
-
-Essentially this boils down to looking at how a computer scientist and
-mathematician attack a problem, although originally I thought there was no
-difference, after seeing the odd way Roozbeh attacks problems I see there is a big difference.
-** TODO Motivation
-
-** TODO Basic Ideas
-- Look at FOSS CAS Systems
-  - Python (Sympy)
-  - Julia
-    - Sympy integration
-    - symEngine
-    - Reduce.jl
-    - Symata.jl
-
-- Maybe look at interactive sessions:
-  - Like Jupyter
-  - Hydrogen
-  - TeXmacs
-  - org-mode?
-
-After getting an overview of SymPy let's look at problems that are interesting (chaos, morphogenesis and order from disarray etc.)
-
-** TODO Where are the Mathematics
-
-- Trying to look at the algorithms underlying functions in Python/Sympy and other Computer algebra tools such as Maxima, Maple, Mathematica, Sage, GAP and Xcas/Giac, Yacas, Symata.jl, Reduce.jl, SymEngine.jl
-  - For Example Recursive Relations
-- Look at solving some problems related to chaos theory maybe
-  - Mandelbrot and Julia Sets
-- Look at solving some problems related to Fourier Transforms maybe
-
-
-AVOID DETAILS, JUST SKETCH THE PROJECT OUT.
-
-** TODO Don't Forget we need a talk
-*** Slides In Org Mode
-- [[https://orgmode.org/worg/org-tutorials/non-beamer-presentations.html][Without Beamer]]
-- [[https://orgmode.org/worg/exporters/beamer/tutorial.html][With Beamer]]
 * TODO What we're looking for
 
 - Would a reader know what the project is about?
