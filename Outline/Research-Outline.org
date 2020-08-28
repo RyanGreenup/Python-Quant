@@ -26,8 +26,7 @@
 #+LATEX_HEADER: \addbibresource{../Resources/references.bib}
 :END:
 
-* Submission Outline
-** Introduction                                                                :Ryan:
+* Introduction                                                                  :Ryan:
 This project, at the outset, was very broadly concerned with the use of /Python/ for
 computer algebra. Much to the the reluctance of our supervisor we have however
 resolved to look at a broad variety of tools (see section [[#other-tools]]),
@@ -47,9 +46,9 @@ over such software needs to perform very well under recursion and iteration
 (making this a very good focus for this topic generally, and an excuse to work
 with Julia as well).
 
-** Programming Recursion                                                       :Ryan:
+* Programming Recursion                                                         :Ryan:
 As an introduction to /Python/ generally, we undertook many problem questions which have been omitted from this outline, however, this one in particular offered an interesting insight into the difficulties we may encounter when dealing with recursive systems.
-*** Iteration and Recursion
+** Iteration and Recursion
    :PROPERTIES:
    :CUSTOM_ID: series-and-recursion
    :END:
@@ -136,7 +135,7 @@ the process for determining which is more appropriate is to the effect of:
      I'm not sure if this would be true for compiled languages such as /Julia/,
      /Java/, */C/* etc.
 
-**** Some Functions are more difficult to express with Recursion in
+*** Some Functions are more difficult to express with Recursion in
 :PROPERTIES:
     :CUSTOM_ID: some-functions-are-more-difficult-to-express-with-recursion-in-python
     :END:
@@ -212,8 +211,8 @@ def f(k):
     return expr/(k+1)
 #+END_SRC
 
-** TODO Fibonacci Sequence                                                     :Ryan:James:
-*** Introduction                                                              :Ryan:
+* TODO Fibonacci Sequence                                                       :Ryan:James:
+** Introduction                                                                :Ryan:
 The /Fibonacci Sequence/ and /Golden Ratio/ share a deep connection[fn:fb] and occur in patterns observed in nature very frequently
 (see
 cite:shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016), an example of such an occurence is discussed in section [[#sunflower-example]].
@@ -228,7 +227,7 @@ identifying relationships between discrete and continuous systems generall we
 will be able to draw insights with regard to the occurrence of patterns related
 to the /Fibonacci Sequence/ and /Golden Ratio/ in nature.
 
-*** Computational Approach                                                    :Ryan:
+** Computational Approach                                                      :Ryan:
    :PROPERTIES:
    :CUSTOM_ID: define-the-fibonacci-numbers
    :END:
@@ -381,11 +380,11 @@ end
 
 In this case however an analytic solution can be found by relating discrete
 mathematical problems to continuous ones as discussed below at section [[#exp-gen-function]].
-*** Exponential Generating Functions
+** Exponential Generating Functions
 :PROPERTIES:
 :CUSTOM_ID: exp-gen-func-fib-seq
 :END:
-**** Motivation                                                              :Ryan:
+*** Motivation                                                                :Ryan:
     :PROPERTIES:
     :CUSTOM_ID: motivation
     :END:
@@ -416,7 +415,7 @@ f\left( x \right)= e^{mx} = \sum^{\infty}_{n= 0}   \left[ r^{m} \frac{x^n}{n!} \
 So using some sort of a transformation involving a power series may help to
 relate the discrete problem back to a continuous one.
 
-**** Example                                                                 :Ryan:
+*** Example                                                                   :Ryan:
     :PROPERTIES:
     :CUSTOM_ID: solving-the-sequence
     :END:
@@ -508,11 +507,11 @@ where:
 - $\varphi = \frac{1+ \sqrt{5} }{2} \approx 1.61\ldots$
 - $\psi = 1-\varphi = \frac{1- \sqrt{5} }{2} \approx 0.61\ldots$
 
-**** Derivative of the Exponential Generating Function
+*** Derivative of the Exponential Generating Function
     :PROPERTIES:
     :CUSTOM_ID: Derivative-exp-gen-function
     :END:
-***** Base                                                                  :Ryan:
+**** Base                                                                    :Ryan:
     Differentiating the exponential generating function has the effect of shifting the sequence to the backward: cite:lehmanReadingsMathematicsComputer2010
 
 \begin{align}
@@ -524,7 +523,7 @@ f'\left( x \right)) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 
 \implies f'(x) &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}a_{n+  1} }\right]} \label{eq:exp-pow-series-sol}
 \end{align}
 
-***** Bridge                                                                :James:
+**** Bridge                                                                  :James:
 This can be shown for all derivatives by way of induction, for
 
 \begin{align}
@@ -552,7 +551,7 @@ sequence across, then every derivative thereafter does so as well, because the
 first derivative has been shown to express this property
 eqref:eq:exp-pow-series-sol, all derivates will.
 
-**** TODO Homogeneous Proof
+*** TODO Homogeneous Proof
 An equation of the form:
 
 \begin{align}
@@ -579,13 +578,13 @@ where:
 - $\exists i,j \in \mathbb{Z}^{+} \cap \left[0,k\right]$
   - These is often referred to as repeated roots cite:levinSolvingRecurrenceRelations2018,zillMatrixExponential2009 with a multiplicity corresponding to the number of repetitions of that root [[cite:nicodemiIntroductionAbstractAlgebra2007][\textsection 3.2]]
 
-***** Unique Roots of Characteristic Equation                               :Ryan:
+**** Unique Roots of Characteristic Equation                                 :Ryan:
 :PROPERTIES:
 :CUSTOM_ID: uniq-roots-recurrence
 :END:
-****** Example
+***** Example
 An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section [[#solving-the-sequence]].
-****** Proof
+***** Proof
 Consider the linear recurrence relation eqref:eq:recurrence-relation-def:
 
 \begin{align}
@@ -624,7 +623,8 @@ This can be re-expressed in terms of the exponential power series, in order to r
 							 &= \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}  \sum^{k}_{i=0}   {\left[{ k_im^n_i }\right]}  }\right]}, \quad \exists k_i \in \mathbb{C}, \enspace \forall i \in \mathbb{Z}^+\cap {\left[{ 1, k }\right]}     \label{eq:unique-root-sol-power-series-form}
 \end{align}
 
-Recall the definition of the generating function from ref:eq:exp-gen-def-proof, by relating this to eqref:eq:unique-root-sol-power-series-form:
+
+Recall the definition of the generating function from eqref:eq:exp-gen-def-1, by relating this to eqref:eq:unique-root-sol-power-series-form:
 
 \begin{align}
     f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{  \frac{x^n}{n!} a_n }\right]} \nonumber \\
@@ -640,11 +640,11 @@ This can be verified by the fibonacci sequence as shown in section [[#solving-th
     \iff  a_n &= &k_1 n^{\varphi} +  &k_2 n^{1- \varphi}, &\exists k_1, k_2 \in \mathbb{R} \subset \mathbb{C} \nonumber
 \end{alignat}
 
-***** Repeated Roots of Characteristic Equation                             :Ryan:
+**** Repeated Roots of Characteristic Equation                               :Ryan:
 :PROPERTIES:
 :CUSTOM_ID: rep-roots-recurrence
 :END:
-****** Example
+***** Example
 Consider the following recurrence relation:
 
 \begin{align}
@@ -658,7 +658,8 @@ By applying the definition of the exponential generating function at eqref:eq:ex
     f''{\left({ x }\right)}- 10f'{\left({ x }\right)}+  25f{\left({ x }\right)}= 0 \nonumber \label{eq:rep-roots-func-ode}
 \end{align}
 
-By implementing the already well-established theory of linear ODE's, the characteristic equation for eqref:eq:rep-roots-func-ode can be expressed as:
+By implementing the already well-established theory of linear ODE's, the
+characteristic equation for eqref:eq:rep-roots-func-ode can be expressed as:
 
 \begin{align}
     m^2- 10m+  25 = 0 \nonumber \\
@@ -694,7 +695,7 @@ Given the defenition of the exponential generating function from eqref:eq:exp-ge
     \ \nonumber \\
     \square \nonumber
 \end{align}
-****** TODO Proof
+***** TODO Proof
 In order to prove the the solution for a $k^{\mathrm{th}}$ order recurrence relation with $k$ repeated
 
 
@@ -745,7 +746,7 @@ f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\rig
 \square \nonumber
 \end{align}
 
-***** TODO General Proof
+**** TODO General Proof
 :PROPERTIES:
 :CUSTOM_ID: general-gen-func-proof
 :END:
@@ -762,12 +763,12 @@ Sketching out an approach for this:
 - Use the Generating function to get an ODE
 - The ODE will have a solution that is a combination of the above two forms
 - The solution will translate back to a combination of both above forms
-****** Power Series Combination                                            :James:
+***** Power Series Combination                                              :James:
 :PROPERTIES:
 :CUSTOM_ID: power-series-comb
 :END:
 In this section a proof for identity ref:eq:power-series-comb is provided.
-******* Motivation
+****** Motivation
 
 Consider the function $f(x) = xe^x$. Using the taylor series formula we get the following:
 
@@ -790,9 +791,9 @@ We conjecture thatIf we continue this on, we get:
 \begin{align*}
     x^ke^x = \sum_{n=k}^\infty \frac{x^n}{(n-k)!} \quad \text{for}~k\in \mathbb{Z^{+}}\cap0
 \end{align*}
-******* Proof by Induction
+****** Proof by Induction
 To verify, let's prove this by induction.
-******** Base
+******* Base
 Test $k=0$
 \begin{align*}
     LHS &= x^0e^x = e^x\\
@@ -800,7 +801,7 @@ Test $k=0$
 \end{align*}
 Therefore LHS = RHS, so $k=0$ is true
 
-******** Bridge
+******* Bridge
 Assume $x^k e^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}$
 
 Using this assumption, prove for the next element $k+1$\\
@@ -819,7 +820,7 @@ So by mathematical induction $f(x) = x^ke^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!
 
 Moving on, by applying identity eqref:eq:uniq-roots-pow-series-ident to equation eqref:eq:rep-roots-ode-sol
 
-*** Fibonacci Sequence and the Golden Ratio                                   :Ryan:
+** Fibonacci Sequence and the Golden Ratio                                     :Ryan:
 :PROPERTIES:
 :CUSTOM_ID: fib-golden-ratio-proof
 :END:
@@ -848,7 +849,7 @@ patterns observed in nature.
 We also hope to find a method to produce the the diagram shown in figure
 [[golden-spiral]] computationally, ideally by using the Turtle function in /Julia/.
 
-**** Fibonacci Sequence in Nature                                            :Ryan:
+*** Fibonacci Sequence in Nature                                              :Ryan:
 :PROPERTIES:
 :CUSTOM_ID: sunflower-example
 :END:
@@ -932,7 +933,7 @@ end 600 600
 #+CAPTION: Distribution of the seeds of a sunflower (see cite:simonbrassCCSearch2006 licenced under CC)
 [[file:sunflower.jpg]]
 
-** Persian Recursion                                                           :Ryan:
+* Persian Recursion                                                             :Ryan:
 This section contains an example of how a simple process can lead to the
 development of complex patterns when exposed to feedback and iteration.
 
@@ -1037,10 +1038,10 @@ main(5,6, 1, cx)
 #+RESULTS: persian-recursion-python
 [[file:./persian-recursion-0.svg]]
 
-** Julia Sets                                                                  :Ryan:
-*** Introduction
+* Julia Sets                                                                    :Ryan:
+** Introduction
 Julia sets are a very interesting fractal and we hope to investigate them further in this project.
-*** Motivation
+** Motivation
 Consider the iterative process $x \rightarrow x^{2}, \enspace x \in \mathbb{R}$,
 for values of $x>1$ this process will diverge and for $x<1$ it will converge.
 
@@ -1065,7 +1066,7 @@ Every value on that plane will belong to one of the two following sets
 
 In the case of $f_{0}(z) = z^{2}$ all values $\left\lvert z  \right \rvert \leq 1$ are bounded with $\left\lvert z  \right \rvert = 1$ being an unstable stationary circle, but let's investigate what happens for different iterative functions like $f_{1}(z) = z^{2} - 1$, despite how trivial this seems at first glance.
 
-*** Plotting the Sets
+** Plotting the Sets
 :PROPERTIES:
 :ID:       baa21085-5d8f-4390-9bb7-43c3b51d940d
 :END:
@@ -1310,7 +1311,7 @@ ffmpeg                    \
 #+CAPTION: Various fracals corresponding to $f_{0.8 e^{\pi i \tau}}$
 [[attachment:_20200826_005334a.png]]
 
-** MandelBrot                                                                  :Ryan:ATTACH:
+* MandelBrot                                                                    :Ryan:ATTACH:
 :PROPERTIES:
 :ID:       c0c790f2-93a7-44f1-9f76-4a20bcd66c62
 :DIR:      /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/
@@ -1446,7 +1447,7 @@ save_picture("/tmp/a.fits", my_pic)
 #+NAME: mandelbrot-screen
 #+CAPTION: Screenshot of Mandelbrot FITS image produced by listing [[julia-large-mandelbrot]]
 [[file:_20200828_233844screenshot.png]]
-** Relevant Sources
+* Relevant Sources
 To guide research for our topic /Chaos and Fractals/ by Pietgen, Jurgens and Saupe cite:peitgenChaosFractalsNew2004 will act as a map of the topic broadly, other than the sources referenced already, we anticipate referring to the following textbooks that we access to throughout the project:
 
 - /Integration of Fuzzy Logic and Chaos Theory/      cite:liIntegrationFuzzyLogic2006
@@ -1461,28 +1462,6 @@ To guide research for our topic /Chaos and Fractals/ by Pietgen, Jurgens and Sau
 - /Chaotic Dynamics/                                 cite:telChaoticDynamicsIntroduction2006
 
 Ron Knott's website appears also to have a lot of material related to patterns, the /Fibonacci Sequence/ and the /Golden Ratio/, we intend to have a good look through that material as well. cite:ronknottFibonacciNumbersGolden2016
-
-* TODO Give a brief Sketch of the project
-
-Of particular interest are the:
-- gik
-- fits image
-
-#+begin_src bash
-code /home/ryan/Dropbox/Studies/QuantProject/Current/Python-Quant/ & disown
-xdg-open /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Problems/Chaos/mandelbrot-400mpx.fits
-#+end_src
-
-
-#+RESULTS:
-
-Here's what I gatthered from the week 3 slides
-* TODO What we're looking for
-
-- Would a reader know what the project is about?
-- Would a reader become interested in the upcoming report?
-- Is it brief but well prepared?
-- Are the major parts or phases sketched out
 
 * Appendix
 
@@ -1614,7 +1593,6 @@ Other packages that are on our radar for want of investigation are listed below,
       - Makie
       - Plotly
       - GNUPlot
-
 
 * Footnotes
 

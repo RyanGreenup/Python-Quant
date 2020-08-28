@@ -19,24 +19,48 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
-    \entry{DataStructuresPython}{online}{}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+    \entry{azarAdvancesChaosTheory2016}{book}{}
+      \name{editor}{2}{}{%
+        {{hash=34ef27303c6e4991e652d4678479feaf}{%
+           family={Azar},
+           familyi={A\bibinitperiod},
+           given={Ahmad\bibnamedelima Taher},
+           giveni={A\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=a7c43c62f92c73031fc4f1eccce3bdce}{%
+           family={Vaidyanathan},
+           familyi={V\bibinitperiod},
+           given={Sundarapandian},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer International Publishing : Imprint: Springer}%
+      }
+      \strng{namehash}{b0973e56583a7cdf0e4a95757865022e}
+      \strng{fullhash}{b0973e56583a7cdf0e4a95757865022e}
+      \strng{bibnamehash}{b0973e56583a7cdf0e4a95757865022e}
+      \strng{editorbibnamehash}{b0973e56583a7cdf0e4a95757865022e}
+      \strng{editornamehash}{b0973e56583a7cdf0e4a95757865022e}
+      \strng{editorfullhash}{b0973e56583a7cdf0e4a95757865022e}
+      \field{sortinit}{A}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{labelnamesource}{editor}
       \field{labeltitlesource}{title}
-      \field{title}{5. {{Data Structures}} — {{Python}} 3.8.5 Documentation}
-      \field{urlday}{24}
-      \field{urlmonth}{8}
-      \field{urlyear}{2020}
-      \field{urldateera}{ce}
-      \verb{file}
-      \verb /home/ryan/Zotero/storage/QG9FMCDF/datastructures.html
+      \field{abstract}{The book reports on the latest advances in and applications of chaos theory and intelligent control. Written by eminent scientists and active researchers and using a clear, matter-of-fact style, it covers advanced theories, methods, and applications in a variety of research areas, and explains key concepts in modeling, analysis, and control of chaotic and hyperchaotic systems. Topics include fractional chaotic systems, chaos control, chaos synchronization, memristors, jerk circuits, chaotic systems with hidden attractors, mechanical and biological chaos, and circuit realization of chaotic systems. The book further covers fuzzy logic controllers, evolutionary algorithms, swarm intelligence, and petri nets among other topics. Not only does it provide the readers with chaos fundamentals and intelligent control-based algorithms; it also discusses key applications of chaos as well as multidisciplinary solutions developed via intelligent control. The book is a timely and comprehensive reference guide for graduate students, researchers, and practitioners in the areas of chaos theory and intelligent control}
+      \field{edition}{1st ed. 2016}
+      \field{isbn}{978-3-319-30340-6}
+      \field{number}{337}
+      \field{pagetotal}{1}
+      \field{series}{Studies in {{Fuzziness}} and {{Soft Computing}}}
+      \field{title}{Advances in {{Chaos Theory}} and {{Intelligent Control}}}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \verb{doi}
+      \verb 10.1007/978-3-319-30340-6
       \endverb
-      \verb{urlraw}
-      \verb https://docs.python.org/3/tutorial/datastructures.html
-      \endverb
-      \verb{url}
-      \verb https://docs.python.org/3/tutorial/datastructures.html
-      \endverb
+      \keyw{Artificial intelligence,Artificial Intelligence,Complex Systems,Computational intelligence,Computational Intelligence,Control engineering,Control; Robotics; Mechatronics,Dynamical systems,Dynamics,Mechatronics,Robotics,Statistical physics,Statistical Physics and Dynamical Systems,Vibration,Vibration; Dynamical Systems; Control}
     \endentry
     \entry{benanderEmpiricalAnalysisDebugging2000}{article}{}
       \name{author}{3}{}{%
@@ -508,6 +532,44 @@
       \verb https://search.creativecommons.org/
       \endverb
     \endentry
+    \entry{briggsTurbulentMirrorIllustrated1989}{book}{}
+      \name{author}{2}{}{%
+        {{hash=809cd918520dab379b5052758612358d}{%
+           family={Briggs},
+           familyi={B\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=ef8ff34479a333d5e62cc8862a222be7}{%
+           family={Peat},
+           familyi={P\bibinitperiod},
+           given={F.\bibnamedelimi David},
+           giveni={F\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Harper \& Row}%
+      }
+      \strng{namehash}{d2e5b5ecfdcf7cc1cfe0d98ce237d19a}
+      \strng{fullhash}{d2e5b5ecfdcf7cc1cfe0d98ce237d19a}
+      \strng{bibnamehash}{d2e5b5ecfdcf7cc1cfe0d98ce237d19a}
+      \strng{authorbibnamehash}{d2e5b5ecfdcf7cc1cfe0d98ce237d19a}
+      \strng{authornamehash}{d2e5b5ecfdcf7cc1cfe0d98ce237d19a}
+      \strng{authorfullhash}{d2e5b5ecfdcf7cc1cfe0d98ce237d19a}
+      \field{sortinit}{B}
+      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{edition}{1st ed}
+      \field{isbn}{978-0-06-016061-6}
+      \field{pagetotal}{222}
+      \field{shorttitle}{Turbulent Mirror}
+      \field{title}{Turbulent Mirror: An Illustrated Guide to Chaos Theory and the Science of Wholeness}
+      \field{year}{1989}
+      \field{dateera}{ce}
+      \keyw{Chaotic behavior in systems}
+    \endentry
     \entry{burnsPersianRecursion1997}{article}{}
       \name{author}{1}{}{%
         {{hash=bddb6440518300092caa33b97963fa40}{%
@@ -569,6 +631,39 @@
       \verb https://www.youtube.com/watch?v=16W7c0mb-rE
       \endverb
     \endentry
+    \entry{falconerFractalGeometryMathematical2003b}{book}{}
+      \name{author}{1}{}{%
+        {{hash=4c12e05a251255040261073154cca7bf}{%
+           family={Falconer},
+           familyi={F\bibinitperiod},
+           given={K.\bibnamedelimi J.},
+           giveni={K\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Chichester, England}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{4c12e05a251255040261073154cca7bf}
+      \strng{fullhash}{4c12e05a251255040261073154cca7bf}
+      \strng{bibnamehash}{4c12e05a251255040261073154cca7bf}
+      \strng{authorbibnamehash}{4c12e05a251255040261073154cca7bf}
+      \strng{authornamehash}{4c12e05a251255040261073154cca7bf}
+      \strng{authorfullhash}{4c12e05a251255040261073154cca7bf}
+      \field{sortinit}{F}
+      \field{sortinithash}{fb0c0faa89eb6abae8213bf60e6799ea}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{edition}{2nd ed}
+      \field{isbn}{978-0-470-84861-6 978-0-470-84862-3}
+      \field{pagetotal}{337}
+      \field{shorttitle}{Fractal Geometry}
+      \field{title}{Fractal Geometry: Mathematical Foundations and Applications}
+      \field{year}{2003}
+      \field{dateera}{ce}
+      \keyw{Fractals}
+    \endentry
     \entry{farrellMathAdventuresPython2019}{book}{}
       \name{author}{1}{}{%
         {{hash=6dfb2c1b39eec1b0ffea1234ec092077}{%
@@ -622,24 +717,42 @@
       \verb https://docs.python.org/3/library/functools.html
       \endverb
     \endentry
-    \entry{GnuplotFractalMandelbrot}{online}{}
+    \entry{gilmoreTopologyChaosAlice2002}{book}{}
+      \name{author}{2}{}{%
+        {{hash=416eeccea7dca0e4eefc7999ba90b062}{%
+           family={Gilmore},
+           familyi={G\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+        {{hash=c6eaad22a3bc8e6efad151481c7f07f8}{%
+           family={Lefranc},
+           familyi={L\bibinitperiod},
+           given={Marc},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Wiley-Interscience}%
+      }
+      \strng{namehash}{d8b714fa096ea9b5189244741f373561}
+      \strng{fullhash}{d8b714fa096ea9b5189244741f373561}
+      \strng{bibnamehash}{d8b714fa096ea9b5189244741f373561}
+      \strng{authorbibnamehash}{d8b714fa096ea9b5189244741f373561}
+      \strng{authornamehash}{d8b714fa096ea9b5189244741f373561}
+      \strng{authorfullhash}{d8b714fa096ea9b5189244741f373561}
       \field{sortinit}{G}
       \field{sortinithash}{62eb2aa29549e4fdbd3cb154ec5711cb}
-      \field{labeltitlesource}{title}
-      \field{title}{Gnuplot / Fractal / Mandelbrot ({{E}})}
-      \field{urlday}{25}
-      \field{urlmonth}{8}
-      \field{urlyear}{2020}
-      \field{urldateera}{ce}
-      \verb{file}
-      \verb /home/ryan/Zotero/storage/MQ865D9B/mandelbrot-e.html
-      \endverb
-      \verb{urlraw}
-      \verb http://folk.uio.no/inf3330/scripting/doc/gnuplot/Kawano/fractal/mandelbrot-e.html
-      \endverb
-      \verb{url}
-      \verb http://folk.uio.no/inf3330/scripting/doc/gnuplot/Kawano/fractal/mandelbrot-e.html
-      \endverb
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{isbn}{978-0-471-40816-1}
+      \field{pagetotal}{495}
+      \field{shorttitle}{The Topology of Chaos}
+      \field{title}{The Topology of Chaos: {{Alice}} in Stretch and Squeezeland}
+      \field{year}{2002}
+      \field{dateera}{ce}
+      \keyw{Attractors (Mathematics),Chaotic behavior in systems}
     \endentry
     \entry{hazratMathematicaProblemCenteredApproach2015}{book}{}
       \name{author}{1}{}{%
@@ -921,24 +1034,49 @@
       \verb http://discrete.openmathbooks.org/dmoi2/sec_recurrence.html
       \endverb
     \endentry
-    \entry{MandelbrotSetRosetta}{online}{}
-      \field{sortinit}{M}
-      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+    \entry{liIntegrationFuzzyLogic2006}{book}{}
+      \name{editor}{3}{}{%
+        {{hash=2ea2f2471f02c6e3c0cc5e9d0c727a44}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Zhong},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=332220001eee16076e91cb488d72b330}{%
+           family={Halang},
+           familyi={H\bibinitperiod},
+           given={Wolfgang\bibnamedelima A.},
+           giveni={W\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=34002606b4a6000b14a8974a306a2dae}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Berlin ; New York}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{80ba755e6bdd2bc91b0c7438f8c788fd}
+      \strng{fullhash}{80ba755e6bdd2bc91b0c7438f8c788fd}
+      \strng{bibnamehash}{80ba755e6bdd2bc91b0c7438f8c788fd}
+      \strng{editorbibnamehash}{80ba755e6bdd2bc91b0c7438f8c788fd}
+      \strng{editornamehash}{80ba755e6bdd2bc91b0c7438f8c788fd}
+      \strng{editorfullhash}{80ba755e6bdd2bc91b0c7438f8c788fd}
+      \field{sortinit}{L}
+      \field{sortinithash}{dad3efd0836470093a7b4a7bb756eb8c}
+      \field{labelnamesource}{editor}
       \field{labeltitlesource}{title}
-      \field{title}{Mandelbrot Set - {{Rosetta Code}}}
-      \field{urlday}{25}
-      \field{urlmonth}{8}
-      \field{urlyear}{2020}
-      \field{urldateera}{ce}
-      \verb{file}
-      \verb /home/ryan/Zotero/storage/HQIIYAEA/Mandelbrot_set.html
-      \endverb
-      \verb{urlraw}
-      \verb https://rosettacode.org/wiki/Mandelbrot_set#Python
-      \endverb
-      \verb{url}
-      \verb https://rosettacode.org/wiki/Mandelbrot_set#Python
-      \endverb
+      \field{isbn}{978-3-540-26899-4}
+      \field{note}{OCLC: ocm63514100}
+      \field{number}{v. 187}
+      \field{pagetotal}{625}
+      \field{series}{Studies in Fuzziness and Soft Computing}
+      \field{title}{Integration of Fuzzy Logic and Chaos Theory}
+      \field{year}{2006}
+      \field{dateera}{ce}
+      \keyw{Chaotic behavior in systems,Fuzzy logic}
     \endentry
     \entry{MinarovaNikoletta2014TFSN}{article}{}
       \name{author}{1}{}{%
@@ -974,25 +1112,6 @@
       \range{pages}{11}
       \verb{file}
       \verb /home/ryan/Zotero/storage/J3QWL2KA/MinarovaNikoletta2014TFSN.pdf
-      \endverb
-    \endentry
-    \entry{MultidimensionalArraysJulia}{online}{}
-      \field{sortinit}{M}
-      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
-      \field{labeltitlesource}{title}
-      \field{title}{Multi-Dimensional {{Arrays}} · {{The Julia Language}}}
-      \field{urlday}{24}
-      \field{urlmonth}{8}
-      \field{urlyear}{2020}
-      \field{urldateera}{ce}
-      \verb{file}
-      \verb /home/ryan/Zotero/storage/QBD52U27/arrays.html
-      \endverb
-      \verb{urlraw}
-      \verb https://docs.julialang.org/en/v1/manual/arrays/#man-comprehensions-1
-      \endverb
-      \verb{url}
-      \verb https://docs.julialang.org/en/v1/manual/arrays/#man-comprehensions-1
       \endverb
     \endentry
     \entry{NatureGoldenRatio2018}{online}{}
@@ -1139,6 +1258,40 @@
       \verb http://www.maths.surrey.ac.uk/hosted-sites/R.Knott/Fibonacci/fibnat.html
       \endverb
     \endentry
+    \entry{scottNonlinearUniverseChaos2007}{book}{}
+      \name{author}{1}{}{%
+        {{hash=1cdf612c32fbbb13ae34f4159ba1443b}{%
+           family={Scott},
+           familyi={S\bibinitperiod},
+           given={Alwyn},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Berlin ; New York}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{1cdf612c32fbbb13ae34f4159ba1443b}
+      \strng{fullhash}{1cdf612c32fbbb13ae34f4159ba1443b}
+      \strng{bibnamehash}{1cdf612c32fbbb13ae34f4159ba1443b}
+      \strng{authorbibnamehash}{1cdf612c32fbbb13ae34f4159ba1443b}
+      \strng{authornamehash}{1cdf612c32fbbb13ae34f4159ba1443b}
+      \strng{authorfullhash}{1cdf612c32fbbb13ae34f4159ba1443b}
+      \field{sortinit}{S}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{edition}{1st ed}
+      \field{isbn}{978-3-540-34152-9}
+      \field{pagetotal}{364}
+      \field{series}{The Frontiers Collection}
+      \field{shorttitle}{The Nonlinear Universe}
+      \field{title}{The Nonlinear Universe: Chaos, Emergence, Life}
+      \field{year}{2007}
+      \field{dateera}{ce}
+      \keyw{Chaotic behavior in systems,Forecasting,Nonlinear theories,Research,Twenty-first century}
+    \endentry
     \entry{shellyallenFibonacciNature}{online}{}
       \name{author}{1}{}{%
         {{hash=1e347245170cc7f62e430ecc63df4410}{%
@@ -1261,6 +1414,94 @@
       \endverb
       \verb{url}
       \verb http://math.scu.edu/~dsmolars/ma60/notesa3.html
+      \endverb
+    \endentry
+    \entry{strogatzNonlinearDynamicsChaos2015}{book}{}
+      \name{author}{1}{}{%
+        {{hash=b0115f77df78376c68429033349375fc}{%
+           family={Strogatz},
+           familyi={S\bibinitperiod},
+           given={Steven\bibnamedelima H.},
+           giveni={S\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Boulder, CO}%
+      }
+      \list{publisher}{1}{%
+        {Westview Press, a member of the Perseus Books Group}%
+      }
+      \strng{namehash}{b0115f77df78376c68429033349375fc}
+      \strng{fullhash}{b0115f77df78376c68429033349375fc}
+      \strng{bibnamehash}{b0115f77df78376c68429033349375fc}
+      \strng{authorbibnamehash}{b0115f77df78376c68429033349375fc}
+      \strng{authornamehash}{b0115f77df78376c68429033349375fc}
+      \strng{authorfullhash}{b0115f77df78376c68429033349375fc}
+      \field{sortinit}{S}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{annotation}{Overview -- One-dimensional flows -- Flows on the line -- Bifurcations -- Flows on the circle -- Two-dimensional flows -- Linear systems -- Phase plane -- Limit cycles -- Bifurcations revisited -- Chaos -- Lorenz equations -- One-dimensional maps -- Fractals -- Strange attractors}
+      \field{edition}{Second edition}
+      \field{isbn}{978-0-8133-4910-7}
+      \field{note}{OCLC: ocn842877119}
+      \field{pagetotal}{513}
+      \field{shorttitle}{Nonlinear Dynamics and Chaos}
+      \field{title}{Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \keyw{Chaotic behavior in systems,Dynamics,Nonlinear theories}
+    \endentry
+    \entry{telChaoticDynamicsIntroduction2006}{book}{}
+      \name{author}{3}{}{%
+        {{hash=ef117faa4add1a95cb6e948809f06dc9}{%
+           family={Tél},
+           familyi={T\bibinitperiod},
+           given={Tamás},
+           giveni={T\bibinitperiod}}}%
+        {{hash=374b9852c9822667e8d7bc65b220f4a4}{%
+           family={Gruiz},
+           familyi={G\bibinitperiod},
+           given={Márton},
+           giveni={M\bibinitperiod}}}%
+        {{hash=ad14e48292e85ab0b74e63cd9df515c1}{%
+           family={Kulacsy},
+           familyi={K\bibinitperiod},
+           given={Katalin},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cambridge}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{b28636a6a84075687da7e61a4b417ca2}
+      \strng{fullhash}{b28636a6a84075687da7e61a4b417ca2}
+      \strng{bibnamehash}{b28636a6a84075687da7e61a4b417ca2}
+      \strng{authorbibnamehash}{b28636a6a84075687da7e61a4b417ca2}
+      \strng{authornamehash}{b28636a6a84075687da7e61a4b417ca2}
+      \strng{authorfullhash}{b28636a6a84075687da7e61a4b417ca2}
+      \field{sortinit}{T}
+      \field{sortinithash}{51f9faf24c60c62ca764a77f78cf5666}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{This work provides a clear introduction to chaos phenomena for undergraduate students in science, engineering, and mathematics, using examples that range from enginnering problems through to astronomical aspects.}
+      \field{isbn}{9780511335044 9780511334467 9780511333125 9780511803277 9780511333804 9781281040114 9786611040116 9780511567216}
+      \field{langid}{Translated from Hungarian.}
+      \field{note}{OCLC: 173845245}
+      \field{shorttitle}{Chaotic dynamics}
+      \field{title}{Chaotic dynamics: an introduction based on classical mechanics}
+      \field{urlday}{28}
+      \field{urlmonth}{8}
+      \field{urlyear}{2020}
+      \field{year}{2006}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://doi.org/10.1017/CBO9780511803277
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1017/CBO9780511803277
       \endverb
     \endentry
     \entry{turingChemicalBasisMorphogenesis1952}{article}{}
