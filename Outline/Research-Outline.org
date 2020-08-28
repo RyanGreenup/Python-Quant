@@ -1034,6 +1034,8 @@ main(5,6, 1, cx)
 [[file:./persian-recursion-0.svg]]
 
 ** Julia Sets                                                                  :Ryan:
+*** Introduction
+Julia sets are a very interesting fractal and we hope to investigate them further in this project.
 *** Motivation
 Consider the iterative process $x \rightarrow x^{2}, \enspace x \in \mathbb{R}$,
 for values of $x>1$ this process will diverge and for $x<1$ it will converge.
@@ -1167,12 +1169,9 @@ plt.imshow(pic)
 
 #+attr_html: :width 400px
 #+attr_latex: :width 9cm
-
-
-#+attr_html: :width 400px
-#+attr_latex: :width 9cm
 #+NAME: py-circle-plot
 #+CAPTION: Circle of Convergence for $f_{0}: z \rightarrow z^{2}$
+[[file:circle-of-convergence.svg]]
 
 This is precisely what we expected, but this is where things get interesting,
 consider now the result if we apply this same procedure to $f_{1}: z \rightarrow
