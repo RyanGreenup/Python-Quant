@@ -1,4 +1,4 @@
-% Created 2020-08-28 Fri 23:47
+% Created 2020-08-28 Fri 23:51
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -34,8 +34,8 @@
 \tableofcontents
 
 
-\section[Introduction]{Introduction\hfill{}\textsc{Ryan}}
-\label{sec:orgf4e4a9e}
+\section{Introduction\hfill{}\textsc{Ryan}}
+\label{sec:org1fb2393}
 This project, at the outset, was very broadly concerned with the use of \emph{Python} for
 computer algebra. Much to the the reluctance of our supervisor we have however
 resolved to look at a broad variety of tools (see section \ref{other-tools}),
@@ -58,8 +58,8 @@ over such software needs to perform very well under recursion and iteration
 (making this a very good focus for this topic generally, and an excuse to work
 with Julia as well).
 
-\section[Programming Recursion]{Programming Recursion\hfill{}\textsc{Ryan}}
-\label{sec:org75d6dc9}
+\section{Programming Recursion\hfill{}\textsc{Ryan}}
+\label{sec:org22695e7}
 As an introduction to \emph{Python} generally, we undertook many problem questions which have been omitted from this outline, however, this one in particular offered an interesting insight into the difficulties we may encounter when dealing with recursive systems.
 \subsection{Iteration and Recursion}
 \label{series-and-recursion}
@@ -227,10 +227,10 @@ def f(k):
 \caption{\label{iter-two}Using Iteration to Solve \eqref{eq:rec-ser}}
 \end{listing}
 
-\section[Fibonacci Sequence]{Fibonacci Sequence\hfill{}\textsc{Ryan:James}}
-\label{sec:org4d014a1}
-\subsection[Introduction]{Introduction\hfill{}\textsc{Ryan}}
-\label{sec:org975f0c3}
+\section{Fibonacci Sequence\hfill{}\textsc{Ryan:James}}
+\label{sec:org18026bd}
+\subsection{Introduction\hfill{}\textsc{Ryan}}
+\label{sec:org738e699}
 The \emph{Fibonacci Sequence} and \emph{Golden Ratio} share a deep connection\footnote{See section} and occur in patterns observed in nature very frequently
 (see
 \cite{shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016}), an example of such an occurence is discussed in section \ref{sunflower-example}.
@@ -245,7 +245,7 @@ identifying relationships between discrete and continuous systems generall we
 will be able to draw insights with regard to the occurrence of patterns related
 to the \emph{Fibonacci Sequence} and \emph{Golden Ratio} in nature.
 
-\subsection[Computational Approach]{Computational Approach\hfill{}\textsc{Ryan}}
+\subsection{Computational Approach\hfill{}\textsc{Ryan}}
 \label{define-the-fibonacci-numbers}
 Given that much of our work will involve computational analysis and simulation we begin with a strategy to solve the sequence computationally.
 
@@ -405,7 +405,7 @@ In this case however an analytic solution can be found by relating discrete
 mathematical problems to continuous ones as discussed below at section .
 \subsection{Exponential Generating Functions}
 \label{exp-gen-func-fib-seq}
-\subsubsection[Motivation]{Motivation\hfill{}\textsc{Ryan}}
+\subsubsection{Motivation\hfill{}\textsc{Ryan}}
 \label{motivation}
 Consider the \emph{Fibonacci Sequence} from \eqref{eq:fib-def}:
 
@@ -433,7 +433,7 @@ f\left( x \right)= e^{mx} = \sum^{\infty}_{n= 0}   \left[ r^{m} \frac{x^n}{n!} \
 So using some sort of a transformation involving a power series may help to
 relate the discrete problem back to a continuous one.
 
-\subsubsection[Example]{Example\hfill{}\textsc{Ryan}}
+\subsubsection{Example\hfill{}\textsc{Ryan}}
 \label{solving-the-sequence}
 Consider using the following generating function, (the derivative of the
 generating function as in \eqref{eq:exp-gen-def-2} and \eqref{eq:exp-gen-def-3} is
@@ -526,8 +526,8 @@ where:
 
 \subsubsection{Derivative of the Exponential Generating Function}
 \label{Derivative-exp-gen-function}
-\paragraph[Base]{Base\hfill{}\textsc{Ryan}}
-\label{sec:org81379f0}
+\paragraph{Base\hfill{}\textsc{Ryan}}
+\label{sec:orgc63a9fe}
 Differentiating the exponential generating function has the effect of shifting the sequence to the backward: \cite{lehmanReadingsMathematicsComputer2010}
 
 \begin{align}
@@ -539,8 +539,8 @@ f'\left( x \right)) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 
 \implies f'(x) &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}a_{n+  1} }\right]} \label{eq:exp-pow-series-sol}
 \end{align}
 
-\paragraph[Bridge]{Bridge\hfill{}\textsc{James}}
-\label{sec:org6191063}
+\paragraph{Bridge\hfill{}\textsc{James}}
+\label{sec:org9e1b712}
 This can be shown for all derivatives by way of induction, for
 
 \begin{align}
@@ -568,8 +568,8 @@ sequence across, then every derivative thereafter does so as well, because the
 first derivative has been shown to express this property
 \eqref{eq:exp-pow-series-sol}, all derivates will.
 
-\subsubsection{Homogeneous Proof}
-\label{sec:org333e4e5}
+\subsubsection{Homogeneous Proof\hfill{}\textsc{Ryan:James}}
+\label{sec:org14778b8}
 An equation of the form:
 
 \begin{align}
@@ -608,13 +608,13 @@ where:
 \end{itemize}
 \end{itemize}
 
-\paragraph[Unique Roots of Characteristic Equation]{Unique Roots of Characteristic Equation\hfill{}\textsc{Ryan}}
+\paragraph{Unique Roots of Characteristic Equation\hfill{}\textsc{Ryan}}
 \label{uniq-roots-recurrence}
 \subparagraph{Example}
-\label{sec:org7a208ad}
+\label{sec:orgfc4e8d8}
 An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section \ref{solving-the-sequence}.
 \subparagraph{Proof}
-\label{sec:orga0c78aa}
+\label{sec:org7d36980}
 Consider the linear recurrence relation \eqref{eq:recurrence-relation-def}:
 
 \begin{align}
@@ -670,10 +670,10 @@ This can be verified by the fibonacci sequence as shown in section \ref{solving-
     \iff  a_n &= &k_1 n^{\varphi} +  &k_2 n^{1- \varphi}, &\exists k_1, k_2 \in \mathbb{R} \subset \mathbb{C} \nonumber
 \end{alignat}
 
-\paragraph[Repeated Roots of Characteristic Equation]{Repeated Roots of Characteristic Equation\hfill{}\textsc{Ryan}}
+\paragraph{Repeated Roots of Characteristic Equation\hfill{}\textsc{Ryan}}
 \label{rep-roots-recurrence}
 \subparagraph{Example}
-\label{sec:org9682d0f}
+\label{sec:org6fe23c0}
 Consider the following recurrence relation:
 
 \begin{align}
@@ -725,7 +725,7 @@ Given the defenition of the exponential generating function from \eqref{eq:exp-g
     \square \nonumber
 \end{align}
 \subparagraph{Proof}
-\label{sec:orgfa62e40}
+\label{sec:orgbea6445}
 In order to prove the the solution for a \(k^{\mathrm{th}}\) order recurrence relation with \(k\) repeated
 
 
@@ -793,12 +793,12 @@ Sketching out an approach for this:
 \item The ODE will have a solution that is a combination of the above two forms
 \item The solution will translate back to a combination of both above forms
 \end{itemize}
-\subparagraph[Power Series Combination]{Power Series Combination\hfill{}\textsc{James}}
+\subparagraph{Power Series Combination\hfill{}\textsc{James}}
 \label{power-series-comb}
 In this section a proof for identity \ref{eq:power-series-comb} is provided.
 \begin{enumerate}
 \item Motivation
-\label{sec:orgf67ebbe}
+\label{sec:orgd55a3d9}
 
 Consider the function \(f(x) = xe^x\). Using the taylor series formula we get the following:
 
@@ -822,11 +822,11 @@ We conjecture thatIf we continue this on, we get:
     x^ke^x = \sum_{n=k}^\infty \frac{x^n}{(n-k)!} \quad \text{for}~k\in \mathbb{Z^{+}}\cap0
 \end{align*}
 \item Proof by Induction
-\label{sec:orgb6e880e}
+\label{sec:orgd3e3989}
 To verify, let's prove this by induction.
 \begin{enumerate}
 \item Base
-\label{sec:orged60b58}
+\label{sec:org89a6990}
 Test \(k=0\)
 \begin{align*}
     LHS &= x^0e^x = e^x\\
@@ -835,7 +835,7 @@ Test \(k=0\)
 Therefore LHS = RHS, so \(k=0\) is true
 
 \item Bridge
-\label{sec:org4dfd522}
+\label{sec:org617f894}
 Assume \(x^k e^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}\)
 
 Using this assumption, prove for the next element \$k+1\$\\
@@ -856,7 +856,7 @@ Moving on, by applying identity \eqref{eq:uniq-roots-pow-series-ident} to equati
 \end{enumerate}
 \end{enumerate}
 
-\subsection[Fibonacci Sequence and the Golden Ratio]{Fibonacci Sequence and the Golden Ratio\hfill{}\textsc{Ryan}}
+\subsection{Fibonacci Sequence and the Golden Ratio\hfill{}\textsc{Ryan}}
 \label{fib-golden-ratio-proof}
 The \emph{Fibonacci Sequence} is actually very interesting, observe that the ratios of the terms converge to the \emph{Golden Ratio}:
 
@@ -883,7 +883,7 @@ patterns observed in nature.
 We also hope to find a method to produce the the diagram shown in figure
 computationally, ideally by using the Turtle function in \emph{Julia}.
 
-\subsubsection[Fibonacci Sequence in Nature]{Fibonacci Sequence in Nature\hfill{}\textsc{Ryan}}
+\subsubsection{Fibonacci Sequence in Nature\hfill{}\textsc{Ryan}}
 \label{sunflower-example}
 The distribution of sunflower seeds is an example of the \emph{Fibonacci Sequence}
 occuring in a pattern observed in nature (see Figure \ref{sunflower}).
@@ -975,8 +975,8 @@ end 600 600
 \caption{\label{sunflower}Distribution of the seeds of a sunflower (see \cite{simonbrassCCSearch2006} licenced under CC)}
 \end{figure}
 
-\section[Persian Recursion]{Persian Recursion\hfill{}\textsc{Ryan}}
-\label{sec:org4807975}
+\section{Persian Recursion\hfill{}\textsc{Ryan}}
+\label{sec:org80453f8}
 This section contains an example of how a simple process can lead to the
 development of complex patterns when exposed to feedback and iteration.
 
@@ -1084,13 +1084,13 @@ main(5,6, 1, cx)
 \caption{\label{6-rug}Output produced by listing \ref{persian-recursion-python} with 6 folds}
 \end{figure}
 
-\section[Julia Sets]{Julia Sets\hfill{}\textsc{Ryan}}
-\label{sec:org422bb25}
+\section{Julia Sets\hfill{}\textsc{Ryan}}
+\label{sec:org5a55059}
 \subsection{Introduction}
-\label{sec:org04c0e92}
+\label{sec:org4c94297}
 Julia sets are a very interesting fractal and we hope to investigate them further in this project.
 \subsection{Motivation}
-\label{sec:org67a7630}
+\label{sec:orga3eac28}
 Consider the iterative process \(x \rightarrow x^{2}, \enspace x \in \mathbb{R}\),
 for values of \(x>1\) this process will diverge and for \(x<1\) it will converge.
 
@@ -1126,7 +1126,7 @@ Every value on that plane will belong to one of the two following sets
 In the case of \(f_{0}(z) = z^{2}\) all values \(\left\lvert z  \right \rvert \leq 1\) are bounded with \(\left\lvert z  \right \rvert = 1\) being an unstable stationary circle, but let's investigate what happens for different iterative functions like \(f_{1}(z) = z^{2} - 1\), despite how trivial this seems at first glance.
 
 \subsection{Plotting the Sets}
-\label{sec:org728b45e}
+\label{sec:orgdc6b3ad}
 Although the convergence of values may appear simple at first, we'll implement a
 strategy to plot the prisoner and escape sets on the complex plane.
 
@@ -1379,8 +1379,8 @@ ffmpeg                    \
 \caption{\label{montage-frac}Various fracals corresponding to \(f_{0.8 e^{\pi i \tau}}\)}
 \end{figure}
 
-\section[MandelBrot]{MandelBrot\hfill{}\textsc{Ryan:ATTACH}}
-\label{sec:orgb97ce42}
+\section{MandelBrot\hfill{}\textsc{Ryan}}
+\label{sec:org944aad7}
 Investigating these fractals, a natural question might be whether or not any
 given \(c\) value will produce a fractal that is an open disc or a closed disc.
 
@@ -1512,7 +1512,7 @@ save_picture("/tmp/a.fits", my_pic)
 \caption{\label{mandelbrot-screen}Screenshot of Mandelbrot FITS image produced by listing }
 \end{figure}
 \section{Relevant Sources}
-\label{sec:org01b9556}
+\label{sec:org93b061d}
 To guide research for our topic \emph{Chaos and Fractals} by Pietgen, Jurgens and Saupe \cite{peitgenChaosFractalsNew2004} will act as a map of the topic broadly, other than the sources referenced already, we anticipate referring to the following textbooks that we access to throughout the project:
 
 \begin{itemize}
@@ -1531,7 +1531,7 @@ To guide research for our topic \emph{Chaos and Fractals} by Pietgen, Jurgens an
 Ron Knott's website appears also to have a lot of material related to patterns, the \emph{Fibonacci Sequence} and the \emph{Golden Ratio}, we intend to have a good look through that material as well. \cite{ronknottFibonacciNumbersGolden2016}
 
 \section{Appendix}
-\label{sec:orgd18a8d0}
+\label{sec:org81c48cc}
 
 \begin{listing}[htbp]
 \begin{minted}[]{python}
@@ -1613,7 +1613,7 @@ main(8, 8, 1, cx)
 \caption{\label{new-func2-plot}Output produced by listing \ref{new-func2-code} using \(f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1\)}
 \end{figure}
 \subsection{Figures}
-\label{sec:org47d2516}
+\label{sec:org6fc244d}
 
 \begin{figure}[htbp]
 \centering
@@ -1639,7 +1639,7 @@ significantly more appealing than compiled languages
 \item The \texttt{DifferentialEquations.jl} library is one of the best performing libraries available.
 \end{itemize}
 
-\paragraph{Other Pakcages}
+\paragraph{Other Packages}
 \label{other-tools}
 Other packages that are on our radar for want of investigation are listed below, in practice it is unlikely that time will permit us to investigate many packages or libraries
 

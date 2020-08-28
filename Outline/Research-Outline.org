@@ -2,7 +2,6 @@
 :PREAMBLE:
 #+OPTIONS: broken-links:auto todo:nil H:9
 #+STARTUP: content
-#+OPTIONS: tags:not-in-toc d:nil
 #+AUTHOR: Ryan Greenup & James Guerra
 #+INFOJS_OPT: view:showall toc:3
 #+PLOT: title:"Citas" ind:1 deps:(3) type:2d with:histograms set:"yrange [0:]"
@@ -551,7 +550,7 @@ sequence across, then every derivative thereafter does so as well, because the
 first derivative has been shown to express this property
 eqref:eq:exp-pow-series-sol, all derivates will.
 
-*** TODO Homogeneous Proof
+*** TODO Homogeneous Proof                                                    :Ryan:James:
 An equation of the form:
 
 \begin{align}
