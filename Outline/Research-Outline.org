@@ -1570,7 +1570,7 @@ The reason we resolved to make time to investigate /Julia/ is because we see it 
   + The syntax of Julia is very similar to /Python/ and /*R*/
 - The ~DifferentialEquations.jl~ library is one of the best performing libraries available.
 
-**** Other Pakcages
+**** Other Packages
 :PROPERTIES:
 :CUSTOM_ID: other-tools
 :END:
