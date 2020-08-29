@@ -281,7 +281,7 @@ time, this is implemented in listing [[fib-cache]].
 #+CAPTION: Caching the results of the function previously defined [[time-slow]]
 #+BEGIN_SRC python
   from functools import lru_cache
- 
+
   @lru_cache(maxsize=9999)
   def rec_fib(k):
       if type(k) is not int:
@@ -805,7 +805,8 @@ Assume $x^k e^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}$
 
 Using this assumption, prove for the next element $k+1$\\
 
-We need $x^{k+1}e^x = \sum_{n=k+1}^\infty\frac{x^n}{(n-(k+1))!}$\\
+We need $x^{k+1}e^x = \sum_{n=k+1}^\infty\frac{x^n}{(n-(k+1))!}$
+
 \begin{align*}
     \text{LHS} &= x^{k+1}e^x\\
     &= x\cdot x^{k}e^x\\
