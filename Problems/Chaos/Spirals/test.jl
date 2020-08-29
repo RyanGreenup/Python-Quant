@@ -26,18 +26,16 @@ end
 ψ = φ^-1
 ψ = 0.61803398875
 function sfSeeds(ratio)
-    🐢 = Turtle()
-    colour = true
+🐢 = Turtle()
     for θ in [(ratio*2*π)*i for i in 1:3000]
         gsave()
         scale(0.05)
+#        if Int(string(θ)[1])%2==0
+#            Pencolor(🐢, 0.8, 0.3, 0.3)    
+#        else
+#            Pencolor(🐢, 0.3, 0.3, 0.8)
+#        end
         rotate(θ)
-        if colour
-            colour = !colour
-            Pencolor(🐢, 0.8, 0.3, 0.3)    
-        else
-            Pencolor(🐢, 0.3, 0.3, 0.8)
-        end
         Forward(🐢, 1)
         Rectangle(🐢, 50, 50)
         grestore()
@@ -52,8 +50,8 @@ end 600 600
 
 ## Make a bunch of animations
 
-for ratio in range(0, 0.01, length = 2400) # Changes rapidly, need about 200K frames for all 0 → 1
-    name = string("Flower-", ratio, ".png")
+for ratio in range(0, φ, length = 50000) # Changes rapidly, need about 200K frames for all 0 → 1
+    name = string("Flower-", ratio, ".png")   # 2400 frames makes 0:0.01 smooth
     Drawing(600, 600, name)
     origin()
     background("white")
