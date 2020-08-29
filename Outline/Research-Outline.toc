@@ -1,0 +1,73 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {\nobreakspace {}1\nobreakspace {}}Introduction\hfill {}\textsc {Ryan}}{2}{section.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {\nobreakspace {}2\nobreakspace {}}Programming Recursion\hfill {}\textsc {Ryan}}{2}{section.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {\nobreakspace {}2.1\nobreakspace {}}Iteration and Recursion}{2}{subsection.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {\nobreakspace {}2.1.1\nobreakspace {}}Some Functions are more difficult to express with Recursion in}{4}{subsubsection.2.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {\nobreakspace {}3\nobreakspace {}}Fibonacci Sequence\hfill {}\textsc {Ryan:James}}{4}{section.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {\nobreakspace {}3.1\nobreakspace {}}Introduction\hfill {}\textsc {Ryan}}{4}{subsection.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {\nobreakspace {}3.2\nobreakspace {}}Computational Approach\hfill {}\textsc {Ryan}}{6}{subsection.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {\nobreakspace {}3.3\nobreakspace {}}Exponential Generating Functions}{7}{subsection.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {\nobreakspace {}3.3.1\nobreakspace {}}Motivation\hfill {}\textsc {Ryan}}{7}{subsubsection.3.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {\nobreakspace {}3.3.2\nobreakspace {}}Example\hfill {}\textsc {Ryan}}{10}{subsubsection.3.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {\nobreakspace {}3.3.3\nobreakspace {}}Derivative of the Exponential Generating Function}{11}{subsubsection.3.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Base\hfill {}\textsc {Ryan}}{11}{subsubsection.3.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Bridge\hfill {}\textsc {James}}{11}{equation.3.12}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {\nobreakspace {}3.3.4\nobreakspace {}}Homogeneous Proof\hfill {}\textsc {Ryan:James}}{12}{subsubsection.3.3.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Unique Roots of Characteristic Equation\hfill {}\textsc {Ryan}}{13}{Item.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{Example}{13}{Item.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{Proof}{13}{Item.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Repeated Roots of Characteristic Equation\hfill {}\textsc {Ryan}}{14}{equation.3.19}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{Example}{14}{equation.3.19}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{Proof}{15}{equation.3.23}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{General Proof}{17}{equation.3.30}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{Power Series Combination\hfill {}\textsc {James}}{17}{equation.3.30}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {\nobreakspace {}3.4\nobreakspace {}}Fibonacci Sequence and the Golden Ratio\hfill {}\textsc {Ryan}}{18}{subsection.3.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {\nobreakspace {}3.4.1\nobreakspace {}}Fibonacci Sequence in Nature\hfill {}\textsc {Ryan}}{19}{subsubsection.3.4.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {\nobreakspace {}4\nobreakspace {}}Persian Recursion\hfill {}\textsc {Ryan}}{20}{section.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {\nobreakspace {}5\nobreakspace {}}Julia Sets\hfill {}\textsc {Ryan}}{24}{section.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {\nobreakspace {}5.1\nobreakspace {}}Introduction}{24}{subsection.5.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {\nobreakspace {}5.2\nobreakspace {}}Motivation}{24}{subsection.5.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {\nobreakspace {}5.3\nobreakspace {}}Plotting the Sets}{25}{subsection.5.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {\nobreakspace {}6\nobreakspace {}}MandelBrot\hfill {}\textsc {Ryan}}{28}{section.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {\nobreakspace {}7\nobreakspace {}}Relevant Sources}{34}{section.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {\nobreakspace {}8\nobreakspace {}}Appendix}{34}{section.8}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {\nobreakspace {}8.1\nobreakspace {}}Persian Recursian Examples}{36}{subsection.8.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {\nobreakspace {}8.2\nobreakspace {}}Figures}{36}{subsection.8.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {\nobreakspace {}8.3\nobreakspace {}}Why Julia}{39}{subsection.8.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Other Packages}{39}{subsection.8.3}%

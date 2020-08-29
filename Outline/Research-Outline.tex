@@ -1,4 +1,4 @@
-% Created 2020-08-28 Fri 23:54
+% Created 2020-08-29 Sat 11:14
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -35,7 +35,7 @@
 
 
 \section{Introduction\hfill{}\textsc{Ryan}}
-\label{sec:org8697172}
+\label{sec:orgf63ec20}
 This project, at the outset, was very broadly concerned with the use of \emph{Python} for
 computer algebra. Much to the the reluctance of our supervisor we have however
 resolved to look at a broad variety of tools (see section \ref{other-tools}),
@@ -59,7 +59,7 @@ over such software needs to perform very well under recursion and iteration
 with Julia as well).
 
 \section{Programming Recursion\hfill{}\textsc{Ryan}}
-\label{sec:orgdd2e83b}
+\label{sec:orgf5015af}
 As an introduction to \emph{Python} generally, we undertook many problem questions which have been omitted from this outline, however, this one in particular offered an interesting insight into the difficulties we may encounter when dealing with recursive systems.
 \subsection{Iteration and Recursion}
 \label{series-and-recursion}
@@ -228,9 +228,9 @@ def f(k):
 \end{listing}
 
 \section{Fibonacci Sequence\hfill{}\textsc{Ryan:James}}
-\label{sec:orgb4ec463}
+\label{sec:org61d2c09}
 \subsection{Introduction\hfill{}\textsc{Ryan}}
-\label{sec:org1ba94e7}
+\label{sec:org360f8ca}
 The \emph{Fibonacci Sequence} and \emph{Golden Ratio} share a deep connection\footnote{See section} and occur in patterns observed in nature very frequently
 (see
 \cite{shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016}), an example of such an occurence is discussed in section \ref{sunflower-example}.
@@ -301,7 +301,7 @@ time, this is implemented in listing \ref{fib-cache}.
 \begin{listing}[htbp]
 \begin{minted}[]{python}
   from functools import lru_cache
- 
+
   @lru_cache(maxsize=9999)
   def rec_fib(k):
       if type(k) is not int:
@@ -527,7 +527,7 @@ where:
 \subsubsection{Derivative of the Exponential Generating Function}
 \label{Derivative-exp-gen-function}
 \paragraph{Base\hfill{}\textsc{Ryan}}
-\label{sec:org35e226c}
+\label{sec:orgc7f6be5}
 Differentiating the exponential generating function has the effect of shifting the sequence to the backward: \cite{lehmanReadingsMathematicsComputer2010}
 
 \begin{align}
@@ -540,7 +540,7 @@ f'\left( x \right)) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 
 \end{align}
 
 \paragraph{Bridge\hfill{}\textsc{James}}
-\label{sec:org508d194}
+\label{sec:orgf452602}
 This can be shown for all derivatives by way of induction, for
 
 \begin{align}
@@ -569,7 +569,7 @@ first derivative has been shown to express this property
 \eqref{eq:exp-pow-series-sol}, all derivates will.
 
 \subsubsection{Homogeneous Proof\hfill{}\textsc{Ryan:James}}
-\label{sec:org52105d7}
+\label{sec:org027808f}
 An equation of the form:
 
 \begin{align}
@@ -611,10 +611,10 @@ where:
 \paragraph{Unique Roots of Characteristic Equation\hfill{}\textsc{Ryan}}
 \label{uniq-roots-recurrence}
 \subparagraph{Example}
-\label{sec:org501b4c9}
+\label{sec:orgb556510}
 An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section \ref{solving-the-sequence}.
 \subparagraph{Proof}
-\label{sec:org36fee0a}
+\label{sec:org6a7f65a}
 Consider the linear recurrence relation \eqref{eq:recurrence-relation-def}:
 
 \begin{align}
@@ -673,7 +673,7 @@ This can be verified by the fibonacci sequence as shown in section \ref{solving-
 \paragraph{Repeated Roots of Characteristic Equation\hfill{}\textsc{Ryan}}
 \label{rep-roots-recurrence}
 \subparagraph{Example}
-\label{sec:orga511d3f}
+\label{sec:orge21a9a1}
 Consider the following recurrence relation:
 
 \begin{align}
@@ -725,7 +725,7 @@ Given the defenition of the exponential generating function from \eqref{eq:exp-g
     \square \nonumber
 \end{align}
 \subparagraph{Proof}
-\label{sec:orgd6d7adb}
+\label{sec:org9780459}
 In order to prove the the solution for a \(k^{\mathrm{th}}\) order recurrence relation with \(k\) repeated
 
 
@@ -798,7 +798,7 @@ Sketching out an approach for this:
 In this section a proof for identity \ref{eq:power-series-comb} is provided.
 \begin{enumerate}
 \item Motivation
-\label{sec:org6bb2cc0}
+\label{sec:orgaca4175}
 
 Consider the function \(f(x) = xe^x\). Using the taylor series formula we get the following:
 
@@ -822,11 +822,11 @@ We conjecture thatIf we continue this on, we get:
     x^ke^x = \sum_{n=k}^\infty \frac{x^n}{(n-k)!} \quad \text{for}~k\in \mathbb{Z^{+}}\cap0
 \end{align*}
 \item Proof by Induction
-\label{sec:org841aa40}
+\label{sec:orgc9ff2cc}
 To verify, let's prove this by induction.
 \begin{enumerate}
 \item Base
-\label{sec:org2ce92cc}
+\label{sec:org41ad254}
 Test \(k=0\)
 \begin{align*}
     LHS &= x^0e^x = e^x\\
@@ -835,12 +835,13 @@ Test \(k=0\)
 Therefore LHS = RHS, so \(k=0\) is true
 
 \item Bridge
-\label{sec:orgddef5d0}
+\label{sec:org76fba09}
 Assume \(x^k e^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}\)
 
 Using this assumption, prove for the next element \$k+1\$\\
 
-We need \$x\textsuperscript{k+1}e\textsuperscript{x} = \(\sum\)\textsubscript{n=k+1}\^{}\(\infty\)\frac{x^n}{(n-(k+1))!}\$\\
+We need \(x^{k+1}e^x = \sum_{n=k+1}^\infty\frac{x^n}{(n-(k+1))!}\)
+
 \begin{align*}
     \text{LHS} &= x^{k+1}e^x\\
     &= x\cdot x^{k}e^x\\
@@ -976,7 +977,7 @@ end 600 600
 \end{figure}
 
 \section{Persian Recursion\hfill{}\textsc{Ryan}}
-\label{sec:org0aa8ef0}
+\label{sec:orgc31cf7d}
 This section contains an example of how a simple process can lead to the
 development of complex patterns when exposed to feedback and iteration.
 
@@ -1085,12 +1086,12 @@ main(5,6, 1, cx)
 \end{figure}
 
 \section{Julia Sets\hfill{}\textsc{Ryan}}
-\label{sec:org05cfc25}
+\label{sec:orga7a0be9}
 \subsection{Introduction}
-\label{sec:org025b61b}
+\label{sec:orge1c2546}
 Julia sets are a very interesting fractal and we hope to investigate them further in this project.
 \subsection{Motivation}
-\label{sec:org633f821}
+\label{sec:org7caa695}
 Consider the iterative process \(x \rightarrow x^{2}, \enspace x \in \mathbb{R}\),
 for values of \(x>1\) this process will diverge and for \(x<1\) it will converge.
 
@@ -1126,7 +1127,7 @@ Every value on that plane will belong to one of the two following sets
 In the case of \(f_{0}(z) = z^{2}\) all values \(\left\lvert z  \right \rvert \leq 1\) are bounded with \(\left\lvert z  \right \rvert = 1\) being an unstable stationary circle, but let's investigate what happens for different iterative functions like \(f_{1}(z) = z^{2} - 1\), despite how trivial this seems at first glance.
 
 \subsection{Plotting the Sets}
-\label{sec:orgff75e17}
+\label{sec:org8c815ea}
 Although the convergence of values may appear simple at first, we'll implement a
 strategy to plot the prisoner and escape sets on the complex plane.
 
@@ -1380,7 +1381,7 @@ ffmpeg                    \
 \end{figure}
 
 \section{MandelBrot\hfill{}\textsc{Ryan}}
-\label{sec:org102905a}
+\label{sec:org932bd25}
 Investigating these fractals, a natural question might be whether or not any
 given \(c\) value will produce a fractal that is an open disc or a closed disc.
 
@@ -1512,7 +1513,7 @@ save_picture("/tmp/a.fits", my_pic)
 \caption{\label{mandelbrot-screen}Screenshot of Mandelbrot FITS image produced by listing }
 \end{figure}
 \section{Relevant Sources}
-\label{sec:org9913167}
+\label{sec:orgbc915dd}
 To guide research for our topic \emph{Chaos and Fractals} by Pietgen, Jurgens and Saupe \cite{peitgenChaosFractalsNew2004} will act as a map of the topic broadly, other than the sources referenced already, we anticipate referring to the following textbooks that we access to throughout the project:
 
 \begin{itemize}
@@ -1531,7 +1532,7 @@ To guide research for our topic \emph{Chaos and Fractals} by Pietgen, Jurgens an
 Ron Knott's website appears also to have a lot of material related to patterns, the \emph{Fibonacci Sequence} and the \emph{Golden Ratio}, we intend to have a good look through that material as well. \cite{ronknottFibonacciNumbersGolden2016}
 
 \section{Appendix}
-\label{sec:org7ece76b}
+\label{sec:org52337c5}
 
 \begin{listing}[htbp]
 \begin{minted}[]{python}
@@ -1613,7 +1614,7 @@ main(8, 8, 1, cx)
 \caption{\label{new-func2-plot}Output produced by listing \ref{new-func2-code} using \(f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1\)}
 \end{figure}
 \subsection{Figures}
-\label{sec:org3855dd1}
+\label{sec:org53a057b}
 
 \begin{figure}[htbp]
 \centering

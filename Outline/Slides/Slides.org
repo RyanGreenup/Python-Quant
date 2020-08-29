@@ -988,7 +988,7 @@ end
 save_images(1200, 1500) # Number  and Res
 #+end_src
 **** Viewing the Results
-***** What we Have                                                       
+***** What we Have
 :PROPERTIES:
 :DIR:      /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/Slides/attachments/
 :END:
@@ -1294,4 +1294,3 @@ This self Similarity occurs all the time in nature, one of these is synthetic, c
 #+attr_html: :width 700px
 #+attr_latex: :width 9cm
 [[file:media/out.png]]
-

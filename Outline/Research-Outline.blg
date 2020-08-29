@@ -1,0 +1,23 @@
+[0] Config.pm:304> INFO - This is Biber 2.14
+[0] Config.pm:307> INFO - Logfile is 'Research-Outline.blg'
+[63] biber:322> INFO - === Sat Aug 29, 2020, 11:14:53
+[78] Biber.pm:415> INFO - Reading 'Research-Outline.bcf'
+[138] Biber.pm:943> INFO - Found 36 citekeys in bib section 0
+[154] Biber.pm:4256> INFO - Processing section 0
+[154] Utils.pm:75> INFO - Globbing data source '../Resources/references.bib'
+[155] Utils.pm:91> INFO - Globbed data source '../Resources/references.bib' to ../Resources/references.bib
+[166] Biber.pm:4455> INFO - Looking for bibtex format file '../Resources/references.bib' for section 0
+[172] bibtex.pm:1653> INFO - LaTeX decoding ...
+[281] bibtex.pm:1471> INFO - Found BibTeX data source '../Resources/references.bib'
+[365] Utils.pm:304> WARN - ISBN '978-3-540-19129-2 978-3-540-39126-5' in entry 'bohmReducingRecursionIteration1988' is invalid - run biber with '--validate_datamodel' for details.
+[386] Utils.pm:304> WARN - ISBN '978-3-540-16442-5 978-3-540-39782-3' in entry 'bohmReducingRecursionIteration1986' is invalid - run biber with '--validate_datamodel' for details.
+[458] Utils.pm:304> WARN - year field '2006, September 5' in entry 'simonbrassCCSearch2006' is not an integer - this will probably not sort properly.
+[506] Utils.pm:304> WARN - ISBN '978-0-470-84861-6 978-0-470-84862-3' in entry 'falconerFractalGeometryMathematical2003b' is invalid - run biber with '--validate_datamodel' for details.
+[516] Utils.pm:304> WARN - ISBN '9780511335044 9780511334467 9780511333125 9780511803277 9780511333804 9781281040114 9786611040116 9780511567216' in entry 'telChaoticDynamicsIntroduction2006' is invalid - run biber with '--validate_datamodel' for details.
+[554] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[555] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[555] Biber.pm:4084> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[555] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[591] bbl.pm:652> INFO - Writing 'Research-Outline.bbl' with encoding 'UTF-8'
+[615] bbl.pm:755> INFO - Output to Research-Outline.bbl
+[615] Biber.pm:128> INFO - WARNINGS: 5
