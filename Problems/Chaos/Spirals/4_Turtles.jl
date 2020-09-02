@@ -1,7 +1,5 @@
 using Shapefile
 using Luxor
-using Pkg
-
 
 ## Hello World
 
@@ -64,7 +62,7 @@ end
     Psuedoarc(🐢, 50, 180)
 end 
 
-@svg Psuedoarc(🐢, 50, 180) 400 1200 "/tmp/blah.svg
+@svg Psuedoarc(🐢, 50, 180) 400 1200 "/tmp/blah.svg"
 
 @svg circle(O, 20, :fill) 400 1200 "/tmp/test.svg"
 

@@ -15,6 +15,12 @@ Forward(Turtle(), 100)
 finish()
 preview()
 
+@svg begin
+    fontsize(50)
+    text("hello world")
+    Forward(Turtle(), 100)
+end
+
 if 2%1==1
     print(3)
 else
@@ -28,7 +34,37 @@ end
 ψ = 0.61803398875
 function sfSeeds(ratio)
 🐢 = Turtle()
-    for θ in [(ratio*2*π)*i for i in 1:3000]
+    for θ in [(ratio*2*π)*i for i in 1:6000]
+        gsave()
+        scale(0.05)
+        rotate(θ)
+        Forward(🐢, 1)
+        Rectangle(🐢, 50, 50)
+        grestore()
+    end
+    label = string("Ratio = ", round(ratio, digits = 8))
+    textcentered(label, 100, 200)
+end
+
+@svg begin
+    sfSeeds( φ )
+end 600 600 "/tmp/out.svg"
+
+
+############################################################
+####### Try and Scale the seeds ############################
+############################################################
+
+
+φ = 1.61803398875
+φ = 1.618033988749894848204586834365 #  6381177203 0917980576 2862135448 6227052604 6281890244 9707207204 1893911374 8475408807 5386891752 1266338622 2353693179 3180060766 7263544333 8908659593 9582905638 3226613199 2829026788 0675208766 8925017116 9620703222 1043216269 5486262963 1361443814 9758701220 3408058879 5445474924 6185695364 8644492410 4432077134 4947049565 8467885098 7433944221 2544877066 4780915884 6074998871 2400765217 0575179788 3416625624 9407589069 7040002812 1042762177 1117778053 1531714101 1704666599 1466979873 1761356006 7087480710 1317952368 9427521948 4353056783 0022878569 9782977834 7845878228 9110976250 0302696156 1700250464 3382437764 8610283831 2683303724 2926752631 16533
+ψ = φ^-1
+ψ = 0.61803398875
+function sfSeeds(ratio)
+🐢 = Turtle()
+    i = 0
+    for θ in [(ratio*2*π)*i for i in 1:189000]
+    i = i + 1
         gsave()
         scale(0.05)
 #        if Int(string(θ)[1])%2==0
@@ -38,7 +74,7 @@ function sfSeeds(ratio)
 #        end
         rotate(θ)
         Forward(🐢, 1)
-        Rectangle(🐢, 50, 50)
+        Circle(🐢, sqrt(i))
         grestore()
     end
     label = string("Ratio = ", round(ratio, digits = 8))
@@ -46,7 +82,39 @@ function sfSeeds(ratio)
 end
 @svg begin
     sfSeeds(φ)
-end 600 600
+end 3000 3000 "/tmp/out.svg"
+
+
+# It appears that the square root of the seed number causes very good iteration,
+# lets increase the size
+
+φ=1.61803398874989484820458683436563811772030917980576286213544862270526046281890244970720720418939113748475408807538689175212663386222353693179318006076672635443338908659593958290563832266131992829026788067520876689250171169620703222104321626954862629631361443814975870122034080588795445474924618569536486444924104432077134494704956584678850987433944221254487706647809158846074998871240076521705751797883416625624940758906970400028121042762177111777805315317141011704666599146697987317613560067087480710131795236894275219484353056783002287856997829778347845878228911097625003026961561700250464338243776486102838312683303724292675263116533
+function sfSeeds(ratio)
+🐢 = Turtle()
+    i = 0
+    for θ in [(ratio*2*π)*i for i in 1:30000]
+    i = i + 1
+        gsave()
+        scale(0.05)
+#        if Int(string(θ)[1])%2==0
+#            Pencolor(🐢, 0.8, 0.3, 0.3)    
+#        else
+#            Pencolor(🐢, 0.3, 0.3, 0.8)
+#        end
+        rotate(θ)
+        Forward(🐢, 1)
+        Circle(🐢, sqrt(i))
+        grestore()
+    end
+    # label = string("Ratio = ", round(ratio, digits = 8))
+    # textcentered(label, 100, 200)
+end
+@svg begin
+    sfSeeds(φ)
+end 3000 3000 "/tmp/sunflowersqrt.svg"
+
+
+
 
 
 ## Make a bunch of animations
@@ -89,9 +157,7 @@ end
     (-1, "Hyperbolic", 100),
     ( 1, "Archimedes",   1),
     ( 2, "Fermat",       5)]
-
     grid = GridRect(O - (200, 0), 130, 50)
-
     for aspiral in spiraldata
         @layer begin
             translate(nextgridpoint(grid))
