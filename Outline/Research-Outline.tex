@@ -1,4 +1,4 @@
-% Created 2020-08-29 Sat 11:14
+% Created 2020-08-29 Sat 18:59
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -14,7 +14,7 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\usepackage{minted}
+\usepackage{listings}
 \IfFileExists{./resources/style.sty}{\usepackage{./resources/style}}{}
 \IfFileExists{./resources/referencing.sty}{\usepackage{./resources/referencing}}{}
 \addbibresource{../Resources/references.bib}
@@ -35,7 +35,7 @@
 
 
 \section{Introduction\hfill{}\textsc{Ryan}}
-\label{sec:orgf63ec20}
+\label{sec:org12b1af6}
 This project, at the outset, was very broadly concerned with the use of \emph{Python} for
 computer algebra. Much to the the reluctance of our supervisor we have however
 resolved to look at a broad variety of tools (see section \ref{other-tools}),
@@ -59,7 +59,7 @@ over such software needs to perform very well under recursion and iteration
 with Julia as well).
 
 \section{Programming Recursion\hfill{}\textsc{Ryan}}
-\label{sec:orgf5015af}
+\label{sec:org0c349fe}
 As an introduction to \emph{Python} generally, we undertook many problem questions which have been omitted from this outline, however, this one in particular offered an interesting insight into the difficulties we may encounter when dealing with recursive systems.
 \subsection{Iteration and Recursion}
 \label{series-and-recursion}
@@ -87,8 +87,8 @@ series and sequences and is consistent with familiar mathematical thought and
 notation. Individuals more familiar with programming than analysis may find it
 more comfortable to use an iterator as shown in listing \ref{it-one}.
 
-\begin{listing}[htbp]
-\begin{minted}[]{python}
+\lstset{language=Python,label=rec-one,caption={Solving \eqref{eq:rec-ser-mod} using recursion.},captionpos=b,numbers=none}
+\begin{lstlisting}
 from sympy import *
 def h(k):
     if k > 2:
@@ -102,13 +102,11 @@ def f(i):
         return sqrt(i + f(i -1))
     else:
         return 1
-\end{minted}
-\caption{\label{rec-one}Solving \eqref{eq:rec-ser-mod} using recursion.}
-\end{listing}
+\end{lstlisting}
 
 
-\begin{listing}[htbp]
-\begin{minted}[]{python}
+\lstset{language=Python,label=it-one,caption={Solving \eqref{eq:rec-ser-mod} by using a \texttt{for} loop.},captionpos=b,numbers=none}
+\begin{lstlisting}
   from sympy import *
   def h(k):
       k = k + 1 # OBOB
@@ -120,9 +118,7 @@ def f(i):
       for i in range(2, k+2):
           expr = sqrt(i + expr, evaluate=False)
       return expr/(k+1)
-\end{minted}
-\caption{\label{it-one}Solving \eqref{eq:rec-ser-mod} by using a \texttt{for} loop.}
-\end{listing}
+\end{lstlisting}
 
 Any function that can be defined by using iteration, can always be defined via
 recursion and vice versa
@@ -189,8 +185,8 @@ What this demonstrates is that taking a different approach to simply describing
 this function can lead to big differences in the complexity involved in solving
 this problem.
 
-\begin{listing}[htbp]
-\begin{minted}[]{python}
+\lstset{language=Python,label=rec-two,caption={Using Recursion to Solve \eqref{eq:rec-ser}},captionpos=b,numbers=none}
+\begin{lstlisting}
 from sympy import *
 def h(k):
     if k > 2:
@@ -205,13 +201,11 @@ def f(k, i):
         return sqrt((k-i) + f(k, k - i -1))
     else:
         return 1
-\end{minted}
-\caption{\label{rec-two}Using Recursion to Solve \eqref{eq:rec-ser}}
-\end{listing}
+\end{lstlisting}
 
 
-\begin{listing}[htbp]
-\begin{minted}[]{python}
+\lstset{language=Python,label=iter-two,caption={Using Iteration to Solve \eqref{eq:rec-ser}},captionpos=b,numbers=none}
+\begin{lstlisting}
 from sympy import *
 def h(k):
     k = k + 1 # OBOB
@@ -223,14 +217,12 @@ def f(k):
     for i in reversed(range(2, k+2)):
         expr = sqrt(i + expr, evaluate=False)
     return expr/(k+1)
-\end{minted}
-\caption{\label{iter-two}Using Iteration to Solve \eqref{eq:rec-ser}}
-\end{listing}
+\end{lstlisting}
 
 \section{Fibonacci Sequence\hfill{}\textsc{Ryan:James}}
-\label{sec:org61d2c09}
+\label{sec:org5f7a35f}
 \subsection{Introduction\hfill{}\textsc{Ryan}}
-\label{sec:org360f8ca}
+\label{sec:org5df751a}
 The \emph{Fibonacci Sequence} and \emph{Golden Ratio} share a deep connection\footnote{See section} and occur in patterns observed in nature very frequently
 (see
 \cite{shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016}), an example of such an occurence is discussed in section \ref{sunflower-example}.
@@ -271,8 +263,8 @@ only need to calculate each result once and it will hence scale in polynomial
 time, this is implemented in listing \ref{fib-cache}.
 
 
-\begin{listing}[htbp]
-\begin{minted}[]{python}
+\lstset{language=Python,label=fib-rec-0,caption={Defining the \emph{Fibonacci Sequence} \eqref{eq:fib-def} using Recursion},captionpos=b,numbers=none}
+\begin{lstlisting}
   def rec_fib(k):
       if type(k) is not int:
           print("Error: Require integer values")
@@ -282,24 +274,20 @@ time, this is implemented in listing \ref{fib-cache}.
       elif k <= 2:
           return 1
       return rec_fib(k-1) + rec_fib(k-2)
-\end{minted}
-\caption{\label{fib-rec-0}Defining the \emph{Fibonacci Sequence} \eqref{eq:fib-def} using Recursion}
-\end{listing}
+\end{lstlisting}
 
-\begin{listing}[htbp]
-\begin{minted}[]{python}
+\lstset{language=Python,label=time-slow,caption={Using the function from listing \ref{fib-rec-0} is quite slow.},captionpos=b,numbers=none}
+\begin{lstlisting}
   start = time.time()
   rec_fib(35)
   print(str(round(time.time() - start, 3)) + "seconds")
 
 ## 2.245seconds
-\end{minted}
-\caption{\label{time-slow}Using the function from listing \ref{fib-rec-0} is quite slow.}
-\end{listing}
+\end{lstlisting}
 
 
-\begin{listing}[htbp]
-\begin{minted}[]{python}
+\lstset{language=Python,label=fib-cache,caption={Caching the results of the function previously defined \ref{time-slow}},captionpos=b,numbers=none}
+\begin{lstlisting}
   from functools import lru_cache
 
   @lru_cache(maxsize=9999)
@@ -318,24 +306,23 @@ start = time.time()
 rec_fib(35)
 print(str(round(time.time() - start, 3)) + "seconds")
 ## 0.0seconds
-\end{minted}
-\caption{\label{fib-cache}Caching the results of the function previously defined \ref{time-slow}}
-\end{listing}
+\end{lstlisting}
 
-\begin{minted}[]{python}
+\lstset{language=Python,label= ,caption= ,captionpos=b,numbers=none}
+\begin{lstlisting}
   start = time.time()
   rec_fib(6000)
   print(str(round(time.time() - start, 9)) + "seconds")
 
 ## 8.3923e-05seconds
-\end{minted}
+\end{lstlisting}
 
 Restructuring the problem to use iteration will allow for even greater performance as demonstrated by finding \(F_{10^{6}}\) in listing \ref{fib-iter}. Using a compiled language such as \emph{Julia} however would be thousands of times faster still, as demonstrated in listing \ref{julia-fib}.
 
 
 
-\begin{listing}[htbp]
-\begin{minted}[]{python}
+\lstset{language=Python,label=fib-iter,caption={Using Iteration to Solve the Fibonacci Sequence},captionpos=b,numbers=none}
+\begin{lstlisting}
   def my_it_fib(k):
       if k == 0:
           return k
@@ -363,12 +350,10 @@ Restructuring the problem to use iteration will allow for even greater performan
   print(str(round(time.time() - start, 9)) + "seconds")
 
  ## 6.975890398seconds
-\end{minted}
-\caption{\label{fib-iter}Using Iteration to Solve the Fibonacci Sequence}
-\end{listing}
+\end{lstlisting}
 
-\begin{listing}[htbp]
-\begin{minted}[]{julia}
+\lstset{language=julia,label=julia-fib,caption={Using Julia with an iterative approach to solve the 1 millionth fibonacci number},captionpos=b,numbers=none}
+\begin{lstlisting}
 function my_it_fib(k)
     if k == 0
         return k
@@ -397,9 +382,7 @@ end
 
 ##  my_it_fib (generic function with 1 method)
 ##    0.000450 seconds
-\end{minted}
-\caption{\label{julia-fib}Using Julia with an iterative approach to solve the 1 millionth fibonacci number}
-\end{listing}
+\end{lstlisting}
 
 In this case however an analytic solution can be found by relating discrete
 mathematical problems to continuous ones as discussed below at section .
@@ -527,7 +510,7 @@ where:
 \subsubsection{Derivative of the Exponential Generating Function}
 \label{Derivative-exp-gen-function}
 \paragraph{Base\hfill{}\textsc{Ryan}}
-\label{sec:orgc7f6be5}
+\label{sec:org05e2ee4}
 Differentiating the exponential generating function has the effect of shifting the sequence to the backward: \cite{lehmanReadingsMathematicsComputer2010}
 
 \begin{align}
@@ -540,7 +523,7 @@ f'\left( x \right)) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 
 \end{align}
 
 \paragraph{Bridge\hfill{}\textsc{James}}
-\label{sec:orgf452602}
+\label{sec:org5bf926e}
 This can be shown for all derivatives by way of induction, for
 
 \begin{align}
@@ -569,7 +552,7 @@ first derivative has been shown to express this property
 \eqref{eq:exp-pow-series-sol}, all derivates will.
 
 \subsubsection{Homogeneous Proof\hfill{}\textsc{Ryan:James}}
-\label{sec:org027808f}
+\label{sec:org23dbad4}
 An equation of the form:
 
 \begin{align}
@@ -611,10 +594,10 @@ where:
 \paragraph{Unique Roots of Characteristic Equation\hfill{}\textsc{Ryan}}
 \label{uniq-roots-recurrence}
 \subparagraph{Example}
-\label{sec:orgb556510}
+\label{sec:org36d0597}
 An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section \ref{solving-the-sequence}.
 \subparagraph{Proof}
-\label{sec:org6a7f65a}
+\label{sec:orgc3b462c}
 Consider the linear recurrence relation \eqref{eq:recurrence-relation-def}:
 
 \begin{align}
@@ -673,7 +656,7 @@ This can be verified by the fibonacci sequence as shown in section \ref{solving-
 \paragraph{Repeated Roots of Characteristic Equation\hfill{}\textsc{Ryan}}
 \label{rep-roots-recurrence}
 \subparagraph{Example}
-\label{sec:orge21a9a1}
+\label{sec:org3fea767}
 Consider the following recurrence relation:
 
 \begin{align}
@@ -725,7 +708,7 @@ Given the defenition of the exponential generating function from \eqref{eq:exp-g
     \square \nonumber
 \end{align}
 \subparagraph{Proof}
-\label{sec:org9780459}
+\label{sec:org15a352f}
 In order to prove the the solution for a \(k^{\mathrm{th}}\) order recurrence relation with \(k\) repeated
 
 
@@ -798,7 +781,7 @@ Sketching out an approach for this:
 In this section a proof for identity \ref{eq:power-series-comb} is provided.
 \begin{enumerate}
 \item Motivation
-\label{sec:orgaca4175}
+\label{sec:orgef05490}
 
 Consider the function \(f(x) = xe^x\). Using the taylor series formula we get the following:
 
@@ -822,11 +805,11 @@ We conjecture thatIf we continue this on, we get:
     x^ke^x = \sum_{n=k}^\infty \frac{x^n}{(n-k)!} \quad \text{for}~k\in \mathbb{Z^{+}}\cap0
 \end{align*}
 \item Proof by Induction
-\label{sec:orgc9ff2cc}
+\label{sec:orgf96982d}
 To verify, let's prove this by induction.
 \begin{enumerate}
 \item Base
-\label{sec:org41ad254}
+\label{sec:org3bdce49}
 Test \(k=0\)
 \begin{align*}
     LHS &= x^0e^x = e^x\\
@@ -835,7 +818,7 @@ Test \(k=0\)
 Therefore LHS = RHS, so \(k=0\) is true
 
 \item Bridge
-\label{sec:org76fba09}
+\label{sec:orga162eda}
 Assume \(x^k e^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}\)
 
 Using this assumption, prove for the next element \$k+1\$\\
@@ -931,8 +914,8 @@ the correct spirals is also something we intend to look at in this project.
 
 The bottom right spiral in figure \ref{simulate-sunflower-image} has a ratio of rotation of \(\frac{1}{\pi}\), the spirals look similar to one direction of the spirals occuring in figure \ref{simulate-sunflower-phi}, it is not clear if there is any significance to this similarity.
 
-\begin{listing}[htbp]
-\begin{minted}[]{julia}
+\lstset{language=julia,label=simulate-sunflower,caption={Simulation of the distribution of sunflowers as described in section \ref{sunflower-example}},captionpos=b,numbers=none}
+\begin{lstlisting}
 φ = 1.61803398875
 ψ = φ^-1
 ψ = 0.61803398875
@@ -953,9 +936,7 @@ end
 @svg begin
     sfSeeds(φ)
 end 600 600
-\end{minted}
-\caption{\label{simulate-sunflower}Simulation of the distribution of sunflowers as described in section \ref{sunflower-example}}
-\end{listing}
+\end{lstlisting}
 
 \begin{figure}[htbp]
 \centering
@@ -977,7 +958,7 @@ end 600 600
 \end{figure}
 
 \section{Persian Recursion\hfill{}\textsc{Ryan}}
-\label{sec:orgc31cf7d}
+\label{sec:orgde8a4a3}
 This section contains an example of how a simple process can lead to the
 development of complex patterns when exposed to feedback and iteration.
 
@@ -1026,8 +1007,8 @@ Turing's \emph{The Chemical Basis For Morphogenesis}
 \cite{turingChemicalBasisMorphogenesis1952} which we hope to look in the course of
 this research.
 
-\begin{listing}[htbp]
-\begin{minted}[]{python}
+\lstset{language=ipython,label=persian-recursion-python,caption={Implementation of the persian recursion scheme in \emph{Python}},captionpos=b,numbers=none}
+\begin{lstlisting}
 %matplotlib inline
 # m is colours
 # n is number of folds
@@ -1073,9 +1054,7 @@ def cx(l, r, t, b, m):
     return new_col.astype(int)
 
 main(5,6, 1, cx)
-\end{minted}
-\caption{\label{persian-recursion-python}Implementation of the persian recursion scheme in \emph{Python}}
-\end{listing}
+\end{lstlisting}
 
 
 
@@ -1086,12 +1065,12 @@ main(5,6, 1, cx)
 \end{figure}
 
 \section{Julia Sets\hfill{}\textsc{Ryan}}
-\label{sec:orga7a0be9}
+\label{sec:org3603098}
 \subsection{Introduction}
-\label{sec:orge1c2546}
+\label{sec:org2ee1c02}
 Julia sets are a very interesting fractal and we hope to investigate them further in this project.
 \subsection{Motivation}
-\label{sec:org7caa695}
+\label{sec:org307af66}
 Consider the iterative process \(x \rightarrow x^{2}, \enspace x \in \mathbb{R}\),
 for values of \(x>1\) this process will diverge and for \(x<1\) it will converge.
 
@@ -1127,7 +1106,7 @@ Every value on that plane will belong to one of the two following sets
 In the case of \(f_{0}(z) = z^{2}\) all values \(\left\lvert z  \right \rvert \leq 1\) are bounded with \(\left\lvert z  \right \rvert = 1\) being an unstable stationary circle, but let's investigate what happens for different iterative functions like \(f_{1}(z) = z^{2} - 1\), despite how trivial this seems at first glance.
 
 \subsection{Plotting the Sets}
-\label{sec:org8c815ea}
+\label{sec:org9ce6a1a}
 Although the convergence of values may appear simple at first, we'll implement a
 strategy to plot the prisoner and escape sets on the complex plane.
 
@@ -1161,8 +1140,8 @@ with respect to listing \ref{py-circle-code}:
 
 
 
-\begin{listing}[htbp]
-\begin{minted}[]{python}
+\lstset{language=ipython,label=complex-vec,caption={Defining Complex Operations with vectors},captionpos=b,numbers=none}
+\begin{lstlisting}
 from math import sqrt
 def magnitude(z):
     # return sqrt(z[0]**2 + z[1]**2)
@@ -1180,12 +1159,10 @@ def cMult(u, v):
     x = u[0]*v[0]-u[1]*v[1]
     y = u[1]*v[0]+u[0]*v[1]
     return [x, y]
-\end{minted}
-\caption{\label{complex-vec}Defining Complex Operations with vectors}
-\end{listing}
+\end{lstlisting}
 
-\begin{listing}[htbp]
-\begin{minted}[]{python}
+\lstset{language=ipython,label=py-circle-code,caption={Circle of Convergence of \(z\) under recursion},captionpos=b,numbers=none}
+\begin{lstlisting}
 %matplotlib inline
 %config InlineBackend.figure_format = 'svg'
 import numpy as np
@@ -1231,9 +1208,7 @@ plt.axis('off')
 plt.imshow(pic)
 # plt.show()
 
-\end{minted}
-\caption{\label{py-circle-code}Circle of Convergence of \(z\) under recursion}
-\end{listing}
+\end{lstlisting}
 
 
 \begin{figure}[htbp]
@@ -1281,8 +1256,8 @@ fails and a superior approach is to use \texttt{ffmpeg}, this is demonstrated in
 listing \ref{bash-frac-join}, the collage is shown in figure \ref{montage-frac} and a corresponding
 animation is \href{https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0}{available online}\footnote{\href{https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0}{https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0}}].
 
-\begin{listing}[htbp]
-\begin{minted}[]{julia}
+\lstset{language=julia,label=julia-gen-fracs,caption={Produce a series of fractals using julia},captionpos=b,numbers=none}
+\begin{lstlisting}
 # * Define the Julia Set
 """
 Determine whether or not a value will converge under iteration
@@ -1323,12 +1298,10 @@ function make_picture(width, height, my_func)
     return pic_mat
 end
 
-\end{minted}
-\caption{\label{julia-gen-fracs}Produce a series of fractals using julia}
-\end{listing}
+\end{lstlisting}
 
-\begin{listing}[htbp]
-\begin{minted}[]{julia}
+\lstset{language=julia,label=GR-save,caption={Generate and save the images with GR},captionpos=b,numbers=none}
+\begin{lstlisting}
 # * Use GR to Save a Bunch of Images
   ## GR is faster than PyPlot
 using GR
@@ -1347,12 +1320,10 @@ function save_images(count, res)
 end
 
 save_images(1200, 1500) # Number  and Res
-\end{minted}
-\caption{\label{GR-save}Generate and save the images with GR}
-\end{listing}
+\end{lstlisting}
 
-\begin{listing}[htbp]
-\begin{minted}[]{bash}
+\lstset{language=bash,label=bash-frac-join,caption={Using \texttt{bash}, \texttt{ffmpeg} and \emph{ImageMagick} to combine the images and produce an animation.},captionpos=b,numbers=none}
+\begin{lstlisting}
 # Use montage multiple times to get recursion for fun
 montage (ls *png | sed -n '1p;0~600p') 0a.png
 montage (ls *png | sed -n '1p;0~100p') a.png
@@ -1370,9 +1341,7 @@ ffmpeg                    \
     out.mov
 
 
-\end{minted}
-\caption{\label{bash-frac-join}Using \texttt{bash}, \texttt{ffmpeg} and \emph{ImageMagick} to combine the images and produce an animation.}
-\end{listing}
+\end{lstlisting}
 
 \begin{figure}[htbp]
 \centering
@@ -1381,7 +1350,7 @@ ffmpeg                    \
 \end{figure}
 
 \section{MandelBrot\hfill{}\textsc{Ryan}}
-\label{sec:org932bd25}
+\label{sec:org11ca13f}
 Investigating these fractals, a natural question might be whether or not any
 given \(c\) value will produce a fractal that is an open disc or a closed disc.
 
@@ -1398,8 +1367,8 @@ z_{0}   &= c
 
 This strategy is implemented in listing and produces the output shown in figure \ref{mandelbrot-py-pic}.
 
-\begin{listing}[htbp]
-\begin{minted}[]{python}
+\lstset{language=ipython,label=py-mandelbrot-code,caption={All values of \(c\) that lead to a closed \emph{Julia-set}},captionpos=b,numbers=none}
+\begin{lstlisting}
 %matplotlib inline
 %config InlineBackend.figure_format = 'svg'
 def mandelbrot(z, num):
@@ -1440,9 +1409,7 @@ for i in range(pic.shape[0]):
 import matplotlib.pyplot as plt
 plt.imshow(pic)
 # plt.show()
-\end{minted}
-\caption{\label{py-mandelbrot-code}All values of \(c\) that lead to a closed \emph{Julia-set}}
-\end{listing}
+\end{lstlisting}
 
 \begin{figure}[htbp]
 \centering
@@ -1455,7 +1422,8 @@ larger image can be produced, in \emph{Julia} producing a 4 GB, 400 MP image can
 (about 10 minutes on my system), this is demonstrated in listing 
 and the corresponding FITS image is \href{https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0}{available-online.}\footnote{\href{https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0}{https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0}}
 
-\begin{minted}[]{julia}
+\lstset{language=julia,label,caption= ,captionpos=b,numbers=none}
+\begin{lstlisting}
 function mandelbrot(z, num, my_func)
     count = 1
     # Define z1 as z
@@ -1505,7 +1473,7 @@ end
 my_pic = make_picture(20000, 20000, z -> z^2) 2000^2 is 4 GB
 save_picture("/tmp/a.fits", my_pic)
 
-\end{minted}
+\end{lstlisting}
 
 \begin{figure}[htbp]
 \centering
@@ -1513,7 +1481,7 @@ save_picture("/tmp/a.fits", my_pic)
 \caption{\label{mandelbrot-screen}Screenshot of Mandelbrot FITS image produced by listing }
 \end{figure}
 \section{Relevant Sources}
-\label{sec:orgbc915dd}
+\label{sec:org3d8f7f0}
 To guide research for our topic \emph{Chaos and Fractals} by Pietgen, Jurgens and Saupe \cite{peitgenChaosFractalsNew2004} will act as a map of the topic broadly, other than the sources referenced already, we anticipate referring to the following textbooks that we access to throughout the project:
 
 \begin{itemize}
@@ -1532,10 +1500,10 @@ To guide research for our topic \emph{Chaos and Fractals} by Pietgen, Jurgens an
 Ron Knott's website appears also to have a lot of material related to patterns, the \emph{Fibonacci Sequence} and the \emph{Golden Ratio}, we intend to have a good look through that material as well. \cite{ronknottFibonacciNumbersGolden2016}
 
 \section{Appendix}
-\label{sec:org52337c5}
+\label{sec:org04bbdc8}
 
-\begin{listing}[htbp]
-\begin{minted}[]{python}
+\lstset{language=Python,label=py-env,caption={Preamble for \emph{Python} Environment},captionpos=b,numbers=none}
+\begin{lstlisting}
   from __future__ import division
   from sympy import *
   x, y, z, t = symbols('x y z t')
@@ -1559,34 +1527,28 @@ Ron Knott's website appears also to have a lot of material related to patterns, 
       start = time.time()
       k
       print(str(round(time.time() - start, 9)) + "seconds")
-\end{minted}
-\caption{\label{py-env}Preamble for \emph{Python} Environment}
-\end{listing}
+\end{lstlisting}
 
 \subsection{Persian Recursian Examples}
 \label{persian-recursion-examples}
-\begin{listing}[htbp]
-\begin{minted}[]{python}
+\lstset{language=ipython,label=8-fold-code,caption={Enhance listing \ref{persian-recursion-python} to create 9 folds},captionpos=b,numbers=none}
+\begin{lstlisting}
 %config InlineBackend.figure_format = 'svg'
 main(5, 9, 1, cx)
-\end{minted}
-\caption{\label{8-fold-code}Enhance listing \ref{persian-recursion-python} to create 9 folds}
-\end{listing}
+\end{lstlisting}
 \begin{center}
 \includesvg[width=.9\linewidth]{./persian-recursion-large}
 \end{center}
 
 
-\begin{listing}[htbp]
-\begin{minted}[]{python}
+\lstset{language=ipython,label=new-func-code,caption={Modify the Function to use \(f(w,x,y,z) = (w + x + y + z - 7) \mod 8\)},captionpos=b,numbers=none}
+\begin{lstlisting}
 %config InlineBackend.figure_format = 'svg'
 def cx(l, r, t, b, m):
     new_col = (main.mat[t,l] + main.mat[t,r] +  main.mat[b,l] + main.mat[b,r]-7) % m
     return new_col.astype(int)
 main(8, 8, 1, cx)
-\end{minted}
-\caption{\label{new-func-code}Modify the Function to use \(f(w,x,y,z) = (w + x + y + z - 7) \mod 8\)}
-\end{listing}
+\end{lstlisting}
 
 \begin{figure}[htbp]
 \centering
@@ -1595,17 +1557,15 @@ main(8, 8, 1, cx)
 \end{figure}
 
 
-\begin{listing}[htbp]
-\begin{minted}[]{python}
+\lstset{language=ipython,label=new-func2-code,caption={Modify the function to use \(f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1\)},captionpos=b,numbers=none}
+\begin{lstlisting}
 %config InlineBackend.figure_format = 'svg'
 import numpy as np
 def cx(l, r, t, b, m):
     new_col = (main.mat[t,l] + main.mat[t,r]*m +  main.mat[b,l]*(m) + main.mat[b,r]*(m))**1 % m + 1
     return new_col.astype(int)
 main(8, 8, 1, cx)
-\end{minted}
-\caption{\label{new-func2-code}Modify the function to use \(f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1\)}
-\end{listing}
+\end{lstlisting}
 
 
 \begin{figure}[htbp]
@@ -1614,7 +1574,7 @@ main(8, 8, 1, cx)
 \caption{\label{new-func2-plot}Output produced by listing \ref{new-func2-code} using \(f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1\)}
 \end{figure}
 \subsection{Figures}
-\label{sec:org53a057b}
+\label{sec:org6a3e73c}
 
 \begin{figure}[htbp]
 \centering

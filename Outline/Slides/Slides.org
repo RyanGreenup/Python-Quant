@@ -1287,7 +1287,7 @@ splot [-2 : 2] [-2 : 2] mandelbrot (complex (0, 0), complex (x, y), 0) notitle
 
 [[file:three.svg]]
 
-** Again, why?
+** Again, why?f
 
 This self Similarity occurs all the time in nature, one of these is synthetic, can you spot it?
 
