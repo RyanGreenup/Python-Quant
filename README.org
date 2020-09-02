@@ -46,6 +46,17 @@ See [[https://shields.io/][Shields io]]
 - [[file:Problems/Docs/Variable-Scope-of-Nested-Functions.md][Variable Scope of Nested Functions]]
 ** Resources
 - [[pdf:~/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resources/Rowland-prime-sequence.pdf::1++0.00][Rowland Prime Sequences (PDF)]]
+** Julia Plotting Libraries
+- Plotting
+  + GadFly
+  + GR
+  + Python Plots
+  + PlotlyJS
+- Visualisation
+  + Makie
+- Drawing
+  + Luxor
+    - Turtles
 
 * Report
 - [[file:Report/pythonQuant.org][Org File]]
