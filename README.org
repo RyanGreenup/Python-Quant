@@ -57,6 +57,68 @@ See [[https://shields.io/][Shields io]]
 - Drawing
   + Luxor
     - Turtles
+** Fractal Dimensions
+Not all fractals are self-similar (3B1B) but many processes that involve
+repetition lead to self similarity and the emergence of order and fractals.
+
+Fractals model nature in a way that captures roughness, sort of the opposite of calculus in a way, but self-similarity is only a subset of all possible fractals.
+
+
+*** Definition of Fractal
+The definition of fractals has to do with /fractal dimension/, there is a way to define dimension so that fractals can be attributed a dimension.
+
+The fractal dimension refers to the rate of change in /measure/ of a shape in response to scaling.
+
+So for example halving:
+
+- a line will reduce the length (i.e. /measure/) by half
+- a square will reduce the area (i.e. /measure/) by $\frac{1}{2^{2}}$
+- a cube will reduce the area (i.e. /measure/) by $\frac{1}{2^{3}}$
+
+A natural question might be, how much will the area of any given fractal change?
+this value will be referred to as the fractal dimension.
+
+When a shape is scaled by some ratio $s$ the change in /measure/ / /mass/ ($m$)
+will depend on the dimension $d$:
+
+$$
+m = s^{d}
+$$
+
+e.g. in the case of halving  a cube the $m=\frac{1}{2}^{3}$
+
+
+*** How to solve the dimension
+
+
+\[
+D = \log_{s}\left( m \right)
+\]
+
+
+So the dimension is non-integer, alghough many fractals can be depicted in 1/2/3 dimensions, the mass is also not quite an analogue because:
+length = \infty, area = 0
+
+The dimension is easy to solve in self similar fractals because the measure is always known (e.g. when a sierpinski triangle is halved the the measure is reduced to a third and a Koch snowflake to a fourth)
+
+So if we wanted to deal with non-self similar shapes,  this concept of mass or measure, needs to be fleshed out.
+
+For our approach we will generate our fractals on matrices and any non-zero element of the matrix will be considered as one unit of measure.
+
+So by doing a log transform and linear regression we can find the dimension of any fractal shape, so, for example, a coast line.
+
+
+*** Definition of a fractal
+
+A fractal is any shape that has a non-integer dimension, which is essentially saying that the shape has complexity at all scales.
+
+In a pure math sense the limit of the $d$ value as the scale zooms in and in, i.e. it has to continue to have complex curves (i.e. being rough).
+
+In an applied setting it's just that the dimension value has to stay constant accross a sufficiently wide range of scaling factors.
+
+for example the dimension of Great Britain remains as about 1.21 through 1000X scale.
+
+Well probably do another country, Aus/NZ umm Greenland maybe?
 
 * Report
 - [[file:Report/pythonQuant.org][Org File]]
