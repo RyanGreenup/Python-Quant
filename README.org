@@ -58,6 +58,8 @@ See [[https://shields.io/][Shields io]]
   + Luxor
     - Turtles
 ** Fractal Dimensions
+
+[[file:Problems/fractal-dimensions/fractal-dimensions.org][Working-Explanation]]
 Not all fractals are self-similar (3B1B) but many processes that involve
 repetition lead to self similarity and the emergence of order and fractals.
 
