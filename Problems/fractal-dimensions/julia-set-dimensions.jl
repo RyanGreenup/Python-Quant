@@ -61,7 +61,7 @@ end
 ############################################################
 # TODO this should be inside a function
 
-test_mat = make_picture(50,50, z -> z^2 + 0.37-0.2*im)
+test_mat = make_picture(800,800, z -> z^2 + 0.37-0.2*im)
 for row in 2:(size(test_mat)[1]-1)
     for col in 2:(size(test_mat)[2]-1)
         ## Make instand divergence zero

@@ -37,6 +37,7 @@
 * Backlinks
 [[file:../../README.org::*Fractal Dimensions][Fractal Dimensions]]
 
+See also [[../../Resources/Methods_for_Generating_Fractals.pdf][Methods for Generating Fractals]]
 * Introduction
 The concept of dimension is typically used to describe the number of
 perpendicular edges an object has or the number of non-interacting features in a

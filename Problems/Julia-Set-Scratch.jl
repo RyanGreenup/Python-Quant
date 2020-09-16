@@ -80,7 +80,7 @@ end
 # f(z) = z^9
 # py_imshow_dp(make_picture(500, 500, f))
 
-py_imshow_dp(make_picture(500, 500, z -> z^π))
+py_imshow_dp(make_picture(500, 500, z -> z^2))
 
 # * Save Picture
 #------------------------------------------------------------
