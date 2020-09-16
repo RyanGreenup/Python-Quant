@@ -43,37 +43,3 @@ data set.
 
 This concept can be expanded however
 
-#+NAME: big-square
-#+CAPTION: How to produce Tikz in Org-mode
-#+BEGIN_SRC latex :exports both :results output graphics file :file square.svg
-\begin{tikzpicture}[color=black, domain = 0:10, scale = (2/3)]
-\draw (0,0) node(bl){} -- (1,0) node(br){} -- (1,1) node(tr){} -- (0,1) node(tl){} -- (0, 0);
-draw [decorate,decoration={brace,amplitude=10pt},xshift=-4pt,yshift=0pt]
-(0,0) -- (0,1)node [black,midway,xshift=9pt] {\footnotesize
-$P_2$};
-\end{tikzpicture}
-#+END_src
-#+attr_html: :width 100px
-#+attr_latex: :width 7cm
-[[file:square.svg]]
-
-
-
-
-
-
-#+NAME: four-square
-#+CAPTION: How to produce Tikz in Org-mode
-#+BEGIN_SRC latex :exports both :results output graphics file :file four-square.svg
-\begin{tikzpicture}[color=black, domain = 0:10, scale = (2/3)]
-\draw (0,0) node(bl){} -- (4,0) node(br){} -- (4,4) node(tr){} -- (0,4) node(tl){} -- (0, 0);
-\draw [dotted] (2, 0) -- (2, 4);
-\draw [dotted] (0, 2) -- (4, 2);
-\end{tikzpicture}
-#+END_src
-
-
-#+attr_html: :width 400px
-#+attr_latex: :width 7cm
-#+RESULTS: four-square
-[[file:four-square.svg]]
