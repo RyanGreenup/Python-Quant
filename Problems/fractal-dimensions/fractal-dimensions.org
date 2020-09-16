@@ -1,0 +1,79 @@
+#+TITLE: Fractal Dimensions
+#+INFOJS_OPT: view:showall toc:4 buttons:true
+:PREAMBLE:
+#+OPTIONS: broken-links:auto todo:nil H:9
+#+STARTUP: content
+#+OPTIONS: tags:not-in-toc d:nil
+#+AUTHOR: Ryan Greenup & James Guerra
+#+INFOJS_OPT: view:showall toc:3
+#+PLOT: title:"Citas" ind:1 deps:(3) type:2d with:histograms set:"yrange [0:]"
+#+OPTIONS: tex:t
+# #+TODO: TODO IN-PROGRESS WAITING DONE
+#+CATEGORY: TAD
+:END:
+:HTML:
+#+INFOJS_OPT: view:info toc:3
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="../../Outline/resources/style.css">
+# #+CSL_STYLE: /home/ryan/Templates/CSL/nature.csl
+:END:
+:R:
+#+PROPERTY: header-args:R :session TADMain :dir ./ :cache yes :eval never-export :exports both
+#+PROPERTY: :eval never-export
+# exports: both (or code or whatever)
+# results: table (or output or whatever)
+:END:
+:LATEX:
+#+LATEX_HEADER: \IfFileExists{../resources/style.sty}{\usepackage{../resources/style}}{}
+#+LATEX_HEADER: \IfFileExists{../resources/referencing.sty}{\usepackage{../resources/referencing}}{}
+#+LATEX_HEADER: \addbibresource{./bibtex-refs.bib}
+#+LATEX_HEADER: \usepackage{svg}
+#+LATEX_HEADER: \usepackage{tikz}
+:END:
+:REVEAL:
+#+REVEAL_THEME: sky
+:END:
+
+* Backlinks
+[[file:../../README.org::*Fractal Dimensions][Fractal Dimensions]]
+
+* Introduction
+The concept of dimension is typically used to describe the number of
+perpendicular edges an object has or the number of non-interacting features in a
+data set.
+
+This concept can be expanded however
+
+#+NAME: big-square
+#+CAPTION: How to produce Tikz in Org-mode
+#+BEGIN_SRC latex :exports both :results output graphics file :file square.svg
+\begin{tikzpicture}[color=black, domain = 0:10, scale = (2/3)]
+\draw (0,0) node(bl){} -- (1,0) node(br){} -- (1,1) node(tr){} -- (0,1) node(tl){} -- (0, 0);
+draw [decorate,decoration={brace,amplitude=10pt},xshift=-4pt,yshift=0pt]
+(0,0) -- (0,1)node [black,midway,xshift=9pt] {\footnotesize
+$P_2$};
+\end{tikzpicture}
+#+END_src
+#+attr_html: :width 100px
+#+attr_latex: :width 7cm
+[[file:square.svg]]
+
+
+
+
+
+
+#+NAME: four-square
+#+CAPTION: How to produce Tikz in Org-mode
+#+BEGIN_SRC latex :exports both :results output graphics file :file four-square.svg
+\begin{tikzpicture}[color=black, domain = 0:10, scale = (2/3)]
+\draw (0,0) node(bl){} -- (4,0) node(br){} -- (4,4) node(tr){} -- (0,4) node(tl){} -- (0, 0);
+\draw [dotted] (2, 0) -- (2, 4);
+\draw [dotted] (0, 2) -- (4, 2);
+\end{tikzpicture}
+#+END_src
+
+
+#+attr_html: :width 400px
+#+attr_latex: :width 7cm
+#+RESULTS: four-square
+[[file:four-square.svg]]
