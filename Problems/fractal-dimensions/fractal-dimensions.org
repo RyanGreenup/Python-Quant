@@ -18,6 +18,7 @@
 :END:
 :R:
 #+PROPERTY: header-args:R :session TADMain :dir ./ :cache yes :eval never-export :exports both
+#+PROPERTY: header-args:julia :results output
 #+PROPERTY: :eval never-export
 # exports: both (or code or whatever)
 # results: table (or output or whatever)
@@ -237,3 +238,10 @@ And give back something like this:
 Then /AstroPy/ or /AstroJulia/ can import the image as a matrix.
 
 
+
+#+begin_src julia
+print(9)
+#+end_src
+
+#+RESULTS:
+: 9
