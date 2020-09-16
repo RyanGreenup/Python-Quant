@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-09-16 Wed 14:56 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fractal Dimensions</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Ryan Greenup &amp; James Guerra" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="../../Outline/resources/style.css">
+<script type="text/javascript" src="https://orgmode.org/org-info.js">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license-end
+</script>
+
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+<!--/*--><![CDATA[/*><!--*/
+org_html_manager.set("TOC_DEPTH", "9");
+org_html_manager.set("LINK_HOME", "");
+org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LOCAL_TOC", "1");
+org_html_manager.set("VIEW_BUTTONS", "true");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "2");
+org_html_manager.set("VIEW", "info");
+org_html_manager.setup();  // activate after the parameters are set
+/*]]>*///-->
+// @license-end
+</script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.cacheClassElem = elem.className;
+         elem.cacheClassTarget = target.className;
+         target.className = "code-highlighted";
+         elem.className   = "code-highlighted";
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(elem.cacheClassElem)
+         elem.className = elem.cacheClassElem;
+       if(elem.cacheClassTarget)
+         target.className = elem.cacheClassTarget;
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Fractal Dimensions</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org7343397">1. Backlinks</a></li>
+<li><a href="#org46b4478">2. Introduction</a>
+<ul>
+<li><a href="#orga617142">2.1. Examples</a></li>
+<li><a href="#org04d7592">2.2. General</a></li>
+<li><a href="#orgadd2898">2.3. What is a fractal</a></li>
+</ul>
+</li>
+<li><a href="#org1de4fcd">3. How to Measure the Dimension</a>
+<ul>
+<li><a href="#org1b42778">3.1. Box Counting with  the Julia Set</a>
+<ul>
+<li><a href="#org166bc03">3.1.1. Define the Julia Set</a></li>
+<li><a href="#org7afb411">3.1.2. Create a Matrix</a></li>
+<li><a href="#org84970aa">3.1.3. Make the Outline</a></li>
+<li><a href="#org5f4787e">3.1.4. Visualise the Matrix</a></li>
+<li><a href="#org3f9c5ca">3.1.5. Count some boxes</a>
+<ul>
+<li><a href="#orgaceb63a">3.1.5.1. How to Find the Dimension</a></li>
+<li><a href="#orgf925fd2">3.1.5.2. Preliminary Investigation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org11e7099">3.2. Linear Regression</a>
+<ul>
+<li><a href="#org7c9cfd2">3.2.1. Applying to real world examples</a>
+<ul>
+<li><a href="#org788bc95">3.2.1.1. Output Image</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7343397" class="outline-2">
+<h2 id="org7343397"><span class="section-number-2">1</span> Backlinks</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<a href="../../README.html#MissingReference">Fractal Dimensions</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org46b4478" class="outline-2">
+<h2 id="org46b4478"><span class="section-number-2">2</span> Introduction</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+The concept of dimension is typically used to describe the number of
+perpendicular edges an object has or the number of non-interacting features in a
+data set.
+</p>
+</div>
+<div id="outline-container-orga617142" class="outline-3">
+<h3 id="orga617142"><span class="section-number-3">2.1</span> Examples</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+This concept can be expanded however, consider the area of an \(a\times a\) square:
+</p>
+
+<p>
+\[
+A = a \times a
+\]
+</p>
+
+<p>
+If this shape was scaled by by some value \(s\) the area would hence be:
+</p>
+
+<p>
+\[
+A = as \times as = \left( as\right)^{2}
+\]
+</p>
+
+<p>
+for a cube the corresponding <i>measure</i>, volume, would change such that:
+</p>
+
+<p>
+\[
+V = as \times as \times as = \left( as\right)^{3}
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org04d7592" class="outline-3">
+<h3 id="org04d7592"><span class="section-number-3">2.2</span> General</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+This index can be considered as the dimension of that shape. So for example a
+square would be two dimensional because:
+</p>
+
+<ul class="org-ul">
+<li>when scaled the measure of the square is</li>
+</ul>
+<p>
+proportional to the 2nd power of the scaling factor
+</p>
+
+<p>
+So generally this relationship holds true with the dimensionality of a shape:
+</p>
+
+<p>
+\[
+M \propto s^{d}
+\]
+</p>
+
+
+<p>
+A natural question might be what is the corresponding dimension of a fractal?
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgadd2898" class="outline-3">
+<h3 id="orgadd2898"><span class="section-number-3">2.3</span> What is a fractal</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+I should probably read up on this but generally a fractal isn&rsquo;t necessarily self-similar
+</p>
+
+<p>
+One property of a fractal is that the dimension of such a shape is a non-integer value.
+</p>
+
+<p>
+Shapes that occur in nature have non-integer values generally.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1de4fcd" class="outline-2">
+<h2 id="org1de4fcd"><span class="section-number-2">3</span> How to Measure the Dimension</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Find the slope between the \(s\) and \(m\)
+</p>
+</div>
+<div id="outline-container-org1b42778" class="outline-3">
+<h3 id="org1b42778"><span class="section-number-3">3.1</span> Box Counting with  the Julia Set</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div id="outline-container-org166bc03" class="outline-4">
+<h4 id="org166bc03"><span class="section-number-4">3.1.1</span> Define the Julia Set</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+Define the Julia Set
+</p>
+
+<div class="org-src-container">
+<pre class="src src-julia"><span style="color: #0000FF;">function</span> <span style="color: #006699;">juliaSet</span>(z, num, my_func)
+    count = <span style="color: #D0372D;">1</span>
+    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Define z1 as z</span>
+    z1 = z
+    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Iterate num times</span>
+    <span style="color: #0000FF;">while</span> count &#8804; num
+        <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">check for divergence</span>
+        <span style="color: #0000FF;">if</span> abs(z1)<span style="color: #6434A3;">&gt;</span><span style="color: #D0372D;">2</span>
+            <span style="color: #0000FF;">return</span> Int(count)
+        <span style="color: #0000FF;">end</span>
+        <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">iterate z</span>
+        z1 = my_func(z1) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">+ z</span>
+        count=count<span style="color: #6434A3;">+</span><span style="color: #D0372D;">1</span>
+    <span style="color: #0000FF;">end</span>
+        <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">if z hasn't diverged by the end</span>
+    <span style="color: #0000FF;">return</span> Int(num)
+<span style="color: #0000FF;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7afb411" class="outline-4">
+<h4 id="org7afb411"><span class="section-number-4">3.1.2</span> Create a Matrix</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<div class="org-src-container">
+<pre class="src src-julia"><span style="color: #0000FF;">function</span> <span style="color: #006699;">make_picture</span>(width, height, my_func)
+    pic_mat = zeros(width, height)
+    zoom = <span style="color: #D0372D;">0.3</span>
+    <span style="color: #0000FF;">for</span> i <span style="color: #0000FF;">in</span> <span style="color: #D0372D;">1</span>:size(pic_mat)[<span style="color: #D0372D;">1</span>]
+        <span style="color: #0000FF;">for</span> j <span style="color: #0000FF;">in</span> <span style="color: #D0372D;">1</span>:size(pic_mat)[<span style="color: #D0372D;">2</span>]
+            x = (j<span style="color: #6434A3;">-</span>width<span style="color: #6434A3;">/</span><span style="color: #D0372D;">2</span>)<span style="color: #6434A3;">/</span>(width<span style="color: #6434A3;">*</span>zoom)
+            y = (i<span style="color: #6434A3;">-</span>height<span style="color: #6434A3;">/</span><span style="color: #D0372D;">2</span>)<span style="color: #6434A3;">/</span>(height<span style="color: #6434A3;">*</span>zoom)
+            pic_mat[i,j] = juliaSet(x<span style="color: #6434A3;">+</span>y<span style="color: #6434A3;">*</span>im, <span style="color: #D0372D;">256</span>, my_func)
+        <span style="color: #0000FF;">end</span>
+    <span style="color: #0000FF;">end</span>
+    <span style="color: #0000FF;">return</span> pic_mat
+<span style="color: #0000FF;">end</span>
+
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org84970aa" class="outline-4">
+<h4 id="org84970aa"><span class="section-number-4">3.1.3</span> Make the Outline</h4>
+<div class="outline-text-4" id="text-3-1-3">
+<p>
+The Julia Set is defined as the outline, so to visualise this we need to redefine the matrix to only show the outline:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-julia">test_mat = make_picture(<span style="color: #D0372D;">600</span>,<span style="color: #D0372D;">600</span>, z <span style="color: #6434A3;">-&gt;</span> z<span style="color: #6434A3;">^</span><span style="color: #D0372D;">2</span> <span style="color: #6434A3;">+</span> <span style="color: #D0372D;">0.37</span><span style="color: #6434A3;">-</span><span style="color: #D0372D;">0.2</span><span style="color: #6434A3;">*</span>im)
+<span style="color: #0000FF;">for</span> row <span style="color: #0000FF;">in</span> <span style="color: #D0372D;">2</span>:(size(test_mat)[<span style="color: #D0372D;">1</span>]<span style="color: #6434A3;">-</span><span style="color: #D0372D;">1</span>)
+    <span style="color: #0000FF;">for</span> col <span style="color: #0000FF;">in</span> <span style="color: #D0372D;">2</span>:(size(test_mat)[<span style="color: #D0372D;">2</span>]<span style="color: #6434A3;">-</span><span style="color: #D0372D;">1</span>)
+        <span style="color: #8D8D84;">## </span><span style="color: #8D8D84; font-style: italic;">Make instand divergence zero</span>
+        <span style="color: #0000FF;">if</span> abs(test_mat[row, col]) <span style="color: #6434A3;">&lt;=</span> <span style="color: #D0372D;">100</span>  <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Although 100 is arbitrary, anything less hides the shape</span>
+            test_mat[row, col] = <span style="color: #D0372D;">0</span>            <span style="color: #8D8D84;"># </span><span style="color: #ffa500; font-weight: bold;">TODO</span><span style="color: #8D8D84; font-style: italic;"> make this a var, convergence_threshold</span>
+        <span style="color: #0000FF;">end</span>
+        <span style="color: #8D8D84;">## </span><span style="color: #8D8D84; font-style: italic;">Make everything else 1</span>
+        <span style="color: #0000FF;">if</span> abs(test_mat[row, col]) <span style="color: #6434A3;">&gt;=</span> <span style="color: #D0372D;">100</span>
+            test_mat[row, col] = <span style="color: #D0372D;">1</span>
+        <span style="color: #0000FF;">end</span>
+<span style="color: #8D8D84;">#        </span><span style="color: #8D8D84; font-style: italic;">print(test_mat[row,col], ", ")</span>
+    <span style="color: #0000FF;">end</span>
+<span style="color: #0000FF;">end</span>
+work_mat = copy(test_mat)
+<span style="color: #0000FF;">for</span> row <span style="color: #0000FF;">in</span> <span style="color: #D0372D;">2</span>:(size(test_mat)[<span style="color: #D0372D;">1</span>]<span style="color: #6434A3;">-</span><span style="color: #D0372D;">1</span>)
+    <span style="color: #0000FF;">for</span> col <span style="color: #0000FF;">in</span> <span style="color: #D0372D;">2</span>:(size(test_mat)[<span style="color: #D0372D;">2</span>]<span style="color: #6434A3;">-</span><span style="color: #D0372D;">1</span>)
+        <span style="color: #8D8D84;">## </span><span style="color: #8D8D84; font-style: italic;">Make the inside 0, we only want the outline</span>
+        neighbourhood = test_mat[row<span style="color: #6434A3;">-</span><span style="color: #D0372D;">1</span>:row<span style="color: #6434A3;">+</span><span style="color: #D0372D;">1</span>,col<span style="color: #6434A3;">-</span><span style="color: #D0372D;">1</span>:col<span style="color: #6434A3;">+</span><span style="color: #D0372D;">1</span>]
+        <span style="color: #0000FF;">if</span> sum(neighbourhood) <span style="color: #6434A3;">&gt;=</span> <span style="color: #D0372D;">9</span> <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">9 squares</span>
+            work_mat[row,col] = <span style="color: #D0372D;">0</span>
+        <span style="color: #0000FF;">end</span>
+    <span style="color: #0000FF;">end</span>
+<span style="color: #0000FF;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5f4787e" class="outline-4">
+<h4 id="org5f4787e"><span class="section-number-4">3.1.4</span> Visualise the Matrix</h4>
+<div class="outline-text-4" id="text-3-1-4">
+<p>
+There are many tools for this, Makie (not with Nvidia), GR, PlotlyJS, BasePlot, PyPlot, GadFly etc.
+</p>
+
+<p>
+GR is the fastest So I&rsquo;m using that (although PyPlot opens inside VSCode)
+</p>
+
+<div class="org-src-container">
+<pre class="src src-julia"><span style="color: #0000FF;">using</span> GR
+GR.imshow(work_mat) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">PyPlot uses interpolation = "None"</span>
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="media/outline-Julia-set.png" alt="outline-Julia-set.png" width="400px" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3f9c5ca" class="outline-4">
+<h4 id="org3f9c5ca"><span class="section-number-4">3.1.5</span> Count some boxes</h4>
+<div class="outline-text-4" id="text-3-1-5">
+<p>
+No counting the outside is easy just:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-julia">sum(test_mat)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgaceb63a" class="outline-5">
+<h5 id="orgaceb63a"><span class="section-number-5">3.1.5.1</span> How to Find the Dimension</h5>
+<div class="outline-text-5" id="text-3-1-5-1">
+<p>
+I just need to:
+</p>
+
+<ol class="org-ol">
+<li>Wrap it in a function</li>
+<li>Use a loop to create a dataframe</li>
+<li>Perform linear regression to find the dimension value</li>
+</ol>
+
+<p>
+I haven&rsquo;t had time
+</p>
+</div>
+</div>
+<div id="outline-container-orgf925fd2" class="outline-5">
+<h5 id="orgf925fd2"><span class="section-number-5">3.1.5.2</span> Preliminary Investigation</h5>
+<div class="outline-text-5" id="text-3-1-5-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">Resolution</td>
+<td class="org-right">Perimiter</td>
+<td class="org-right">\(\delta\)</td>
+</tr>
+
+<tr>
+<td class="org-right">50</td>
+<td class="org-right">791</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">100</td>
+<td class="org-right">2523</td>
+<td class="org-right">3.18</td>
+</tr>
+
+<tr>
+<td class="org-right">200</td>
+<td class="org-right">8793</td>
+<td class="org-right">3.48</td>
+</tr>
+
+<tr>
+<td class="org-right">400</td>
+<td class="org-right">32481</td>
+<td class="org-right">3.69</td>
+</tr>
+
+<tr>
+<td class="org-right">800</td>
+<td class="org-right">124605</td>
+<td class="org-right">3.84</td>
+</tr>
+
+<tr>
+<td class="org-right">1600</td>
+<td class="org-right">487803</td>
+<td class="org-right">3.914</td>
+</tr>
+
+<tr>
+<td class="org-right">3200</td>
+<td class="org-right">1930000</td>
+<td class="org-right">3.956</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+It appears to be converging to the value 4 and \(log_{2}(4) = 2\) so the dimension would be 2.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org11e7099" class="outline-3">
+<h3 id="org11e7099"><span class="section-number-3">3.2</span> Linear Regression</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+An approach more applicable to applied math is:
+</p>
+
+<p>
+\[
+M \propto s^{d} \implies \log(M) \propto d \log(s)
+\]
+</p>
+
+<p>
+If the value \(d\) is constant across a constant range of slopes the shape is a fractal.
+</p>
+
+<p>
+This can be used to find the dimension of a natural fractal
+</p>
+</div>
+
+
+<div id="outline-container-org7c9cfd2" class="outline-4">
+<h4 id="org7c9cfd2"><span class="section-number-4">3.2.1</span> Applying to real world examples</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<p>
+to do this use Gimp or ImageMagick:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">magick out.png -colorspace gray -color-threshold <span style="color: #008000;">'gray(46.4152%)-gray(55.3278%)'</span> out2.fits
+</pre>
+</div>
+
+<p>
+This will take something like this:
+</p>
+
+
+<div class="figure">
+<p><img src="media/Aus.jpg" alt="Aus.jpg" width="400px" />
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org788bc95" class="outline-5">
+<h5 id="org788bc95"><span class="section-number-5">3.2.1.1</span> Output Image</h5>
+<div class="outline-text-5" id="text-3-2-1-1">
+<p>
+And give back something like this:
+</p>
+
+
+<div class="figure">
+<p><img src="media/AusThreshold.jpg" alt="AusThreshold.jpg" width="400px" />
+</p>
+</div>
+
+<p>
+Then <i>AstroPy</i> or <i>AstroJulia</i> can import the image as a matrix.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Ryan Greenup &amp; James Guerra</p>
+<p class="date">Created: 2020-09-16 Wed 14:56</p>
+</div>
+</body>
+</html>

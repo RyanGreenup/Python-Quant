@@ -61,7 +61,7 @@ end
 ############################################################
 # TODO this should be inside a function
 
-test_mat = make_picture(600,600, z -> z^2 + 0.37-0.2*im)
+test_mat = make_picture(50,50, z -> z^2 + 0.37-0.2*im)
 for row in 2:(size(test_mat)[1]-1)
     for col in 2:(size(test_mat)[2]-1)
         ## Make instand divergence zero
@@ -86,6 +86,7 @@ for row in 2:(size(test_mat)[1]-1)
     end
 end
 GR.imshow(work_mat) # PyPlot uses interpolation = "None"
+# GR.savefig("/home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Problems/fractal-dimensions/media/outline-Julia-set.png")
 
 ## Return the perimeter
 sum(test_mat)

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?> 
+<?xml-stylesheet href="latex-sTzda9.css" type="text/css"?> 
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="82.53877pt" height="82.53877pt" viewBox="-3.33298 -3.33298 82.53877 82.53877 "> 
+<g transform="translate(0, 79.2058 ) scale(1,-1) translate(0,3.33298 )"> 
+ <g stroke="#000" fill="#000">
+ <g stroke-width="0.4">
+ <g stroke="#000" fill="#000">
+ <path d=" M 0.0 0.0 L 75.87282 0.0 L 75.87282 75.87282 L 0.0 75.87282 L 0.0 0.0  " fill="none"/>
+ <g fill="#000">
+ <text style="stroke:none" transform="scale(1,-1) translate(0.0,0)" text-anchor="middle"  font-size="10"> 
+<g fill="#000">
+ <g stroke="none"> </g> </g>
+ </text> 
+</g>
+ <g transform="translate(75.87282,0.0)">
+ <g fill="#000">
+ <text style="stroke:none" transform="scale(1,-1) translate(0.0,0)" text-anchor="middle"  font-size="10"> 
+<g fill="#000">
+ <g stroke="none"> </g> </g>
+ </text> 
+</g>
+ </g>
+ <g transform="translate(75.87282,75.87282)">
+ <g fill="#000">
+ <text style="stroke:none" transform="scale(1,-1) translate(0.0,0)" text-anchor="middle"  font-size="10"> 
+<g fill="#000">
+ <g stroke="none"> </g> </g>
+ </text> 
+</g>
+ </g>
+ <g transform="translate(0.0,75.87282)">
+ <g fill="#000">
+ <text style="stroke:none" transform="scale(1,-1) translate(0.0,0)" text-anchor="middle"  font-size="10"> 
+<g fill="#000">
+ <g stroke="none"> </g> </g>
+ </text> 
+</g>
+ </g>
+ <g stroke-dasharray="0.4,2.0" stroke-dashoffset="0.0">
+ <path d=" M 37.9364 0.0 L 37.9364 75.87282  " fill="none"/>
+ </g>
+ <g stroke-dasharray="0.4,2.0" stroke-dashoffset="0.0">
+ <path d=" M 0.0 37.9364 L 75.87282 37.9364  " fill="none"/>
+ </g>
+ </g>
+ </g>
+ </g>
+                         </g> 
+</svg> 

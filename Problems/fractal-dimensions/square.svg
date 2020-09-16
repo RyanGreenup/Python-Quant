@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?> 
+<?xml-stylesheet href="latex-mbaDP9.css" type="text/css"?> 
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25.63416pt" height="25.63416pt" viewBox="-3.33298 -3.33298 25.63416 25.63416 "> 
+<g transform="translate(0, 22.30118 ) scale(1,-1) translate(0,3.33298 )"> 
+ <g stroke="#000" fill="#000">
+ <g stroke-width="0.4">
+ <g stroke="#000" fill="#000">
+ <path d=" M 0.0 0.0 L 18.9682 0.0 L 18.9682 18.9682 L 0.0 18.9682 L 0.0 0.0  " fill="none"/>
+ <g fill="#000">
+ <text style="stroke:none" transform="scale(1,-1) translate(0.0,0)" text-anchor="middle"  font-size="10"> 
+<g fill="#000">
+ <g stroke="none"> </g> </g>
+ </text> 
+</g>
+ <g transform="translate(18.9682,0.0)">
+ <g fill="#000">
+ <text style="stroke:none" transform="scale(1,-1) translate(0.0,0)" text-anchor="middle"  font-size="10"> 
+<g fill="#000">
+ <g stroke="none"> </g> </g>
+ </text> 
+</g>
+ </g>
+ <g transform="translate(18.9682,18.9682)">
+ <g fill="#000">
+ <text style="stroke:none" transform="scale(1,-1) translate(0.0,0)" text-anchor="middle"  font-size="10"> 
+<g fill="#000">
+ <g stroke="none"> </g> </g>
+ </text> 
+</g>
+ </g>
+ <g transform="translate(0.0,18.9682)">
+ <g fill="#000">
+ <text style="stroke:none" transform="scale(1,-1) translate(0.0,0)" text-anchor="middle"  font-size="10"> 
+<g fill="#000">
+ <g stroke="none"> </g> </g>
+ </text> 
+</g>
+ </g>
+ <tspan font-family="cmmi" font-size="8">P</tspan><tspan baseline-shift="sub"><tspan font-family="cmr" font-size="6">2</tspan></tspan></g>
+ </g>
+ </g>
+      </g> 
+</svg> 
