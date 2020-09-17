@@ -36,4 +36,5 @@ for (i in 1:n) {
 # df
 
 ggplot(df, aes(x = xval, y = yval)) +
-    geom_point(size = 1)
+    geom_point(size = 1, col = "cadet blue") +
+    theme_classic()
