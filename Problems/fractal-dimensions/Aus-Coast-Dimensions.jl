@@ -1,6 +1,4 @@
 using FITSIO
-
-
 f = FITS("./media/AusThreshold.fit", "r")
 # Read the data
 data = read(f[1])
