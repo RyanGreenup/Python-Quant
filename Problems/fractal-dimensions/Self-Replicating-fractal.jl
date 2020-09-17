@@ -21,6 +21,8 @@ B = [B Z B ;
 #------------------------------------------------------------
 #--- Function -----------------------------------------------
 #------------------------------------------------------------
+
+# n_i+1 = 3n_i ==> n = 3^n
 function selfRep(ICMat, width)
     B = ICMat
     h  = size(B)[1]
@@ -29,9 +31,7 @@ function selfRep(ICMat, width)
     B = [B Z B ;
          Z B Z ;
           B Z B]
-
-    total = size(ICMat)[1]*3 # I need to track the size throughout
-    if (4*w)<width
+    if (3*w)<width
         B = selfRep(B, width)
     end
     return B
@@ -40,7 +40,7 @@ end
 #------------------------------------------------------------
 #-- Plot ----------------------------------------------------
 #------------------------------------------------------------
-(mat = selfRep(fill(1, 1, 1), 100)) |> size
+(mat = selfRep(fill(1, 1, 1), 27)) |> size
 GR.imshow(mat)
 
 ## Export
@@ -66,33 +66,11 @@ end
 # ;convert -resize 600x600 -delay 10 /tmp/frac/*.png /tmp/frac/0.gif
 
 #------------------------------------------------------------
-#---- Random Feedback ---------------------------------------
+#-- Dimension -----------------------------------------------
 #------------------------------------------------------------
-
-
-using GR
-function R(B, Z)
-    if rand(1:2)==1
-        return B
-    else
-        return Z
-    end
-end
-function selfRep(ICMat, width)
-    B = ICMat
-    h  = size(B)[1]
-    w  = size(B)[2]
-    Z  = zeros(Int, h, w)
-    B = [R(B, Z) R(B, Z) R(B, Z) ;
-         Z B       Z;
-         R(B, Z) R(B, Z) R(B, Z)]
-    if (3*w)<width
-        B = selfRep(B, width)
-    end
-    return B
-end
-mat = selfRep(fill(1, 1, 1), 100)
-GR.imshow(mat)
+# Each time it iterates there are 5 more
+# but the overall dimensions of the square increases by a factor of 3
+# so 3^D=5 ==> log_3(5) = log(5)/log(3) = D 
 
 # TODO Fix the measurement first
 mat2 = selfRep(fill(1, 1, 1), 1000)
