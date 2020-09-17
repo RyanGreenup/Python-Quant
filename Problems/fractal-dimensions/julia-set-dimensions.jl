@@ -61,35 +61,45 @@ end
 ############################################################
 # TODO this should be inside a function
 
+
+function outline(mat)
+    for row in 2:(size(mat)[1]-1)
+        for col in 2:(size(mat)[2]-1)
+            ## Make instand divergence zero
+            if abs(mat[row, col]) <= 100  # Although 100 is arbitrary, anything less hides the shape
+                mat[row, col] = 0            # TODO make this a var, convergence_threshold
+            end
+            ## Make everything else 1
+            if abs(mat[row, col]) >= 100
+                mat[row, col] = 1
+            end
+        end
+    end
+    work_mat = copy(mat)
+    for row in 2:(size(mat)[1]-1)
+        for col in 2:(size(mat)[2]-1)
+            ## Make the inside 0, we only want the outline
+            neighbourhood = mat[row-1:row+1,col-1:col+1]
+            if sum(neighbourhood) >= 9 # 9 squares
+                work_mat[row,col] = 0
+            end
+        end
+    end
+    return work_mat
+end
+
 test_mat = make_picture(800,800, z -> z^2 + 0.37-0.2*im)
-for row in 2:(size(test_mat)[1]-1)
-    for col in 2:(size(test_mat)[2]-1)
-        ## Make instand divergence zero
-        if abs(test_mat[row, col]) <= 100  # Although 100 is arbitrary, anything less hides the shape
-            test_mat[row, col] = 0            # TODO make this a var, convergence_threshold
-        end
-        ## Make everything else 1
-        if abs(test_mat[row, col]) >= 100
-            test_mat[row, col] = 1
-        end
-#        print(test_mat[row,col], ", ")
-    end
-end
-work_mat = copy(test_mat)
-for row in 2:(size(test_mat)[1]-1)
-    for col in 2:(size(test_mat)[2]-1)
-        ## Make the inside 0, we only want the outline
-        neighbourhood = test_mat[row-1:row+1,col-1:col+1]
-        if sum(neighbourhood) >= 9 # 9 squares
-            work_mat[row,col] = 0
-        end
-    end
-end
-GR.imshow(work_mat) # PyPlot uses interpolation = "None"
+GR.imshow(test_mat) # PyPlot uses interpolation = "None"
+
+test_mat = outline(test_mat)
+GR.imshow(test_mat) # PyPlot uses interpolation = "None"
 # GR.savefig("/home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Problems/fractal-dimensions/media/outline-Julia-set.png")
 
 ## Return the perimeter
 sum(test_mat)
+
+
+
 
 # halving from 600 to 300 pixels gives a change of about X 3.78, so the dimension would be about 1.9.
 # 

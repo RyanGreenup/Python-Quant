@@ -2,6 +2,7 @@
 # ║╚╦╝╠╬═╣═╬═╣╠╗║═╬╦╦═╗╔═╣╚╦═╗╔╗
 # ╚╗║╔╣║═╬═║╩╣═╣║╔╣╔╣╬╚╣═╣╔╣╬╚╣╚╗
 # ─╚═╝╚╩═╩═╩═╩╩╝╚╝╚╝╚══╩═╩═╩══╩═╝
+# Vicsek Fractal
 # Dimension is 1.4649 according to Wikipedia
 
 #------------------------------------------------------------
@@ -82,3 +83,4 @@ size1 = size(mat1)[1]
 log(l2/l1)/log(size2/size1)
 # https://en.wikipedia.org/wiki/Vicsek_fractal#Construction
 log(5)/log(3)
+
