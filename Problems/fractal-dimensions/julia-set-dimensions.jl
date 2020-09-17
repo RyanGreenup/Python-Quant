@@ -61,7 +61,14 @@ end
 ############################################################
 # TODO this should be inside a function
 
+"""
+# Outline 
+Sets all elements with neighbours on all sides to 0
 
+## TODO
+I should probably set that arbitrary 100 to something related to a mean value
+maybe?
+"""
 function outline(mat)
     for row in 2:(size(mat)[1]-1)
         for col in 2:(size(mat)[2]-1)
