@@ -96,6 +96,7 @@ function outline(mat)
 end
 
 test_mat = make_picture(800,800, z -> z^2 + 0.37-0.2*im)
+test_mat = make_picture(800,800, z -> z^2 + -0.123+0.745*im)
 GR.imshow(test_mat) # PyPlot uses interpolation = "None"
 
 test_mat = outline(test_mat)
@@ -106,6 +107,16 @@ GR.imshow(test_mat) # PyPlot uses interpolation = "None"
 sum(test_mat)
 
 
+mat2 = outline(make_picture(80,80, z -> z^2 + -0.123+0.745*im))
+l2   = sum(mat2)
+size2 = size(mat2)[1]
+mat1 = outline(make_picture(1600,1600, z -> z^2 + -0.123+0.745*im))
+l1   = sum(mat1)
+size1 = size(mat1)[1]
+log(l2/l1)/log(size2/size1)
+# https://en.wikipedia.org/wiki/Vicsek_fractal#Construction
+# 1.3934 Douady Rabbit
+#
 
 
 # halving from 600 to 300 pixels gives a change of about X 3.78, so the dimension would be about 1.9.

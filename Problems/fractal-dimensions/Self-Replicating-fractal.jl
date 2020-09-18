@@ -73,7 +73,6 @@ end
 # but the overall dimensions of the square increases by a factor of 3
 # so 3^D=5 ==> log_3(5) = log(5)/log(3) = D 
 
-# TODO Fix the measurement first
 mat2 = selfRep(fill(1, 1, 1), 1000)
 l2   = sum(mat2)
 size2 = size(mat2)[1]
