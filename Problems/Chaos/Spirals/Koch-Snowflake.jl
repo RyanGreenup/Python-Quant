@@ -3,68 +3,9 @@ using Luxor
 using Pkg
 
 
-# See Also 
-# https://stackoverflow.com/a/45213200/12843551
-
-using Luxor
-Drawing(1000, 1000, "hello-world.png")
-origin()
-sethue("red")
-fontsize(50)
-text("hello world")
-Forward(Turtle(), 100)
-finish()
-preview()
-
-@svg begin
-    fontsize(50)
-    text("hello world")
-    Forward(Turtle(), 100)
-end
-
-if 2%1==1
-    print(3)
-else
-    print(7)
-end
-
-function Triangle(n)
-    🐢 = Turtle()
-    dist = 600/n  # Perimeter of 600
-    for i in 1:n
-        Forward(🐢, dist)
-        Turn(🐢, -360/n)
-    end
-    Forward(🐢, dist)
-end
-
-function linePoint()
-    # Recenter
-    🐢 = Turtle()
-    Penup(🐢)
-    Turn(🐢, 180)
-    Forward(🐢, 200)
-    Turn(🐢, 180)
-    Pendown(🐢)
-    # Make Spike
-    Forward(🐢, 100)
-    Turn(🐢, -60)
-    Forward(🐢, 100)
-    Turn(🐢, 2*60)
-    Forward(🐢, 100)
-    Turn(🐢, -60)
-    Forward(🐢, 100)
-    # Turn Back
-    Penup(🐢)
-    Turn(🐢, -180)
-    Forward(🐢, 3*100)
-    Pendown(🐢)
-    Turn(🐢, -180)
-end
-@svg begin
-    linePoint()
-end
-
+#------------------------------------------------------------
+#--- Round Snowflake Working ---------------------------------
+#------------------------------------------------------------
 
 function snowflake(length, level, 🐢)
     if level == 0
@@ -80,25 +21,25 @@ function snowflake(length, level, 🐢)
     Turn(🐢, -60)
     snowflake(length, level-1, 🐢)
 end
-@svg begin
+@png begin
     🐢 = Turtle()
-    for i in 1:6
-        snowflake(200000, 6, 🐢)
-        Turn(🐢, 60)
+    for i in 1:3
+        snowflake(120000, 6, 🐢)
+        Turn(🐢, 120)
     end
-end
+end 600 600 "/tmp/snowCurve.png"
 
-#
-
-
-
-
+#------------------------------------------------------------
+#-- Flat Snowflake ----------------------------------
+#------------------------------------------------------------
 
 
-
-function snowflake(length, level, 🐢)
+function snowflake(length, level, 🐢, s)
+    scale(s)
     if level == 0
+        HueShift(🐢, rand())
         Forward(🐢, length)
+#        Rectangle(🐢, length, length)
         return
     end
     length = length/9
@@ -110,16 +51,25 @@ function snowflake(length, level, 🐢)
     Turn(🐢, -180/3)
     snowflake(length, level-1, 🐢)
 end
-@svg begin
+@png begin
     🐢 = Turtle()
-    snowflake(60000, 5, 🐢)
-    rotate(60)
-end
+    Pencolor(🐢, 1.0, 0.4, 0.2)
+    Penup(🐢)
+    Turn(🐢,180)
+    Forward(🐢, 200)
+    Turn(🐢,180)
+    Pendown(🐢)
+    levels = 7
+    snowflake(9^(levels), levels, 🐢, 2)
+end 2000 2000 "/tmp/snowFlat600.png"
 
-#
+using Images, TestImages, Colors, ImageMagick
+img = load("/tmp/snowFlat600.svg")
+img
 
 
 
+# Dimension of Snowflake should be log(4)/log(3) ZHU, Zhou, Jia 2003
 
 
 
