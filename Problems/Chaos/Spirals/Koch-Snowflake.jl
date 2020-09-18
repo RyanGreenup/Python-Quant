@@ -21,10 +21,10 @@ function snowflake(length, level, 🐢)
     Turn(🐢, -60)
     snowflake(length, level-1, 🐢)
 end
+🐢 = Turtle()
 @png begin
-    🐢 = Turtle()
     for i in 1:3
-        snowflake(120000, 6, 🐢)
+        snowflake(60000, 5, 🐢)
         Turn(🐢, 120)
     end
 end 600 600 "/tmp/snowCurve.png"
@@ -64,7 +64,7 @@ end
 end 2000 2000 "/tmp/snowFlat600.png"
 
 using Images, TestImages, Colors, ImageMagick
-img = load("/tmp/snowFlat600.svg")
+img = load("/tmp/snowFlat600.png")
 img
 
 
