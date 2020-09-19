@@ -3,6 +3,41 @@ using Luxor
 using Pkg
 
 
+#------------------------------------------------------------
+#-- Dragon Curve -------------------------------------
+#------------------------------------------------------------
+
+
+function snowflake(length, level, 🐢, s)
+    scale(s)
+    if level == 0
+        Forward(🐢, 100)
+        Turn(🐢, -90)
+        Rotate(90)
+#        Rectangle(🐢, length, length)
+        return
+    end
+    length = length/9
+    snowflake(length, level-1, 🐢)
+    Turn(🐢, -60)
+    snowflake(length, level-1, 🐢)
+    Turn(🐢, 2*60)
+    snowflake(length, level-1, 🐢)
+    Turn(🐢, -180/3)
+    snowflake(length, level-1, 🐢)
+end
+@png begin
+    🐢 = Turtle()
+    Pencolor(🐢, 1.0, 0.4, 0.2)
+    Penup(🐢)
+    Turn(🐢,180)
+    Forward(🐢, 200)
+    Turn(🐢,180)
+    Pendown(🐢)
+    levels = 10
+    snowflake(9^(levels), levels, 🐢, 1)
+end 800 800 "/tmp/snowFlat600.png"
+
 
 #------------------------------------------------------------
 #-- Flat Snowflake ----------------------------------
@@ -12,7 +47,6 @@ using Pkg
 function snowflake(length, level, 🐢, s)
     scale(s)
     if level == 0
-       # HueShift(🐢, rand())
         Forward(🐢, length)
 #        Rectangle(🐢, length, length)
         return
@@ -28,7 +62,7 @@ function snowflake(length, level, 🐢, s)
 end
 @png begin
     🐢 = Turtle()
-#    Pencolor(🐢, 1.0, 0.4, 0.2)
+    Pencolor(🐢, 1.0, 0.4, 0.2)
     Penup(🐢)
     Turn(🐢,180)
     Forward(🐢, 200)
@@ -45,7 +79,8 @@ end 800 800 "/tmp/snowFlat600.png"
 
 function snowflake(length, level, 🐢)
 if level == 0
-    Forward(🐢, length)
+#    Forward(🐢, length)
+    Circle(🐢, 1)
     return
 end
 length = length/9
@@ -58,13 +93,13 @@ Turn(🐢, -60)
 snowflake(length, level-1, 🐢)
 end
 🐢 = Turtle()
-@png begin
+@svg begin
 for i in 1:3
     levels = 9
     snowflake(8^(levels-1), levels, 🐢)
     Turn(🐢, 120)
 end
-end 2000 2000 "/tmp/snowCurve.png"
+end 2000 2000 "/tmp/snowCurve.svg"
 
 
 
@@ -77,7 +112,6 @@ end 2000 2000 "/tmp/snowCurve.png"
 # There is only two variables levels and resolution
 # length depends on the levels and for a perfect snowflake
 # the levels depends on the resolution.
-
 
 
 using Images, TestImages, Colors, ImageMagick
@@ -119,31 +153,52 @@ log(l2/l1)/log(size2/size1)
 log(5)/log(3)
 
 #------------------------------------------------------------
-#-- Minkowski Sausage ---------------------------------------
+#--- Dragon -------------------------------------------------
 #------------------------------------------------------------
-
-function linePoint()
-    🐢 = Turtle()
-    for i in 1:8
-        # Recenter
-        # Make Spike
-        Forward(🐢, 10)
-        Turn(🐢, -90)
-        Forward(🐢, 10)
-        Turn(🐢, 90)
-        Forward(🐢, 10)
-        Turn(🐢, 90)
-        Forward(🐢, 2*10)
-        Turn(🐢, -90)
-        Forward(🐢, 10)
-        Turn(🐢, -90)
-        Forward(🐢, 10)
-        Turn(🐢, 90)
-        Forward(🐢, 10)
-        # Remaining Turn
-        Turn(🐢, -90)
+function dragon(🐢, order, length)
+    print(" ") # Don't remove this or code breaks, I don't know why?
+    Turn(🐢, order*45)
+    dragon_iterate(🐢, order, length, 1)
+end
+function dragon_iterate(🐢, order, length, sign)
+    if order==0
+        Forward(🐢, length)
+    else
+        rootHalf = sqrt(0.5)
+        dragon_iterate(🐢, order -1, length*rootHalf, 1)
+        Turn(🐢, sign * -90)
+        dragon_iterate(🐢, order -1, length*rootHalf, -1)
     end
 end
-@svg begin
-    linePoint()
+;mkdir /tmp/dragon
+@png begin
+    🐢 = Turtle()
+    Turn(🐢, 180)
+    Penup(🐢)
+    Forward(🐢, 200)
+    Pendown(🐢)
+    Turn(🐢, 180)
+    dragon(🐢, 15, 400)
+end 1000 1000
+
+using Images, TestImages, Colors, ImageMagick
+# Load Image Back in
+img = load("/tmp/dragon.png")
+# Convert to Grayscale so only 2D
+imgg = Gray.(img)
+# convert to Matrix
+mat = convert(Array{Float64}, imgg)
+
+# 1 is white
+    # so make all 1s 0 and everything else 1
+
+for i in 1:size(mat)[1]
+    for j in 1:size(mat)[2]
+        if mat[i, j]==1
+            mat[i,j]=0
+        else
+            mat[i,j]=1
+        end
+    end
 end
+
