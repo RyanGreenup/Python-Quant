@@ -122,6 +122,59 @@ for example the dimension of Great Britain remains as about 1.21 through 1000X s
 
 Well probably do another country, Aus/NZ umm Greenland maybe?
 
+*** Build the Dragon
+#+begin_src julia
+#------------------------------------------------------------
+#--- Dragon -------------------------------------------------
+#------------------------------------------------------------
+function dragon(🐢, order, length)
+    print(" ") # Don't remove this or code breaks, I don't know why?
+    Turn(🐢, order*45)
+    dragon_iterate(🐢, order, length, 1)
+end
+function dragon_iterate(🐢, order, length, sign)
+    if order==0
+        Forward(🐢, length)
+    else
+        rootHalf = sqrt(0.5)
+        dragon_iterate(🐢, order -1, length*rootHalf, 1)
+        Turn(🐢, sign * -90)
+        dragon_iterate(🐢, order -1, length*rootHalf, -1)
+    end
+end
+;mkdir /tmp/dragon
+@png begin
+    🐢 = Turtle()
+    Turn(🐢, 180)
+    Penup(🐢)
+    Forward(🐢, 200)
+    Pendown(🐢)
+    Turn(🐢, 180)
+    dragon(🐢, 15, 400)
+end 1000 1000
+
+for i in 1:20
+    name = string("/tmp/dragon/", lpad(i, 5, "0"), ".png")
+    print(name)
+    Drawing(600, 600, name)
+    origin()
+    background("white")
+    sethue("black")
+    ###
+    🐢 = Turtle()
+    Turn(🐢, 180)
+    Penup(🐢)
+    Forward(🐢, 200)
+    Pendown(🐢)
+    Turn(🐢, 180)
+    dragon(🐢, i, 400)
+    ###
+    finish()
+end
+;montage -geometry 1200x1200 /tmp/dragon/*.png /tmp/dragon/dragon.png
+
+#+end_src
+
 * Report
 - [[file:Report/pythonQuant.org][Org File]]
 - [[file:Report/pythonQuant.pdf][pdf File]]
