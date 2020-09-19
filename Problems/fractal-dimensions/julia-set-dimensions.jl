@@ -1,3 +1,4 @@
+using GR
 ############################################################
 ### Julia / MandelBrot Functions ###########################
 ############################################################
@@ -64,7 +65,6 @@ end
 """
 # Outline 
 Sets all elements with neighbours on all sides to 0
-
 ## TODO
 I should probably set that arbitrary 100 to something related to a mean value
 maybe?
@@ -107,10 +107,10 @@ GR.imshow(test_mat) # PyPlot uses interpolation = "None"
 sum(test_mat)
 
 
-mat2 = outline(make_picture(80,80, z -> z^2 + -0.123+0.745*im))
+mat2 = outline(make_picture(350,350, z -> z^2 + -0.123+0.745*im))
 l2   = sum(mat2)
 size2 = size(mat2)[1]
-mat1 = outline(make_picture(1600,1600, z -> z^2 + -0.123+0.745*im))
+mat1 = outline(make_picture(400,400, z -> z^2 + -0.123+0.745*im))
 l1   = sum(mat1)
 size1 = size(mat1)[1]
 log(l2/l1)/log(size2/size1)
@@ -129,3 +129,47 @@ log(l2/l1)/log(size2/size1)
   # GR.imshow(make_picture(500, 500, z -> z^2 + 0.37-0.2*im)) # PyPlot uses interpolation = "None"
   # GR.imshow(make_picture(500, 500, z -> z^2 + 0.38-0.2*im)) # PyPlot uses interpolation = "None"
   # GR.imshow(make_picture(500, 500, z -> z^2 + 0.39-0.2*im)) # PyPlot uses interpolation = "None"
+
+using DataFrames
+using Gadfly
+using GLM
+
+df = DataFrame(xvals = 1:10, yvals = 3*(1:10).+rand()) # rember to use .+ for arrays
+
+
+@time begin
+    scale = [range(0.1, 500, length=10)...]
+    res = 10 .* scale
+    res = [Int(ceil(i)) for i in res]
+    # res = [ Int(i) for i in range(100, 1000, length = 10) ]
+    mass  =  [ sum(outline(make_picture(Int(i), Int(i), z -> z^2 + -0.123+0.745*im))) for i in res ]
+
+    scale = [ log(i) for i in scale ]
+    mass = [ log(i) for i in mass ]
+
+    data = DataFrame()
+    data.scale = scale
+    data.mass  = mass
+    data
+    p = Gadfly.plot(data, x=:scale, y=:mass, Geom.point)
+    mod   = lm(@formula(mass ~ scale), data)
+    print("the slope is $(round(coef(mod)[2], sigdigits=4))")
+    print(mod)
+    print("\n")
+end
+
+
+  
+
+using Gadfly, RDatasets
+import Gadfly
+
+iris = dataset("datasets", "iris")
+p = Gadfly.plot(iris, x=:SepalLength, y=:SepalWidth, Geom.point);
+img = SVG("iris_plot.svg")
+draw(img, p)
+
+
+# The trailing `;` supresses output, equivalently:
+
+.
