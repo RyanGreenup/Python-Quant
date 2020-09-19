@@ -10,7 +10,7 @@ function juliaSet(z, num, my_func)
     # Iterate num times
     while count ≤ num
         # check for divergence
-        if abs(z1)>2
+        if real(z1)^2+imag(z1)^2 > 2^2
             return Int(count)
         end
         #iterate z
@@ -21,7 +21,6 @@ function juliaSet(z, num, my_func)
     return Int(num)
 end
 
-
 function mandelbrot(z, num, my_func)
     count = 1
     # Define z1 as z
@@ -29,7 +28,7 @@ function mandelbrot(z, num, my_func)
     # Iterate num times
     while count ≤ num
         # check for divergence
-        if abs(z1)>2
+        if real(z1)^2+imag(z1)^2 > 2^2
             return Int(count)
         end
         #iterate z
@@ -47,8 +46,8 @@ end
 function make_picture(width, height, my_func)
     pic_mat = zeros(width, height)
     zoom = 0.3
-    for i in 1:size(pic_mat)[1]
-        for j in 1:size(pic_mat)[2]
+    for j in 1:size(pic_mat)[2]
+        for i in 1:size(pic_mat)[1]
             x = (j-width/2)/(width*zoom)
             y = (i-height/2)/(height*zoom)
             pic_mat[i,j] = juliaSet(x+y*im, 256, my_func)
@@ -70,8 +69,8 @@ I should probably set that arbitrary 100 to something related to a mean value
 maybe?
 """
 function outline(mat)
-    for row in 2:(size(mat)[1]-1)
-        for col in 2:(size(mat)[2]-1)
+    for col in 2:(size(mat)[2]-1)
+        for row in 2:(size(mat)[1]-1)
             ## Make instand divergence zero
             if abs(mat[row, col]) <= 100  # Although 100 is arbitrary, anything less hides the shape
                 mat[row, col] = 0            # TODO make this a var, convergence_threshold
@@ -83,8 +82,8 @@ function outline(mat)
         end
     end
     work_mat = copy(mat)
-    for row in 2:(size(mat)[1]-1)
-        for col in 2:(size(mat)[2]-1)
+    for col in 2:(size(mat)[2]-1)
+        for row in 2:(size(mat)[1]-1)
             ## Make the inside 0, we only want the outline
             neighbourhood = mat[row-1:row+1,col-1:col+1]
             if sum(neighbourhood) >= 9 # 9 squares
@@ -137,7 +136,7 @@ using GLM
 df = DataFrame(xvals = 1:10, yvals = 3*(1:10).+rand()) # rember to use .+ for arrays
 
 
-@time begin
+function lr()
     scale = [range(0.1, 1000, length=10)...]
     res = 10 .* scale
     res = [Int(ceil(i)) for i in res]
@@ -156,8 +155,10 @@ df = DataFrame(xvals = 1:10, yvals = 3*(1:10).+rand()) # rember to use .+ for ar
     print("the slope is $(round(coef(mod)[2], sigdigits=4))")
     print(mod)
     print("\n")
+    return mod
 end
 
+@time lr()
 
   
 
