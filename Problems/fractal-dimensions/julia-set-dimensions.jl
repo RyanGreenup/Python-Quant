@@ -138,7 +138,7 @@ df = DataFrame(xvals = 1:10, yvals = 3*(1:10).+rand()) # rember to use .+ for ar
 
 
 @time begin
-    scale = [range(0.1, 500, length=10)...]
+    scale = [range(0.1, 1000, length=10)...]
     res = 10 .* scale
     res = [Int(ceil(i)) for i in res]
     # res = [ Int(i) for i in range(100, 1000, length = 10) ]
