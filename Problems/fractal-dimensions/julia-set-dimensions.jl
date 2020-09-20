@@ -56,6 +56,10 @@ function make_picture(width, height, my_func)
     return pic_mat
 end
 
+# function make_picture(width, height, my_func)
+#     [ juliaSet((x-width)/2+(y-height)/2*im, 256, my_func ) for x in (1:width)/width, y in (1:height)/height ]
+# end
+
 ############################################################
 ### Make the Outline ########################################
 ############################################################
@@ -137,7 +141,7 @@ df = DataFrame(xvals = 1:10, yvals = 3*(1:10).+rand()) # rember to use .+ for ar
 
 
 function lr()
-    scale = [range(0.1, 1000, length=10)...]
+    scale = [range(8000, 9000, length=5)...]
     res = 10 .* scale
     res = [Int(ceil(i)) for i in res]
     # res = [ Int(i) for i in range(100, 1000, length = 10) ]

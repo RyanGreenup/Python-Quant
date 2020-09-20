@@ -17,31 +17,58 @@ function mywalk(B, n)
     end
     return B
 end
-############################################################
-#### Render Image ##########################################
-#################yellow and purple##########################
-
-using GR
-GR.imshow(mywalk([1 1], 5))
 
 ############################################################
 ##### Use Plot for themes ##################################
 ############################################################
 
-using Plots, clibraries
-# Choose a backend, plots let's me choose themes
-gr() # set the backend to GR, faster, but, no lines
-pyplot() # Set the backend to pyplot
-plt = Plots.plot(mywalk([1 1], 6),
-                 st=:heatmap, clim=(0,1),
-                 color=:coolwarm,
-                colorbar_title="", ticks = true, legend = false, yflip = true, fmt = :svg);
-# yflip!
-Plots.savefig(plt, "./my-self-rep-frac.svg")
-;convert ./my-self-rep-frac.svg ./my-self-rep-frac.png
-plt
+using Plots 
+# SavePlot
+## Docstring
+    """
+# MakePlot
+Saveplot will save a plot of the fractals
 
-PyPlot.plot(mywalk([1 1], 7), st=:heatmap, clim=(0,1), color=:coolwarm, colorbar_title="");
+- `n` 
+  - Is the number of iterations to produce the fractal
+    - ``\\frac{n!}{k!(n - k)!} = \\binom{n}{k}``
+- `filename` 
+  - Is the File name
+- `backend`
+  - either `gr()` or `pyplot()`
+    - Gr is faster
+    - pyplot has lines
+    - Avoiding this entirely and using `GR.image()` and
+     `GR.savefig` is even faster but there is no support
+     for changing the colour schemes
+
+    """
+function makePlot(n, backend=pyplot())
+    backend
+    plt = Plots.plot(mywalk([1 1], n),
+                     st=:heatmap, clim=(0,1),
+                     color=:coolwarm,
+                    colorbar_title="", ticks = true, legend = false, yflip = true, fmt = :svg)
+    return plt
+end
+plt = makePlot(5)
+
+"""
+# savePlot
+Saves a Plot created with `Plots.jl` to disk (regardless of backend) as both an
+svg, use ImageMagick to get a PNG if necessary 
+
+- `filename`
+  - Location on disk to save image
+- `plt`
+  - A Plot object created by using `Plot.jl`
+"""
+function savePlot(filename, plt)
+    filename = replace(filename, " " => "_")
+    path = string(filename, ".svg")
+    Plots.savefig(plt, path)
+    print("Image saved to ", path)
+end
 
 #------------------------------------------------------------
 #-- Dimension -----------------------------------------------
@@ -52,13 +79,45 @@ PyPlot.plot(mywalk([1 1], 7), st=:heatmap, clim=(0,1), color=:coolwarm, colorbar
 # lim(F_n/F_n-1)
 # but the overall dimensions of the square increases by a factor of 3
 # so 3^D=5 ==> log_3(5) = log(5)/log(3) = D 
+using DataFrames
+function returnDim()
+    mat2 = mywalk(fill(1, 1, 1), 10)
+    l2   = sum(mat2)
+    size2 = size(mat2)[1]
+    mat1 = mywalk(fill(1, 1, 1), 11)
+    l1   = sum(mat1)
+    size1 = size(mat1)[1]
+    df = DataFrame
+    df.measure = [log(l2/l1)/log(size2/size1)]
+    df.actual  = [log(2)/log(1.618) ]
+    return df
+end
 
-mat2 = mywalk(fill(1, 1, 1), 10)
-l2   = sum(mat2)
-size2 = size(mat2)[1]
-mat1 = mywalk(fill(1, 1, 1), 11)
-l1   = sum(mat1)
-size1 = size(mat1)[1]
-log(l2/l1)/log(size2/size1)
-log(2)/log(1.618) # what would this dimension be ???
+############################################################
+### Main Functions ##########################################
+############################################################
+# Usually Main should go into a seperate .jl filename
+# Then a compination of import, using, include will 
+# get the desired effect of top down programming.
+# Combine this with using a tmp.jl and tst.jl and you're set.
+# See https://stackoverflow.com/a/24935352/12843551
+# http://ryansnotes.org/mediawiki/index.php/Workflow_Tips_in_Julia
+
+# Produce and Save a Plot
+#=
+filename = "my-self-rep-frac";
+filename = string(pwd(), "/", filename);
+savePlot(filename, makePlot(5))
+;convert $filename.svg $filename.png
+makePlot(5, pyplot())
+=#
+# Return the Dimensions
+returnDim()
+
+
+############################################################
+#### Render Image ##########################################
+#################yellow and purple##########################
+using GR
+GR.imshow(mywalk([1 1], 5))
 
