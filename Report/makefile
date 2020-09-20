@@ -1,0 +1,24 @@
+##
+# Final Report
+#
+# @file
+# @version 0.1
+#
+# Use Tabs not Spaces
+# https://opensource.com/article/18/8/what-how-makefile
+# https://www.gnu.org/software/make/manual/html_node/How-Make-Works.html
+#
+test_dep:
+	@ command -v xelatex >/dev/null 2>&1 || { echo >&2 "I require xelatex but it's not installed.  Aborting."; exit 1; }
+	@ command -v biber >/dev/null 2>&1 || { echo >&2 "I require xelatex but it's not installed.  Aborting."; exit 1; }
+	@ command -v zathura >/dev/null 2>&1 || echo >&2 "You should install Zathura"
+
+make_latex:
+	xelatex -interaction=nonstopmode -shell-escape Report.tex
+	biber Report.bcf
+	xelatex -interaction=nonstopmode -shell-escape Report.tex
+	latexmk -c
+	zathura Report.pdf
+
+
+# end
