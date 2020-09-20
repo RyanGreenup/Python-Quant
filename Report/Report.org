@@ -86,7 +86,7 @@ It converges too slowly
 #+CAPTION: TODO
 [[file:../Problems/fractal-dimensions/My-Self-Replicating-fractal-ink.svg]]
 
-#+attr_html: :width 60px
+#+attr_html: :width 600px
 #+attr_latex: :width 9cm
 #+NAME: My-Frac-GR
 #+CAPTION: Fractal that emerges by Rotating and appending boxes, this demonstrates the relationship between the Fibonacci numbers and golden ratio very well
