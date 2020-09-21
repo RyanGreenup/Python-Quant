@@ -47,60 +47,6 @@ See [[file:~/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resour
 [[file:media/Methods_for_Generating_Fractals-7.png]]
 
 In terms of Point Coordinates
-**** Translation
-
-$$
-\begin{pmatrix}
-x \\ y
-\end{pmatrix}
-\leftarrow
-\begin{pmatrix}
-x \\ y
-\end{pmatrix}
-+
-\begin{pmatrix}
-\Delta x \\ \Delta y
-\end{pmatrix}
-$$
-
-**** Scaling
-\[
-\begin{pmatrix}
-x \\ y
-\end{pmatrix}
-\leftarrow
-\begin{pmatrix}
-sx \\ sy
-\end{pmatrix}
-\]
-**** Reflection
-\[
-\begin{pmatrix}
-x \\ y
-\end{pmatrix}
-\leftarrow
-\begin{pmatrix}
-\pm 1 & 0\\ 0 & \mp 1
-\end{pmatrix}
-\begin{pmatrix}
-x \\ y
-\end{pmatrix}
-\]
-**** Rotation
-
-\[
-\begin{pmatrix}
-x \\ y
-\end{pmatrix}
-\leftarrow
-\begin{pmatrix}
-\cos \theta  & -sin \theta \\
- \sin \theta & \cos \theta
-\end{pmatrix}
-\begin{pmatrix}
-x \\ y
-\end{pmatrix}
-\]
 **** Examples
 ***** Vicsek Fractal
 ***** Sierpinskis Carpet [fn:spc]
