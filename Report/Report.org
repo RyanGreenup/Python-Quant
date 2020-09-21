@@ -27,6 +27,36 @@
 
 * Report
 ** Hausdorff Dimension                                                         :James:
+
+** Fractals Generally
+- Many Fractals have a non finite dimension
+- An exception to this is the Mandelbrot set or dragon curve which are two dimensional
+** Generating Self Similar Fractals
+See [[file:~/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resources/Methods_for_Generating_Fractals.pdf][Methods for Generating Fractals]]:
+
+#+attr_html: :width 60px
+#+attr_latex: :width 9cm
+#+NAME: My-Frac-GR
+#+CAPTION: TODO
+[[file:media/Methods_for_Generating_Fractals-6.png]]
+
+#+attr_html: :width 60px
+#+attr_latex: :width 9cm
+#+NAME: My-Frac-GR
+#+CAPTION: TODO
+[[file:media/Methods_for_Generating_Fractals-7.png]]
+
+
+**** Rotation
+**** Transitive
+**** Symmetry
+**** Examples
+***** Vicsek Fractal
+***** Sierpinskis Carpet [fn:spc]
+
+[fn:spc] See Ch. 2.7 of [[cite:peitgenChaosFractalsNew2004][Ch. 2.7]]
+***** Triangle
+****** Chaos Game
 ** TODO Fractal Dimensions                                                     :Ryan:
 Three ways to generate
 
@@ -35,15 +65,6 @@ Three ways to generate
 3. Testing if each region Belongs
    a. Like Julia Set
      
-*** Matrix
-See [[file:~/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resources/Methods_for_Generating_Fractals.pdf][Methods for Generating Fractals]]
-**** Rotation
-**** Transitive
-**** Symmetry
-**** Examples
-***** Vicsek Fractal
-***** Triangle
-****** Chaos Game
 *** Turtle
 Matrices can't explain all patterns, Turtles are useful
 **** Dragon Curve
@@ -95,12 +116,101 @@ It converges too slowly
 **** Discuss Pattern shows Fibonacci Numbers
 ***** Angle Relates to Golden Ratio
 **** Prove Fibonacci using Monotone Convergence Theorem
+Consider the series:
+
+$$\begin{aligned}
+G_n &= \frac{F_{n} }{F_{n - 1} } \\
+\end{aligned}$$
+
+Such that:
+
+$$\begin{aligned}
+F_n = F_{n- 1} +  F_{n- 2} ; \quad F_1 = F_2 = 1
+\end{aligned}$$
+
+
+***** Show that the Series is Monotone
+$$\begin{aligned}
+F_{n} &> 0 \\
+0 &< F_{n} \\
+ \implies   0 &< F_{n - 2} +  F_{n- 1} \quad \forall n > 2 \\
+  F_{n- 2} &< F_{n- 1}  \\
+   \implies  F_n & < F_{n+1}
+\end{aligned}$$
+
+$$\begin{aligned}
+F_{n} &> 0 \\
+0 &< F_{n} \\
+ \implies   0 &< F_{n - 2} +  F_{n- 1} \quad \forall n > 2 \\
+  F_{n- 2} &< F_{n- 1}  \\
+   \implies  F_n & < F_{n+1}
+\end{aligned}$$
+
+
+
+***** Show that the Series is Bounded
+***** Find the Limit
+$$\begin{aligned}
+G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
+&= 1 +  \frac{F_{n- 1} }{F_n} \\
+\text{Recall that $F_n > 0 \forall n$}\\
+&=  1 +  \frac{1}{    \left\lvert G \right\rvert } \\
+ \implies  0 &= G^2- G +  1; \quad G > 0  \\
+  \implies  G = \varphi &=  \frac{\sqrt{5} - 1  }{2} \quad  \square
+\end{aligned}$$
+
+
+***** Comments
+
+The Fibonacci sequence is quite unique, observe that:
+
+This can be rearranged to show that the Fibonacci sequence is itself
+when shifted in either direction, it is the sequence that does not
+change during recursion.
+
+\[\begin{aligned}
+F_{n+ 1} - F_{n} = F_{n- 1} \quad \forall n > 1
+\end{aligned}\]
+
+This is analogous to how $e^x$ doesn't change under differentiation:
+
+$$\begin{aligned}
+\frac{\mathrm{d} }{\mathrm{d} x}\left( e^x \right) \ldots
+\end{aligned}$$
+
+or how 0 is the additive identity and it shows why generating functions
+are so useful.
+
+Observe also that
+
+$$\begin{aligned}
+\lim_{n     \rightarrow \infty }\left[ \frac{F_n}{F_{n- 1} }  \right] &= \varphi \\
+\lim_{n     \rightarrow \infty }\left[ \frac{F_n}{F_{n- 1} }  \right] &= \psi \\
+\varphi - \psi &=  1 \\
+\varphi \times  \psi  &= 1 \\
+\frac{\psi}{\varphi}  = \frac{1}{\varphi^2} = \frac{1}{1-\varphi} &= \frac{1}{2-\varphi} = \frac{2}{3 - \sqrt{5}  }
+\end{aligned}$$
+***** Python
+
+#+BEGIN_SRC python :exports both :results output graphics file :file /tmp/a.png
+#+begin_src python
+import matplotlib.pyplot as plt
+import sympy
+
+plt.plot([ sympy.N(sympy.fibonacci(n+1)/sympy.fibonacci(n)) for n in range(1, 30)])
+plt.savefig("/tmp/a.png")
+#+end_src
+
+#+RESULTS:
+[[file:/tmp/a.png]]
+
 **** Angle is $\tan^{-1}\left( \frac{1}{1-\varphi}\right)$
 ***** Similar to Golden Angle $2 \pi \left( \frac{1}{1-\varphi}\right)$
 **** Dimension of my Fractal
 $\log_{\varphi}(2)$
 
 ** TODO Julia Sets and Mandelbrot Sets
+The julia set is the outline
 *** TODO The math behind it
 **** TODO Like Escaping after 2
 ** TODO Turing
