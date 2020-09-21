@@ -46,10 +46,61 @@ See [[file:~/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resour
 #+CAPTION: TODO
 [[file:media/Methods_for_Generating_Fractals-7.png]]
 
+In terms of Point Coordinates
+**** Translation
 
+$$
+\begin{pmatrix}
+x \\ y
+\end{pmatrix}
+\leftarrow
+\begin{pmatrix}
+x \\ y
+\end{pmatrix}
++
+\begin{pmatrix}
+\Delta x \\ \Delta y
+\end{pmatrix}
+$$
+
+**** Scaling
+\[
+\begin{pmatrix}
+x \\ y
+\end{pmatrix}
+\leftarrow
+\begin{pmatrix}
+sx \\ sy
+\end{pmatrix}
+\]
+**** Reflection
+\[
+\begin{pmatrix}
+x \\ y
+\end{pmatrix}
+\leftarrow
+\begin{pmatrix}
+\pm 1 & 0\\ 0 & \mp 1
+\end{pmatrix}
+\begin{pmatrix}
+x \\ y
+\end{pmatrix}
+\]
 **** Rotation
-**** Transitive
-**** Symmetry
+
+\[
+\begin{pmatrix}
+x \\ y
+\end{pmatrix}
+\leftarrow
+\begin{pmatrix}
+\cos \theta  & -sin \theta \\
+ \sin \theta & \cos \theta
+\end{pmatrix}
+\begin{pmatrix}
+x \\ y
+\end{pmatrix}
+\]
 **** Examples
 ***** Vicsek Fractal
 ***** Sierpinskis Carpet [fn:spc]
@@ -192,17 +243,16 @@ $$\begin{aligned}
 \end{aligned}$$
 ***** Python
 
-#+BEGIN_SRC python :exports both :results output graphics file :file /tmp/a.png
-#+begin_src python
+#+BEGIN_SRC :exports none
+,#+BEGIN_SRC python :exports both :results output graphics file :file ./a.png
+,#+begin_src python
 import matplotlib.pyplot as plt
 import sympy
 
 plt.plot([ sympy.N(sympy.fibonacci(n+1)/sympy.fibonacci(n)) for n in range(1, 30)])
-plt.savefig("/tmp/a.png")
+plt.savefig("./a.png")
 #+end_src
-
-#+RESULTS:
-[[file:/tmp/a.png]]
+[[file:./a.png]]
 
 **** Angle is $\tan^{-1}\left( \frac{1}{1-\varphi}\right)$
 ***** Similar to Golden Angle $2 \pi \left( \frac{1}{1-\varphi}\right)$
