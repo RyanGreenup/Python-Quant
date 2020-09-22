@@ -32,21 +32,6 @@
 - Many Fractals have a non finite dimension
 - An exception to this is the Mandelbrot set or dragon curve which are two dimensional
 ** Generating Self Similar Fractals
-See [[file:~/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resources/Methods_for_Generating_Fractals.pdf][Methods for Generating Fractals]]:
-
-#+attr_html: :width 60px
-#+attr_latex: :width 9cm
-#+NAME: My-Frac-GR
-#+CAPTION: TODO
-[[file:media/Methods_for_Generating_Fractals-6.png]]
-
-#+attr_html: :width 60px
-#+attr_latex: :width 9cm
-#+NAME: My-Frac-GR
-#+CAPTION: TODO
-[[file:media/Methods_for_Generating_Fractals-7.png]]
-
-In terms of Point Coordinates
 **** Examples
 ***** Vicsek Fractal
 ***** Sierpinskis Carpet [fn:spc]
