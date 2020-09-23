@@ -11,7 +11,7 @@
 :END:
 :HTML:
 #+INFOJS_OPT: view:info toc:3
-#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="style.css">
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="./resources/style.css">
 # #+CSL_STYLE: /home/ryan/Templates/CSL/nature.csl
 :END:
 :R:
@@ -23,11 +23,49 @@
 #+LATEX_HEADER: \IfFileExists{./resources/style.sty}{\usepackage{./resources/style}}{}
 #+LATEX_HEADER: \IfFileExists{./resources/referencing.sty}{\usepackage{./resources/referencing}}{}
 #+LATEX_HEADER: \addbibresource{../Resources/references.bib}
+#+LATEX_HEADER: \usepackage{tikz}
+#+LATEX_HEADER: \usetikzlibrary{decorations.fractals}
+#+LATEX_HEADER: \usetikzlibrary{lindenmayersystems}
 :END:
-
 * Report
-** Hausdorff Dimension                                                         :James:
+** Hausdorff Dimension                                                         :Ryan:
+*** Topological Equivalence
+Topology is an area of mathematics concerned with ideas of continuity through the study of figures that are preserved under homeomorphic transformations. cite:gilmoreTopologyChaosAlice2002
 
+Two figures are said to be homeomorphic if there is a continuous bijective mapping between the two shapes [[cite:peitgenChaosFractalsNew2004][p. 105]].
+
+So for example deforming a cube into a sphere would be homeomorphic, but deforming a sphere into a torus would not, because the the surface of the shape would have to be compromised to acheive that.
+
+Historically the concept of dimension was a difficult problem with a tenuous
+definition, while an inutitive definition related the dimension of a shape to
+the number of parameters needed to describe that shape, this definition is not
+sufficient to be preserved under a homeomorphic transform however.
+
+Consider the koch curve:
+
+
+
+# % \usepackage{tikz}
+# % \usetikzlibrary{decorations.fractal
+# % \usetikzlibrary{lindenmayersystems}
+
+#+begin_src latex
+\begin{tikzpicture}[decoration=Koch snowflake]
+\draw decorate {(0,1) -- ++(60:3)  -- ++(300:3) -- ++(180:3)} node[below=1cm](init){$n=1$};
+\draw decorate { decorate {(4,1) -- ++(60:3)  -- ++(300:3) -- ++(180:3)}} node[below=1cm](two){$n=2$};
+\draw decorate{decorate { decorate {(8,1) -- ++(60:3)  -- ++(300:3) -- ++(180:3)}}} node[below=1cm](nthree){$n=3$};
+\draw decorate {decorate{decorate { decorate {(12,1) -- ++(60:3)  -- ++(300:3) -- ++(180:3)}}}} node[below=1cm](nfour){$n=4$};
+\end{tikzpicture}
+#+end_src
+
+% Use the following for live preview
+% latexmk -pdf -pvc -shell-escape --interaction=nonstopmode
+% convert -resize 1200x1200 -density 7200 -quality 75 file.tex file.png
+% convert -resize 1200x1200 -density 7200 file.tex file.svg
+
+
+
+In the development of topology
 ** Fractals Generally
 - Many Fractals have a non finite dimension
 - An exception to this is the Mandelbrot set or dragon curve which are two dimensional
@@ -37,6 +75,7 @@
 ***** Sierpinskis Carpet
 
 Explained more in the book [fn:spc]
+
 
 [fn:spc] See Ch. 2.7 of [[cite:peitgenChaosFractalsNew2004][Ch. 2.7]]
 ***** Triangle
@@ -1786,7 +1825,6 @@ that sunflowers distribute there seeds.
 However the simulations performed within /Julia/ are very encouraging and
 suggest that this process isn't too far off.
 
-[fn:jp] See cite:GnuplotFractalMandelbrot for an excellent, albeit quite old, resource on GNUPlot.
 
 [fn:ft] [[https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0][https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0]]
 
@@ -1810,4 +1848,3 @@ suggest that this process isn't too far off.
 
 [fn:op] Although proprietary software such as Magma, Mathematica and Maple is very good, the restrictive licence makes them undesirable for study because there is no means by which to inspect the problem solving tecniques implemented, build on top of the work and moreover the lock-in nature of the software makes it a risky investment with respect to time.
 
-[fn:rv] Although Hardy made a good defence of pure math in his 1940s Apology cite:hardyMathematicianApology2012, it isn't rare at all for pure math to be found applications, for example much number theory was probably seen as fairly pure before RSA Encryption cite:spraulHowSoftwareWorks2015.
