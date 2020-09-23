@@ -30,7 +30,7 @@
 :END:
 * Report
 ** Hausdorff Dimension                                                         :Ryan:
-*** Topological Equivalence
+*** STRT Topological Equivalence
 Topology is an area of mathematics concerned with ideas of continuity through the study of figures that are preserved under homeomorphic transformations. cite:gilmoreTopologyChaosAlice2002
 
 Two figures are said to be homeomorphic if there is a continuous bijective mapping between the two shapes [[cite:peitgenChaosFractalsNew2004][p. 105]].
@@ -130,11 +130,64 @@ Three ways to generate
 Matrices can't explain all patterns, Turtles are useful
 **** Dragon Curve
 **** Koch Snowflake
-*** Calculating the Dimension of Julia Set
+*** STRT Calculating the Dimension of Julia Set
 It converges too slowly
+The Julia set (discussed in section [[#julia-set]]) can be solved by ...
+
+explain the code a little bit here
+
+as shown in listing
+
+A value on the complex plane can be associated with the julia set by iterating
+that value against a function of the form $z \rightarrow z^{2} + \alpha + i
+\beta$ and measureing whether or not that value diverges or converges. This process is demonstrated in listing [[ref:jsetDivFunc]].
+
+By associating each value on the complex plane with an element of a matrix an image of this pattern may be produced, see for example figure RABBIT
+
+#+NAME: jsetDivFunc
+#+CAPTION: Function that returns how many iterations of a function of is necessary for a complex value to diverge, the julia set is concerned with the function $z \rightarrow z^{2} + \alpha + i \beta$
+#+begin_src julia
+#!/bin/julia
+function juliaSet(z, num, my_func, boolQ=true)
+    count = 1
+    # Iterate num times
+    while count ≤ num
+        # check for divergence
+        if real(z)^2+imag(z)^2 > 2^2
+            if(boolQ) return 0 else return Int(count) end
+        end
+        #iterate z
+        z = my_func(z) # + z
+        count=count+1
+    end
+        #if z hasn't diverged by the end
+    if(boolQ) return 1 else return Int(count) end
+end
+#+end_src
+
 **** Using Linear Regression
 - Avoiding ~Abs~ is twice as fast
 - Column wise is faster in fortran/julia/R slower in C/Python
+***** Performance
+- Switching from ~abs()~ to sqaured help
+- Taking advantage of multi core processing in loops
+
+- [[https://stackoverflow.com/a/55704326/12843551][pmap was chosen because]] it scales better for expensive jobs.
+
+  Comparison
+#+begin_src julia
+function tme()
+    start = time()
+    data = scaleAndMeasure(900, 1000, 9)
+    length = time() - start
+    print(length, "\n")
+    return length
+end
+times = [tme() for i in 1:10 ]
+#+end_src
+
+| Function | Mean Time |
+| ~pmap~   | 2.2825    |
 *** My Fractal
 **** Graphics
 
@@ -270,11 +323,21 @@ plt.savefig("./a.png")
 $\log_{\varphi}(2)$
 
 ** TODO Julia Sets and Mandelbrot Sets
-The julia set is the outline
+:PROPERTIES:
+:CUSTOM_ID: julia-set
+:END:
+The julia set is the outline.
+
+The mandelbrot has to do with whether or not it's connected.
 *** TODO The math behind it
 **** TODO Like Escaping after 2
 ** TODO Turing
 
+** Appendix
+:PROPERTIES:
+:CUSTOM_ID: appendix
+:END:
+So unless code contributes directly to the discussion we'll put it in the appendix.
 * Outline
 ** Introduction                                                                :Ryan:
 This project, at the outset, was very broadly concerned with the use of /Python/ for
