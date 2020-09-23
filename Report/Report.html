@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-23 Wed 11:18 -->
+<!-- 2020-09-23 Wed 23:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Emergence of Patterns in Nature and Chaos Theory</title>
@@ -269,25 +269,25 @@ org_html_manager.setup();  // activate after the parameters are set
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org39ec3ae">1. Report</a>
+<li><a href="#orgff55677">1. Report</a>
 <ul>
-<li><a href="#org8ef760b">1.1. Hausdorff Dimension&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
+<li><a href="#orgb3f84bd">1.1. Hausdorff Dimension&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
 <ul>
-<li><a href="#orgccb7013">1.1.1. Topological Equivalence</a></li>
+<li><a href="#org4825e19">1.1.1. Topological Equivalence</a></li>
 </ul>
 </li>
-<li><a href="#org34e965b">1.2. Fractals Generally</a></li>
-<li><a href="#orgdfe6b4c">1.3. Generating Self Similar Fractals</a>
+<li><a href="#orgbaac973">1.2. Fractals Generally</a></li>
+<li><a href="#org873d488">1.3. Generating Self Similar Fractals</a>
 <ul>
 <li>
 <ul>
-<li><a href="#org8ec3de6">1.3.0.1. Examples</a>
+<li><a href="#org67e9f08">1.3.0.1. Examples</a>
 <ul>
-<li><a href="#org751701a">1.3.0.1.1. Vicsek Fractal</a></li>
-<li><a href="#org953fa10">1.3.0.1.2. Sierpinskis Carpet</a></li>
-<li><a href="#org356d690">1.3.0.1.3. Triangle</a>
+<li><a href="#org0bdf03f">1.3.0.1.1. Vicsek Fractal</a></li>
+<li><a href="#org4f4d8c1">1.3.0.1.2. Sierpinskis Carpet</a></li>
+<li><a href="#org9fd8c22">1.3.0.1.3. Triangle</a>
 <ul>
-<li><a href="#org7177381">1.3.0.1.3.1. Chaos Game</a></li>
+<li><a href="#orgbaf6b8d">1.3.0.1.3.1. Chaos Game</a></li>
 </ul>
 </li>
 </ul>
@@ -296,62 +296,67 @@ org_html_manager.setup();  // activate after the parameters are set
 </li>
 </ul>
 </li>
-<li><a href="#org5af964a">1.4. Fractal Dimensions&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
+<li><a href="#org4c985b1">1.4. Fractal Dimensions&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
 <ul>
-<li><a href="#org77cf0fc">1.4.1. Turtle</a>
+<li><a href="#org438630a">1.4.1. Turtle</a>
 <ul>
-<li><a href="#orgb1b159a">1.4.1.1. Dragon Curve</a></li>
-<li><a href="#org80aaef5">1.4.1.2. Koch Snowflake</a></li>
+<li><a href="#org8222108">1.4.1.1. Dragon Curve</a></li>
+<li><a href="#org88956e8">1.4.1.2. Koch Snowflake</a></li>
 </ul>
 </li>
-<li><a href="#org266c3be">1.4.2. Calculating the Dimension of Julia Set</a>
+<li><a href="#orgfa51773">1.4.2. Calculating the Dimension of Julia Set</a>
 <ul>
-<li><a href="#org950062b">1.4.2.1. Using Linear Regression</a></li>
-</ul>
-</li>
-<li><a href="#orgf44854a">1.4.3. My Fractal</a>
+<li><a href="#org09d0f1a">1.4.2.1. Using Linear Regression</a>
 <ul>
-<li><a href="#orgf18c62a">1.4.3.1. Graphics</a></li>
-<li><a href="#org8be7b45">1.4.3.2. Discuss Pattern shows Fibonacci Numbers</a>
+<li><a href="#org294ad8b">1.4.2.1.1. Performance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org4753659">1.4.3. My Fractal</a>
 <ul>
-<li><a href="#orgc0dbf38">1.4.3.2.1. Angle Relates to Golden Ratio</a></li>
-</ul>
-</li>
-<li><a href="#org5308e8f">1.4.3.3. Prove Fibonacci using Monotone Convergence Theorem</a>
+<li><a href="#org99e31eb">1.4.3.1. Graphics</a></li>
+<li><a href="#org5e4c0eb">1.4.3.2. Discuss Pattern shows Fibonacci Numbers</a>
 <ul>
-<li><a href="#orgd1f9a2e">1.4.3.3.1. Show that the Series is Monotone</a></li>
-<li><a href="#org54eb330">1.4.3.3.2. Show that the Series is Bounded</a></li>
-<li><a href="#org52a37e2">1.4.3.3.3. Find the Limit</a></li>
-<li><a href="#org523501d">1.4.3.3.4. Comments</a></li>
-<li><a href="#orge67baea">1.4.3.3.5. Python</a></li>
+<li><a href="#orgc5e2c2e">1.4.3.2.1. Angle Relates to Golden Ratio</a></li>
 </ul>
 </li>
-<li><a href="#orga1ec02a">1.4.3.4. Angle is \(\tan^{-1}\left( \frac{1}{1-\varphi}\right)\)</a>
+<li><a href="#org5559560">1.4.3.3. Prove Fibonacci using Monotone Convergence Theorem</a>
 <ul>
-<li><a href="#org10b2db4">1.4.3.4.1. Similar to Golden Angle \(2 \pi \left( \frac{1}{1-\varphi}\right)\)</a></li>
+<li><a href="#org13129f1">1.4.3.3.1. Show that the Series is Monotone</a></li>
+<li><a href="#org93035a3">1.4.3.3.2. Show that the Series is Bounded</a></li>
+<li><a href="#org6119734">1.4.3.3.3. Find the Limit</a></li>
+<li><a href="#orgdd0a3c1">1.4.3.3.4. Comments</a></li>
+<li><a href="#org2ea2302">1.4.3.3.5. Python</a></li>
 </ul>
 </li>
-<li><a href="#org5c40568">1.4.3.5. Dimension of my Fractal</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orga5bb068">1.5. Julia Sets and Mandelbrot Sets</a>
+<li><a href="#org838fb84">1.4.3.4. Angle is \(\tan^{-1}\left( \frac{1}{1-\varphi}\right)\)</a>
 <ul>
-<li><a href="#org2c30ed1">1.5.1. The math behind it</a>
+<li><a href="#org7c0f474">1.4.3.4.1. Similar to Golden Angle \(2 \pi \left( \frac{1}{1-\varphi}\right)\)</a></li>
+</ul>
+</li>
+<li><a href="#orge37e421">1.4.3.5. Dimension of my Fractal</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#julia-set">1.5. Julia Sets and Mandelbrot Sets</a>
 <ul>
-<li><a href="#org6dc4d96">1.5.1.1. Like Escaping after 2</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org88b0356">1.6. Turing</a></li>
-</ul>
-</li>
-<li><a href="#org0947884">2. Outline</a>
+<li><a href="#org81c7542">1.5.1. The math behind it</a>
 <ul>
-<li><a href="#orgb13a8ad">2.1. Introduction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
-<li><a href="#orgaa32611">2.2. Programming Recursion&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
+<li><a href="#org3332637">1.5.1.1. Like Escaping after 2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org3396048">1.6. Turing</a></li>
+<li><a href="#appendix">1.7. Appendix</a></li>
+</ul>
+</li>
+<li><a href="#org165980a">2. Outline</a>
+<ul>
+<li><a href="#org5a68c8c">2.1. Introduction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
+<li><a href="#org0927b08">2.2. Programming Recursion&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
 <ul>
 <li><a href="#series-and-recursion">2.2.1. Iteration and Recursion</a>
 <ul>
@@ -360,9 +365,9 @@ org_html_manager.setup();  // activate after the parameters are set
 </li>
 </ul>
 </li>
-<li><a href="#orgc6f1bbb">2.3. Fibonacci Sequence&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span>&#xa0;<span class="James">James</span></span></a>
+<li><a href="#orgd95d3dd">2.3. Fibonacci Sequence&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span>&#xa0;<span class="James">James</span></span></a>
 <ul>
-<li><a href="#orgd42ac2a">2.3.1. Introduction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
+<li><a href="#orgaeb168a">2.3.1. Introduction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
 <li><a href="#define-the-fibonacci-numbers">2.3.2. Computational Approach&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
 <li><a href="#exp-gen-func-fib-seq">2.3.3. Exponential Generating Functions</a>
 <ul>
@@ -370,33 +375,33 @@ org_html_manager.setup();  // activate after the parameters are set
 <li><a href="#solving-the-sequence">2.3.3.2. Example&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
 <li><a href="#Derivative-exp-gen-function">2.3.3.3. Derivative of the Exponential Generating Function</a>
 <ul>
-<li><a href="#orge0b1ea1">2.3.3.3.1. Base&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
-<li><a href="#orga991f89">2.3.3.3.2. Bridge&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></a></li>
+<li><a href="#org567b050">2.3.3.3.1. Base&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
+<li><a href="#org8fc4372">2.3.3.3.2. Bridge&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></a></li>
 </ul>
 </li>
-<li><a href="#org740158d">2.3.3.4. Homogeneous Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span>&#xa0;<span class="James">James</span></span></a>
+<li><a href="#org4689623">2.3.3.4. Homogeneous Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span>&#xa0;<span class="James">James</span></span></a>
 <ul>
 <li><a href="#uniq-roots-recurrence">2.3.3.4.1. Unique Roots of Characteristic Equation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
 <ul>
-<li><a href="#orgde6033e">2.3.3.4.1.1. Example</a></li>
-<li><a href="#org6039218">2.3.3.4.1.2. Proof</a></li>
+<li><a href="#orgd8b8c00">2.3.3.4.1.1. Example</a></li>
+<li><a href="#org37b1e0e">2.3.3.4.1.2. Proof</a></li>
 </ul>
 </li>
 <li><a href="#rep-roots-recurrence">2.3.3.4.2. Repeated Roots of Characteristic Equation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
 <ul>
-<li><a href="#org7420533">2.3.3.4.2.1. Example</a></li>
-<li><a href="#org5eb1d42">2.3.3.4.2.2. Proof</a></li>
+<li><a href="#org91198bd">2.3.3.4.2.1. Example</a></li>
+<li><a href="#org5fea101">2.3.3.4.2.2. Proof</a></li>
 </ul>
 </li>
 <li><a href="#general-gen-func-proof">2.3.3.4.3. General Proof</a>
 <ul>
 <li><a href="#power-series-comb">2.3.3.4.3.1. Power Series Combination&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></a>
 <ul>
-<li><a href="#org000f503">2.3.3.4.3.1.1. Motivation</a></li>
-<li><a href="#org7b0b554">2.3.3.4.3.1.2. Proof by Induction</a>
+<li><a href="#orgbe34a6f">2.3.3.4.3.1.1. Motivation</a></li>
+<li><a href="#org72eb1a2">2.3.3.4.3.1.2. Proof by Induction</a>
 <ul>
-<li><a href="#org6f17980">2.3.3.4.3.1.2.1. Base</a></li>
-<li><a href="#orgc5efd41">2.3.3.4.3.1.2.2. Bridge</a></li>
+<li><a href="#orga1f5a29">2.3.3.4.3.1.2.1. Base</a></li>
+<li><a href="#org856291f">2.3.3.4.3.1.2.2. Bridge</a></li>
 </ul>
 </li>
 </ul>
@@ -414,20 +419,20 @@ org_html_manager.setup();  // activate after the parameters are set
 </li>
 </ul>
 </li>
-<li><a href="#org3c330b9">2.4. Persian Recursion&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
-<li><a href="#org2c06845">2.5. Julia Sets&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
+<li><a href="#orgd9c2d46">2.4. Persian Recursion&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
+<li><a href="#orgd4e59f9">2.5. Julia Sets&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
 <ul>
-<li><a href="#orgd7666be">2.5.1. Introduction</a></li>
-<li><a href="#org8f1b84d">2.5.2. Motivation</a></li>
-<li><a href="#org4cb3229">2.5.3. Plotting the Sets</a></li>
+<li><a href="#orgc525ccd">2.5.1. Introduction</a></li>
+<li><a href="#org198a1ac">2.5.2. Motivation</a></li>
+<li><a href="#org31a9a9d">2.5.3. Plotting the Sets</a></li>
 </ul>
 </li>
-<li><a href="#orgaa26038">2.6. MandelBrot&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
-<li><a href="#org8b4e291">2.7. Relevant Sources</a></li>
-<li><a href="#orgd884d1f">2.8. Appendix</a>
+<li><a href="#orgeb20fc9">2.6. MandelBrot&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
+<li><a href="#org9ba7e43">2.7. Relevant Sources</a></li>
+<li><a href="#org8348263">2.8. Appendix</a>
 <ul>
 <li><a href="#persian-recursion-examples">2.8.1. Persian Recursian Examples</a></li>
-<li><a href="#org01319f8">2.8.2. Figures</a></li>
+<li><a href="#org730c8fe">2.8.2. Figures</a></li>
 <li><a href="#why-julia">2.8.3. Why Julia</a>
 <ul>
 <li>
@@ -444,16 +449,16 @@ org_html_manager.setup();  // activate after the parameters are set
 </ul>
 </div>
 </div>
-<div id="outline-container-org39ec3ae" class="outline-2">
-<h2 id="org39ec3ae"><span class="section-number-2">1</span> Report</h2>
+<div id="outline-container-orgff55677" class="outline-2">
+<h2 id="orgff55677"><span class="section-number-2">1</span> Report</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org8ef760b" class="outline-3">
-<h3 id="org8ef760b"><span class="section-number-3">1.1</span> Hausdorff Dimension&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
+<div id="outline-container-orgb3f84bd" class="outline-3">
+<h3 id="orgb3f84bd"><span class="section-number-3">1.1</span> Hausdorff Dimension&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-orgccb7013" class="outline-4">
-<h4 id="orgccb7013"><span class="section-number-4">1.1.1</span> Topological Equivalence</h4>
+<div id="outline-container-org4825e19" class="outline-4">
+<h4 id="org4825e19"><span class="section-number-4">1.1.1</span> Topological Equivalence</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 Topology is an area of mathematics concerned with ideas of continuity through the study of figures that are preserved under homeomorphic transformations. (NO_ITEM_DATA:gilmoreTopologyChaosAlice2002)
@@ -466,12 +471,100 @@ Two figures are said to be homeomorphic if there is a continuous bijective mappi
 <p>
 So for example deforming a cube into a sphere would be homeomorphic, but deforming a sphere into a torus would not, because the the surface of the shape would have to be compromised to acheive that.
 </p>
-</div>
-</div>
+
+<p>
+Historically the concept of dimension was a difficult problem with a tenuous
+definition, while an inutitive definition related the dimension of a shape to
+the number of parameters needed to describe that shape, this definition is not
+sufficient to be preserved under a homeomorphic transform however.
+</p>
+
+<p>
+Consider the koch fractal in figure <a href="#orgec03f92">1</a> (see also figure <a href="#orgc2e60bb">2</a>), at each iteration the perimeter is given by \(p_{n}=p_{n-1}  \left(\frac{4}{3} \right)\), this means if the shape is scaled by some factor \(s\) the the following relationship holds.
+</p>
+
+<p>
+The number of edges in the koch fractal is given by:
+</p>
+
+\begin{align}
+N_{n} &= N_{n-1} \cdot 4 \\
+&= 3 \cdot 4^{n}
+\end{align}
+
+<p>
+If the length of any individual side was given by \(l\) and scaled by some value \(s\) then the length of each individual edge would be given by:
+</p>
+
+\begin{align}
+l = \frac{s \cdot l_{0}}{3^{n}}
+\end{align}
+
+<p>
+The total perimeter would be given by:
+</p>
+
+\begin{align}
+p_{n} &= N_{n} \times l \\
+&= 3\cdot 4^{n} \times \frac{s \cdot l_{o}}{3^{n}} \\
+&= 3 \cdot s \cdot  l_{0} \left( \frac{4}{3} \right)^{n}
+\end{align}
+<p>
+The koch snowflake, is defined such that there are no edges, every point on the curve is the vertex of an equilateral triangle. Every time the koch curve is iterated, one edge is reduced in length by a scale of 3 and the overall length increases by a factor of 4, this means if the overall shape was scaled by a factor of \(s\) the number of segments.
+</p>
+
+<p>
+the scale of resolution increases 3 fold
+THIS IS NOT CORRECT, I MUST SHOW THAT THE DIMENSION IS \(\frac{ln(4)}{\ln(3)}\) BUT I&rsquo;M SIMPLY OUT OF TIME.
+</p>
+\begin{align}
+s \cdot p_{n} &=  (4/3)^{n} \cdot s \cdot P_{0}\\
+& \propto \left(\frac{4}{3}\right)^{n} \\
+ \implies  n &= \frac{\ln\left( 4 \right)}{\ln\left( 3 \right)} \label{eq:koch-dim}
+\end{align}
+<p>
+In ordinary geometric shapes this value \(n\) will be the dimension of the shape,
+with respect to that shapes <i>measure</i>. For example consider measure similar to mass, a piece
+of wire when scaled in length, will increase in mass by a factor of that scale, whereas
+a sheet of material would increase in mass by a factor proportional to the square of that scaling.
+</p>
+
+<p>
+In the case of the koch snowflake, the measure of the shape, when scaled, will increase by a factor of
+</p>
+
+
+
+<div id="orgec03f92" class="figure">
+<p><img src="media/tikz/Koch_line.png" alt="Koch_line.png" width="400px" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Progression of the Koch Snowflake</p>
 </div>
 
-<div id="outline-container-org34e965b" class="outline-3">
-<h3 id="org34e965b"><span class="section-number-3">1.2</span> Fractals Generally</h3>
+<p>
+}
+</p>
+
+
+<div id="orgc2e60bb" class="figure">
+<p><img src="media/tikz/Snowflake.png" alt="Snowflake.png" width="400px" />
+</p>
+<p><span class="figure-number">Figure 2: </span>Progression of the Koch Snowflake</p>
+</div>
+
+
+
+
+
+
+<p>
+In the development of topology
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbaac973" class="outline-3">
+<h3 id="orgbaac973"><span class="section-number-3">1.2</span> Fractals Generally</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>Many Fractals have a non finite dimension</li>
@@ -479,37 +572,37 @@ So for example deforming a cube into a sphere would be homeomorphic, but deformi
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdfe6b4c" class="outline-3">
-<h3 id="orgdfe6b4c"><span class="section-number-3">1.3</span> Generating Self Similar Fractals</h3>
+<div id="outline-container-org873d488" class="outline-3">
+<h3 id="org873d488"><span class="section-number-3">1.3</span> Generating Self Similar Fractals</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
-<div id="outline-container-org8ec3de6" class="outline-5">
-<h5 id="org8ec3de6"><span class="section-number-5">1.3.0.1</span> Examples</h5>
+<div id="outline-container-org67e9f08" class="outline-5">
+<h5 id="org67e9f08"><span class="section-number-5">1.3.0.1</span> Examples</h5>
 <div class="outline-text-5" id="text-1-3-0-1">
 </div>
-<div id="outline-container-org751701a" class="outline-6">
-<h6 id="org751701a"><span class="section-number-6">1.3.0.1.1</span> Vicsek Fractal</h6>
+<div id="outline-container-org0bdf03f" class="outline-6">
+<h6 id="org0bdf03f"><span class="section-number-6">1.3.0.1.1</span> Vicsek Fractal</h6>
 </div>
-<div id="outline-container-org953fa10" class="outline-6">
-<h6 id="org953fa10"><span class="section-number-6">1.3.0.1.2</span> Sierpinskis Carpet</h6>
+<div id="outline-container-org4f4d8c1" class="outline-6">
+<h6 id="org4f4d8c1"><span class="section-number-6">1.3.0.1.2</span> Sierpinskis Carpet</h6>
 <div class="outline-text-6" id="text-1-3-0-1-2">
 <p>
 Explained more in the book <sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
 </p>
 </div>
 </div>
-<div id="outline-container-org356d690" class="outline-6">
-<h6 id="org356d690"><span class="section-number-6">1.3.0.1.3</span> Triangle</h6>
+<div id="outline-container-org9fd8c22" class="outline-6">
+<h6 id="org9fd8c22"><span class="section-number-6">1.3.0.1.3</span> Triangle</h6>
 <div class="outline-text-6" id="text-1-3-0-1-3">
 </div>
-<div id="outline-container-org7177381" class="outline-7">
-<h7 id="org7177381"><span class="section-number-7">1.3.0.1.3.1</span> Chaos Game</h7>
+<div id="outline-container-orgbaf6b8d" class="outline-7">
+<h7 id="orgbaf6b8d"><span class="section-number-7">1.3.0.1.3.1</span> Chaos Game</h7>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-org5af964a" class="outline-3">
-<h3 id="org5af964a"><span class="section-number-3">1.4</span> Fractal Dimensions&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
+<div id="outline-container-org4c985b1" class="outline-3">
+<h3 id="org4c985b1"><span class="section-number-3">1.4</span> Fractal Dimensions&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 Three ways to generate
@@ -525,103 +618,192 @@ Three ways to generate
 </ol>
 </div>
 
-<div id="outline-container-org77cf0fc" class="outline-4">
-<h4 id="org77cf0fc"><span class="section-number-4">1.4.1</span> Turtle</h4>
+<div id="outline-container-org438630a" class="outline-4">
+<h4 id="org438630a"><span class="section-number-4">1.4.1</span> Turtle</h4>
 <div class="outline-text-4" id="text-1-4-1">
 <p>
 Matrices can&rsquo;t explain all patterns, Turtles are useful
 </p>
 </div>
-<div id="outline-container-orgb1b159a" class="outline-5">
-<h5 id="orgb1b159a"><span class="section-number-5">1.4.1.1</span> Dragon Curve</h5>
+<div id="outline-container-org8222108" class="outline-5">
+<h5 id="org8222108"><span class="section-number-5">1.4.1.1</span> Dragon Curve</h5>
 </div>
-<div id="outline-container-org80aaef5" class="outline-5">
-<h5 id="org80aaef5"><span class="section-number-5">1.4.1.2</span> Koch Snowflake</h5>
+<div id="outline-container-org88956e8" class="outline-5">
+<h5 id="org88956e8"><span class="section-number-5">1.4.1.2</span> Koch Snowflake</h5>
 </div>
 </div>
-<div id="outline-container-org266c3be" class="outline-4">
-<h4 id="org266c3be"><span class="section-number-4">1.4.2</span> Calculating the Dimension of Julia Set</h4>
+<div id="outline-container-orgfa51773" class="outline-4">
+<h4 id="orgfa51773"><span class="section-number-4">1.4.2</span> Calculating the Dimension of Julia Set</h4>
 <div class="outline-text-4" id="text-1-4-2">
 <p>
 It converges too slowly
+The Julia set (discussed in section <a href="#julia-set">1.5</a>) can be solved by &#x2026;
 </p>
+
+<p>
+explain the code a little bit here
+</p>
+
+<p>
+as shown in listing
+</p>
+
+<p>
+A value on the complex plane can be associated with the julia set by iterating
+that value against a function of the form \(z \rightarrow z^{2} + \alpha + i
+\beta\) and measureing whether or not that value diverges or converges. This process is demonstrated in listing <a href="#jsetDivFunc">jsetDivFunc</a>.
+</p>
+
+<p>
+By associating each value on the complex plane with an element of a matrix an image of this pattern may be produced, see for example figure RABBIT
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Function that returns how many iterations of a function of is necessary for a complex value to diverge, the julia set is concerned with the function \(z \rightarrow z^{2} + \alpha + i \beta\)</label><pre class="src src-julia" id="orgf41a2de"><span style="color: #767283;">#</span><span style="color: #767283; font-style: italic;">!/bin/julia</span>
+<span style="color: #ffff0b;">function</span> <span style="color: #ff996f;">juliaSet</span>(z, num, my_func, boolQ=<span style="color: #34c8d8;">true</span>)
+    count = <span style="color: #34c8d8;">1</span>
+    <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">Iterate num times</span>
+    <span style="color: #ffff0b;">while</span> count &#8804; num
+        <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">check for divergence</span>
+        <span style="color: #ffff0b;">if</span> real(z)<span style="color: #9fcb66;">^</span><span style="color: #34c8d8;">2</span><span style="color: #9fcb66;">+</span>imag(z)<span style="color: #9fcb66;">^</span><span style="color: #34c8d8;">2</span> <span style="color: #9fcb66;">&gt;</span> <span style="color: #34c8d8;">2</span><span style="color: #9fcb66;">^</span><span style="color: #34c8d8;">2</span>
+            <span style="color: #ffff0b;">if</span>(boolQ) <span style="color: #ffff0b;">return</span> <span style="color: #34c8d8;">0</span> <span style="color: #ffff0b;">else</span> <span style="color: #ffff0b;">return</span> Int(count) <span style="color: #ffff0b;">end</span>
+        <span style="color: #ffff0b;">end</span>
+        <span style="color: #767283;">#</span><span style="color: #767283; font-style: italic;">iterate z</span>
+        z = my_func(z) <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">+ z</span>
+        count=count<span style="color: #9fcb66;">+</span><span style="color: #34c8d8;">1</span>
+    <span style="color: #ffff0b;">end</span>
+        <span style="color: #767283;">#</span><span style="color: #767283; font-style: italic;">if z hasn't diverged by the end</span>
+    <span style="color: #ffff0b;">if</span>(boolQ) <span style="color: #ffff0b;">return</span> <span style="color: #34c8d8;">1</span> <span style="color: #ffff0b;">else</span> <span style="color: #ffff0b;">return</span> Int(count) <span style="color: #ffff0b;">end</span>
+<span style="color: #ffff0b;">end</span>
+</pre>
 </div>
-<div id="outline-container-org950062b" class="outline-5">
-<h5 id="org950062b"><span class="section-number-5">1.4.2.1</span> Using Linear Regression</h5>
+</div>
+
+<div id="outline-container-org09d0f1a" class="outline-5">
+<h5 id="org09d0f1a"><span class="section-number-5">1.4.2.1</span> Using Linear Regression</h5>
 <div class="outline-text-5" id="text-1-4-2-1">
 <ul class="org-ul">
 <li>Avoiding <code>Abs</code> is twice as fast</li>
 <li>Column wise is faster in fortran/julia/R slower in C/Python</li>
 </ul>
 </div>
+<div id="outline-container-org294ad8b" class="outline-6">
+<h6 id="org294ad8b"><span class="section-number-6">1.4.2.1.1</span> Performance</h6>
+<div class="outline-text-6" id="text-1-4-2-1-1">
+<ul class="org-ul">
+<li>Switching from <code>abs()</code> to sqaured help</li>
+<li>Taking advantage of multi core processing in loops</li>
+
+<li><p>
+<a href="https://stackoverflow.com/a/55704326/12843551">pmap was chosen because</a> it scales better for expensive jobs.
+</p>
+
+<p>
+Comparison
+</p></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-julia"><span style="color: #ffff0b;">function</span> <span style="color: #ff996f;">tme</span>()
+    start = time()
+    data = scaleAndMeasure(<span style="color: #34c8d8;">900</span>, <span style="color: #34c8d8;">1000</span>, <span style="color: #34c8d8;">9</span>)
+    length = time() <span style="color: #9fcb66;">-</span> start
+    print(length, <span style="color: #ff7fff;">"\n"</span>)
+    <span style="color: #ffff0b;">return</span> length
+<span style="color: #ffff0b;">end</span>
+times = [tme() <span style="color: #ffff0b;">for</span> i <span style="color: #ffff0b;">in</span> <span style="color: #34c8d8;">1</span>:<span style="color: #34c8d8;">10</span> ]
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Function</td>
+<td class="org-right">Mean Time</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>pmap</code></td>
+<td class="org-right">2.2825</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
-<div id="outline-container-orgf44854a" class="outline-4">
-<h4 id="orgf44854a"><span class="section-number-4">1.4.3</span> My Fractal</h4>
+</div>
+</div>
+<div id="outline-container-org4753659" class="outline-4">
+<h4 id="org4753659"><span class="section-number-4">1.4.3</span> My Fractal</h4>
 <div class="outline-text-4" id="text-1-4-3">
 </div>
-<div id="outline-container-orgf18c62a" class="outline-5">
-<h5 id="orgf18c62a"><span class="section-number-5">1.4.3.1</span> Graphics</h5>
+<div id="outline-container-org99e31eb" class="outline-5">
+<h5 id="org99e31eb"><span class="section-number-5">1.4.3.1</span> Graphics</h5>
 <div class="outline-text-5" id="text-1-4-3-1">
 
-<div id="org08a7df8" class="figure">
+<div id="orga2a8942" class="figure">
 <p><object type="image/svg+xml" data="../Problems/fractal-dimensions/scale-of-my-fractal.svg" class="org-svg" width="60px">
-Sorry, your browser does not support SVG.</object>
-</p>
-<p><span class="figure-number">Figure 1: </span>TODO</p>
-</div>
-
-
-<div id="org215657a" class="figure">
-<p><object type="image/svg+xml" data="../Problems/fractal-dimensions/my-self-rep-frac.svg" class="org-svg" width="60px">
-Sorry, your browser does not support SVG.</object>
-</p>
-<p><span class="figure-number">Figure 2: </span>TODO</p>
-</div>
-
-
-<div id="org00ee01d" class="figure">
-<p><object type="image/svg+xml" data="../Problems/fractal-dimensions/golden-angle-diagram.svg" class="org-svg" width="60px">
 Sorry, your browser does not support SVG.</object>
 </p>
 <p><span class="figure-number">Figure 3: </span>TODO</p>
 </div>
 
 
-<div id="org1a194a3" class="figure">
-<p><object type="image/svg+xml" data="../Problems/fractal-dimensions/my-self-rep-frac-ink-diagram.svg" class="org-svg" width="60px">
+<div id="org3e6d0ec" class="figure">
+<p><object type="image/svg+xml" data="../Problems/fractal-dimensions/my-self-rep-frac.svg" class="org-svg" width="60px">
 Sorry, your browser does not support SVG.</object>
 </p>
 <p><span class="figure-number">Figure 4: </span>TODO</p>
 </div>
 
 
-<div id="orgf6f983f" class="figure">
-<p><object type="image/svg+xml" data="../Problems/fractal-dimensions/My-Self-Replicating-fractal-ink.svg" class="org-svg" width="60px">
+<div id="org0bde333" class="figure">
+<p><object type="image/svg+xml" data="../Problems/fractal-dimensions/golden-angle-diagram.svg" class="org-svg" width="60px">
 Sorry, your browser does not support SVG.</object>
 </p>
 <p><span class="figure-number">Figure 5: </span>TODO</p>
 </div>
 
 
-<div id="org44daf9a" class="figure">
+<div id="orgb8a0bdb" class="figure">
+<p><object type="image/svg+xml" data="../Problems/fractal-dimensions/my-self-rep-frac-ink-diagram.svg" class="org-svg" width="60px">
+Sorry, your browser does not support SVG.</object>
+</p>
+<p><span class="figure-number">Figure 6: </span>TODO</p>
+</div>
+
+
+<div id="orge573a57" class="figure">
+<p><object type="image/svg+xml" data="../Problems/fractal-dimensions/My-Self-Replicating-fractal-ink.svg" class="org-svg" width="60px">
+Sorry, your browser does not support SVG.</object>
+</p>
+<p><span class="figure-number">Figure 7: </span>TODO</p>
+</div>
+
+
+<div id="org2d54202" class="figure">
 <p><img src="../Problems/fractal-dimensions/my-self-rep-frac-GR.png" alt="my-self-rep-frac-GR.png" width="600px" />
 </p>
-<p><span class="figure-number">Figure 6: </span>Fractal that emerges by Rotating and appending boxes, this demonstrates the relationship between the Fibonacci numbers and golden ratio very well</p>
+<p><span class="figure-number">Figure 8: </span>Fractal that emerges by Rotating and appending boxes, this demonstrates the relationship between the Fibonacci numbers and golden ratio very well</p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org8be7b45" class="outline-5">
-<h5 id="org8be7b45"><span class="section-number-5">1.4.3.2</span> Discuss Pattern shows Fibonacci Numbers</h5>
+<div id="outline-container-org5e4c0eb" class="outline-5">
+<h5 id="org5e4c0eb"><span class="section-number-5">1.4.3.2</span> Discuss Pattern shows Fibonacci Numbers</h5>
 <div class="outline-text-5" id="text-1-4-3-2">
 </div>
-<div id="outline-container-orgc0dbf38" class="outline-6">
-<h6 id="orgc0dbf38"><span class="section-number-6">1.4.3.2.1</span> Angle Relates to Golden Ratio</h6>
+<div id="outline-container-orgc5e2c2e" class="outline-6">
+<h6 id="orgc5e2c2e"><span class="section-number-6">1.4.3.2.1</span> Angle Relates to Golden Ratio</h6>
 </div>
 </div>
-<div id="outline-container-org5308e8f" class="outline-5">
-<h5 id="org5308e8f"><span class="section-number-5">1.4.3.3</span> Prove Fibonacci using Monotone Convergence Theorem</h5>
+<div id="outline-container-org5559560" class="outline-5">
+<h5 id="org5559560"><span class="section-number-5">1.4.3.3</span> Prove Fibonacci using Monotone Convergence Theorem</h5>
 <div class="outline-text-5" id="text-1-4-3-3">
 <p>
 Consider the series:
@@ -645,8 +827,8 @@ F_n = F_{n- 1} +  F_{n- 2} ; \quad F_1 = F_2 = 1
 </div>
 
 
-<div id="outline-container-orgd1f9a2e" class="outline-6">
-<h6 id="orgd1f9a2e"><span class="section-number-6">1.4.3.3.1</span> Show that the Series is Monotone</h6>
+<div id="outline-container-org13129f1" class="outline-6">
+<h6 id="org13129f1"><span class="section-number-6">1.4.3.3.1</span> Show that the Series is Monotone</h6>
 <div class="outline-text-6" id="text-1-4-3-3-1">
 <p>
 \[\begin{aligned}
@@ -672,11 +854,11 @@ F_{n} &> 0 \\
 
 
 
-<div id="outline-container-org54eb330" class="outline-6">
-<h6 id="org54eb330"><span class="section-number-6">1.4.3.3.2</span> Show that the Series is Bounded</h6>
+<div id="outline-container-org93035a3" class="outline-6">
+<h6 id="org93035a3"><span class="section-number-6">1.4.3.3.2</span> Show that the Series is Bounded</h6>
 </div>
-<div id="outline-container-org52a37e2" class="outline-6">
-<h6 id="org52a37e2"><span class="section-number-6">1.4.3.3.3</span> Find the Limit</h6>
+<div id="outline-container-org6119734" class="outline-6">
+<h6 id="org6119734"><span class="section-number-6">1.4.3.3.3</span> Find the Limit</h6>
 <div class="outline-text-6" id="text-1-4-3-3-3">
 <p>
 \[\begin{aligned}
@@ -692,8 +874,8 @@ G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 </div>
 
 
-<div id="outline-container-org523501d" class="outline-6">
-<h6 id="org523501d"><span class="section-number-6">1.4.3.3.4</span> Comments</h6>
+<div id="outline-container-orgdd0a3c1" class="outline-6">
+<h6 id="orgdd0a3c1"><span class="section-number-6">1.4.3.3.4</span> Comments</h6>
 <div class="outline-text-6" id="text-1-4-3-3-4">
 <p>
 The Fibonacci sequence is quite unique, observe that:
@@ -741,8 +923,8 @@ Observe also that
 </p>
 </div>
 </div>
-<div id="outline-container-orge67baea" class="outline-6">
-<h6 id="orge67baea"><span class="section-number-6">1.4.3.3.5</span> Python</h6>
+<div id="outline-container-org2ea2302" class="outline-6">
+<h6 id="org2ea2302"><span class="section-number-6">1.4.3.3.5</span> Python</h6>
 <div class="outline-text-6" id="text-1-4-3-3-5">
 <div class="org-src-container">
 <pre class="src src-:exports">#+BEGIN_SRC python :exports both :results output graphics file :file ./a.png
@@ -763,16 +945,16 @@ plt.savefig("./a.png")
 </div>
 </div>
 
-<div id="outline-container-orga1ec02a" class="outline-5">
-<h5 id="orga1ec02a"><span class="section-number-5">1.4.3.4</span> Angle is \(\tan^{-1}\left( \frac{1}{1-\varphi}\right)\)</h5>
+<div id="outline-container-org838fb84" class="outline-5">
+<h5 id="org838fb84"><span class="section-number-5">1.4.3.4</span> Angle is \(\tan^{-1}\left( \frac{1}{1-\varphi}\right)\)</h5>
 <div class="outline-text-5" id="text-1-4-3-4">
 </div>
-<div id="outline-container-org10b2db4" class="outline-6">
-<h6 id="org10b2db4"><span class="section-number-6">1.4.3.4.1</span> Similar to Golden Angle \(2 \pi \left( \frac{1}{1-\varphi}\right)\)</h6>
+<div id="outline-container-org7c0f474" class="outline-6">
+<h6 id="org7c0f474"><span class="section-number-6">1.4.3.4.1</span> Similar to Golden Angle \(2 \pi \left( \frac{1}{1-\varphi}\right)\)</h6>
 </div>
 </div>
-<div id="outline-container-org5c40568" class="outline-5">
-<h5 id="org5c40568"><span class="section-number-5">1.4.3.5</span> Dimension of my Fractal</h5>
+<div id="outline-container-orge37e421" class="outline-5">
+<h5 id="orge37e421"><span class="section-number-5">1.4.3.5</span> Dimension of my Fractal</h5>
 <div class="outline-text-5" id="text-1-4-3-5">
 <p>
 \(\log_{\varphi}(2)\)
@@ -782,33 +964,45 @@ plt.savefig("./a.png")
 </div>
 </div>
 
-<div id="outline-container-orga5bb068" class="outline-3">
-<h3 id="orga5bb068"><span class="section-number-3">1.5</span> Julia Sets and Mandelbrot Sets</h3>
-<div class="outline-text-3" id="text-1-5">
+<div id="outline-container-julia-set" class="outline-3">
+<h3 id="julia-set"><span class="section-number-3">1.5</span> Julia Sets and Mandelbrot Sets</h3>
+<div class="outline-text-3" id="text-julia-set">
 <p>
-The julia set is the outline
+The julia set is the outline.
+</p>
+
+<p>
+The mandelbrot has to do with whether or not it&rsquo;s connected.
 </p>
 </div>
-<div id="outline-container-org2c30ed1" class="outline-4">
-<h4 id="org2c30ed1"><span class="section-number-4">1.5.1</span> The math behind it</h4>
+<div id="outline-container-org81c7542" class="outline-4">
+<h4 id="org81c7542"><span class="section-number-4">1.5.1</span> The math behind it</h4>
 <div class="outline-text-4" id="text-1-5-1">
 </div>
-<div id="outline-container-org6dc4d96" class="outline-5">
-<h5 id="org6dc4d96"><span class="section-number-5">1.5.1.1</span> Like Escaping after 2</h5>
+<div id="outline-container-org3332637" class="outline-5">
+<h5 id="org3332637"><span class="section-number-5">1.5.1.1</span> Like Escaping after 2</h5>
 </div>
 </div>
 </div>
-<div id="outline-container-org88b0356" class="outline-3">
-<h3 id="org88b0356"><span class="section-number-3">1.6</span> Turing</h3>
-</div>
+<div id="outline-container-org3396048" class="outline-3">
+<h3 id="org3396048"><span class="section-number-3">1.6</span> Turing</h3>
 </div>
 
-<div id="outline-container-org0947884" class="outline-2">
-<h2 id="org0947884"><span class="section-number-2">2</span> Outline</h2>
+<div id="outline-container-appendix" class="outline-3">
+<h3 id="appendix"><span class="section-number-3">1.7</span> Appendix</h3>
+<div class="outline-text-3" id="text-appendix">
+<p>
+So unless code contributes directly to the discussion we&rsquo;ll put it in the appendix.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org165980a" class="outline-2">
+<h2 id="org165980a"><span class="section-number-2">2</span> Outline</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgb13a8ad" class="outline-3">
-<h3 id="orgb13a8ad"><span class="section-number-3">2.1</span> Introduction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
+<div id="outline-container-org5a68c8c" class="outline-3">
+<h3 id="org5a68c8c"><span class="section-number-3">2.1</span> Introduction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 This project, at the outset, was very broadly concerned with the use of <i>Python</i> for
@@ -839,8 +1033,8 @@ with Julia as well).
 </div>
 </div>
 
-<div id="outline-container-orgaa32611" class="outline-3">
-<h3 id="orgaa32611"><span class="section-number-3">2.2</span> Programming Recursion&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
+<div id="outline-container-org0927b08" class="outline-3">
+<h3 id="org0927b08"><span class="section-number-3">2.2</span> Programming Recursion&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 As an introduction to <i>Python</i> generally, we undertook many problem questions which have been omitted from this outline, however, this one in particular offered an interesting insight into the difficulties we may encounter when dealing with recursive systems.
@@ -877,42 +1071,42 @@ h\left( k \right) = \prod^k_{i = 2} \left( \frac{f_i}{i}  \right)  \quad : \quad
 
 <p>
 Within <i>Python</i>, it isn&rsquo;t difficult to express \(h\), the series can be expressed
-with recursion as shown in listing <a href="#org8970983">1</a>, this is a very natural way to define
+with recursion as shown in listing <a href="#org3388962">2</a>, this is a very natural way to define
 series and sequences and is consistent with familiar mathematical thought and
 notation. Individuals more familiar with programming than analysis may find it
-more comfortable to use an iterator as shown in listing <a href="#org10bdb2e">2</a>.
+more comfortable to use an iterator as shown in listing <a href="#org939d73b">3</a>.
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 1: </span>Solving \eqref{eq:rec-ser-mod} using recursion.</label><pre class="src src-python" id="org8970983"><span style="color: #0000FF;">from</span> sympy <span style="color: #0000FF;">import</span> *
-<span style="color: #0000FF;">def</span> <span style="color: #006699;">h</span>(k):
-    <span style="color: #0000FF;">if</span> k &gt; <span style="color: #D0372D;">2</span>:
-        <span style="color: #0000FF;">return</span> f(k) * f(k-<span style="color: #D0372D;">1</span>)
-    <span style="color: #0000FF;">else</span>:
-        <span style="color: #0000FF;">return</span> <span style="color: #D0372D;">1</span>
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>Solving \eqref{eq:rec-ser-mod} using recursion.</label><pre class="src src-python" id="org3388962"><span style="color: #ffff0b;">from</span> sympy <span style="color: #ffff0b;">import</span> *
+<span style="color: #ffff0b;">def</span> <span style="color: #ff996f;">h</span>(k):
+    <span style="color: #ffff0b;">if</span> k &gt; <span style="color: #34c8d8;">2</span>:
+        <span style="color: #ffff0b;">return</span> f(k) * f(k-<span style="color: #34c8d8;">1</span>)
+    <span style="color: #ffff0b;">else</span>:
+        <span style="color: #ffff0b;">return</span> <span style="color: #34c8d8;">1</span>
 
-<span style="color: #0000FF;">def</span> <span style="color: #006699;">f</span>(i):
-    <span style="color: #BA36A5;">expr</span> = <span style="color: #D0372D;">0</span>
-    <span style="color: #0000FF;">if</span> i &gt; <span style="color: #D0372D;">2</span>:
-        <span style="color: #0000FF;">return</span> sqrt(i + f(i -<span style="color: #D0372D;">1</span>))
-    <span style="color: #0000FF;">else</span>:
-        <span style="color: #0000FF;">return</span> <span style="color: #D0372D;">1</span>
+<span style="color: #ffff0b;">def</span> <span style="color: #ff996f;">f</span>(i):
+    <span style="color: #4ac964;">expr</span> = <span style="color: #34c8d8;">0</span>
+    <span style="color: #ffff0b;">if</span> i &gt; <span style="color: #34c8d8;">2</span>:
+        <span style="color: #ffff0b;">return</span> sqrt(i + f(i -<span style="color: #34c8d8;">1</span>))
+    <span style="color: #ffff0b;">else</span>:
+        <span style="color: #ffff0b;">return</span> <span style="color: #34c8d8;">1</span>
 </pre>
 </div>
 
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 2: </span>Solving \eqref{eq:rec-ser-mod} by using a <code>for</code> loop.</label><pre class="src src-python" id="org10bdb2e">  <span style="color: #0000FF;">from</span> sympy <span style="color: #0000FF;">import</span> *
-  <span style="color: #0000FF;">def</span> <span style="color: #006699;">h</span>(k):
-      <span style="color: #BA36A5;">k</span> = k + <span style="color: #D0372D;">1</span> <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">OBOB</span>
-      <span style="color: #BA36A5;">l</span> = [f(i) <span style="color: #0000FF;">for</span> i <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(<span style="color: #D0372D;">1</span>,k)]
-      <span style="color: #0000FF;">return</span> prod(l)
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>Solving \eqref{eq:rec-ser-mod} by using a <code>for</code> loop.</label><pre class="src src-python" id="org939d73b">  <span style="color: #ffff0b;">from</span> sympy <span style="color: #ffff0b;">import</span> *
+  <span style="color: #ffff0b;">def</span> <span style="color: #ff996f;">h</span>(k):
+      <span style="color: #4ac964;">k</span> = k + <span style="color: #34c8d8;">1</span> <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">OBOB</span>
+      <span style="color: #4ac964;">l</span> = [f(i) <span style="color: #ffff0b;">for</span> i <span style="color: #ffff0b;">in</span> <span style="color: #ff9029;">range</span>(<span style="color: #34c8d8;">1</span>,k)]
+      <span style="color: #ffff0b;">return</span> prod(l)
 
-  <span style="color: #0000FF;">def</span> <span style="color: #006699;">f</span>(k):
-      <span style="color: #BA36A5;">expr</span> = <span style="color: #D0372D;">0</span>
-      <span style="color: #0000FF;">for</span> i <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(<span style="color: #D0372D;">2</span>, k+<span style="color: #D0372D;">2</span>):
-          <span style="color: #BA36A5;">expr</span> = sqrt(i + expr, evaluate=<span style="color: #D0372D;">False</span>)
-      <span style="color: #0000FF;">return</span> expr/(k+<span style="color: #D0372D;">1</span>)
+  <span style="color: #ffff0b;">def</span> <span style="color: #ff996f;">f</span>(k):
+      <span style="color: #4ac964;">expr</span> = <span style="color: #34c8d8;">0</span>
+      <span style="color: #ffff0b;">for</span> i <span style="color: #ffff0b;">in</span> <span style="color: #ff9029;">range</span>(<span style="color: #34c8d8;">2</span>, k+<span style="color: #34c8d8;">2</span>):
+          <span style="color: #4ac964;">expr</span> = sqrt(i + expr, evaluate=<span style="color: #34c8d8;">False</span>)
+      <span style="color: #ffff0b;">return</span> expr/(k+<span style="color: #34c8d8;">1</span>)
 </pre>
 </div>
 
@@ -983,7 +1177,7 @@ this can become a little clumsy, see \eqref{eq:clumsy}:
 
 <p>
 Now the function could be performed recursively in <i>Python</i> in a similar way as
-shown in listing <a href="#org63bf5cc">3</a>, but it&rsquo;s also significantly more confusing because the
+shown in listing <a href="#orgae49a65">4</a>, but it&rsquo;s also significantly more confusing because the
 \(f\) function now has \(k\) as a parameter and this is only made significantly more
 complicated by the differing implementations of variable scope across common
 languages used in Mathematics and Data science such as <code>bash</code>, <b><i>R</i></b>, <i>Julia</i>, <i>Python</i>.
@@ -991,7 +1185,7 @@ languages used in Mathematics and Data science such as <code>bash</code>, <b><i>
 
 <p>
 If however, the <code>for</code> loop approach was implemented, as shown in listing
-<a href="#orga3cf744">4</a>, the function would not significantly change, because the <code>reversed()</code> function can be
+<a href="#org9b9b968">5</a>, the function would not significantly change, because the <code>reversed()</code> function can be
 used to flip the list around.
 </p>
 
@@ -1002,36 +1196,36 @@ this problem.
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 3: </span>Using Recursion to Solve \eqref{eq:rec-ser}</label><pre class="src src-python" id="org63bf5cc"><span style="color: #0000FF;">from</span> sympy <span style="color: #0000FF;">import</span> *
-<span style="color: #0000FF;">def</span> <span style="color: #006699;">h</span>(k):
-    <span style="color: #0000FF;">if</span> k &gt; <span style="color: #D0372D;">2</span>:
-        <span style="color: #0000FF;">return</span> f(k, k) * f(k, k-<span style="color: #D0372D;">1</span>)
-    <span style="color: #0000FF;">else</span>:
-        <span style="color: #0000FF;">return</span> <span style="color: #D0372D;">1</span>
+<label class="org-src-name"><span class="listing-number">Listing 4: </span>Using Recursion to Solve \eqref{eq:rec-ser}</label><pre class="src src-python" id="orgae49a65"><span style="color: #ffff0b;">from</span> sympy <span style="color: #ffff0b;">import</span> *
+<span style="color: #ffff0b;">def</span> <span style="color: #ff996f;">h</span>(k):
+    <span style="color: #ffff0b;">if</span> k &gt; <span style="color: #34c8d8;">2</span>:
+        <span style="color: #ffff0b;">return</span> f(k, k) * f(k, k-<span style="color: #34c8d8;">1</span>)
+    <span style="color: #ffff0b;">else</span>:
+        <span style="color: #ffff0b;">return</span> <span style="color: #34c8d8;">1</span>
 
-<span style="color: #0000FF;">def</span> <span style="color: #006699;">f</span>(k, i):
-    <span style="color: #0000FF;">if</span> k &gt; i:
-        <span style="color: #0000FF;">return</span> <span style="color: #D0372D;">1</span>
-    <span style="color: #0000FF;">if</span> i &gt; <span style="color: #D0372D;">2</span>:
-        <span style="color: #0000FF;">return</span> sqrt((k-i) + f(k, k - i -<span style="color: #D0372D;">1</span>))
-    <span style="color: #0000FF;">else</span>:
-        <span style="color: #0000FF;">return</span> <span style="color: #D0372D;">1</span>
+<span style="color: #ffff0b;">def</span> <span style="color: #ff996f;">f</span>(k, i):
+    <span style="color: #ffff0b;">if</span> k &gt; i:
+        <span style="color: #ffff0b;">return</span> <span style="color: #34c8d8;">1</span>
+    <span style="color: #ffff0b;">if</span> i &gt; <span style="color: #34c8d8;">2</span>:
+        <span style="color: #ffff0b;">return</span> sqrt((k-i) + f(k, k - i -<span style="color: #34c8d8;">1</span>))
+    <span style="color: #ffff0b;">else</span>:
+        <span style="color: #ffff0b;">return</span> <span style="color: #34c8d8;">1</span>
 </pre>
 </div>
 
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 4: </span>Using Iteration to Solve \eqref{eq:rec-ser}</label><pre class="src src-python" id="orga3cf744"><span style="color: #0000FF;">from</span> sympy <span style="color: #0000FF;">import</span> *
-<span style="color: #0000FF;">def</span> <span style="color: #006699;">h</span>(k):
-    <span style="color: #BA36A5;">k</span> = k + <span style="color: #D0372D;">1</span> <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">OBOB</span>
-    <span style="color: #BA36A5;">l</span> = [f(i) <span style="color: #0000FF;">for</span> i <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(<span style="color: #D0372D;">1</span>,k)]
-    <span style="color: #0000FF;">return</span> prod(l)
+<label class="org-src-name"><span class="listing-number">Listing 5: </span>Using Iteration to Solve \eqref{eq:rec-ser}</label><pre class="src src-python" id="org9b9b968"><span style="color: #ffff0b;">from</span> sympy <span style="color: #ffff0b;">import</span> *
+<span style="color: #ffff0b;">def</span> <span style="color: #ff996f;">h</span>(k):
+    <span style="color: #4ac964;">k</span> = k + <span style="color: #34c8d8;">1</span> <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">OBOB</span>
+    <span style="color: #4ac964;">l</span> = [f(i) <span style="color: #ffff0b;">for</span> i <span style="color: #ffff0b;">in</span> <span style="color: #ff9029;">range</span>(<span style="color: #34c8d8;">1</span>,k)]
+    <span style="color: #ffff0b;">return</span> prod(l)
 
-<span style="color: #0000FF;">def</span> <span style="color: #006699;">f</span>(k):
-    <span style="color: #BA36A5;">expr</span> = <span style="color: #D0372D;">0</span>
-    <span style="color: #0000FF;">for</span> i <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">reversed</span>(<span style="color: #006FE0;">range</span>(<span style="color: #D0372D;">2</span>, k+<span style="color: #D0372D;">2</span>)):
-        <span style="color: #BA36A5;">expr</span> = sqrt(i + expr, evaluate=<span style="color: #D0372D;">False</span>)
-    <span style="color: #0000FF;">return</span> expr/(k+<span style="color: #D0372D;">1</span>)
+<span style="color: #ffff0b;">def</span> <span style="color: #ff996f;">f</span>(k):
+    <span style="color: #4ac964;">expr</span> = <span style="color: #34c8d8;">0</span>
+    <span style="color: #ffff0b;">for</span> i <span style="color: #ffff0b;">in</span> <span style="color: #ff9029;">reversed</span>(<span style="color: #ff9029;">range</span>(<span style="color: #34c8d8;">2</span>, k+<span style="color: #34c8d8;">2</span>)):
+        <span style="color: #4ac964;">expr</span> = sqrt(i + expr, evaluate=<span style="color: #34c8d8;">False</span>)
+    <span style="color: #ffff0b;">return</span> expr/(k+<span style="color: #34c8d8;">1</span>)
 </pre>
 </div>
 </div>
@@ -1039,12 +1233,12 @@ this problem.
 </div>
 </div>
 
-<div id="outline-container-orgc6f1bbb" class="outline-3">
-<h3 id="orgc6f1bbb"><span class="section-number-3">2.3</span> Fibonacci Sequence&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span>&#xa0;<span class="James">James</span></span></h3>
+<div id="outline-container-orgd95d3dd" class="outline-3">
+<h3 id="orgd95d3dd"><span class="section-number-3">2.3</span> Fibonacci Sequence&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span>&#xa0;<span class="James">James</span></span></h3>
 <div class="outline-text-3" id="text-2-3">
 </div>
-<div id="outline-container-orgd42ac2a" class="outline-4">
-<h4 id="orgd42ac2a"><span class="section-number-4">2.3.1</span> Introduction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h4>
+<div id="outline-container-orgaeb168a" class="outline-4">
+<h4 id="orgaeb168a"><span class="section-number-4">2.3.1</span> Introduction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h4>
 <div class="outline-text-4" id="text-2-3-1">
 <p>
 The <i>Fibonacci Sequence</i> and <i>Golden Ratio</i> share a deep connection<sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup> and occur in patterns observed in nature very frequently
@@ -1085,8 +1279,8 @@ F_n = F_{n-1} + F_{n-2} \label{eq:fib-def}
 
 <p>
 This type of recursive relation can be expressed in <i>Python</i> by using recursion,
-as shown in listing <a href="#org6ea2fa9">5</a>, however using this function will reveal that it
-is extraordinarily slow, as shown in listing <a href="#orgef2ca10">6</a>, this is because the
+as shown in listing <a href="#org1fa4d44">6</a>, however using this function will reveal that it
+is extraordinarily slow, as shown in listing <a href="#org2b3302f">7</a>, this is because the
 results of the function are not cached and every time the function is called
 every value is recalculated<sup><a id="fnr.6" class="footref" href="#fn.6">6</a></sup>, meaning that the workload scales in
 exponential as opposed to polynomial time.
@@ -1097,130 +1291,130 @@ The <code>functools</code> library for python includes the <code>@functools.lru_
 which will modify a defined function to cache results in memory
 (NO_ITEM_DATA:FunctoolsHigherorderFunctions), this means that the recursive function will
 only need to calculate each result once and it will hence scale in polynomial
-time, this is implemented in listing <a href="#orgcab52ae">7</a>.
+time, this is implemented in listing <a href="#org7c33899">8</a>.
 </p>
 
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 5: </span>Defining the <i>Fibonacci Sequence</i> \eqref{eq:fib-def} using Recursion</label><pre class="src src-python" id="org6ea2fa9">  <span style="color: #0000FF;">def</span> <span style="color: #006699;">rec_fib</span>(k):
-      <span style="color: #0000FF;">if</span> <span style="color: #006FE0;">type</span>(k) <span style="color: #0000FF;">is</span> <span style="color: #0000FF;">not</span> <span style="color: #006FE0;">int</span>:
-          <span style="color: #0000FF;">print</span>(<span style="color: #008000;">"Error: Require integer values"</span>)
-          <span style="color: #0000FF;">return</span> <span style="color: #D0372D;">0</span>
-      <span style="color: #0000FF;">elif</span> k == <span style="color: #D0372D;">0</span>:
-          <span style="color: #0000FF;">return</span> <span style="color: #D0372D;">0</span>
-      <span style="color: #0000FF;">elif</span> k &lt;= <span style="color: #D0372D;">2</span>:
-          <span style="color: #0000FF;">return</span> <span style="color: #D0372D;">1</span>
-      <span style="color: #0000FF;">return</span> rec_fib(k-<span style="color: #D0372D;">1</span>) + rec_fib(k-<span style="color: #D0372D;">2</span>)
+<label class="org-src-name"><span class="listing-number">Listing 6: </span>Defining the <i>Fibonacci Sequence</i> \eqref{eq:fib-def} using Recursion</label><pre class="src src-python" id="org1fa4d44">  <span style="color: #ffff0b;">def</span> <span style="color: #ff996f;">rec_fib</span>(k):
+      <span style="color: #ffff0b;">if</span> <span style="color: #ff9029;">type</span>(k) <span style="color: #ffff0b;">is</span> <span style="color: #ffff0b;">not</span> <span style="color: #ff9029;">int</span>:
+          <span style="color: #ffff0b;">print</span>(<span style="color: #ff7fff;">"Error: Require integer values"</span>)
+          <span style="color: #ffff0b;">return</span> <span style="color: #34c8d8;">0</span>
+      <span style="color: #ffff0b;">elif</span> k == <span style="color: #34c8d8;">0</span>:
+          <span style="color: #ffff0b;">return</span> <span style="color: #34c8d8;">0</span>
+      <span style="color: #ffff0b;">elif</span> k &lt;= <span style="color: #34c8d8;">2</span>:
+          <span style="color: #ffff0b;">return</span> <span style="color: #34c8d8;">1</span>
+      <span style="color: #ffff0b;">return</span> rec_fib(k-<span style="color: #34c8d8;">1</span>) + rec_fib(k-<span style="color: #34c8d8;">2</span>)
 </pre>
 </div>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 6: </span>Using the function from listing <a href="#org6ea2fa9">5</a> is quite slow.</label><pre class="src src-python" id="orgef2ca10">  <span style="color: #BA36A5;">start</span> = time.time()
-  rec_fib(<span style="color: #D0372D;">35</span>)
-  <span style="color: #0000FF;">print</span>(<span style="color: #006FE0;">str</span>(<span style="color: #006FE0;">round</span>(time.time() - start, <span style="color: #D0372D;">3</span>)) + <span style="color: #008000;">"seconds"</span>)
+<label class="org-src-name"><span class="listing-number">Listing 7: </span>Using the function from listing <a href="#org1fa4d44">6</a> is quite slow.</label><pre class="src src-python" id="org2b3302f">  <span style="color: #4ac964;">start</span> = time.time()
+  rec_fib(<span style="color: #34c8d8;">35</span>)
+  <span style="color: #ffff0b;">print</span>(<span style="color: #ff9029;">str</span>(<span style="color: #ff9029;">round</span>(time.time() - start, <span style="color: #34c8d8;">3</span>)) + <span style="color: #ff7fff;">"seconds"</span>)
 
-<span style="color: #8D8D84;">## </span><span style="color: #8D8D84; font-style: italic;">2.245seconds</span>
+<span style="color: #767283;">## </span><span style="color: #767283; font-style: italic;">2.245seconds</span>
 </pre>
 </div>
 
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 7: </span>Caching the results of the function previously defined <a href="#orgef2ca10">6</a></label><pre class="src src-python" id="orgcab52ae">  <span style="color: #0000FF;">from</span> functools <span style="color: #0000FF;">import</span> lru_cache
+<label class="org-src-name"><span class="listing-number">Listing 8: </span>Caching the results of the function previously defined <a href="#org2b3302f">7</a></label><pre class="src src-python" id="org7c33899">  <span style="color: #ffff0b;">from</span> functools <span style="color: #ffff0b;">import</span> lru_cache
 
-  <span style="color: #6434A3;">@lru_cache</span>(maxsize=<span style="color: #D0372D;">9999</span>)
-  <span style="color: #0000FF;">def</span> <span style="color: #006699;">rec_fib</span>(k):
-      <span style="color: #0000FF;">if</span> <span style="color: #006FE0;">type</span>(k) <span style="color: #0000FF;">is</span> <span style="color: #0000FF;">not</span> <span style="color: #006FE0;">int</span>:
-          <span style="color: #0000FF;">print</span>(<span style="color: #008000;">"Error: Require Integer Values"</span>)
-          <span style="color: #0000FF;">return</span> <span style="color: #D0372D;">0</span>
-      <span style="color: #0000FF;">elif</span> k == <span style="color: #D0372D;">0</span>:
-          <span style="color: #0000FF;">return</span> <span style="color: #D0372D;">0</span>
-      <span style="color: #0000FF;">elif</span> k &lt;= <span style="color: #D0372D;">2</span>:
-          <span style="color: #0000FF;">return</span> <span style="color: #D0372D;">1</span>
-      <span style="color: #0000FF;">return</span> rec_fib(k-<span style="color: #D0372D;">1</span>) + rec_fib(k-<span style="color: #D0372D;">2</span>)
+  <span style="color: #9fcb66;">@lru_cache</span>(maxsize=<span style="color: #34c8d8;">9999</span>)
+  <span style="color: #ffff0b;">def</span> <span style="color: #ff996f;">rec_fib</span>(k):
+      <span style="color: #ffff0b;">if</span> <span style="color: #ff9029;">type</span>(k) <span style="color: #ffff0b;">is</span> <span style="color: #ffff0b;">not</span> <span style="color: #ff9029;">int</span>:
+          <span style="color: #ffff0b;">print</span>(<span style="color: #ff7fff;">"Error: Require Integer Values"</span>)
+          <span style="color: #ffff0b;">return</span> <span style="color: #34c8d8;">0</span>
+      <span style="color: #ffff0b;">elif</span> k == <span style="color: #34c8d8;">0</span>:
+          <span style="color: #ffff0b;">return</span> <span style="color: #34c8d8;">0</span>
+      <span style="color: #ffff0b;">elif</span> k &lt;= <span style="color: #34c8d8;">2</span>:
+          <span style="color: #ffff0b;">return</span> <span style="color: #34c8d8;">1</span>
+      <span style="color: #ffff0b;">return</span> rec_fib(k-<span style="color: #34c8d8;">1</span>) + rec_fib(k-<span style="color: #34c8d8;">2</span>)
 
 
-<span style="color: #BA36A5;">start</span> = time.time()
-rec_fib(<span style="color: #D0372D;">35</span>)
-<span style="color: #0000FF;">print</span>(<span style="color: #006FE0;">str</span>(<span style="color: #006FE0;">round</span>(time.time() - start, <span style="color: #D0372D;">3</span>)) + <span style="color: #008000;">"seconds"</span>)
-<span style="color: #8D8D84;">## </span><span style="color: #8D8D84; font-style: italic;">0.0seconds</span>
+<span style="color: #4ac964;">start</span> = time.time()
+rec_fib(<span style="color: #34c8d8;">35</span>)
+<span style="color: #ffff0b;">print</span>(<span style="color: #ff9029;">str</span>(<span style="color: #ff9029;">round</span>(time.time() - start, <span style="color: #34c8d8;">3</span>)) + <span style="color: #ff7fff;">"seconds"</span>)
+<span style="color: #767283;">## </span><span style="color: #767283; font-style: italic;">0.0seconds</span>
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-python">  <span style="color: #BA36A5;">start</span> = time.time()
-  rec_fib(<span style="color: #D0372D;">6000</span>)
-  <span style="color: #0000FF;">print</span>(<span style="color: #006FE0;">str</span>(<span style="color: #006FE0;">round</span>(time.time() - start, <span style="color: #D0372D;">9</span>)) + <span style="color: #008000;">"seconds"</span>)
+<pre class="src src-python">  <span style="color: #4ac964;">start</span> = time.time()
+  rec_fib(<span style="color: #34c8d8;">6000</span>)
+  <span style="color: #ffff0b;">print</span>(<span style="color: #ff9029;">str</span>(<span style="color: #ff9029;">round</span>(time.time() - start, <span style="color: #34c8d8;">9</span>)) + <span style="color: #ff7fff;">"seconds"</span>)
 
-<span style="color: #8D8D84;">## </span><span style="color: #8D8D84; font-style: italic;">8.3923e-05seconds</span>
+<span style="color: #767283;">## </span><span style="color: #767283; font-style: italic;">8.3923e-05seconds</span>
 </pre>
 </div>
 
 <p>
-Restructuring the problem to use iteration will allow for even greater performance as demonstrated by finding \(F_{10^{6}}\) in listing <a href="#org706b200">8</a>. Using a compiled language such as <i>Julia</i> however would be thousands of times faster still, as demonstrated in listing <a href="#org1ef480d">9</a>.
+Restructuring the problem to use iteration will allow for even greater performance as demonstrated by finding \(F_{10^{6}}\) in listing <a href="#org08c4080">9</a>. Using a compiled language such as <i>Julia</i> however would be thousands of times faster still, as demonstrated in listing <a href="#orge76bcb3">10</a>.
 </p>
 
 
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 8: </span>Using Iteration to Solve the Fibonacci Sequence</label><pre class="src src-python" id="org706b200">  <span style="color: #0000FF;">def</span> <span style="color: #006699;">my_it_fib</span>(k):
-      <span style="color: #0000FF;">if</span> k == <span style="color: #D0372D;">0</span>:
-          <span style="color: #0000FF;">return</span> k
-      <span style="color: #0000FF;">elif</span> <span style="color: #006FE0;">type</span>(k) <span style="color: #0000FF;">is</span> <span style="color: #0000FF;">not</span> <span style="color: #006FE0;">int</span>:
-          <span style="color: #0000FF;">print</span>(<span style="color: #008000;">"ERROR: Integer Required"</span>)
-          <span style="color: #0000FF;">return</span> <span style="color: #D0372D;">0</span>
-      <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Hence k must be a positive integer</span>
+<label class="org-src-name"><span class="listing-number">Listing 9: </span>Using Iteration to Solve the Fibonacci Sequence</label><pre class="src src-python" id="org08c4080">  <span style="color: #ffff0b;">def</span> <span style="color: #ff996f;">my_it_fib</span>(k):
+      <span style="color: #ffff0b;">if</span> k == <span style="color: #34c8d8;">0</span>:
+          <span style="color: #ffff0b;">return</span> k
+      <span style="color: #ffff0b;">elif</span> <span style="color: #ff9029;">type</span>(k) <span style="color: #ffff0b;">is</span> <span style="color: #ffff0b;">not</span> <span style="color: #ff9029;">int</span>:
+          <span style="color: #ffff0b;">print</span>(<span style="color: #ff7fff;">"ERROR: Integer Required"</span>)
+          <span style="color: #ffff0b;">return</span> <span style="color: #34c8d8;">0</span>
+      <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">Hence k must be a positive integer</span>
 
-      <span style="color: #BA36A5;">i</span>  = <span style="color: #D0372D;">1</span>
-      <span style="color: #BA36A5;">n1</span> = <span style="color: #D0372D;">1</span>
-      <span style="color: #BA36A5;">n2</span> = <span style="color: #D0372D;">1</span>
+      <span style="color: #4ac964;">i</span>  = <span style="color: #34c8d8;">1</span>
+      <span style="color: #4ac964;">n1</span> = <span style="color: #34c8d8;">1</span>
+      <span style="color: #4ac964;">n2</span> = <span style="color: #34c8d8;">1</span>
 
-      <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">if k &lt;=2:</span>
-      <span style="color: #8D8D84;">#     </span><span style="color: #8D8D84; font-style: italic;">return 1</span>
+      <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">if k &lt;=2:</span>
+      <span style="color: #767283;">#     </span><span style="color: #767283; font-style: italic;">return 1</span>
 
-      <span style="color: #0000FF;">while</span> i &lt; k:
-         <span style="color: #BA36A5;">no</span> = n1
-         <span style="color: #BA36A5;">n1</span> = n2
-         <span style="color: #BA36A5;">n2</span> = no + n2
-         <span style="color: #BA36A5;">i</span> = i + <span style="color: #D0372D;">1</span>
-      <span style="color: #0000FF;">return</span> (n1)
+      <span style="color: #ffff0b;">while</span> i &lt; k:
+         <span style="color: #4ac964;">no</span> = n1
+         <span style="color: #4ac964;">n1</span> = n2
+         <span style="color: #4ac964;">n2</span> = no + n2
+         <span style="color: #4ac964;">i</span> = i + <span style="color: #34c8d8;">1</span>
+      <span style="color: #ffff0b;">return</span> (n1)
 
-  <span style="color: #BA36A5;">start</span> = time.time()
-  my_it_fib(<span style="color: #D0372D;">10</span>**<span style="color: #D0372D;">6</span>)
-  <span style="color: #0000FF;">print</span>(<span style="color: #006FE0;">str</span>(<span style="color: #006FE0;">round</span>(time.time() - start, <span style="color: #D0372D;">9</span>)) + <span style="color: #008000;">"seconds"</span>)
+  <span style="color: #4ac964;">start</span> = time.time()
+  my_it_fib(<span style="color: #34c8d8;">10</span>**<span style="color: #34c8d8;">6</span>)
+  <span style="color: #ffff0b;">print</span>(<span style="color: #ff9029;">str</span>(<span style="color: #ff9029;">round</span>(time.time() - start, <span style="color: #34c8d8;">9</span>)) + <span style="color: #ff7fff;">"seconds"</span>)
 
- <span style="color: #8D8D84;">## </span><span style="color: #8D8D84; font-style: italic;">6.975890398seconds</span>
+ <span style="color: #767283;">## </span><span style="color: #767283; font-style: italic;">6.975890398seconds</span>
 </pre>
 </div>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 9: </span>Using Julia with an iterative approach to solve the 1 millionth fibonacci number</label><pre class="src src-julia" id="org1ef480d"><span style="color: #0000FF;">function</span> <span style="color: #006699;">my_it_fib</span>(k)
-    <span style="color: #0000FF;">if</span> k <span style="color: #6434A3;">==</span> <span style="color: #D0372D;">0</span>
-        <span style="color: #0000FF;">return</span> k
-    <span style="color: #0000FF;">elseif</span> typeof(k)<span style="color: #6434A3;"> !=</span> Int
-        print(<span style="color: #008000;">"ERROR: Integer Required"</span>)
-        <span style="color: #0000FF;">return</span> <span style="color: #D0372D;">0</span>
-    <span style="color: #0000FF;">end</span>
-    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Hence k must be a positive integer</span>
+<label class="org-src-name"><span class="listing-number">Listing 10: </span>Using Julia with an iterative approach to solve the 1 millionth fibonacci number</label><pre class="src src-julia" id="orge76bcb3"><span style="color: #ffff0b;">function</span> <span style="color: #ff996f;">my_it_fib</span>(k)
+    <span style="color: #ffff0b;">if</span> k <span style="color: #9fcb66;">==</span> <span style="color: #34c8d8;">0</span>
+        <span style="color: #ffff0b;">return</span> k
+    <span style="color: #ffff0b;">elseif</span> typeof(k)<span style="color: #9fcb66;"> !=</span> Int
+        print(<span style="color: #ff7fff;">"ERROR: Integer Required"</span>)
+        <span style="color: #ffff0b;">return</span> <span style="color: #34c8d8;">0</span>
+    <span style="color: #ffff0b;">end</span>
+    <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">Hence k must be a positive integer</span>
 
-    i  = <span style="color: #D0372D;">1</span>
-    n1 = <span style="color: #D0372D;">1</span>
-    n2 = <span style="color: #D0372D;">1</span>
+    i  = <span style="color: #34c8d8;">1</span>
+    n1 = <span style="color: #34c8d8;">1</span>
+    n2 = <span style="color: #34c8d8;">1</span>
 
-    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">if k &lt;=2:</span>
-    <span style="color: #8D8D84;">#     </span><span style="color: #8D8D84; font-style: italic;">return 1</span>
-    <span style="color: #0000FF;">while</span> i <span style="color: #6434A3;">&lt;</span> k
+    <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">if k &lt;=2:</span>
+    <span style="color: #767283;">#     </span><span style="color: #767283; font-style: italic;">return 1</span>
+    <span style="color: #ffff0b;">while</span> i <span style="color: #9fcb66;">&lt;</span> k
        no = n1
        n1 = n2
-       n2 = no <span style="color: #6434A3;">+</span> n2
-       i = i <span style="color: #6434A3;">+</span> <span style="color: #D0372D;">1</span>
-    <span style="color: #0000FF;">end</span>
-    <span style="color: #0000FF;">return</span> (n1)
-<span style="color: #0000FF;">end</span>
+       n2 = no <span style="color: #9fcb66;">+</span> n2
+       i = i <span style="color: #9fcb66;">+</span> <span style="color: #34c8d8;">1</span>
+    <span style="color: #ffff0b;">end</span>
+    <span style="color: #ffff0b;">return</span> (n1)
+<span style="color: #ffff0b;">end</span>
 
-<span style="color: #808080;">@time</span> my_it_fib(<span style="color: #D0372D;">10</span><span style="color: #6434A3;">^</span><span style="color: #D0372D;">6</span>)
+<span style="color: #837f87;">@time</span> my_it_fib(<span style="color: #34c8d8;">10</span><span style="color: #9fcb66;">^</span><span style="color: #34c8d8;">6</span>)
 
-<span style="color: #8D8D84;">##  </span><span style="color: #8D8D84; font-style: italic;">my_it_fib (generic function with 1 method)</span>
-<span style="color: #8D8D84;">##    </span><span style="color: #8D8D84; font-style: italic;">0.000450 seconds</span>
+<span style="color: #767283;">##  </span><span style="color: #767283; font-style: italic;">my_it_fib (generic function with 1 method)</span>
+<span style="color: #767283;">##    </span><span style="color: #767283; font-style: italic;">0.000450 seconds</span>
 </pre>
 </div>
 
@@ -1391,8 +1585,8 @@ where:
 <h5 id="Derivative-exp-gen-function"><span class="section-number-5">2.3.3.3</span> Derivative of the Exponential Generating Function</h5>
 <div class="outline-text-5" id="text-Derivative-exp-gen-function">
 </div>
-<div id="outline-container-orge0b1ea1" class="outline-6">
-<h6 id="orge0b1ea1"><span class="section-number-6">2.3.3.3.1</span> Base&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h6>
+<div id="outline-container-org567b050" class="outline-6">
+<h6 id="org567b050"><span class="section-number-6">2.3.3.3.1</span> Base&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h6>
 <div class="outline-text-6" id="text-2-3-3-3-1">
 <p>
 Differentiating the exponential generating function has the effect of shifting the sequence to the backward: (NO_ITEM_DATA:lehmanReadingsMathematicsComputer2010)
@@ -1409,8 +1603,8 @@ f'\left( x \right)) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 
 </div>
 </div>
 
-<div id="outline-container-orga991f89" class="outline-6">
-<h6 id="orga991f89"><span class="section-number-6">2.3.3.3.2</span> Bridge&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></h6>
+<div id="outline-container-org8fc4372" class="outline-6">
+<h6 id="org8fc4372"><span class="section-number-6">2.3.3.3.2</span> Bridge&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></h6>
 <div class="outline-text-6" id="text-2-3-3-3-2">
 <p>
 This can be shown for all derivatives by way of induction, for
@@ -1452,8 +1646,8 @@ first derivative has been shown to express this property
 </div>
 </div>
 
-<div id="outline-container-org740158d" class="outline-5">
-<h5 id="org740158d"><span class="section-number-5">2.3.3.4</span> Homogeneous Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span>&#xa0;<span class="James">James</span></span></h5>
+<div id="outline-container-org4689623" class="outline-5">
+<h5 id="org4689623"><span class="section-number-5">2.3.3.4</span> Homogeneous Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span>&#xa0;<span class="James">James</span></span></h5>
 <div class="outline-text-5" id="text-2-3-3-4">
 <p>
 An equation of the form:
@@ -1506,16 +1700,16 @@ where:
 <h6 id="uniq-roots-recurrence"><span class="section-number-6">2.3.3.4.1</span> Unique Roots of Characteristic Equation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h6>
 <div class="outline-text-6" id="text-uniq-roots-recurrence">
 </div>
-<div id="outline-container-orgde6033e" class="outline-7">
-<h7 id="orgde6033e"><span class="section-number-7">2.3.3.4.1.1</span> Example</h7>
+<div id="outline-container-orgd8b8c00" class="outline-7">
+<h7 id="orgd8b8c00"><span class="section-number-7">2.3.3.4.1.1</span> Example</h7>
 <div class="outline-text-7" id="text-2-3-3-4-1-1">
 <p>
 An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section <a href="#solving-the-sequence">2.3.3.2</a>.
 </p>
 </div>
 </div>
-<div id="outline-container-org6039218" class="outline-7">
-<h7 id="org6039218"><span class="section-number-7">2.3.3.4.1.2</span> Proof</h7>
+<div id="outline-container-org37b1e0e" class="outline-7">
+<h7 id="org37b1e0e"><span class="section-number-7">2.3.3.4.1.2</span> Proof</h7>
 <div class="outline-text-7" id="text-2-3-3-4-1-2">
 <p>
 Consider the linear recurrence relation \eqref{eq:recurrence-relation-def}:
@@ -1593,8 +1787,8 @@ This can be verified by the fibonacci sequence as shown in section <a href="#sol
 <h6 id="rep-roots-recurrence"><span class="section-number-6">2.3.3.4.2</span> Repeated Roots of Characteristic Equation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h6>
 <div class="outline-text-6" id="text-rep-roots-recurrence">
 </div>
-<div id="outline-container-org7420533" class="outline-7">
-<h7 id="org7420533"><span class="section-number-7">2.3.3.4.2.1</span> Example</h7>
+<div id="outline-container-org91198bd" class="outline-7">
+<h7 id="org91198bd"><span class="section-number-7">2.3.3.4.2.1</span> Example</h7>
 <div class="outline-text-7" id="text-2-3-3-4-2-1">
 <p>
 Consider the following recurrence relation:
@@ -1662,8 +1856,8 @@ Given the defenition of the exponential generating function from \eqref{eq:exp-g
 \end{align}
 </div>
 </div>
-<div id="outline-container-org5eb1d42" class="outline-7">
-<h7 id="org5eb1d42"><span class="section-number-7">2.3.3.4.2.2</span> Proof</h7>
+<div id="outline-container-org5fea101" class="outline-7">
+<h7 id="org5fea101"><span class="section-number-7">2.3.3.4.2.2</span> Proof</h7>
 <div class="outline-text-7" id="text-2-3-3-4-2-2">
 <p>
 In order to prove the the solution for a \(k^{\mathrm{th}}\) order recurrence relation with \(k\) repeated
@@ -1762,8 +1956,8 @@ Sketching out an approach for this:
 In this section a proof for identity <a href="#eq:power-series-comb">eq:power-series-comb</a> is provided.
 </p>
 </div>
-<div id="outline-container-org000f503" class="outline-8">
-<h8 id="org000f503"><span class="section-number-8">2.3.3.4.3.1.1</span> Motivation</h8>
+<div id="outline-container-orgbe34a6f" class="outline-8">
+<h8 id="orgbe34a6f"><span class="section-number-8">2.3.3.4.3.1.1</span> Motivation</h8>
 <div class="outline-text-8" id="text-2-3-3-4-3-1-1">
 <p>
 Consider the function \(f(x) = xe^x\). Using the taylor series formula we get the following:
@@ -1794,15 +1988,15 @@ We conjecture thatIf we continue this on, we get:
 \end{align*}
 </div>
 </div>
-<div id="outline-container-org7b0b554" class="outline-8">
-<h8 id="org7b0b554"><span class="section-number-8">2.3.3.4.3.1.2</span> Proof by Induction</h8>
+<div id="outline-container-org72eb1a2" class="outline-8">
+<h8 id="org72eb1a2"><span class="section-number-8">2.3.3.4.3.1.2</span> Proof by Induction</h8>
 <div class="outline-text-8" id="text-2-3-3-4-3-1-2">
 <p>
 To verify, let&rsquo;s prove this by induction.
 </p>
 </div>
-<div id="outline-container-org6f17980" class="outline-9">
-<h9 id="org6f17980"><span class="section-number-9">2.3.3.4.3.1.2.1</span> Base</h9>
+<div id="outline-container-orga1f5a29" class="outline-9">
+<h9 id="orga1f5a29"><span class="section-number-9">2.3.3.4.3.1.2.1</span> Base</h9>
 <div class="outline-text-9" id="text-2-3-3-4-3-1-2-1">
 <p>
 Test \(k=0\)
@@ -1817,8 +2011,8 @@ Therefore LHS = RHS, so \(k=0\) is true
 </div>
 </div>
 
-<div id="outline-container-orgc5efd41" class="outline-9">
-<h9 id="orgc5efd41"><span class="section-number-9">2.3.3.4.3.1.2.2</span> Bridge</h9>
+<div id="outline-container-org856291f" class="outline-9">
+<h9 id="org856291f"><span class="section-number-9">2.3.3.4.3.1.2.2</span> Bridge</h9>
 <div class="outline-text-9" id="text-2-3-3-4-3-1-2-2">
 <p>
 Assume \(x^k e^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}\)
@@ -1898,7 +2092,7 @@ computationally, ideally by using the Turtle function in <i>Julia</i>.
 <div class="outline-text-5" id="text-sunflower-example">
 <p>
 The distribution of sunflower seeds is an example of the <i>Fibonacci Sequence</i>
-occuring in a pattern observed in nature (see Figure <a href="#org08991d5">10</a>).
+occuring in a pattern observed in nature (see Figure <a href="#org1f34696">12</a>).
 </p>
 
 <p>
@@ -1913,7 +2107,7 @@ Imagine that the process a sunflower follows when placing seeds is as follows: <
 </ol>
 
 <p>
-This process can be simulated in Julia (NO_ITEM_DATA:bezansonJuliaFreshApproach2017) as shown in listing <a href="#org6a36ecb">10</a>,<sup><a id="fnr.8" class="footref" href="#fn.8">8</a></sup> which combined with <i>ImageMagick</i> (see e.g. <a href="#org24b3b6f">16</a>), produces output as shown in figure <a href="#orge69f8d0">8</a> and <a href="#org36cc199">9</a>.
+This process can be simulated in Julia (NO_ITEM_DATA:bezansonJuliaFreshApproach2017) as shown in listing <a href="#org12ca4c0">11</a>,<sup><a id="fnr.8" class="footref" href="#fn.8">8</a></sup> which combined with <i>ImageMagick</i> (see e.g. <a href="#org4cc2d3b">18</a>), produces output as shown in figure <a href="#org37b5934">10</a> and <a href="#org1682446">11</a>.
 </p>
 
 <p>
@@ -1935,7 +2129,7 @@ also be not to approximated by a rational number, for example
 <p>
 It can be seen by simulation that \(\phi\) and \(\psi\) (because \(\phi \mod 1 =
 \psi\)) are solutions to this optimisation problem as shown in figure
-<a href="#org36cc199">9</a>, this solution is unstable, a very minor change to the
+<a href="#org1682446">11</a>, this solution is unstable, a very minor change to the
 value will result in patterns re-emerging in the distribution.
 </p>
 
@@ -1949,62 +2143,62 @@ the correct spirals is also something we intend to look at in this project.
 </p>
 
 <p>
-The bottom right spiral in figure <a href="#orge69f8d0">8</a> has a ratio of rotation of \(\frac{1}{\pi}\), the spirals look similar to one direction of the spirals occuring in figure <a href="#org36cc199">9</a>, it is not clear if there is any significance to this similarity.
+The bottom right spiral in figure <a href="#org37b5934">10</a> has a ratio of rotation of \(\frac{1}{\pi}\), the spirals look similar to one direction of the spirals occuring in figure <a href="#org1682446">11</a>, it is not clear if there is any significance to this similarity.
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 10: </span>Simulation of the distribution of sunflowers as described in section <a href="#sunflower-example">2.3.4.1</a></label><pre class="src src-julia" id="org6a36ecb">&#966; = <span style="color: #D0372D;">1.61803398875</span>
-&#968; = &#966;<span style="color: #6434A3;">^-</span><span style="color: #D0372D;">1</span>
-&#968; = <span style="color: #D0372D;">0.61803398875</span>
-<span style="color: #0000FF;">function</span> <span style="color: #006699;">sfSeeds</span>(ratio)
+<label class="org-src-name"><span class="listing-number">Listing 11: </span>Simulation of the distribution of sunflowers as described in section <a href="#sunflower-example">2.3.4.1</a></label><pre class="src src-julia" id="org12ca4c0">&#966; = <span style="color: #34c8d8;">1.61803398875</span>
+&#968; = &#966;<span style="color: #9fcb66;">^-</span><span style="color: #34c8d8;">1</span>
+&#968; = <span style="color: #34c8d8;">0.61803398875</span>
+<span style="color: #ffff0b;">function</span> <span style="color: #ff996f;">sfSeeds</span>(ratio)
 &#128034; = Turtle()
-    <span style="color: #0000FF;">for</span> &#952; in [(ratio<span style="color: #6434A3;">*</span><span style="color: #D0372D;">2</span><span style="color: #6434A3;">*</span>&#960;)<span style="color: #6434A3;">*</span>i <span style="color: #0000FF;">for</span> i <span style="color: #0000FF;">in</span> <span style="color: #D0372D;">1</span>:<span style="color: #D0372D;">3000</span>]
+    <span style="color: #ffff0b;">for</span> &#952; in [(ratio<span style="color: #9fcb66;">*</span><span style="color: #34c8d8;">2</span><span style="color: #9fcb66;">*</span>&#960;)<span style="color: #9fcb66;">*</span>i <span style="color: #ffff0b;">for</span> i <span style="color: #ffff0b;">in</span> <span style="color: #34c8d8;">1</span>:<span style="color: #34c8d8;">3000</span>]
         gsave()
-        scale(<span style="color: #D0372D;">0.05</span>)
+        scale(<span style="color: #34c8d8;">0.05</span>)
         rotate(&#952;)
-<span style="color: #8D8D84;">#        </span><span style="color: #8D8D84; font-style: italic;">Pencolor(&#128034;, rand(1)[1], rand(1)[1], rand(1)[1])</span>
-        Forward(&#128034;, <span style="color: #D0372D;">1</span>)
-        Rectangle(&#128034;, <span style="color: #D0372D;">50</span>, <span style="color: #D0372D;">50</span>)
+<span style="color: #767283;">#        </span><span style="color: #767283; font-style: italic;">Pencolor(&#128034;, rand(1)[1], rand(1)[1], rand(1)[1])</span>
+        Forward(&#128034;, <span style="color: #34c8d8;">1</span>)
+        Rectangle(&#128034;, <span style="color: #34c8d8;">50</span>, <span style="color: #34c8d8;">50</span>)
         grestore()
-    <span style="color: #0000FF;">end</span>
-    label = string(<span style="color: #008000;">"Ratio = "</span>, round(ratio, digits = <span style="color: #D0372D;">8</span>))
-    textcentered(label, <span style="color: #D0372D;">100</span>, <span style="color: #D0372D;">200</span>)
-<span style="color: #0000FF;">end</span>
-<span style="color: #808080;">@svg</span> <span style="color: #0000FF;">begin</span>
+    <span style="color: #ffff0b;">end</span>
+    label = string(<span style="color: #ff7fff;">"Ratio = "</span>, round(ratio, digits = <span style="color: #34c8d8;">8</span>))
+    textcentered(label, <span style="color: #34c8d8;">100</span>, <span style="color: #34c8d8;">200</span>)
+<span style="color: #ffff0b;">end</span>
+<span style="color: #837f87;">@svg</span> <span style="color: #ffff0b;">begin</span>
     sfSeeds(&#966;)
-<span style="color: #0000FF;">end</span> <span style="color: #D0372D;">600</span> <span style="color: #D0372D;">600</span>
+<span style="color: #ffff0b;">end</span> <span style="color: #34c8d8;">600</span> <span style="color: #34c8d8;">600</span>
 </pre>
 </div>
 
 
-<div id="orge69f8d0" class="figure">
+<div id="org37b5934" class="figure">
 <p><img src="sunflower-spirals-montage.png" alt="sunflower-spirals-montage.png" width="600px" />
 </p>
-<p><span class="figure-number">Figure 8: </span>Simulated Distribution of Sunflower seeds as described in section <a href="#sunflower-example">2.3.4.1</a> and listing <a href="#org6a36ecb">10</a></p>
+<p><span class="figure-number">Figure 10: </span>Simulated Distribution of Sunflower seeds as described in section <a href="#sunflower-example">2.3.4.1</a> and listing <a href="#org12ca4c0">11</a></p>
 </div>
 
 
-<div id="org36cc199" class="figure">
+<div id="org1682446" class="figure">
 <p><object type="image/svg+xml" data="golden-flower.svg" class="org-svg" width="600px">
 Sorry, your browser does not support SVG.</object>
 </p>
-<p><span class="figure-number">Figure 9: </span>Optimisation of simulated distribution of Sunflower seeds occurs for \(\theta =2 \varphi  \pi\) as described in section <a href="#sunflower-example">2.3.4.1</a> and listing <a href="#org6a36ecb">10</a></p>
+<p><span class="figure-number">Figure 11: </span>Optimisation of simulated distribution of Sunflower seeds occurs for \(\theta =2 \varphi  \pi\) as described in section <a href="#sunflower-example">2.3.4.1</a> and listing <a href="#org12ca4c0">11</a></p>
 </div>
 
 
 
-<div id="org08991d5" class="figure">
+<div id="org1f34696" class="figure">
 <p><img src="sunflower.jpg" alt="sunflower.jpg" width="600px" />
 </p>
-<p><span class="figure-number">Figure 10: </span>Distribution of the seeds of a sunflower (see <a class='org-ref-reference' href="#simonbrassCCSearch2006">simonbrassCCSearch2006</a> licenced under CC)</p>
+<p><span class="figure-number">Figure 12: </span>Distribution of the seeds of a sunflower (see <a class='org-ref-reference' href="#simonbrassCCSearch2006">simonbrassCCSearch2006</a> licenced under CC)</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org3c330b9" class="outline-3">
-<h3 id="org3c330b9"><span class="section-number-3">2.4</span> Persian Recursion&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
+<div id="outline-container-orgd9c2d46" class="outline-3">
+<h3 id="orgd9c2d46"><span class="section-number-3">2.4</span> Persian Recursion&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 This section contains an example of how a simple process can lead to the
@@ -2023,13 +2217,13 @@ The procedure is begins with an empty or zero square matrix with sides \(2^{n}+1
 </p>
 
 <ol class="org-ol">
-<li>Decide on some four variable function with a finite domain and range of size \(m\), for the example shown at listing <a href="#orgef164e7">11</a> and in figure <a href="#org56f6d19">12</a> the function \(f(w,x,y,z)=(w+x+y+z) \mod m\) was chosen.</li>
+<li>Decide on some four variable function with a finite domain and range of size \(m\), for the example shown at listing <a href="#org5a60a8c">12</a> and in figure <a href="#orgaa8bbcd">14</a> the function \(f(w,x,y,z)=(w+x+y+z) \mod m\) was chosen.</li>
 <li>Assign this value to the centre row and centre column of the matrix</li>
 <li>Repeat this for each newly enclosed subsmatrix.</li>
 </ol>
 
 <p>
-This is illustrated in figure <a href="#org8166c04">11</a>.
+This is illustrated in figure <a href="#orgb2eef36">13</a>.
 </p>
 
 <p>
@@ -2046,15 +2240,15 @@ coloured row and column</li>
 
 
 
-<div id="org8166c04" class="figure">
+<div id="orgb2eef36" class="figure">
 <p><object type="image/svg+xml" data="persian.svg" class="org-svg" width="800px">
 Sorry, your browser does not support SVG.</object>
 </p>
-<p><span class="figure-number">Figure 11: </span>Diagram of the Persian Recursion, implemented with <i>Python</i> in listing <a href="#orgef164e7">11</a></p>
+<p><span class="figure-number">Figure 13: </span>Diagram of the Persian Recursion, implemented with <i>Python</i> in listing <a href="#org5a60a8c">12</a></p>
 </div>
 
 <p>
-This is demonstrated in listing <a href="#orgef164e7">11</a> with python and produces the output shown in figures <a href="#org56f6d19">12</a>, various interesting examples are provided in the appendix at section <a href="#persian-recursion-examples">2.8.1</a>.
+This is demonstrated in listing <a href="#org5a60a8c">12</a> with python and produces the output shown in figures <a href="#orgaa8bbcd">14</a>, various interesting examples are provided in the appendix at section <a href="#persian-recursion-examples">2.8.1</a>.
 </p>
 
 <p>
@@ -2073,80 +2267,80 @@ this research.
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 11: </span>Implementation of the persian recursion scheme in <i>Python</i></label><pre class="src src-ipython" id="orgef164e7">%matplotlib inline
-<span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">m is colours</span>
-<span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">n is number of folds</span>
-<span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Z is number for border</span>
-<span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">cx is a function to transform the variables</span>
-<span style="color: #0000FF;">def</span> <span style="color: #006699;">main</span>(m, n, z, cx):
-    <span style="color: #0000FF;">import</span> numpy <span style="color: #0000FF;">as</span> np
-    <span style="color: #0000FF;">import</span> matplotlib.pyplot <span style="color: #0000FF;">as</span> plt
+<label class="org-src-name"><span class="listing-number">Listing 12: </span>Implementation of the persian recursion scheme in <i>Python</i></label><pre class="src src-ipython" id="org5a60a8c">%matplotlib inline
+<span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">m is colours</span>
+<span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">n is number of folds</span>
+<span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">Z is number for border</span>
+<span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">cx is a function to transform the variables</span>
+<span style="color: #ffff0b;">def</span> <span style="color: #ff996f;">main</span>(m, n, z, cx):
+    <span style="color: #ffff0b;">import</span> numpy <span style="color: #ffff0b;">as</span> np
+    <span style="color: #ffff0b;">import</span> matplotlib.pyplot <span style="color: #ffff0b;">as</span> plt
 
-    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Make the Empty Matrix</span>
-    <span style="color: #BA36A5;">mat</span> = np.empty([<span style="color: #D0372D;">2</span>**n+<span style="color: #D0372D;">1</span>, <span style="color: #D0372D;">2</span>**n+<span style="color: #D0372D;">1</span>])
-    <span style="color: #BA36A5;">main.mat</span> = mat
+    <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">Make the Empty Matrix</span>
+    <span style="color: #4ac964;">mat</span> = np.empty([<span style="color: #34c8d8;">2</span>**n+<span style="color: #34c8d8;">1</span>, <span style="color: #34c8d8;">2</span>**n+<span style="color: #34c8d8;">1</span>])
+    <span style="color: #4ac964;">main.mat</span> = mat
 
-    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Fill the Borders</span>
-    <span style="color: #BA36A5;">mat</span>[:,<span style="color: #D0372D;">0</span>] = <span style="color: #BA36A5;">mat</span>[:,-<span style="color: #D0372D;">1</span>] = <span style="color: #BA36A5;">mat</span>[<span style="color: #D0372D;">0</span>,:] = <span style="color: #BA36A5;">mat</span>[-<span style="color: #D0372D;">1</span>,:] = z
+    <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">Fill the Borders</span>
+    <span style="color: #4ac964;">mat</span>[:,<span style="color: #34c8d8;">0</span>] = <span style="color: #4ac964;">mat</span>[:,-<span style="color: #34c8d8;">1</span>] = <span style="color: #4ac964;">mat</span>[<span style="color: #34c8d8;">0</span>,:] = <span style="color: #4ac964;">mat</span>[-<span style="color: #34c8d8;">1</span>,:] = z
 
-    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Colour the Grid</span>
-    colorgrid(<span style="color: #D0372D;">0</span>, mat.shape[<span style="color: #D0372D;">0</span>]-<span style="color: #D0372D;">1</span>, <span style="color: #D0372D;">0</span>, mat.shape[<span style="color: #D0372D;">0</span>]-<span style="color: #D0372D;">1</span>, m)
+    <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">Colour the Grid</span>
+    colorgrid(<span style="color: #34c8d8;">0</span>, mat.shape[<span style="color: #34c8d8;">0</span>]-<span style="color: #34c8d8;">1</span>, <span style="color: #34c8d8;">0</span>, mat.shape[<span style="color: #34c8d8;">0</span>]-<span style="color: #34c8d8;">1</span>, m)
 
-    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Plot the Matrix</span>
+    <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">Plot the Matrix</span>
     plt.matshow(mat)
 
-<span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Define Helper Functions</span>
-<span style="color: #0000FF;">def</span> <span style="color: #006699;">colorgrid</span>(l, r, t, b, m):
-    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">print(l, r, t, b)</span>
-    <span style="color: #0000FF;">if</span> (l &lt; r -<span style="color: #D0372D;">1</span>):
-        <span style="color: #8D8D84;">## </span><span style="color: #8D8D84; font-style: italic;">define the centre column and row</span>
-        <span style="color: #BA36A5;">mc</span> = <span style="color: #006FE0;">int</span>((l+r)/<span style="color: #D0372D;">2</span>); <span style="color: #BA36A5;">mr</span> = <span style="color: #006FE0;">int</span>((t+b)/<span style="color: #D0372D;">2</span>)
+<span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">Define Helper Functions</span>
+<span style="color: #ffff0b;">def</span> <span style="color: #ff996f;">colorgrid</span>(l, r, t, b, m):
+    <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">print(l, r, t, b)</span>
+    <span style="color: #ffff0b;">if</span> (l &lt; r -<span style="color: #34c8d8;">1</span>):
+        <span style="color: #767283;">## </span><span style="color: #767283; font-style: italic;">define the centre column and row</span>
+        <span style="color: #4ac964;">mc</span> = <span style="color: #ff9029;">int</span>((l+r)/<span style="color: #34c8d8;">2</span>); <span style="color: #4ac964;">mr</span> = <span style="color: #ff9029;">int</span>((t+b)/<span style="color: #34c8d8;">2</span>)
 
-        <span style="color: #8D8D84;">## </span><span style="color: #8D8D84; font-style: italic;">Assign the colour</span>
-        <span style="color: #BA36A5;">main.mat</span>[(t+<span style="color: #D0372D;">1</span>):b,mc] = cx(l, r, t, b, m)
-        <span style="color: #BA36A5;">main.mat</span>[mr,(l+<span style="color: #D0372D;">1</span>):r] = cx(l, r, t, b, m)
+        <span style="color: #767283;">## </span><span style="color: #767283; font-style: italic;">Assign the colour</span>
+        <span style="color: #4ac964;">main.mat</span>[(t+<span style="color: #34c8d8;">1</span>):b,mc] = cx(l, r, t, b, m)
+        <span style="color: #4ac964;">main.mat</span>[mr,(l+<span style="color: #34c8d8;">1</span>):r] = cx(l, r, t, b, m)
 
-        <span style="color: #8D8D84;">## </span><span style="color: #8D8D84; font-style: italic;">Now Recall this function on the four new squares</span>
-                <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">l r   t   b</span>
-        colorgrid(l, mc, t, mr, m)    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">NW</span>
-        colorgrid(mc, r, t, mr, m)    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">NE</span>
-        colorgrid(l, mc, mr, b, m)    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">SW</span>
-        colorgrid(mc, r, mr, b, m)    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">SE</span>
+        <span style="color: #767283;">## </span><span style="color: #767283; font-style: italic;">Now Recall this function on the four new squares</span>
+                <span style="color: #767283;">#</span><span style="color: #767283; font-style: italic;">l r   t   b</span>
+        colorgrid(l, mc, t, mr, m)    <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">NW</span>
+        colorgrid(mc, r, t, mr, m)    <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">NE</span>
+        colorgrid(l, mc, mr, b, m)    <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">SW</span>
+        colorgrid(mc, r, mr, b, m)    <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">SE</span>
 
-<span style="color: #0000FF;">def</span> <span style="color: #006699;">cx</span>(l, r, t, b, m):
-    <span style="color: #BA36A5;">new_col</span> = (main.mat[t,l] + main.mat[t,r] +  main.mat[b,l] + main.mat[b,r]) % m
-    <span style="color: #0000FF;">return</span> new_col.astype(<span style="color: #006FE0;">int</span>)
+<span style="color: #ffff0b;">def</span> <span style="color: #ff996f;">cx</span>(l, r, t, b, m):
+    <span style="color: #4ac964;">new_col</span> = (main.mat[t,l] + main.mat[t,r] +  main.mat[b,l] + main.mat[b,r]) % m
+    <span style="color: #ffff0b;">return</span> new_col.astype(<span style="color: #ff9029;">int</span>)
 
-main(<span style="color: #D0372D;">5</span>,<span style="color: #D0372D;">6</span>, <span style="color: #D0372D;">1</span>, cx)
+main(<span style="color: #34c8d8;">5</span>,<span style="color: #34c8d8;">6</span>, <span style="color: #34c8d8;">1</span>, cx)
 </pre>
 </div>
 
 
 
 
-<div id="org56f6d19" class="figure">
+<div id="orgaa8bbcd" class="figure">
 <p><object type="image/svg+xml" data="./persian-recursion-0.svg" class="org-svg" width="400px">
 Sorry, your browser does not support SVG.</object>
 </p>
-<p><span class="figure-number">Figure 12: </span>Output produced by listing <a href="#orgef164e7">11</a> with 6 folds</p>
+<p><span class="figure-number">Figure 14: </span>Output produced by listing <a href="#org5a60a8c">12</a> with 6 folds</p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org2c06845" class="outline-3">
-<h3 id="org2c06845"><span class="section-number-3">2.5</span> Julia Sets&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
+<div id="outline-container-orgd4e59f9" class="outline-3">
+<h3 id="orgd4e59f9"><span class="section-number-3">2.5</span> Julia Sets&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
 <div class="outline-text-3" id="text-2-5">
 </div>
-<div id="outline-container-orgd7666be" class="outline-4">
-<h4 id="orgd7666be"><span class="section-number-4">2.5.1</span> Introduction</h4>
+<div id="outline-container-orgc525ccd" class="outline-4">
+<h4 id="orgc525ccd"><span class="section-number-4">2.5.1</span> Introduction</h4>
 <div class="outline-text-4" id="text-2-5-1">
 <p>
 Julia sets are a very interesting fractal and we hope to investigate them further in this project.
 </p>
 </div>
 </div>
-<div id="outline-container-org8f1b84d" class="outline-4">
-<h4 id="org8f1b84d"><span class="section-number-4">2.5.2</span> Motivation</h4>
+<div id="outline-container-org198a1ac" class="outline-4">
+<h4 id="org198a1ac"><span class="section-number-4">2.5.2</span> Motivation</h4>
 <div class="outline-text-4" id="text-2-5-2">
 <p>
 Consider the iterative process \(x \rightarrow x^{2}, \enspace x \in \mathbb{R}\),
@@ -2196,8 +2390,8 @@ In the case of \(f_{0}(z) = z^{2}\) all values \(\left\lvert z  \right \rvert \l
 </div>
 </div>
 
-<div id="outline-container-org4cb3229" class="outline-4">
-<h4 id="org4cb3229"><span class="section-number-4">2.5.3</span> Plotting the Sets</h4>
+<div id="outline-container-org31a9a9d" class="outline-4">
+<h4 id="org31a9a9d"><span class="section-number-4">2.5.3</span> Plotting the Sets</h4>
 <div class="outline-text-4" id="text-2-5-3">
 <p>
 Although the convergence of values may appear simple at first, we&rsquo;ll implement a
@@ -2207,7 +2401,7 @@ strategy to plot the prisoner and escape sets on the complex plane.
 <p>
 Because this involves iteration and <i>Python</i> is a little slow, We&rsquo;ll denote
 complex values as a vector<sup><a id="fnr.9" class="footref" href="#fn.9">9</a></sup> and define the operations as described in
-listing <a href="#org42e234b">12</a>.<sup><a id="fnr.10" class="footref" href="#fn.10">10</a></sup>
+listing <a href="#org2f67c1e">13</a>.<sup><a id="fnr.10" class="footref" href="#fn.10">10</a></sup>
 </p>
 
 <p>
@@ -2228,11 +2422,11 @@ a measurement of the rate of divergence.
 Then the <code>escape_test</code> function can be mapped over a matrix, where each element
 of that matrix is in turn mapped to a point on the cartesian plane, the resulting matrix
 can be visualised as an image <sup><a id="fnr.11" class="footref" href="#fn.11">11</a></sup>, this is implemented in listing
-<a href="#orgf3798cd">13</a> and the corresponding output shown in <a href="#orgb0a9261">13</a>.
+<a href="#orgf67e3df">14</a> and the corresponding output shown in <a href="#org377660e">15</a>.
 </p>
 
 <p>
-with respect to listing <a href="#orgf3798cd">13</a>:
+with respect to listing <a href="#orgf67e3df">14</a>:
 </p>
 
 <ul class="org-ul">
@@ -2245,82 +2439,82 @@ with respect to listing <a href="#orgf3798cd">13</a>:
 
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 12: </span>Defining Complex Operations with vectors</label><pre class="src src-ipython" id="org42e234b"><span style="color: #0000FF;">from</span> math <span style="color: #0000FF;">import</span> sqrt
-<span style="color: #0000FF;">def</span> <span style="color: #006699;">magnitude</span>(z):
-    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">return sqrt(z[0]**2 + z[1]**2)</span>
-    <span style="color: #BA36A5;">x</span> = z[<span style="color: #D0372D;">0</span>]
-    <span style="color: #BA36A5;">y</span> = z[<span style="color: #D0372D;">1</span>]
-    <span style="color: #0000FF;">return</span> sqrt(<span style="color: #006FE0;">sum</span>(<span style="color: #006FE0;">map</span>(<span style="color: #0000FF;">lambda</span> x: x**<span style="color: #D0372D;">2</span>, [x, y])))
+<label class="org-src-name"><span class="listing-number">Listing 13: </span>Defining Complex Operations with vectors</label><pre class="src src-ipython" id="org2f67c1e"><span style="color: #ffff0b;">from</span> math <span style="color: #ffff0b;">import</span> sqrt
+<span style="color: #ffff0b;">def</span> <span style="color: #ff996f;">magnitude</span>(z):
+    <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">return sqrt(z[0]**2 + z[1]**2)</span>
+    <span style="color: #4ac964;">x</span> = z[<span style="color: #34c8d8;">0</span>]
+    <span style="color: #4ac964;">y</span> = z[<span style="color: #34c8d8;">1</span>]
+    <span style="color: #ffff0b;">return</span> sqrt(<span style="color: #ff9029;">sum</span>(<span style="color: #ff9029;">map</span>(<span style="color: #ffff0b;">lambda</span> x: x**<span style="color: #34c8d8;">2</span>, [x, y])))
 
-<span style="color: #0000FF;">def</span> <span style="color: #006699;">cAdd</span>(a, b):
-    <span style="color: #BA36A5;">x</span> = a[<span style="color: #D0372D;">0</span>] + b[<span style="color: #D0372D;">0</span>]
-    <span style="color: #BA36A5;">y</span> = a[<span style="color: #D0372D;">1</span>] + b[<span style="color: #D0372D;">1</span>]
-    <span style="color: #0000FF;">return</span> [x, y]
+<span style="color: #ffff0b;">def</span> <span style="color: #ff996f;">cAdd</span>(a, b):
+    <span style="color: #4ac964;">x</span> = a[<span style="color: #34c8d8;">0</span>] + b[<span style="color: #34c8d8;">0</span>]
+    <span style="color: #4ac964;">y</span> = a[<span style="color: #34c8d8;">1</span>] + b[<span style="color: #34c8d8;">1</span>]
+    <span style="color: #ffff0b;">return</span> [x, y]
 
 
-<span style="color: #0000FF;">def</span> <span style="color: #006699;">cMult</span>(u, v):
-    <span style="color: #BA36A5;">x</span> = u[<span style="color: #D0372D;">0</span>]*v[<span style="color: #D0372D;">0</span>]-u[<span style="color: #D0372D;">1</span>]*v[<span style="color: #D0372D;">1</span>]
-    <span style="color: #BA36A5;">y</span> = u[<span style="color: #D0372D;">1</span>]*v[<span style="color: #D0372D;">0</span>]+u[<span style="color: #D0372D;">0</span>]*v[<span style="color: #D0372D;">1</span>]
-    <span style="color: #0000FF;">return</span> [x, y]
+<span style="color: #ffff0b;">def</span> <span style="color: #ff996f;">cMult</span>(u, v):
+    <span style="color: #4ac964;">x</span> = u[<span style="color: #34c8d8;">0</span>]*v[<span style="color: #34c8d8;">0</span>]-u[<span style="color: #34c8d8;">1</span>]*v[<span style="color: #34c8d8;">1</span>]
+    <span style="color: #4ac964;">y</span> = u[<span style="color: #34c8d8;">1</span>]*v[<span style="color: #34c8d8;">0</span>]+u[<span style="color: #34c8d8;">0</span>]*v[<span style="color: #34c8d8;">1</span>]
+    <span style="color: #ffff0b;">return</span> [x, y]
 </pre>
 </div>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 13: </span>Circle of Convergence of \(z\) under recursion</label><pre class="src src-ipython" id="orgf3798cd">%matplotlib inline
-%config <span style="color: #BA36A5;">InlineBackend.figure_format</span> = <span style="color: #008000;">'svg'</span>
-<span style="color: #0000FF;">import</span> numpy <span style="color: #0000FF;">as</span> np
-<span style="color: #0000FF;">def</span> <span style="color: #006699;">escape_test</span>(z, num):
-    <span style="color: #036A07;">''' runs the process num amount of times and returns the count of</span>
-<span style="color: #036A07;">    divergence'''</span>
-    <span style="color: #BA36A5;">c</span> = [<span style="color: #D0372D;">0</span>, <span style="color: #D0372D;">0</span>]
-    <span style="color: #BA36A5;">count</span> = <span style="color: #D0372D;">0</span>
-    <span style="color: #BA36A5;">z1</span> = z  <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">Remember the original value that we are working with</span>
-    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Iterate num times</span>
-    <span style="color: #0000FF;">while</span> count &lt;= num:
-        <span style="color: #BA36A5;">dist</span> = <span style="color: #006FE0;">sum</span>([n**<span style="color: #D0372D;">2</span> <span style="color: #0000FF;">for</span> n <span style="color: #0000FF;">in</span> z1])
-        <span style="color: #BA36A5;">distc</span> = <span style="color: #006FE0;">sum</span>([n**<span style="color: #D0372D;">2</span> <span style="color: #0000FF;">for</span> n <span style="color: #0000FF;">in</span> c])
-        <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">check for divergence</span>
-        <span style="color: #0000FF;">if</span> dist &gt; <span style="color: #006FE0;">max</span>(<span style="color: #D0372D;">2</span>, distc):
-            <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">return the step it diverged on</span>
-            <span style="color: #0000FF;">return</span> count
-        <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">iterate z</span>
-        <span style="color: #BA36A5;">z1</span> = cAdd(cMult(z1, z1), c)
-        <span style="color: #BA36A5;">count</span>+=<span style="color: #D0372D;">1</span>
-        <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">if z hasn't diverged by the end</span>
-    <span style="color: #0000FF;">return</span> num
+<label class="org-src-name"><span class="listing-number">Listing 14: </span>Circle of Convergence of \(z\) under recursion</label><pre class="src src-ipython" id="orgf67e3df">%matplotlib inline
+%config <span style="color: #4ac964;">InlineBackend.figure_format</span> = <span style="color: #ff7fff;">'svg'</span>
+<span style="color: #ffff0b;">import</span> numpy <span style="color: #ffff0b;">as</span> np
+<span style="color: #ffff0b;">def</span> <span style="color: #ff996f;">escape_test</span>(z, num):
+    <span style="color: #fd95fa;">''' runs the process num amount of times and returns the count of</span>
+<span style="color: #fd95fa;">    divergence'''</span>
+    <span style="color: #4ac964;">c</span> = [<span style="color: #34c8d8;">0</span>, <span style="color: #34c8d8;">0</span>]
+    <span style="color: #4ac964;">count</span> = <span style="color: #34c8d8;">0</span>
+    <span style="color: #4ac964;">z1</span> = z  <span style="color: #767283;">#</span><span style="color: #767283; font-style: italic;">Remember the original value that we are working with</span>
+    <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">Iterate num times</span>
+    <span style="color: #ffff0b;">while</span> count &lt;= num:
+        <span style="color: #4ac964;">dist</span> = <span style="color: #ff9029;">sum</span>([n**<span style="color: #34c8d8;">2</span> <span style="color: #ffff0b;">for</span> n <span style="color: #ffff0b;">in</span> z1])
+        <span style="color: #4ac964;">distc</span> = <span style="color: #ff9029;">sum</span>([n**<span style="color: #34c8d8;">2</span> <span style="color: #ffff0b;">for</span> n <span style="color: #ffff0b;">in</span> c])
+        <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">check for divergence</span>
+        <span style="color: #ffff0b;">if</span> dist &gt; <span style="color: #ff9029;">max</span>(<span style="color: #34c8d8;">2</span>, distc):
+            <span style="color: #767283;">#</span><span style="color: #767283; font-style: italic;">return the step it diverged on</span>
+            <span style="color: #ffff0b;">return</span> count
+        <span style="color: #767283;">#</span><span style="color: #767283; font-style: italic;">iterate z</span>
+        <span style="color: #4ac964;">z1</span> = cAdd(cMult(z1, z1), c)
+        <span style="color: #4ac964;">count</span>+=<span style="color: #34c8d8;">1</span>
+        <span style="color: #767283;">#</span><span style="color: #767283; font-style: italic;">if z hasn't diverged by the end</span>
+    <span style="color: #ffff0b;">return</span> num
 
 
 
-<span style="color: #BA36A5;">p</span> = <span style="color: #D0372D;">0.25</span> <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">horizontal, vertical, pinch (zoom)</span>
-<span style="color: #BA36A5;">res</span> = <span style="color: #D0372D;">200</span>
-<span style="color: #BA36A5;">h</span> = res/<span style="color: #D0372D;">2</span>
-<span style="color: #BA36A5;">v</span> = res/<span style="color: #D0372D;">2</span>
+<span style="color: #4ac964;">p</span> = <span style="color: #34c8d8;">0.25</span> <span style="color: #767283;">#</span><span style="color: #767283; font-style: italic;">horizontal, vertical, pinch (zoom)</span>
+<span style="color: #4ac964;">res</span> = <span style="color: #34c8d8;">200</span>
+<span style="color: #4ac964;">h</span> = res/<span style="color: #34c8d8;">2</span>
+<span style="color: #4ac964;">v</span> = res/<span style="color: #34c8d8;">2</span>
 
-<span style="color: #BA36A5;">pic</span> = np.zeros([res, res])
-<span style="color: #0000FF;">for</span> i <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(pic.shape[<span style="color: #D0372D;">0</span>]):
-    <span style="color: #0000FF;">for</span> j <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(pic.shape[<span style="color: #D0372D;">1</span>]):
-        <span style="color: #BA36A5;">x</span> = (j - h)/(p*res)
-        <span style="color: #BA36A5;">y</span> = (i-v)/(p*res)
-        <span style="color: #BA36A5;">z</span> = [x, y]
-        <span style="color: #BA36A5;">col</span> = escape_test(z, <span style="color: #D0372D;">100</span>)
-        <span style="color: #BA36A5;">pic</span>[i, j] = col
+<span style="color: #4ac964;">pic</span> = np.zeros([res, res])
+<span style="color: #ffff0b;">for</span> i <span style="color: #ffff0b;">in</span> <span style="color: #ff9029;">range</span>(pic.shape[<span style="color: #34c8d8;">0</span>]):
+    <span style="color: #ffff0b;">for</span> j <span style="color: #ffff0b;">in</span> <span style="color: #ff9029;">range</span>(pic.shape[<span style="color: #34c8d8;">1</span>]):
+        <span style="color: #4ac964;">x</span> = (j - h)/(p*res)
+        <span style="color: #4ac964;">y</span> = (i-v)/(p*res)
+        <span style="color: #4ac964;">z</span> = [x, y]
+        <span style="color: #4ac964;">col</span> = escape_test(z, <span style="color: #34c8d8;">100</span>)
+        <span style="color: #4ac964;">pic</span>[i, j] = col
 
-<span style="color: #0000FF;">import</span> matplotlib.pyplot <span style="color: #0000FF;">as</span> plt
+<span style="color: #ffff0b;">import</span> matplotlib.pyplot <span style="color: #ffff0b;">as</span> plt
 
-plt.axis(<span style="color: #008000;">'off'</span>)
+plt.axis(<span style="color: #ff7fff;">'off'</span>)
 plt.imshow(pic)
-<span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">plt.show()</span>
+<span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">plt.show()</span>
 
 </pre>
 </div>
 
 
 
-<div id="orgb0a9261" class="figure">
+<div id="org377660e" class="figure">
 <p><object type="image/svg+xml" data="circle-of-convergence.svg" class="org-svg" width="400px">
 Sorry, your browser does not support SVG.</object>
 </p>
-<p><span class="figure-number">Figure 13: </span>Circle of Convergence for \(f_{0}: z \rightarrow z^{2}\)</p>
+<p><span class="figure-number">Figure 15: </span>Circle of Convergence for \(f_{0}: z \rightarrow z^{2}\)</p>
 </div>
 
 <p>
@@ -2328,25 +2522,25 @@ This is precisely what we expected, but this is where things get interesting,
 consider now the result if we apply this same procedure to \(f_{1}: z \rightarrow
 z^{2} - 1\) or something arbitrary like \(f_{\frac{1}{4} + \frac{i}{2}}: z
 \rightarrow z^{2} + (\frac{1}{4} + \frac{i}{2})\), the result is something
-remarkebly unexpected, as shown in figures <a href="#org4d92d19">14</a> and <a href="#orgc865c75">15</a>.
+remarkebly unexpected, as shown in figures <a href="#org1397006">16</a> and <a href="#org5f6e29b">17</a>.
 </p>
 
 
 
-<div id="org4d92d19" class="figure">
+<div id="org1397006" class="figure">
 <p><object type="image/svg+xml" data="./julia-1.svg" class="org-svg" width="400px">
 Sorry, your browser does not support SVG.</object>
 </p>
-<p><span class="figure-number">Figure 14: </span>Circle of Convergence for \(f_{0}: z \rightarrow z^{2} - 1\)</p>
+<p><span class="figure-number">Figure 16: </span>Circle of Convergence for \(f_{0}: z \rightarrow z^{2} - 1\)</p>
 </div>
 
 
 
-<div id="orgc865c75" class="figure">
+<div id="org5f6e29b" class="figure">
 <p><object type="image/svg+xml" data="./julia-rab.svg" class="org-svg" width="400px">
 Sorry, your browser does not support SVG.</object>
 </p>
-<p><span class="figure-number">Figure 15: </span>Circle of Convergence for \(f_{\frac{1}{4} + \frac{i}{2}}: z \rightarrow z^{2} + \frac{1}{4} + \frac{i}{2}\)</p>
+<p><span class="figure-number">Figure 17: </span>Circle of Convergence for \(f_{\frac{1}{4} + \frac{i}{2}}: z \rightarrow z^{2} + \frac{1}{4} + \frac{i}{2}\)</p>
 </div>
 
 <p>
@@ -2361,100 +2555,100 @@ this set by varying the value of \(\tau\)<sup><a id="fnr.12" class="footref" hre
 compiled language, is significantly faster and has the benefit of treating
 complex numbers as first class citizens, these images can be generated in
 <i>Julia</i> in a similar fashion as before, with the specifics shown in listing
-<a href="#org7f3a52a">14</a>. The <code>GR</code> package appears to be the best plotting library
+<a href="#org962522a">15</a>. The <code>GR</code> package appears to be the best plotting library
 performance wise and so was used to save corresponding images to disc, this is
-demonstrated in listing <a href="#orgeb329fa">15</a> where 1200 pictures at a 2.25 MP resolution were produced. <sup><a id="fnr.13" class="footref" href="#fn.13">13</a></sup>
+demonstrated in listing <a href="#orgbfabbd2">16</a> where 1200 pictures at a 2.25 MP resolution were produced. <sup><a id="fnr.13" class="footref" href="#fn.13">13</a></sup>
 </p>
 
 <p>
 A subset of these images can be combined using <i>ImageMagick</i> and <code>bash</code> to
 create a collage, <i>ImageMagick</i> can also be used to produce an animation but it often
 fails and a superior approach is to use <code>ffmpeg</code>, this is demonstrated in
-listing <a href="#org9fe8f04">16</a>, the collage is shown in figure <a href="#org24b3b6f">16</a> and a corresponding
+listing <a href="#org5f926c7">17</a>, the collage is shown in figure <a href="#org4cc2d3b">18</a> and a corresponding
 animation is <a href="https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0">available online</a><sup><a id="fnr.14" class="footref" href="#fn.14">14</a></sup>].
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 14: </span>Produce a series of fractals using julia</label><pre class="src src-julia" id="org7f3a52a"><span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">* Define the Julia Set</span>
-<span style="color: #008000;">"""</span>
-<span style="color: #008000;">Determine whether or not a value will converge under iteration</span>
-<span style="color: #008000;">"""</span>
-<span style="color: #0000FF;">function</span> <span style="color: #006699;">juliaSet</span>(z, num, my_func)
-    count = <span style="color: #D0372D;">1</span>
-    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Remember the value of z</span>
+<label class="org-src-name"><span class="listing-number">Listing 15: </span>Produce a series of fractals using julia</label><pre class="src src-julia" id="org962522a"><span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">* Define the Julia Set</span>
+<span style="color: #ff7fff;">"""</span>
+<span style="color: #ff7fff;">Determine whether or not a value will converge under iteration</span>
+<span style="color: #ff7fff;">"""</span>
+<span style="color: #ffff0b;">function</span> <span style="color: #ff996f;">juliaSet</span>(z, num, my_func)
+    count = <span style="color: #34c8d8;">1</span>
+    <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">Remember the value of z</span>
     z1 = z
-    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Iterate num times</span>
-    <span style="color: #0000FF;">while</span> count &#8804; num
-        <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">check for divergence</span>
-        <span style="color: #0000FF;">if</span> abs(z1)<span style="color: #6434A3;">&gt;</span><span style="color: #D0372D;">2</span>
-            <span style="color: #0000FF;">return</span> Int(count)
-        <span style="color: #0000FF;">end</span>
-        <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">iterate z</span>
-        z1 = my_func(z1) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">+ z</span>
-        count=count<span style="color: #6434A3;">+</span><span style="color: #D0372D;">1</span>
-    <span style="color: #0000FF;">end</span>
-        <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">if z hasn't diverged by the end</span>
-    <span style="color: #0000FF;">return</span> Int(num)
-<span style="color: #0000FF;">end</span>
+    <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">Iterate num times</span>
+    <span style="color: #ffff0b;">while</span> count &#8804; num
+        <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">check for divergence</span>
+        <span style="color: #ffff0b;">if</span> abs(z1)<span style="color: #9fcb66;">&gt;</span><span style="color: #34c8d8;">2</span>
+            <span style="color: #ffff0b;">return</span> Int(count)
+        <span style="color: #ffff0b;">end</span>
+        <span style="color: #767283;">#</span><span style="color: #767283; font-style: italic;">iterate z</span>
+        z1 = my_func(z1) <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">+ z</span>
+        count=count<span style="color: #9fcb66;">+</span><span style="color: #34c8d8;">1</span>
+    <span style="color: #ffff0b;">end</span>
+        <span style="color: #767283;">#</span><span style="color: #767283; font-style: italic;">if z hasn't diverged by the end</span>
+    <span style="color: #ffff0b;">return</span> Int(num)
+<span style="color: #ffff0b;">end</span>
 
-<span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">* Make a Picture</span>
-<span style="color: #008000;">"""</span>
-<span style="color: #008000;">Loop over a matrix and apply apply the julia-set function to</span>
-<span style="color: #008000;">the corresponding complex value</span>
-<span style="color: #008000;">"""</span>
-<span style="color: #0000FF;">function</span> <span style="color: #006699;">make_picture</span>(width, height, my_func)
+<span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">* Make a Picture</span>
+<span style="color: #ff7fff;">"""</span>
+<span style="color: #ff7fff;">Loop over a matrix and apply apply the julia-set function to</span>
+<span style="color: #ff7fff;">the corresponding complex value</span>
+<span style="color: #ff7fff;">"""</span>
+<span style="color: #ffff0b;">function</span> <span style="color: #ff996f;">make_picture</span>(width, height, my_func)
     pic_mat = zeros(width, height)
-    zoom = <span style="color: #D0372D;">0.3</span>
-    <span style="color: #0000FF;">for</span> i <span style="color: #0000FF;">in</span> <span style="color: #D0372D;">1</span>:size(pic_mat)[<span style="color: #D0372D;">1</span>]
-        <span style="color: #0000FF;">for</span> j <span style="color: #0000FF;">in</span> <span style="color: #D0372D;">1</span>:size(pic_mat)[<span style="color: #D0372D;">2</span>]
-            x = (j<span style="color: #6434A3;">-</span>width<span style="color: #6434A3;">/</span><span style="color: #D0372D;">2</span>)<span style="color: #6434A3;">/</span>(width<span style="color: #6434A3;">*</span>zoom)
-            y = (i<span style="color: #6434A3;">-</span>height<span style="color: #6434A3;">/</span><span style="color: #D0372D;">2</span>)<span style="color: #6434A3;">/</span>(height<span style="color: #6434A3;">*</span>zoom)
-            pic_mat[i,j] = juliaSet(x<span style="color: #6434A3;">+</span>y<span style="color: #6434A3;">*</span>im, <span style="color: #D0372D;">256</span>, my_func)
-        <span style="color: #0000FF;">end</span>
-    <span style="color: #0000FF;">end</span>
-    <span style="color: #0000FF;">return</span> pic_mat
-<span style="color: #0000FF;">end</span>
+    zoom = <span style="color: #34c8d8;">0.3</span>
+    <span style="color: #ffff0b;">for</span> i <span style="color: #ffff0b;">in</span> <span style="color: #34c8d8;">1</span>:size(pic_mat)[<span style="color: #34c8d8;">1</span>]
+        <span style="color: #ffff0b;">for</span> j <span style="color: #ffff0b;">in</span> <span style="color: #34c8d8;">1</span>:size(pic_mat)[<span style="color: #34c8d8;">2</span>]
+            x = (j<span style="color: #9fcb66;">-</span>width<span style="color: #9fcb66;">/</span><span style="color: #34c8d8;">2</span>)<span style="color: #9fcb66;">/</span>(width<span style="color: #9fcb66;">*</span>zoom)
+            y = (i<span style="color: #9fcb66;">-</span>height<span style="color: #9fcb66;">/</span><span style="color: #34c8d8;">2</span>)<span style="color: #9fcb66;">/</span>(height<span style="color: #9fcb66;">*</span>zoom)
+            pic_mat[i,j] = juliaSet(x<span style="color: #9fcb66;">+</span>y<span style="color: #9fcb66;">*</span>im, <span style="color: #34c8d8;">256</span>, my_func)
+        <span style="color: #ffff0b;">end</span>
+    <span style="color: #ffff0b;">end</span>
+    <span style="color: #ffff0b;">return</span> pic_mat
+<span style="color: #ffff0b;">end</span>
 
 </pre>
 </div>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 15: </span>Generate and save the images with GR</label><pre class="src src-julia" id="orgeb329fa"><span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">* Use GR to Save a Bunch of Images</span>
-  <span style="color: #8D8D84;">## </span><span style="color: #8D8D84; font-style: italic;">GR is faster than PyPlot</span>
-<span style="color: #0000FF;">using</span> GR
-<span style="color: #0000FF;">function</span> <span style="color: #006699;">save_images</span>(count, res)
-    <span style="color: #0000FF;">try</span>
-        mkdir(<span style="color: #008000;">"/tmp/gifs"</span>)
-    <span style="color: #0000FF;">catch</span>
-    <span style="color: #0000FF;">end</span>
-    j = <span style="color: #D0372D;">1</span>
-    <span style="color: #0000FF;">for</span> i <span style="color: #0000FF;">in</span> (<span style="color: #D0372D;">1</span>:count)<span style="color: #6434A3;">/</span>(<span style="color: #D0372D;">40</span><span style="color: #6434A3;">*</span><span style="color: #D0372D;">2</span><span style="color: #6434A3;">*</span>&#960;)
-        j = j <span style="color: #6434A3;">+</span> <span style="color: #D0372D;">1</span>
-        GR.imshow(make_picture(res, res, z <span style="color: #6434A3;">-&gt;</span> z<span style="color: #6434A3;">^</span><span style="color: #D0372D;">2</span> <span style="color: #6434A3;">+</span> <span style="color: #D0372D;">0.8</span><span style="color: #6434A3;">*</span>exp(i<span style="color: #6434A3;">*</span>im<span style="color: #6434A3;">*</span><span style="color: #D0372D;">9</span><span style="color: #6434A3;">/</span><span style="color: #D0372D;">2</span>))) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">PyPlot uses interpolation = "None"</span>
-        name = string(<span style="color: #008000;">"/tmp/gifs/j"</span>, lpad(j, <span style="color: #D0372D;">5</span>, <span style="color: #008000;">"0"</span>), <span style="color: #008000;">".png"</span>)
+<label class="org-src-name"><span class="listing-number">Listing 16: </span>Generate and save the images with GR</label><pre class="src src-julia" id="orgbfabbd2"><span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">* Use GR to Save a Bunch of Images</span>
+  <span style="color: #767283;">## </span><span style="color: #767283; font-style: italic;">GR is faster than PyPlot</span>
+<span style="color: #ffff0b;">using</span> GR
+<span style="color: #ffff0b;">function</span> <span style="color: #ff996f;">save_images</span>(count, res)
+    <span style="color: #ffff0b;">try</span>
+        mkdir(<span style="color: #ff7fff;">"/tmp/gifs"</span>)
+    <span style="color: #ffff0b;">catch</span>
+    <span style="color: #ffff0b;">end</span>
+    j = <span style="color: #34c8d8;">1</span>
+    <span style="color: #ffff0b;">for</span> i <span style="color: #ffff0b;">in</span> (<span style="color: #34c8d8;">1</span>:count)<span style="color: #9fcb66;">/</span>(<span style="color: #34c8d8;">40</span><span style="color: #9fcb66;">*</span><span style="color: #34c8d8;">2</span><span style="color: #9fcb66;">*</span>&#960;)
+        j = j <span style="color: #9fcb66;">+</span> <span style="color: #34c8d8;">1</span>
+        GR.imshow(make_picture(res, res, z <span style="color: #9fcb66;">-&gt;</span> z<span style="color: #9fcb66;">^</span><span style="color: #34c8d8;">2</span> <span style="color: #9fcb66;">+</span> <span style="color: #34c8d8;">0.8</span><span style="color: #9fcb66;">*</span>exp(i<span style="color: #9fcb66;">*</span>im<span style="color: #9fcb66;">*</span><span style="color: #34c8d8;">9</span><span style="color: #9fcb66;">/</span><span style="color: #34c8d8;">2</span>))) <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">PyPlot uses interpolation = "None"</span>
+        name = string(<span style="color: #ff7fff;">"/tmp/gifs/j"</span>, lpad(j, <span style="color: #34c8d8;">5</span>, <span style="color: #ff7fff;">"0"</span>), <span style="color: #ff7fff;">".png"</span>)
         GR.savefig(name)
-    <span style="color: #0000FF;">end</span>
-<span style="color: #0000FF;">end</span>
+    <span style="color: #ffff0b;">end</span>
+<span style="color: #ffff0b;">end</span>
 
-save_images(<span style="color: #D0372D;">1200</span>, <span style="color: #D0372D;">1500</span>) <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Number  and Res</span>
+save_images(<span style="color: #34c8d8;">1200</span>, <span style="color: #34c8d8;">1500</span>) <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">Number  and Res</span>
 </pre>
 </div>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 16: </span>Using <code>bash</code>, <code>ffmpeg</code> and <i>ImageMagick</i> to combine the images and produce an animation.</label><pre class="src src-bash" id="org9fe8f04"><span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Use montage multiple times to get recursion for fun</span>
-<span style="color: #006699;">montage</span> <span style="color: #707183;">(</span><span style="color: #6434A3;">ls</span> *png | sed -n <span style="color: #008000;">'1p;0~600p'</span><span style="color: #707183;">)</span> 0a.png
-<span style="color: #006699;">montage</span> <span style="color: #707183;">(</span><span style="color: #6434A3;">ls</span> *png | sed -n <span style="color: #008000;">'1p;0~100p'</span><span style="color: #707183;">)</span> a.png
-<span style="color: #006699;">montage</span> <span style="color: #707183;">(</span><span style="color: #6434A3;">ls</span> *png | sed -n <span style="color: #008000;">'1p;0~50p'</span><span style="color: #707183;">)</span> -geometry 1000x1000  a.png
+<label class="org-src-name"><span class="listing-number">Listing 17: </span>Using <code>bash</code>, <code>ffmpeg</code> and <i>ImageMagick</i> to combine the images and produce an animation.</label><pre class="src src-bash" id="org5f926c7"><span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">Use montage multiple times to get recursion for fun</span>
+<span style="color: #ff996f;">montage</span> <span style="color: #938e84;">(</span><span style="color: #9fcb66;">ls</span> *png | sed -n <span style="color: #ff7fff;">'1p;0~600p'</span><span style="color: #938e84;">)</span> 0a.png
+<span style="color: #ff996f;">montage</span> <span style="color: #938e84;">(</span><span style="color: #9fcb66;">ls</span> *png | sed -n <span style="color: #ff7fff;">'1p;0~100p'</span><span style="color: #938e84;">)</span> a.png
+<span style="color: #ff996f;">montage</span> <span style="color: #938e84;">(</span><span style="color: #9fcb66;">ls</span> *png | sed -n <span style="color: #ff7fff;">'1p;0~50p'</span><span style="color: #938e84;">)</span> -geometry 1000x1000  a.png
 
-<span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Use ImageMagick to Produce a gif (unreliable)</span>
-convert -delay <span style="color: #D0372D;">10</span> *.png 0.gif
+<span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">Use ImageMagick to Produce a gif (unreliable)</span>
+convert -delay <span style="color: #34c8d8;">10</span> *.png 0.gif
 
-<span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Use FFMpeg to produce a Gif instead</span>
-ffmpeg                    <span style="color: #008000;">\</span>
-    -framerate <span style="color: #D0372D;">60</span>         <span style="color: #008000;">\</span>
-    -pattern_type glob    <span style="color: #008000;">\</span>
-    -i <span style="color: #008000;">'*.png'</span>            <span style="color: #008000;">\</span>
-    -r <span style="color: #D0372D;">15</span>                 <span style="color: #008000;">\</span>
+<span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">Use FFMpeg to produce a Gif instead</span>
+ffmpeg                    <span style="color: #ff7fff;">\</span>
+    -framerate <span style="color: #34c8d8;">60</span>         <span style="color: #ff7fff;">\</span>
+    -pattern_type glob    <span style="color: #ff7fff;">\</span>
+    -i <span style="color: #ff7fff;">'*.png'</span>            <span style="color: #ff7fff;">\</span>
+    -r <span style="color: #34c8d8;">15</span>                 <span style="color: #ff7fff;">\</span>
     out.mov
 
 
@@ -2462,17 +2656,17 @@ ffmpeg                    <span style="color: #008000;">\</span>
 </div>
 
 
-<div id="org24b3b6f" class="figure">
+<div id="org4cc2d3b" class="figure">
 <p><img src="file:///home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Report/_20200826_005334a.png" alt="_20200826_005334a.png" />
 </p>
-<p><span class="figure-number">Figure 16: </span>Various fracals corresponding to \(f_{0.8 e^{\pi i \tau}}\)</p>
+<p><span class="figure-number">Figure 18: </span>Various fracals corresponding to \(f_{0.8 e^{\pi i \tau}}\)</p>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgaa26038" class="outline-3">
-<h3 id="orgaa26038"><span class="section-number-3">2.6</span> MandelBrot&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
+<div id="outline-container-orgeb20fc9" class="outline-3">
+<h3 id="orgeb20fc9"><span class="section-number-3">2.6</span> MandelBrot&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 Investigating these fractals, a natural question might be whether or not any
@@ -2495,59 +2689,59 @@ z_{0}   &= c
 \end{align}
 
 <p>
-This strategy is implemented in listing and produces the output shown in figure <a href="#org696e33d">17</a>.
+This strategy is implemented in listing and produces the output shown in figure <a href="#org607aff0">19</a>.
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 17: </span>All values of \(c\) that lead to a closed <i>Julia-set</i></label><pre class="src src-ipython" id="org224dc27">%matplotlib inline
-%config <span style="color: #BA36A5;">InlineBackend.figure_format</span> = <span style="color: #008000;">'svg'</span>
-<span style="color: #0000FF;">def</span> <span style="color: #006699;">mandelbrot</span>(z, num):
-    <span style="color: #036A07;">''' runs the process num amount of times and returns the count of</span>
-<span style="color: #036A07;">    divergence'''</span>
-    <span style="color: #BA36A5;">count</span> = <span style="color: #D0372D;">0</span>
-    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Define z1 as z</span>
-    <span style="color: #BA36A5;">z1</span> = z
-    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Iterate num times</span>
-    <span style="color: #0000FF;">while</span> count &lt;= num:
-        <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">check for divergence</span>
-        <span style="color: #0000FF;">if</span> magnitude(z1) &gt; <span style="color: #D0372D;">2.0</span>:
-            <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">return the step it diverged on</span>
-            <span style="color: #0000FF;">return</span> count
-        <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">iterate z</span>
-        <span style="color: #BA36A5;">z1</span> = cAdd(cMult(z1, z1),z)
-        <span style="color: #BA36A5;">count</span>+=<span style="color: #D0372D;">1</span>
-        <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">if z hasn't diverged by the end</span>
-    <span style="color: #0000FF;">return</span> num
+<label class="org-src-name"><span class="listing-number">Listing 18: </span>All values of \(c\) that lead to a closed <i>Julia-set</i></label><pre class="src src-ipython" id="org40dc05f">%matplotlib inline
+%config <span style="color: #4ac964;">InlineBackend.figure_format</span> = <span style="color: #ff7fff;">'svg'</span>
+<span style="color: #ffff0b;">def</span> <span style="color: #ff996f;">mandelbrot</span>(z, num):
+    <span style="color: #fd95fa;">''' runs the process num amount of times and returns the count of</span>
+<span style="color: #fd95fa;">    divergence'''</span>
+    <span style="color: #4ac964;">count</span> = <span style="color: #34c8d8;">0</span>
+    <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">Define z1 as z</span>
+    <span style="color: #4ac964;">z1</span> = z
+    <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">Iterate num times</span>
+    <span style="color: #ffff0b;">while</span> count &lt;= num:
+        <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">check for divergence</span>
+        <span style="color: #ffff0b;">if</span> magnitude(z1) &gt; <span style="color: #34c8d8;">2.0</span>:
+            <span style="color: #767283;">#</span><span style="color: #767283; font-style: italic;">return the step it diverged on</span>
+            <span style="color: #ffff0b;">return</span> count
+        <span style="color: #767283;">#</span><span style="color: #767283; font-style: italic;">iterate z</span>
+        <span style="color: #4ac964;">z1</span> = cAdd(cMult(z1, z1),z)
+        <span style="color: #4ac964;">count</span>+=<span style="color: #34c8d8;">1</span>
+        <span style="color: #767283;">#</span><span style="color: #767283; font-style: italic;">if z hasn't diverged by the end</span>
+    <span style="color: #ffff0b;">return</span> num
 
-<span style="color: #0000FF;">import</span> numpy <span style="color: #0000FF;">as</span> np
+<span style="color: #ffff0b;">import</span> numpy <span style="color: #ffff0b;">as</span> np
 
 
-<span style="color: #BA36A5;">p</span> = <span style="color: #D0372D;">0.25</span> <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">horizontal, vertical, pinch (zoom)</span>
-<span style="color: #BA36A5;">res</span> = <span style="color: #D0372D;">200</span>
-<span style="color: #BA36A5;">h</span> = res/<span style="color: #D0372D;">2</span>
-<span style="color: #BA36A5;">v</span> = res/<span style="color: #D0372D;">2</span>
+<span style="color: #4ac964;">p</span> = <span style="color: #34c8d8;">0.25</span> <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">horizontal, vertical, pinch (zoom)</span>
+<span style="color: #4ac964;">res</span> = <span style="color: #34c8d8;">200</span>
+<span style="color: #4ac964;">h</span> = res/<span style="color: #34c8d8;">2</span>
+<span style="color: #4ac964;">v</span> = res/<span style="color: #34c8d8;">2</span>
 
-<span style="color: #BA36A5;">pic</span> = np.zeros([res, res])
-<span style="color: #0000FF;">for</span> i <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(pic.shape[<span style="color: #D0372D;">0</span>]):
-    <span style="color: #0000FF;">for</span> j <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(pic.shape[<span style="color: #D0372D;">1</span>]):
-        <span style="color: #BA36A5;">x</span> = (j - h)/(p*res)
-        <span style="color: #BA36A5;">y</span> = (i-v)/(p*res)
-        <span style="color: #BA36A5;">z</span> = [x, y]
-        <span style="color: #BA36A5;">col</span> = mandelbrot(z, <span style="color: #D0372D;">100</span>)
-        <span style="color: #BA36A5;">pic</span>[i, j] = col
+<span style="color: #4ac964;">pic</span> = np.zeros([res, res])
+<span style="color: #ffff0b;">for</span> i <span style="color: #ffff0b;">in</span> <span style="color: #ff9029;">range</span>(pic.shape[<span style="color: #34c8d8;">0</span>]):
+    <span style="color: #ffff0b;">for</span> j <span style="color: #ffff0b;">in</span> <span style="color: #ff9029;">range</span>(pic.shape[<span style="color: #34c8d8;">1</span>]):
+        <span style="color: #4ac964;">x</span> = (j - h)/(p*res)
+        <span style="color: #4ac964;">y</span> = (i-v)/(p*res)
+        <span style="color: #4ac964;">z</span> = [x, y]
+        <span style="color: #4ac964;">col</span> = mandelbrot(z, <span style="color: #34c8d8;">100</span>)
+        <span style="color: #4ac964;">pic</span>[i, j] = col
 
-<span style="color: #0000FF;">import</span> matplotlib.pyplot <span style="color: #0000FF;">as</span> plt
+<span style="color: #ffff0b;">import</span> matplotlib.pyplot <span style="color: #ffff0b;">as</span> plt
 plt.imshow(pic)
-<span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">plt.show()</span>
+<span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">plt.show()</span>
 </pre>
 </div>
 
 
-<div id="org696e33d" class="figure">
+<div id="org607aff0" class="figure">
 <p><object type="image/svg+xml" data="./mandelbrot-py.svg" class="org-svg" width="600px">
 Sorry, your browser does not support SVG.</object>
 </p>
-<p><span class="figure-number">Figure 17: </span>Mandelbrot Set produced in <i>Python</i> as shown in listing <a href="#org224dc27">17</a></p>
+<p><span class="figure-number">Figure 19: </span>Mandelbrot Set produced in <i>Python</i> as shown in listing <a href="#org40dc05f">18</a></p>
 </div>
 
 <p>
@@ -2558,68 +2752,68 @@ and the corresponding FITS image is <a href="https://www.dropbox.com/s/jd5qf1pi2
 </p>
 
 <div class="org-src-container">
-<pre class="src src-julia" id="org9481745"><span style="color: #0000FF;">function</span> <span style="color: #006699;">mandelbrot</span>(z, num, my_func)
-    count = <span style="color: #D0372D;">1</span>
-    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Define z1 as z</span>
+<pre class="src src-julia" id="orgc2a0644"><span style="color: #ffff0b;">function</span> <span style="color: #ff996f;">mandelbrot</span>(z, num, my_func)
+    count = <span style="color: #34c8d8;">1</span>
+    <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">Define z1 as z</span>
     z1 = z
-    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Iterate num times</span>
-    <span style="color: #0000FF;">while</span> count &#8804; num
-        <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">check for divergence</span>
-        <span style="color: #0000FF;">if</span> abs(z1)<span style="color: #6434A3;">&gt;</span><span style="color: #D0372D;">2</span>
-            <span style="color: #0000FF;">return</span> Int(count)
-        <span style="color: #0000FF;">end</span>
-        <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">iterate z</span>
-        z1 = my_func(z1) <span style="color: #6434A3;">+</span> z
-        count=count<span style="color: #6434A3;">+</span><span style="color: #D0372D;">1</span>
-    <span style="color: #0000FF;">end</span>
-        <span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">if z hasn't diverged by the end</span>
-    <span style="color: #0000FF;">return</span> Int(num)
-<span style="color: #0000FF;">end</span>
+    <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">Iterate num times</span>
+    <span style="color: #ffff0b;">while</span> count &#8804; num
+        <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">check for divergence</span>
+        <span style="color: #ffff0b;">if</span> abs(z1)<span style="color: #9fcb66;">&gt;</span><span style="color: #34c8d8;">2</span>
+            <span style="color: #ffff0b;">return</span> Int(count)
+        <span style="color: #ffff0b;">end</span>
+        <span style="color: #767283;">#</span><span style="color: #767283; font-style: italic;">iterate z</span>
+        z1 = my_func(z1) <span style="color: #9fcb66;">+</span> z
+        count=count<span style="color: #9fcb66;">+</span><span style="color: #34c8d8;">1</span>
+    <span style="color: #ffff0b;">end</span>
+        <span style="color: #767283;">#</span><span style="color: #767283; font-style: italic;">if z hasn't diverged by the end</span>
+    <span style="color: #ffff0b;">return</span> Int(num)
+<span style="color: #ffff0b;">end</span>
 
-<span style="color: #0000FF;">function</span> <span style="color: #006699;">make_picture</span>(width, height, my_func)
+<span style="color: #ffff0b;">function</span> <span style="color: #ff996f;">make_picture</span>(width, height, my_func)
     pic_mat = zeros(width, height)
-    <span style="color: #0000FF;">for</span> i <span style="color: #0000FF;">in</span> <span style="color: #D0372D;">1</span>:size(pic_mat)[<span style="color: #D0372D;">1</span>]
-        <span style="color: #0000FF;">for</span> j <span style="color: #0000FF;">in</span> <span style="color: #D0372D;">1</span>:size(pic_mat)[<span style="color: #D0372D;">2</span>]
-            x = j<span style="color: #6434A3;">/</span>width
-            y = i<span style="color: #6434A3;">/</span>height
-            pic_mat[i,j] = mandelbrot(x<span style="color: #6434A3;">+</span>y<span style="color: #6434A3;">*</span>im, <span style="color: #D0372D;">99</span>, my_func)
-        <span style="color: #0000FF;">end</span>
-    <span style="color: #0000FF;">end</span>
-    <span style="color: #0000FF;">return</span> pic_mat
-<span style="color: #0000FF;">end</span>
+    <span style="color: #ffff0b;">for</span> i <span style="color: #ffff0b;">in</span> <span style="color: #34c8d8;">1</span>:size(pic_mat)[<span style="color: #34c8d8;">1</span>]
+        <span style="color: #ffff0b;">for</span> j <span style="color: #ffff0b;">in</span> <span style="color: #34c8d8;">1</span>:size(pic_mat)[<span style="color: #34c8d8;">2</span>]
+            x = j<span style="color: #9fcb66;">/</span>width
+            y = i<span style="color: #9fcb66;">/</span>height
+            pic_mat[i,j] = mandelbrot(x<span style="color: #9fcb66;">+</span>y<span style="color: #9fcb66;">*</span>im, <span style="color: #34c8d8;">99</span>, my_func)
+        <span style="color: #ffff0b;">end</span>
+    <span style="color: #ffff0b;">end</span>
+    <span style="color: #ffff0b;">return</span> pic_mat
+<span style="color: #ffff0b;">end</span>
 
 
-<span style="color: #0000FF;">using</span> FITSIO
-<span style="color: #0000FF;">function</span> <span style="color: #006699;">save_picture</span>(filename, matrix)
-    f = FITS(filename, <span style="color: #008000;">"w"</span>);
-    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">data = reshape(1:100, 5, 20)</span>
-    <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">data = pic_mat</span>
-    write(f, matrix)  <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Write a new image extension with the data</span>
+<span style="color: #ffff0b;">using</span> FITSIO
+<span style="color: #ffff0b;">function</span> <span style="color: #ff996f;">save_picture</span>(filename, matrix)
+    f = FITS(filename, <span style="color: #ff7fff;">"w"</span>);
+    <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">data = reshape(1:100, 5, 20)</span>
+    <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">data = pic_mat</span>
+    write(f, matrix)  <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">Write a new image extension with the data</span>
 
-    data = Dict(<span style="color: #008000;">"col1"</span><span style="color: #6434A3;">=&gt;</span>[<span style="color: #D0372D;">1.</span>, <span style="color: #D0372D;">2.</span>, <span style="color: #D0372D;">3.</span>], <span style="color: #008000;">"col2"</span><span style="color: #6434A3;">=&gt;</span>[<span style="color: #D0372D;">1</span>, <span style="color: #D0372D;">2</span>, <span style="color: #D0372D;">3</span>]);
-    write(f, data)  <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">write a new binary table to a new extension</span>
+    data = Dict(<span style="color: #ff7fff;">"col1"</span><span style="color: #9fcb66;">=&gt;</span>[<span style="color: #34c8d8;">1.</span>, <span style="color: #34c8d8;">2.</span>, <span style="color: #34c8d8;">3.</span>], <span style="color: #ff7fff;">"col2"</span><span style="color: #9fcb66;">=&gt;</span>[<span style="color: #34c8d8;">1</span>, <span style="color: #34c8d8;">2</span>, <span style="color: #34c8d8;">3</span>]);
+    write(f, data)  <span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">write a new binary table to a new extension</span>
 
     close(f)
-<span style="color: #0000FF;">end</span>
+<span style="color: #ffff0b;">end</span>
 
-<span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">* Save Picture</span>
-<span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">------------------------------------------------------------</span>
-my_pic = make_picture(<span style="color: #D0372D;">20000</span>, <span style="color: #D0372D;">20000</span>, z <span style="color: #6434A3;">-&gt;</span> z<span style="color: #6434A3;">^</span><span style="color: #D0372D;">2</span>) <span style="color: #D0372D;">2000</span><span style="color: #6434A3;">^</span><span style="color: #D0372D;">2</span> is <span style="color: #D0372D;">4</span> GB
-save_picture(<span style="color: #008000;">"/tmp/a.fits"</span>, my_pic)
+<span style="color: #767283;"># </span><span style="color: #767283; font-style: italic;">* Save Picture</span>
+<span style="color: #767283;">#</span><span style="color: #767283; font-style: italic;">------------------------------------------------------------</span>
+my_pic = make_picture(<span style="color: #34c8d8;">20000</span>, <span style="color: #34c8d8;">20000</span>, z <span style="color: #9fcb66;">-&gt;</span> z<span style="color: #9fcb66;">^</span><span style="color: #34c8d8;">2</span>) <span style="color: #34c8d8;">2000</span><span style="color: #9fcb66;">^</span><span style="color: #34c8d8;">2</span> is <span style="color: #34c8d8;">4</span> GB
+save_picture(<span style="color: #ff7fff;">"/tmp/a.fits"</span>, my_pic)
 
 </pre>
 </div>
 
 
-<div id="org5d10e71" class="figure">
+<div id="org056c1ce" class="figure">
 <p><img src="_20200828_233844screenshot.png" alt="_20200828_233844screenshot.png" width="500px" />
 </p>
-<p><span class="figure-number">Figure 18: </span>Screenshot of Mandelbrot FITS image produced by listing </p>
+<p><span class="figure-number">Figure 20: </span>Screenshot of Mandelbrot FITS image produced by listing </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org8b4e291" class="outline-3">
-<h3 id="org8b4e291"><span class="section-number-3">2.7</span> Relevant Sources</h3>
+<div id="outline-container-org9ba7e43" class="outline-3">
+<h3 id="org9ba7e43"><span class="section-number-3">2.7</span> Relevant Sources</h3>
 <div class="outline-text-3" id="text-2-7">
 <p>
 To guide research for our topic <i>Chaos and Fractals</i> by Pietgen, Jurgens and Saupe (NO_ITEM_DATA:peitgenChaosFractalsNew2004) will act as a map of the topic broadly, other than the sources referenced already, we anticipate referring to the following textbooks that we access to throughout the project:
@@ -2644,33 +2838,33 @@ Ron Knott&rsquo;s website appears also to have a lot of material related to patt
 </div>
 </div>
 
-<div id="outline-container-orgd884d1f" class="outline-3">
-<h3 id="orgd884d1f"><span class="section-number-3">2.8</span> Appendix</h3>
+<div id="outline-container-org8348263" class="outline-3">
+<h3 id="org8348263"><span class="section-number-3">2.8</span> Appendix</h3>
 <div class="outline-text-3" id="text-2-8">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 18: </span>Preamble for <i>Python</i> Environment</label><pre class="src src-python" id="org35bc30a">  <span style="color: #0000FF;">from</span> __future__ <span style="color: #0000FF;">import</span> division
-  <span style="color: #0000FF;">from</span> sympy <span style="color: #0000FF;">import</span> *
-  <span style="color: #BA36A5;">x</span>, <span style="color: #BA36A5;">y</span>, <span style="color: #BA36A5;">z</span>, <span style="color: #BA36A5;">t</span> = symbols(<span style="color: #008000;">'x y z t'</span>)
-  <span style="color: #BA36A5;">k</span>, <span style="color: #BA36A5;">m</span>, <span style="color: #BA36A5;">n</span> = symbols(<span style="color: #008000;">'k m n'</span>, integer=<span style="color: #D0372D;">True</span>)
-  <span style="color: #BA36A5;">f</span>, <span style="color: #BA36A5;">g</span>, <span style="color: #BA36A5;">h</span> = symbols(<span style="color: #008000;">'f g h'</span>, cls=Function)
+<label class="org-src-name"><span class="listing-number">Listing 19: </span>Preamble for <i>Python</i> Environment</label><pre class="src src-python" id="org77d14f3">  <span style="color: #ffff0b;">from</span> __future__ <span style="color: #ffff0b;">import</span> division
+  <span style="color: #ffff0b;">from</span> sympy <span style="color: #ffff0b;">import</span> *
+  <span style="color: #4ac964;">x</span>, <span style="color: #4ac964;">y</span>, <span style="color: #4ac964;">z</span>, <span style="color: #4ac964;">t</span> = symbols(<span style="color: #ff7fff;">'x y z t'</span>)
+  <span style="color: #4ac964;">k</span>, <span style="color: #4ac964;">m</span>, <span style="color: #4ac964;">n</span> = symbols(<span style="color: #ff7fff;">'k m n'</span>, integer=<span style="color: #34c8d8;">True</span>)
+  <span style="color: #4ac964;">f</span>, <span style="color: #4ac964;">g</span>, <span style="color: #4ac964;">h</span> = symbols(<span style="color: #ff7fff;">'f g h'</span>, cls=Function)
   init_printing()
-  init_printing(use_latex=<span style="color: #008000;">'mathjax'</span>, latex_mode=<span style="color: #008000;">'equation'</span>)
+  init_printing(use_latex=<span style="color: #ff7fff;">'mathjax'</span>, latex_mode=<span style="color: #ff7fff;">'equation'</span>)
 
 
-  <span style="color: #0000FF;">import</span> pyperclip
-  <span style="color: #0000FF;">def</span> <span style="color: #006699;">lx</span>(expr):
+  <span style="color: #ffff0b;">import</span> pyperclip
+  <span style="color: #ffff0b;">def</span> <span style="color: #ff996f;">lx</span>(expr):
       pyperclip.copy(latex(expr))
-      <span style="color: #0000FF;">print</span>(expr)
+      <span style="color: #ffff0b;">print</span>(expr)
 
-  <span style="color: #0000FF;">import</span> numpy <span style="color: #0000FF;">as</span> np
-  <span style="color: #0000FF;">import</span> matplotlib <span style="color: #0000FF;">as</span> plt
+  <span style="color: #ffff0b;">import</span> numpy <span style="color: #ffff0b;">as</span> np
+  <span style="color: #ffff0b;">import</span> matplotlib <span style="color: #ffff0b;">as</span> plt
 
-  <span style="color: #0000FF;">import</span> time
+  <span style="color: #ffff0b;">import</span> time
 
-  <span style="color: #0000FF;">def</span> <span style="color: #006699;">timeit</span>(k):
-      <span style="color: #BA36A5;">start</span> = time.time()
+  <span style="color: #ffff0b;">def</span> <span style="color: #ff996f;">timeit</span>(k):
+      <span style="color: #4ac964;">start</span> = time.time()
       k
-      <span style="color: #0000FF;">print</span>(<span style="color: #006FE0;">str</span>(<span style="color: #006FE0;">round</span>(time.time() - start, <span style="color: #D0372D;">9</span>)) + <span style="color: #008000;">"seconds"</span>)
+      <span style="color: #ffff0b;">print</span>(<span style="color: #ff9029;">str</span>(<span style="color: #ff9029;">round</span>(time.time() - start, <span style="color: #34c8d8;">9</span>)) + <span style="color: #ff7fff;">"seconds"</span>)
 </pre>
 </div>
 </div>
@@ -2679,8 +2873,8 @@ Ron Knott&rsquo;s website appears also to have a lot of material related to patt
 <h4 id="persian-recursion-examples"><span class="section-number-4">2.8.1</span> Persian Recursian Examples</h4>
 <div class="outline-text-4" id="text-persian-recursion-examples">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 19: </span>Enhance listing <a href="#orgef164e7">11</a> to create 9 folds</label><pre class="src src-ipython" id="org4d58eb2">%config <span style="color: #BA36A5;">InlineBackend.figure_format</span> = <span style="color: #008000;">'svg'</span>
-main(<span style="color: #D0372D;">5</span>, <span style="color: #D0372D;">9</span>, <span style="color: #D0372D;">1</span>, cx)
+<label class="org-src-name"><span class="listing-number">Listing 20: </span>Enhance listing <a href="#org5a60a8c">12</a> to create 9 folds</label><pre class="src src-ipython" id="org860dac2">%config <span style="color: #4ac964;">InlineBackend.figure_format</span> = <span style="color: #ff7fff;">'svg'</span>
+main(<span style="color: #34c8d8;">5</span>, <span style="color: #34c8d8;">9</span>, <span style="color: #34c8d8;">1</span>, cx)
 </pre>
 </div>
 
@@ -2692,51 +2886,51 @@ Sorry, your browser does not support SVG.</object>
 
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 20: </span>Modify the Function to use \(f(w,x,y,z) = (w + x + y + z - 7) \mod 8\)</label><pre class="src src-ipython" id="org96ecc83">%config <span style="color: #BA36A5;">InlineBackend.figure_format</span> = <span style="color: #008000;">'svg'</span>
-<span style="color: #0000FF;">def</span> <span style="color: #006699;">cx</span>(l, r, t, b, m):
-    <span style="color: #BA36A5;">new_col</span> = (main.mat[t,l] + main.mat[t,r] +  main.mat[b,l] + main.mat[b,r]-<span style="color: #D0372D;">7</span>) % m
-    <span style="color: #0000FF;">return</span> new_col.astype(<span style="color: #006FE0;">int</span>)
-main(<span style="color: #D0372D;">8</span>, <span style="color: #D0372D;">8</span>, <span style="color: #D0372D;">1</span>, cx)
+<label class="org-src-name"><span class="listing-number">Listing 21: </span>Modify the Function to use \(f(w,x,y,z) = (w + x + y + z - 7) \mod 8\)</label><pre class="src src-ipython" id="orge4180ac">%config <span style="color: #4ac964;">InlineBackend.figure_format</span> = <span style="color: #ff7fff;">'svg'</span>
+<span style="color: #ffff0b;">def</span> <span style="color: #ff996f;">cx</span>(l, r, t, b, m):
+    <span style="color: #4ac964;">new_col</span> = (main.mat[t,l] + main.mat[t,r] +  main.mat[b,l] + main.mat[b,r]-<span style="color: #34c8d8;">7</span>) % m
+    <span style="color: #ffff0b;">return</span> new_col.astype(<span style="color: #ff9029;">int</span>)
+main(<span style="color: #34c8d8;">8</span>, <span style="color: #34c8d8;">8</span>, <span style="color: #34c8d8;">1</span>, cx)
 </pre>
 </div>
 
 
-<div id="orgc73f338" class="figure">
+<div id="orge9f63c1" class="figure">
 <p><object type="image/svg+xml" data="./persian-recursion-new-func.svg" class="org-svg" width="400px">
 Sorry, your browser does not support SVG.</object>
 </p>
-<p><span class="figure-number">Figure 20: </span>Output produced by listing <a href="#org96ecc83">20</a> using \(f(w,x,y,z) = (w + x + y + z - 7) \mod 8\)</p>
+<p><span class="figure-number">Figure 22: </span>Output produced by listing <a href="#orge4180ac">21</a> using \(f(w,x,y,z) = (w + x + y + z - 7) \mod 8\)</p>
 </div>
 
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 21: </span>Modify the function to use \(f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1\)</label><pre class="src src-ipython" id="org8a63b1c">%config <span style="color: #BA36A5;">InlineBackend.figure_format</span> = <span style="color: #008000;">'svg'</span>
-<span style="color: #0000FF;">import</span> numpy <span style="color: #0000FF;">as</span> np
-<span style="color: #0000FF;">def</span> <span style="color: #006699;">cx</span>(l, r, t, b, m):
-    <span style="color: #BA36A5;">new_col</span> = (main.mat[t,l] + main.mat[t,r]*m +  main.mat[b,l]*(m) + main.mat[b,r]*(m))**<span style="color: #D0372D;">1</span> % m + <span style="color: #D0372D;">1</span>
-    <span style="color: #0000FF;">return</span> new_col.astype(<span style="color: #006FE0;">int</span>)
-main(<span style="color: #D0372D;">8</span>, <span style="color: #D0372D;">8</span>, <span style="color: #D0372D;">1</span>, cx)
+<label class="org-src-name"><span class="listing-number">Listing 22: </span>Modify the function to use \(f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1\)</label><pre class="src src-ipython" id="orgf6b0fa6">%config <span style="color: #4ac964;">InlineBackend.figure_format</span> = <span style="color: #ff7fff;">'svg'</span>
+<span style="color: #ffff0b;">import</span> numpy <span style="color: #ffff0b;">as</span> np
+<span style="color: #ffff0b;">def</span> <span style="color: #ff996f;">cx</span>(l, r, t, b, m):
+    <span style="color: #4ac964;">new_col</span> = (main.mat[t,l] + main.mat[t,r]*m +  main.mat[b,l]*(m) + main.mat[b,r]*(m))**<span style="color: #34c8d8;">1</span> % m + <span style="color: #34c8d8;">1</span>
+    <span style="color: #ffff0b;">return</span> new_col.astype(<span style="color: #ff9029;">int</span>)
+main(<span style="color: #34c8d8;">8</span>, <span style="color: #34c8d8;">8</span>, <span style="color: #34c8d8;">1</span>, cx)
 </pre>
 </div>
 
 
 
-<div id="org1a64281" class="figure">
+<div id="org2160c3c" class="figure">
 <p><object type="image/svg+xml" data="./persian-recursion-new-func2.svg" class="org-svg" width="400px">
 Sorry, your browser does not support SVG.</object>
 </p>
-<p><span class="figure-number">Figure 21: </span>Output produced by listing <a href="#org8a63b1c">21</a> using \(f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1\)</p>
+<p><span class="figure-number">Figure 23: </span>Output produced by listing <a href="#orgf6b0fa6">22</a> using \(f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1\)</p>
 </div>
 </div>
 </div>
-<div id="outline-container-org01319f8" class="outline-4">
-<h4 id="org01319f8"><span class="section-number-4">2.8.2</span> Figures</h4>
+<div id="outline-container-org730c8fe" class="outline-4">
+<h4 id="org730c8fe"><span class="section-number-4">2.8.2</span> Figures</h4>
 <div class="outline-text-4" id="text-2-8-2">
 
-<div id="org1f6a18b" class="figure">
+<div id="orgf32fe97" class="figure">
 <p><img src="complex_numbers.png" alt="complex_numbers.png" />
 </p>
-<p><span class="figure-number">Figure 22: </span>XKCD 2028: Complex Numbers</p>
+<p><span class="figure-number">Figure 24: </span>XKCD 2028: Complex Numbers</p>
 </div>
 </div>
 </div>
@@ -2884,7 +3078,7 @@ On my system this took about 30 minutes.
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: Ryan Greenup &amp; James Guerra</p>
-<p class="date">Created: 2020-09-23 Wed 11:18</p>
+<p class="date">Created: 2020-09-23 Wed 23:30</p>
 </div>
 </body>
 </html>

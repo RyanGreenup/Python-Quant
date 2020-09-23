@@ -1,4 +1,4 @@
-% Created 2020-09-23 Wed 14:50
+% Created 2020-09-23 Wed 23:29
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -38,11 +38,11 @@
 \tableofcontents
 
 \section{Report}
-\label{sec:orgdce366b}
+\label{sec:orge470beb}
 \subsection{Hausdorff Dimension\hfill{}\textsc{Ryan}}
-\label{sec:org2597b20}
+\label{sec:org30f1c04}
 \subsubsection{Topological Equivalence}
-\label{sec:org9c87361}
+\label{sec:orge690e4e}
 Topology is an area of mathematics concerned with ideas of continuity through the study of figures that are preserved under homeomorphic transformations. \cite{gilmoreTopologyChaosAlice2002}
 
 Two figures are said to be homeomorphic if there is a continuous bijective mapping between the two shapes \cite[p. 105]{peitgenChaosFractalsNew2004}.
@@ -114,29 +114,29 @@ In the case of the koch snowflake, the measure of the shape, when scaled, will i
 
 In the development of topology
 \subsection{Fractals Generally}
-\label{sec:org6bd6a97}
+\label{sec:org4cecc02}
 \begin{itemize}
 \item Many Fractals have a non finite dimension
 \item An exception to this is the Mandelbrot set or dragon curve which are two dimensional
 \end{itemize}
 \subsection{Generating Self Similar Fractals}
-\label{sec:orga0df1e6}
+\label{sec:org41fef05}
 \paragraph{Examples}
-\label{sec:org35f9b3a}
+\label{sec:org0f8dde3}
 \subparagraph{Vicsek Fractal}
-\label{sec:org674baa2}
+\label{sec:org7fde20e}
 \subparagraph{Sierpinskis Carpet}
-\label{sec:org3cda0e5}
+\label{sec:org0892eec}
 
 Explained more in the book \footnote{See Ch. 2.7 of \cite[Ch. 2.7]{peitgenChaosFractalsNew2004}}
 \subparagraph{Triangle}
-\label{sec:org4988f3b}
+\label{sec:orgdfca15c}
 \begin{enumerate}
 \item Chaos Game
-\label{sec:org39d6304}
+\label{sec:org283be66}
 \end{enumerate}
 \subsection{Fractal Dimensions\hfill{}\textsc{Ryan}}
-\label{sec:org5b52212}
+\label{sec:orgb41d15c}
 Three ways to generate
 
 \begin{enumerate}
@@ -149,25 +149,85 @@ Three ways to generate
 \end{enumerate}
 
 \subsubsection{Turtle}
-\label{sec:org81e32eb}
+\label{sec:orgc102ec1}
 Matrices can't explain all patterns, Turtles are useful
 \paragraph{Dragon Curve}
-\label{sec:org96fc1ab}
+\label{sec:org4a11d53}
 \paragraph{Koch Snowflake}
-\label{sec:org2fb0089}
+\label{sec:org46aa0a7}
 \subsubsection{Calculating the Dimension of Julia Set}
-\label{sec:org721d42b}
+\label{sec:orgb6b1180}
 It converges too slowly
+The Julia set (discussed in section \ref{julia-set}) can be solved by \ldots{}
+
+explain the code a little bit here
+
+as shown in listing
+
+A value on the complex plane can be associated with the julia set by iterating
+that value against a function of the form \(z \rightarrow z^{2} + \alpha + i
+\beta\) and measureing whether or not that value diverges or converges. This process is demonstrated in listing \ref{jsetDivFunc}.
+
+By associating each value on the complex plane with an element of a matrix an image of this pattern may be produced, see for example figure RABBIT
+
+\lstset{language=julia,label=jsetDivFunc,caption={Function that returns how many iterations of a function of is necessary for a complex value to diverge, the julia set is concerned with the function \(z \rightarrow z^{2} + \alpha + i \beta\)},captionpos=b,numbers=none}
+\begin{lstlisting}
+#!/bin/julia
+function juliaSet(z, num, my_func, boolQ=true)
+    count = 1
+    # Iterate num times
+    while count ≤ num
+        # check for divergence
+        if real(z)^2+imag(z)^2 > 2^2
+            if(boolQ) return 0 else return Int(count) end
+        end
+        #iterate z
+        z = my_func(z) # + z
+        count=count+1
+    end
+        #if z hasn't diverged by the end
+    if(boolQ) return 1 else return Int(count) end
+end
+\end{lstlisting}
+
 \paragraph{Using Linear Regression}
-\label{sec:orgb405e76}
+\label{sec:org5d47cf2}
 \begin{itemize}
 \item Avoiding \texttt{Abs} is twice as fast
 \item Column wise is faster in fortran/julia/R slower in C/Python
 \end{itemize}
+\subparagraph{Performance}
+\label{sec:org4f2126c}
+\begin{itemize}
+\item Switching from \texttt{abs()} to sqaured help
+\item Taking advantage of multi core processing in loops
+
+\item \href{https://stackoverflow.com/a/55704326/12843551}{pmap was chosen because} it scales better for expensive jobs.
+
+Comparison
+\end{itemize}
+\lstset{language=julia,label= ,caption= ,captionpos=b,numbers=none}
+\begin{lstlisting}
+function tme()
+    start = time()
+    data = scaleAndMeasure(900, 1000, 9)
+    length = time() - start
+    print(length, "\n")
+    return length
+end
+times = [tme() for i in 1:10 ]
+\end{lstlisting}
+
+\begin{center}
+\begin{tabular}{lr}
+Function & Mean Time\\
+\texttt{pmap} & 2.2825\\
+\end{tabular}
+\end{center}
 \subsubsection{My Fractal}
-\label{sec:org4989cad}
+\label{sec:org0232e56}
 \paragraph{Graphics}
-\label{sec:orgc2c7f23}
+\label{sec:org5a32a90}
 
 \begin{figure}[htbp]
 \centering
@@ -206,11 +266,11 @@ It converges too slowly
 \end{figure}
 
 \paragraph{Discuss Pattern shows Fibonacci Numbers}
-\label{sec:org3762cce}
+\label{sec:orgc05afa1}
 \subparagraph{Angle Relates to Golden Ratio}
-\label{sec:orga62f860}
+\label{sec:orgae89403}
 \paragraph{Prove Fibonacci using Monotone Convergence Theorem}
-\label{sec:org0f2415d}
+\label{sec:org86bdbc5}
 Consider the series:
 
 $$\begin{aligned}
@@ -225,7 +285,7 @@ F_n = F_{n- 1} +  F_{n- 2} ; \quad F_1 = F_2 = 1
 
 
 \subparagraph{Show that the Series is Monotone}
-\label{sec:org08dd33e}
+\label{sec:orgdb9c6a2}
 $$\begin{aligned}
 F_{n} &> 0 \\
 0 &< F_{n} \\
@@ -245,9 +305,9 @@ F_{n} &> 0 \\
 
 
 \subparagraph{Show that the Series is Bounded}
-\label{sec:orgbbbc4e6}
+\label{sec:org4918aba}
 \subparagraph{Find the Limit}
-\label{sec:org7847e25}
+\label{sec:orgaff7eb0}
 $$\begin{aligned}
 G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 &= 1 +  \frac{F_{n- 1} }{F_n} \\
@@ -259,7 +319,7 @@ G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 
 
 \subparagraph{Comments}
-\label{sec:org34286ad}
+\label{sec:org74a876c}
 
 The Fibonacci sequence is quite unique, observe that:
 
@@ -290,7 +350,7 @@ $$\begin{aligned}
 \frac{\psi}{\varphi}  = \frac{1}{\varphi^2} = \frac{1}{1-\varphi} &= \frac{1}{2-\varphi} = \frac{2}{3 - \sqrt{5}  }
 \end{aligned}$$
 \subparagraph{Python}
-\label{sec:org77d02fd}
+\label{sec:org681e86b}
 
 \lstset{language=:exports,label= ,caption= ,captionpos=b,numbers=none}
 \begin{lstlisting}
@@ -307,27 +367,32 @@ plt.savefig("./a.png")
 \end{center}
 
 \paragraph{Angle is \(\tan^{-1}\left( \frac{1}{1-\varphi}\right)\)}
-\label{sec:org240e275}
+\label{sec:org36c4e92}
 \subparagraph{Similar to Golden Angle \(2 \pi \left( \frac{1}{1-\varphi}\right)\)}
-\label{sec:orge799d41}
+\label{sec:org0de29db}
 \paragraph{Dimension of my Fractal}
-\label{sec:org902b187}
+\label{sec:orgc7add56}
 \(\log_{\varphi}(2)\)
 
 \subsection{Julia Sets and Mandelbrot Sets}
-\label{sec:orga0b2c72}
-The julia set is the outline
-\subsubsection{The math behind it}
-\label{sec:org657bf0c}
-\paragraph{Like Escaping after 2}
-\label{sec:org4277609}
-\subsection{Turing}
-\label{sec:org402eb5b}
+\label{julia-set}
+The julia set is the outline.
 
+The mandelbrot has to do with whether or not it's connected.
+\subsubsection{The math behind it}
+\label{sec:orgd14c008}
+\paragraph{Like Escaping after 2}
+\label{sec:org1cf8c9f}
+\subsection{Turing}
+\label{sec:org79f6459}
+
+\subsection{Appendix}
+\label{appendix}
+So unless code contributes directly to the discussion we'll put it in the appendix.
 \section{Outline}
-\label{sec:org8bddea3}
+\label{sec:orga64e085}
 \subsection{Introduction\hfill{}\textsc{Ryan}}
-\label{sec:org2722379}
+\label{sec:orgef05a0b}
 This project, at the outset, was very broadly concerned with the use of \emph{Python} for
 computer algebra. Much to the the reluctance of our supervisor we have however
 resolved to look at a broad variety of tools (see section \ref{other-tools}),
@@ -351,7 +416,7 @@ over such software needs to perform very well under recursion and iteration
 with Julia as well).
 
 \subsection{Programming Recursion\hfill{}\textsc{Ryan}}
-\label{sec:orgfc6543b}
+\label{sec:orgf4f6076}
 As an introduction to \emph{Python} generally, we undertook many problem questions which have been omitted from this outline, however, this one in particular offered an interesting insight into the difficulties we may encounter when dealing with recursive systems.
 \subsubsection{Iteration and Recursion}
 \label{series-and-recursion}
@@ -512,9 +577,9 @@ def f(k):
 \end{lstlisting}
 
 \subsection{Fibonacci Sequence\hfill{}\textsc{Ryan:James}}
-\label{sec:org072b9ae}
+\label{sec:org6a07e3e}
 \subsubsection{Introduction\hfill{}\textsc{Ryan}}
-\label{sec:orgb19ad6a}
+\label{sec:org45aa390}
 The \emph{Fibonacci Sequence} and \emph{Golden Ratio} share a deep connection\footnote{See section} and occur in patterns observed in nature very frequently
 (see
 \cite{shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016}), an example of such an occurence is discussed in section \ref{sunflower-example}.
@@ -802,7 +867,7 @@ where:
 \paragraph{Derivative of the Exponential Generating Function}
 \label{Derivative-exp-gen-function}
 \subparagraph{Base\hfill{}\textsc{Ryan}}
-\label{sec:orgd442917}
+\label{sec:org375bb73}
 Differentiating the exponential generating function has the effect of shifting the sequence to the backward: \cite{lehmanReadingsMathematicsComputer2010}
 
 \begin{align}
@@ -815,7 +880,7 @@ f'\left( x \right)) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 
 \end{align}
 
 \subparagraph{Bridge\hfill{}\textsc{James}}
-\label{sec:orgd678046}
+\label{sec:org0ecb559}
 This can be shown for all derivatives by way of induction, for
 
 \begin{align}
@@ -844,7 +909,7 @@ first derivative has been shown to express this property
 \eqref{eq:exp-pow-series-sol}, all derivates will.
 
 \paragraph{Homogeneous Proof\hfill{}\textsc{Ryan:James}}
-\label{sec:org7860816}
+\label{sec:org24e118a}
 An equation of the form:
 
 \begin{align}
@@ -887,10 +952,10 @@ where:
 \label{uniq-roots-recurrence}
 \begin{enumerate}
 \item Example
-\label{sec:org8d07aad}
+\label{sec:org6d25d9e}
 An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section \ref{solving-the-sequence}.
 \item Proof
-\label{sec:org3abf1aa}
+\label{sec:orgdab8868}
 Consider the linear recurrence relation \eqref{eq:recurrence-relation-def}:
 
 \begin{align}
@@ -951,7 +1016,7 @@ This can be verified by the fibonacci sequence as shown in section \ref{solving-
 \label{rep-roots-recurrence}
 \begin{enumerate}
 \item Example
-\label{sec:org67608ce}
+\label{sec:org0594faa}
 Consider the following recurrence relation:
 
 \begin{align}
@@ -1003,7 +1068,7 @@ Given the defenition of the exponential generating function from \eqref{eq:exp-g
     \square \nonumber
 \end{align}
 \item Proof
-\label{sec:org7c562cb}
+\label{sec:org5518111}
 In order to prove the the solution for a \(k^{\mathrm{th}}\) order recurrence relation with \(k\) repeated
 
 
@@ -1078,7 +1143,7 @@ Sketching out an approach for this:
 In this section a proof for identity \ref{eq:power-series-comb} is provided.
 \begin{enumerate}
 \item Motivation
-\label{sec:org2149406}
+\label{sec:orgc85576d}
 
 Consider the function \(f(x) = xe^x\). Using the taylor series formula we get the following:
 
@@ -1102,11 +1167,11 @@ We conjecture thatIf we continue this on, we get:
     x^ke^x = \sum_{n=k}^\infty \frac{x^n}{(n-k)!} \quad \text{for}~k\in \mathbb{Z^{+}}\cap0
 \end{align*}
 \item Proof by Induction
-\label{sec:orgafe16a8}
+\label{sec:org341b63a}
 To verify, let's prove this by induction.
 \begin{enumerate}
 \item Base
-\label{sec:org0f890e3}
+\label{sec:orgdbc3148}
 Test \(k=0\)
 \begin{align*}
     LHS &= x^0e^x = e^x\\
@@ -1115,7 +1180,7 @@ Test \(k=0\)
 Therefore LHS = RHS, so \(k=0\) is true
 
 \item Bridge
-\label{sec:org7c4f8ee}
+\label{sec:org8b07b23}
 Assume \(x^k e^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}\)
 
 Using this assumption, prove for the next element \$k+1\$\\
@@ -1256,7 +1321,7 @@ end 600 600
 \end{figure}
 
 \subsection{Persian Recursion\hfill{}\textsc{Ryan}}
-\label{sec:org373f175}
+\label{sec:org3dde95a}
 This section contains an example of how a simple process can lead to the
 development of complex patterns when exposed to feedback and iteration.
 
@@ -1363,12 +1428,12 @@ main(5,6, 1, cx)
 \end{figure}
 
 \subsection{Julia Sets\hfill{}\textsc{Ryan}}
-\label{sec:orgd3dbd8a}
+\label{sec:org8a12b7d}
 \subsubsection{Introduction}
-\label{sec:org30c3376}
+\label{sec:orgcf3e2b5}
 Julia sets are a very interesting fractal and we hope to investigate them further in this project.
 \subsubsection{Motivation}
-\label{sec:orgcf50271}
+\label{sec:org90ea49a}
 Consider the iterative process \(x \rightarrow x^{2}, \enspace x \in \mathbb{R}\),
 for values of \(x>1\) this process will diverge and for \(x<1\) it will converge.
 
@@ -1404,7 +1469,7 @@ Every value on that plane will belong to one of the two following sets
 In the case of \(f_{0}(z) = z^{2}\) all values \(\left\lvert z  \right \rvert \leq 1\) are bounded with \(\left\lvert z  \right \rvert = 1\) being an unstable stationary circle, but let's investigate what happens for different iterative functions like \(f_{1}(z) = z^{2} - 1\), despite how trivial this seems at first glance.
 
 \subsubsection{Plotting the Sets}
-\label{sec:org019e285}
+\label{sec:org2276c09}
 Although the convergence of values may appear simple at first, we'll implement a
 strategy to plot the prisoner and escape sets on the complex plane.
 
@@ -1648,7 +1713,7 @@ ffmpeg                    \
 \end{figure}
 
 \subsection{MandelBrot\hfill{}\textsc{Ryan}}
-\label{sec:orgf271781}
+\label{sec:org83f421b}
 Investigating these fractals, a natural question might be whether or not any
 given \(c\) value will produce a fractal that is an open disc or a closed disc.
 
@@ -1779,7 +1844,7 @@ save_picture("/tmp/a.fits", my_pic)
 \caption{\label{mandelbrot-screen}Screenshot of Mandelbrot FITS image produced by listing }
 \end{figure}
 \subsection{Relevant Sources}
-\label{sec:orgd8f31f8}
+\label{sec:org8bae699}
 To guide research for our topic \emph{Chaos and Fractals} by Pietgen, Jurgens and Saupe \cite{peitgenChaosFractalsNew2004} will act as a map of the topic broadly, other than the sources referenced already, we anticipate referring to the following textbooks that we access to throughout the project:
 
 \begin{itemize}
@@ -1798,7 +1863,7 @@ To guide research for our topic \emph{Chaos and Fractals} by Pietgen, Jurgens an
 Ron Knott's website appears also to have a lot of material related to patterns, the \emph{Fibonacci Sequence} and the \emph{Golden Ratio}, we intend to have a good look through that material as well. \cite{ronknottFibonacciNumbersGolden2016}
 
 \subsection{Appendix}
-\label{sec:org7cef4ad}
+\label{sec:orgcf29373}
 
 \lstset{language=Python,label=py-env,caption={Preamble for \emph{Python} Environment},captionpos=b,numbers=none}
 \begin{lstlisting}
@@ -1872,7 +1937,7 @@ main(8, 8, 1, cx)
 \caption{\label{new-func2-plot}Output produced by listing \ref{new-func2-code} using \(f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1\)}
 \end{figure}
 \subsubsection{Figures}
-\label{sec:org3c287f1}
+\label{sec:org67054ff}
 
 \begin{figure}[htbp]
 \centering
