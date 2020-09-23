@@ -174,7 +174,7 @@ function scaleAndMeasure(min, max, n)
     # mass  =  [ sum(outline(make_picture(Int(i), Int(i), z -> z^2 + -0.123+0.745*im))) for i in res ]
     
     mass = SharedArray{Float64}(n)
-    @distributed for i = 1:n
+    @distributed (+) for i = 1:n
         j = scale[i]
         mass[i] = sum(outline(make_picture(Int(j), Int(j), z -> z^2 + -0.123+0.745*im)))
     end
