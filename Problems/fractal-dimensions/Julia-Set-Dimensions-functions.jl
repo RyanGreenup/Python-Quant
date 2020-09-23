@@ -164,9 +164,16 @@ end
 function scaleAndMeasure(min, max, n)
     # The scale is equivalent to the resolution, the initial resolution could be
     # set as 10, 93, 72 or 1, it's arbitrary (previously I had res and scale)
+    # #TODO: Prove this
 
     scale = [Int(ceil(i)) for i in range(min, max, length=n) ]
-    mass = pmap(s -> sum(outline(make_picture(Int(s), Int(s), z -> z^2 + -0.123+0.745*im))) , scale)
+
+    # pmap kept failing, so for loop it is
+    mass = SharedArray{Float64}(n)
+    @distributed (+) for i = 1:n
+        j = scale[i]
+        mass[i] = sum(outline(make_picture(Int(j), Int(j), z -> z^2 + -0.123+0.745*im)))
+    end
 
     data = DataFrame(scale = scale, mass = mass)
     return data
