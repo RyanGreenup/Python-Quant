@@ -32,7 +32,8 @@ log(l2/l1)/log(size2/size1)
 
 
 
-@time data=scaleAndMeasure(100, 500, 9)
+@time data=scaleAndMeasure(500, 1000 , 9)
+CSV.write("./Julia-Set-Scaling.csv", data)
 data.scale = [log(i) for i in data.scale]
 data.mass  = [log(i) for i in data.mass]
 data
