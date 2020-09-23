@@ -34,7 +34,9 @@
 ** Generating Self Similar Fractals
 **** Examples
 ***** Vicsek Fractal
-***** Sierpinskis Carpet [fn:spc]
+***** Sierpinskis Carpet
+
+Explained more in the book [fn:spc]
 
 [fn:spc] See Ch. 2.7 of [[cite:peitgenChaosFractalsNew2004][Ch. 2.7]]
 ***** Triangle
