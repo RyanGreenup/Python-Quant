@@ -23,6 +23,7 @@
 #+LATEX_HEADER: \IfFileExists{./resources/style.sty}{\usepackage{./resources/style}}{}
 #+LATEX_HEADER: \IfFileExists{./resources/referencing.sty}{\usepackage{./resources/referencing}}{}
 #+LATEX_HEADER: \addbibresource{../Resources/references.bib}
+#+LATEX_HEADER: \usepackage[mode=buildnew]{standalone}
 #+LATEX_HEADER: \usepackage{tikz}
 #+LATEX_HEADER: \usetikzlibrary{decorations.fractals}
 #+LATEX_HEADER: \usetikzlibrary{lindenmayersystems}
@@ -41,27 +42,64 @@ definition, while an inutitive definition related the dimension of a shape to
 the number of parameters needed to describe that shape, this definition is not
 sufficient to be preserved under a homeomorphic transform however.
 
-Consider the koch curve:
+Consider the koch fractal in figure [[koch-line]] (see also figure [[koch-snowflake]]), at each iteration the perimeter is given by $p_{n}=p_{n-1}  \left(\frac{4}{3} \right)$, this means if the shape is scaled by some factor $s$ the the following relationship holds.
+
+The number of edges in the koch fractal is given by:
+
+\begin{align}
+N_{n} &= N_{n-1} \cdot 4 \\
+&= 3 \cdot 4^{n}
+\end{align}
+
+If the length of any individual side was given by $l$ and scaled by some value $s$ then the length of each individual edge would be given by:
+
+\begin{align}
+l = \frac{s \cdot l_{0}}{3^{n}}
+\end{align}
+
+The total perimeter would be given by:
+
+\begin{align}
+p_{n} &= N_{n} \times l \\
+&= 3\cdot 4^{n} \times \frac{s \cdot l_{o}}{3^{n}} \\
+&= 3 \cdot s \cdot  l_{0} \left( \frac{4}{3} \right)^{n}
+\end{align}
+The koch snowflake, is defined such that there are no edges, every point on the curve is the vertex of an equilateral triangle. Every time the koch curve is iterated, one edge is reduced in length by a scale of 3 and the overall length increases by a factor of 4, this means if the overall shape was scaled by a factor of $s$ the number of segments.
+
+# http://mypages.iit.edu/~maslanka/KochSnowflake.pdf
+
+the scale of resolution increases 3 fold
+THIS IS NOT CORRECT, I MUST SHOW THAT THE DIMENSION IS $\frac{ln(4)}{\ln(3)}$ BUT I'M SIMPLY OUT OF TIME.
+\begin{align}
+s \cdot p_{n} &=  (4/3)^{n} \cdot s \cdot P_{0}\\
+& \propto \left(\frac{4}{3}\right)^{n} \\
+ \implies  n &= \frac{\ln\left( 4 \right)}{\ln\left( 3 \right)} \label{eq:koch-dim}
+\end{align}
+In ordinary geometric shapes this value $n$ will be the dimension of the shape,
+with respect to that shapes /measure/. For example consider measure similar to mass, a piece
+of wire when scaled in length, will increase in mass by a factor of that scale, whereas
+a sheet of material would increase in mass by a factor proportional to the square of that scaling.
+
+In the case of the koch snowflake, the measure of the shape, when scaled, will increase by a factor of
+
+
+#+NAME: koch-line
+#+CAPTION: Progression of the Koch Snowflake
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+[[file:media/tikz/Koch_line.png]]
+# \includestandalone[]{.media/tikz/Koch_line.png]]
+}
+
+#+NAME: koch-snowflake
+#+CAPTION: Progression of the Koch Snowflake
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+[[file:media/tikz/Snowflake.png]]
+# \includestandalone[]{./media/tikz/Snowflake.tex}
 
 
 
-# % \usepackage{tikz}
-# % \usetikzlibrary{decorations.fractal
-# % \usetikzlibrary{lindenmayersystems}
-
-#+begin_src latex
-\begin{tikzpicture}[decoration=Koch snowflake]
-\draw decorate {(0,1) -- ++(60:3)  -- ++(300:3) -- ++(180:3)} node[below=1cm](init){$n=1$};
-\draw decorate { decorate {(4,1) -- ++(60:3)  -- ++(300:3) -- ++(180:3)}} node[below=1cm](two){$n=2$};
-\draw decorate{decorate { decorate {(8,1) -- ++(60:3)  -- ++(300:3) -- ++(180:3)}}} node[below=1cm](nthree){$n=3$};
-\draw decorate {decorate{decorate { decorate {(12,1) -- ++(60:3)  -- ++(300:3) -- ++(180:3)}}}} node[below=1cm](nfour){$n=4$};
-\end{tikzpicture}
-#+end_src
-
-% Use the following for live preview
-% latexmk -pdf -pvc -shell-escape --interaction=nonstopmode
-% convert -resize 1200x1200 -density 7200 -quality 75 file.tex file.png
-% convert -resize 1200x1200 -density 7200 file.tex file.svg
 
 
 
