@@ -3,6 +3,7 @@ using GR
 ### Julia / MandelBrot Functions ###########################
 ############################################################
 
+
 function juliaSet(z, num, my_func, boolQ=true)
     count = 1
     # Define z1 as z
@@ -11,17 +12,17 @@ function juliaSet(z, num, my_func, boolQ=true)
     while count ≤ num
         # check for divergence
         if real(z1)^2+imag(z1)^2 > 2^2
-            if(boolQ) return 0 else return Int(count)
+            if(boolQ) return 0 else return Int(count) end
         end
         #iterate z
         z1 = my_func(z1) # + z
         count=count+1
     end
         #if z hasn't diverged by the end
-    if(boolQ) return 0 else return Int(count)
+    if(boolQ) return 0 else return Int(count) end
 end
 
-function mandelbrot(z, num, my_func)
+function mandelbrot(z, num, my_func, boolQ = true)
     count = 1
     # Define z1 as z
     z1 = z
@@ -29,7 +30,7 @@ function mandelbrot(z, num, my_func)
     while count ≤ num
         # check for divergence
         if real(z1)^2+imag(z1)^2 > 2^2
-            return 0 #Int(count)
+            if(boolQ) return 0 else return Int(count) end
         end
         #iterate z
         z1 = my_func(z1) 
@@ -37,12 +38,14 @@ function mandelbrot(z, num, my_func)
     end
         #if z hasn't diverged by the end
     return 1 # Int(num)
+    if(boolQ) return 0 else return Int(count) end
 end
 
 function test(x, y)
     if(x<1) return x else return y end
 end
 test(9, 999)
+
 
 ############################################################
 ##### Build a Matrix Image #################################
