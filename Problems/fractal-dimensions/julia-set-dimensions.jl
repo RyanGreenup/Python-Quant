@@ -3,7 +3,7 @@ using GR
 ### Julia / MandelBrot Functions ###########################
 ############################################################
 
-function juliaSet(z, num, my_func)
+function juliaSet(z, num, my_func, boolQ=true)
     count = 1
     # Define z1 as z
     z1 = z
@@ -11,14 +11,14 @@ function juliaSet(z, num, my_func)
     while count ≤ num
         # check for divergence
         if real(z1)^2+imag(z1)^2 > 2^2
-            return Int(count)
+            if(boolQ) return 0 else return Int(count)
         end
         #iterate z
         z1 = my_func(z1) # + z
         count=count+1
     end
         #if z hasn't diverged by the end
-    return Int(num)
+    if(boolQ) return 0 else return Int(count)
 end
 
 function mandelbrot(z, num, my_func)
@@ -29,15 +29,20 @@ function mandelbrot(z, num, my_func)
     while count ≤ num
         # check for divergence
         if real(z1)^2+imag(z1)^2 > 2^2
-            return Int(count)
+            return 0 #Int(count)
         end
         #iterate z
         z1 = my_func(z1) 
         count=count+1
     end
         #if z hasn't diverged by the end
-    return Int(num)
+    return 1 # Int(num)
 end
+
+function test(x, y)
+    if(x<1) return x else return y end
+end
+test(9, 999)
 
 ############################################################
 ##### Build a Matrix Image #################################
@@ -73,18 +78,6 @@ I should probably set that arbitrary 100 to something related to a mean value
 maybe?
 """
 function outline(mat)
-    for col in 2:(size(mat)[2]-1)
-        for row in 2:(size(mat)[1]-1)
-            ## Make instand divergence zero
-            if abs(mat[row, col]) <= 100  # Although 100 is arbitrary, anything less hides the shape
-                mat[row, col] = 0            # TODO make this a var, convergence_threshold
-            end
-            ## Make everything else 1
-            if abs(mat[row, col]) >= 100
-                mat[row, col] = 1
-            end
-        end
-    end
     work_mat = copy(mat)
     for col in 2:(size(mat)[2]-1)
         for row in 2:(size(mat)[1]-1)
@@ -98,6 +91,7 @@ function outline(mat)
     return work_mat
 end
 
+using GR
 test_mat = make_picture(800,800, z -> z^2 + 0.37-0.2*im)
 test_mat = make_picture(800,800, z -> z^2 + -0.123+0.745*im)
 GR.imshow(test_mat) # PyPlot uses interpolation = "None"
@@ -137,42 +131,56 @@ using DataFrames
 using Gadfly
 using GLM
 
-df = DataFrame(xvals = 1:10, yvals = 3*(1:10).+rand()) # rember to use .+ for arrays
+using SharedArrays
+using Distributed
 
 
-function lr()
-    scale = [range(8000, 9000, length=5)...]
-    res = 10 .* scale
-    res = [Int(ceil(i)) for i in res]
-    # res = [ Int(i) for i in range(100, 1000, length = 10) ]
-    mass  =  [ sum(outline(make_picture(Int(i), Int(i), z -> z^2 + -0.123+0.745*im))) for i in res ]
+function scaleAndMeasure(min, max, n)
+    # The scale is equivalent to the resolution, the initial resolution could be
+    # set as 10, 93, 72 or 1, it's arbitrary
 
-    scale = [ log(i) for i in scale ]
-    mass = [ log(i) for i in mass ]
+    scale = [Int(ceil(i)) for i in range(min, max, length=n) ]
+
+    # mass  =  [ sum(outline(make_picture(Int(i), Int(i), z -> z^2 + -0.123+0.745*im))) for i in res ]
+    
+    mass = SharedArray{Float64}(n)
+    @distributed for i = 1:n
+        j = scale[i]
+        mass[i] = sum(outline(make_picture(Int(j), Int(j), z -> z^2 + -0.123+0.745*im)))
+    end
+    
 
     data = DataFrame()
     data.scale = scale
     data.mass  = mass
-    data
-    p = Gadfly.plot(data, x=:scale, y=:mass, Geom.point)
-    mod   = lm(@formula(mass ~ scale), data)
-    print("the slope is $(round(coef(mod)[2], sigdigits=4))")
-    print(mod)
-    print("\n")
-    return mod
+    return data
 end
 
-@time lr()
+@time data=scaleAndMeasure(100, 500, 9)
+data.scale = [log(i) for i in data.scale]
+data.mass  = [log(i) for i in data.mass]
+data
 
+mod   = lm(@formula(mass ~ scale), data)
+p = Gadfly.plot(data, x=:scale, y=:mass, Geom.point)
+
+print("the slope is $(round(coef(mod)[2], sigdigits=4))")
+print(mod)
+print("\n")
+return mod
   
+a = SharedArray{Float64}(10)
+@distributed for i = 1:10
+    a[i] = i
+end
 
-using Gadfly, RDatasets
-import Gadfly
-
-iris = dataset("datasets", "iris")
-p = Gadfly.plot(iris, x=:SepalLength, y=:SepalWidth, Geom.point);
-img = SVG("iris_plot.svg")
-draw(img, p)
+# using Gadfly, RDatasets
+# import Gadfly
+# 
+# iris = dataset("datasets", "iris")
+# p = Gadfly.plot(iris, x=:SepalLength, y=:SepalWidth, Geom.point);
+# img = SVG("iris_plot.svg")
+# draw(img, p)
 
 
 # The trailing `;` supresses output, equivalently:
