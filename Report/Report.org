@@ -27,10 +27,12 @@
 #+LATEX_HEADER: \usepackage{tikz}
 #+LATEX_HEADER: \usetikzlibrary{decorations.fractals}
 #+LATEX_HEADER: \usetikzlibrary{lindenmayersystems}
+#+LATEX_HEADER: \twocolumn
 :END:
 * Report
-** Hausdorff Dimension                                                         :Ryan:
-*** STRT Topological Equivalence
+** The concept of Dimension
+*** Hausdorff Dimension                                                       :Ryan:
+**** STRT Topological Equivalence
 Topology is an area of mathematics concerned with ideas of continuity through the study of figures that are preserved under homeomorphic transformations. cite:gilmoreTopologyChaosAlice2002
 
 Two figures are said to be homeomorphic if there is a continuous bijective mapping between the two shapes [[cite:peitgenChaosFractalsNew2004][p. 105]].
@@ -104,6 +106,7 @@ In the case of the koch snowflake, the measure of the shape, when scaled, will i
 
 
 In the development of topology
+*** Box Counting Dimension                                                    :Ryan:
 ** Fractals Generally
 - Many Fractals have a non finite dimension
 - An exception to this is the Mandelbrot set or dragon curve which are two dimensional
@@ -144,6 +147,8 @@ that value against a function of the form $z \rightarrow z^{2} + \alpha + i
 
 By associating each value on the complex plane with an element of a matrix an image of this pattern may be produced, see for example figure RABBIT
 
+#+ATTR_LATEX: :float t
+#+ATTR_LATEX: :options multicolumn
 #+NAME: jsetDivFunc
 #+CAPTION: Function that returns how many iterations of a function of is necessary for a complex value to diverge, the julia set is concerned with the function $z \rightarrow z^{2} + \alpha + i \beta$
 #+begin_src julia
@@ -168,6 +173,20 @@ end
 **** Using Linear Regression
 - Avoiding ~Abs~ is twice as fast
 - Column wise is faster in fortran/julia/R slower in C/Python
+
+The idea here was that producing more points would scale linearly but producing a more detailed picture will scale in non-linear time TODO what time will it scale in?
+
+:TIME:
+well we're looping through each box, the number of boxes depends on the square of the number of boxes.
+
+Each operation should be approximately constant with respect to time
+
+If I double the height I increase the number of boxes by a factor of $2^{2}$ but it also means that the comparison matrix needs to be larger to.
+
+so a scale of $s$ implies a number of operations greater than $2s^{2}$?
+
+Is that right?
+:END:
 ***** Performance
 - Switching from ~abs()~ to sqaured help
 - Taking advantage of multi core processing in loops
@@ -338,6 +357,16 @@ The mandelbrot has to do with whether or not it's connected.
 :CUSTOM_ID: appendix
 :END:
 So unless code contributes directly to the discussion we'll put it in the appendix.
+
+One approach to do this might be:
+
+# Must not float something that will not fin on the page
+#+ATTR_LATEX: :float multicol
+#+NAME: Julia-Set-Dim-Funcs
+#+CAPTION: Script containing necessary functions to build a julia set.
+#+begin_export latex
+\lstinputlisting[language=Julia]{../Problems/fractal-dimensions/Julia-Set-Dimensions-functions.jl}
+#+end_export
 * Outline
 ** Introduction                                                                :Ryan:
 This project, at the outset, was very broadly concerned with the use of /Python/ for

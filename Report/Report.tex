@@ -1,4 +1,4 @@
-% Created 2020-09-23 Wed 23:29
+% Created 2020-09-24 Thu 10:49
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -22,6 +22,7 @@
 \usepackage{tikz}
 \usetikzlibrary{decorations.fractals}
 \usetikzlibrary{lindenmayersystems}
+\twocolumn
 \author{Ryan Greenup \& James Guerra}
 \date{\today}
 \title{The Emergence of Patterns in Nature and Chaos Theory}
@@ -38,11 +39,13 @@
 \tableofcontents
 
 \section{Report}
-\label{sec:orge470beb}
-\subsection{Hausdorff Dimension\hfill{}\textsc{Ryan}}
-\label{sec:org30f1c04}
-\subsubsection{Topological Equivalence}
-\label{sec:orge690e4e}
+\label{sec:org934ecae}
+\subsection{The concept of Dimension}
+\label{sec:org0ad18f8}
+\subsubsection{Hausdorff Dimension\hfill{}\textsc{Ryan}}
+\label{sec:org96567fd}
+\paragraph{Topological Equivalence}
+\label{sec:org8539716}
 Topology is an area of mathematics concerned with ideas of continuity through the study of figures that are preserved under homeomorphic transformations. \cite{gilmoreTopologyChaosAlice2002}
 
 Two figures are said to be homeomorphic if there is a continuous bijective mapping between the two shapes \cite[p. 105]{peitgenChaosFractalsNew2004}.
@@ -113,30 +116,32 @@ In the case of the koch snowflake, the measure of the shape, when scaled, will i
 
 
 In the development of topology
+\subsubsection{Box Counting Dimension\hfill{}\textsc{Ryan}}
+\label{sec:org871fe50}
 \subsection{Fractals Generally}
-\label{sec:org4cecc02}
+\label{sec:org028b003}
 \begin{itemize}
 \item Many Fractals have a non finite dimension
 \item An exception to this is the Mandelbrot set or dragon curve which are two dimensional
 \end{itemize}
 \subsection{Generating Self Similar Fractals}
-\label{sec:org41fef05}
+\label{sec:org95de879}
 \paragraph{Examples}
-\label{sec:org0f8dde3}
+\label{sec:orge9b9673}
 \subparagraph{Vicsek Fractal}
-\label{sec:org7fde20e}
+\label{sec:org2285ef3}
 \subparagraph{Sierpinskis Carpet}
-\label{sec:org0892eec}
+\label{sec:org42cebb8}
 
 Explained more in the book \footnote{See Ch. 2.7 of \cite[Ch. 2.7]{peitgenChaosFractalsNew2004}}
 \subparagraph{Triangle}
-\label{sec:orgdfca15c}
+\label{sec:orge000126}
 \begin{enumerate}
 \item Chaos Game
-\label{sec:org283be66}
+\label{sec:orgd15b815}
 \end{enumerate}
 \subsection{Fractal Dimensions\hfill{}\textsc{Ryan}}
-\label{sec:orgb41d15c}
+\label{sec:org428c9d7}
 Three ways to generate
 
 \begin{enumerate}
@@ -149,14 +154,14 @@ Three ways to generate
 \end{enumerate}
 
 \subsubsection{Turtle}
-\label{sec:orgc102ec1}
+\label{sec:orgf8a6401}
 Matrices can't explain all patterns, Turtles are useful
 \paragraph{Dragon Curve}
-\label{sec:org4a11d53}
+\label{sec:org7d83db0}
 \paragraph{Koch Snowflake}
-\label{sec:org46aa0a7}
+\label{sec:orgcaabbee}
 \subsubsection{Calculating the Dimension of Julia Set}
-\label{sec:orgb6b1180}
+\label{sec:orga649377}
 It converges too slowly
 The Julia set (discussed in section \ref{julia-set}) can be solved by \ldots{}
 
@@ -170,8 +175,8 @@ that value against a function of the form \(z \rightarrow z^{2} + \alpha + i
 
 By associating each value on the complex plane with an element of a matrix an image of this pattern may be produced, see for example figure RABBIT
 
-\lstset{language=julia,label=jsetDivFunc,caption={Function that returns how many iterations of a function of is necessary for a complex value to diverge, the julia set is concerned with the function \(z \rightarrow z^{2} + \alpha + i \beta\)},captionpos=b,numbers=none}
-\begin{lstlisting}
+\lstset{float=htbp,language=julia,label=jsetDivFunc,caption={Function that returns how many iterations of a function of is necessary for a complex value to diverge, the julia set is concerned with the function \(z \rightarrow z^{2} + \alpha + i \beta\)},captionpos=b,numbers=none,multicolumn}
+\begin{lstlisting}[float=*t]
 #!/bin/julia
 function juliaSet(z, num, my_func, boolQ=true)
     count = 1
@@ -191,13 +196,25 @@ end
 \end{lstlisting}
 
 \paragraph{Using Linear Regression}
-\label{sec:org5d47cf2}
+\label{sec:org885fefe}
 \begin{itemize}
 \item Avoiding \texttt{Abs} is twice as fast
 \item Column wise is faster in fortran/julia/R slower in C/Python
 \end{itemize}
+
+The idea here was that producing more points would scale linearly but producing a more detailed picture will scale in non-linear time TODO what time will it scale in?
+
+well we're looping through each box, the number of boxes depends on the square of the number of boxes.
+
+Each operation should be approximately constant with respect to time
+
+If I double the height I increase the number of boxes by a factor of \(2^{2}\) but it also means that the comparison matrix needs to be larger to.
+
+so a scale of \(s\) implies a number of operations greater than \(2s^{2}\)?
+
+Is that right?
 \subparagraph{Performance}
-\label{sec:org4f2126c}
+\label{sec:org2151fd4}
 \begin{itemize}
 \item Switching from \texttt{abs()} to sqaured help
 \item Taking advantage of multi core processing in loops
@@ -207,7 +224,7 @@ end
 Comparison
 \end{itemize}
 \lstset{language=julia,label= ,caption= ,captionpos=b,numbers=none}
-\begin{lstlisting}
+\begin{lstlisting}[float=*t]
 function tme()
     start = time()
     data = scaleAndMeasure(900, 1000, 9)
@@ -225,9 +242,9 @@ Function & Mean Time\\
 \end{tabular}
 \end{center}
 \subsubsection{My Fractal}
-\label{sec:org0232e56}
+\label{sec:org48cdad4}
 \paragraph{Graphics}
-\label{sec:org5a32a90}
+\label{sec:orga7c1bd2}
 
 \begin{figure}[htbp]
 \centering
@@ -266,11 +283,11 @@ Function & Mean Time\\
 \end{figure}
 
 \paragraph{Discuss Pattern shows Fibonacci Numbers}
-\label{sec:orgc05afa1}
+\label{sec:org8cd77f3}
 \subparagraph{Angle Relates to Golden Ratio}
-\label{sec:orgae89403}
+\label{sec:org54dd53c}
 \paragraph{Prove Fibonacci using Monotone Convergence Theorem}
-\label{sec:org86bdbc5}
+\label{sec:orgcb93a16}
 Consider the series:
 
 $$\begin{aligned}
@@ -285,7 +302,7 @@ F_n = F_{n- 1} +  F_{n- 2} ; \quad F_1 = F_2 = 1
 
 
 \subparagraph{Show that the Series is Monotone}
-\label{sec:orgdb9c6a2}
+\label{sec:org0087e22}
 $$\begin{aligned}
 F_{n} &> 0 \\
 0 &< F_{n} \\
@@ -305,9 +322,9 @@ F_{n} &> 0 \\
 
 
 \subparagraph{Show that the Series is Bounded}
-\label{sec:org4918aba}
+\label{sec:orga81a627}
 \subparagraph{Find the Limit}
-\label{sec:orgaff7eb0}
+\label{sec:orga7e3cc2}
 $$\begin{aligned}
 G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 &= 1 +  \frac{F_{n- 1} }{F_n} \\
@@ -319,7 +336,7 @@ G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 
 
 \subparagraph{Comments}
-\label{sec:org74a876c}
+\label{sec:org78c47a4}
 
 The Fibonacci sequence is quite unique, observe that:
 
@@ -350,10 +367,10 @@ $$\begin{aligned}
 \frac{\psi}{\varphi}  = \frac{1}{\varphi^2} = \frac{1}{1-\varphi} &= \frac{1}{2-\varphi} = \frac{2}{3 - \sqrt{5}  }
 \end{aligned}$$
 \subparagraph{Python}
-\label{sec:org681e86b}
+\label{sec:orgea65045}
 
 \lstset{language=:exports,label= ,caption= ,captionpos=b,numbers=none}
-\begin{lstlisting}
+\begin{lstlisting}[float=*t]
 #+BEGIN_SRC python :exports both :results output graphics file :file ./a.png
 #+begin_src python
 import matplotlib.pyplot as plt
@@ -367,11 +384,11 @@ plt.savefig("./a.png")
 \end{center}
 
 \paragraph{Angle is \(\tan^{-1}\left( \frac{1}{1-\varphi}\right)\)}
-\label{sec:org36c4e92}
+\label{sec:org1975c5e}
 \subparagraph{Similar to Golden Angle \(2 \pi \left( \frac{1}{1-\varphi}\right)\)}
-\label{sec:org0de29db}
+\label{sec:org951f1f4}
 \paragraph{Dimension of my Fractal}
-\label{sec:orgc7add56}
+\label{sec:org9c2c73e}
 \(\log_{\varphi}(2)\)
 
 \subsection{Julia Sets and Mandelbrot Sets}
@@ -380,19 +397,23 @@ The julia set is the outline.
 
 The mandelbrot has to do with whether or not it's connected.
 \subsubsection{The math behind it}
-\label{sec:orgd14c008}
+\label{sec:orgd9310db}
 \paragraph{Like Escaping after 2}
-\label{sec:org1cf8c9f}
+\label{sec:org2040fda}
 \subsection{Turing}
-\label{sec:org79f6459}
+\label{sec:org0addfce}
 
 \subsection{Appendix}
 \label{appendix}
 So unless code contributes directly to the discussion we'll put it in the appendix.
+
+One approach to do this might be:
+
+\lstinputlisting[language=Julia]{../Problems/fractal-dimensions/Julia-Set-Dimensions-functions.jl}
 \section{Outline}
-\label{sec:orga64e085}
+\label{sec:org8a266da}
 \subsection{Introduction\hfill{}\textsc{Ryan}}
-\label{sec:orgef05a0b}
+\label{sec:orgcf79bc0}
 This project, at the outset, was very broadly concerned with the use of \emph{Python} for
 computer algebra. Much to the the reluctance of our supervisor we have however
 resolved to look at a broad variety of tools (see section \ref{other-tools}),
@@ -416,7 +437,7 @@ over such software needs to perform very well under recursion and iteration
 with Julia as well).
 
 \subsection{Programming Recursion\hfill{}\textsc{Ryan}}
-\label{sec:orgf4f6076}
+\label{sec:orga0e230c}
 As an introduction to \emph{Python} generally, we undertook many problem questions which have been omitted from this outline, however, this one in particular offered an interesting insight into the difficulties we may encounter when dealing with recursive systems.
 \subsubsection{Iteration and Recursion}
 \label{series-and-recursion}
@@ -445,7 +466,7 @@ notation. Individuals more familiar with programming than analysis may find it
 more comfortable to use an iterator as shown in listing \ref{it-one}.
 
 \lstset{language=Python,label=rec-one,caption={Solving \eqref{eq:rec-ser-mod} using recursion.},captionpos=b,numbers=none}
-\begin{lstlisting}
+\begin{lstlisting}[float=*t]
 from sympy import *
 def h(k):
     if k > 2:
@@ -463,7 +484,7 @@ def f(i):
 
 
 \lstset{language=Python,label=it-one,caption={Solving \eqref{eq:rec-ser-mod} by using a \texttt{for} loop.},captionpos=b,numbers=none}
-\begin{lstlisting}
+\begin{lstlisting}[float=*t]
   from sympy import *
   def h(k):
       k = k + 1 # OBOB
@@ -543,7 +564,7 @@ this function can lead to big differences in the complexity involved in solving
 this problem.
 
 \lstset{language=Python,label=rec-two,caption={Using Recursion to Solve \eqref{eq:rec-ser}},captionpos=b,numbers=none}
-\begin{lstlisting}
+\begin{lstlisting}[float=*t]
 from sympy import *
 def h(k):
     if k > 2:
@@ -562,7 +583,7 @@ def f(k, i):
 
 
 \lstset{language=Python,label=iter-two,caption={Using Iteration to Solve \eqref{eq:rec-ser}},captionpos=b,numbers=none}
-\begin{lstlisting}
+\begin{lstlisting}[float=*t]
 from sympy import *
 def h(k):
     k = k + 1 # OBOB
@@ -577,9 +598,9 @@ def f(k):
 \end{lstlisting}
 
 \subsection{Fibonacci Sequence\hfill{}\textsc{Ryan:James}}
-\label{sec:org6a07e3e}
+\label{sec:orgdf190e7}
 \subsubsection{Introduction\hfill{}\textsc{Ryan}}
-\label{sec:org45aa390}
+\label{sec:org84d8207}
 The \emph{Fibonacci Sequence} and \emph{Golden Ratio} share a deep connection\footnote{See section} and occur in patterns observed in nature very frequently
 (see
 \cite{shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016}), an example of such an occurence is discussed in section \ref{sunflower-example}.
@@ -621,7 +642,7 @@ time, this is implemented in listing \ref{fib-cache}.
 
 
 \lstset{language=Python,label=fib-rec-0,caption={Defining the \emph{Fibonacci Sequence} \eqref{eq:fib-def} using Recursion},captionpos=b,numbers=none}
-\begin{lstlisting}
+\begin{lstlisting}[float=*t]
   def rec_fib(k):
       if type(k) is not int:
           print("Error: Require integer values")
@@ -634,7 +655,7 @@ time, this is implemented in listing \ref{fib-cache}.
 \end{lstlisting}
 
 \lstset{language=Python,label=time-slow,caption={Using the function from listing \ref{fib-rec-0} is quite slow.},captionpos=b,numbers=none}
-\begin{lstlisting}
+\begin{lstlisting}[float=*t]
   start = time.time()
   rec_fib(35)
   print(str(round(time.time() - start, 3)) + "seconds")
@@ -644,7 +665,7 @@ time, this is implemented in listing \ref{fib-cache}.
 
 
 \lstset{language=Python,label=fib-cache,caption={Caching the results of the function previously defined \ref{time-slow}},captionpos=b,numbers=none}
-\begin{lstlisting}
+\begin{lstlisting}[float=*t]
   from functools import lru_cache
 
   @lru_cache(maxsize=9999)
@@ -666,7 +687,7 @@ print(str(round(time.time() - start, 3)) + "seconds")
 \end{lstlisting}
 
 \lstset{language=Python,label= ,caption= ,captionpos=b,numbers=none}
-\begin{lstlisting}
+\begin{lstlisting}[float=*t]
   start = time.time()
   rec_fib(6000)
   print(str(round(time.time() - start, 9)) + "seconds")
@@ -679,7 +700,7 @@ Restructuring the problem to use iteration will allow for even greater performan
 
 
 \lstset{language=Python,label=fib-iter,caption={Using Iteration to Solve the Fibonacci Sequence},captionpos=b,numbers=none}
-\begin{lstlisting}
+\begin{lstlisting}[float=*t]
   def my_it_fib(k):
       if k == 0:
           return k
@@ -710,7 +731,7 @@ Restructuring the problem to use iteration will allow for even greater performan
 \end{lstlisting}
 
 \lstset{language=julia,label=julia-fib,caption={Using Julia with an iterative approach to solve the 1 millionth fibonacci number},captionpos=b,numbers=none}
-\begin{lstlisting}
+\begin{lstlisting}[float=*t]
 function my_it_fib(k)
     if k == 0
         return k
@@ -867,7 +888,7 @@ where:
 \paragraph{Derivative of the Exponential Generating Function}
 \label{Derivative-exp-gen-function}
 \subparagraph{Base\hfill{}\textsc{Ryan}}
-\label{sec:org375bb73}
+\label{sec:org17c69ad}
 Differentiating the exponential generating function has the effect of shifting the sequence to the backward: \cite{lehmanReadingsMathematicsComputer2010}
 
 \begin{align}
@@ -880,7 +901,7 @@ f'\left( x \right)) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 
 \end{align}
 
 \subparagraph{Bridge\hfill{}\textsc{James}}
-\label{sec:org0ecb559}
+\label{sec:org8d1bac3}
 This can be shown for all derivatives by way of induction, for
 
 \begin{align}
@@ -909,7 +930,7 @@ first derivative has been shown to express this property
 \eqref{eq:exp-pow-series-sol}, all derivates will.
 
 \paragraph{Homogeneous Proof\hfill{}\textsc{Ryan:James}}
-\label{sec:org24e118a}
+\label{sec:orgce54e5f}
 An equation of the form:
 
 \begin{align}
@@ -952,10 +973,10 @@ where:
 \label{uniq-roots-recurrence}
 \begin{enumerate}
 \item Example
-\label{sec:org6d25d9e}
+\label{sec:orgf6a3578}
 An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section \ref{solving-the-sequence}.
 \item Proof
-\label{sec:orgdab8868}
+\label{sec:org8e94495}
 Consider the linear recurrence relation \eqref{eq:recurrence-relation-def}:
 
 \begin{align}
@@ -1016,7 +1037,7 @@ This can be verified by the fibonacci sequence as shown in section \ref{solving-
 \label{rep-roots-recurrence}
 \begin{enumerate}
 \item Example
-\label{sec:org0594faa}
+\label{sec:org71f17c6}
 Consider the following recurrence relation:
 
 \begin{align}
@@ -1068,7 +1089,7 @@ Given the defenition of the exponential generating function from \eqref{eq:exp-g
     \square \nonumber
 \end{align}
 \item Proof
-\label{sec:org5518111}
+\label{sec:org0105d0f}
 In order to prove the the solution for a \(k^{\mathrm{th}}\) order recurrence relation with \(k\) repeated
 
 
@@ -1143,7 +1164,7 @@ Sketching out an approach for this:
 In this section a proof for identity \ref{eq:power-series-comb} is provided.
 \begin{enumerate}
 \item Motivation
-\label{sec:orgc85576d}
+\label{sec:org4e67b81}
 
 Consider the function \(f(x) = xe^x\). Using the taylor series formula we get the following:
 
@@ -1167,11 +1188,11 @@ We conjecture thatIf we continue this on, we get:
     x^ke^x = \sum_{n=k}^\infty \frac{x^n}{(n-k)!} \quad \text{for}~k\in \mathbb{Z^{+}}\cap0
 \end{align*}
 \item Proof by Induction
-\label{sec:org341b63a}
+\label{sec:orgee216de}
 To verify, let's prove this by induction.
 \begin{enumerate}
 \item Base
-\label{sec:orgdbc3148}
+\label{sec:org69aabf7}
 Test \(k=0\)
 \begin{align*}
     LHS &= x^0e^x = e^x\\
@@ -1180,7 +1201,7 @@ Test \(k=0\)
 Therefore LHS = RHS, so \(k=0\) is true
 
 \item Bridge
-\label{sec:org8b07b23}
+\label{sec:orgd41d3af}
 Assume \(x^k e^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}\)
 
 Using this assumption, prove for the next element \$k+1\$\\
@@ -1278,7 +1299,7 @@ the correct spirals is also something we intend to look at in this project.
 The bottom right spiral in figure \ref{simulate-sunflower-image} has a ratio of rotation of \(\frac{1}{\pi}\), the spirals look similar to one direction of the spirals occuring in figure \ref{simulate-sunflower-phi}, it is not clear if there is any significance to this similarity.
 
 \lstset{language=julia,label=simulate-sunflower,caption={Simulation of the distribution of sunflowers as described in section \ref{sunflower-example}},captionpos=b,numbers=none}
-\begin{lstlisting}
+\begin{lstlisting}[float=*t]
 φ = 1.61803398875
 ψ = φ^-1
 ψ = 0.61803398875
@@ -1321,7 +1342,7 @@ end 600 600
 \end{figure}
 
 \subsection{Persian Recursion\hfill{}\textsc{Ryan}}
-\label{sec:org3dde95a}
+\label{sec:org31cd89c}
 This section contains an example of how a simple process can lead to the
 development of complex patterns when exposed to feedback and iteration.
 
@@ -1371,7 +1392,7 @@ Turing's \emph{The Chemical Basis For Morphogenesis}
 this research.
 
 \lstset{language=ipython,label=persian-recursion-python,caption={Implementation of the persian recursion scheme in \emph{Python}},captionpos=b,numbers=none}
-\begin{lstlisting}
+\begin{lstlisting}[float=*t]
 %matplotlib inline
 # m is colours
 # n is number of folds
@@ -1428,12 +1449,12 @@ main(5,6, 1, cx)
 \end{figure}
 
 \subsection{Julia Sets\hfill{}\textsc{Ryan}}
-\label{sec:org8a12b7d}
+\label{sec:orgf8b5669}
 \subsubsection{Introduction}
-\label{sec:orgcf3e2b5}
+\label{sec:orgff7dc1f}
 Julia sets are a very interesting fractal and we hope to investigate them further in this project.
 \subsubsection{Motivation}
-\label{sec:org90ea49a}
+\label{sec:orgecc7517}
 Consider the iterative process \(x \rightarrow x^{2}, \enspace x \in \mathbb{R}\),
 for values of \(x>1\) this process will diverge and for \(x<1\) it will converge.
 
@@ -1469,7 +1490,7 @@ Every value on that plane will belong to one of the two following sets
 In the case of \(f_{0}(z) = z^{2}\) all values \(\left\lvert z  \right \rvert \leq 1\) are bounded with \(\left\lvert z  \right \rvert = 1\) being an unstable stationary circle, but let's investigate what happens for different iterative functions like \(f_{1}(z) = z^{2} - 1\), despite how trivial this seems at first glance.
 
 \subsubsection{Plotting the Sets}
-\label{sec:org2276c09}
+\label{sec:org1343df0}
 Although the convergence of values may appear simple at first, we'll implement a
 strategy to plot the prisoner and escape sets on the complex plane.
 
@@ -1504,7 +1525,7 @@ with respect to listing \ref{py-circle-code}:
 
 
 \lstset{language=ipython,label=complex-vec,caption={Defining Complex Operations with vectors},captionpos=b,numbers=none}
-\begin{lstlisting}
+\begin{lstlisting}[float=*t]
 from math import sqrt
 def magnitude(z):
     # return sqrt(z[0]**2 + z[1]**2)
@@ -1525,7 +1546,7 @@ def cMult(u, v):
 \end{lstlisting}
 
 \lstset{language=ipython,label=py-circle-code,caption={Circle of Convergence of \(z\) under recursion},captionpos=b,numbers=none}
-\begin{lstlisting}
+\begin{lstlisting}[float=*t]
 %matplotlib inline
 %config InlineBackend.figure_format = 'svg'
 import numpy as np
@@ -1620,7 +1641,7 @@ listing \ref{bash-frac-join}, the collage is shown in figure \ref{montage-frac} 
 animation is \href{https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0}{available online}\footnote{\href{https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0}{https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0}}].
 
 \lstset{language=julia,label=julia-gen-fracs,caption={Produce a series of fractals using julia},captionpos=b,numbers=none}
-\begin{lstlisting}
+\begin{lstlisting}[float=*t]
 # * Define the Julia Set
 """
 Determine whether or not a value will converge under iteration
@@ -1664,7 +1685,7 @@ end
 \end{lstlisting}
 
 \lstset{language=julia,label=GR-save,caption={Generate and save the images with GR},captionpos=b,numbers=none}
-\begin{lstlisting}
+\begin{lstlisting}[float=*t]
 # * Use GR to Save a Bunch of Images
   ## GR is faster than PyPlot
 using GR
@@ -1686,7 +1707,7 @@ save_images(1200, 1500) # Number  and Res
 \end{lstlisting}
 
 \lstset{language=bash,label=bash-frac-join,caption={Using \texttt{bash}, \texttt{ffmpeg} and \emph{ImageMagick} to combine the images and produce an animation.},captionpos=b,numbers=none}
-\begin{lstlisting}
+\begin{lstlisting}[float=*t]
 # Use montage multiple times to get recursion for fun
 montage (ls *png | sed -n '1p;0~600p') 0a.png
 montage (ls *png | sed -n '1p;0~100p') a.png
@@ -1713,7 +1734,7 @@ ffmpeg                    \
 \end{figure}
 
 \subsection{MandelBrot\hfill{}\textsc{Ryan}}
-\label{sec:org83f421b}
+\label{sec:org0b2cfe8}
 Investigating these fractals, a natural question might be whether or not any
 given \(c\) value will produce a fractal that is an open disc or a closed disc.
 
@@ -1731,7 +1752,7 @@ z_{0}   &= c
 This strategy is implemented in listing and produces the output shown in figure \ref{mandelbrot-py-pic}.
 
 \lstset{language=ipython,label=py-mandelbrot-code,caption={All values of \(c\) that lead to a closed \emph{Julia-set}},captionpos=b,numbers=none}
-\begin{lstlisting}
+\begin{lstlisting}[float=*t]
 %matplotlib inline
 %config InlineBackend.figure_format = 'svg'
 def mandelbrot(z, num):
@@ -1786,7 +1807,7 @@ larger image can be produced, in \emph{Julia} producing a 4 GB, 400 MP image can
 and the corresponding FITS image is \href{https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0}{available-online.}\footnote{\href{https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0}{https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0}}
 
 \lstset{language=julia,label,caption= ,captionpos=b,numbers=none}
-\begin{lstlisting}
+\begin{lstlisting}[float=*t]
 function mandelbrot(z, num, my_func)
     count = 1
     # Define z1 as z
@@ -1844,7 +1865,7 @@ save_picture("/tmp/a.fits", my_pic)
 \caption{\label{mandelbrot-screen}Screenshot of Mandelbrot FITS image produced by listing }
 \end{figure}
 \subsection{Relevant Sources}
-\label{sec:org8bae699}
+\label{sec:org5d0dacf}
 To guide research for our topic \emph{Chaos and Fractals} by Pietgen, Jurgens and Saupe \cite{peitgenChaosFractalsNew2004} will act as a map of the topic broadly, other than the sources referenced already, we anticipate referring to the following textbooks that we access to throughout the project:
 
 \begin{itemize}
@@ -1863,10 +1884,10 @@ To guide research for our topic \emph{Chaos and Fractals} by Pietgen, Jurgens an
 Ron Knott's website appears also to have a lot of material related to patterns, the \emph{Fibonacci Sequence} and the \emph{Golden Ratio}, we intend to have a good look through that material as well. \cite{ronknottFibonacciNumbersGolden2016}
 
 \subsection{Appendix}
-\label{sec:orgcf29373}
+\label{sec:org8cfc546}
 
 \lstset{language=Python,label=py-env,caption={Preamble for \emph{Python} Environment},captionpos=b,numbers=none}
-\begin{lstlisting}
+\begin{lstlisting}[float=*t]
   from __future__ import division
   from sympy import *
   x, y, z, t = symbols('x y z t')
@@ -1895,7 +1916,7 @@ Ron Knott's website appears also to have a lot of material related to patterns, 
 \subsubsection{Persian Recursian Examples}
 \label{persian-recursion-examples}
 \lstset{language=ipython,label=8-fold-code,caption={Enhance listing \ref{persian-recursion-python} to create 9 folds},captionpos=b,numbers=none}
-\begin{lstlisting}
+\begin{lstlisting}[float=*t]
 %config InlineBackend.figure_format = 'svg'
 main(5, 9, 1, cx)
 \end{lstlisting}
@@ -1905,7 +1926,7 @@ main(5, 9, 1, cx)
 
 
 \lstset{language=ipython,label=new-func-code,caption={Modify the Function to use \(f(w,x,y,z) = (w + x + y + z - 7) \mod 8\)},captionpos=b,numbers=none}
-\begin{lstlisting}
+\begin{lstlisting}[float=*t]
 %config InlineBackend.figure_format = 'svg'
 def cx(l, r, t, b, m):
     new_col = (main.mat[t,l] + main.mat[t,r] +  main.mat[b,l] + main.mat[b,r]-7) % m
@@ -1921,7 +1942,7 @@ main(8, 8, 1, cx)
 
 
 \lstset{language=ipython,label=new-func2-code,caption={Modify the function to use \(f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1\)},captionpos=b,numbers=none}
-\begin{lstlisting}
+\begin{lstlisting}[float=*t]
 %config InlineBackend.figure_format = 'svg'
 import numpy as np
 def cx(l, r, t, b, m):
@@ -1937,7 +1958,7 @@ main(8, 8, 1, cx)
 \caption{\label{new-func2-plot}Output produced by listing \ref{new-func2-code} using \(f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1\)}
 \end{figure}
 \subsubsection{Figures}
-\label{sec:org67054ff}
+\label{sec:org2d9ad03}
 
 \begin{figure}[htbp]
 \centering

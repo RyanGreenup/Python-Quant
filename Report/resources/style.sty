@@ -166,22 +166,31 @@
 
 %Listings----------------------------------------
 
+\usepackage{multicol}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.9965}
+
 \lstset{
 %  frame=tb,
-  frame=leftline,
+  frame=shadowbox,
+  float=*,
+  rulecolor = \color{codepurple},
   framesep=15pt,
-  language=Java,
+  language=julia,
   aboveskip=15pt,
   belowskip=20pt,
   showstringspaces=false,
   columns=flexible,
   basicstyle={\small\ttfamily},
   numbers=none,
-%  backgroundcolor=\color{Snow2},
+  captionpos=t,
+  backgroundcolor=\color{backcolour},
   numberstyle=\tiny\color{gray},
   keywordstyle=\color{blue},
   commentstyle=\color{dkgreen},
@@ -191,6 +200,24 @@
   tabsize=3,
   xleftmargin=1in,
 }
+
+
+% Listings Define Julia (https://tex.stackexchange.com/a/212794)
+%%
+%% Julia definition (c) 2014 Jubobs
+%%
+\lstdefinelanguage{Julia}%
+  {morekeywords={abstract,break,case,catch,const,continue,do,else,elseif,%
+      end,export,false,for,function,immutable,import,importall,if,in,%
+      macro,module,otherwise,quote,return,switch,true,try,type,typealias,%
+      using,while},%
+   sensitive=true,%
+   alsoother={$},%
+   morecomment=[l]\#,%
+   morecomment=[n]{\#=}{=\#},%
+   morestring=[s]{"}{"},%
+   morestring=[m]{'}{'},%
+}[keywords,comments,strings]%
 
 % ** Minted Package
 % *** With Box
