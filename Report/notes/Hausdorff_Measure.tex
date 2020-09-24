@@ -27,10 +27,46 @@
 
 %\input{./ShapeDiagram1.tikz}
 
+For small values of $s$ (i.e. less than the dimension of  $F$), the value of $\mathcal{H}^s$  will be $\infty$.
+
+Consider some value $s$ such that the Hausdorff measure is not infinite, i.e. values of $s$: 
+
+\footnote{Could fractal dimensions be complex? Maybe there could be a proof to show that the dimension is necessarily complex.}
+
+$$
+\begin{aligned}
+    \mathcal{H}^s = L \in \mathbb{R}
+\end{aligned}
+$$
+
+Consider a dimensional value $t$ that is larger than  $s$ and observe that:
+$$
+\begin{aligned}
+0<s<t  \implies   \sum_{i}  \left[ \left\levert U_i \right\rvert^t \right] &= \sum_{i}\left[ \left\levert U_i \right\rvert^{t- s} \cdot  \left\lvert U_i \right\rvert^s \right] \\
+									   &\leq \sum_{i} \left[ \delta^{t - s} \cdot \left\lvert U_i \right\rvert^s  \right]    \\
+									   &= \delta^{t- s}\sum_{i}   \left[ \left\lvert U_i \right\rvert^s \right] 									   \\
+									   
+\end{aligned}
+$$
+
+Now if $\lim_{\delta \rightarrow 0}\left[ \sum_{i}   \left\lvert U_i \right\rvert^s \right]$ is defined as a non-infinite value:
+
+$$
+\begin{aligned}
+    \lim_{\delta \rightarrow 0} \left( \sum_{i}   \left[ \left\lvert U_i \right\rvert^t \right]  \right) & \leq \lim_{\delta}\left( \delta^{t- s} \sum_{i}   \left[ \left\lvert U_i \right\rvert^s \right]  \right) \\
+													 &\leq \lim_{\delta \rightarrow 0}\left( \delta^{t - s} \right) \cdot  \lim_{\delta \rightarrow 0}\left( \sum_{i} \left[ \left\lvert U_i \right\rvert^s \right]    \right) \\
+													 &\leq 0
+\end{aligned}
+$$
+
+Thus for $\forall t > s$, if $s$ is a finite limit value:
+
 \begin{align}
-\mathcal{H}^s_{\delta}\left( F \right)= \inf \left\{ \sum^{\infty}_{i= 1}   \left\levert U_i \right\rvert^s \enspace : \enspace  \left\{U_i\right\} \text{ is a } \delta \text{-cover of } F \right\} \label{eq:delta-measure}
+    s \in \mathbb{R}  \implies  \mathcal{H}^t\left( F \right)= 0 \label{eq:hdfzero}
 \end{align}
- 
+
+hence the value of the hausdorff measure, across various dimension values of $s$ is only a finite, non-zero value, when $s = \mathrm{dim}\left( F \right)$ this is visualised in figure [[fig:hausdorff-vals]].
+
 \end{document}
 
 
@@ -39,14 +75,4 @@
 %%% mode: latex
 %%% TeX-master: "/home/ryan/Dropbox/Studies/MathModelling/Notes/Diffeq/latex_working/00_master.tex"
 %%% End: 
-
-
-
-
-
-
-
-
-
-
 

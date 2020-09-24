@@ -187,7 +187,6 @@ To build on that same analogy, another way to imagine this is to pack a 2D shape
 
 This is consistent with shapes of other shapes as well, consider the koch snowflake introduced in section [[#topological-equivalence]] and shown in figure [[koch-line]], the dimension of this shape is greater than 1, and the number of lines necessary to describe that shape is also infinite.
 
-
 ****** TODO Formally
 If the dimension of $F$ is less than $s$, the Hausdorff Measure will be given by: [fn:: I haven't been able to find a proof for this, I wonder if I could prove it by just applying the definition?]
 
@@ -196,7 +195,47 @@ If the dimension of $F$ is less than $s$, the Hausdorff Measure will be given by
 \end{align}
 
 ***** Higher Dimension Hausdorff Dimension
-***** Hausdorff Dimension
+For small values of $s$ (i.e. less than the dimension of  $F$), the value of $\mathcal{H}^s$  will be $\infty$.
+
+Consider some value $s$ such that the Hausdorff measure is not infinite, i.e. values of $s$: [fn:: Could fractal dimensions be complex? Maybe there could be a proof to show that the dimension is necessarily complex.]
+
+\[
+\mathcal{H}^s = L \in \mathbb{R}
+\]
+
+Consider a dimensional value $t$ that is larger than  $s$ and observe that:
+
+\begin{align*}
+0<s<t  \implies   \sum_{i}  \left[ \left\levert U_i \right\rvert^t \right] &= \sum_{i}\left[ \left\levert U_i \right\rvert^{t- s} \cdot  \left\lvert U_i \right\rvert^s \right] \\
+&\leq \sum_{i} \left[ \delta^{t - s} \cdot \left\lvert U_i \right\rvert^s  \right]    \\
+&= \delta^{t- s}\sum_{i}   \left[ \left\lvert U_i \right\rvert^s \right] 									   \\
+\end{align*}
+
+Now if $\lim_{\delta \rightarrow 0}\left[ \sum_{i}   \left\lvert U_i \right\rvert^s \right]$ is defined as a non-infinite value:
+
+\begin{align}
+    \lim_{\delta \rightarrow 0} \left( \sum_{i}   \left[ \left\lvert U_i \right\rvert^t \right]  \right) & \leq \lim_{\delta}\left( \delta^{t- s} \sum_{i}   \left[ \left\lvert U_i \right\rvert^s \right]  \right) \\
+&\leq \lim_{\delta \rightarrow 0}\left( \delta^{t - s} \right) \cdot  \lim_{\delta \rightarrow 0}\left( \sum_{i} \left[ \left\lvert U_i \right\rvert^s \right]    \right) \\
+&\leq 0
+\end{align}
+
+Thus $\forall t > s$, if $s$ is a finite limit value:
+
+\begin{align}
+    s \in \mathbb{R}  \implies  \mathcal{H}^t\left( F \right)= 0 \label{eq:hdfzero}
+\end{align}
+
+Hence the value of the /Hausdorff Measure/, across various dimension values of $s$ is only a finite, non-zero value, when $s = \mathrm{dim}\left( F \right)$ this is visualised in figure [[fig:hausdorff-vals]].
+
+
+
+#+NAME: hausdorff-vals
+#+CAPTION: The value of the s-dimensional /Hausdorff Measure/ of some subset of /Euclidean space/ $F\in \mathbb{R}^{n}$ is 0 or $\infty$ when the dimension of $F$ is not equal to $s$.
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+[[file:media/tikz/hausdorff-dimension-plot.png]]
+
+**** Hausdorff Dimension
 ** Fractals Generally
 - Many Fractals have a non finite dimension
 - An exception to this is the Mandelbrot set or dragon curve which are two dimensional

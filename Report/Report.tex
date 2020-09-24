@@ -1,4 +1,4 @@
-% Created 2020-09-24 Thu 20:09
+% Created 2020-09-24 Thu 23:22
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -38,9 +38,9 @@
 \tableofcontents
 
 \section{Report}
-\label{sec:orgb7cc3c5}
+\label{sec:org1b32078}
 \subsection{Hausdorff Dimension\hfill{}\textsc{Ryan}}
-\label{sec:orgc18c018}
+\label{sec:orge7f39d9}
 \subsubsection{Topological Equivalence}
 \label{topological-equivalence}
 Topology is an area of mathematics concerned with ideas of continuity through the study of figures that are preserved under homeomorphic transformations. \cite{gilmoreTopologyChaosAlice2002}
@@ -116,7 +116,7 @@ In the case of the koch snowflake, the measure of the shape, when scaled, will i
 
 In the development of topology
 \subsubsection{Notes from p. 27 Falconer}
-\label{sec:orgab45224}
+\label{sec:orgcfd768a}
 \paragraph{Measure}
 \label{hausdorff-measure}
 Let \(F\) be some arbitrary subset of euclidean space \(\mathbb{R}^n\), \footnote{A subset of euclidean space could be interpreted as an uncountable set containing all points describing that region TODO Cite}
@@ -187,10 +187,10 @@ This is defined for all subsets of \(\mathbb{R}^n\) for example the value of  \(
 \end{figure}
 
 \subparagraph{Lower Dimension Hausdorff Measurements}
-\label{sec:org498e555}
+\label{sec:orgfdff6fe}
 \begin{enumerate}
 \item Examples
-\label{sec:orgf53b620}
+\label{sec:org73d2c24}
 Consider again the example of a 2D shape, the value of \(\mathcal{H}^{1}\) would still be defined by \eqref{eq:delta-measure}, but unlike \(\mathcal{H}^{2}\) in section \ref{hausdorff-measure} the value of \(\left\lvert U_i \right\rvert^1\) would be considered as opposed to \(\left\lvert U_i \right\rvert^2\).
 
 As \(\delta\) is made arbitrarily small the boxes that cover the shape are made also to be arbitrarily small. Although the area of the boxes must clearly be bounded by the shape of \(F\), if one imagines an infinite number of infinitely dense lines packing into a 2D shape with an infinite density it can be seen that the total length of those lines will be infinite.
@@ -199,9 +199,8 @@ To build on that same analogy, another way to imagine this is to pack a 2D shape
 
 This is consistent with shapes of other shapes as well, consider the koch snowflake introduced in section \ref{topological-equivalence} and shown in figure \ref{koch-line}, the dimension of this shape is greater than 1, and the number of lines necessary to describe that shape is also infinite.
 
-
 \item Formally
-\label{sec:org9f72a82}
+\label{sec:org7af6de1}
 If the dimension of \(F\) is less than \(s\), the Hausdorff Measure will be given by: \footnote{I haven't been able to find a proof for this, I wonder if I could prove it by just applying the definition?}
 
 \begin{align}
@@ -210,33 +209,73 @@ If the dimension of \(F\) is less than \(s\), the Hausdorff Measure will be give
 \end{enumerate}
 
 \subparagraph{Higher Dimension Hausdorff Dimension}
-\label{sec:orgf2af3c6}
-\subparagraph{Hausdorff Dimension}
-\label{sec:org13cd2c5}
+\label{sec:org439ff19}
+For small values of \(s\) (i.e. less than the dimension of  \(F\)), the value of \(\mathcal{H}^s\)  will be \(\infty\).
+
+Consider some value \(s\) such that the Hausdorff measure is not infinite, i.e. values of \(s\): \footnote{Could fractal dimensions be complex? Maybe there could be a proof to show that the dimension is necessarily complex.}
+
+\[
+\mathcal{H}^s = L \in \mathbb{R}
+\]
+
+Consider a dimensional value \(t\) that is larger than  \(s\) and observe that:
+
+\begin{align*}
+0<s<t  \implies   \sum_{i}  \left[ \left\levert U_i \right\rvert^t \right] &= \sum_{i}\left[ \left\levert U_i \right\rvert^{t- s} \cdot  \left\lvert U_i \right\rvert^s \right] \\
+&\leq \sum_{i} \left[ \delta^{t - s} \cdot \left\lvert U_i \right\rvert^s  \right]    \\
+&= \delta^{t- s}\sum_{i}   \left[ \left\lvert U_i \right\rvert^s \right] 									   \\
+\end{align*}
+
+Now if \(\lim_{\delta \rightarrow 0}\left[ \sum_{i}   \left\lvert U_i \right\rvert^s \right]\) is defined as a non-infinite value:
+
+\begin{align}
+    \lim_{\delta \rightarrow 0} \left( \sum_{i}   \left[ \left\lvert U_i \right\rvert^t \right]  \right) & \leq \lim_{\delta}\left( \delta^{t- s} \sum_{i}   \left[ \left\lvert U_i \right\rvert^s \right]  \right) \\
+&\leq \lim_{\delta \rightarrow 0}\left( \delta^{t - s} \right) \cdot  \lim_{\delta \rightarrow 0}\left( \sum_{i} \left[ \left\lvert U_i \right\rvert^s \right]    \right) \\
+&\leq 0
+\end{align}
+
+Thus \(\forall t > s\), if \(s\) is a finite limit value:
+
+\begin{align}
+    s \in \mathbb{R}  \implies  \mathcal{H}^t\left( F \right)= 0 \label{eq:hdfzero}
+\end{align}
+
+Hence the value of the \emph{Hausdorff Measure}, across various dimension values of \(s\) is only a finite, non-zero value, when \(s = \mathrm{dim}\left( F \right)\) this is visualised in figure .
+
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=9cm]{media/tikz/hausdorff-dimension-plot.png}
+\caption{\label{hausdorff-vals}The value of the s-dimensional \emph{Hausdorff Measure} of some subset of \emph{Euclidean space} \(F\in \mathbb{R}^{n}\) is 0 or \(\infty\) when the dimension of \(F\) is not equal to \(s\).}
+\end{figure}
+
+\paragraph{Hausdorff Dimension}
+\label{sec:org3caac1d}
 \subsection{Fractals Generally}
-\label{sec:orgfa58eea}
+\label{sec:org29ff2dc}
 \begin{itemize}
 \item Many Fractals have a non finite dimension
 \item An exception to this is the Mandelbrot set or dragon curve which are two dimensional
 \end{itemize}
 \subsection{Generating Self Similar Fractals}
-\label{sec:org5a5be9c}
+\label{sec:org36aa2ff}
 \paragraph{Examples}
-\label{sec:orgc399ee3}
+\label{sec:org6924065}
 \subparagraph{Vicsek Fractal}
-\label{sec:org2506139}
+\label{sec:org75eddd4}
 \subparagraph{Sierpinskis Carpet}
-\label{sec:org471f7a9}
+\label{sec:orgff2cbeb}
 
 Explained more in the book \footnote{See Ch. 2.7 of \cite[Ch. 2.7]{peitgenChaosFractalsNew2004}}
 \subparagraph{Triangle}
-\label{sec:orgd796779}
+\label{sec:org185b8aa}
 \begin{enumerate}
 \item Chaos Game
-\label{sec:org2cd931e}
+\label{sec:orge7fa37a}
 \end{enumerate}
 \subsection{Fractal Dimensions\hfill{}\textsc{Ryan}}
-\label{sec:org0ff8a27}
+\label{sec:orgdf2a78c}
 Three ways to generate
 
 \begin{enumerate}
@@ -249,14 +288,14 @@ Three ways to generate
 \end{enumerate}
 
 \subsubsection{Turtle}
-\label{sec:org4668da8}
+\label{sec:org3857687}
 Matrices can't explain all patterns, Turtles are useful
 \paragraph{Dragon Curve}
-\label{sec:org5c329b4}
+\label{sec:org7f3cc37}
 \paragraph{Koch Snowflake}
-\label{sec:orgb7a57c9}
+\label{sec:org2ca3c5b}
 \subsubsection{Calculating the Dimension of Julia Set}
-\label{sec:org3deab03}
+\label{sec:org78190f4}
 It converges too slowly
 The Julia set (discussed in section \ref{julia-set}) can be solved by \ldots{}
 
@@ -291,13 +330,13 @@ end
 \end{lstlisting}
 
 \paragraph{Using Linear Regression}
-\label{sec:org3d5ca44}
+\label{sec:org1f47352}
 \begin{itemize}
 \item Avoiding \texttt{Abs} is twice as fast
 \item Column wise is faster in fortran/julia/R slower in C/Python
 \end{itemize}
 \subparagraph{Performance}
-\label{sec:org30512f4}
+\label{sec:orgdeefe3e}
 \begin{itemize}
 \item Switching from \texttt{abs()} to sqaured help
 \item Taking advantage of multi core processing in loops
@@ -325,9 +364,9 @@ Function & Mean Time\\
 \end{tabular}
 \end{center}
 \subsubsection{My Fractal}
-\label{sec:org092d5b6}
+\label{sec:org5f39fe9}
 \paragraph{Graphics}
-\label{sec:orgefa0a98}
+\label{sec:orgf6e89c7}
 
 \begin{figure}[htbp]
 \centering
@@ -372,11 +411,11 @@ Function & Mean Time\\
 \end{figure}
 
 \paragraph{Discuss Pattern shows Fibonacci Numbers}
-\label{sec:org0e1df61}
+\label{sec:orgd16ce67}
 \subparagraph{Angle Relates to Golden Ratio}
-\label{sec:org99980e0}
+\label{sec:org996b7a3}
 \paragraph{Prove Fibonacci using Monotone Convergence Theorem}
-\label{sec:orgfad2010}
+\label{sec:org090f90f}
 Consider the series:
 
 $$\begin{aligned}
@@ -391,7 +430,7 @@ F_n = F_{n- 1} +  F_{n- 2} ; \quad F_1 = F_2 = 1
 
 
 \subparagraph{Show that the Series is Monotone}
-\label{sec:orgc0f3007}
+\label{sec:org8baeb98}
 $$\begin{aligned}
 F_{n} &> 0 \\
 0 &< F_{n} \\
@@ -411,9 +450,9 @@ F_{n} &> 0 \\
 
 
 \subparagraph{Show that the Series is Bounded}
-\label{sec:org8136816}
+\label{sec:orgb43239c}
 \subparagraph{Find the Limit}
-\label{sec:orgb70d512}
+\label{sec:org58dd157}
 $$\begin{aligned}
 G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 &= 1 +  \frac{F_{n- 1} }{F_n} \\
@@ -425,7 +464,7 @@ G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 
 
 \subparagraph{Comments}
-\label{sec:org7ad5814}
+\label{sec:org813bb90}
 
 The Fibonacci sequence is quite unique, observe that:
 
@@ -456,7 +495,7 @@ $$\begin{aligned}
 \frac{\psi}{\varphi}  = \frac{1}{\varphi^2} = \frac{1}{1-\varphi} &= \frac{1}{2-\varphi} = \frac{2}{3 - \sqrt{5}  }
 \end{aligned}$$
 \subparagraph{Python}
-\label{sec:org72058f6}
+\label{sec:org414d450}
 
 \lstset{language=:exports,label= ,caption= ,captionpos=b,numbers=none}
 \begin{lstlisting}
@@ -473,11 +512,11 @@ plt.savefig("./a.png")
 \end{center}
 
 \paragraph{Angle is \(\tan^{-1}\left( \frac{1}{1-\varphi}\right)\)}
-\label{sec:org6e48def}
+\label{sec:org8d7ee8f}
 \subparagraph{Similar to Golden Angle \(2 \pi \left( \frac{1}{1-\varphi}\right)\)}
-\label{sec:orgfad9fc8}
+\label{sec:orgcff3b1f}
 \paragraph{Dimension of my Fractal}
-\label{sec:org230900d}
+\label{sec:org7e2fc41}
 \(\log_{\varphi}(2)\)
 
 \subsection{Julia Sets and Mandelbrot Sets}
@@ -486,19 +525,19 @@ The julia set is the outline.
 
 The mandelbrot has to do with whether or not it's connected.
 \subsubsection{The math behind it}
-\label{sec:org1d6db4b}
+\label{sec:orgb07528c}
 \paragraph{Like Escaping after 2}
-\label{sec:org52ec21e}
+\label{sec:org7f1a786}
 \subsection{Turing}
-\label{sec:orgb20987a}
+\label{sec:orgb81bfb7}
 
 \subsection{Appendix}
 \label{appendix}
 So unless code contributes directly to the discussion we'll put it in the appendix.
 \section{Outline}
-\label{sec:org2de6dc8}
+\label{sec:orgdb3ba03}
 \subsection{Introduction\hfill{}\textsc{Ryan}}
-\label{sec:org259d485}
+\label{sec:org5155112}
 This project, at the outset, was very broadly concerned with the use of \emph{Python} for
 computer algebra. Much to the the reluctance of our supervisor we have however
 resolved to look at a broad variety of tools (see section \ref{other-tools}),
@@ -522,7 +561,7 @@ over such software needs to perform very well under recursion and iteration
 with Julia as well).
 
 \subsection{Programming Recursion\hfill{}\textsc{Ryan}}
-\label{sec:org7ffb108}
+\label{sec:orgc2b6ff3}
 As an introduction to \emph{Python} generally, we undertook many problem questions which have been omitted from this outline, however, this one in particular offered an interesting insight into the difficulties we may encounter when dealing with recursive systems.
 \subsubsection{Iteration and Recursion}
 \label{series-and-recursion}
@@ -683,9 +722,9 @@ def f(k):
 \end{lstlisting}
 
 \subsection{Fibonacci Sequence\hfill{}\textsc{Ryan:James}}
-\label{sec:org59117b7}
+\label{sec:org9f4b773}
 \subsubsection{Introduction\hfill{}\textsc{Ryan}}
-\label{sec:org33f88aa}
+\label{sec:orgd1dc1bb}
 The \emph{Fibonacci Sequence} and \emph{Golden Ratio} share a deep connection\footnote{See section} and occur in patterns observed in nature very frequently
 (see
 \cite{shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016}), an example of such an occurence is discussed in section \ref{sunflower-example}.
@@ -973,7 +1012,7 @@ where:
 \paragraph{Derivative of the Exponential Generating Function}
 \label{Derivative-exp-gen-function}
 \subparagraph{Base\hfill{}\textsc{Ryan}}
-\label{sec:orgd9ef04b}
+\label{sec:org0955321}
 Differentiating the exponential generating function has the effect of shifting the sequence to the backward: \cite{lehmanReadingsMathematicsComputer2010}
 
 \begin{align}
@@ -986,7 +1025,7 @@ f'\left( x \right)) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 
 \end{align}
 
 \subparagraph{Bridge\hfill{}\textsc{James}}
-\label{sec:orge36376e}
+\label{sec:orga1acc75}
 This can be shown for all derivatives by way of induction, for
 
 \begin{align}
@@ -1015,7 +1054,7 @@ first derivative has been shown to express this property
 \eqref{eq:exp-pow-series-sol}, all derivates will.
 
 \paragraph{Homogeneous Proof\hfill{}\textsc{Ryan:James}}
-\label{sec:org1ebcdf7}
+\label{sec:orgdd47a20}
 An equation of the form:
 
 \begin{align}
@@ -1058,10 +1097,10 @@ where:
 \label{uniq-roots-recurrence}
 \begin{enumerate}
 \item Example
-\label{sec:org3d257f3}
+\label{sec:org8a90daf}
 An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section \ref{solving-the-sequence}.
 \item Proof
-\label{sec:org28468b5}
+\label{sec:org4d914a6}
 Consider the linear recurrence relation \eqref{eq:recurrence-relation-def}:
 
 \begin{align}
@@ -1122,7 +1161,7 @@ This can be verified by the fibonacci sequence as shown in section \ref{solving-
 \label{rep-roots-recurrence}
 \begin{enumerate}
 \item Example
-\label{sec:org1329073}
+\label{sec:org9e40299}
 Consider the following recurrence relation:
 
 \begin{align}
@@ -1174,7 +1213,7 @@ Given the defenition of the exponential generating function from \eqref{eq:exp-g
     \square \nonumber
 \end{align}
 \item Proof
-\label{sec:org15b5b9f}
+\label{sec:org0ed1f71}
 In order to prove the the solution for a \(k^{\mathrm{th}}\) order recurrence relation with \(k\) repeated
 
 
@@ -1249,7 +1288,7 @@ Sketching out an approach for this:
 In this section a proof for identity \ref{eq:power-series-comb} is provided.
 \begin{enumerate}
 \item Motivation
-\label{sec:org1ca8a9d}
+\label{sec:org4fc1eb6}
 
 Consider the function \(f(x) = xe^x\). Using the taylor series formula we get the following:
 
@@ -1273,11 +1312,11 @@ We conjecture thatIf we continue this on, we get:
     x^ke^x = \sum_{n=k}^\infty \frac{x^n}{(n-k)!} \quad \text{for}~k\in \mathbb{Z^{+}}\cap0
 \end{align*}
 \item Proof by Induction
-\label{sec:org6e3c178}
+\label{sec:org1a29ada}
 To verify, let's prove this by induction.
 \begin{enumerate}
 \item Base
-\label{sec:org9fd7590}
+\label{sec:org3dd4345}
 Test \(k=0\)
 \begin{align*}
     LHS &= x^0e^x = e^x\\
@@ -1286,7 +1325,7 @@ Test \(k=0\)
 Therefore LHS = RHS, so \(k=0\) is true
 
 \item Bridge
-\label{sec:org28be7f2}
+\label{sec:orgd9aa430}
 Assume \(x^k e^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}\)
 
 Using this assumption, prove for the next element \$k+1\$\\
@@ -1427,7 +1466,7 @@ end 600 600
 \end{figure}
 
 \subsection{Persian Recursion\hfill{}\textsc{Ryan}}
-\label{sec:org68013b5}
+\label{sec:orgbf1b3fc}
 This section contains an example of how a simple process can lead to the
 development of complex patterns when exposed to feedback and iteration.
 
@@ -1534,12 +1573,12 @@ main(5,6, 1, cx)
 \end{figure}
 
 \subsection{Julia Sets\hfill{}\textsc{Ryan}}
-\label{sec:orgc9ea591}
+\label{sec:orgdddded0}
 \subsubsection{Introduction}
-\label{sec:org5631733}
+\label{sec:org46beaec}
 Julia sets are a very interesting fractal and we hope to investigate them further in this project.
 \subsubsection{Motivation}
-\label{sec:org9483eae}
+\label{sec:orgfb474aa}
 Consider the iterative process \(x \rightarrow x^{2}, \enspace x \in \mathbb{R}\),
 for values of \(x>1\) this process will diverge and for \(x<1\) it will converge.
 
@@ -1575,7 +1614,7 @@ Every value on that plane will belong to one of the two following sets
 In the case of \(f_{0}(z) = z^{2}\) all values \(\left\lvert z  \right \rvert \leq 1\) are bounded with \(\left\lvert z  \right \rvert = 1\) being an unstable stationary circle, but let's investigate what happens for different iterative functions like \(f_{1}(z) = z^{2} - 1\), despite how trivial this seems at first glance.
 
 \subsubsection{Plotting the Sets}
-\label{sec:org30bb9fa}
+\label{sec:org985ea84}
 Although the convergence of values may appear simple at first, we'll implement a
 strategy to plot the prisoner and escape sets on the complex plane.
 
@@ -1819,7 +1858,7 @@ ffmpeg                    \
 \end{figure}
 
 \subsection{MandelBrot\hfill{}\textsc{Ryan}}
-\label{sec:orgf3e3ba5}
+\label{sec:org7bf96a2}
 Investigating these fractals, a natural question might be whether or not any
 given \(c\) value will produce a fractal that is an open disc or a closed disc.
 
@@ -1950,7 +1989,7 @@ save_picture("/tmp/a.fits", my_pic)
 \caption{\label{mandelbrot-screen}Screenshot of Mandelbrot FITS image produced by listing }
 \end{figure}
 \subsection{Relevant Sources}
-\label{sec:orgd866dde}
+\label{sec:org182d3c1}
 To guide research for our topic \emph{Chaos and Fractals} by Pietgen, Jurgens and Saupe \cite{peitgenChaosFractalsNew2004} will act as a map of the topic broadly, other than the sources referenced already, we anticipate referring to the following textbooks that we access to throughout the project:
 
 \begin{itemize}
@@ -1969,7 +2008,7 @@ To guide research for our topic \emph{Chaos and Fractals} by Pietgen, Jurgens an
 Ron Knott's website appears also to have a lot of material related to patterns, the \emph{Fibonacci Sequence} and the \emph{Golden Ratio}, we intend to have a good look through that material as well. \cite{ronknottFibonacciNumbersGolden2016}
 
 \subsection{Appendix}
-\label{sec:orgd64e628}
+\label{sec:orgb06b86c}
 
 \lstset{language=Python,label=py-env,caption={Preamble for \emph{Python} Environment},captionpos=b,numbers=none}
 \begin{lstlisting}
@@ -2043,7 +2082,7 @@ main(8, 8, 1, cx)
 \caption{\label{new-func2-plot}Output produced by listing \ref{new-func2-code} using \(f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1\)}
 \end{figure}
 \subsubsection{Figures}
-\label{sec:org9756aa3}
+\label{sec:org1dbbc73}
 
 \begin{figure}[htbp]
 \centering
