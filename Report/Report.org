@@ -104,6 +104,57 @@ In the case of the koch snowflake, the measure of the shape, when scaled, will i
 
 
 In the development of topology
+*** STRT Notes from p. 27 Falconer
+**** Measure
+Let $F$ be some arbitrary subset of euclidean space $\mathbb{R}^n$, [fn:: A subset of euclidean space could be interpreted as an uncountable set containing all points describing that region TODO Cite ]
+
+Consider a collection of sets,$\{U_i: i \in \mathbb{Z}^{+}, U\subset \mathbb{R}^{n}\}$, each of which having a
+diameter less than $\delta$.
+
+
+
+The motivating idea is that if the elements of $U$ can be laid ontop of
+$F$ then $U$ is said to be a $\delta$ -cover of $F$, more rigorously this could be defined:
+
+\begin{align}
+    F \subset \bigcup^\infty_{i=1} \left[ U_i \right] \quad : 0 \leq \left\lvert U_i \right\rvert \leq \delta \label{eq:hausdorff-covering}
+\end{align}
+
+An example of this covering is provided in figure [[hausdorff-covering]], in that example the figure on the right is covered by squares, which each could be an element of $\{U_{i}\}$, it is important to note however that the shapes needn't be squares, they could be any arbitrary figure.
+
+So for example:
+
+- $F$ could be some arbitrary 2D shape, and $U_{i}$ could be
+  a collection of identical squares, OR
+
+- $F$ could be a more abstracted figure like figures [[hausdorff-covering]] or [[abstract-shape]]  and $\{U_{i}\}$ a collection of various different lines, shapes or 3d objects.
+
+The Hausdorff measure is concenred with only the diamater of each element of $\{U_{i}\}$ and considers $\sum^{\infty}_{i=1} \left[\left\lvert U_{i}\right\rvert^{s}\right]$, in 2 dimensions, this is equivalent to considering the number of boxes, of diamater $\leq \delta$ that will cover over a shape as shown in figure [[hausdorff-covering]], in this case the delta Haussendorf measure $\mathcal{H}^{s_{\delta}}\left(F\right)$ will be the area of the boxes when arranged in such a way that minimises the area.
+
+More generally the measure is defined as: [[cite:falconerFractalGeometryMathematical2003b][p. 27]]
+
+\begin{align}
+\mathcal{H}^s_{\delta}\left( F \right)= \inf \left\{ \sum^{\infty}_{i= 1}   \left\levert U_i \right\rvert^s \enspace : \enspace  \left\{U_i\right\} \text{ is a } \delta \text{-cover of } F \right\} \label{eq:delta-measure}
+\end{align}
+
+As delta is made arbitrarily small $\matcal{H}_{\delta}^{s}$ will approach some limit, in the case of figures [[hausdorff-covering]]  and [[abstract-shape]] the limit will be the area.
+
+Consider the diamater of
+
+
+
+#+NAME: hausdorff-covering
+#+CAPTION: The shape on the left corresponds to $F \subset \mathbb{R^{2}}$, each identical square box on the right represents a set $U_{i}$.
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+[[./notes/HaussDorf_Dim_Ink.svg]]
+
+
+#+NAME: abstract-shape
+#+CAPTION: A disconnected subset of $\mathbb{R}^{2}$, the squares have a diameter of $\sqrt{2}$, the circles 1 and the equilateral triangles 1.
+#+attr_html: :width 200px
+#+attr_latex: :width 9cm
+[[file:media/Arbitrary-F-Shape.svg]]
 ** Fractals Generally
 - Many Fractals have a non finite dimension
 - An exception to this is the Mandelbrot set or dragon curve which are two dimensional
@@ -226,6 +277,12 @@ times = [tme() for i in 1:10 ]
 #+NAME: My-Frac-GR
 #+CAPTION: Fractal that emerges by Rotating and appending boxes, this demonstrates the relationship between the Fibonacci numbers and golden ratio very well
 [[file:../Problems/fractal-dimensions/my-self-rep-frac-GR.png]]
+
+#+attr_html: :width 200px
+#+attr_latex: :width 9cm
+#+NAME: My-Frac-GR
+#+CAPTION: Fractal that emerges by Rotating and appending boxes, this demonstrates the relationship between the Fibonacci numbers and golden ratio very well
+[[file:../Problems/fractal-dimensions/My-Fib-Fractal-Diagram.svg]]
 
 **** Discuss Pattern shows Fibonacci Numbers
 ***** Angle Relates to Golden Ratio
