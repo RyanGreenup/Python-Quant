@@ -161,13 +161,13 @@ end
 
 
 
-function scaleAndMeasure(min, max, n)
+function scaleAndMeasure(min, max, n, func)
     # The scale is equivalent to the resolution, the initial resolution could be
     # set as 10, 93, 72 or 1, it's arbitrary (previously I had res and scale)
     # #TODO: Prove this
 
     scale = [Int(ceil(i)) for i in range(min, max, length=n) ]
-    mass = pmap(s -> sum(outline(make_picture(Int(s), Int(s), z -> z^2 + -0.123+0.745*im))) , scale)
+    mass = pmap(s -> sum(outline(make_picture(Int(s), Int(s), func))) , scale)
 
     data = DataFrame(scale = scale, mass = mass)
     return data
