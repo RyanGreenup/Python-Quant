@@ -39,9 +39,9 @@ function selfRep(ICMat, width)
     h  = size(B)[1]
     w  = size(B)[2]
     Z  = zeros(Int, h, w)
-    B = [B Z B ;
-         Z B Z ;
-          B Z B]
+    B = [B Z B;
+         Z B Z;
+         B Z B]
     if (3*w)<width
         B = selfRep(B, width)
     end
@@ -51,8 +51,10 @@ end
 #------------------------------------------------------------
 #-- Plot ----------------------------------------------------
 #------------------------------------------------------------
-(mat = selfRep(fill(1, 1, 1), 27)) |> size
+using GR
+(mat = selfRep(fill(1, 1, 1), 9^2)) |> size
 GR.imshow(mat)
+GR.savefig("../../Report/media/Vicsek-Fractal.png")
 
 ## Export
 using Random; Random.seed!(7)
