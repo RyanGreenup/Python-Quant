@@ -31,6 +31,9 @@
 * Report
 ** Hausdorff Dimension                                                         :Ryan:
 *** STRT Topological Equivalence
+:PROPERTIES:
+:CUSTOM_ID: topological-equivalence
+:END:
 Topology is an area of mathematics concerned with ideas of continuity through the study of figures that are preserved under homeomorphic transformations. cite:gilmoreTopologyChaosAlice2002
 
 Two figures are said to be homeomorphic if there is a continuous bijective mapping between the two shapes [[cite:peitgenChaosFractalsNew2004][p. 105]].
@@ -67,6 +70,8 @@ p_{n} &= N_{n} \times l \\
 The koch snowflake, is defined such that there are no edges, every point on the curve is the vertex of an equilateral triangle. Every time the koch curve is iterated, one edge is reduced in length by a scale of 3 and the overall length increases by a factor of 4, this means if the overall shape was scaled by a factor of $s$ the number of segments.
 
 # http://mypages.iit.edu/~maslanka/KochSnowflake.pdf
+
+Briggs and Tyree provide a great introduction.
 
 the scale of resolution increases 3 fold
 THIS IS NOT CORRECT, I MUST SHOW THAT THE DIMENSION IS $\frac{ln(4)}{\ln(3)}$ BUT I'M SIMPLY OUT OF TIME.
@@ -106,6 +111,9 @@ In the case of the koch snowflake, the measure of the shape, when scaled, will i
 In the development of topology
 *** STRT Notes from p. 27 Falconer
 **** Measure
+:PROPERTIES:
+:CUSTOM_ID: hausdorff-measure
+:END:
 Let $F$ be some arbitrary subset of euclidean space $\mathbb{R}^n$, [fn:: A subset of euclidean space could be interpreted as an uncountable set containing all points describing that region TODO Cite ]
 
 Consider a collection of sets,$\{U_i: i \in \mathbb{Z}^{+}, U\subset \mathbb{R}^{n}\}$, each of which having a
@@ -127,19 +135,32 @@ So for example:
 - $F$ could be some arbitrary 2D shape, and $U_{i}$ could be
   a collection of identical squares, OR
 
+- $F$ could be the outline of a coastline and $U_{i}$ could be a set of circles, OR
+
+- $F$ could be the surface of a sheet and $U_{i}$ could be a set of spherical balls
+
+  + The use of balls is a simpler but equivalent approach to the theory [[cite:falconerFractalGeometryMathematical2003b][\textsection 2.4 ]] because any set of diamater $r$ can be enclosed in a ball of radius $\frac{r}{2}$ [[cite:edgarMeasureTopologyFractal2008][p. 166]]
+
 - $F$ could be a more abstracted figure like figures [[hausdorff-covering]] or [[abstract-shape]]  and $\{U_{i}\}$ a collection of various different lines, shapes or 3d objects.
 
-The Hausdorff measure is concenred with only the diamater of each element of $\{U_{i}\}$ and considers $\sum^{\infty}_{i=1} \left[\left\lvert U_{i}\right\rvert^{s}\right]$, in 2 dimensions, this is equivalent to considering the number of boxes, of diamater $\leq \delta$ that will cover over a shape as shown in figure [[hausdorff-covering]], in this case the delta Haussendorf measure $\mathcal{H}^{s_{\delta}}\left(F\right)$ will be the area of the boxes when arranged in such a way that minimises the area.
-
-More generally the measure is defined as: [[cite:falconerFractalGeometryMathematical2003b][p. 27]]
+The Hausdorff measure is concenred with only the diamater of each element of $\{U_{i}\}$ and considers $\sum^{\infty}_{i=1} \left[\left\lvert U_{i}\right\rvert^{s}\right]$ where the covering of $U_{i}$ minimizes the summation.  [[cite:falconerFractalGeometryMathematical2003b][p. 27]]
 
 \begin{align}
-\mathcal{H}^s_{\delta}\left( F \right)= \inf \left\{ \sum^{\infty}_{i= 1}   \left\levert U_i \right\rvert^s \enspace : \enspace  \left\{U_i\right\} \text{ is a } \delta \text{-cover of } F \right\} \label{eq:delta-measure}
+\mathcal{H}^s_{\delta}\left( F \right)= \inf \left\{ \sum^{\infty}_{i= 1}   \left\lvert U_i \right\rvert^s \enspace : \enspace  \left\{U_i\right\} \text{ is a } \delta \text{-cover of } F \right\}, \quad \delta, s > 0 \label{eq:delta-measure}
+\end{align}
+in 2 dimensions, this is equivalent to considering the number of boxes, of
+diamater $\leq \delta$ that will cover over a shape as shown in figure
+[[hausdorff-covering]], the delta Haussendorf measure
+$\mathcal{H}^{s}_{\delta} \left(F\right)$ will be the area of the boxes when
+arranged in such a way that minimises the area.
+
+As $\delta$ is made arbitrarily small $\matcal{H}_{\delta}^{s}$ will approach some limit, in the case of figures [[hausdorff-covering]]  and [[abstract-shape]] the value of $\mathcal{H}^{2}_{\delta}$ will approach the area of the shape as $\delta \rightarrow 0$ and so the $s^{th}$ dimensional Hausendorff measure is given by:
+
+\begin{align}
+\mathcal{H}^{s} = \lim_{\delta \rightarrow 0}\left( \mathcal{H}^{s}_{\delta} \right)
 \end{align}
 
-As delta is made arbitrarily small $\matcal{H}_{\delta}^{s}$ will approach some limit, in the case of figures [[hausdorff-covering]]  and [[abstract-shape]] the limit will be the area.
-
-Consider the diamater of
+This is defined for all subsets of \(\mathbb{R}^n\) for example the value of  $\mathcal{H}^{2}$ corresponding to figure [[abstract-shape]] will be limit that boxes would approach when covering that area, which would be the area of the shape ($4\times 1^2 + 4\times \pi\times \frac{1}{2^2} + \frac{1}{2}\times 1 \times \sin{\frac{\pi}{3}}$).
 
 
 
@@ -155,6 +176,27 @@ Consider the diamater of
 #+attr_html: :width 200px
 #+attr_latex: :width 9cm
 [[file:media/Arbitrary-F-Shape.svg]]
+
+***** Lower Dimension Hausdorff Measurements
+****** Examples
+Consider again the example of a 2D shape, the value of $\mathcal{H}^{1}$ would still be defined by eqref:eq:delta-measure, but unlike $\mathcal{H}^{2}$ in section [[#hausdorff-measure]] the value of $\left\lvert U_i \right\rvert^1$ would be considered as opposed to $\left\lvert U_i \right\rvert^2$.
+
+As $\delta$ is made arbitrarily small the boxes that cover the shape are made also to be arbitrarily small. Although the area of the boxes must clearly be bounded by the shape of $F$, if one imagines an infinite number of infinitely dense lines packing into a 2D shape with an infinite density it can be seen that the total length of those lines will be infinite.
+
+To build on that same analogy, another way to imagine this is to pack a 2D shape with straight lines, the total length of all lines will approach the same value as the length of the lines of the squares as they are packed infinitely densely. Because lines cannot fill a 2D shape, as the density of the lines increases, the overall length will be zero.
+
+This is consistent with shapes of other shapes as well, consider the koch snowflake introduced in section [[#topological-equivalence]] and shown in figure [[koch-line]], the dimension of this shape is greater than 1, and the number of lines necessary to describe that shape is also infinite.
+
+
+****** TODO Formally
+If the dimension of $F$ is less than $s$, the Hausdorff Measure will be given by: [fn:: I haven't been able to find a proof for this, I wonder if I could prove it by just applying the definition?]
+
+\begin{align}
+\mathrm{dim}\left(  F \right ) < s \implies \mathcal{H}^{s} \left( F \right)  = \infty
+\end{align}
+
+***** Higher Dimension Hausdorff Dimension
+***** Hausdorff Dimension
 ** Fractals Generally
 - Many Fractals have a non finite dimension
 - An exception to this is the Mandelbrot set or dragon curve which are two dimensional

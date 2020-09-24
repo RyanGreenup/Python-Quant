@@ -611,6 +611,43 @@
       \verb /home/ryan/Zotero/storage/J3GFQD9Y/Burns - 2020 - Persian Recursion.pdf
       \endverb
     \endentry
+    \entry{edgarMeasureTopologyFractal2008}{book}{}
+      \name{author}{1}{}{%
+        {{hash=37265fa47659b0002144c692793634d9}{%
+           family={Edgar},
+           familyi={E\bibinitperiod},
+           given={Gerald\bibnamedelima A.},
+           giveni={G\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{37265fa47659b0002144c692793634d9}
+      \strng{fullhash}{37265fa47659b0002144c692793634d9}
+      \strng{bibnamehash}{37265fa47659b0002144c692793634d9}
+      \strng{authorbibnamehash}{37265fa47659b0002144c692793634d9}
+      \strng{authornamehash}{37265fa47659b0002144c692793634d9}
+      \strng{authorfullhash}{37265fa47659b0002144c692793634d9}
+      \field{sortinit}{E}
+      \field{sortinithash}{c554bd1a0b76ea92b9f105fe36d9c7b0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{annotation}{OCLC: ocn190580786}
+      \field{edition}{2nd ed}
+      \field{isbn}{978-0-387-74748-4}
+      \field{pagetotal}{268}
+      \field{series}{Undergraduate Texts in Mathematics}
+      \field{title}{Measure, Topology, and Fractal Geometry}
+      \field{year}{2008}
+      \field{dateera}{ce}
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/E6BR227L/edgarMeasureTopologyFractal2008.pdf
+      \endverb
+      \keyw{Fractals,Measure theory,Topology}
+    \endentry
     \entry{EmergenceHowStupid2017}{video}{}
       \field{sortinit}{E}
       \field{sortinithash}{c554bd1a0b76ea92b9f105fe36d9c7b0}

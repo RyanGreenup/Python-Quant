@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-24 Thu 16:25 -->
+<!-- 2020-09-24 Thu 20:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Emergence of Patterns in Nature and Chaos Theory</title>
@@ -269,30 +269,41 @@ org_html_manager.setup();  // activate after the parameters are set
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8f976b1">1. Report</a>
+<li><a href="#orge8dd196">1. Report</a>
 <ul>
-<li><a href="#org7f62919">1.1. Hausdorff Dimension&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
+<li><a href="#orgd48aba8">1.1. Hausdorff Dimension&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
 <ul>
-<li><a href="#orga4b953a">1.1.1. Topological Equivalence</a></li>
-<li><a href="#org7539e5a">1.1.2. Notes from p. 27 Falconer</a>
+<li><a href="#topological-equivalence">1.1.1. Topological Equivalence</a></li>
+<li><a href="#orgc63237f">1.1.2. Notes from p. 27 Falconer</a>
 <ul>
-<li><a href="#org2718626">1.1.2.1. Measure</a></li>
+<li><a href="#hausdorff-measure">1.1.2.1. Measure</a>
+<ul>
+<li><a href="#org41e67a0">1.1.2.1.1. Lower Dimension Hausdorff Measurements</a>
+<ul>
+<li><a href="#org9d2a6e4">1.1.2.1.1.1. Examples</a></li>
+<li><a href="#org2db6c76">1.1.2.1.1.2. Formally</a></li>
+</ul>
+</li>
+<li><a href="#orga7971b8">1.1.2.1.2. Higher Dimension Hausdorff Dimension</a></li>
+<li><a href="#org2e52739">1.1.2.1.3. Hausdorff Dimension</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org957d67f">1.2. Fractals Generally</a></li>
-<li><a href="#orgae486ef">1.3. Generating Self Similar Fractals</a>
+</ul>
+</li>
+<li><a href="#org95ed50c">1.2. Fractals Generally</a></li>
+<li><a href="#orgd172535">1.3. Generating Self Similar Fractals</a>
 <ul>
 <li>
 <ul>
-<li><a href="#orgc9760d3">1.3.0.1. Examples</a>
+<li><a href="#org825227e">1.3.0.1. Examples</a>
 <ul>
-<li><a href="#org66b6259">1.3.0.1.1. Vicsek Fractal</a></li>
-<li><a href="#org5f3bbff">1.3.0.1.2. Sierpinskis Carpet</a></li>
-<li><a href="#orgf7ea5f6">1.3.0.1.3. Triangle</a>
+<li><a href="#orgdd80712">1.3.0.1.1. Vicsek Fractal</a></li>
+<li><a href="#org17d8da4">1.3.0.1.2. Sierpinskis Carpet</a></li>
+<li><a href="#orgb99040c">1.3.0.1.3. Triangle</a>
 <ul>
-<li><a href="#org2e8483d">1.3.0.1.3.1. Chaos Game</a></li>
+<li><a href="#orgb0d1bce">1.3.0.1.3.1. Chaos Game</a></li>
 </ul>
 </li>
 </ul>
@@ -301,67 +312,67 @@ org_html_manager.setup();  // activate after the parameters are set
 </li>
 </ul>
 </li>
-<li><a href="#org3d7bf83">1.4. Fractal Dimensions&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
+<li><a href="#org8d798d5">1.4. Fractal Dimensions&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
 <ul>
-<li><a href="#org33c10a6">1.4.1. Turtle</a>
+<li><a href="#org84f241d">1.4.1. Turtle</a>
 <ul>
-<li><a href="#orgd31dd43">1.4.1.1. Dragon Curve</a></li>
-<li><a href="#orgc6d9260">1.4.1.2. Koch Snowflake</a></li>
+<li><a href="#org206508a">1.4.1.1. Dragon Curve</a></li>
+<li><a href="#org9162a4c">1.4.1.2. Koch Snowflake</a></li>
 </ul>
 </li>
-<li><a href="#org812de2e">1.4.2. Calculating the Dimension of Julia Set</a>
+<li><a href="#org8f0f43e">1.4.2. Calculating the Dimension of Julia Set</a>
 <ul>
-<li><a href="#orge1f9d8b">1.4.2.1. Using Linear Regression</a>
+<li><a href="#org6317b34">1.4.2.1. Using Linear Regression</a>
 <ul>
-<li><a href="#org62f5bef">1.4.2.1.1. Performance</a></li>
+<li><a href="#orgff0d155">1.4.2.1.1. Performance</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgc687d22">1.4.3. My Fractal</a>
+<li><a href="#org4a8ddec">1.4.3. My Fractal</a>
 <ul>
-<li><a href="#orge92bbd2">1.4.3.1. Graphics</a></li>
-<li><a href="#org9c4f721">1.4.3.2. Discuss Pattern shows Fibonacci Numbers</a>
+<li><a href="#org4441d47">1.4.3.1. Graphics</a></li>
+<li><a href="#org89d1afe">1.4.3.2. Discuss Pattern shows Fibonacci Numbers</a>
 <ul>
-<li><a href="#org7762260">1.4.3.2.1. Angle Relates to Golden Ratio</a></li>
+<li><a href="#org7ddf159">1.4.3.2.1. Angle Relates to Golden Ratio</a></li>
 </ul>
 </li>
-<li><a href="#orgc681b2a">1.4.3.3. Prove Fibonacci using Monotone Convergence Theorem</a>
+<li><a href="#org06c4034">1.4.3.3. Prove Fibonacci using Monotone Convergence Theorem</a>
 <ul>
-<li><a href="#org9b71681">1.4.3.3.1. Show that the Series is Monotone</a></li>
-<li><a href="#org0455dd8">1.4.3.3.2. Show that the Series is Bounded</a></li>
-<li><a href="#org83d88dd">1.4.3.3.3. Find the Limit</a></li>
-<li><a href="#orgf32c071">1.4.3.3.4. Comments</a></li>
-<li><a href="#org2a5020d">1.4.3.3.5. Python</a></li>
+<li><a href="#orge8abbe2">1.4.3.3.1. Show that the Series is Monotone</a></li>
+<li><a href="#orgb8ae595">1.4.3.3.2. Show that the Series is Bounded</a></li>
+<li><a href="#org8cb5406">1.4.3.3.3. Find the Limit</a></li>
+<li><a href="#orgcead569">1.4.3.3.4. Comments</a></li>
+<li><a href="#org74efc69">1.4.3.3.5. Python</a></li>
 </ul>
 </li>
-<li><a href="#org32530ac">1.4.3.4. Angle is \(\tan^{-1}\left( \frac{1}{1-\varphi}\right)\)</a>
+<li><a href="#org7495f97">1.4.3.4. Angle is \(\tan^{-1}\left( \frac{1}{1-\varphi}\right)\)</a>
 <ul>
-<li><a href="#org06c2975">1.4.3.4.1. Similar to Golden Angle \(2 \pi \left( \frac{1}{1-\varphi}\right)\)</a></li>
+<li><a href="#org0ead905">1.4.3.4.1. Similar to Golden Angle \(2 \pi \left( \frac{1}{1-\varphi}\right)\)</a></li>
 </ul>
 </li>
-<li><a href="#orgcca4f67">1.4.3.5. Dimension of my Fractal</a></li>
+<li><a href="#org48be1e9">1.4.3.5. Dimension of my Fractal</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#julia-set">1.5. Julia Sets and Mandelbrot Sets</a>
 <ul>
-<li><a href="#org08ebded">1.5.1. The math behind it</a>
+<li><a href="#orge02aaed">1.5.1. The math behind it</a>
 <ul>
-<li><a href="#orgb08d687">1.5.1.1. Like Escaping after 2</a></li>
+<li><a href="#org95db84a">1.5.1.1. Like Escaping after 2</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org8b39be2">1.6. Turing</a></li>
+<li><a href="#org353ac18">1.6. Turing</a></li>
 <li><a href="#appendix">1.7. Appendix</a></li>
 </ul>
 </li>
-<li><a href="#orgc87a79f">2. Outline</a>
+<li><a href="#org49cf724">2. Outline</a>
 <ul>
-<li><a href="#org05d085e">2.1. Introduction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
-<li><a href="#orgbe9abb0">2.2. Programming Recursion&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
+<li><a href="#org7d48a88">2.1. Introduction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
+<li><a href="#org23b32b3">2.2. Programming Recursion&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
 <ul>
 <li><a href="#series-and-recursion">2.2.1. Iteration and Recursion</a>
 <ul>
@@ -370,9 +381,9 @@ org_html_manager.setup();  // activate after the parameters are set
 </li>
 </ul>
 </li>
-<li><a href="#orgca4bbc4">2.3. Fibonacci Sequence&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span>&#xa0;<span class="James">James</span></span></a>
+<li><a href="#orgaf26812">2.3. Fibonacci Sequence&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span>&#xa0;<span class="James">James</span></span></a>
 <ul>
-<li><a href="#org15cf8ea">2.3.1. Introduction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
+<li><a href="#org957ee8d">2.3.1. Introduction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
 <li><a href="#define-the-fibonacci-numbers">2.3.2. Computational Approach&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
 <li><a href="#exp-gen-func-fib-seq">2.3.3. Exponential Generating Functions</a>
 <ul>
@@ -380,33 +391,33 @@ org_html_manager.setup();  // activate after the parameters are set
 <li><a href="#solving-the-sequence">2.3.3.2. Example&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
 <li><a href="#Derivative-exp-gen-function">2.3.3.3. Derivative of the Exponential Generating Function</a>
 <ul>
-<li><a href="#org2a863ec">2.3.3.3.1. Base&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
-<li><a href="#org1bf27af">2.3.3.3.2. Bridge&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></a></li>
+<li><a href="#org4b0b193">2.3.3.3.1. Base&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
+<li><a href="#org2e4fa03">2.3.3.3.2. Bridge&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orgb39c488">2.3.3.4. Homogeneous Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span>&#xa0;<span class="James">James</span></span></a>
+<li><a href="#org0fb16c0">2.3.3.4. Homogeneous Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span>&#xa0;<span class="James">James</span></span></a>
 <ul>
 <li><a href="#uniq-roots-recurrence">2.3.3.4.1. Unique Roots of Characteristic Equation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
 <ul>
-<li><a href="#org4c1956c">2.3.3.4.1.1. Example</a></li>
-<li><a href="#orge11fbe8">2.3.3.4.1.2. Proof</a></li>
+<li><a href="#orge191342">2.3.3.4.1.1. Example</a></li>
+<li><a href="#org528e739">2.3.3.4.1.2. Proof</a></li>
 </ul>
 </li>
 <li><a href="#rep-roots-recurrence">2.3.3.4.2. Repeated Roots of Characteristic Equation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
 <ul>
-<li><a href="#org21269f3">2.3.3.4.2.1. Example</a></li>
-<li><a href="#org553082e">2.3.3.4.2.2. Proof</a></li>
+<li><a href="#org7681ac2">2.3.3.4.2.1. Example</a></li>
+<li><a href="#org0b66af9">2.3.3.4.2.2. Proof</a></li>
 </ul>
 </li>
 <li><a href="#general-gen-func-proof">2.3.3.4.3. General Proof</a>
 <ul>
 <li><a href="#power-series-comb">2.3.3.4.3.1. Power Series Combination&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></a>
 <ul>
-<li><a href="#org5bee168">2.3.3.4.3.1.1. Motivation</a></li>
-<li><a href="#orgdef02b1">2.3.3.4.3.1.2. Proof by Induction</a>
+<li><a href="#org9ff451e">2.3.3.4.3.1.1. Motivation</a></li>
+<li><a href="#org67cf92f">2.3.3.4.3.1.2. Proof by Induction</a>
 <ul>
-<li><a href="#orga0b39ba">2.3.3.4.3.1.2.1. Base</a></li>
-<li><a href="#org4c299d5">2.3.3.4.3.1.2.2. Bridge</a></li>
+<li><a href="#org2d131d6">2.3.3.4.3.1.2.1. Base</a></li>
+<li><a href="#orge5cf1cd">2.3.3.4.3.1.2.2. Bridge</a></li>
 </ul>
 </li>
 </ul>
@@ -424,20 +435,20 @@ org_html_manager.setup();  // activate after the parameters are set
 </li>
 </ul>
 </li>
-<li><a href="#orgae5c13e">2.4. Persian Recursion&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
-<li><a href="#org43bbeba">2.5. Julia Sets&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
+<li><a href="#orgc81dd64">2.4. Persian Recursion&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
+<li><a href="#orgf88a214">2.5. Julia Sets&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
 <ul>
-<li><a href="#org723807e">2.5.1. Introduction</a></li>
-<li><a href="#org2ca3c3d">2.5.2. Motivation</a></li>
-<li><a href="#orgad2df39">2.5.3. Plotting the Sets</a></li>
+<li><a href="#orgbb66549">2.5.1. Introduction</a></li>
+<li><a href="#org9d52a31">2.5.2. Motivation</a></li>
+<li><a href="#orgcb8ce3b">2.5.3. Plotting the Sets</a></li>
 </ul>
 </li>
-<li><a href="#orgdbf4cb6">2.6. MandelBrot&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
-<li><a href="#org932d4f8">2.7. Relevant Sources</a></li>
-<li><a href="#org6c99faf">2.8. Appendix</a>
+<li><a href="#orgf2c7df8">2.6. MandelBrot&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
+<li><a href="#org33a3179">2.7. Relevant Sources</a></li>
+<li><a href="#org9809a16">2.8. Appendix</a>
 <ul>
 <li><a href="#persian-recursion-examples">2.8.1. Persian Recursian Examples</a></li>
-<li><a href="#orgdd9aecc">2.8.2. Figures</a></li>
+<li><a href="#org7924c9a">2.8.2. Figures</a></li>
 <li><a href="#why-julia">2.8.3. Why Julia</a>
 <ul>
 <li>
@@ -454,17 +465,17 @@ org_html_manager.setup();  // activate after the parameters are set
 </ul>
 </div>
 </div>
-<div id="outline-container-org8f976b1" class="outline-2">
-<h2 id="org8f976b1"><span class="section-number-2">1</span> Report</h2>
+<div id="outline-container-orge8dd196" class="outline-2">
+<h2 id="orge8dd196"><span class="section-number-2">1</span> Report</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org7f62919" class="outline-3">
-<h3 id="org7f62919"><span class="section-number-3">1.1</span> Hausdorff Dimension&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
+<div id="outline-container-orgd48aba8" class="outline-3">
+<h3 id="orgd48aba8"><span class="section-number-3">1.1</span> Hausdorff Dimension&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-orga4b953a" class="outline-4">
-<h4 id="orga4b953a"><span class="section-number-4">1.1.1</span> Topological Equivalence</h4>
-<div class="outline-text-4" id="text-1-1-1">
+<div id="outline-container-topological-equivalence" class="outline-4">
+<h4 id="topological-equivalence"><span class="section-number-4">1.1.1</span> Topological Equivalence</h4>
+<div class="outline-text-4" id="text-topological-equivalence">
 <p>
 Topology is an area of mathematics concerned with ideas of continuity through the study of figures that are preserved under homeomorphic transformations. (NO_ITEM_DATA:gilmoreTopologyChaosAlice2002)
 </p>
@@ -485,7 +496,7 @@ sufficient to be preserved under a homeomorphic transform however.
 </p>
 
 <p>
-Consider the koch fractal in figure <a href="#org96cfe1c">1</a> (see also figure <a href="#orga55a75d">2</a>), at each iteration the perimeter is given by \(p_{n}=p_{n-1}  \left(\frac{4}{3} \right)\), this means if the shape is scaled by some factor \(s\) the the following relationship holds.
+Consider the koch fractal in figure <a href="#orgd2f6299">1</a> (see also figure <a href="#orgb57d9d3">2</a>), at each iteration the perimeter is given by \(p_{n}=p_{n-1}  \left(\frac{4}{3} \right)\), this means if the shape is scaled by some factor \(s\) the the following relationship holds.
 </p>
 
 <p>
@@ -519,6 +530,10 @@ The koch snowflake, is defined such that there are no edges, every point on the 
 </p>
 
 <p>
+Briggs and Tyree provide a great introduction.
+</p>
+
+<p>
 the scale of resolution increases 3 fold
 THIS IS NOT CORRECT, I MUST SHOW THAT THE DIMENSION IS \(\frac{ln(4)}{\ln(3)}\) BUT I&rsquo;M SIMPLY OUT OF TIME.
 </p>
@@ -540,7 +555,7 @@ In the case of the koch snowflake, the measure of the shape, when scaled, will i
 
 
 
-<div id="org96cfe1c" class="figure">
+<div id="orgd2f6299" class="figure">
 <p><img src="media/tikz/Koch_line.png" alt="Koch_line.png" width="400px" />
 </p>
 <p><span class="figure-number">Figure 1: </span>Progression of the Koch Snowflake</p>
@@ -551,7 +566,7 @@ In the case of the koch snowflake, the measure of the shape, when scaled, will i
 </p>
 
 
-<div id="orga55a75d" class="figure">
+<div id="orgb57d9d3" class="figure">
 <p><img src="media/tikz/Snowflake.png" alt="Snowflake.png" width="400px" />
 </p>
 <p><span class="figure-number">Figure 2: </span>Progression of the Koch Snowflake</p>
@@ -567,13 +582,13 @@ In the development of topology
 </p>
 </div>
 </div>
-<div id="outline-container-org7539e5a" class="outline-4">
-<h4 id="org7539e5a"><span class="section-number-4">1.1.2</span> Notes from p. 27 Falconer</h4>
+<div id="outline-container-orgc63237f" class="outline-4">
+<h4 id="orgc63237f"><span class="section-number-4">1.1.2</span> Notes from p. 27 Falconer</h4>
 <div class="outline-text-4" id="text-1-1-2">
 </div>
-<div id="outline-container-org2718626" class="outline-5">
-<h5 id="org2718626"><span class="section-number-5">1.1.2.1</span> Measure</h5>
-<div class="outline-text-5" id="text-1-1-2-1">
+<div id="outline-container-hausdorff-measure" class="outline-5">
+<h5 id="hausdorff-measure"><span class="section-number-5">1.1.2.1</span> Measure</h5>
+<div class="outline-text-5" id="text-hausdorff-measure">
 <p>
 Let \(F\) be some arbitrary subset of euclidean space \(\mathbb{R}^n\), <sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
 </p>
@@ -595,7 +610,7 @@ The motivating idea is that if the elements of \(U\) can be laid ontop of
 \end{align}
 
 <p>
-An example of this covering is provided in figure <a href="#orgb2395d1">3</a>, in that example the figure on the right is covered by squares, which each could be an element of \(\{U_{i}\}\), it is important to note however that the shapes needn&rsquo;t be squares, they could be any arbitrary figure.
+An example of this covering is provided in figure <a href="#org441755f">3</a>, in that example the figure on the right is covered by squares, which each could be an element of \(\{U_{i}\}\), it is important to note however that the shapes needn&rsquo;t be squares, they could be any arbitrary figure.
 </p>
 
 <p>
@@ -606,33 +621,48 @@ So for example:
 <li>\(F\) could be some arbitrary 2D shape, and \(U_{i}\) could be
 a collection of identical squares, OR</li>
 
-<li>\(F\) could be a more abstracted figure like figures <a href="#orgb2395d1">3</a> or <a href="#org92316c0">4</a>  and \(\{U_{i}\}\) a collection of various different lines, shapes or 3d objects.</li>
+<li>\(F\) could be the outline of a coastline and \(U_{i}\) could be a set of circles, OR</li>
+
+<li>\(F\) could be the surface of a sheet and \(U_{i}\) could be a set of spherical balls
+
+<ul class="org-ul">
+<li>The use of balls is a simpler but equivalent approach to the theory (\textsection NO_ITEM_DATA:falconerFractalGeometryMathematical2003b) because any set of diamater \(r\) can be enclosed in a ball of radius \(\frac{r}{2}\) (NO_ITEM_DATA:edgarMeasureTopologyFractal2008)</li>
+</ul></li>
+
+<li>\(F\) could be a more abstracted figure like figures <a href="#org441755f">3</a> or <a href="#orga7d4a79">4</a>  and \(\{U_{i}\}\) a collection of various different lines, shapes or 3d objects.</li>
 </ul>
 
 <p>
-The Hausdorff measure is concenred with only the diamater of each element of \(\{U_{i}\}\) and considers \(\sum^{\infty}_{i=1} \left[\left\lvert U_{i}\right\rvert^{s}\right]\), in 2 dimensions, this is equivalent to considering the number of boxes, of diamater \(\leq \delta\) that will cover over a shape as shown in figure <a href="#orgb2395d1">3</a>, in this case the delta Haussendorf measure \(\mathcal{H}^{s_{\delta}}\left(F\right)\) will be the area of the boxes when arranged in such a way that minimises the area.
-</p>
-
-<p>
-More generally the measure is defined as: (NO_ITEM_DATA:falconerFractalGeometryMathematical2003b)
+The Hausdorff measure is concenred with only the diamater of each element of \(\{U_{i}\}\) and considers \(\sum^{\infty}_{i=1} \left[\left\lvert U_{i}\right\rvert^{s}\right]\) where the covering of \(U_{i}\) minimizes the summation.  (NO_ITEM_DATA:falconerFractalGeometryMathematical2003b)
 </p>
 
 \begin{align}
-\mathcal{H}^s_{\delta}\left( F \right)= \inf \left\{ \sum^{\infty}_{i= 1}   \left\levert U_i \right\rvert^s \enspace : \enspace  \left\{U_i\right\} \text{ is a } \delta \text{-cover of } F \right\} \label{eq:delta-measure}
+\mathcal{H}^s_{\delta}\left( F \right)= \inf \left\{ \sum^{\infty}_{i= 1}   \left\lvert U_i \right\rvert^s \enspace : \enspace  \left\{U_i\right\} \text{ is a } \delta \text{-cover of } F \right\}, \quad \delta, s > 0 \label{eq:delta-measure}
+\end{align}
+<p>
+in 2 dimensions, this is equivalent to considering the number of boxes, of
+diamater \(\leq \delta\) that will cover over a shape as shown in figure
+<a href="#org441755f">3</a>, the delta Haussendorf measure
+\(\mathcal{H}^{s}_{\delta} \left(F\right)\) will be the area of the boxes when
+arranged in such a way that minimises the area.
+</p>
+
+<p>
+As \(\delta\) is made arbitrarily small \(\matcal{H}_{\delta}^{s}\) will approach some limit, in the case of figures <a href="#org441755f">3</a>  and <a href="#orga7d4a79">4</a> the value of \(\mathcal{H}^{2}_{\delta}\) will approach the area of the shape as \(\delta \rightarrow 0\) and so the \(s^{th}\) dimensional Hausendorff measure is given by:
+</p>
+
+\begin{align}
+\mathcal{H}^{s} = \lim_{\delta \rightarrow 0}\left( \mathcal{H}^{s}_{\delta} \right)
 \end{align}
 
 <p>
-As delta is made arbitrarily small \(\matcal{H}_{\delta}^{s}\) will approach some limit, in the case of figures <a href="#orgb2395d1">3</a>  and <a href="#org92316c0">4</a> the limit will be the area.
-</p>
-
-<p>
-Consider the diamater of
+This is defined for all subsets of \(\mathbb{R}^n\) for example the value of  \(\mathcal{H}^{2}\) corresponding to figure <a href="#orga7d4a79">4</a> will be limit that boxes would approach when covering that area, which would be the area of the shape (\(4\times 1^2 + 4\times \pi\times \frac{1}{2^2} + \frac{1}{2}\times 1 \times \sin{\frac{\pi}{3}}\)).
 </p>
 
 
 
 
-<div id="orgb2395d1" class="figure">
+<div id="org441755f" class="figure">
 <p><object type="image/svg+xml" data="./notes/HaussDorf_Dim_Ink.svg" class="org-svg" width="400px">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -641,18 +671,65 @@ Sorry, your browser does not support SVG.</object>
 
 
 
-<div id="org92316c0" class="figure">
+<div id="orga7d4a79" class="figure">
 <p><object type="image/svg+xml" data="media/Arbitrary-F-Shape.svg" class="org-svg" width="200px">
 Sorry, your browser does not support SVG.</object>
 </p>
 <p><span class="figure-number">Figure 4: </span>A disconnected subset of \(\mathbb{R}^{2}\), the squares have a diameter of \(\sqrt{2}\), the circles 1 and the equilateral triangles 1.</p>
 </div>
 </div>
+
+<div id="outline-container-org41e67a0" class="outline-6">
+<h6 id="org41e67a0"><span class="section-number-6">1.1.2.1.1</span> Lower Dimension Hausdorff Measurements</h6>
+<div class="outline-text-6" id="text-1-1-2-1-1">
+</div>
+<div id="outline-container-org9d2a6e4" class="outline-7">
+<h7 id="org9d2a6e4"><span class="section-number-7">1.1.2.1.1.1</span> Examples</h7>
+<div class="outline-text-7" id="text-1-1-2-1-1-1">
+<p>
+Consider again the example of a 2D shape, the value of \(\mathcal{H}^{1}\) would still be defined by \eqref{eq:delta-measure}, but unlike \(\mathcal{H}^{2}\) in section <a href="#hausdorff-measure">1.1.2.1</a> the value of \(\left\lvert U_i \right\rvert^1\) would be considered as opposed to \(\left\lvert U_i \right\rvert^2\).
+</p>
+
+<p>
+As \(\delta\) is made arbitrarily small the boxes that cover the shape are made also to be arbitrarily small. Although the area of the boxes must clearly be bounded by the shape of \(F\), if one imagines an infinite number of infinitely dense lines packing into a 2D shape with an infinite density it can be seen that the total length of those lines will be infinite.
+</p>
+
+<p>
+To build on that same analogy, another way to imagine this is to pack a 2D shape with straight lines, the total length of all lines will approach the same value as the length of the lines of the squares as they are packed infinitely densely. Because lines cannot fill a 2D shape, as the density of the lines increases, the overall length will be zero.
+</p>
+
+<p>
+This is consistent with shapes of other shapes as well, consider the koch snowflake introduced in section <a href="#topological-equivalence">1.1.1</a> and shown in figure <a href="#orgd2f6299">1</a>, the dimension of this shape is greater than 1, and the number of lines necessary to describe that shape is also infinite.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org2db6c76" class="outline-7">
+<h7 id="org2db6c76"><span class="section-number-7">1.1.2.1.1.2</span> Formally</h7>
+<div class="outline-text-7" id="text-1-1-2-1-1-2">
+<p>
+If the dimension of \(F\) is less than \(s\), the Hausdorff Measure will be given by: <sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>
+</p>
+
+\begin{align}
+\mathrm{dim}\left(  F \right ) < s \implies \mathcal{H}^{s} \left( F \right)  = \infty
+\end{align}
 </div>
 </div>
 </div>
-<div id="outline-container-org957d67f" class="outline-3">
-<h3 id="org957d67f"><span class="section-number-3">1.2</span> Fractals Generally</h3>
+
+<div id="outline-container-orga7971b8" class="outline-6">
+<h6 id="orga7971b8"><span class="section-number-6">1.1.2.1.2</span> Higher Dimension Hausdorff Dimension</h6>
+</div>
+<div id="outline-container-org2e52739" class="outline-6">
+<h6 id="org2e52739"><span class="section-number-6">1.1.2.1.3</span> Hausdorff Dimension</h6>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org95ed50c" class="outline-3">
+<h3 id="org95ed50c"><span class="section-number-3">1.2</span> Fractals Generally</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>Many Fractals have a non finite dimension</li>
@@ -660,37 +737,37 @@ Sorry, your browser does not support SVG.</object>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgae486ef" class="outline-3">
-<h3 id="orgae486ef"><span class="section-number-3">1.3</span> Generating Self Similar Fractals</h3>
+<div id="outline-container-orgd172535" class="outline-3">
+<h3 id="orgd172535"><span class="section-number-3">1.3</span> Generating Self Similar Fractals</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
-<div id="outline-container-orgc9760d3" class="outline-5">
-<h5 id="orgc9760d3"><span class="section-number-5">1.3.0.1</span> Examples</h5>
+<div id="outline-container-org825227e" class="outline-5">
+<h5 id="org825227e"><span class="section-number-5">1.3.0.1</span> Examples</h5>
 <div class="outline-text-5" id="text-1-3-0-1">
 </div>
-<div id="outline-container-org66b6259" class="outline-6">
-<h6 id="org66b6259"><span class="section-number-6">1.3.0.1.1</span> Vicsek Fractal</h6>
+<div id="outline-container-orgdd80712" class="outline-6">
+<h6 id="orgdd80712"><span class="section-number-6">1.3.0.1.1</span> Vicsek Fractal</h6>
 </div>
-<div id="outline-container-org5f3bbff" class="outline-6">
-<h6 id="org5f3bbff"><span class="section-number-6">1.3.0.1.2</span> Sierpinskis Carpet</h6>
+<div id="outline-container-org17d8da4" class="outline-6">
+<h6 id="org17d8da4"><span class="section-number-6">1.3.0.1.2</span> Sierpinskis Carpet</h6>
 <div class="outline-text-6" id="text-1-3-0-1-2">
 <p>
-Explained more in the book <sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>
+Explained more in the book <sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>
 </p>
 </div>
 </div>
-<div id="outline-container-orgf7ea5f6" class="outline-6">
-<h6 id="orgf7ea5f6"><span class="section-number-6">1.3.0.1.3</span> Triangle</h6>
+<div id="outline-container-orgb99040c" class="outline-6">
+<h6 id="orgb99040c"><span class="section-number-6">1.3.0.1.3</span> Triangle</h6>
 <div class="outline-text-6" id="text-1-3-0-1-3">
 </div>
-<div id="outline-container-org2e8483d" class="outline-7">
-<h7 id="org2e8483d"><span class="section-number-7">1.3.0.1.3.1</span> Chaos Game</h7>
+<div id="outline-container-orgb0d1bce" class="outline-7">
+<h7 id="orgb0d1bce"><span class="section-number-7">1.3.0.1.3.1</span> Chaos Game</h7>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-org3d7bf83" class="outline-3">
-<h3 id="org3d7bf83"><span class="section-number-3">1.4</span> Fractal Dimensions&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
+<div id="outline-container-org8d798d5" class="outline-3">
+<h3 id="org8d798d5"><span class="section-number-3">1.4</span> Fractal Dimensions&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 Three ways to generate
@@ -706,22 +783,22 @@ Three ways to generate
 </ol>
 </div>
 
-<div id="outline-container-org33c10a6" class="outline-4">
-<h4 id="org33c10a6"><span class="section-number-4">1.4.1</span> Turtle</h4>
+<div id="outline-container-org84f241d" class="outline-4">
+<h4 id="org84f241d"><span class="section-number-4">1.4.1</span> Turtle</h4>
 <div class="outline-text-4" id="text-1-4-1">
 <p>
 Matrices can&rsquo;t explain all patterns, Turtles are useful
 </p>
 </div>
-<div id="outline-container-orgd31dd43" class="outline-5">
-<h5 id="orgd31dd43"><span class="section-number-5">1.4.1.1</span> Dragon Curve</h5>
+<div id="outline-container-org206508a" class="outline-5">
+<h5 id="org206508a"><span class="section-number-5">1.4.1.1</span> Dragon Curve</h5>
 </div>
-<div id="outline-container-orgc6d9260" class="outline-5">
-<h5 id="orgc6d9260"><span class="section-number-5">1.4.1.2</span> Koch Snowflake</h5>
+<div id="outline-container-org9162a4c" class="outline-5">
+<h5 id="org9162a4c"><span class="section-number-5">1.4.1.2</span> Koch Snowflake</h5>
 </div>
 </div>
-<div id="outline-container-org812de2e" class="outline-4">
-<h4 id="org812de2e"><span class="section-number-4">1.4.2</span> Calculating the Dimension of Julia Set</h4>
+<div id="outline-container-org8f0f43e" class="outline-4">
+<h4 id="org8f0f43e"><span class="section-number-4">1.4.2</span> Calculating the Dimension of Julia Set</h4>
 <div class="outline-text-4" id="text-1-4-2">
 <p>
 It converges too slowly
@@ -747,7 +824,7 @@ By associating each value on the complex plane with an element of a matrix an im
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 1: </span>Function that returns how many iterations of a function of is necessary for a complex value to diverge, the julia set is concerned with the function \(z \rightarrow z^{2} + \alpha + i \beta\)</label><pre class="src src-julia" id="orgf08c7b9"><span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">!/bin/julia</span>
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Function that returns how many iterations of a function of is necessary for a complex value to diverge, the julia set is concerned with the function \(z \rightarrow z^{2} + \alpha + i \beta\)</label><pre class="src src-julia" id="org9aee9cc"><span style="color: #8D8D84;">#</span><span style="color: #8D8D84; font-style: italic;">!/bin/julia</span>
 <span style="color: #0000FF;">function</span> <span style="color: #006699;">juliaSet</span>(z, num, my_func, boolQ=<span style="color: #D0372D;">true</span>)
     count = <span style="color: #D0372D;">1</span>
     <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Iterate num times</span>
@@ -767,16 +844,16 @@ By associating each value on the complex plane with an element of a matrix an im
 </div>
 </div>
 
-<div id="outline-container-orge1f9d8b" class="outline-5">
-<h5 id="orge1f9d8b"><span class="section-number-5">1.4.2.1</span> Using Linear Regression</h5>
+<div id="outline-container-org6317b34" class="outline-5">
+<h5 id="org6317b34"><span class="section-number-5">1.4.2.1</span> Using Linear Regression</h5>
 <div class="outline-text-5" id="text-1-4-2-1">
 <ul class="org-ul">
 <li>Avoiding <code>Abs</code> is twice as fast</li>
 <li>Column wise is faster in fortran/julia/R slower in C/Python</li>
 </ul>
 </div>
-<div id="outline-container-org62f5bef" class="outline-6">
-<h6 id="org62f5bef"><span class="section-number-6">1.4.2.1.1</span> Performance</h6>
+<div id="outline-container-orgff0d155" class="outline-6">
+<h6 id="orgff0d155"><span class="section-number-6">1.4.2.1.1</span> Performance</h6>
 <div class="outline-text-6" id="text-1-4-2-1-1">
 <ul class="org-ul">
 <li>Switching from <code>abs()</code> to sqaured help</li>
@@ -826,15 +903,15 @@ times = [tme() <span style="color: #0000FF;">for</span> i <span style="color: #0
 </div>
 </div>
 </div>
-<div id="outline-container-orgc687d22" class="outline-4">
-<h4 id="orgc687d22"><span class="section-number-4">1.4.3</span> My Fractal</h4>
+<div id="outline-container-org4a8ddec" class="outline-4">
+<h4 id="org4a8ddec"><span class="section-number-4">1.4.3</span> My Fractal</h4>
 <div class="outline-text-4" id="text-1-4-3">
 </div>
-<div id="outline-container-orge92bbd2" class="outline-5">
-<h5 id="orge92bbd2"><span class="section-number-5">1.4.3.1</span> Graphics</h5>
+<div id="outline-container-org4441d47" class="outline-5">
+<h5 id="org4441d47"><span class="section-number-5">1.4.3.1</span> Graphics</h5>
 <div class="outline-text-5" id="text-1-4-3-1">
 
-<div id="org3b1007e" class="figure">
+<div id="org034200f" class="figure">
 <p><object type="image/svg+xml" data="../Problems/fractal-dimensions/scale-of-my-fractal.svg" class="org-svg" width="60px">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -842,7 +919,7 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="orgc35b5f1" class="figure">
+<div id="org61297d2" class="figure">
 <p><object type="image/svg+xml" data="../Problems/fractal-dimensions/my-self-rep-frac.svg" class="org-svg" width="60px">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -850,7 +927,7 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="org16e4aa8" class="figure">
+<div id="orgd4f53e6" class="figure">
 <p><object type="image/svg+xml" data="../Problems/fractal-dimensions/golden-angle-diagram.svg" class="org-svg" width="60px">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -858,7 +935,7 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="orgc98d1a9" class="figure">
+<div id="org4689af3" class="figure">
 <p><object type="image/svg+xml" data="../Problems/fractal-dimensions/my-self-rep-frac-ink-diagram.svg" class="org-svg" width="60px">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -866,7 +943,7 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="org583b16d" class="figure">
+<div id="orgadb03ca" class="figure">
 <p><object type="image/svg+xml" data="../Problems/fractal-dimensions/My-Self-Replicating-fractal-ink.svg" class="org-svg" width="60px">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -874,14 +951,14 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="org4546237" class="figure">
+<div id="org8b8418b" class="figure">
 <p><img src="../Problems/fractal-dimensions/my-self-rep-frac-GR.png" alt="my-self-rep-frac-GR.png" width="600px" />
 </p>
 <p><span class="figure-number">Figure 10: </span>Fractal that emerges by Rotating and appending boxes, this demonstrates the relationship between the Fibonacci numbers and golden ratio very well</p>
 </div>
 
 
-<div id="orgf86e638" class="figure">
+<div id="org1e8e51b" class="figure">
 <p><object type="image/svg+xml" data="../Problems/fractal-dimensions/My-Fib-Fractal-Diagram.svg" class="org-svg" width="200px">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -890,16 +967,16 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org9c4f721" class="outline-5">
-<h5 id="org9c4f721"><span class="section-number-5">1.4.3.2</span> Discuss Pattern shows Fibonacci Numbers</h5>
+<div id="outline-container-org89d1afe" class="outline-5">
+<h5 id="org89d1afe"><span class="section-number-5">1.4.3.2</span> Discuss Pattern shows Fibonacci Numbers</h5>
 <div class="outline-text-5" id="text-1-4-3-2">
 </div>
-<div id="outline-container-org7762260" class="outline-6">
-<h6 id="org7762260"><span class="section-number-6">1.4.3.2.1</span> Angle Relates to Golden Ratio</h6>
+<div id="outline-container-org7ddf159" class="outline-6">
+<h6 id="org7ddf159"><span class="section-number-6">1.4.3.2.1</span> Angle Relates to Golden Ratio</h6>
 </div>
 </div>
-<div id="outline-container-orgc681b2a" class="outline-5">
-<h5 id="orgc681b2a"><span class="section-number-5">1.4.3.3</span> Prove Fibonacci using Monotone Convergence Theorem</h5>
+<div id="outline-container-org06c4034" class="outline-5">
+<h5 id="org06c4034"><span class="section-number-5">1.4.3.3</span> Prove Fibonacci using Monotone Convergence Theorem</h5>
 <div class="outline-text-5" id="text-1-4-3-3">
 <p>
 Consider the series:
@@ -923,8 +1000,8 @@ F_n = F_{n- 1} +  F_{n- 2} ; \quad F_1 = F_2 = 1
 </div>
 
 
-<div id="outline-container-org9b71681" class="outline-6">
-<h6 id="org9b71681"><span class="section-number-6">1.4.3.3.1</span> Show that the Series is Monotone</h6>
+<div id="outline-container-orge8abbe2" class="outline-6">
+<h6 id="orge8abbe2"><span class="section-number-6">1.4.3.3.1</span> Show that the Series is Monotone</h6>
 <div class="outline-text-6" id="text-1-4-3-3-1">
 <p>
 \[\begin{aligned}
@@ -950,11 +1027,11 @@ F_{n} &> 0 \\
 
 
 
-<div id="outline-container-org0455dd8" class="outline-6">
-<h6 id="org0455dd8"><span class="section-number-6">1.4.3.3.2</span> Show that the Series is Bounded</h6>
+<div id="outline-container-orgb8ae595" class="outline-6">
+<h6 id="orgb8ae595"><span class="section-number-6">1.4.3.3.2</span> Show that the Series is Bounded</h6>
 </div>
-<div id="outline-container-org83d88dd" class="outline-6">
-<h6 id="org83d88dd"><span class="section-number-6">1.4.3.3.3</span> Find the Limit</h6>
+<div id="outline-container-org8cb5406" class="outline-6">
+<h6 id="org8cb5406"><span class="section-number-6">1.4.3.3.3</span> Find the Limit</h6>
 <div class="outline-text-6" id="text-1-4-3-3-3">
 <p>
 \[\begin{aligned}
@@ -970,8 +1047,8 @@ G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 </div>
 
 
-<div id="outline-container-orgf32c071" class="outline-6">
-<h6 id="orgf32c071"><span class="section-number-6">1.4.3.3.4</span> Comments</h6>
+<div id="outline-container-orgcead569" class="outline-6">
+<h6 id="orgcead569"><span class="section-number-6">1.4.3.3.4</span> Comments</h6>
 <div class="outline-text-6" id="text-1-4-3-3-4">
 <p>
 The Fibonacci sequence is quite unique, observe that:
@@ -1019,8 +1096,8 @@ Observe also that
 </p>
 </div>
 </div>
-<div id="outline-container-org2a5020d" class="outline-6">
-<h6 id="org2a5020d"><span class="section-number-6">1.4.3.3.5</span> Python</h6>
+<div id="outline-container-org74efc69" class="outline-6">
+<h6 id="org74efc69"><span class="section-number-6">1.4.3.3.5</span> Python</h6>
 <div class="outline-text-6" id="text-1-4-3-3-5">
 <div class="org-src-container">
 <pre class="src src-:exports">#+BEGIN_SRC python :exports both :results output graphics file :file ./a.png
@@ -1041,16 +1118,16 @@ plt.savefig("./a.png")
 </div>
 </div>
 
-<div id="outline-container-org32530ac" class="outline-5">
-<h5 id="org32530ac"><span class="section-number-5">1.4.3.4</span> Angle is \(\tan^{-1}\left( \frac{1}{1-\varphi}\right)\)</h5>
+<div id="outline-container-org7495f97" class="outline-5">
+<h5 id="org7495f97"><span class="section-number-5">1.4.3.4</span> Angle is \(\tan^{-1}\left( \frac{1}{1-\varphi}\right)\)</h5>
 <div class="outline-text-5" id="text-1-4-3-4">
 </div>
-<div id="outline-container-org06c2975" class="outline-6">
-<h6 id="org06c2975"><span class="section-number-6">1.4.3.4.1</span> Similar to Golden Angle \(2 \pi \left( \frac{1}{1-\varphi}\right)\)</h6>
+<div id="outline-container-org0ead905" class="outline-6">
+<h6 id="org0ead905"><span class="section-number-6">1.4.3.4.1</span> Similar to Golden Angle \(2 \pi \left( \frac{1}{1-\varphi}\right)\)</h6>
 </div>
 </div>
-<div id="outline-container-orgcca4f67" class="outline-5">
-<h5 id="orgcca4f67"><span class="section-number-5">1.4.3.5</span> Dimension of my Fractal</h5>
+<div id="outline-container-org48be1e9" class="outline-5">
+<h5 id="org48be1e9"><span class="section-number-5">1.4.3.5</span> Dimension of my Fractal</h5>
 <div class="outline-text-5" id="text-1-4-3-5">
 <p>
 \(\log_{\varphi}(2)\)
@@ -1071,17 +1148,17 @@ The julia set is the outline.
 The mandelbrot has to do with whether or not it&rsquo;s connected.
 </p>
 </div>
-<div id="outline-container-org08ebded" class="outline-4">
-<h4 id="org08ebded"><span class="section-number-4">1.5.1</span> The math behind it</h4>
+<div id="outline-container-orge02aaed" class="outline-4">
+<h4 id="orge02aaed"><span class="section-number-4">1.5.1</span> The math behind it</h4>
 <div class="outline-text-4" id="text-1-5-1">
 </div>
-<div id="outline-container-orgb08d687" class="outline-5">
-<h5 id="orgb08d687"><span class="section-number-5">1.5.1.1</span> Like Escaping after 2</h5>
+<div id="outline-container-org95db84a" class="outline-5">
+<h5 id="org95db84a"><span class="section-number-5">1.5.1.1</span> Like Escaping after 2</h5>
 </div>
 </div>
 </div>
-<div id="outline-container-org8b39be2" class="outline-3">
-<h3 id="org8b39be2"><span class="section-number-3">1.6</span> Turing</h3>
+<div id="outline-container-org353ac18" class="outline-3">
+<h3 id="org353ac18"><span class="section-number-3">1.6</span> Turing</h3>
 </div>
 
 <div id="outline-container-appendix" class="outline-3">
@@ -1093,23 +1170,23 @@ So unless code contributes directly to the discussion we&rsquo;ll put it in the 
 </div>
 </div>
 </div>
-<div id="outline-container-orgc87a79f" class="outline-2">
-<h2 id="orgc87a79f"><span class="section-number-2">2</span> Outline</h2>
+<div id="outline-container-org49cf724" class="outline-2">
+<h2 id="org49cf724"><span class="section-number-2">2</span> Outline</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org05d085e" class="outline-3">
-<h3 id="org05d085e"><span class="section-number-3">2.1</span> Introduction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
+<div id="outline-container-org7d48a88" class="outline-3">
+<h3 id="org7d48a88"><span class="section-number-3">2.1</span> Introduction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 This project, at the outset, was very broadly concerned with the use of <i>Python</i> for
 computer algebra. Much to the the reluctance of our supervisor we have however
 resolved to look at a broad variety of tools (see section <a href="#other-tools">2.8.3.0.1</a>),
 in particular a language we wanted an opportunity to explore was <i>Julia</i>
-(NO_ITEM_DATA:bezansonJuliaFreshApproach2017) <sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>.
+(NO_ITEM_DATA:bezansonJuliaFreshApproach2017) <sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>.
 </p>
 
 <p>
-In order to give the project a more focused direction we have decided to look into: <sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>
+In order to give the project a more focused direction we have decided to look into: <sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup>
 </p>
 
 <ul class="org-ul">
@@ -1129,8 +1206,8 @@ with Julia as well).
 </div>
 </div>
 
-<div id="outline-container-orgbe9abb0" class="outline-3">
-<h3 id="orgbe9abb0"><span class="section-number-3">2.2</span> Programming Recursion&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
+<div id="outline-container-org23b32b3" class="outline-3">
+<h3 id="org23b32b3"><span class="section-number-3">2.2</span> Programming Recursion&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 As an introduction to <i>Python</i> generally, we undertook many problem questions which have been omitted from this outline, however, this one in particular offered an interesting insight into the difficulties we may encounter when dealing with recursive systems.
@@ -1140,7 +1217,7 @@ As an introduction to <i>Python</i> generally, we undertook many problem questio
 <h4 id="series-and-recursion"><span class="section-number-4">2.2.1</span> Iteration and Recursion</h4>
 <div class="outline-text-4" id="text-series-and-recursion">
 <p>
-Consider the series shown in \eqref{eq:rec-ser}<sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup> :
+Consider the series shown in \eqref{eq:rec-ser}<sup><a id="fnr.6" class="footref" href="#fn.6">6</a></sup> :
 </p>
 
 \begin{align}
@@ -1167,14 +1244,14 @@ h\left( k \right) = \prod^k_{i = 2} \left( \frac{f_i}{i}  \right)  \quad : \quad
 
 <p>
 Within <i>Python</i>, it isn&rsquo;t difficult to express \(h\), the series can be expressed
-with recursion as shown in listing <a href="#orga559a95">2</a>, this is a very natural way to define
+with recursion as shown in listing <a href="#orgf7d098d">2</a>, this is a very natural way to define
 series and sequences and is consistent with familiar mathematical thought and
 notation. Individuals more familiar with programming than analysis may find it
-more comfortable to use an iterator as shown in listing <a href="#org4b82ff5">3</a>.
+more comfortable to use an iterator as shown in listing <a href="#orgba29133">3</a>.
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 2: </span>Solving \eqref{eq:rec-ser-mod} using recursion.</label><pre class="src src-python" id="orga559a95"><span style="color: #0000FF;">from</span> sympy <span style="color: #0000FF;">import</span> *
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>Solving \eqref{eq:rec-ser-mod} using recursion.</label><pre class="src src-python" id="orgf7d098d"><span style="color: #0000FF;">from</span> sympy <span style="color: #0000FF;">import</span> *
 <span style="color: #0000FF;">def</span> <span style="color: #006699;">h</span>(k):
     <span style="color: #0000FF;">if</span> k &gt; <span style="color: #D0372D;">2</span>:
         <span style="color: #0000FF;">return</span> f(k) * f(k-<span style="color: #D0372D;">1</span>)
@@ -1192,7 +1269,7 @@ more comfortable to use an iterator as shown in listing <a href="#org4b82ff5">3<
 
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 3: </span>Solving \eqref{eq:rec-ser-mod} by using a <code>for</code> loop.</label><pre class="src src-python" id="org4b82ff5">  <span style="color: #0000FF;">from</span> sympy <span style="color: #0000FF;">import</span> *
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>Solving \eqref{eq:rec-ser-mod} by using a <code>for</code> loop.</label><pre class="src src-python" id="orgba29133">  <span style="color: #0000FF;">from</span> sympy <span style="color: #0000FF;">import</span> *
   <span style="color: #0000FF;">def</span> <span style="color: #006699;">h</span>(k):
       <span style="color: #BA36A5;">k</span> = k + <span style="color: #D0372D;">1</span> <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">OBOB</span>
       <span style="color: #BA36A5;">l</span> = [f(i) <span style="color: #0000FF;">for</span> i <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(<span style="color: #D0372D;">1</span>,k)]
@@ -1273,7 +1350,7 @@ this can become a little clumsy, see \eqref{eq:clumsy}:
 
 <p>
 Now the function could be performed recursively in <i>Python</i> in a similar way as
-shown in listing <a href="#org5b932f6">4</a>, but it&rsquo;s also significantly more confusing because the
+shown in listing <a href="#orge7c36bf">4</a>, but it&rsquo;s also significantly more confusing because the
 \(f\) function now has \(k\) as a parameter and this is only made significantly more
 complicated by the differing implementations of variable scope across common
 languages used in Mathematics and Data science such as <code>bash</code>, <b><i>R</i></b>, <i>Julia</i>, <i>Python</i>.
@@ -1281,7 +1358,7 @@ languages used in Mathematics and Data science such as <code>bash</code>, <b><i>
 
 <p>
 If however, the <code>for</code> loop approach was implemented, as shown in listing
-<a href="#org640f9b9">5</a>, the function would not significantly change, because the <code>reversed()</code> function can be
+<a href="#org07803ad">5</a>, the function would not significantly change, because the <code>reversed()</code> function can be
 used to flip the list around.
 </p>
 
@@ -1292,7 +1369,7 @@ this problem.
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 4: </span>Using Recursion to Solve \eqref{eq:rec-ser}</label><pre class="src src-python" id="org5b932f6"><span style="color: #0000FF;">from</span> sympy <span style="color: #0000FF;">import</span> *
+<label class="org-src-name"><span class="listing-number">Listing 4: </span>Using Recursion to Solve \eqref{eq:rec-ser}</label><pre class="src src-python" id="orge7c36bf"><span style="color: #0000FF;">from</span> sympy <span style="color: #0000FF;">import</span> *
 <span style="color: #0000FF;">def</span> <span style="color: #006699;">h</span>(k):
     <span style="color: #0000FF;">if</span> k &gt; <span style="color: #D0372D;">2</span>:
         <span style="color: #0000FF;">return</span> f(k, k) * f(k, k-<span style="color: #D0372D;">1</span>)
@@ -1311,7 +1388,7 @@ this problem.
 
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 5: </span>Using Iteration to Solve \eqref{eq:rec-ser}</label><pre class="src src-python" id="org640f9b9"><span style="color: #0000FF;">from</span> sympy <span style="color: #0000FF;">import</span> *
+<label class="org-src-name"><span class="listing-number">Listing 5: </span>Using Iteration to Solve \eqref{eq:rec-ser}</label><pre class="src src-python" id="org07803ad"><span style="color: #0000FF;">from</span> sympy <span style="color: #0000FF;">import</span> *
 <span style="color: #0000FF;">def</span> <span style="color: #006699;">h</span>(k):
     <span style="color: #BA36A5;">k</span> = k + <span style="color: #D0372D;">1</span> <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">OBOB</span>
     <span style="color: #BA36A5;">l</span> = [f(i) <span style="color: #0000FF;">for</span> i <span style="color: #0000FF;">in</span> <span style="color: #006FE0;">range</span>(<span style="color: #D0372D;">1</span>,k)]
@@ -1329,15 +1406,15 @@ this problem.
 </div>
 </div>
 
-<div id="outline-container-orgca4bbc4" class="outline-3">
-<h3 id="orgca4bbc4"><span class="section-number-3">2.3</span> Fibonacci Sequence&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span>&#xa0;<span class="James">James</span></span></h3>
+<div id="outline-container-orgaf26812" class="outline-3">
+<h3 id="orgaf26812"><span class="section-number-3">2.3</span> Fibonacci Sequence&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span>&#xa0;<span class="James">James</span></span></h3>
 <div class="outline-text-3" id="text-2-3">
 </div>
-<div id="outline-container-org15cf8ea" class="outline-4">
-<h4 id="org15cf8ea"><span class="section-number-4">2.3.1</span> Introduction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h4>
+<div id="outline-container-org957ee8d" class="outline-4">
+<h4 id="org957ee8d"><span class="section-number-4">2.3.1</span> Introduction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h4>
 <div class="outline-text-4" id="text-2-3-1">
 <p>
-The <i>Fibonacci Sequence</i> and <i>Golden Ratio</i> share a deep connection<sup><a id="fnr.6" class="footref" href="#fn.6">6</a></sup> and occur in patterns observed in nature very frequently
+The <i>Fibonacci Sequence</i> and <i>Golden Ratio</i> share a deep connection<sup><a id="fnr.7" class="footref" href="#fn.7">7</a></sup> and occur in patterns observed in nature very frequently
 (see
 (NO_ITEM_DATA:shellyallenFibonacciNature, NO_ITEM_DATA:benedettapalazzoNumbersNatureFibonacci2016, NO_ITEM_DATA:MinarovaNikoletta2014TFSN, NO_ITEM_DATA:NatureGoldenRatio2018, NO_ITEM_DATA:robertlambHowAreFibonacci2008, NO_ITEM_DATA:ronknottFibonacciNumbersGolden2016)), an example of such an occurence is discussed in section <a href="#sunflower-example">2.3.4.1</a>.
 </p>
@@ -1375,10 +1452,10 @@ F_n = F_{n-1} + F_{n-2} \label{eq:fib-def}
 
 <p>
 This type of recursive relation can be expressed in <i>Python</i> by using recursion,
-as shown in listing <a href="#org1d01267">6</a>, however using this function will reveal that it
-is extraordinarily slow, as shown in listing <a href="#org952f60b">7</a>, this is because the
+as shown in listing <a href="#org16ed6b1">6</a>, however using this function will reveal that it
+is extraordinarily slow, as shown in listing <a href="#org7cee38b">7</a>, this is because the
 results of the function are not cached and every time the function is called
-every value is recalculated<sup><a id="fnr.7" class="footref" href="#fn.7">7</a></sup>, meaning that the workload scales in
+every value is recalculated<sup><a id="fnr.8" class="footref" href="#fn.8">8</a></sup>, meaning that the workload scales in
 exponential as opposed to polynomial time.
 </p>
 
@@ -1387,12 +1464,12 @@ The <code>functools</code> library for python includes the <code>@functools.lru_
 which will modify a defined function to cache results in memory
 (NO_ITEM_DATA:FunctoolsHigherorderFunctions), this means that the recursive function will
 only need to calculate each result once and it will hence scale in polynomial
-time, this is implemented in listing <a href="#org0372bb6">8</a>.
+time, this is implemented in listing <a href="#org794e009">8</a>.
 </p>
 
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 6: </span>Defining the <i>Fibonacci Sequence</i> \eqref{eq:fib-def} using Recursion</label><pre class="src src-python" id="org1d01267">  <span style="color: #0000FF;">def</span> <span style="color: #006699;">rec_fib</span>(k):
+<label class="org-src-name"><span class="listing-number">Listing 6: </span>Defining the <i>Fibonacci Sequence</i> \eqref{eq:fib-def} using Recursion</label><pre class="src src-python" id="org16ed6b1">  <span style="color: #0000FF;">def</span> <span style="color: #006699;">rec_fib</span>(k):
       <span style="color: #0000FF;">if</span> <span style="color: #006FE0;">type</span>(k) <span style="color: #0000FF;">is</span> <span style="color: #0000FF;">not</span> <span style="color: #006FE0;">int</span>:
           <span style="color: #0000FF;">print</span>(<span style="color: #008000;">"Error: Require integer values"</span>)
           <span style="color: #0000FF;">return</span> <span style="color: #D0372D;">0</span>
@@ -1405,7 +1482,7 @@ time, this is implemented in listing <a href="#org0372bb6">8</a>.
 </div>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 7: </span>Using the function from listing <a href="#org1d01267">6</a> is quite slow.</label><pre class="src src-python" id="org952f60b">  <span style="color: #BA36A5;">start</span> = time.time()
+<label class="org-src-name"><span class="listing-number">Listing 7: </span>Using the function from listing <a href="#org16ed6b1">6</a> is quite slow.</label><pre class="src src-python" id="org7cee38b">  <span style="color: #BA36A5;">start</span> = time.time()
   rec_fib(<span style="color: #D0372D;">35</span>)
   <span style="color: #0000FF;">print</span>(<span style="color: #006FE0;">str</span>(<span style="color: #006FE0;">round</span>(time.time() - start, <span style="color: #D0372D;">3</span>)) + <span style="color: #008000;">"seconds"</span>)
 
@@ -1415,7 +1492,7 @@ time, this is implemented in listing <a href="#org0372bb6">8</a>.
 
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 8: </span>Caching the results of the function previously defined <a href="#org952f60b">7</a></label><pre class="src src-python" id="org0372bb6">  <span style="color: #0000FF;">from</span> functools <span style="color: #0000FF;">import</span> lru_cache
+<label class="org-src-name"><span class="listing-number">Listing 8: </span>Caching the results of the function previously defined <a href="#org7cee38b">7</a></label><pre class="src src-python" id="org794e009">  <span style="color: #0000FF;">from</span> functools <span style="color: #0000FF;">import</span> lru_cache
 
   <span style="color: #6434A3;">@lru_cache</span>(maxsize=<span style="color: #D0372D;">9999</span>)
   <span style="color: #0000FF;">def</span> <span style="color: #006699;">rec_fib</span>(k):
@@ -1446,13 +1523,13 @@ rec_fib(<span style="color: #D0372D;">35</span>)
 </div>
 
 <p>
-Restructuring the problem to use iteration will allow for even greater performance as demonstrated by finding \(F_{10^{6}}\) in listing <a href="#orgb2dcf95">9</a>. Using a compiled language such as <i>Julia</i> however would be thousands of times faster still, as demonstrated in listing <a href="#org86d62f5">10</a>.
+Restructuring the problem to use iteration will allow for even greater performance as demonstrated by finding \(F_{10^{6}}\) in listing <a href="#orga81a119">9</a>. Using a compiled language such as <i>Julia</i> however would be thousands of times faster still, as demonstrated in listing <a href="#org876d09f">10</a>.
 </p>
 
 
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 9: </span>Using Iteration to Solve the Fibonacci Sequence</label><pre class="src src-python" id="orgb2dcf95">  <span style="color: #0000FF;">def</span> <span style="color: #006699;">my_it_fib</span>(k):
+<label class="org-src-name"><span class="listing-number">Listing 9: </span>Using Iteration to Solve the Fibonacci Sequence</label><pre class="src src-python" id="orga81a119">  <span style="color: #0000FF;">def</span> <span style="color: #006699;">my_it_fib</span>(k):
       <span style="color: #0000FF;">if</span> k == <span style="color: #D0372D;">0</span>:
           <span style="color: #0000FF;">return</span> k
       <span style="color: #0000FF;">elif</span> <span style="color: #006FE0;">type</span>(k) <span style="color: #0000FF;">is</span> <span style="color: #0000FF;">not</span> <span style="color: #006FE0;">int</span>:
@@ -1483,7 +1560,7 @@ Restructuring the problem to use iteration will allow for even greater performan
 </div>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 10: </span>Using Julia with an iterative approach to solve the 1 millionth fibonacci number</label><pre class="src src-julia" id="org86d62f5"><span style="color: #0000FF;">function</span> <span style="color: #006699;">my_it_fib</span>(k)
+<label class="org-src-name"><span class="listing-number">Listing 10: </span>Using Julia with an iterative approach to solve the 1 millionth fibonacci number</label><pre class="src src-julia" id="org876d09f"><span style="color: #0000FF;">function</span> <span style="color: #006699;">my_it_fib</span>(k)
     <span style="color: #0000FF;">if</span> k <span style="color: #6434A3;">==</span> <span style="color: #D0372D;">0</span>
         <span style="color: #0000FF;">return</span> k
     <span style="color: #0000FF;">elseif</span> typeof(k)<span style="color: #6434A3;"> !=</span> Int
@@ -1681,8 +1758,8 @@ where:
 <h5 id="Derivative-exp-gen-function"><span class="section-number-5">2.3.3.3</span> Derivative of the Exponential Generating Function</h5>
 <div class="outline-text-5" id="text-Derivative-exp-gen-function">
 </div>
-<div id="outline-container-org2a863ec" class="outline-6">
-<h6 id="org2a863ec"><span class="section-number-6">2.3.3.3.1</span> Base&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h6>
+<div id="outline-container-org4b0b193" class="outline-6">
+<h6 id="org4b0b193"><span class="section-number-6">2.3.3.3.1</span> Base&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h6>
 <div class="outline-text-6" id="text-2-3-3-3-1">
 <p>
 Differentiating the exponential generating function has the effect of shifting the sequence to the backward: (NO_ITEM_DATA:lehmanReadingsMathematicsComputer2010)
@@ -1699,8 +1776,8 @@ f'\left( x \right)) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 
 </div>
 </div>
 
-<div id="outline-container-org1bf27af" class="outline-6">
-<h6 id="org1bf27af"><span class="section-number-6">2.3.3.3.2</span> Bridge&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></h6>
+<div id="outline-container-org2e4fa03" class="outline-6">
+<h6 id="org2e4fa03"><span class="section-number-6">2.3.3.3.2</span> Bridge&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></h6>
 <div class="outline-text-6" id="text-2-3-3-3-2">
 <p>
 This can be shown for all derivatives by way of induction, for
@@ -1742,8 +1819,8 @@ first derivative has been shown to express this property
 </div>
 </div>
 
-<div id="outline-container-orgb39c488" class="outline-5">
-<h5 id="orgb39c488"><span class="section-number-5">2.3.3.4</span> Homogeneous Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span>&#xa0;<span class="James">James</span></span></h5>
+<div id="outline-container-org0fb16c0" class="outline-5">
+<h5 id="org0fb16c0"><span class="section-number-5">2.3.3.4</span> Homogeneous Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span>&#xa0;<span class="James">James</span></span></h5>
 <div class="outline-text-5" id="text-2-3-3-4">
 <p>
 An equation of the form:
@@ -1796,16 +1873,16 @@ where:
 <h6 id="uniq-roots-recurrence"><span class="section-number-6">2.3.3.4.1</span> Unique Roots of Characteristic Equation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h6>
 <div class="outline-text-6" id="text-uniq-roots-recurrence">
 </div>
-<div id="outline-container-org4c1956c" class="outline-7">
-<h7 id="org4c1956c"><span class="section-number-7">2.3.3.4.1.1</span> Example</h7>
+<div id="outline-container-orge191342" class="outline-7">
+<h7 id="orge191342"><span class="section-number-7">2.3.3.4.1.1</span> Example</h7>
 <div class="outline-text-7" id="text-2-3-3-4-1-1">
 <p>
 An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section <a href="#solving-the-sequence">2.3.3.2</a>.
 </p>
 </div>
 </div>
-<div id="outline-container-orge11fbe8" class="outline-7">
-<h7 id="orge11fbe8"><span class="section-number-7">2.3.3.4.1.2</span> Proof</h7>
+<div id="outline-container-org528e739" class="outline-7">
+<h7 id="org528e739"><span class="section-number-7">2.3.3.4.1.2</span> Proof</h7>
 <div class="outline-text-7" id="text-2-3-3-4-1-2">
 <p>
 Consider the linear recurrence relation \eqref{eq:recurrence-relation-def}:
@@ -1883,8 +1960,8 @@ This can be verified by the fibonacci sequence as shown in section <a href="#sol
 <h6 id="rep-roots-recurrence"><span class="section-number-6">2.3.3.4.2</span> Repeated Roots of Characteristic Equation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h6>
 <div class="outline-text-6" id="text-rep-roots-recurrence">
 </div>
-<div id="outline-container-org21269f3" class="outline-7">
-<h7 id="org21269f3"><span class="section-number-7">2.3.3.4.2.1</span> Example</h7>
+<div id="outline-container-org7681ac2" class="outline-7">
+<h7 id="org7681ac2"><span class="section-number-7">2.3.3.4.2.1</span> Example</h7>
 <div class="outline-text-7" id="text-2-3-3-4-2-1">
 <p>
 Consider the following recurrence relation:
@@ -1952,8 +2029,8 @@ Given the defenition of the exponential generating function from \eqref{eq:exp-g
 \end{align}
 </div>
 </div>
-<div id="outline-container-org553082e" class="outline-7">
-<h7 id="org553082e"><span class="section-number-7">2.3.3.4.2.2</span> Proof</h7>
+<div id="outline-container-org0b66af9" class="outline-7">
+<h7 id="org0b66af9"><span class="section-number-7">2.3.3.4.2.2</span> Proof</h7>
 <div class="outline-text-7" id="text-2-3-3-4-2-2">
 <p>
 In order to prove the the solution for a \(k^{\mathrm{th}}\) order recurrence relation with \(k\) repeated
@@ -2052,8 +2129,8 @@ Sketching out an approach for this:
 In this section a proof for identity <a href="#eq:power-series-comb">eq:power-series-comb</a> is provided.
 </p>
 </div>
-<div id="outline-container-org5bee168" class="outline-8">
-<h8 id="org5bee168"><span class="section-number-8">2.3.3.4.3.1.1</span> Motivation</h8>
+<div id="outline-container-org9ff451e" class="outline-8">
+<h8 id="org9ff451e"><span class="section-number-8">2.3.3.4.3.1.1</span> Motivation</h8>
 <div class="outline-text-8" id="text-2-3-3-4-3-1-1">
 <p>
 Consider the function \(f(x) = xe^x\). Using the taylor series formula we get the following:
@@ -2084,15 +2161,15 @@ We conjecture thatIf we continue this on, we get:
 \end{align*}
 </div>
 </div>
-<div id="outline-container-orgdef02b1" class="outline-8">
-<h8 id="orgdef02b1"><span class="section-number-8">2.3.3.4.3.1.2</span> Proof by Induction</h8>
+<div id="outline-container-org67cf92f" class="outline-8">
+<h8 id="org67cf92f"><span class="section-number-8">2.3.3.4.3.1.2</span> Proof by Induction</h8>
 <div class="outline-text-8" id="text-2-3-3-4-3-1-2">
 <p>
 To verify, let&rsquo;s prove this by induction.
 </p>
 </div>
-<div id="outline-container-orga0b39ba" class="outline-9">
-<h9 id="orga0b39ba"><span class="section-number-9">2.3.3.4.3.1.2.1</span> Base</h9>
+<div id="outline-container-org2d131d6" class="outline-9">
+<h9 id="org2d131d6"><span class="section-number-9">2.3.3.4.3.1.2.1</span> Base</h9>
 <div class="outline-text-9" id="text-2-3-3-4-3-1-2-1">
 <p>
 Test \(k=0\)
@@ -2107,8 +2184,8 @@ Therefore LHS = RHS, so \(k=0\) is true
 </div>
 </div>
 
-<div id="outline-container-org4c299d5" class="outline-9">
-<h9 id="org4c299d5"><span class="section-number-9">2.3.3.4.3.1.2.2</span> Bridge</h9>
+<div id="outline-container-orge5cf1cd" class="outline-9">
+<h9 id="orge5cf1cd"><span class="section-number-9">2.3.3.4.3.1.2.2</span> Bridge</h9>
 <div class="outline-text-9" id="text-2-3-3-4-3-1-2-2">
 <p>
 Assume \(x^k e^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}\)
@@ -2188,11 +2265,11 @@ computationally, ideally by using the Turtle function in <i>Julia</i>.
 <div class="outline-text-5" id="text-sunflower-example">
 <p>
 The distribution of sunflower seeds is an example of the <i>Fibonacci Sequence</i>
-occuring in a pattern observed in nature (see Figure <a href="#orgde4b702">15</a>).
+occuring in a pattern observed in nature (see Figure <a href="#orgc7f726e">15</a>).
 </p>
 
 <p>
-Imagine that the process a sunflower follows when placing seeds is as follows: <sup><a id="fnr.8" class="footref" href="#fn.8">8</a></sup>
+Imagine that the process a sunflower follows when placing seeds is as follows: <sup><a id="fnr.9" class="footref" href="#fn.9">9</a></sup>
 </p>
 
 <ol class="org-ol">
@@ -2203,7 +2280,7 @@ Imagine that the process a sunflower follows when placing seeds is as follows: <
 </ol>
 
 <p>
-This process can be simulated in Julia (NO_ITEM_DATA:bezansonJuliaFreshApproach2017) as shown in listing <a href="#orgd2bbd2f">11</a>,<sup><a id="fnr.9" class="footref" href="#fn.9">9</a></sup> which combined with <i>ImageMagick</i> (see e.g. <a href="#org9845f7a">21</a>), produces output as shown in figure <a href="#org62cc5ce">13</a> and <a href="#org649ee8d">14</a>.
+This process can be simulated in Julia (NO_ITEM_DATA:bezansonJuliaFreshApproach2017) as shown in listing <a href="#org084c7ea">11</a>,<sup><a id="fnr.10" class="footref" href="#fn.10">10</a></sup> which combined with <i>ImageMagick</i> (see e.g. <a href="#org825cc67">21</a>), produces output as shown in figure <a href="#org5283309">13</a> and <a href="#org21cb345">14</a>.
 </p>
 
 <p>
@@ -2225,7 +2302,7 @@ also be not to approximated by a rational number, for example
 <p>
 It can be seen by simulation that \(\phi\) and \(\psi\) (because \(\phi \mod 1 =
 \psi\)) are solutions to this optimisation problem as shown in figure
-<a href="#org649ee8d">14</a>, this solution is unstable, a very minor change to the
+<a href="#org21cb345">14</a>, this solution is unstable, a very minor change to the
 value will result in patterns re-emerging in the distribution.
 </p>
 
@@ -2239,11 +2316,11 @@ the correct spirals is also something we intend to look at in this project.
 </p>
 
 <p>
-The bottom right spiral in figure <a href="#org62cc5ce">13</a> has a ratio of rotation of \(\frac{1}{\pi}\), the spirals look similar to one direction of the spirals occuring in figure <a href="#org649ee8d">14</a>, it is not clear if there is any significance to this similarity.
+The bottom right spiral in figure <a href="#org5283309">13</a> has a ratio of rotation of \(\frac{1}{\pi}\), the spirals look similar to one direction of the spirals occuring in figure <a href="#org21cb345">14</a>, it is not clear if there is any significance to this similarity.
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 11: </span>Simulation of the distribution of sunflowers as described in section <a href="#sunflower-example">2.3.4.1</a></label><pre class="src src-julia" id="orgd2bbd2f">&#966; = <span style="color: #D0372D;">1.61803398875</span>
+<label class="org-src-name"><span class="listing-number">Listing 11: </span>Simulation of the distribution of sunflowers as described in section <a href="#sunflower-example">2.3.4.1</a></label><pre class="src src-julia" id="org084c7ea">&#966; = <span style="color: #D0372D;">1.61803398875</span>
 &#968; = &#966;<span style="color: #6434A3;">^-</span><span style="color: #D0372D;">1</span>
 &#968; = <span style="color: #D0372D;">0.61803398875</span>
 <span style="color: #0000FF;">function</span> <span style="color: #006699;">sfSeeds</span>(ratio)
@@ -2267,23 +2344,23 @@ The bottom right spiral in figure <a href="#org62cc5ce">13</a> has a ratio of ro
 </div>
 
 
-<div id="org62cc5ce" class="figure">
+<div id="org5283309" class="figure">
 <p><img src="sunflower-spirals-montage.png" alt="sunflower-spirals-montage.png" width="600px" />
 </p>
-<p><span class="figure-number">Figure 13: </span>Simulated Distribution of Sunflower seeds as described in section <a href="#sunflower-example">2.3.4.1</a> and listing <a href="#orgd2bbd2f">11</a></p>
+<p><span class="figure-number">Figure 13: </span>Simulated Distribution of Sunflower seeds as described in section <a href="#sunflower-example">2.3.4.1</a> and listing <a href="#org084c7ea">11</a></p>
 </div>
 
 
-<div id="org649ee8d" class="figure">
+<div id="org21cb345" class="figure">
 <p><object type="image/svg+xml" data="golden-flower.svg" class="org-svg" width="600px">
 Sorry, your browser does not support SVG.</object>
 </p>
-<p><span class="figure-number">Figure 14: </span>Optimisation of simulated distribution of Sunflower seeds occurs for \(\theta =2 \varphi  \pi\) as described in section <a href="#sunflower-example">2.3.4.1</a> and listing <a href="#orgd2bbd2f">11</a></p>
+<p><span class="figure-number">Figure 14: </span>Optimisation of simulated distribution of Sunflower seeds occurs for \(\theta =2 \varphi  \pi\) as described in section <a href="#sunflower-example">2.3.4.1</a> and listing <a href="#org084c7ea">11</a></p>
 </div>
 
 
 
-<div id="orgde4b702" class="figure">
+<div id="orgc7f726e" class="figure">
 <p><img src="sunflower.jpg" alt="sunflower.jpg" width="600px" />
 </p>
 <p><span class="figure-number">Figure 15: </span>Distribution of the seeds of a sunflower (see <a class='org-ref-reference' href="#simonbrassCCSearch2006">simonbrassCCSearch2006</a> licenced under CC)</p>
@@ -2293,8 +2370,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orgae5c13e" class="outline-3">
-<h3 id="orgae5c13e"><span class="section-number-3">2.4</span> Persian Recursion&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
+<div id="outline-container-orgc81dd64" class="outline-3">
+<h3 id="orgc81dd64"><span class="section-number-3">2.4</span> Persian Recursion&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 This section contains an example of how a simple process can lead to the
@@ -2313,13 +2390,13 @@ The procedure is begins with an empty or zero square matrix with sides \(2^{n}+1
 </p>
 
 <ol class="org-ol">
-<li>Decide on some four variable function with a finite domain and range of size \(m\), for the example shown at listing <a href="#org36a2ae9">12</a> and in figure <a href="#orgb6aa613">17</a> the function \(f(w,x,y,z)=(w+x+y+z) \mod m\) was chosen.</li>
+<li>Decide on some four variable function with a finite domain and range of size \(m\), for the example shown at listing <a href="#org3c96f42">12</a> and in figure <a href="#org54a9544">17</a> the function \(f(w,x,y,z)=(w+x+y+z) \mod m\) was chosen.</li>
 <li>Assign this value to the centre row and centre column of the matrix</li>
 <li>Repeat this for each newly enclosed subsmatrix.</li>
 </ol>
 
 <p>
-This is illustrated in figure <a href="#org05411c9">16</a>.
+This is illustrated in figure <a href="#org451fbb7">16</a>.
 </p>
 
 <p>
@@ -2336,15 +2413,15 @@ coloured row and column</li>
 
 
 
-<div id="org05411c9" class="figure">
+<div id="org451fbb7" class="figure">
 <p><object type="image/svg+xml" data="persian.svg" class="org-svg" width="800px">
 Sorry, your browser does not support SVG.</object>
 </p>
-<p><span class="figure-number">Figure 16: </span>Diagram of the Persian Recursion, implemented with <i>Python</i> in listing <a href="#org36a2ae9">12</a></p>
+<p><span class="figure-number">Figure 16: </span>Diagram of the Persian Recursion, implemented with <i>Python</i> in listing <a href="#org3c96f42">12</a></p>
 </div>
 
 <p>
-This is demonstrated in listing <a href="#org36a2ae9">12</a> with python and produces the output shown in figures <a href="#orgb6aa613">17</a>, various interesting examples are provided in the appendix at section <a href="#persian-recursion-examples">2.8.1</a>.
+This is demonstrated in listing <a href="#org3c96f42">12</a> with python and produces the output shown in figures <a href="#org54a9544">17</a>, various interesting examples are provided in the appendix at section <a href="#persian-recursion-examples">2.8.1</a>.
 </p>
 
 <p>
@@ -2363,7 +2440,7 @@ this research.
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 12: </span>Implementation of the persian recursion scheme in <i>Python</i></label><pre class="src src-ipython" id="org36a2ae9">%matplotlib inline
+<label class="org-src-name"><span class="listing-number">Listing 12: </span>Implementation of the persian recursion scheme in <i>Python</i></label><pre class="src src-ipython" id="org3c96f42">%matplotlib inline
 <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">m is colours</span>
 <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">n is number of folds</span>
 <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Z is number for border</span>
@@ -2414,29 +2491,29 @@ main(<span style="color: #D0372D;">5</span>,<span style="color: #D0372D;">6</spa
 
 
 
-<div id="orgb6aa613" class="figure">
+<div id="org54a9544" class="figure">
 <p><object type="image/svg+xml" data="./persian-recursion-0.svg" class="org-svg" width="400px">
 Sorry, your browser does not support SVG.</object>
 </p>
-<p><span class="figure-number">Figure 17: </span>Output produced by listing <a href="#org36a2ae9">12</a> with 6 folds</p>
+<p><span class="figure-number">Figure 17: </span>Output produced by listing <a href="#org3c96f42">12</a> with 6 folds</p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org43bbeba" class="outline-3">
-<h3 id="org43bbeba"><span class="section-number-3">2.5</span> Julia Sets&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
+<div id="outline-container-orgf88a214" class="outline-3">
+<h3 id="orgf88a214"><span class="section-number-3">2.5</span> Julia Sets&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
 <div class="outline-text-3" id="text-2-5">
 </div>
-<div id="outline-container-org723807e" class="outline-4">
-<h4 id="org723807e"><span class="section-number-4">2.5.1</span> Introduction</h4>
+<div id="outline-container-orgbb66549" class="outline-4">
+<h4 id="orgbb66549"><span class="section-number-4">2.5.1</span> Introduction</h4>
 <div class="outline-text-4" id="text-2-5-1">
 <p>
 Julia sets are a very interesting fractal and we hope to investigate them further in this project.
 </p>
 </div>
 </div>
-<div id="outline-container-org2ca3c3d" class="outline-4">
-<h4 id="org2ca3c3d"><span class="section-number-4">2.5.2</span> Motivation</h4>
+<div id="outline-container-org9d52a31" class="outline-4">
+<h4 id="org9d52a31"><span class="section-number-4">2.5.2</span> Motivation</h4>
 <div class="outline-text-4" id="text-2-5-2">
 <p>
 Consider the iterative process \(x \rightarrow x^{2}, \enspace x \in \mathbb{R}\),
@@ -2486,8 +2563,8 @@ In the case of \(f_{0}(z) = z^{2}\) all values \(\left\lvert z  \right \rvert \l
 </div>
 </div>
 
-<div id="outline-container-orgad2df39" class="outline-4">
-<h4 id="orgad2df39"><span class="section-number-4">2.5.3</span> Plotting the Sets</h4>
+<div id="outline-container-orgcb8ce3b" class="outline-4">
+<h4 id="orgcb8ce3b"><span class="section-number-4">2.5.3</span> Plotting the Sets</h4>
 <div class="outline-text-4" id="text-2-5-3">
 <p>
 Although the convergence of values may appear simple at first, we&rsquo;ll implement a
@@ -2496,8 +2573,8 @@ strategy to plot the prisoner and escape sets on the complex plane.
 
 <p>
 Because this involves iteration and <i>Python</i> is a little slow, We&rsquo;ll denote
-complex values as a vector<sup><a id="fnr.10" class="footref" href="#fn.10">10</a></sup> and define the operations as described in
-listing <a href="#org172ae2c">13</a>.<sup><a id="fnr.11" class="footref" href="#fn.11">11</a></sup>
+complex values as a vector<sup><a id="fnr.11" class="footref" href="#fn.11">11</a></sup> and define the operations as described in
+listing <a href="#org327df06">13</a>.<sup><a id="fnr.12" class="footref" href="#fn.12">12</a></sup>
 </p>
 
 <p>
@@ -2517,12 +2594,12 @@ a measurement of the rate of divergence.
 <p>
 Then the <code>escape_test</code> function can be mapped over a matrix, where each element
 of that matrix is in turn mapped to a point on the cartesian plane, the resulting matrix
-can be visualised as an image <sup><a id="fnr.12" class="footref" href="#fn.12">12</a></sup>, this is implemented in listing
-<a href="#orgf631c1a">14</a> and the corresponding output shown in <a href="#orgf92276d">18</a>.
+can be visualised as an image <sup><a id="fnr.13" class="footref" href="#fn.13">13</a></sup>, this is implemented in listing
+<a href="#orgab1c743">14</a> and the corresponding output shown in <a href="#orgaa64ac3">18</a>.
 </p>
 
 <p>
-with respect to listing <a href="#orgf631c1a">14</a>:
+with respect to listing <a href="#orgab1c743">14</a>:
 </p>
 
 <ul class="org-ul">
@@ -2535,7 +2612,7 @@ with respect to listing <a href="#orgf631c1a">14</a>:
 
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 13: </span>Defining Complex Operations with vectors</label><pre class="src src-ipython" id="org172ae2c"><span style="color: #0000FF;">from</span> math <span style="color: #0000FF;">import</span> sqrt
+<label class="org-src-name"><span class="listing-number">Listing 13: </span>Defining Complex Operations with vectors</label><pre class="src src-ipython" id="org327df06"><span style="color: #0000FF;">from</span> math <span style="color: #0000FF;">import</span> sqrt
 <span style="color: #0000FF;">def</span> <span style="color: #006699;">magnitude</span>(z):
     <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">return sqrt(z[0]**2 + z[1]**2)</span>
     <span style="color: #BA36A5;">x</span> = z[<span style="color: #D0372D;">0</span>]
@@ -2556,7 +2633,7 @@ with respect to listing <a href="#orgf631c1a">14</a>:
 </div>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 14: </span>Circle of Convergence of \(z\) under recursion</label><pre class="src src-ipython" id="orgf631c1a">%matplotlib inline
+<label class="org-src-name"><span class="listing-number">Listing 14: </span>Circle of Convergence of \(z\) under recursion</label><pre class="src src-ipython" id="orgab1c743">%matplotlib inline
 %config <span style="color: #BA36A5;">InlineBackend.figure_format</span> = <span style="color: #008000;">'svg'</span>
 <span style="color: #0000FF;">import</span> numpy <span style="color: #0000FF;">as</span> np
 <span style="color: #0000FF;">def</span> <span style="color: #006699;">escape_test</span>(z, num):
@@ -2606,7 +2683,7 @@ plt.imshow(pic)
 
 
 
-<div id="orgf92276d" class="figure">
+<div id="orgaa64ac3" class="figure">
 <p><object type="image/svg+xml" data="circle-of-convergence.svg" class="org-svg" width="400px">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -2618,12 +2695,12 @@ This is precisely what we expected, but this is where things get interesting,
 consider now the result if we apply this same procedure to \(f_{1}: z \rightarrow
 z^{2} - 1\) or something arbitrary like \(f_{\frac{1}{4} + \frac{i}{2}}: z
 \rightarrow z^{2} + (\frac{1}{4} + \frac{i}{2})\), the result is something
-remarkebly unexpected, as shown in figures <a href="#orgd2f0d01">19</a> and <a href="#orgedb9b6e">20</a>.
+remarkebly unexpected, as shown in figures <a href="#org6e6d946">19</a> and <a href="#orga4320bc">20</a>.
 </p>
 
 
 
-<div id="orgd2f0d01" class="figure">
+<div id="org6e6d946" class="figure">
 <p><object type="image/svg+xml" data="./julia-1.svg" class="org-svg" width="400px">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -2632,7 +2709,7 @@ Sorry, your browser does not support SVG.</object>
 
 
 
-<div id="orgedb9b6e" class="figure">
+<div id="orga4320bc" class="figure">
 <p><object type="image/svg+xml" data="./julia-rab.svg" class="org-svg" width="400px">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -2643,7 +2720,7 @@ Sorry, your browser does not support SVG.</object>
 To investigate this further consider the
 more general function \(f_{0.8 e^{\pi i \tau}}: z \rightarrow z^{2} + 0.8 e^{\pi
 i \tau}, \enspace \tau \in \mathbb{R}\), many fractals can be generated using
-this set by varying the value of \(\tau\)<sup><a id="fnr.13" class="footref" href="#fn.13">13</a></sup>.
+this set by varying the value of \(\tau\)<sup><a id="fnr.14" class="footref" href="#fn.14">14</a></sup>.
 </p>
 
 <p>
@@ -2651,21 +2728,21 @@ this set by varying the value of \(\tau\)<sup><a id="fnr.13" class="footref" hre
 compiled language, is significantly faster and has the benefit of treating
 complex numbers as first class citizens, these images can be generated in
 <i>Julia</i> in a similar fashion as before, with the specifics shown in listing
-<a href="#org4a9dc4b">15</a>. The <code>GR</code> package appears to be the best plotting library
+<a href="#org4f8f71a">15</a>. The <code>GR</code> package appears to be the best plotting library
 performance wise and so was used to save corresponding images to disc, this is
-demonstrated in listing <a href="#orgd0cd1a9">16</a> where 1200 pictures at a 2.25 MP resolution were produced. <sup><a id="fnr.14" class="footref" href="#fn.14">14</a></sup>
+demonstrated in listing <a href="#org12138e5">16</a> where 1200 pictures at a 2.25 MP resolution were produced. <sup><a id="fnr.15" class="footref" href="#fn.15">15</a></sup>
 </p>
 
 <p>
 A subset of these images can be combined using <i>ImageMagick</i> and <code>bash</code> to
 create a collage, <i>ImageMagick</i> can also be used to produce an animation but it often
 fails and a superior approach is to use <code>ffmpeg</code>, this is demonstrated in
-listing <a href="#org9a207c7">17</a>, the collage is shown in figure <a href="#org9845f7a">21</a> and a corresponding
-animation is <a href="https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0">available online</a><sup><a id="fnr.15" class="footref" href="#fn.15">15</a></sup>].
+listing <a href="#org6f184da">17</a>, the collage is shown in figure <a href="#org825cc67">21</a> and a corresponding
+animation is <a href="https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0">available online</a><sup><a id="fnr.16" class="footref" href="#fn.16">16</a></sup>].
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 15: </span>Produce a series of fractals using julia</label><pre class="src src-julia" id="org4a9dc4b"><span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">* Define the Julia Set</span>
+<label class="org-src-name"><span class="listing-number">Listing 15: </span>Produce a series of fractals using julia</label><pre class="src src-julia" id="org4f8f71a"><span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">* Define the Julia Set</span>
 <span style="color: #008000;">"""</span>
 <span style="color: #008000;">Determine whether or not a value will converge under iteration</span>
 <span style="color: #008000;">"""</span>
@@ -2709,7 +2786,7 @@ animation is <a href="https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gi
 </div>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 16: </span>Generate and save the images with GR</label><pre class="src src-julia" id="orgd0cd1a9"><span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">* Use GR to Save a Bunch of Images</span>
+<label class="org-src-name"><span class="listing-number">Listing 16: </span>Generate and save the images with GR</label><pre class="src src-julia" id="org12138e5"><span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">* Use GR to Save a Bunch of Images</span>
   <span style="color: #8D8D84;">## </span><span style="color: #8D8D84; font-style: italic;">GR is faster than PyPlot</span>
 <span style="color: #0000FF;">using</span> GR
 <span style="color: #0000FF;">function</span> <span style="color: #006699;">save_images</span>(count, res)
@@ -2731,7 +2808,7 @@ save_images(<span style="color: #D0372D;">1200</span>, <span style="color: #D037
 </div>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 17: </span>Using <code>bash</code>, <code>ffmpeg</code> and <i>ImageMagick</i> to combine the images and produce an animation.</label><pre class="src src-bash" id="org9a207c7"><span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Use montage multiple times to get recursion for fun</span>
+<label class="org-src-name"><span class="listing-number">Listing 17: </span>Using <code>bash</code>, <code>ffmpeg</code> and <i>ImageMagick</i> to combine the images and produce an animation.</label><pre class="src src-bash" id="org6f184da"><span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Use montage multiple times to get recursion for fun</span>
 <span style="color: #006699;">montage</span> <span style="color: #707183;">(</span><span style="color: #6434A3;">ls</span> *png | sed -n <span style="color: #008000;">'1p;0~600p'</span><span style="color: #707183;">)</span> 0a.png
 <span style="color: #006699;">montage</span> <span style="color: #707183;">(</span><span style="color: #6434A3;">ls</span> *png | sed -n <span style="color: #008000;">'1p;0~100p'</span><span style="color: #707183;">)</span> a.png
 <span style="color: #006699;">montage</span> <span style="color: #707183;">(</span><span style="color: #6434A3;">ls</span> *png | sed -n <span style="color: #008000;">'1p;0~50p'</span><span style="color: #707183;">)</span> -geometry 1000x1000  a.png
@@ -2752,7 +2829,7 @@ ffmpeg                    <span style="color: #008000;">\</span>
 </div>
 
 
-<div id="org9845f7a" class="figure">
+<div id="org825cc67" class="figure">
 <p><img src="file:///home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Report/_20200826_005334a.png" alt="_20200826_005334a.png" />
 </p>
 <p><span class="figure-number">Figure 21: </span>Various fracals corresponding to \(f_{0.8 e^{\pi i \tau}}\)</p>
@@ -2761,8 +2838,8 @@ ffmpeg                    <span style="color: #008000;">\</span>
 </div>
 </div>
 
-<div id="outline-container-orgdbf4cb6" class="outline-3">
-<h3 id="orgdbf4cb6"><span class="section-number-3">2.6</span> MandelBrot&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
+<div id="outline-container-orgf2c7df8" class="outline-3">
+<h3 id="orgf2c7df8"><span class="section-number-3">2.6</span> MandelBrot&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 Investigating these fractals, a natural question might be whether or not any
@@ -2785,11 +2862,11 @@ z_{0}   &= c
 \end{align}
 
 <p>
-This strategy is implemented in listing and produces the output shown in figure <a href="#orgd25012c">22</a>.
+This strategy is implemented in listing and produces the output shown in figure <a href="#org14aff02">22</a>.
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 18: </span>All values of \(c\) that lead to a closed <i>Julia-set</i></label><pre class="src src-ipython" id="org78cc548">%matplotlib inline
+<label class="org-src-name"><span class="listing-number">Listing 18: </span>All values of \(c\) that lead to a closed <i>Julia-set</i></label><pre class="src src-ipython" id="org9b5243d">%matplotlib inline
 %config <span style="color: #BA36A5;">InlineBackend.figure_format</span> = <span style="color: #008000;">'svg'</span>
 <span style="color: #0000FF;">def</span> <span style="color: #006699;">mandelbrot</span>(z, num):
     <span style="color: #036A07;">''' runs the process num amount of times and returns the count of</span>
@@ -2833,22 +2910,22 @@ plt.imshow(pic)
 </div>
 
 
-<div id="orgd25012c" class="figure">
+<div id="org14aff02" class="figure">
 <p><object type="image/svg+xml" data="./mandelbrot-py.svg" class="org-svg" width="600px">
 Sorry, your browser does not support SVG.</object>
 </p>
-<p><span class="figure-number">Figure 22: </span>Mandelbrot Set produced in <i>Python</i> as shown in listing <a href="#org78cc548">18</a></p>
+<p><span class="figure-number">Figure 22: </span>Mandelbrot Set produced in <i>Python</i> as shown in listing <a href="#org9b5243d">18</a></p>
 </div>
 
 <p>
 This output although remarkable is however fairly undetailed, by using <i>Julia</i> a much
 larger image can be produced, in <i>Julia</i> producing a 4 GB, 400 MP image can be done in little time
 (about 10 minutes on my system), this is demonstrated in listing 
-and the corresponding FITS image is <a href="https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0">available-online.</a><sup><a id="fnr.16" class="footref" href="#fn.16">16</a></sup>
+and the corresponding FITS image is <a href="https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0">available-online.</a><sup><a id="fnr.17" class="footref" href="#fn.17">17</a></sup>
 </p>
 
 <div class="org-src-container">
-<pre class="src src-julia" id="org3e227ba"><span style="color: #0000FF;">function</span> <span style="color: #006699;">mandelbrot</span>(z, num, my_func)
+<pre class="src src-julia" id="orgd61b10e"><span style="color: #0000FF;">function</span> <span style="color: #006699;">mandelbrot</span>(z, num, my_func)
     count = <span style="color: #D0372D;">1</span>
     <span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">Define z1 as z</span>
     z1 = z
@@ -2901,15 +2978,15 @@ save_picture(<span style="color: #008000;">"/tmp/a.fits"</span>, my_pic)
 </div>
 
 
-<div id="org79f7d79" class="figure">
+<div id="orgbdd1929" class="figure">
 <p><img src="_20200828_233844screenshot.png" alt="_20200828_233844screenshot.png" width="500px" />
 </p>
 <p><span class="figure-number">Figure 23: </span>Screenshot of Mandelbrot FITS image produced by listing </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org932d4f8" class="outline-3">
-<h3 id="org932d4f8"><span class="section-number-3">2.7</span> Relevant Sources</h3>
+<div id="outline-container-org33a3179" class="outline-3">
+<h3 id="org33a3179"><span class="section-number-3">2.7</span> Relevant Sources</h3>
 <div class="outline-text-3" id="text-2-7">
 <p>
 To guide research for our topic <i>Chaos and Fractals</i> by Pietgen, Jurgens and Saupe (NO_ITEM_DATA:peitgenChaosFractalsNew2004) will act as a map of the topic broadly, other than the sources referenced already, we anticipate referring to the following textbooks that we access to throughout the project:
@@ -2934,11 +3011,11 @@ Ron Knott&rsquo;s website appears also to have a lot of material related to patt
 </div>
 </div>
 
-<div id="outline-container-org6c99faf" class="outline-3">
-<h3 id="org6c99faf"><span class="section-number-3">2.8</span> Appendix</h3>
+<div id="outline-container-org9809a16" class="outline-3">
+<h3 id="org9809a16"><span class="section-number-3">2.8</span> Appendix</h3>
 <div class="outline-text-3" id="text-2-8">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 19: </span>Preamble for <i>Python</i> Environment</label><pre class="src src-python" id="orgc912b7c">  <span style="color: #0000FF;">from</span> __future__ <span style="color: #0000FF;">import</span> division
+<label class="org-src-name"><span class="listing-number">Listing 19: </span>Preamble for <i>Python</i> Environment</label><pre class="src src-python" id="org7d2cbdf">  <span style="color: #0000FF;">from</span> __future__ <span style="color: #0000FF;">import</span> division
   <span style="color: #0000FF;">from</span> sympy <span style="color: #0000FF;">import</span> *
   <span style="color: #BA36A5;">x</span>, <span style="color: #BA36A5;">y</span>, <span style="color: #BA36A5;">z</span>, <span style="color: #BA36A5;">t</span> = symbols(<span style="color: #008000;">'x y z t'</span>)
   <span style="color: #BA36A5;">k</span>, <span style="color: #BA36A5;">m</span>, <span style="color: #BA36A5;">n</span> = symbols(<span style="color: #008000;">'k m n'</span>, integer=<span style="color: #D0372D;">True</span>)
@@ -2969,7 +3046,7 @@ Ron Knott&rsquo;s website appears also to have a lot of material related to patt
 <h4 id="persian-recursion-examples"><span class="section-number-4">2.8.1</span> Persian Recursian Examples</h4>
 <div class="outline-text-4" id="text-persian-recursion-examples">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 20: </span>Enhance listing <a href="#org36a2ae9">12</a> to create 9 folds</label><pre class="src src-ipython" id="orgdae0729">%config <span style="color: #BA36A5;">InlineBackend.figure_format</span> = <span style="color: #008000;">'svg'</span>
+<label class="org-src-name"><span class="listing-number">Listing 20: </span>Enhance listing <a href="#org3c96f42">12</a> to create 9 folds</label><pre class="src src-ipython" id="org39c0ec2">%config <span style="color: #BA36A5;">InlineBackend.figure_format</span> = <span style="color: #008000;">'svg'</span>
 main(<span style="color: #D0372D;">5</span>, <span style="color: #D0372D;">9</span>, <span style="color: #D0372D;">1</span>, cx)
 </pre>
 </div>
@@ -2982,7 +3059,7 @@ Sorry, your browser does not support SVG.</object>
 
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 21: </span>Modify the Function to use \(f(w,x,y,z) = (w + x + y + z - 7) \mod 8\)</label><pre class="src src-ipython" id="orgeed4731">%config <span style="color: #BA36A5;">InlineBackend.figure_format</span> = <span style="color: #008000;">'svg'</span>
+<label class="org-src-name"><span class="listing-number">Listing 21: </span>Modify the Function to use \(f(w,x,y,z) = (w + x + y + z - 7) \mod 8\)</label><pre class="src src-ipython" id="org2968238">%config <span style="color: #BA36A5;">InlineBackend.figure_format</span> = <span style="color: #008000;">'svg'</span>
 <span style="color: #0000FF;">def</span> <span style="color: #006699;">cx</span>(l, r, t, b, m):
     <span style="color: #BA36A5;">new_col</span> = (main.mat[t,l] + main.mat[t,r] +  main.mat[b,l] + main.mat[b,r]-<span style="color: #D0372D;">7</span>) % m
     <span style="color: #0000FF;">return</span> new_col.astype(<span style="color: #006FE0;">int</span>)
@@ -2991,16 +3068,16 @@ main(<span style="color: #D0372D;">8</span>, <span style="color: #D0372D;">8</sp
 </div>
 
 
-<div id="orgc481d19" class="figure">
+<div id="org6e6999f" class="figure">
 <p><object type="image/svg+xml" data="./persian-recursion-new-func.svg" class="org-svg" width="400px">
 Sorry, your browser does not support SVG.</object>
 </p>
-<p><span class="figure-number">Figure 25: </span>Output produced by listing <a href="#orgeed4731">21</a> using \(f(w,x,y,z) = (w + x + y + z - 7) \mod 8\)</p>
+<p><span class="figure-number">Figure 25: </span>Output produced by listing <a href="#org2968238">21</a> using \(f(w,x,y,z) = (w + x + y + z - 7) \mod 8\)</p>
 </div>
 
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 22: </span>Modify the function to use \(f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1\)</label><pre class="src src-ipython" id="org092b4e2">%config <span style="color: #BA36A5;">InlineBackend.figure_format</span> = <span style="color: #008000;">'svg'</span>
+<label class="org-src-name"><span class="listing-number">Listing 22: </span>Modify the function to use \(f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1\)</label><pre class="src src-ipython" id="orgc8d7339">%config <span style="color: #BA36A5;">InlineBackend.figure_format</span> = <span style="color: #008000;">'svg'</span>
 <span style="color: #0000FF;">import</span> numpy <span style="color: #0000FF;">as</span> np
 <span style="color: #0000FF;">def</span> <span style="color: #006699;">cx</span>(l, r, t, b, m):
     <span style="color: #BA36A5;">new_col</span> = (main.mat[t,l] + main.mat[t,r]*m +  main.mat[b,l]*(m) + main.mat[b,r]*(m))**<span style="color: #D0372D;">1</span> % m + <span style="color: #D0372D;">1</span>
@@ -3011,19 +3088,19 @@ main(<span style="color: #D0372D;">8</span>, <span style="color: #D0372D;">8</sp
 
 
 
-<div id="orge69b1e0" class="figure">
+<div id="org090b096" class="figure">
 <p><object type="image/svg+xml" data="./persian-recursion-new-func2.svg" class="org-svg" width="400px">
 Sorry, your browser does not support SVG.</object>
 </p>
-<p><span class="figure-number">Figure 26: </span>Output produced by listing <a href="#org092b4e2">22</a> using \(f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1\)</p>
+<p><span class="figure-number">Figure 26: </span>Output produced by listing <a href="#orgc8d7339">22</a> using \(f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1\)</p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgdd9aecc" class="outline-4">
-<h4 id="orgdd9aecc"><span class="section-number-4">2.8.2</span> Figures</h4>
+<div id="outline-container-org7924c9a" class="outline-4">
+<h4 id="org7924c9a"><span class="section-number-4">2.8.2</span> Figures</h4>
 <div class="outline-text-4" id="text-2-8-2">
 
-<div id="org8b276fe" class="figure">
+<div id="org28d5979" class="figure">
 <p><img src="complex_numbers.png" alt="complex_numbers.png" />
 </p>
 <p><span class="figure-number">Figure 27: </span>XKCD 2028: Complex Numbers</p>
@@ -3100,34 +3177,36 @@ Other packages that are on our radar for want of investigation are listed below,
 
 <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">A subset of euclidean space could be interpreted as an uncountable set containing all points describing that region TODO Cite</p></div></div>
 
-<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">I haven&rsquo;t been able to find a proof for this, I wonder if I could prove it by just applying the definition?</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"><p class="footpara">
 See Ch. 2.7 of (Ch. NO_ITEM_DATA:peitgenChaosFractalsNew2004)
 </p></div></div>
 
-<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara"><p class="footpara">
 See section 
 </p></div></div>
 
-<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <div class="footpara"><p class="footpara">
 The amount of independence that our supervisor afforded us to
 investigate other languages is something that we are both extremely grateful for.
 </p></div></div>
 
-<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <div class="footpara"><p class="footpara">
 This problem is taken from Project A (44) of Dr. Hazrat&rsquo;s <i>Mathematica: A Problem Centred Approach</i> (NO_ITEM_DATA:hazratMathematicaProblemCenteredApproach2015)
 </p></div></div>
 
-<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.7" class="footnum" href="#fnr.7">7</a></sup> <div class="footpara"><p class="footpara">
 See section 
 </p></div></div>
 
-<div class="footdef"><sup><a id="fn.7" class="footnum" href="#fnr.7">7</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.8" class="footnum" href="#fnr.8">8</a></sup> <div class="footpara"><p class="footpara">
 Dr. Hazrat mentions something similar in his book with respect to
 <i>Mathematica</i>\textsuperscript{\textregistered}
 (Ch. NO_ITEM_DATA:hazratMathematicaProblemCenteredApproach2015)
 </p></div></div>
 
-<div class="footdef"><sup><a id="fn.8" class="footnum" href="#fnr.8">8</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.9" class="footnum" href="#fnr.9">9</a></sup> <div class="footpara"><p class="footpara">
 This process is simply conjecture, other than seeing a very nice example at <a href="https://www.mathsisfun.com/numbers/nature-golden-ratio-fibonacci.html"><i>MathIsFun.com</i></a>
 (NO_ITEM_DATA:NatureGoldenRatio2018), we have no evidence to suggest that this is the way
 that sunflowers distribute there seeds.
@@ -3138,36 +3217,36 @@ However the simulations performed within <i>Julia</i> are very encouraging and
 suggest that this process isn&rsquo;t too far off.
 </p></div></div>
 
-<div class="footdef"><sup><a id="fn.9" class="footnum" href="#fnr.9">9</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.10" class="footnum" href="#fnr.10">10</a></sup> <div class="footpara"><p class="footpara">
 Emojis and UTF8 were used in this code, and despite using <code>xelatex</code> with <code>fontspec</code> they aren&rsquo;t rendering properly, we intend to have this rectified in time for final submission.
 </p></div></div>
 
-<div class="footdef"><sup><a id="fn.10" class="footnum" href="#fnr.10">10</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.11" class="footnum" href="#fnr.11">11</a></sup> <div class="footpara"><p class="footpara">
 See figure for the obligatory <i>XKCD</i> Comic
 </p></div></div>
 
-<div class="footdef"><sup><a id="fn.11" class="footnum" href="#fnr.11">11</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.12" class="footnum" href="#fnr.12">12</a></sup> <div class="footpara"><p class="footpara">
 This technique was adapted from Chapter 7 of <i>Math adventures with Python</i> (NO_ITEM_DATA:farrellMathAdventuresPython2019)
 </p></div></div>
 
-<div class="footdef"><sup><a id="fn.12" class="footnum" href="#fnr.12">12</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.13" class="footnum" href="#fnr.13">13</a></sup> <div class="footpara"><p class="footpara">
 these cascading values are much like brightness in Astronomy
 </p></div></div>
 
-<div class="footdef"><sup><a id="fn.13" class="footnum" href="#fnr.13">13</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.14" class="footnum" href="#fnr.14">14</a></sup> <div class="footpara"><p class="footpara">
 This approach was inspired by an animation on the <i>Julia Set</i> Wikipedia article (NO_ITEM_DATA:JuliaSet2020)
 </p></div></div>
 
-<div class="footdef"><sup><a id="fn.14" class="footnum" href="#fnr.14">14</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.15" class="footnum" href="#fnr.15">15</a></sup> <div class="footpara"><p class="footpara">
 On my system this took about 30 minutes.
 </p></div></div>
 
-<div class="footdef"><sup><a id="fn.15" class="footnum" href="#fnr.15">15</a></sup> <div class="footpara"><div class="figure">
+<div class="footdef"><sup><a id="fn.16" class="footnum" href="#fnr.16">16</a></sup> <div class="footpara"><div class="figure">
 <p><a href="https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0"><img src="https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0" alt="out.gif?dl=0" /></a>
 </p>
 </div></div></div>
 
-<div class="footdef"><sup><a id="fn.16" class="footnum" href="#fnr.16">16</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.17" class="footnum" href="#fnr.17">17</a></sup> <div class="footpara"><p class="footpara">
 <a href="https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0">https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0</a>
 </p></div></div>
 
@@ -3176,7 +3255,7 @@ On my system this took about 30 minutes.
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: Ryan Greenup &amp; James Guerra</p>
-<p class="date">Created: 2020-09-24 Thu 16:25</p>
+<p class="date">Created: 2020-09-24 Thu 20:09</p>
 </div>
 </body>
 </html>
