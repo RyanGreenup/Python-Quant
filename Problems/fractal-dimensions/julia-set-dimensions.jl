@@ -3,9 +3,14 @@
 ############################################################
 #### Investigate Plot #######################################
 ############################################################
+
+f(z) = z^2 -1
+
 test_mat = make_picture(800,800, z -> z^2 + 0.37-0.2*im)
 test_mat = make_picture(800,800, z -> z^2 + -0.123+0.745*im)
+test_mat = make_picture(800,800, f) 
 GR.imshow(test_mat) # PyPlot uses interpolation = "None"
+
 
 test_mat = outline(test_mat)
 GR.imshow(test_mat) # PyPlot uses interpolation = "None"
@@ -16,10 +21,10 @@ sum(test_mat)
 
 
 
-mat2 = outline(make_picture(350,350, z -> z^2 + -0.123+0.745*im))
+mat2 = outline(make_picture(9000,9000, f))
 l2   = sum(mat2)
 size2 = size(mat2)[1]
-mat1 = outline(make_picture(400,400, z -> z^2 + -0.123+0.745*im))
+mat1 = outline(make_picture(10000,10000, f))
 l1   = sum(mat1)
 size1 = size(mat1)[1]
 log(l2/l1)/log(size2/size1)
@@ -31,13 +36,13 @@ log(l2/l1)/log(size2/size1)
 
 
 
+using CSV
 
-@time data=scaleAndMeasure(500, 1000 , 9)
-CSV.write("./Julia-Set-Scaling.csv", data)
+@time data=scaleAndMeasure(9000, 10000 , 4, f)
+# CSV.read("./julia-set-dimensions.csv", data)
+# data = CSV.read("./julia-set-dimensions.csv")
 data.scale = [log(i) for i in data.scale]
 data.mass  = [log(i) for i in data.mass]
-data
-
 mod   = lm(@formula(mass ~ scale), data)
 p = Gadfly.plot(data, x=:scale, y=:mass, Geom.point)
 

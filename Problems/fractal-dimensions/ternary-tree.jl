@@ -48,6 +48,7 @@ using GR
 (mat = selfRep([1 0 0; 0 1 0; 0 0 1], 600)) 
 GR.imshow(mat)
 GR.savefig("../../Report/media/sierpinsky_carpet.png")
+/home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Problems/fractal-dimensions/ternary-tree.jl
 
 ## Export
 using Random #; Random.seed!(7)

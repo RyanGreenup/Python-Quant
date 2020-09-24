@@ -36,7 +36,7 @@ end
     Pendown(🐢)
     levels = 10
     snowflake(9^(levels), levels, 🐢, 1)
-end 800 800 "/tmp/snowFlat600.png"
+end 800 800 "./snowFlat600.png"
 
 
 #------------------------------------------------------------
@@ -99,7 +99,7 @@ for i in 1:3
     snowflake(8^(levels-1), levels, 🐢)
     Turn(🐢, 120)
 end
-end 2000 2000 "/tmp/snowCurve.svg"
+end 2000 2000 "./snowCurve.svg"
 
 
 

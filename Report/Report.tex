@@ -1,4 +1,4 @@
-% Created 2020-09-24 Thu 23:22
+% Created 2020-09-25 Fri 01:30
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -38,11 +38,13 @@
 \tableofcontents
 
 \section{Report}
-\label{sec:org1b32078}
+\label{sec:orga0a5471}
 \subsection{Hausdorff Dimension\hfill{}\textsc{Ryan}}
-\label{sec:orge7f39d9}
+\label{Hausdorff-dimension}
 \subsubsection{Topological Equivalence}
 \label{topological-equivalence}
+Sources for this section on topology are primarily \cite[p. 105]{peitgenChaosFractalsNew2004}.
+
 Topology is an area of mathematics concerned with ideas of continuity through the study of figures that are preserved under homeomorphic transformations. \cite{gilmoreTopologyChaosAlice2002}
 
 Two figures are said to be homeomorphic if there is a continuous bijective mapping between the two shapes \cite[p. 105]{peitgenChaosFractalsNew2004}.
@@ -88,6 +90,18 @@ s \cdot p_{n} &=  (4/3)^{n} \cdot s \cdot P_{0}\\
  \implies  n &= \frac{\ln\left( 4 \right)}{\ln\left( 3 \right)} \label{eq:koch-dim}
 \end{align}
 In ordinary geometric shapes this value \(n\) will be the dimension of the shape,
+
+See \cite[p. 414]{strogatzNonlinearDynamicsChaos2015} for working.
+
+The idea is we start with the similarity dimension
+\cite[p. 413]{strogatzNonlinearDynamicsChaos2015} which should be equal to the
+hausdorff and box counting for most fractals, but for fractals that aren't so obviously self similar it won't be feasible \cite[p. 393]{liIntegrationFuzzyLogic2006}  but for the julia set we'll need
+to expand the concept to box counting, we don't know whether or not the
+dimension of the julia set is constant across scales so we use linear regression
+to check, this is more important for things like coastlines.
+
+
+
 with respect to that shapes \emph{measure}. For example consider measure similar to mass, a piece
 of wire when scaled in length, will increase in mass by a factor of that scale, whereas
 a sheet of material would increase in mass by a factor proportional to the square of that scaling.
@@ -115,8 +129,9 @@ In the case of the koch snowflake, the measure of the shape, when scaled, will i
 
 
 In the development of topology
-\subsubsection{Notes from p. 27 Falconer}
-\label{sec:orgcfd768a}
+\subsubsection{Hausdorff Dimension}
+\label{sec:org82fefb2}
+Sources for this section on Hausdorff Dimension are primarily \cite[Ch. 2]{falconerFractalGeometryMathematical2003}
 \paragraph{Measure}
 \label{hausdorff-measure}
 Let \(F\) be some arbitrary subset of euclidean space \(\mathbb{R}^n\), \footnote{A subset of euclidean space could be interpreted as an uncountable set containing all points describing that region TODO Cite}
@@ -187,10 +202,10 @@ This is defined for all subsets of \(\mathbb{R}^n\) for example the value of  \(
 \end{figure}
 
 \subparagraph{Lower Dimension Hausdorff Measurements}
-\label{sec:orgfdff6fe}
+\label{sec:org45c6ad2}
 \begin{enumerate}
 \item Examples
-\label{sec:org73d2c24}
+\label{sec:orgea5c90b}
 Consider again the example of a 2D shape, the value of \(\mathcal{H}^{1}\) would still be defined by \eqref{eq:delta-measure}, but unlike \(\mathcal{H}^{2}\) in section \ref{hausdorff-measure} the value of \(\left\lvert U_i \right\rvert^1\) would be considered as opposed to \(\left\lvert U_i \right\rvert^2\).
 
 As \(\delta\) is made arbitrarily small the boxes that cover the shape are made also to be arbitrarily small. Although the area of the boxes must clearly be bounded by the shape of \(F\), if one imagines an infinite number of infinitely dense lines packing into a 2D shape with an infinite density it can be seen that the total length of those lines will be infinite.
@@ -200,7 +215,7 @@ To build on that same analogy, another way to imagine this is to pack a 2D shape
 This is consistent with shapes of other shapes as well, consider the koch snowflake introduced in section \ref{topological-equivalence} and shown in figure \ref{koch-line}, the dimension of this shape is greater than 1, and the number of lines necessary to describe that shape is also infinite.
 
 \item Formally
-\label{sec:org7af6de1}
+\label{sec:org1d6b05a}
 If the dimension of \(F\) is less than \(s\), the Hausdorff Measure will be given by: \footnote{I haven't been able to find a proof for this, I wonder if I could prove it by just applying the definition?}
 
 \begin{align}
@@ -209,7 +224,7 @@ If the dimension of \(F\) is less than \(s\), the Hausdorff Measure will be give
 \end{enumerate}
 
 \subparagraph{Higher Dimension Hausdorff Dimension}
-\label{sec:org439ff19}
+\label{sec:orgbbadcce}
 For small values of \(s\) (i.e. less than the dimension of  \(F\)), the value of \(\mathcal{H}^s\)  will be \(\infty\).
 
 Consider some value \(s\) such that the Hausdorff measure is not infinite, i.e. values of \(s\): \footnote{Could fractal dimensions be complex? Maybe there could be a proof to show that the dimension is necessarily complex.}
@@ -234,13 +249,13 @@ Now if \(\lim_{\delta \rightarrow 0}\left[ \sum_{i}   \left\lvert U_i \right\rve
 &\leq 0
 \end{align}
 
-Thus \(\forall t > s\), if \(s\) is a finite limit value:
+and so we have the following relationship:
 
 \begin{align}
-    s \in \mathbb{R}  \implies  \mathcal{H}^t\left( F \right)= 0 \label{eq:hdfzero}
+    \mathcal{H}^{s} \left(F\right) \in \mathbb{R}  \implies  \mathcal{H}^t\left( F \right)= 0 \quad \forall t > s \label{eq:hdfzero}
 \end{align}
 
-Hence the value of the \emph{Hausdorff Measure}, across various dimension values of \(s\) is only a finite, non-zero value, when \(s = \mathrm{dim}\left( F \right)\) this is visualised in figure .
+Hence the value of the s-dimensional \emph{Hausdorff Measure}, \(s\) is only a finite, non-zero value, when \(s = \mathrm{dim}_{H}\left( F \right)\) this is visualised in figure .
 
 
 
@@ -251,31 +266,269 @@ Hence the value of the \emph{Hausdorff Measure}, across various dimension values
 \end{figure}
 
 \paragraph{Hausdorff Dimension}
-\label{sec:org3caac1d}
+\label{sec:orge30380a}
+
+The value \(s\) at which \(\mathcal{H}^{s}\) changes from \(\infty\) to 0, shown in figure \ref{hausdorff-vals}  and \eqref{eq:hdfzero} is the definition of the \emph{Hausdorff Measure}, it is a generalisation of the idea of dimension that is typically understood with respect to ordinary shapes and 3D figures.
+\paragraph{Research}
+\label{sec:orgbe5b90b}
+I feel very inclided to read \href{https://warwick.ac.uk/fac/sci/maths/people/staff/mark\_pollicott/p3/tehran.pdf}{these notes} \footnote{\href{file:///home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resources/Uncorrected-Warwick-BoxCount-Hausendorff-Notes.pdf}{Local Copy}}
+
+\subsection{Box Counting}
+\label{sec:org4719530}
+Sources for this section are primarily:
+\begin{itemize}
+\item Falconer \cite[Ch. 3.1]{falconerFractalGeometryMathematical2003b}
+\item Strogatz Non Linear Dynamics \cite[Ch. 11.4]{strogatzNonlinearDynamicsChaos2015}
+
+\item There are many different notions of dimension, atleast 10 \cite[Ch. 4.3]{edgarMeasureTopologyFractal2008}
+\begin{itemize}
+\item \emph{Hausdorff Dimension} is the oldest and most important with respect to the dimensions of fractals \cite[p. 27]{falconerFractalGeometryMathematical2003b}
+\end{itemize}
+\item The Box dimension has only boxes of fixed sizes, unlike the \emph{Hausdorff
+Dimensions} where in the boxes may be arbitrary sizes less than \(\delta\) but
+it is significantly hader to calculate numerically \cite[\textsection 11.4]{strogatzNonlinearDynamicsChaos2015}
+\item The problem with the \emph{Hausdorff Dimension}, discussed in \textsection \ref{Hausdorff-dimension}, is that it is quite involved to solve, many shapes such as the koch snowflake haven't even h
+\begin{itemize}
+\item Upper and lower bounds for the \emph{Hausdorff Measurement/} haven't even been solved for many fractals, including the Koch Snowflake (shown in figure \ref{koch-snowflake} ). \cite{zhuLowerBoundHausdorffMeasure2003}
+\end{itemize}
+\end{itemize}
+
+The box counting method is widely used because it is relatively easy to calculate \cite[p. 41]{falconerFractalGeometryMathematical2003b} and in many cases is equal to the \emph{Hausdorff Dimension}  \cite[p. 11]{markpollicottFractalsDimensionTheory2005} (see generally \cite{ListFractalsHausdorff2020}).
+
+\begin{quote}
+\begin{itemize}
+\item TODO:
+\begin{itemize}
+\item While quite simply this is the number of boxes that scale, we need to more rigorously define it, much like Ch. 3.1 of Falconer \cite{falconerFractalGeometryMathematical2003}
+\item We also need to contrast this with the similarity dimension discussed in p. 413 of Strogatz \cite{strogatzNonlinearDynamicsChaos2015}
+\item A contrast should be drawn between this and Hausdorff, the most obvious difference being that the boxes are of a fixed size, unlike \emph{Hausdorff}  see p. 418 of Strogatz \cite{strogatzNonlinearDynamicsChaos2015}
+\end{itemize}
+\end{itemize}
+\end{quote}
 \subsection{Fractals Generally}
-\label{sec:org29ff2dc}
+\label{sec:org8cc2cc1}
 \begin{itemize}
 \item Many Fractals have a non finite dimension
 \item An exception to this is the Mandelbrot set or dragon curve which are two dimensional
 \end{itemize}
 \subsection{Generating Self Similar Fractals}
-\label{sec:org36aa2ff}
+\label{sec:org8f0166c}
 \paragraph{Examples}
-\label{sec:org6924065}
+\label{sec:orge2c8343}
 \subparagraph{Vicsek Fractal}
-\label{sec:org75eddd4}
-\subparagraph{Sierpinskis Carpet}
-\label{sec:orgff2cbeb}
+\label{sec:orged61a7e}
+because this is self similar we can use it to test our box counting method \footnote{because it is self similar we know that the dimension will be constant, hence there is no need for linear regression which would be necessary to check that it is constant, well, atleast for something somewhat finite like a coastline, the julia set is infinite so how appropriate that approach is well 🤷}
+The Vicsek Fractal involves a pattern of iterating boxes:
 
-Explained more in the book \footnote{See Ch. 2.7 of \cite[Ch. 2.7]{peitgenChaosFractalsNew2004}}
+\lstset{language=julia,label=vicsek-matrix-gen,caption={},captionpos=b,numbers=none}
+\begin{lstlisting}
+#------------------------------------------------------------
+#--- Function -----------------------------------------------
+#------------------------------------------------------------
+
+# n_i+1 = 3n_i ==> n = 3^n
+function selfRep(ICMat, width)
+    B = ICMat
+    h  = size(B)[1]
+    w  = size(B)[2]
+    Z  = zeros(Int, h, w)
+    B = [B Z B ;
+         Z B Z ;
+          B Z B]
+    if (3*w)<width
+        B = selfRep(B, width)
+    end
+    return B
+end
+
+#------------------------------------------------------------
+#-- Plot ----------------------------------------------------
+#------------------------------------------------------------
+(mat = selfRep(fill(1, 1, 1), 27)) |> size
+GR.imshow(mat)
+
+#------------------------------------------------------------
+#-- Similarity Dimension ------------------------------------
+#------------------------------------------------------------
+# Each time it iterates there are 5 more
+# but the overall dimensions of the square increases by a factor of 3
+# so 3^D=5 ==> log_3(5) = log(5)/log(3) = D
+
+mat2  = selfRep(fill(1, 1, 1), 1000)
+l2    = sum(mat2)
+size2 = size(mat2)[1]
+mat1  = selfRep(fill(1, 1, 1), 500)
+l1    = sum(mat1)
+size1 = size(mat1)[1]
+
+log(l2/l1)/log(size2/size1)
+# https://en.wikipedia.org/wiki/Vicsek_fractal#Construction
+log(5)/log(3)
+
+
+  ##  julia> log(l2/l1)/log(size2/size1)
+  ##  1.4649735207179269
+\end{lstlisting}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=9cm]{media/Vicsek-Fractal.png}
+\caption{\label{vicsek-fractal-julia}TODO}
+\end{figure}
+
+
+\begin{enumerate}
+\item Mention that this is the Similarity Dimension
+\label{sec:org54e7fc6}
+\item Show why it is log(5)/log(3)
+\label{sec:org8264ab4}
+\end{enumerate}
+\subparagraph{Sierpinskis Carpet}
+\label{sec:org434cf44}
+
+Explained more in the book \footnote{See Ch. 2.7 of \cite[Ch. 2.7]{peitgenChaosFractalsNew2004}
+
+By modifying listing we can get patterns like the cantor dust and sierpinskis carpet shown in figures and .
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=9cm]{./media/sierpinsky_carpet.png}
+\caption{\label{square-carpet}TODO: I actually made this by mistake}
+\end{figure}}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=9cm]{media/Cantor_Dust_gen.png}
+\caption{\label{cantor-dust}TODO}
+\end{figure}
+
 \subparagraph{Triangle}
-\label{sec:org185b8aa}
+\label{sec:orgf23771d}
+Producing the triangle was more difficult
 \begin{enumerate}
 \item Chaos Game
-\label{sec:orge7fa37a}
+\label{sec:orgf6dd3ec}
+This would be more accurate than pascals because there would be know \textbf{bias} and the model would be more accurate    :
+
+\lstset{language=r,label= ,caption= ,captionpos=b,numbers=none}
+\begin{lstlisting}
+
+if (require("pacman")) {
+    library(pacman)
+  }else{
+    install.packages("pacman")
+    library(pacman)
+  }
+  pacman::p_load(tidyverse)
+
+
+n <- 50000
+df <- data.frame("xval"=1:n, "yval"=1:n)
+
+x <- c(runif(1), runif(1))
+A <- c(0, 0)
+B <- c(1, 0)
+C <- c(0.5, sin(pi/3))
+points <- list()
+points <- list(points, x)
+
+
+for (i in 1:n) {
+    dice = sample(1:3, 1)
+    if (dice == 1) {
+        x <- (x + A)/2
+        df[i,] <- x
+    } else if (dice == 2) {
+        x <- (x + B)/2
+        df[i,] <- x
+    } else {
+        x <- (x + C)/2
+        df[i,] <- x
+    }
+}
+
+# df
+
+ggplot(df, aes(x = xval, y = yval)) +
+    geom_point(size = 1, col = "cadet blue") +
+    theme_classic()
+
+\end{lstlisting}
+
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{pascal-sierpinsky-chaos-game.png}
+\end{center}
+
+\item Pascals Triange
+\label{sec:orgced2ff8}
+
+\lstset{language=julia,label=pascal-triangle-sierpinski,caption={TODO},captionpos=b,numbers=none}
+\begin{lstlisting}
+function pascal(n)
+    mat = [isodd(binomial(BigInt(j+i),BigInt(i))) for i in 0:n, j in 0:n]
+    return mat
+end
+GR.imshow(pascal(999))
+GR.savefig("../../Report/media/pascal-sierpinsky-triangle.png")
+
+#------------------------------------------------------------
+#-- Calculate Dimension -------------------------------------
+#------------------------------------------------------------
+
+mat2 = pascal(3000)
+l2   = sum(mat2)
+size2 = size(mat2)[1]
+mat1 = pascal(2000)
+l1   = sum(mat1)
+size1 = size(mat1)[1]
+log(l2/l1)/log(size2/size1)
+# https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle
+log(3)/log(2)
+
+
+\end{lstlisting}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=9cm]{media/pascal-sierpinsky-triangle.png}
+\caption{\label{fig:pascal-sierpinsky}TODO}
+\end{figure}
+
+\begin{enumerate}
+\item Explain the math (lot's of math here!)
+\label{sec:org5330238}
+There is lots of math in this section, we need to show:
+
+\begin{itemize}
+\item[{$\square$}] why we get this pattern from pascals triangle.
+\item[{$\square$}] Is there any relationship to combinatorics?
+\end{itemize}
+
+\item Comment on the dimension lining up
+\label{sec:org789b7cd}
+\begin{enumerate}
+\item Calculate what the dimension should be
+\label{sec:org1674f9d}
 \end{enumerate}
+\item FIx the value
+\label{sec:org8a914ca}
+This value is not correct \footnote{It work work before I thought}, Investigate \url{../Problems/fractal-dimensions/Sierpinsky-triangle-pascal.jl}
+\begin{verbatim}
+
+julia> log(l2/l1)/log(size2/size1)
+2.082583161459976
+
+julia> # https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle
+       log(3)/log(2)
+1.5849625007211563
+\end{verbatim}
+\end{enumerate}
+\end{enumerate}
+
 \subsection{Fractal Dimensions\hfill{}\textsc{Ryan}}
-\label{sec:orgdf2a78c}
+\label{sec:org87dd82c}
+See generally \cite[Ch. 11]{strogatzNonlinearDynamicsChaos2015}
 Three ways to generate
 
 \begin{enumerate}
@@ -288,14 +541,238 @@ Three ways to generate
 \end{enumerate}
 
 \subsubsection{Turtle}
-\label{sec:org3857687}
+\label{sec:orgfef96bf}
 Matrices can't explain all patterns, Turtles are useful
+\lstset{language=julia,label=turtles-all,caption={This generates a dragon and a koch},captionpos=b,numbers=none}
+\begin{lstlisting}
+using Shapefile
+using Luxor
+using Pkg
+
+
+#------------------------------------------------------------
+#-- Dragon Curve -------------------------------------
+#------------------------------------------------------------
+
+
+function snowflake(length, level, 🐢, s)
+    scale(s)
+    if level == 0
+        Forward(🐢, 100)
+        Turn(🐢, -90)
+        Rotate(90)
+#        Rectangle(🐢, length, length)
+        return
+    end
+    length = length/9
+    snowflake(length, level-1, 🐢)
+    Turn(🐢, -60)
+    snowflake(length, level-1, 🐢)
+    Turn(🐢, 2*60)
+    snowflake(length, level-1, 🐢)
+    Turn(🐢, -180/3)
+    snowflake(length, level-1, 🐢)
+end
+@png begin
+    🐢 = Turtle()
+    Pencolor(🐢, 1.0, 0.4, 0.2)
+    Penup(🐢)
+    Turn(🐢,180)
+    Forward(🐢, 200)
+    Turn(🐢,180)
+    Pendown(🐢)
+    levels = 10
+    snowflake(9^(levels), levels, 🐢, 1)
+end 800 800 "./snowFlat600.png"
+
+
+#------------------------------------------------------------
+#-- Flat Snowflake ----------------------------------
+#------------------------------------------------------------
+
+
+function snowflake(length, level, 🐢, s)
+    scale(s)
+    if level == 0
+        Forward(🐢, length)
+#        Rectangle(🐢, length, length)
+        return
+    end
+    length = length/9
+    snowflake(length, level-1, 🐢)
+    Turn(🐢, -60)
+    snowflake(length, level-1, 🐢)
+    Turn(🐢, 2*60)
+    snowflake(length, level-1, 🐢)
+    Turn(🐢, -180/3)
+    snowflake(length, level-1, 🐢)
+end
+@png begin
+    🐢 = Turtle()
+    Pencolor(🐢, 1.0, 0.4, 0.2)
+    Penup(🐢)
+    Turn(🐢,180)
+    Forward(🐢, 200)
+    Turn(🐢,180)
+    Pendown(🐢)
+    levels = 10
+    snowflake(9^(levels), levels, 🐢, 1)
+end 800 800 "/tmp/snowFlat600.png"
+
+
+#------------------------------------------------------------
+#--- Round Snowflake Working ---------------------------------
+#------------------------------------------------------------
+
+function snowflake(length, level, 🐢)
+if level == 0
+#    Forward(🐢, length)
+    Circle(🐢, 1)
+    return
+end
+length = length/9
+snowflake(length, level-1, 🐢)
+Turn(🐢, -60)
+snowflake(length, level-1, 🐢)
+Turn(🐢, 2*60)
+snowflake(length, level-1, 🐢)
+Turn(🐢, -60)
+snowflake(length, level-1, 🐢)
+end
+🐢 = Turtle()
+@svg begin
+for i in 1:3
+    levels = 9
+    snowflake(8^(levels-1), levels, 🐢)
+    Turn(🐢, 120)
+end
+end 2000 2000 "/tmp/snowCurve.svg"
+
+
+
+0 "/tmp/snowCurve.png"
+
+# The starting length must be such that the final length = 1 pixel
+# this depends on the levels
+# The levels must hence be fit to the resolution such that
+# the only variable is the resolution.
+# There is only two variables levels and resolution
+# length depends on the levels and for a perfect snowflake
+# the levels depends on the resolution.
+
+
+using Images, TestImages, Colors, ImageMagick
+# Load Image Back in
+img = load("/tmp/snowCurve.png")
+# Convert to Grayscale so only 2D
+imgg = Gray.(img)
+# convert to Matrix
+mat = convert(Array{Float64}, imgg)
+
+# 1 is white
+    # so make all 1s 0 and everything else 1
+
+for i in 1:size(mat)[1]
+    for j in 1:size(mat)[2]
+        if mat[i, j]==1
+            mat[i,j]=0
+        else
+            mat[i,j]=1
+        end
+    end
+end
+
+
+sum(mat)
+
+using GR
+GR.imshow(mat)
+mat
+
+mat2 = selfRep(fill(1, 1, 1), 1000)
+l2   = sum(mat2)
+size2 = size(mat2)[1]
+mat1 = selfRep(fill(1, 1, 1), 500)
+l1   = sum(mat1)
+size1 = size(mat1)[1]
+log(l2/l1)/log(size2/size1)
+# https://en.wikipedia.org/wiki/Vicsek_fractal#Construction
+log(5)/log(3)
+
+#------------------------------------------------------------
+#--- Dragon -------------------------------------------------
+#------------------------------------------------------------
+function dragon(🐢, order, length)
+    print(" ") # Don't remove this or code breaks, I don't know why?
+    Turn(🐢, order*45)
+    dragon_iterate(🐢, order, length, 1)
+end
+function dragon_iterate(🐢, order, length, sign)
+    if order==0
+        Forward(🐢, length)
+    else
+        rootHalf = sqrt(0.5)
+        dragon_iterate(🐢, order -1, length*rootHalf, 1)
+        Turn(🐢, sign * -90)
+        dragon_iterate(🐢, order -1, length*rootHalf, -1)
+    end
+end
+;mkdir /tmp/dragon
+@png begin
+    🐢 = Turtle()
+    Turn(🐢, 180)
+    Penup(🐢)
+    Forward(🐢, 200)
+    Pendown(🐢)
+    Turn(🐢, 180)
+    dragon(🐢, 15, 400)
+end 1000 1000
+
+using Images, TestImages, Colors, ImageMagick
+# Load Image Back in
+img = load("/tmp/dragon.png")
+# Convert to Grayscale so only 2D
+imgg = Gray.(img)
+# convert to Matrix
+mat = convert(Array{Float64}, imgg)
+
+# 1 is white
+    # so make all 1s 0 and everything else 1
+
+for i in 1:size(mat)[1]
+    for j in 1:size(mat)[2]
+        if mat[i, j]==1
+            mat[i,j]=0
+        else
+            mat[i,j]=1
+        end
+    end
+end
+
+
+\end{lstlisting}
+
 \paragraph{Dragon Curve}
-\label{sec:org7f3cc37}
+\label{sec:org063568f}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=9cm]{../Problems/Chaos/Spirals/dragon.png}
+\caption{\label{dragon-turtle}TODO}
+\end{figure}
+
+
+
 \paragraph{Koch Snowflake}
-\label{sec:org2ca3c5b}
+\label{sec:orgbb35dd2}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=9cm]{../Problems/Chaos/Spirals/snowCurve.png}
+\caption{\label{dragon-turtle}TODO}
+\end{figure}
+
 \subsubsection{Calculating the Dimension of Julia Set}
-\label{sec:org78190f4}
+\label{sec:org74d0a44}
 It converges too slowly
 The Julia set (discussed in section \ref{julia-set}) can be solved by \ldots{}
 
@@ -329,14 +806,297 @@ function juliaSet(z, num, my_func, boolQ=true)
 end
 \end{lstlisting}
 
+
+So I run the code shown in listing \ref{dimensions-julia-set} which calls a file \texttt{./Julia-Set-Dimensions-functions.jl} which is shown in listing \ref{functions-julia-set} which returs the values shown in table \ref{table-of-values}.
+
+\lstset{language=julia,label= ,caption= ,captionpos=b,numbers=none}
+\begin{lstlisting}
+@time include("./Julia-Set-Dimensions-functions.jl")
+
+############################################################
+#### Investigate Plot #######################################
+############################################################
+
+f(z) = z^2 -1
+
+test_mat = make_picture(800,800, z -> z^2 + 0.37-0.2*im)
+test_mat = make_picture(800,800, z -> z^2 + -0.123+0.745*im)
+test_mat = make_picture(800,800, f)
+GR.imshow(test_mat) # PyPlot uses interpolation = "None"
+
+
+test_mat = outline(test_mat)
+GR.imshow(test_mat) # PyPlot uses interpolation = "None"
+# GR.savefig("/home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Problems/fractal-dimensions/media/outline-Julia-set.png")
+
+## Return the perimeter
+sum(test_mat)
+
+
+
+mat2 = outline(make_picture(9000,9000, f))
+l2   = sum(mat2)
+size2 = size(mat2)[1]
+mat1 = outline(make_picture(10000,10000, f))
+l1   = sum(mat1)
+size1 = size(mat1)[1]
+log(l2/l1)/log(size2/size1)
+# https://en.wikipedia.org/wiki/Vicsek_fractal#Construction
+# 1.3934 Douady Rabbit
+#
+
+
+
+
+
+using CSV
+
+@time data=scaleAndMeasure(9000, 10000 , 4, f)
+# CSV.read("./julia-set-dimensions.csv", data)
+# data = CSV.read("./julia-set-dimensions.csv")
+data.scale = [log(i) for i in data.scale]
+data.mass  = [log(i) for i in data.mass]
+mod   = lm(@formula(mass ~ scale), data)
+p = Gadfly.plot(data, x=:scale, y=:mass, Geom.point)
+
+print("the slope is $(round(coef(mod)[2], sigdigits=4))")
+print(mod)
+print("\n")
+return mod
+
+a = SharedArray{Float64}(10)
+@distributed for i = 1:10
+    a[i] = i
+end
+
+# import Gadfly
+#
+# iris = dataset("datasets", "iris")
+# p = Gadfly.plot(iris, x=:SepalLength, y=:SepalWidth, Geom.point);
+# img = SVG("iris_plot.svg")
+# draw(img, p)
+
+
+# The trailing `;` supresses output, equivalently:
+
+
+
+## Other Fractals to look at for this maybe?
+  # GR.imshow(test_mat) # PyPlot uses interpolation = "None"
+  # GR.imshow(make_picture(500, 500, z -> z^2 + 0.37-0.2*im)) # PyPlot uses interpolation = "None"
+  # GR.imshow(make_picture(500, 500, z -> z^2 + 0.38-0.2*im)) # PyPlot uses interpolation = "None"
+  # GR.imshow(make_picture(500, 500, z -> z^2 + 0.39-0.2*im)) # PyPlot uses interpolation = "None"
+\end{lstlisting}
+
+\lstset{language=julia,label= ,caption= ,captionpos=b,numbers=none}
+\begin{lstlisting}
+using GR
+using DataFrames
+using Gadfly
+using GLM
+using SharedArrays
+using Distributed
+
+############################################################
+### Julia / MandelBrot Functions ###########################
+############################################################
+
+"""
+# Julia Set
+Returns how many iterations it takes for a value on the complex plane to diverge
+under recursion. if `boolQ` is specified as true a 1/0 will be returned to
+indicate divergence or convergence.
+
+## Variables
+- `z`
+  - A value on the complex plane within the unit circle
+- `num`
+  - A number of iterations to perform before conceding that the value is not
+    divergent.
+- `my_func`
+  - A function to perform on `z`, for a julia set the function will be of the
+    form `z -> z^2 + a + im*b`
+    - So for example the Douady Rabbit would be described by `z -> z^2 -0.123+0.745*im`
+"""
+function juliaSet(z, num, my_func, boolQ=true)
+    count = 1
+    # Define z1 as z
+    z1 = z
+    # Iterate num times
+    while count ≤ num
+        # check for divergence
+        if real(z1)^2+imag(z1)^2 > 2^2
+            if(boolQ) return 0 else return Int(count) end
+        end
+        #iterate z
+        z1 = my_func(z1) # + z
+        count=count+1
+    end
+        #if z hasn't diverged by the end
+    if(boolQ) return 1 else return Int(count) end
+end
+
+
+"""
+# Mandelbrot Set
+Returns how many iterations it takes for a value on the complex plane to diverge
+under recursion of \$z \\rightarrow z^2 + z_0\$.
+
+Values that converge represent constants of the julia set that lead to a
+connected set. (TODO: Have I got that Vice Versa?)
+
+
+## Variables
+- `z`
+  - A value on the complex plane within the unit circle
+- `num`
+  - A number of iterations to perform before conceding that the value is not
+    divergent.
+- `boolQ`
+  - `true` or `false` value indicating whether or not to return 1/0 values
+    indicating divergence or convergence respecitvely or to return the number of
+   iterations performed before conceding no divergence.
+"""
+function mandelbrot(z, num, boolQ = true)
+    count = 1
+    # Define z1 as z
+    z1 = z
+    # Iterate num times
+    while count ≤ num
+        # check for divergence
+        if real(z1)^2+imag(z1)^2 > 2^2
+            if(boolQ) return 0 else return Int(count) end
+        end
+        #iterate z
+        z1 = z1^2 + z
+        count=count+1
+    end
+        #if z hasn't diverged by the end
+    return 1 # Int(num)
+    if(boolQ) return 1 else return Int(count) end
+end
+
+function test(x, y)
+    if(x<1) return x else return y end
+end
+
+
+############################################################
+##### Build a Matrix Image #################################
+############################################################
+
+"""
+# Make a Picture
+
+This maps a function on the complex plane to a matrix where each element of the
+matrix corresponds to a single value on the complex plane. The matrix can be
+interpreted as a greyscale image.
+
+Inside the function is a `zoom` parameter that can be modified for different
+fractals, fur the julia and mandelbrot sets this shouldn't need to be adjusted.
+
+The height and width should be interpreted as resolution of the image.
+
+- `width`
+  - width of the output matrix
+- `height`
+  - height of the output matrix
+- `myfunc`
+  - Complex Function to apply across the complex plane
+"""
+function make_picture(width, height, my_func)
+    pic_mat = zeros(width, height)
+    zoom = 0.3
+    for j in 1:size(pic_mat)[2]
+        for i in 1:size(pic_mat)[1]
+            x = (j-width/2)/(width*zoom)
+            y = (i-height/2)/(height*zoom)
+            pic_mat[i,j] = juliaSet(x+y*im, 256, my_func)
+        end
+    end
+    return pic_mat
+end
+
+############################################################
+### Make the Outline ########################################
+############################################################
+# TODO this should be inside a function
+
+"""
+# Outline
+
+Sets all elements with neighbours on all sides to 0.
+
+- `mat`
+  - A matrix
+    - If this matrix is the convergent values corresponding to a julia set the
+      output will be the outline, which is the definition of the julia set.
+"""
+function outline(mat)
+    work_mat = copy(mat)
+    for col in 2:(size(mat)[2]-1)
+        for row in 2:(size(mat)[1]-1)
+            ## Make the inside 0, we only want the outline
+            neighbourhood = mat[row-1:row+1,col-1:col+1]
+            if sum(neighbourhood) >= 9 # 9 squares
+                work_mat[row,col] = 0
+            end
+        end
+    end
+    return work_mat
+end
+
+
+############################################################
+###### Return many Scaled Values ###########################
+############################################################
+
+
+
+function scaleAndMeasure(min, max, n, func)
+    # The scale is equivalent to the resolution, the initial resolution could be
+    # set as 10, 93, 72 or 1, it's arbitrary (previously I had res and scale)
+    # #TODO: Prove this
+
+    scale = [Int(ceil(i)) for i in range(min, max, length=n) ]
+    mass = pmap(s -> sum(outline(make_picture(Int(s), Int(s), func))) , scale)
+
+    data = DataFrame(scale = scale, mass = mass)
+    return data
+end
+
+\end{lstlisting}
+
+This returns the Values:
+
+\begin{table}[htbp]
+\caption{\label{table-of-values}TODO}
+\centering
+\begin{tabular}{rr}
+scale & mass\\
+\hline
+500 & 4834.0\\
+563 & 5754.0\\
+625 & 6640.0\\
+688 & 7584.0\\
+750 & 8418.0\\
+813 & 9550.0\\
+875 & 10554.0\\
+938 & 11710.0\\
+1000 & 12744.0\\
+\end{tabular}
+\end{table}
 \paragraph{Using Linear Regression}
-\label{sec:org1f47352}
+\label{sec:org120336b}
 \begin{itemize}
 \item Avoiding \texttt{Abs} is twice as fast
 \item Column wise is faster in fortran/julia/R slower in C/Python
+We have no evidence to show that the dimension will be stable, this is good for coastlines and stuff.
+
+to do that we use linear regression.
 \end{itemize}
 \subparagraph{Performance}
-\label{sec:orgdeefe3e}
+\label{sec:org7722cfb}
 \begin{itemize}
 \item Switching from \texttt{abs()} to sqaured help
 \item Taking advantage of multi core processing in loops
@@ -364,9 +1124,10 @@ Function & Mean Time\\
 \end{tabular}
 \end{center}
 \subsubsection{My Fractal}
-\label{sec:org5f39fe9}
+\label{sec:org1ef6255}
+My fractal really shows many unique patterns
 \paragraph{Graphics}
-\label{sec:orgf6e89c7}
+\label{sec:org58685b4}
 
 \begin{figure}[htbp]
 \centering
@@ -411,11 +1172,11 @@ Function & Mean Time\\
 \end{figure}
 
 \paragraph{Discuss Pattern shows Fibonacci Numbers}
-\label{sec:orgd16ce67}
+\label{sec:org9911d41}
 \subparagraph{Angle Relates to Golden Ratio}
-\label{sec:org996b7a3}
+\label{sec:org12012fb}
 \paragraph{Prove Fibonacci using Monotone Convergence Theorem}
-\label{sec:org090f90f}
+\label{sec:org3593125}
 Consider the series:
 
 $$\begin{aligned}
@@ -430,7 +1191,7 @@ F_n = F_{n- 1} +  F_{n- 2} ; \quad F_1 = F_2 = 1
 
 
 \subparagraph{Show that the Series is Monotone}
-\label{sec:org8baeb98}
+\label{sec:orga1c84f2}
 $$\begin{aligned}
 F_{n} &> 0 \\
 0 &< F_{n} \\
@@ -450,9 +1211,9 @@ F_{n} &> 0 \\
 
 
 \subparagraph{Show that the Series is Bounded}
-\label{sec:orgb43239c}
+\label{sec:org71b62a0}
 \subparagraph{Find the Limit}
-\label{sec:org58dd157}
+\label{sec:orgb538e68}
 $$\begin{aligned}
 G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 &= 1 +  \frac{F_{n- 1} }{F_n} \\
@@ -464,7 +1225,7 @@ G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 
 
 \subparagraph{Comments}
-\label{sec:org813bb90}
+\label{sec:org2eab9c1}
 
 The Fibonacci sequence is quite unique, observe that:
 
@@ -495,7 +1256,7 @@ $$\begin{aligned}
 \frac{\psi}{\varphi}  = \frac{1}{\varphi^2} = \frac{1}{1-\varphi} &= \frac{1}{2-\varphi} = \frac{2}{3 - \sqrt{5}  }
 \end{aligned}$$
 \subparagraph{Python}
-\label{sec:org414d450}
+\label{sec:org68ac56b}
 
 \lstset{language=:exports,label= ,caption= ,captionpos=b,numbers=none}
 \begin{lstlisting}
@@ -512,12 +1273,141 @@ plt.savefig("./a.png")
 \end{center}
 
 \paragraph{Angle is \(\tan^{-1}\left( \frac{1}{1-\varphi}\right)\)}
-\label{sec:org8d7ee8f}
+\label{sec:org26bf2a7}
 \subparagraph{Similar to Golden Angle \(2 \pi \left( \frac{1}{1-\varphi}\right)\)}
-\label{sec:orgcff3b1f}
+\label{sec:org60ffa20}
 \paragraph{Dimension of my Fractal}
-\label{sec:org7e2fc41}
+\label{sec:org84616f1}
 \(\log_{\varphi}(2)\)
+\paragraph{Code should be split up or put into appendix}
+\label{sec:org02464ed}
+\lstset{language=julia,label= ,caption= ,captionpos=b,numbers=none}
+\begin{lstlisting}
+function matJoin(A, B)
+    function nrow(X)
+        return size(X)[1]
+    end
+    function ncol(X)
+        return size(X)[2]
+    end
+    emptymat = zeros(Bool, max(size(A)[1], size(B)[1]) ,sum(ncol(A) + ncol(B)) )
+    emptymat[1:nrow(A), 1:ncol(A)] = A
+    emptymat[1:nrow(B), (ncol(A)+1):ncol(emptymat)] = B
+    return emptymat
+end
+
+function mywalk(B, n)
+    for i in 1:n
+        B = matJoin(B, rotl90(B));
+    end
+    return B
+end
+
+############################################################
+##### Use Plot for themes ##################################
+############################################################
+
+using Plots
+# SavePlot
+## Docstring
+    """
+# MakePlot
+Saveplot will save a plot of the fractals
+
+- `n`
+  - Is the number of iterations to produce the fractal
+    - ``\\frac{n!}{k!(n - k)!} = \\binom{n}{k}``
+- `filename`
+  - Is the File name
+- `backend`
+  - either `gr()` or `pyplot()`
+    - Gr is faster
+    - pyplot has lines
+    - Avoiding this entirely and using `GR.image()` and
+     `GR.savefig` is even faster but there is no support
+     for changing the colour schemes
+
+    """
+function makePlot(n, backend=pyplot())
+    backend
+    plt = Plots.plot(mywalk([1 1], n),
+                     st=:heatmap, clim=(0,1),
+                     color=:coolwarm,
+                    colorbar_title="", ticks = true, legend = false, yflip = true, fmt = :svg)
+    return plt
+end
+plt = makePlot(5)
+
+"""
+# savePlot
+Saves a Plot created with `Plots.jl` to disk (regardless of backend) as both an
+svg, use ImageMagick to get a PNG if necessary
+
+- `filename`
+  - Location on disk to save image
+- `plt`
+  - A Plot object created by using `Plot.jl`
+"""
+function savePlot(filename, plt)
+    filename = replace(filename, " " => "_")
+    path = string(filename, ".svg")
+    Plots.savefig(plt, path)
+    print("Image saved to ", path)
+end
+
+#------------------------------------------------------------
+#-- Dimension -----------------------------------------------
+#------------------------------------------------------------
+# Each time it iterates the image scales by phi
+# and the number of pixels increases by 2
+# so log(2)/log(1.618)
+# lim(F_n/F_n-1)
+# but the overall dimensions of the square increases by a factor of 3
+# so 3^D=5 ==> log_3(5) = log(5)/log(3) = D
+using DataFrames
+function returnDim()
+    mat2 = mywalk(fill(1, 1, 1), 10)
+    l2   = sum(mat2)
+    size2 = size(mat2)[1]
+    mat1 = mywalk(fill(1, 1, 1), 11)
+    l1   = sum(mat1)
+    size1 = size(mat1)[1]
+    df = DataFrame
+    df.measure = [log(l2/l1)/log(size2/size1)]
+    df.actual  = [log(2)/log(1.618) ]
+    return df
+end
+
+############################################################
+### Main Functions ##########################################
+############################################################
+# Usually Main should go into a seperate .jl filename
+# Then a compination of import, using, include will
+# get the desired effect of top down programming.
+# Combine this with using a tmp.jl and tst.jl and you're set.
+# See https://stackoverflow.com/a/24935352/12843551
+# http://ryansnotes.org/mediawiki/index.php/Workflow_Tips_in_Julia
+
+# Produce and Save a Plot
+#=
+filename = "my-self-rep-frac";
+filename = string(pwd(), "/", filename);
+savePlot(filename, makePlot(5))
+;convert $filename.svg $filename.png
+makePlot(5, pyplot())
+=#
+# Return the Dimensions
+returnDim()
+
+
+############################################################
+#### Render Image ##########################################
+#################yellow and purple##########################
+using GR
+GR.imshow(mywalk([1 1], 5))
+
+
+\end{lstlisting}
 
 \subsection{Julia Sets and Mandelbrot Sets}
 \label{julia-set}
@@ -525,19 +1415,26 @@ The julia set is the outline.
 
 The mandelbrot has to do with whether or not it's connected.
 \subsubsection{The math behind it}
-\label{sec:orgb07528c}
+\label{sec:org6f9c397}
 \paragraph{Like Escaping after 2}
-\label{sec:org7f1a786}
+\label{sec:org3c2d004}
+I cannot figure this out, I need more time, look around Ch. 12 of falconer \cite{falconerFractalGeometryMathematical2003}
 \subsection{Turing}
-\label{sec:orgb81bfb7}
+\label{sec:orga854d8d}
 
 \subsection{Appendix}
 \label{appendix}
 So unless code contributes directly to the discussion we'll put it in the appendix.
+\subsubsection{Finding Material}
+\label{sec:orgcf4c5f2}
+\lstset{language=bash,label= ,caption= ,captionpos=b,numbers=none}
+\begin{lstlisting}
+recoll -c /home/ryan/Dropbox/Books/Textbooks/Mathematics/Chaos_Theory/chaos_books_recoll & disown
+\end{lstlisting}
 \section{Outline}
-\label{sec:orgdb3ba03}
+\label{sec:org206f31a}
 \subsection{Introduction\hfill{}\textsc{Ryan}}
-\label{sec:org5155112}
+\label{sec:org0b84eb3}
 This project, at the outset, was very broadly concerned with the use of \emph{Python} for
 computer algebra. Much to the the reluctance of our supervisor we have however
 resolved to look at a broad variety of tools (see section \ref{other-tools}),
@@ -561,7 +1458,7 @@ over such software needs to perform very well under recursion and iteration
 with Julia as well).
 
 \subsection{Programming Recursion\hfill{}\textsc{Ryan}}
-\label{sec:orgc2b6ff3}
+\label{sec:org0a5853c}
 As an introduction to \emph{Python} generally, we undertook many problem questions which have been omitted from this outline, however, this one in particular offered an interesting insight into the difficulties we may encounter when dealing with recursive systems.
 \subsubsection{Iteration and Recursion}
 \label{series-and-recursion}
@@ -722,9 +1619,9 @@ def f(k):
 \end{lstlisting}
 
 \subsection{Fibonacci Sequence\hfill{}\textsc{Ryan:James}}
-\label{sec:org9f4b773}
+\label{sec:orgcbf697d}
 \subsubsection{Introduction\hfill{}\textsc{Ryan}}
-\label{sec:orgd1dc1bb}
+\label{sec:org741bad8}
 The \emph{Fibonacci Sequence} and \emph{Golden Ratio} share a deep connection\footnote{See section} and occur in patterns observed in nature very frequently
 (see
 \cite{shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016}), an example of such an occurence is discussed in section \ref{sunflower-example}.
@@ -1012,7 +1909,7 @@ where:
 \paragraph{Derivative of the Exponential Generating Function}
 \label{Derivative-exp-gen-function}
 \subparagraph{Base\hfill{}\textsc{Ryan}}
-\label{sec:org0955321}
+\label{sec:org9ec7303}
 Differentiating the exponential generating function has the effect of shifting the sequence to the backward: \cite{lehmanReadingsMathematicsComputer2010}
 
 \begin{align}
@@ -1025,7 +1922,7 @@ f'\left( x \right)) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 
 \end{align}
 
 \subparagraph{Bridge\hfill{}\textsc{James}}
-\label{sec:orga1acc75}
+\label{sec:orgcac00fe}
 This can be shown for all derivatives by way of induction, for
 
 \begin{align}
@@ -1054,7 +1951,7 @@ first derivative has been shown to express this property
 \eqref{eq:exp-pow-series-sol}, all derivates will.
 
 \paragraph{Homogeneous Proof\hfill{}\textsc{Ryan:James}}
-\label{sec:orgdd47a20}
+\label{sec:orgea5f6db}
 An equation of the form:
 
 \begin{align}
@@ -1097,10 +1994,10 @@ where:
 \label{uniq-roots-recurrence}
 \begin{enumerate}
 \item Example
-\label{sec:org8a90daf}
+\label{sec:orgc66184e}
 An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section \ref{solving-the-sequence}.
 \item Proof
-\label{sec:org4d914a6}
+\label{sec:org22d3a8c}
 Consider the linear recurrence relation \eqref{eq:recurrence-relation-def}:
 
 \begin{align}
@@ -1161,7 +2058,7 @@ This can be verified by the fibonacci sequence as shown in section \ref{solving-
 \label{rep-roots-recurrence}
 \begin{enumerate}
 \item Example
-\label{sec:org9e40299}
+\label{sec:orgd7e3457}
 Consider the following recurrence relation:
 
 \begin{align}
@@ -1213,7 +2110,7 @@ Given the defenition of the exponential generating function from \eqref{eq:exp-g
     \square \nonumber
 \end{align}
 \item Proof
-\label{sec:org0ed1f71}
+\label{sec:org5a57d27}
 In order to prove the the solution for a \(k^{\mathrm{th}}\) order recurrence relation with \(k\) repeated
 
 
@@ -1288,7 +2185,7 @@ Sketching out an approach for this:
 In this section a proof for identity \ref{eq:power-series-comb} is provided.
 \begin{enumerate}
 \item Motivation
-\label{sec:org4fc1eb6}
+\label{sec:orgf857127}
 
 Consider the function \(f(x) = xe^x\). Using the taylor series formula we get the following:
 
@@ -1312,11 +2209,11 @@ We conjecture thatIf we continue this on, we get:
     x^ke^x = \sum_{n=k}^\infty \frac{x^n}{(n-k)!} \quad \text{for}~k\in \mathbb{Z^{+}}\cap0
 \end{align*}
 \item Proof by Induction
-\label{sec:org1a29ada}
+\label{sec:org7a815b0}
 To verify, let's prove this by induction.
 \begin{enumerate}
 \item Base
-\label{sec:org3dd4345}
+\label{sec:org47295e5}
 Test \(k=0\)
 \begin{align*}
     LHS &= x^0e^x = e^x\\
@@ -1325,7 +2222,7 @@ Test \(k=0\)
 Therefore LHS = RHS, so \(k=0\) is true
 
 \item Bridge
-\label{sec:orgd9aa430}
+\label{sec:orgde81d6d}
 Assume \(x^k e^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}\)
 
 Using this assumption, prove for the next element \$k+1\$\\
@@ -1466,7 +2363,7 @@ end 600 600
 \end{figure}
 
 \subsection{Persian Recursion\hfill{}\textsc{Ryan}}
-\label{sec:orgbf1b3fc}
+\label{sec:orgbf20fd7}
 This section contains an example of how a simple process can lead to the
 development of complex patterns when exposed to feedback and iteration.
 
@@ -1573,12 +2470,12 @@ main(5,6, 1, cx)
 \end{figure}
 
 \subsection{Julia Sets\hfill{}\textsc{Ryan}}
-\label{sec:orgdddded0}
+\label{sec:orgabc3599}
 \subsubsection{Introduction}
-\label{sec:org46beaec}
+\label{sec:org725ce9f}
 Julia sets are a very interesting fractal and we hope to investigate them further in this project.
 \subsubsection{Motivation}
-\label{sec:orgfb474aa}
+\label{sec:org6f4cac7}
 Consider the iterative process \(x \rightarrow x^{2}, \enspace x \in \mathbb{R}\),
 for values of \(x>1\) this process will diverge and for \(x<1\) it will converge.
 
@@ -1614,7 +2511,7 @@ Every value on that plane will belong to one of the two following sets
 In the case of \(f_{0}(z) = z^{2}\) all values \(\left\lvert z  \right \rvert \leq 1\) are bounded with \(\left\lvert z  \right \rvert = 1\) being an unstable stationary circle, but let's investigate what happens for different iterative functions like \(f_{1}(z) = z^{2} - 1\), despite how trivial this seems at first glance.
 
 \subsubsection{Plotting the Sets}
-\label{sec:org985ea84}
+\label{sec:orgf5537ca}
 Although the convergence of values may appear simple at first, we'll implement a
 strategy to plot the prisoner and escape sets on the complex plane.
 
@@ -1858,7 +2755,7 @@ ffmpeg                    \
 \end{figure}
 
 \subsection{MandelBrot\hfill{}\textsc{Ryan}}
-\label{sec:org7bf96a2}
+\label{sec:orgdad1b2f}
 Investigating these fractals, a natural question might be whether or not any
 given \(c\) value will produce a fractal that is an open disc or a closed disc.
 
@@ -1989,7 +2886,7 @@ save_picture("/tmp/a.fits", my_pic)
 \caption{\label{mandelbrot-screen}Screenshot of Mandelbrot FITS image produced by listing }
 \end{figure}
 \subsection{Relevant Sources}
-\label{sec:org182d3c1}
+\label{sec:orga32d1e3}
 To guide research for our topic \emph{Chaos and Fractals} by Pietgen, Jurgens and Saupe \cite{peitgenChaosFractalsNew2004} will act as a map of the topic broadly, other than the sources referenced already, we anticipate referring to the following textbooks that we access to throughout the project:
 
 \begin{itemize}
@@ -2008,7 +2905,7 @@ To guide research for our topic \emph{Chaos and Fractals} by Pietgen, Jurgens an
 Ron Knott's website appears also to have a lot of material related to patterns, the \emph{Fibonacci Sequence} and the \emph{Golden Ratio}, we intend to have a good look through that material as well. \cite{ronknottFibonacciNumbersGolden2016}
 
 \subsection{Appendix}
-\label{sec:orgb06b86c}
+\label{sec:org87e3ffb}
 
 \lstset{language=Python,label=py-env,caption={Preamble for \emph{Python} Environment},captionpos=b,numbers=none}
 \begin{lstlisting}
@@ -2082,7 +2979,7 @@ main(8, 8, 1, cx)
 \caption{\label{new-func2-plot}Output produced by listing \ref{new-func2-code} using \(f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1\)}
 \end{figure}
 \subsubsection{Figures}
-\label{sec:org1dbbc73}
+\label{sec:orgeda5f96}
 
 \begin{figure}[htbp]
 \centering

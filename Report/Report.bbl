@@ -668,6 +668,40 @@
       \verb https://www.youtube.com/watch?v=16W7c0mb-rE
       \endverb
     \endentry
+    \entry{falconerFractalGeometryMathematical2003}{book}{}
+      \name{author}{1}{}{%
+        {{hash=4c12e05a251255040261073154cca7bf}{%
+           family={Falconer},
+           familyi={F\bibinitperiod},
+           given={K.\bibnamedelimi J.},
+           giveni={K\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Chichester, England}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{4c12e05a251255040261073154cca7bf}
+      \strng{fullhash}{4c12e05a251255040261073154cca7bf}
+      \strng{bibnamehash}{4c12e05a251255040261073154cca7bf}
+      \strng{authorbibnamehash}{4c12e05a251255040261073154cca7bf}
+      \strng{authornamehash}{4c12e05a251255040261073154cca7bf}
+      \strng{authorfullhash}{4c12e05a251255040261073154cca7bf}
+      \field{extraname}{1}
+      \field{sortinit}{F}
+      \field{sortinithash}{fb0c0faa89eb6abae8213bf60e6799ea}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{edition}{2nd ed}
+      \field{isbn}{978-0-470-84861-6 978-0-470-84862-3}
+      \field{pagetotal}{337}
+      \field{shorttitle}{Fractal Geometry}
+      \field{title}{Fractal Geometry: Mathematical Foundations and Applications}
+      \field{year}{2003}
+      \field{dateera}{ce}
+      \keyw{Fractals}
+    \endentry
     \entry{falconerFractalGeometryMathematical2003b}{book}{}
       \name{author}{1}{}{%
         {{hash=4c12e05a251255040261073154cca7bf}{%
@@ -688,6 +722,7 @@
       \strng{authorbibnamehash}{4c12e05a251255040261073154cca7bf}
       \strng{authornamehash}{4c12e05a251255040261073154cca7bf}
       \strng{authorfullhash}{4c12e05a251255040261073154cca7bf}
+      \field{extraname}{2}
       \field{sortinit}{F}
       \field{sortinithash}{fb0c0faa89eb6abae8213bf60e6799ea}
       \field{labelnamesource}{author}
@@ -1114,6 +1149,66 @@
       \field{year}{2006}
       \field{dateera}{ce}
       \keyw{Chaotic behavior in systems,Fuzzy logic}
+    \endentry
+    \entry{ListFractalsHausdorff2020}{inreference}{}
+      \field{sortinit}{L}
+      \field{sortinithash}{dad3efd0836470093a7b4a7bb756eb8c}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Benoit Mandelbrot has stated that "A fractal is by definition a set for which the Hausdorff-Besicovitch dimension strictly exceeds the topological dimension." Presented here is a list of fractals ordered by increasing Hausdorff dimension, with the purpose of visualizing what it means for a fractal to have a low or a high dimension.}
+      \field{annotation}{Page Version ID: 977401154}
+      \field{booktitle}{Wikipedia}
+      \field{day}{8}
+      \field{hour}{16}
+      \field{langid}{english}
+      \field{minute}{38}
+      \field{month}{9}
+      \field{second}{50}
+      \field{timezone}{Z}
+      \field{title}{List of Fractals by {{Hausdorff}} Dimension}
+      \field{urlday}{24}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/7U9MVMIH/index.html
+      \endverb
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/w/index.php?title=List_of_fractals_by_Hausdorff_dimension&oldid=977401154
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/w/index.php?title=List_of_fractals_by_Hausdorff_dimension&oldid=977401154
+      \endverb
+    \endentry
+    \entry{markpollicottFractalsDimensionTheory2005}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=2e98ac0490ebc4c868435653f3dbadfe}{%
+           family={{Mark Pollicott}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{2e98ac0490ebc4c868435653f3dbadfe}
+      \strng{fullhash}{2e98ac0490ebc4c868435653f3dbadfe}
+      \strng{bibnamehash}{2e98ac0490ebc4c868435653f3dbadfe}
+      \strng{authorbibnamehash}{2e98ac0490ebc4c868435653f3dbadfe}
+      \strng{authornamehash}{2e98ac0490ebc4c868435653f3dbadfe}
+      \strng{authorfullhash}{2e98ac0490ebc4c868435653f3dbadfe}
+      \field{sortinit}{M}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Introductory Lecturs given in Porto}
+      \field{title}{Fractals and {{Dimension Theory}}}
+      \field{year}{2005-May}
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/6FTX7SD7/dimension-total.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://warwick.ac.uk/fac/sci/maths/people/staff/mark_pollicott/p3
+      \endverb
+      \verb{url}
+      \verb https://warwick.ac.uk/fac/sci/maths/people/staff/mark_pollicott/p3
+      \endverb
     \endentry
     \entry{MinarovaNikoletta2014TFSN}{article}{}
       \name{author}{1}{}{%
@@ -1587,6 +1682,65 @@
       \endverb
       \verb{url}
       \verb https://royalsocietypublishing.org/doi/10.1098/rstb.1952.0012
+      \endverb
+    \endentry
+    \entry{zhuLowerBoundHausdorffMeasure2003}{article}{}
+      \name{author}{3}{}{%
+        {{hash=57bb9b733c745f5facacf943b2e0f417}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Zhi\bibnamedelima Wei},
+           giveni={Z\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=16e7ef4d99c1a4fb932e7aa91e65b6b7}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Zuo\bibnamedelima Ling},
+           giveni={Z\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=ba448ef060deb25a75faa1dbef409f0e}{%
+           family={Jia},
+           familyi={J\bibinitperiod},
+           given={Bao\bibnamedelima Guo},
+           giveni={B\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \strng{namehash}{4dcd454cea02fef6aea41eec600f2434}
+      \strng{fullhash}{4dcd454cea02fef6aea41eec600f2434}
+      \strng{bibnamehash}{4dcd454cea02fef6aea41eec600f2434}
+      \strng{authorbibnamehash}{4dcd454cea02fef6aea41eec600f2434}
+      \strng{authornamehash}{4dcd454cea02fef6aea41eec600f2434}
+      \strng{authorfullhash}{4dcd454cea02fef6aea41eec600f2434}
+      \field{sortinit}{Z}
+      \field{sortinithash}{8f7b480688e809b50b6f6577b16f3db5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper gives a lower bound of the Hausdorff measure ofthe Koch curve by means of the mass distributionprinciple.}
+      \field{day}{1}
+      \field{issn}{1439-7617}
+      \field{journaltitle}{Acta Mathematica Sinica}
+      \field{langid}{english}
+      \field{month}{10}
+      \field{number}{4}
+      \field{shortjournal}{Acta Math Sinica}
+      \field{title}{On the {{Lower Bound}} of the {{HausdorffMeasure}} of the {{Koch Curve}}}
+      \field{urlday}{18}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{volume}{19}
+      \field{year}{2003}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{715\bibrangedash 728}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1007/s10114-003-0310-2
+      \endverb
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/SJLMVK2B/zhuLowerBoundHausdorffMeasure2003.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s10114-003-0310-2
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s10114-003-0310-2
       \endverb
     \endentry
     \entry{zillDifferentialEquations2009a}{book}{}
