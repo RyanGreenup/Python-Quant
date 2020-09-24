@@ -32,9 +32,9 @@ function selfRep(ICMat, width)
     w  = size(B)[2]
     Z  = zeros(Int, h, w)
 Bt=transpose(B)
-B = 0.5*[Bt B Bt ;
+B = 0.5*[B B B ;
          B Z B ;
-         Bt B Bt]
+         B B B]
     if (4*w)<width
         B = selfRep(B, width)
     end
@@ -47,6 +47,7 @@ end
 using GR
 (mat = selfRep([1 0 0; 0 1 0; 0 0 1], 600)) 
 GR.imshow(mat)
+GR.savefig("../../Report/media/sierpinsky_carpet.png")
 
 ## Export
 using Random #; Random.seed!(7)

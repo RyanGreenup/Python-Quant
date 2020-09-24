@@ -14,7 +14,7 @@ function pascal(n)
     return mat
 end 
 GR.imshow(pascal(999))
-GR.savefig("/tmp/a.png")
+GR.savefig("../../Report/media/pascal-sierpinsky-triangle.png")
 
 #------------------------------------------------------------
 #-- Calculate Dimension -------------------------------------
