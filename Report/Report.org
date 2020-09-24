@@ -27,7 +27,6 @@
 #+LATEX_HEADER: \usepackage{tikz}
 #+LATEX_HEADER: \usetikzlibrary{decorations.fractals}
 #+LATEX_HEADER: \usetikzlibrary{lindenmayersystems}
-#+LATEX_HEADER: \twocolumn
 :END:
 * Report
 ** The concept of Dimension
