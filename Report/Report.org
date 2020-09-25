@@ -37,9 +37,9 @@
 :PROPERTIES:
 :CUSTOM_ID: topological-equivalence
 :END:
-Sources for this section on topology are primarily [[cite:peitgenChaosFractalsNew2004][p. 105]].
+Sources for this section on topology are primarily. [[cite:peitgenChaosFractalsNew2004][p. 105]]
 
-Topology is an area of mathematics concerned with ideas of continuity through the study of figures that are preserved under homeomorphic transformations. cite:gilmoreTopologyChaosAlice2002
+Topology is an area of mathematics concerned with ideas of continuity through the study of figures that are preserved under homeomorphic transformations. cite:gilmoreTopologyChaosAlice200
 
 Two figures are said to be homeomorphic if there is a continuous bijective mapping between the two shapes [[cite:peitgenChaosFractalsNew2004][p. 105]].
 
@@ -1057,6 +1057,14 @@ times = [tme() for i in 1:10 ]
 | ~pmap~   | 2.2825    |
 *** My Fractal
 My fractal really shows many unique patterns
+
+If it is scaled by $\varphi$ then the boxes increase two fold.
+
+We know the dimension will be constant because the figure is self similar, so we have:
+
+\[
+\mathrm{dim} (\mathtt{my\_fractal}) = \log_{\varphi}=\frac{\log \varphi}{\log 2}
+\]
 **** Graphics
 
 #+attr_html: :width 60px
@@ -1344,6 +1352,25 @@ So unless code contributes directly to the discussion we'll put it in the append
 #+begin_src bash
 recoll -c /home/ryan/Dropbox/Books/Textbooks/Mathematics/Chaos_Theory/chaos_books_recoll & disown
 #+end_src
+*** Font Lock
+#+begin_src elisp
+;; match:
+;;; \scite:key\s
+(add-to-list 'font-lock-extra-managed-props 'display)
+(font-lock-add-keywords nil
+ '((" \\(cite:[a-z0-9A-Z]\+\\)" 1 '(face nil display "🤔"))))
+
+
+;; match
+;;; [[cite:key][p. num]]
+(add-to-list 'font-lock-extra-managed-props 'display)
+(font-lock-add-keywords nil
+ '((" \\(\\[\\[cite:[a-z0-9A-Z]\+\\]\\[\.\*\\]\\]\\)" 1 '(face nil display "🤔"))))
+#+end_src
+
+#+RESULTS:
+| t | (( \(\[\[cite:[a-z0-9A-Z]+\]\[.*\]\]\) 1 '(face nil display 🤔)) ( \(cite:[a-z0-9A-Z]+\) 1 '(face nil display 🤔)) (.*\(\[\[cite:[a-z0-9A-Z]+\]\[.*\]\]\).* 1 '(face nil display 🤔)) (.* \(cite:[a-z0-9A-Z]+\) .* 1 '(face nil display 🤔)) ( \(\[\[cite:[a-z0-9A-Z]+\]\[.*\]\]\)  1 '(face nil display 🤔)) ( \(cite:[a-z0-9A-Z]+\)  1 '(face nil display 🤔)) (org-font-lock-hook) (^\(\**\)\(\* \)\(.* |
+
 * Outline
 ** Introduction                                                                :Ryan:
 This project, at the outset, was very broadly concerned with the use of /Python/ for
@@ -2954,4 +2981,4 @@ suggest that this process isn't too far off.
 [fn:pja] This problem is taken from Project A (44) of Dr. Hazrat's /Mathematica: A Problem Centred Approach/ cite:hazratMathematicaProblemCenteredApproach2015
 
 [fn:op] Although proprietary software such as Magma, Mathematica and Maple is very good, the restrictive licence makes them undesirable for study because there is no means by which to inspect the problem solving tecniques implemented, build on top of the work and moreover the lock-in nature of the software makes it a risky investment with respect to time.
-
+**
