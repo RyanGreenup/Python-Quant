@@ -1,688 +1,231 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-<!-- 2020-09-25 Fri 13:01 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>The Emergence of Patterns in Nature and Chaos Theory</title>
-<meta name="generator" content="Org mode" />
-<meta name="author" content="Ryan Greenup &amp; James Guerra" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
-    padding: 3px;
-    border: 1px solid black;
-  }
-  pre.src:hover:before { display: inline;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
-</style>
-<link rel="stylesheet" type="text/css" href="./resources/style.css">
-<script type="text/javascript" src="https://orgmode.org/org-info.js">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-// @license-end
-</script>
-
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
-org_html_manager.set("TOC_DEPTH", "9");
-org_html_manager.set("LINK_HOME", "");
-org_html_manager.set("LINK_UP", "");
-org_html_manager.set("LOCAL_TOC", "1");
-org_html_manager.set("VIEW_BUTTONS", "0");
-org_html_manager.set("MOUSE_HINT", "underline");
-org_html_manager.set("FIXED_TOC", "0");
-org_html_manager.set("TOC", "3");
-org_html_manager.set("VIEW", "showall");
-org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
-// @license-end
-</script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.cacheClassElem = elem.className;
-         elem.cacheClassTarget = target.className;
-         target.className = "code-highlighted";
-         elem.className   = "code-highlighted";
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(elem.cacheClassElem)
-         elem.className = elem.cacheClassElem;
-       if(elem.cacheClassTarget)
-         target.className = elem.cacheClassTarget;
-     }
-    /*]]>*///-->
-// @license-end
-</script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Ryan Greenup &amp; James Guerra" />
+  <title>The Emergence of Patterns in Nature and Chaos Theory</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="resources/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-<div id="content">
+<header id="title-block-header">
 <h1 class="title">The Emergence of Patterns in Nature and Chaos Theory</h1>
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#org2c1566f">1. My Fractal</a>
-<ul>
-<li><a href="#org484fa2f">1.1. Graphics</a></li>
-<li><a href="#orgd114dcb">1.2. Discuss Pattern shows Fibonacci Numbers</a>
-<ul>
-<li><a href="#org105d271">1.2.1. Angle Relates to Golden Ratio</a></li>
-</ul>
-</li>
-<li><a href="#org0b59588">1.3. Prove Fibonacci using Monotone Convergence Theorem</a>
-<ul>
-<li><a href="#org31630c9">1.3.1. Show that the Series is Monotone</a></li>
-<li><a href="#org1619a35">1.3.2. Show that the Series is Bounded</a></li>
-<li><a href="#org6a52eba">1.3.3. Find the Limit</a></li>
-<li><a href="#orgc7ec981">1.3.4. Comments</a></li>
-<li><a href="#orgf62ef1c">1.3.5. Python</a></li>
-</ul>
-</li>
-<li><a href="#orgf73b587">1.4. Angle is \(\tan^{-1}\left( \frac{1}{1-\varphi}\right)\)</a>
-<ul>
-<li><a href="#org33a9eae">1.4.1. Similar to Golden Angle \(2 \pi \left( \frac{1}{1-\varphi}\right)\)</a></li>
-</ul>
-</li>
-<li><a href="#org4acad9e">1.5. Dimension of my Fractal</a></li>
-<li><a href="#org535e8ab">1.6. Code should be split up or put into appendix</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org2c1566f" class="outline-2">
-<h2 id="org2c1566f"><span class="section-number-2">1</span> My Fractal</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-My fractal really shows many unique patterns
-</p>
-
-<p>
-If it is scaled by \(\varphi\) then the boxes increase two fold.
-</p>
-
-<p>
-We know the dimension will be constant because the figure is self similar, so we have:
-</p>
-
-<p>
-\[
-\mathrm{dim} (\mathtt{my\_fractal}) = \log_{\varphi}=\frac{\log \varphi}{\log 2}
-\]
-</p>
-</div>
-<div id="outline-container-org484fa2f" class="outline-3">
-<h3 id="org484fa2f"><span class="section-number-3">1.1</span> Graphics</h3>
-<div class="outline-text-3" id="text-1-1">
-
-<div id="org59207f6" class="figure">
-<p><object type="image/svg+xml" data="../Problems/fractal-dimensions/scale-of-my-fractal.svg" class="org-svg" width="60px">
-Sorry, your browser does not support SVG.</object>
-</p>
-<p><span class="figure-number">Figure 1: </span>TODO</p>
-</div>
-
-
-<div id="org4aa547f" class="figure">
-<p><object type="image/svg+xml" data="../Problems/fractal-dimensions/my-self-rep-frac.svg" class="org-svg" width="60px">
-Sorry, your browser does not support SVG.</object>
-</p>
-<p><span class="figure-number">Figure 2: </span>TODO</p>
-</div>
-
-
-<div id="org20b53ff" class="figure">
-<p><object type="image/svg+xml" data="../Problems/fractal-dimensions/golden-angle-diagram.svg" class="org-svg" width="60px">
-Sorry, your browser does not support SVG.</object>
-</p>
-<p><span class="figure-number">Figure 3: </span>TODO</p>
-</div>
-
-
-<div id="orgf0a3cfb" class="figure">
-<p><object type="image/svg+xml" data="../Problems/fractal-dimensions/my-self-rep-frac-ink-diagram.svg" class="org-svg" width="60px">
-Sorry, your browser does not support SVG.</object>
-</p>
-<p><span class="figure-number">Figure 4: </span>TODO</p>
-</div>
-
-
-<div id="org607b8d6" class="figure">
-<p><object type="image/svg+xml" data="../Problems/fractal-dimensions/My-Self-Replicating-fractal-ink.svg" class="org-svg" width="60px">
-Sorry, your browser does not support SVG.</object>
-</p>
-<p><span class="figure-number">Figure 5: </span>TODO</p>
-</div>
-
-
-<div id="orgaadf02e" class="figure">
-<p><img src="../Problems/fractal-dimensions/my-self-rep-frac-GR.png" alt="my-self-rep-frac-GR.png" width="600px" />
-</p>
-<p><span class="figure-number">Figure 6: </span>Fractal that emerges by Rotating and appending boxes, this demonstrates the relationship between the Fibonacci numbers and golden ratio very well</p>
-</div>
-
-
-<div id="orga60080b" class="figure">
-<p><object type="image/svg+xml" data="../Problems/fractal-dimensions/My-Fib-Fractal-Diagram.svg" class="org-svg" width="200px">
-Sorry, your browser does not support SVG.</object>
-</p>
-<p><span class="figure-number">Figure 7: </span>Fractal that emerges by Rotating and appending boxes, this demonstrates the relationship between the Fibonacci numbers and golden ratio very well</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgd114dcb" class="outline-3">
-<h3 id="orgd114dcb"><span class="section-number-3">1.2</span> Discuss Pattern shows Fibonacci Numbers</h3>
-<div class="outline-text-3" id="text-1-2">
-</div>
-<div id="outline-container-org105d271" class="outline-4">
-<h4 id="org105d271"><span class="section-number-4">1.2.1</span> Angle Relates to Golden Ratio</h4>
-</div>
-</div>
-<div id="outline-container-org0b59588" class="outline-3">
-<h3 id="org0b59588"><span class="section-number-3">1.3</span> Prove Fibonacci using Monotone Convergence Theorem</h3>
-<div class="outline-text-3" id="text-1-3">
-<p>
-Consider the series:
-</p>
-
-<p>
-\[\begin{aligned}
-G_n &= \frac{F_{n} }{F_{n - 1} } \\
-\end{aligned}\]
-</p>
-
-<p>
-Such that:
-</p>
-
-<p>
-\[\begin{aligned}
+<p class="author">Ryan Greenup &amp; James Guerra</p>
+</header>
+<h1 id="sec:org472a2d4">My Fractal</h1>
+<p>My fractal really shows many unique patterns</p>
+<p>If it is scaled by <span class="math inline">\(\varphi\)</span> then the boxes increase two fold.</p>
+<p>We know the dimension will be constant because the figure is self similar, so we have:</p>
+<p><span class="math display">\[\mathrm{dim} (\mathtt{my\_fractal}) = \log_{\varphi}=\frac{\log \varphi}{\log 2}\]</span></p>
+<h2 id="sec:org6325d92">Graphics</h2>
+<figure>
+<img src="../Problems/fractal-dimensions/my-self-rep-frac-GR.png" id="My-Frac-GR" style="width:9cm" alt="[My-Frac-GR]Fractal that emerges by Rotating and appending boxes, this demonstrates the relationship between the Fibonacci numbers and golden ratio very well" /><figcaption aria-hidden="true"><span id="My-Frac-GR" label="My-Frac-GR">[My-Frac-GR]</span>Fractal that emerges by Rotating and appending boxes, this demonstrates the relationship between the Fibonacci numbers and golden ratio very well</figcaption>
+</figure>
+<h2 id="sec:org7ee1a52">Discuss Pattern shows Fibonacci Numbers</h2>
+<h3 id="sec:org918c6c8">Angle Relates to Golden Ratio</h3>
+<h2 id="sec:orgde41de3">Prove Fibonacci using Monotone Convergence Theorem</h2>
+<p>Consider the series:</p>
+<p><span class="math display">\[\begin{aligned}
+G_n &amp;= \frac{F_{n} }{F_{n - 1} } \\
+\end{aligned}\]</span></p>
+<p>Such that:</p>
+<p><span class="math display">\[\begin{aligned}
 F_n = F_{n- 1} +  F_{n- 2} ; \quad F_1 = F_2 = 1
-\end{aligned}\]
-</p>
-</div>
-
-
-<div id="outline-container-org31630c9" class="outline-4">
-<h4 id="org31630c9"><span class="section-number-4">1.3.1</span> Show that the Series is Monotone</h4>
-<div class="outline-text-4" id="text-1-3-1">
-<p>
-\[\begin{aligned}
-F_{n} &> 0 \\
-0 &< F_{n} \\
- \implies   0 &< F_{n - 2} +  F_{n- 1} \quad \forall n > 2 \\
-  F_{n- 2} &< F_{n- 1}  \\
-   \implies  F_n & < F_{n+1}
-\end{aligned}\]
-</p>
-
-<p>
-\[\begin{aligned}
-F_{n} &> 0 \\
-0 &< F_{n} \\
- \implies   0 &< F_{n - 2} +  F_{n- 1} \quad \forall n > 2 \\
-  F_{n- 2} &< F_{n- 1}  \\
-   \implies  F_n & < F_{n+1}
-\end{aligned}\]
-</p>
-</div>
-</div>
-
-
-
-<div id="outline-container-org1619a35" class="outline-4">
-<h4 id="org1619a35"><span class="section-number-4">1.3.2</span> Show that the Series is Bounded</h4>
-</div>
-<div id="outline-container-org6a52eba" class="outline-4">
-<h4 id="org6a52eba"><span class="section-number-4">1.3.3</span> Find the Limit</h4>
-<div class="outline-text-4" id="text-1-3-3">
-<p>
-\[\begin{aligned}
-G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
-&= 1 +  \frac{F_{n- 1} }{F_n} \\
-\text{Recall that $F_n > 0 \forall n$}\\
-&=  1 +  \frac{1}{    \left\lvert G \right\rvert } \\
- \implies  0 &= G^2- G +  1; \quad G > 0  \\
-  \implies  G = \varphi &=  \frac{\sqrt{5} - 1  }{2} \quad  \square
-\end{aligned}\]
-</p>
-</div>
-</div>
-
-
-<div id="outline-container-orgc7ec981" class="outline-4">
-<h4 id="orgc7ec981"><span class="section-number-4">1.3.4</span> Comments</h4>
-<div class="outline-text-4" id="text-1-3-4">
-<p>
-The Fibonacci sequence is quite unique, observe that:
-</p>
-
-<p>
-This can be rearranged to show that the Fibonacci sequence is itself
-when shifted in either direction, it is the sequence that does not
-change during recursion.
-</p>
-
-<p>
-\[\begin{aligned}
-F_{n+ 1} - F_{n} = F_{n- 1} \quad \forall n > 1
-\end{aligned}\]
-</p>
-
-<p>
-This is analogous to how \(e^x\) doesn&rsquo;t change under differentiation:
-</p>
-
-<p>
-\[\begin{aligned}
+\end{aligned}\]</span></p>
+<h3 id="sec:orgfd6a0c2">Show that the Series is Monotone</h3>
+<p><span class="math display">\[\begin{aligned}
+F_{n} &amp;&gt; 0 \\
+0 &amp;&lt; F_{n} \\
+ \implies   0 &amp;&lt; F_{n - 2} +  F_{n- 1} \quad \forall n &gt; 2 \\
+  F_{n- 2} &amp;&lt; F_{n- 1}  \\
+   \implies  F_n &amp; &lt; F_{n+1}
+\end{aligned}\]</span></p>
+<p><span class="math display">\[\begin{aligned}
+F_{n} &amp;&gt; 0 \\
+0 &amp;&lt; F_{n} \\
+ \implies   0 &amp;&lt; F_{n - 2} +  F_{n- 1} \quad \forall n &gt; 2 \\
+  F_{n- 2} &amp;&lt; F_{n- 1}  \\
+   \implies  F_n &amp; &lt; F_{n+1}
+\end{aligned}\]</span></p>
+<h3 id="sec:org195e118">Show that the Series is Bounded</h3>
+<h3 id="sec:org5e84884">Find the Limit</h3>
+<p><span class="math display">\[\begin{aligned}
+G &amp;= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
+&amp;= 1 +  \frac{F_{n- 1} }{F_n} \\
+\text{Recall that $F_n &gt; 0 \forall n$}\\
+&amp;=  1 +  \frac{1}{    \left\lvert G \right\rvert } \\
+ \implies  0 &amp;= G^2- G +  1; \quad G &gt; 0  \\
+  \implies  G = \varphi &amp;=  \frac{\sqrt{5} - 1  }{2} \quad  \square
+\end{aligned}\]</span></p>
+<h3 id="sec:org53ec531">Comments</h3>
+<p>The Fibonacci sequence is quite unique, observe that:</p>
+<p>This can be rearranged to show that the Fibonacci sequence is itself when shifted in either direction, it is the sequence that does not change during recursion.</p>
+<p><span class="math display">\[\begin{aligned}
+F_{n+ 1} - F_{n} = F_{n- 1} \quad \forall n &gt; 1
+\end{aligned}\]</span></p>
+<p>This is analogous to how <span class="math inline">\(e^x\)</span> doesn’t change under differentiation:</p>
+<p><span class="math display">\[\begin{aligned}
 \frac{\mathrm{d} }{\mathrm{d} x}\left( e^x \right) \ldots
-\end{aligned}\]
-</p>
-
-<p>
-or how 0 is the additive identity and it shows why generating functions
-are so useful.
-</p>
-
-<p>
-Observe also that
-</p>
-
-<p>
-\[\begin{aligned}
-\lim_{n     \rightarrow \infty }\left[ \frac{F_n}{F_{n- 1} }  \right] &= \varphi \\
-\lim_{n     \rightarrow \infty }\left[ \frac{F_n}{F_{n- 1} }  \right] &= \psi \\
-\varphi - \psi &=  1 \\
-\varphi \times  \psi  &= 1 \\
-\frac{\psi}{\varphi}  = \frac{1}{\varphi^2} = \frac{1}{1-\varphi} &= \frac{1}{2-\varphi} = \frac{2}{3 - \sqrt{5}  }
-\end{aligned}\]
-</p>
-</div>
-</div>
-<div id="outline-container-orgf62ef1c" class="outline-4">
-<h4 id="orgf62ef1c"><span class="section-number-4">1.3.5</span> Python</h4>
-<div class="outline-text-4" id="text-1-3-5">
-<div class="org-src-container">
-<pre class="src src-:exports">#+BEGIN_SRC python :exports both :results output graphics file :file ./a.png
+\end{aligned}\]</span></p>
+<p>or how 0 is the additive identity and it shows why generating functions are so useful.</p>
+<p>Observe also that</p>
+<p><span class="math display">\[\begin{aligned}
+\lim_{n     \rightarrow \infty }\left[ \frac{F_n}{F_{n- 1} }  \right] &amp;= \varphi \\
+\lim_{n     \rightarrow \infty }\left[ \frac{F_n}{F_{n- 1} }  \right] &amp;= \psi \\
+\varphi - \psi &amp;=  1 \\
+\varphi \times  \psi  &amp;= 1 \\
+\frac{\psi}{\varphi}  = \frac{1}{\varphi^2} = \frac{1}{1-\varphi} &amp;= \frac{1}{2-\varphi} = \frac{2}{3 - \sqrt{5}  }
+\end{aligned}\]</span></p>
+<h3 id="sec:orge1f73ab">Python</h3>
+<pre><code>#+BEGIN_SRC python :exports both :results output graphics file :file ./a.png
 #+begin_src python
 import matplotlib.pyplot as plt
 import sympy
 
 plt.plot([ sympy.N(sympy.fibonacci(n+1)/sympy.fibonacci(n)) for n in range(1, 30)])
-plt.savefig("./a.png")
-</pre>
-</div>
+plt.savefig(&quot;./a.png&quot;)</code></pre>
+<p><img src="./a.png" alt="image" /></p>
+<h2 id="sec:orgcb2b5cb">Angle is <span class="math inline">\(\tan^{-1}\left( \frac{1}{1-\varphi}\right)\)</span></h2>
+<h3 id="sec:orgf2c408a">Similar to Golden Angle <span class="math inline">\(2 \pi \left( \frac{1}{1-\varphi}\right)\)</span></h3>
+<h2 id="sec:org35667a7">Dimension of my Fractal</h2>
+<p><span class="math inline">\(\log_{\varphi}(2)\)</span></p>
+<h2 id="sec:org698a789">Code should be split up or put into appendix</h2>
+<pre><code>function matJoin(A, B)
+    function nrow(X)
+        return size(X)[1]
+    end
+    function ncol(X)
+        return size(X)[2]
+    end
+    emptymat = zeros(Bool, max(size(A)[1], size(B)[1]) ,sum(ncol(A) + ncol(B)) )
+    emptymat[1:nrow(A), 1:ncol(A)] = A
+    emptymat[1:nrow(B), (ncol(A)+1):ncol(emptymat)] = B
+    return emptymat
+end
 
-<div class="figure">
-<p><img src="./a.png" alt="a.png" />
-</p>
-</div>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgf73b587" class="outline-3">
-<h3 id="orgf73b587"><span class="section-number-3">1.4</span> Angle is \(\tan^{-1}\left( \frac{1}{1-\varphi}\right)\)</h3>
-<div class="outline-text-3" id="text-1-4">
-</div>
-<div id="outline-container-org33a9eae" class="outline-4">
-<h4 id="org33a9eae"><span class="section-number-4">1.4.1</span> Similar to Golden Angle \(2 \pi \left( \frac{1}{1-\varphi}\right)\)</h4>
-</div>
-</div>
-<div id="outline-container-org4acad9e" class="outline-3">
-<h3 id="org4acad9e"><span class="section-number-3">1.5</span> Dimension of my Fractal</h3>
-<div class="outline-text-3" id="text-1-5">
-<p>
-\(\log_{\varphi}(2)\)
-</p>
-</div>
-</div>
-<div id="outline-container-org535e8ab" class="outline-3">
-<h3 id="org535e8ab"><span class="section-number-3">1.6</span> Code should be split up or put into appendix</h3>
-<div class="outline-text-3" id="text-1-6">
-<div class="org-src-container">
-<pre class="src src-julia"><span style="color: #e45649;">function</span> <span style="color: #a626a4;">matJoin</span>(A, B)
-    <span style="color: #e45649;">function</span> <span style="color: #a626a4;">nrow</span>(X)
-        <span style="color: #e45649;">return</span> size(X)[<span style="color: #da8548; font-weight: bold;">1</span>]
-    <span style="color: #e45649;">end</span>
-    <span style="color: #e45649;">function</span> <span style="color: #a626a4;">ncol</span>(X)
-        <span style="color: #e45649;">return</span> size(X)[<span style="color: #da8548; font-weight: bold;">2</span>]
-    <span style="color: #e45649;">end</span>
-    emptymat = zeros(Bool, max(size(A)[<span style="color: #da8548; font-weight: bold;">1</span>], size(B)[<span style="color: #da8548; font-weight: bold;">1</span>]) ,sum(ncol(A) <span style="color: #986801;">+</span> ncol(B)) )
-    emptymat[<span style="color: #da8548; font-weight: bold;">1</span>:nrow(A), <span style="color: #da8548; font-weight: bold;">1</span>:ncol(A)] = A
-    emptymat[<span style="color: #da8548; font-weight: bold;">1</span>:nrow(B), (ncol(A)<span style="color: #986801;">+</span><span style="color: #da8548; font-weight: bold;">1</span>):ncol(emptymat)] = B
-    <span style="color: #e45649;">return</span> emptymat
-<span style="color: #e45649;">end</span>
-
-<span style="color: #e45649;">function</span> <span style="color: #a626a4;">mywalk</span>(B, n)
-    <span style="color: #e45649;">for</span> i <span style="color: #e45649;">in</span> <span style="color: #da8548; font-weight: bold;">1</span>:n
+function mywalk(B, n)
+    for i in 1:n
         B = matJoin(B, rotl90(B));
-    <span style="color: #e45649;">end</span>
-    <span style="color: #e45649;">return</span> B
-<span style="color: #e45649;">end</span>
+    end
+    return B
+end
 
-<span style="color: #9ca0a4;">############################################################</span>
-<span style="color: #9ca0a4;">##### </span><span style="color: #9ca0a4;">Use Plot for themes ##################################</span>
-<span style="color: #9ca0a4;">############################################################</span>
+############################################################
+##### Use Plot for themes ##################################
+############################################################
 
-<span style="color: #e45649;">using</span> Plots
-<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">SavePlot</span>
-<span style="color: #9ca0a4;">## </span><span style="color: #9ca0a4;">Docstring</span>
-    <span style="color: #50a14f;">"""</span>
-<span style="color: #50a14f;"># MakePlot</span>
-<span style="color: #50a14f;">Saveplot will save a plot of the fractals</span>
+using Plots
+# SavePlot
+## Docstring
+    &quot;&quot;&quot;
+# MakePlot
+Saveplot will save a plot of the fractals
 
-<span style="color: #50a14f;">- `n`</span>
-<span style="color: #50a14f;">  - Is the number of iterations to produce the fractal</span>
-<span style="color: #50a14f;">    - ``\\frac{n!}{k!(n - k)!} = \\binom{n}{k}``</span>
-<span style="color: #50a14f;">- `filename`</span>
-<span style="color: #50a14f;">  - Is the File name</span>
-<span style="color: #50a14f;">- `backend`</span>
-<span style="color: #50a14f;">  - either `gr()` or `pyplot()`</span>
-<span style="color: #50a14f;">    - Gr is faster</span>
-<span style="color: #50a14f;">    - pyplot has lines</span>
-<span style="color: #50a14f;">    - Avoiding this entirely and using `GR.image()` and</span>
-<span style="color: #50a14f;">     `GR.savefig` is even faster but there is no support</span>
-<span style="color: #50a14f;">     for changing the colour schemes</span>
+- `n`
+  - Is the number of iterations to produce the fractal
+    - ``\\frac{n!}{k!(n - k)!} = \\binom{n}{k}``
+- `filename`
+  - Is the File name
+- `backend`
+  - either `gr()` or `pyplot()`
+    - Gr is faster
+    - pyplot has lines
+    - Avoiding this entirely and using `GR.image()` and
+     `GR.savefig` is even faster but there is no support
+     for changing the colour schemes
 
-<span style="color: #50a14f;">    """</span>
-<span style="color: #e45649;">function</span> <span style="color: #a626a4;">makePlot</span>(n, backend=pyplot())
+    &quot;&quot;&quot;
+function makePlot(n, backend=pyplot())
     backend
-    plt = Plots.plot(mywalk([<span style="color: #da8548; font-weight: bold;">1</span> <span style="color: #da8548; font-weight: bold;">1</span>], n),
-                     st=<span style="color: #b751b6;">:heatmap</span>, clim=(<span style="color: #da8548; font-weight: bold;">0</span>,<span style="color: #da8548; font-weight: bold;">1</span>),
-                     color=<span style="color: #b751b6;">:coolwarm</span>,
-                    colorbar_title=<span style="color: #50a14f;">""</span>, ticks = <span style="color: #b751b6;">true</span>, legend = <span style="color: #b751b6;">false</span>, yflip = <span style="color: #b751b6;">true</span>, fmt = <span style="color: #b751b6;">:svg</span>)
-    <span style="color: #e45649;">return</span> plt
-<span style="color: #e45649;">end</span>
-plt = makePlot(<span style="color: #da8548; font-weight: bold;">5</span>)
+    plt = Plots.plot(mywalk([1 1], n),
+                     st=:heatmap, clim=(0,1),
+                     color=:coolwarm,
+                    colorbar_title=&quot;&quot;, ticks = true, legend = false, yflip = true, fmt = :svg)
+    return plt
+end
+plt = makePlot(5)
 
-<span style="color: #50a14f;">"""</span>
-<span style="color: #50a14f;"># savePlot</span>
-<span style="color: #50a14f;">Saves a Plot created with `Plots.jl` to disk (regardless of backend) as both an</span>
-<span style="color: #50a14f;">svg, use ImageMagick to get a PNG if necessary</span>
+&quot;&quot;&quot;
+# savePlot
+Saves a Plot created with `Plots.jl` to disk (regardless of backend) as both an
+svg, use ImageMagick to get a PNG if necessary
 
-<span style="color: #50a14f;">- `filename`</span>
-<span style="color: #50a14f;">  - Location on disk to save image</span>
-<span style="color: #50a14f;">- `plt`</span>
-<span style="color: #50a14f;">  - A Plot object created by using `Plot.jl`</span>
-<span style="color: #50a14f;">"""</span>
-<span style="color: #e45649;">function</span> <span style="color: #a626a4;">savePlot</span>(filename, plt)
-    filename = replace(filename, <span style="color: #50a14f;">" "</span> <span style="color: #986801;">=&gt;</span> <span style="color: #50a14f;">"_"</span>)
-    path = string(filename, <span style="color: #50a14f;">".svg"</span>)
+- `filename`
+  - Location on disk to save image
+- `plt`
+  - A Plot object created by using `Plot.jl`
+&quot;&quot;&quot;
+function savePlot(filename, plt)
+    filename = replace(filename, &quot; &quot; =&gt; &quot;_&quot;)
+    path = string(filename, &quot;.svg&quot;)
     Plots.savefig(plt, path)
-    print(<span style="color: #50a14f;">"Image saved to "</span>, path)
-<span style="color: #e45649;">end</span>
+    print(&quot;Image saved to &quot;, path)
+end
 
-<span style="color: #9ca0a4;">#</span><span style="color: #9ca0a4;">------------------------------------------------------------</span>
-<span style="color: #9ca0a4;">#</span><span style="color: #9ca0a4;">-- Dimension -----------------------------------------------</span>
-<span style="color: #9ca0a4;">#</span><span style="color: #9ca0a4;">------------------------------------------------------------</span>
-<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Each time it iterates the image scales by phi</span>
-<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">and the number of pixels increases by 2</span>
-<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">so log(2)/log(1.618)</span>
-<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">lim(F_n/F_n-1)</span>
-<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">but the overall dimensions of the square increases by a factor of 3</span>
-<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">so 3^D=5 ==&gt; log_3(5) = log(5)/log(3) = D</span>
-<span style="color: #e45649;">using</span> DataFrames
-<span style="color: #e45649;">function</span> <span style="color: #a626a4;">returnDim</span>()
-    mat2 = mywalk(fill(<span style="color: #da8548; font-weight: bold;">1</span>, <span style="color: #da8548; font-weight: bold;">1</span>, <span style="color: #da8548; font-weight: bold;">1</span>), <span style="color: #da8548; font-weight: bold;">10</span>)
+#------------------------------------------------------------
+#-- Dimension -----------------------------------------------
+#------------------------------------------------------------
+# Each time it iterates the image scales by phi
+# and the number of pixels increases by 2
+# so log(2)/log(1.618)
+# lim(F_n/F_n-1)
+# but the overall dimensions of the square increases by a factor of 3
+# so 3^D=5 ==&gt; log_3(5) = log(5)/log(3) = D
+using DataFrames
+function returnDim()
+    mat2 = mywalk(fill(1, 1, 1), 10)
     l2   = sum(mat2)
-    size2 = size(mat2)[<span style="color: #da8548; font-weight: bold;">1</span>]
-    mat1 = mywalk(fill(<span style="color: #da8548; font-weight: bold;">1</span>, <span style="color: #da8548; font-weight: bold;">1</span>, <span style="color: #da8548; font-weight: bold;">1</span>), <span style="color: #da8548; font-weight: bold;">11</span>)
+    size2 = size(mat2)[1]
+    mat1 = mywalk(fill(1, 1, 1), 11)
     l1   = sum(mat1)
-    size1 = size(mat1)[<span style="color: #da8548; font-weight: bold;">1</span>]
+    size1 = size(mat1)[1]
     df = DataFrame
-    df.measure = [log(l2<span style="color: #986801;">/</span>l1)<span style="color: #986801;">/</span>log(size2<span style="color: #986801;">/</span>size1)]
-    df.actual  = [log(<span style="color: #da8548; font-weight: bold;">2</span>)<span style="color: #986801;">/</span>log(<span style="color: #da8548; font-weight: bold;">1.618</span>) ]
-    <span style="color: #e45649;">return</span> df
-<span style="color: #e45649;">end</span>
+    df.measure = [log(l2/l1)/log(size2/size1)]
+    df.actual  = [log(2)/log(1.618) ]
+    return df
+end
 
-<span style="color: #9ca0a4;">############################################################</span>
-<span style="color: #9ca0a4;">### </span><span style="color: #9ca0a4;">Main Functions ##########################################</span>
-<span style="color: #9ca0a4;">############################################################</span>
-<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Usually Main should go into a seperate .jl filename</span>
-<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Then a compination of import, using, include will</span>
-<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">get the desired effect of top down programming.</span>
-<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Combine this with using a tmp.jl and tst.jl and you're set.</span>
-<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">See https://stackoverflow.com/a/24935352/12843551</span>
-<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">http://ryansnotes.org/mediawiki/index.php/Workflow_Tips_in_Julia</span>
+############################################################
+### Main Functions ##########################################
+############################################################
+# Usually Main should go into a seperate .jl filename
+# Then a compination of import, using, include will
+# get the desired effect of top down programming.
+# Combine this with using a tmp.jl and tst.jl and you&#39;re set.
+# See https://stackoverflow.com/a/24935352/12843551
+# http://ryansnotes.org/mediawiki/index.php/Workflow_Tips_in_Julia
 
-<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Produce and Save a Plot</span>
-<span style="color: #9ca0a4;">#</span><span style="color: #9ca0a4;">=</span>
-<span style="color: #9ca0a4;">filename = "my-self-rep-frac";</span>
-<span style="color: #9ca0a4;">filename = string(pwd(), "/", filename);</span>
-<span style="color: #9ca0a4;">savePlot(filename, makePlot(5))</span>
-<span style="color: #9ca0a4;">;convert $filename.svg $filename.png</span>
-<span style="color: #9ca0a4;">makePlot(5, pyplot())</span>
-<span style="color: #9ca0a4;">=#</span>
-<span style="color: #9ca0a4;"># </span><span style="color: #9ca0a4;">Return the Dimensions</span>
+# Produce and Save a Plot
+#=
+filename = &quot;my-self-rep-frac&quot;;
+filename = string(pwd(), &quot;/&quot;, filename);
+savePlot(filename, makePlot(5))
+;convert $filename.svg $filename.png
+makePlot(5, pyplot())
+=#
+# Return the Dimensions
 returnDim()
 
 
-<span style="color: #9ca0a4;">############################################################</span>
-<span style="color: #9ca0a4;">#### </span><span style="color: #9ca0a4;">Render Image ##########################################</span>
-<span style="color: #9ca0a4;">#################</span><span style="color: #9ca0a4;">yellow and purple##########################</span>
-<span style="color: #e45649;">using</span> GR
-GR.imshow(mywalk([<span style="color: #da8548; font-weight: bold;">1</span> <span style="color: #da8548; font-weight: bold;">1</span>], <span style="color: #da8548; font-weight: bold;">5</span>))
+############################################################
+#### Render Image ##########################################
+#################yellow and purple##########################
+using GR
+GR.imshow(mywalk([1 1], 5))
 
-
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="author">Author: Ryan Greenup &amp; James Guerra</p>
-<p class="date">Created: 2020-09-25 Fri 13:01</p>
-</div>
+</code></pre>
 </body>
 </html>

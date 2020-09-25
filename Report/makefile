@@ -17,3 +17,13 @@ make_latex:
 	@ xelatex -interaction=nonstopmode -shell-escape Report.tex
 	@ latexmk -c
 	zathura Report.pdf
+# Make the HTML
+# Doesn't tolerate missing images
+#	@ pandoc Report.tex -s -t html                                \
+#	-c resources/style.css                                      \
+#	--csl resources/nature.csl --bibliography ../Resources/references.bib    \
+#	--mathjax                                                   \
+#	-o Report.html
+#	@ pandoc -s --self-contained -B resources/mathjax.js        \
+#	-c resources/style.css                                      \
+#	Report.html -o Report.html
