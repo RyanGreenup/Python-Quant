@@ -1,7 +1,7 @@
 #+TITLE: The Emergence of Patterns in Nature and Chaos Theory
 :PREAMBLE:
 #+OPTIONS: broken-links:auto todo:nil H:9
-#+STARTUP: content
+#+STARTUP: overview
 #+AUTHOR: Ryan Greenup & James Guerra
 #+INFOJS_OPT: view:showall toc:3
 #+PLOT: title:"Citas" ind:1 deps:(3) type:2d with:histograms set:"yrange [0:]"
@@ -37,7 +37,7 @@
 :PROPERTIES:
 :CUSTOM_ID: topological-equivalence
 :END:
-Sources for this section on topology are primarily. [[cite:peitgenChaosFractalsNew2004][p. 105]]
+Sources for this section on topology are primarily. [[cite:peitgenChaosFractalsNew2004][p. 106]]
 
 Topology is an area of mathematics concerned with ideas of continuity through the study of figures that are preserved under homeomorphic transformations. cite:gilmoreTopologyChaosAlice200
 
