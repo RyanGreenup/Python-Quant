@@ -9,9 +9,9 @@
 # https://www.gnu.org/software/make/manual/html_node/How-Make-Works.html
 #
 make_latex:
-#	@ command -v xelatex >/dev/null 2>&1 || { echo >&2 "I require xelatex but it's not installed.  Aborting."; exit 1; }
-#	@ command -v biber >/dev/null 2>&1 || { echo >&2 "I require xelatex but it's not installed.  Aborting."; exit 1; }
-#	@ command -v zathura >/dev/null 2>&1 || echo >&2 "You should install Zathura"
+	@ command -v xelatex >/dev/null 2>&1 || { echo >&2 "I require xelatex but it's not installed.  Aborting."; exit 1; }
+	@ command -v biber >/dev/null 2>&1 || { echo >&2 "I require xelatex but it's not installed.  Aborting."; exit 1; }
+	@ command -v zathura >/dev/null 2>&1 || echo >&2 "You should install Zathura"
 	@ xelatex -interaction=nonstopmode -shell-escape Report.tex
 	@ biber Report.bcf
 	@ xelatex -interaction=nonstopmode -shell-escape Report.tex

@@ -280,13 +280,19 @@ The box counting method is widely used because it is relatively easy to calculat
   + We also need to contrast this with the similarity dimension discussed in p. 413 of Strogatz cite:strogatzNonlinearDynamicsChaos2015
   + A contrast should be drawn between this and Hausdorff, the most obvious difference being that the boxes are of a fixed size, unlike /Hausdorff/  see p. 418 of Strogatz cite:strogatzNonlinearDynamicsChaos2015
 #+end_quote
-** Fractals Generally
-- Many Fractals have a non finite dimension
-- An exception to this is the Mandelbrot set or dragon curve which are two dimensional
+** Fractals Generally                                                           :James:
+While there is no formal definition for the term fractal at this stage, we may decsribe it through the following properties:
+- Can be, but not subject to being self-similar [fn:: A self-similar shape is one that replicates its shape at every scale.]. On the contrary fractals can also be shapes like coastlines (which are not self-simialr)
+- The dimension of the fractal is the same at every scale.
+
+Dimension is the main defining property of a fractal. As aforementioned above, the Hausdorff dimension is a unique number in that, if we take some shape in $\mathbb{R}^{n}$, and the Hausdorff dimension converges to some number, then the dimension of the shape is given by that number. Otherwise, it will equal $0$ or $\infty$. For example, if we want to evaluate the dimension of a square and we use a 1-Dimensional shape as the cover set to calculate the Hausdorff dimension, we will get $\infty$. On the other hand, if we do the same with a 3-Dimensional shape, we will get 0. And finally if we use a 2-Dimensional shape, the Hausdorff dimension will evaluate to 2. This same notion is important when computing the dimension of a more complex shape such as the Koch snowflake.
+
+To define a fractal, we must define it's dimension. Whilst some research states that a fractal has a non-integer dimension, this is not true for all fractals. Although, most fractals like the Koch snowflake do in fact have non-integer dimensions, we can easily find a counter example namely, the Mandelbrot set. The Mandelbrot set lies in the same dimension as a square, a 2-Dimensional shape. However, we give recognition to the complexity and roughness of the Mandelbrot set which clearly distiguishes itself from a square. Beneath the Mandelbrot set's complexity are exact replicates of the largest scaled Mandelbrot set, i.e a self similar shape. Furthermore, although the Mandelbrot set has an integer dimension, the self similarity and complexity is what also defines its fractal nature. 
+
 ** Generating Self Similar Fractals
 **** TODO Examples
-***** TODO Vicsek Fractal
-because this is self similar we can use it to test our box counting method [fn:: because it is self similar we know that the dimension will be constant, hence there is no need for linear regression which would be necessary to check that it is constant, well, atleast for something somewhat finite like a coastline, the julia set is infinite so how appropriate that approach is well 🤷]
+***** DONE Vicsek Fractal
+The Vicsek Fracatl is self similar, thus we can use it to test our box counting method [fn:: Since the Vicsek fractal is self similar, we know that the dimension will be constant, as opposed to a dimension that slightly varies, hence there is no need for linear regression which would be necessary to measure someting like a coastline.].
 The Vicsek Fractal involves a pattern of iterating boxes:
 
 #+NAME: vicsek-matrix-gen
@@ -347,8 +353,13 @@ log(5)/log(3)
 [[file:media/Vicsek-Fractal.png]]
 
 
-****** TODO Mention that this is the Similarity Dimension
-****** TODO Show why it is log(5)/log(3)
+The above program demonsrates the construction of the Vicsek Fractal and its self-similarity dimension. To do this, we define a recursive function that begins with a 3x3 matrix, where the four corner squares and middle square are set to 1 and the rest is set to 0. The function repeats until it reaches some arbitrary set width. Each time the function iterates, 5 more squares are created, increasing by a factor of 3. We can use this information to calculate the dimension of the Vicsek fractal.
+Using the box counting method, we get:
+\begin{align*}
+5 &= 3^D
+D\ln{3} &= \ln{5}
+D &= \frac{\ln{5}}{\ln{3}}
+\end{align*}
 ***** TODO Sierpinskis Carpet
 
 Explained more in the book [fn:spc]
@@ -360,14 +371,14 @@ By modifying listing [[fractal-julia]] we can get patterns like the cantor dust 
 #+attr_html: :width 300px
 #+attr_latex: :width 9cm
 #+NAME: square-carpet
-#+CAPTION: TODO: I actually made this by mistake
+#+CAPTION: Sierpinksi's Carpet
 [[file:./media/sierpinsky_carpet.png]]
 
 
 #+attr_html: :width 300px
 #+attr_latex: :width 9cm
 #+NAME: cantor-dust
-#+CAPTION: TODO
+#+CAPTION: Cantor Dust
 [[file:media/Cantor_Dust_gen.png]]
 [[# file:~/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Problems/fractal-dimensions/cantr-dust.png]]
 
@@ -459,9 +470,9 @@ log(3)/log(2)
 [[file:media/pascal-sierpinsky-triangle.png]]
 
 ******* TODO Explain the math (lot's of math here!)
-There is lots of math in this section, we need to show:
-
-- [ ] why we get this pattern from pascals triangle.
+*Motivation*
+Over many centuries, mathematicians have been able to produce a range of patterns from Pascal's triangle. One of which is relevant to the emergence of Sierpinski's triangle. (continuing here after work).
+The patterns throughout the Sierpinksi's triangle have an interesting connection between Pascal's triangle.
 - [ ] Is there any relationship to combinatorics?
 
 ******* TODO Comment on the dimension lining up
