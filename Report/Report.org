@@ -471,8 +471,35 @@ log(3)/log(2)
 
 ******* TODO Explain the math (lot's of math here!)
 *Motivation*
-Over many centuries, mathematicians have been able to produce a range of patterns from Pascal's triangle. One of which is relevant to the emergence of Sierpinski's triangle. (continuing here after work).
-The patterns throughout the Sierpinksi's triangle have an interesting connection between Pascal's triangle.
+Over many centuries, mathematicians have been able to produce a range of patterns from Pascal's triangle. One of which is relevant to the emergence of Sierpinski's triangle. To construct Pascal's triangle it begins with a 1 in the $0^{th}$ (top) row, then each row underneath is made up of the sum of the numbers directly above it, see figure [[fig:pascal-triangle]]. Alternatively, the $n^{th}$ row and $k^{th}$ column can be written in combinatorics form, $\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}$.
+
+#+attr_html: :width 300px
+#+att_latex: :width 9cm :height 9cm
+#+NAME: fig:pascal-triangle
+[[file:media/tikz/pascals-triangle.png]]
+
+*The connection* (rename this to something better...)
+As mentioned before there is one pattern that produces the Sierpinski triangle, namely highlighting all odd numbers in Pascal's triangle. This is equivalent to considering all the numbers in the triangle modulo 2, shown in figure [[fig:pascal-sierpinski-tri]].
+
+#+attr_html: :width 300px
+#+attr_latex: :width 9cm
+#+NAME: fig:pascal-sierpinski-tri
+[[file:media/tikz/pascal-sierpinski-tri.png]]
+
+In figure [[fig:pascal-sierpinski-tri]], we can observe that all the highlighted odd numbers begin to form the Sierpinski triangle. Note that this is not the complete Sierpinski's triangle, that would require an infinite number of iterations. Now, we also notice that, there are three identical Sierpinski triangles within the larger triangle, each containing the same value modulo 2, at any given row $r$ and column $c$.
+
+To prove this, we need to split the triangle into two parts, $P_{n}$ denoting the first $2^{n}$ rows, i.e. the top "Sierpinski triangle" in [[fig:pascal-sierpinski-tri]] and $P_{n+1} representing the entire triangle. We must show that any chosen number in $P_{n}$ is equal to the corresponding row and column in the lower two triangles of $P_{n+1}$. This requires an identity that allows us to work in with combinations in modulo 2.
+
+*Lucas' Theorem*
+Let $n,k \ge 0$ and for some prime $p$, we get:
+\begin{equation}
+\binom{n}{k} = \prod_{i=0}^{m} \binom{n_i}{k_i} \quad (mod~p)
+\end{equation}
+where,\\
+$n = n_{m}p^{m}+n_{m-1}p^{m-1}+\cdots +n_{1}p+n_{0}$,\\
+and\\
+$k = k_{m}p^{m}+k_{m-1}p^{m-1}+\cdots +k_{1}p+k_{0}$
+
 - [ ] Is there any relationship to combinatorics?
 
 ******* TODO Comment on the dimension lining up
