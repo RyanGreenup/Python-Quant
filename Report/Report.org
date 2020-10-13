@@ -39,7 +39,7 @@
 :END:
 Sources for this section on topology are primarily. [[cite:peitgenChaosFractalsNew2004][p. 106]]
 
-Topology is an area of mathematics concerned with ideas of continuity through the study of figures that are preserved under homeomorphic transformations. cite:gilmoreTopologyChaosAlice200
+Topology is an area of mathematics concerned with ideas of continuity through the study of figures that are preserved under homeomorphic transformations. cite:gilmoreTopologyChaosAlice2002
 
 Two figures are said to be homeomorphic if there is a continuous bijective mapping between the two shapes [[cite:peitgenChaosFractalsNew2004][p. 105]].
 
@@ -79,7 +79,7 @@ The koch snowflake, is defined such that there are no edges, every point on the 
 Briggs and Tyree provide a great introduction.
 
 the scale of resolution increases 3 fold
-THIS IS NOT CORRECT, I MUST SHOW THAT THE DIMENSION IS $\frac{ln(4)}{\ln(3)}$ BUT I'M SIMPLY OUT OF TIME.
+
 \begin{align}
 s \cdot p_{n} &=  (4/3)^{n} \cdot s \cdot P_{0}\\
 & \propto \left(\frac{4}{3}\right)^{n} \\
@@ -259,7 +259,7 @@ The value $s$ at which $\mathcal{H}^{s}$ changes from $\infty$ to 0, shown in fi
 **** TODO Research
 I feel very inclided to read [[https://warwick.ac.uk/fac/sci/maths/people/staff/mark_pollicott/p3/tehran.pdf][these notes]] [fn:: [[file:~/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resources/Uncorrected-Warwick-BoxCount-Hausendorff-Notes.pdf][Local Copy]]]
 
-** Box Counting
+** Box Counting                                                                :Ryan:
 Sources for this section are primarily:
 - Falconer [[cite:falconerFractalGeometryMathematical2003b][Ch. 3.1]]
 - Strogatz Non Linear Dynamics [[cite:strogatzNonlinearDynamicsChaos2015][Ch. 11.4]]
@@ -289,7 +289,7 @@ Dimension is the main defining property of a fractal. As aforementioned above, t
 
 To define a fractal, we must define it's dimension. Whilst some research states that a fractal has a non-integer dimension, this is not true for all fractals. Although, most fractals like the Koch snowflake do in fact have non-integer dimensions, we can easily find a counter example namely, the Mandelbrot set. The Mandelbrot set lies in the same dimension as a square, a 2-Dimensional shape. However, we give recognition to the complexity and roughness of the Mandelbrot set which clearly distiguishes itself from a square. Beneath the Mandelbrot set's complexity are exact replicates of the largest scaled Mandelbrot set, i.e a self similar shape. Furthermore, although the Mandelbrot set has an integer dimension, the self similarity and complexity is what also defines its fractal nature. 
 
-** Generating Self Similar Fractals
+** Generating Self Similar Fractals                                            :Ryan:
 **** TODO Examples
 ***** DONE Vicsek Fractal
 The Vicsek Fracatl is self similar, thus we can use it to test our box counting method [fn:: Since the Vicsek fractal is self similar, we know that the dimension will be constant, as opposed to a dimension that slightly varies, hence there is no need for linear regression which would be necessary to measure someting like a coastline.].
@@ -1409,7 +1409,7 @@ GR.imshow(mywalk([1 1], 5))
 
 #+end_src
 
-** TODO Julia Sets and Mandelbrot Sets
+** TODO Julia Sets and Mandelbrot Sets                                            :Ryan:
 :PROPERTIES:
 :CUSTOM_ID: julia-set
 :END:
@@ -1419,223 +1419,7 @@ The mandelbrot has to do with whether or not it's connected.
 *** TODO The math behind it
 **** TODO Like Escaping after 2
 I cannot figure this out, I need more time, look around Ch. 12 of falconer cite:falconerFractalGeometryMathematical2003
-** TODO Turing
-
-** Appendix
-:PROPERTIES:
-:CUSTOM_ID: appendix
-:END:
-So unless code contributes directly to the discussion we'll put it in the appendix.
-*** Finding Material
-#+begin_src bash
-recoll -c /home/ryan/Dropbox/Books/Textbooks/Mathematics/Chaos_Theory/chaos_books_recoll & disown
-#+end_src
-*** Font Lock
-#+begin_src elisp
-;; match:
-;;; \scite:key\s
-(add-to-list 'font-lock-extra-managed-props 'display)
-(font-lock-add-keywords nil
- '((" \\(cite:[a-z0-9A-Z]\+\\)" 1 '(face nil display "🤔"))))
-
-
-;; match
-;;; [[cite:key][p. num]]
-(add-to-list 'font-lock-extra-managed-props 'display)
-(font-lock-add-keywords nil
- '((" \\(\\[\\[cite:[a-z0-9A-Z]\+\\]\\[\.\*\\]\\]\\)" 1 '(face nil display "🤔"))))
-#+end_src
-
-#+RESULTS:
-| t | (( \(\[\[cite:[a-z0-9A-Z]+\]\[.*\]\]\) 1 '(face nil display 🤔)) ( \(cite:[a-z0-9A-Z]+\) 1 '(face nil display 🤔)) (.*\(\[\[cite:[a-z0-9A-Z]+\]\[.*\]\]\).* 1 '(face nil display 🤔)) (.* \(cite:[a-z0-9A-Z]+\) .* 1 '(face nil display 🤔)) ( \(\[\[cite:[a-z0-9A-Z]+\]\[.*\]\]\)  1 '(face nil display 🤔)) ( \(cite:[a-z0-9A-Z]+\)  1 '(face nil display 🤔)) (org-font-lock-hook) (^\(\**\)\(\* \)\(.* |
-
-* Outline
-** Introduction                                                                :Ryan:
-This project, at the outset, was very broadly concerned with the use of /Python/ for
-computer algebra. Much to the the reluctance of our supervisor we have however
-resolved to look at a broad variety of tools (see section [[#other-tools]]),
-in particular a language we wanted an opportunity to explore was /Julia/
-cite:bezansonJuliaFreshApproach2017 [fn:jl].
-
-In order to give the project a more focused direction we have decided to look into: [fn:nt]
-
-- The Emergence of patterns in Nature
-- Chaos Theory & Dynamical Systems
-- Fractals
-
-These three topics are very tightly connected and so it is difficult to look at
-any one in a vacuum, they also almost necessitate the use of software packages
-due to the fact that these phenomena appear to occur in recursive systems, more
-over such software needs to perform very well under recursion and iteration
-(making this a very good focus for this topic generally, and an excuse to work
-with Julia as well).
-
-** Programming Recursion                                                       :Ryan:
-As an introduction to /Python/ generally, we undertook many problem questions which have been omitted from this outline, however, this one in particular offered an interesting insight into the difficulties we may encounter when dealing with recursive systems.
-*** Iteration and Recursion
-   :PROPERTIES:
-   :CUSTOM_ID: series-and-recursion
-   :END:
-Consider the series shown in eqref:eq:rec-ser[fn:pja] :
-
-\begin{align}
-    g\left( k \right) &=  \frac{\sqrt{2} }{2} \cdot   \frac{\sqrt{2+  \sqrt{3}}  }{3} \frac{\sqrt{2 +  \sqrt{3 +  \sqrt{4} } } }{4} \cdot  \ldots \frac{\sqrt{2 +  \sqrt{3 +  \ldots +  \sqrt{k} } } }{k} \label{eq:rec-ser}
-\end{align}
-
-let's modify this for the sake of discussion:
-
-\begin{align}
-h\left( k \right) = \frac{\sqrt{2}  }{2} \cdot  \frac{\sqrt{3 +  \sqrt{2} } }{3} \cdot  \frac{\sqrt{4 +  \sqrt{3 +  \sqrt{2} } } }{4} \cdot  \ldots \cdot  \frac{\sqrt{k +  \sqrt{k - 1 +  \ldots \sqrt{3 + \sqrt{2}  } } } }{k} \label{eq:rec-ser-mod}
-\end{align}
-
-The function $h$ can be expressed by the series:
-
-$$\begin{aligned}
-h\left( k \right) = \prod^k_{i = 2} \left( \frac{f_i}{i}  \right)  \quad : \quad f_i = \sqrt{i +  f_{i - 1}}, \enspace f_{1} = 1
-\end{aligned}$$
-
-Within /Python/, it isn't difficult to express $h$, the series can be expressed
-with recursion as shown in listing [[rec-one]], this is a very natural way to define
-series and sequences and is consistent with familiar mathematical thought and
-notation. Individuals more familiar with programming than analysis may find it
-more comfortable to use an iterator as shown in listing [[it-one]].
-
-#+NAME: rec-one
-#+CAPTION: Solving eqref:eq:rec-ser-mod using recursion.
-#+BEGIN_SRC python
-from sympy import *
-def h(k):
-    if k > 2:
-        return f(k) * f(k-1)
-    else:
-        return 1
-
-def f(i):
-    expr = 0
-    if i > 2:
-        return sqrt(i + f(i -1))
-    else:
-        return 1
-#+END_SRC
-
-
-#+NAME: it-one
-#+CAPTION: Solving eqref:eq:rec-ser-mod by using a ~for~ loop.
-#+BEGIN_SRC python
-  from sympy import *
-  def h(k):
-      k = k + 1 # OBOB
-      l = [f(i) for i in range(1,k)]
-      return prod(l)
-
-  def f(k):
-      expr = 0
-      for i in range(2, k+2):
-          expr = sqrt(i + expr, evaluate=False)
-      return expr/(k+1)
-#+END_SRC
-
-Any function that can be defined by using iteration, can always be defined via
-recursion and vice versa
-cite:bohmReducingRecursionIteration1988,bohmReducingRecursionIteration1986
-(see also
-cite:smolarskiMath60Notes2000,IterationVsRecursion2016 ),
-
-there is however, evidence to suggest that recursive functions are easier for
-people to understand cite:benanderEmpiricalAnalysisDebugging2000 and so should
-be favoured. Although independent research has shown that the specific language
-chosen can have a bigger effect on how well recursive as opposed to iterative
-code is understood cite:sinhaCognitiveFitEmpirical1992.
-
-The relevant question is "/which method is often more appropriate/?", generally
-the process for determining which is more appropriate is to the effect of:
-
-1. Write the problem in a way that is easier to write or is more
-   appropriate for demonstration
-2. If performance is a concern then consider restructuring in favour of iteration
-   - For interpreted languages such */R/* and /Python/, loops are usually
-     faster, because of the overheads involved in creating functions
-     cite:smolarskiMath60Notes2000 although there may be exceptions to this and
-     I'm not sure if this would be true for compiled languages such as /Julia/,
-     /Java/, */C/* etc.
-
-**** Some Functions are more difficult to express with Recursion in
-:PROPERTIES:
-    :CUSTOM_ID: some-functions-are-more-difficult-to-express-with-recursion-in-python
-    :END:
-
-Attacking a problem recursively isn't always the best approach however. Consider the function $g\left( k \right)$ from eqref:eq:rec-ser:
-
-
-\begin{align}
-    g\left( k \right) &=  \frac{\sqrt{2} }{2} \cdot   \frac{\sqrt{2+  \sqrt{3}}  }{3} \frac{\sqrt{2 +  \sqrt{3 +  \sqrt{4} } } }{4} \cdot  \ldots \frac{\sqrt{2 +  \sqrt{3 +  \ldots +  \sqrt{k} } } }{k} \nonumber \\
-    &=  \prod^k_{i = 2} \left( \frac{f_i}{i}  \right) \quad : \quad f_{i} = \sqrt{i +  f_{i+1}} \nonumber
-\end{align}
-
-Observe that the difference between eqref:eq:rec-ser and eqref:eq:rec-ser-mod is
-that the sequence essentially /looks/ forward, not back. To solve using a =for=
-loop, this distinction is a non-concern because the list can be reversed using a built-in
-such as =rev=, =reversed= or =reverse= in /Python/, */R/* and /Julia/
-respectively, which means the same expression can be implemented.
-
-To implement with recursion however, the series needs to be restructured and
-this can become a little clumsy, see eqref:eq:clumsy:
-
-\begin{align}
-    g\left( k \right) &=  \prod^k_{i = 2} \left( \frac{f_i}{i}  \right) \quad : \quad f_{i} = \sqrt{\left( k- i \right)  +  f_{k - i - 1}} \label{eq:clumsy}
-\end{align}
-
-Now the function could be performed recursively in /Python/ in a similar way as
-shown in listing [[rec-two]], but it's also significantly more confusing because the
-$f$ function now has $k$ as a parameter and this is only made significantly more
-complicated by the differing implementations of variable scope across common
-languages used in Mathematics and Data science such as ~bash~, */R/*, /Julia/, /Python/.
-
-If however, the =for= loop approach was implemented, as shown in listing
-[[iter-two]], the function would not significantly change, because the =reversed()= function can be
-used to flip the list around.
-
-What this demonstrates is that taking a different approach to simply describing
-this function can lead to big differences in the complexity involved in solving
-this problem.
-
-#+NAME: rec-two
-#+CAPTION: Using Recursion to Solve eqref:eq:rec-ser
-#+BEGIN_SRC python
-from sympy import *
-def h(k):
-    if k > 2:
-        return f(k, k) * f(k, k-1)
-    else:
-        return 1
-
-def f(k, i):
-    if k > i:
-        return 1
-    if i > 2:
-        return sqrt((k-i) + f(k, k - i -1))
-    else:
-        return 1
-#+END_SRC
-
-
-#+NAME: iter-two
-#+CAPTION: Using Iteration to Solve eqref:eq:rec-ser
-#+BEGIN_SRC python
-from sympy import *
-def h(k):
-    k = k + 1 # OBOB
-    l = [f(i) for i in range(1,k)]
-    return prod(l)
-
-def f(k):
-    expr = 0
-    for i in reversed(range(2, k+2)):
-        expr = sqrt(i + expr, evaluate=False)
-    return expr/(k+1)
-#+END_SRC
-
-** TODO Fibonacci Sequence                                                     :Ryan:James:
+** TODO Fibonacci Sequence                                                        :Ryan:James:
 *** Introduction                                                              :Ryan:
 The /Fibonacci Sequence/ and /Golden Ratio/ share a deep connection[fn:fb] and occur in patterns observed in nature very frequently
 (see
@@ -2215,35 +1999,7 @@ We conjecture thatIf we continue this on, we get:
 \begin{align*}
     x^ke^x = \sum_{n=k}^\infty \frac{x^n}{(n-k)!} \quad \text{for}~k\in \mathbb{Z^{+}}\cap0
 \end{align*}
-******* Proof by Induction
-To verify, let's prove this by induction.
-******** Base
-Test $k=0$
-\begin{align*}
-    LHS &= x^0e^x = e^x\\
-    RHS &= \sum_{n=0}^\infty \frac{x^n}{n!} = e^x\\
-\end{align*}
-Therefore LHS = RHS, so $k=0$ is true
 
-******** Bridge
-Assume $x^k e^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}$
-
-Using this assumption, prove for the next element $k+1$\\
-
-We need $x^{k+1}e^x = \sum_{n=k+1}^\infty\frac{x^n}{(n-(k+1))!}$
-
-\begin{align*}
-    \text{LHS} &= x^{k+1}e^x\\
-    &= x\cdot x^{k}e^x\\
-    &= x\cdot \sum_{n=k}^\infty\frac{x^n}{(n-k)!} \quad \text{(by assumption)}\\
-    &= \sum_{n=k}^\infty\frac{x^{n+1}}{(n-k)!}\\
-    &= \sum_{n=k+1}^\infty\frac{x^n}{(n-1-k)!} \quad \text{(re-indexing}~ n\text{)}\\
-    &= \sum_{n=k+1}^\infty\frac{x^n}{(n-(k+1))!}\\
-    &= RHS
-\end{align*}
-So by mathematical induction $f(x) = x^ke^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}$ \text{for} $k \ge 0$
-
-Moving on, by applying identity eqref:eq:uniq-roots-pow-series-ident to equation eqref:eq:rep-roots-ode-sol
 
 *** Fibonacci Sequence and the Golden Ratio                                   :Ryan:
 :PROPERTIES:
@@ -2358,112 +2114,9 @@ end 600 600
 #+CAPTION: Distribution of the seeds of a sunflower (see cite:simonbrassCCSearch2006 licenced under CC)
 [[file:sunflower.jpg]]
 
-** Persian Recursion                                                           :Ryan:
-This section contains an example of how a simple process can lead to the
-development of complex patterns when exposed to feedback and iteration.
-
-The /Persian Recursion/ is a simple procedure developed by Anne Burns in the 90s
-cite:burnsPersianRecursion1997 that produces fantastic patterns when provided
-with a relatively simple function.
-
-The procedure is begins with an empty or zero square matrix with sides $2^{n}+1,
-\enspace \exists n\in \mathbb{Z}^{+}$ and some value given to the edges:
-
-1. Decide on some four variable function with a finite domain and range of size $m$, for the example shown at listing [[persian-recursion-python]] and in figure [[6-rug]] the function $f(w,x,y,z)=(w+x+y+z) \mod m$ was chosen.
-2. Assign this value to the centre row and centre column of the matrix
-3. Repeat this for each newly enclosed subsmatrix.
-
-This is illustrated in figure [[persian-recursion-diagram]].
-
-This can be implemented computationally by defining a function that:
-
-- Takes the index of four corners enclosing a square sub-matrix of some matrix as input,
-- proceeds only if that square is some positive real value.
-- colours the centre column and row corresponding to a function of those four values
-- then calls itself on the corners of the four new sub-matrices enclosed by the
-  coloured row and column
-
-
-#+attr_html: :width 800px
-#+attr_latex: :width 6cm
-#+NAME: persian-recursion-diagram
-#+CAPTION: Diagram of the Persian Recursion, implemented with /Python/ in listing [[persian-recursion-python]]
-[[file:persian.svg]]
-
-This is demonstrated in listing [[persian-recursion-python]] with python and produces the output shown in figures [[6-rug]], various interesting examples are provided in the appendix at section [[#persian-recursion-examples]].
-
-By mapping the values to colours, patterns emerge, this emergence of complex
-patterns from simple rules is a well known and general phenomena that occurs in nature
-cite:EmergenceHowStupid2017,kivelsonDefiningEmergencePhysics2016.
-# Chaos and Fractals/ 2nd ed.:
-
-Many patterns that occur in nature can be explained by relatively simple rules
-that are exposed to feedback and iteration
-[[cite:peitgenChaosFractalsNew2004][p. 16]], this is a central theme of Alan
-Turing's /The Chemical Basis For Morphogenesis/
-cite:turingChemicalBasisMorphogenesis1952 which we hope to look in the course of
-this research.
-
-#+NAME: persian-recursion-python
-#+CAPTION: Implementation of the persian recursion scheme in /Python/
-#+BEGIN_SRC ipython :exports both :results raw drawer :eval never-export :session persian-recursion :ipyfile ./persian-recursion-0.svg
-%matplotlib inline
-# m is colours
-# n is number of folds
-# Z is number for border
-# cx is a function to transform the variables
-def main(m, n, z, cx):
-    import numpy as np
-    import matplotlib.pyplot as plt
-
-    # Make the Empty Matrix
-    mat = np.empty([2**n+1, 2**n+1])
-    main.mat = mat
-
-    # Fill the Borders
-    mat[:,0] = mat[:,-1] = mat[0,:] = mat[-1,:] = z
-
-    # Colour the Grid
-    colorgrid(0, mat.shape[0]-1, 0, mat.shape[0]-1, m)
-
-    # Plot the Matrix
-    plt.matshow(mat)
-
-# Define Helper Functions
-def colorgrid(l, r, t, b, m):
-    # print(l, r, t, b)
-    if (l < r -1):
-        ## define the centre column and row
-        mc = int((l+r)/2); mr = int((t+b)/2)
-
-        ## Assign the colour
-        main.mat[(t+1):b,mc] = cx(l, r, t, b, m)
-        main.mat[mr,(l+1):r] = cx(l, r, t, b, m)
-
-        ## Now Recall this function on the four new squares
-                #l r   t   b
-        colorgrid(l, mc, t, mr, m)    # NW
-        colorgrid(mc, r, t, mr, m)    # NE
-        colorgrid(l, mc, mr, b, m)    # SW
-        colorgrid(mc, r, mr, b, m)    # SE
-
-def cx(l, r, t, b, m):
-    new_col = (main.mat[t,l] + main.mat[t,r] +  main.mat[b,l] + main.mat[b,r]) % m
-    return new_col.astype(int)
-
-main(5,6, 1, cx)
-#+end_src
-
-
-
-#+attr_html: :width 400px
-#+attr_latex: :width 6cm
-#+NAME: 6-rug
-#+CAPTION: Output produced by listing [[persian-recursion-python]] with 6 folds
-#+RESULTS: persian-recursion-python
-[[file:./persian-recursion-0.svg]]
-
 ** Julia Sets                                                                  :Ryan:
+
+There is a relatioship between the fibonacicci sequence, modelling population growth and the mandelbrot curve, I would like to use that to tie some of the discussion together, see [[https://youtu.be/ovJcsL7vyrk][this video from Veritasium to get an idea of what i mean]].
 *** Introduction
 Julia sets are a very interesting fractal and we hope to investigate them further in this project.
 *** Motivation
@@ -2872,6 +2525,325 @@ save_picture("/tmp/a.fits", my_pic)
 #+NAME: mandelbrot-screen
 #+CAPTION: Screenshot of Mandelbrot FITS image produced by listing [[julia-large-mandelbrot]]
 [[file:_20200828_233844screenshot.png]]
+** Appendix
+:PROPERTIES:
+:CUSTOM_ID: appendix
+:END:
+So unless code contributes directly to the discussion we'll put it in the appendix.
+*** Finding Material
+#+begin_src bash
+recoll -c /home/ryan/Dropbox/Books/Textbooks/Mathematics/Chaos_Theory/chaos_books_recoll & disown
+#+end_src
+*** Font Lock
+#+begin_src elisp
+;; match:
+;;; \scite:key\s
+(add-to-list 'font-lock-extra-managed-props 'display)
+(font-lock-add-keywords nil
+ '((" \\(cite:[a-z0-9A-Z]\+\\)" 1 '(face nil display "🤔"))))
+
+
+;; match
+;;; [[cite:key][p. num]]
+(add-to-list 'font-lock-extra-managed-props 'display)
+(font-lock-add-keywords nil
+ '((" \\(\\[\\[cite:[a-z0-9A-Z]\+\\]\\[\.\*\\]\\]\\)" 1 '(face nil display "🤔"))))
+#+end_src
+
+#+RESULTS:
+| t | (( \(\[\[cite:[a-z0-9A-Z]+\]\[.*\]\]\) 1 '(face nil display 🤔)) ( \(cite:[a-z0-9A-Z]+\) 1 '(face nil display 🤔)) (.*\(\[\[cite:[a-z0-9A-Z]+\]\[.*\]\]\).* 1 '(face nil display 🤔)) (.* \(cite:[a-z0-9A-Z]+\) .* 1 '(face nil display 🤔)) ( \(\[\[cite:[a-z0-9A-Z]+\]\[.*\]\]\)  1 '(face nil display 🤔)) ( \(cite:[a-z0-9A-Z]+\)  1 '(face nil display 🤔)) (org-font-lock-hook) (^\(\**\)\(\* \)\(.* |
+
+* Outline
+** Introduction                                                                :Ryan:
+This project, at the outset, was very broadly concerned with the use of /Python/ for
+computer algebra. Much to the the reluctance of our supervisor we have however
+resolved to look at a broad variety of tools (see section [[#other-tools]]),
+in particular a language we wanted an opportunity to explore was /Julia/
+cite:bezansonJuliaFreshApproach2017 [fn:jl].
+
+In order to give the project a more focused direction we have decided to look into: [fn:nt]
+
+- The Emergence of patterns in Nature
+- Chaos Theory & Dynamical Systems
+- Fractals
+
+These three topics are very tightly connected and so it is difficult to look at
+any one in a vacuum, they also almost necessitate the use of software packages
+due to the fact that these phenomena appear to occur in recursive systems, more
+over such software needs to perform very well under recursion and iteration
+(making this a very good focus for this topic generally, and an excuse to work
+with Julia as well).
+
+** Programming Recursion                                                       :Ryan:
+As an introduction to /Python/ generally, we undertook many problem questions which have been omitted from this outline, however, this one in particular offered an interesting insight into the difficulties we may encounter when dealing with recursive systems.
+*** Iteration and Recursion
+   :PROPERTIES:
+   :CUSTOM_ID: series-and-recursion
+   :END:
+Consider the series shown in eqref:eq:rec-ser[fn:pja] :
+
+\begin{align}
+    g\left( k \right) &=  \frac{\sqrt{2} }{2} \cdot   \frac{\sqrt{2+  \sqrt{3}}  }{3} \frac{\sqrt{2 +  \sqrt{3 +  \sqrt{4} } } }{4} \cdot  \ldots \frac{\sqrt{2 +  \sqrt{3 +  \ldots +  \sqrt{k} } } }{k} \label{eq:rec-ser}
+\end{align}
+
+let's modify this for the sake of discussion:
+
+\begin{align}
+h\left( k \right) = \frac{\sqrt{2}  }{2} \cdot  \frac{\sqrt{3 +  \sqrt{2} } }{3} \cdot  \frac{\sqrt{4 +  \sqrt{3 +  \sqrt{2} } } }{4} \cdot  \ldots \cdot  \frac{\sqrt{k +  \sqrt{k - 1 +  \ldots \sqrt{3 + \sqrt{2}  } } } }{k} \label{eq:rec-ser-mod}
+\end{align}
+
+The function $h$ can be expressed by the series:
+
+$$\begin{aligned}
+h\left( k \right) = \prod^k_{i = 2} \left( \frac{f_i}{i}  \right)  \quad : \quad f_i = \sqrt{i +  f_{i - 1}}, \enspace f_{1} = 1
+\end{aligned}$$
+
+Within /Python/, it isn't difficult to express $h$, the series can be expressed
+with recursion as shown in listing [[rec-one]], this is a very natural way to define
+series and sequences and is consistent with familiar mathematical thought and
+notation. Individuals more familiar with programming than analysis may find it
+more comfortable to use an iterator as shown in listing [[it-one]].
+
+#+NAME: rec-one
+#+CAPTION: Solving eqref:eq:rec-ser-mod using recursion.
+#+BEGIN_SRC python
+from sympy import *
+def h(k):
+    if k > 2:
+        return f(k) * f(k-1)
+    else:
+        return 1
+
+def f(i):
+    expr = 0
+    if i > 2:
+        return sqrt(i + f(i -1))
+    else:
+        return 1
+#+END_SRC
+
+
+#+NAME: it-one
+#+CAPTION: Solving eqref:eq:rec-ser-mod by using a ~for~ loop.
+#+BEGIN_SRC python
+  from sympy import *
+  def h(k):
+      k = k + 1 # OBOB
+      l = [f(i) for i in range(1,k)]
+      return prod(l)
+
+  def f(k):
+      expr = 0
+      for i in range(2, k+2):
+          expr = sqrt(i + expr, evaluate=False)
+      return expr/(k+1)
+#+END_SRC
+
+Any function that can be defined by using iteration, can always be defined via
+recursion and vice versa
+cite:bohmReducingRecursionIteration1988,bohmReducingRecursionIteration1986
+(see also
+cite:smolarskiMath60Notes2000,IterationVsRecursion2016 ),
+
+there is however, evidence to suggest that recursive functions are easier for
+people to understand cite:benanderEmpiricalAnalysisDebugging2000 and so should
+be favoured. Although independent research has shown that the specific language
+chosen can have a bigger effect on how well recursive as opposed to iterative
+code is understood cite:sinhaCognitiveFitEmpirical1992.
+
+The relevant question is "/which method is often more appropriate/?", generally
+the process for determining which is more appropriate is to the effect of:
+
+1. Write the problem in a way that is easier to write or is more
+   appropriate for demonstration
+2. If performance is a concern then consider restructuring in favour of iteration
+   - For interpreted languages such */R/* and /Python/, loops are usually
+     faster, because of the overheads involved in creating functions
+     cite:smolarskiMath60Notes2000 although there may be exceptions to this and
+     I'm not sure if this would be true for compiled languages such as /Julia/,
+     /Java/, */C/* etc.
+
+**** Some Functions are more difficult to express with Recursion in
+:PROPERTIES:
+    :CUSTOM_ID: some-functions-are-more-difficult-to-express-with-recursion-in-python
+    :END:
+
+Attacking a problem recursively isn't always the best approach however. Consider the function $g\left( k \right)$ from eqref:eq:rec-ser:
+
+
+\begin{align}
+    g\left( k \right) &=  \frac{\sqrt{2} }{2} \cdot   \frac{\sqrt{2+  \sqrt{3}}  }{3} \frac{\sqrt{2 +  \sqrt{3 +  \sqrt{4} } } }{4} \cdot  \ldots \frac{\sqrt{2 +  \sqrt{3 +  \ldots +  \sqrt{k} } } }{k} \nonumber \\
+    &=  \prod^k_{i = 2} \left( \frac{f_i}{i}  \right) \quad : \quad f_{i} = \sqrt{i +  f_{i+1}} \nonumber
+\end{align}
+
+Observe that the difference between eqref:eq:rec-ser and eqref:eq:rec-ser-mod is
+that the sequence essentially /looks/ forward, not back. To solve using a =for=
+loop, this distinction is a non-concern because the list can be reversed using a built-in
+such as =rev=, =reversed= or =reverse= in /Python/, */R/* and /Julia/
+respectively, which means the same expression can be implemented.
+
+To implement with recursion however, the series needs to be restructured and
+this can become a little clumsy, see eqref:eq:clumsy:
+
+\begin{align}
+    g\left( k \right) &=  \prod^k_{i = 2} \left( \frac{f_i}{i}  \right) \quad : \quad f_{i} = \sqrt{\left( k- i \right)  +  f_{k - i - 1}} \label{eq:clumsy}
+\end{align}
+
+Now the function could be performed recursively in /Python/ in a similar way as
+shown in listing [[rec-two]], but it's also significantly more confusing because the
+$f$ function now has $k$ as a parameter and this is only made significantly more
+complicated by the differing implementations of variable scope across common
+languages used in Mathematics and Data science such as ~bash~, */R/*, /Julia/, /Python/.
+
+If however, the =for= loop approach was implemented, as shown in listing
+[[iter-two]], the function would not significantly change, because the =reversed()= function can be
+used to flip the list around.
+
+What this demonstrates is that taking a different approach to simply describing
+this function can lead to big differences in the complexity involved in solving
+this problem.
+
+#+NAME: rec-two
+#+CAPTION: Using Recursion to Solve eqref:eq:rec-ser
+#+BEGIN_SRC python
+from sympy import *
+def h(k):
+    if k > 2:
+        return f(k, k) * f(k, k-1)
+    else:
+        return 1
+
+def f(k, i):
+    if k > i:
+        return 1
+    if i > 2:
+        return sqrt((k-i) + f(k, k - i -1))
+    else:
+        return 1
+#+END_SRC
+
+
+#+NAME: iter-two
+#+CAPTION: Using Iteration to Solve eqref:eq:rec-ser
+#+BEGIN_SRC python
+from sympy import *
+def h(k):
+    k = k + 1 # OBOB
+    l = [f(i) for i in range(1,k)]
+    return prod(l)
+
+def f(k):
+    expr = 0
+    for i in reversed(range(2, k+2)):
+        expr = sqrt(i + expr, evaluate=False)
+    return expr/(k+1)
+#+END_SRC
+
+** Persian Recursion                                                           :Ryan:
+This section contains an example of how a simple process can lead to the
+development of complex patterns when exposed to feedback and iteration.
+
+The /Persian Recursion/ is a simple procedure developed by Anne Burns in the 90s
+cite:burnsPersianRecursion1997 that produces fantastic patterns when provided
+with a relatively simple function.
+
+The procedure is begins with an empty or zero square matrix with sides $2^{n}+1,
+\enspace \exists n\in \mathbb{Z}^{+}$ and some value given to the edges:
+
+1. Decide on some four variable function with a finite domain and range of size $m$, for the example shown at listing [[persian-recursion-python]] and in figure [[6-rug]] the function $f(w,x,y,z)=(w+x+y+z) \mod m$ was chosen.
+2. Assign this value to the centre row and centre column of the matrix
+3. Repeat this for each newly enclosed subsmatrix.
+
+This is illustrated in figure [[persian-recursion-diagram]].
+
+This can be implemented computationally by defining a function that:
+
+- Takes the index of four corners enclosing a square sub-matrix of some matrix as input,
+- proceeds only if that square is some positive real value.
+- colours the centre column and row corresponding to a function of those four values
+- then calls itself on the corners of the four new sub-matrices enclosed by the
+  coloured row and column
+
+
+#+attr_html: :width 800px
+#+attr_latex: :width 6cm
+#+NAME: persian-recursion-diagram
+#+CAPTION: Diagram of the Persian Recursion, implemented with /Python/ in listing [[persian-recursion-python]]
+[[file:persian.svg]]
+
+This is demonstrated in listing [[persian-recursion-python]] with python and produces the output shown in figures [[6-rug]], various interesting examples are provided in the appendix at section [[#persian-recursion-examples]].
+
+By mapping the values to colours, patterns emerge, this emergence of complex
+patterns from simple rules is a well known and general phenomena that occurs in nature
+cite:EmergenceHowStupid2017,kivelsonDefiningEmergencePhysics2016.
+# Chaos and Fractals/ 2nd ed.:
+
+Many patterns that occur in nature can be explained by relatively simple rules
+that are exposed to feedback and iteration
+[[cite:peitgenChaosFractalsNew2004][p. 16]], this is a central theme of Alan
+Turing's /The Chemical Basis For Morphogenesis/
+cite:turingChemicalBasisMorphogenesis1952 which we hope to look in the course of
+this research.
+
+#+NAME: persian-recursion-python
+#+CAPTION: Implementation of the persian recursion scheme in /Python/
+#+BEGIN_SRC ipython :exports both :results raw drawer :eval never-export :session persian-recursion :ipyfile ./persian-recursion-0.svg
+%matplotlib inline
+# m is colours
+# n is number of folds
+# Z is number for border
+# cx is a function to transform the variables
+def main(m, n, z, cx):
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    # Make the Empty Matrix
+    mat = np.empty([2**n+1, 2**n+1])
+    main.mat = mat
+
+    # Fill the Borders
+    mat[:,0] = mat[:,-1] = mat[0,:] = mat[-1,:] = z
+
+    # Colour the Grid
+    colorgrid(0, mat.shape[0]-1, 0, mat.shape[0]-1, m)
+
+    # Plot the Matrix
+    plt.matshow(mat)
+
+# Define Helper Functions
+def colorgrid(l, r, t, b, m):
+    # print(l, r, t, b)
+    if (l < r -1):
+        ## define the centre column and row
+        mc = int((l+r)/2); mr = int((t+b)/2)
+
+        ## Assign the colour
+        main.mat[(t+1):b,mc] = cx(l, r, t, b, m)
+        main.mat[mr,(l+1):r] = cx(l, r, t, b, m)
+
+        ## Now Recall this function on the four new squares
+                #l r   t   b
+        colorgrid(l, mc, t, mr, m)    # NW
+        colorgrid(mc, r, t, mr, m)    # NE
+        colorgrid(l, mc, mr, b, m)    # SW
+        colorgrid(mc, r, mr, b, m)    # SE
+
+def cx(l, r, t, b, m):
+    new_col = (main.mat[t,l] + main.mat[t,r] +  main.mat[b,l] + main.mat[b,r]) % m
+    return new_col.astype(int)
+
+main(5,6, 1, cx)
+#+end_src
+
+
+
+#+attr_html: :width 400px
+#+attr_latex: :width 6cm
+#+NAME: 6-rug
+#+CAPTION: Output produced by listing [[persian-recursion-python]] with 6 folds
+#+RESULTS: persian-recursion-python
+[[file:./persian-recursion-0.svg]]
+
 ** Relevant Sources
 To guide research for our topic /Chaos and Fractals/ by Pietgen, Jurgens and Saupe cite:peitgenChaosFractalsNew2004 will act as a map of the topic broadly, other than the sources referenced already, we anticipate referring to the following textbooks that we access to throughout the project:
 
