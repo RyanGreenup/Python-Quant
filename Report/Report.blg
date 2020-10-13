@@ -1,0 +1,25 @@
+[0] Config.pm:304> INFO - This is Biber 2.14
+[0] Config.pm:307> INFO - Logfile is 'Report.blg'
+[56] biber:322> INFO - === Wed Oct 14, 2020, 09:35:07
+[68] Biber.pm:415> INFO - Reading 'Report.bcf'
+[119] Biber.pm:943> INFO - Found 41 citekeys in bib section 0
+[129] Biber.pm:4256> INFO - Processing section 0
+[130] Utils.pm:75> INFO - Globbing data source '../Resources/references.bib'
+[130] Utils.pm:91> INFO - Globbed data source '../Resources/references.bib' to ../Resources/references.bib
+[139] Biber.pm:4455> INFO - Looking for bibtex format file '../Resources/references.bib' for section 0
+[143] bibtex.pm:1653> INFO - LaTeX decoding ...
+[238] bibtex.pm:1471> INFO - Found BibTeX data source '../Resources/references.bib'
+[290] Utils.pm:304> WARN - ISBN '978-0-470-84861-6 978-0-470-84862-3' in entry 'falconerFractalGeometryMathematical2003' is invalid - run biber with '--validate_datamodel' for details.
+[293] Utils.pm:304> WARN - ISBN '978-0-470-84861-6 978-0-470-84862-3' in entry 'falconerFractalGeometryMathematical2003b' is invalid - run biber with '--validate_datamodel' for details.
+[304] Utils.pm:304> WARN - year field '2005-May' in entry 'markpollicottFractalsDimensionTheory2005' is not an integer - this will probably not sort properly.
+[334] Utils.pm:304> WARN - ISBN '978-3-540-19129-2 978-3-540-39126-5' in entry 'bohmReducingRecursionIteration1988' is invalid - run biber with '--validate_datamodel' for details.
+[352] Utils.pm:304> WARN - ISBN '978-3-540-16442-5 978-3-540-39782-3' in entry 'bohmReducingRecursionIteration1986' is invalid - run biber with '--validate_datamodel' for details.
+[399] Utils.pm:304> WARN - year field '2006, September 5' in entry 'simonbrassCCSearch2006' is not an integer - this will probably not sort properly.
+[428] Utils.pm:304> WARN - ISBN '9780511335044 9780511334467 9780511333125 9780511803277 9780511333804 9781281040114 9786611040116 9780511567216' in entry 'telChaoticDynamicsIntroduction2006' is invalid - run biber with '--validate_datamodel' for details.
+[466] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[466] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[466] Biber.pm:4084> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[466] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[496] bbl.pm:652> INFO - Writing 'Report.bbl' with encoding 'UTF-8'
+[520] bbl.pm:755> INFO - Output to Report.bbl
+[520] Biber.pm:128> INFO - WARNINGS: 7
