@@ -1266,7 +1266,7 @@ $$\begin{aligned}
 \end{aligned}$$
 ***** Python
 
-#+BEGIN_SRC python :exports both :results output graphics file :file ./a.png
+#+BEGIN_SRC python :exports both :results output graphics file :eval never-export :file ./a.png
 ,#+begin_src python
 import matplotlib.pyplot as plt
 import sympy
