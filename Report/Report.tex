@@ -1,4 +1,4 @@
-% Created 2020-10-19 Mon 16:49
+% Created 2020-10-19 Mon 16:53
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -128,7 +128,7 @@ In the case of the koch snowflake, the measure of the shape, when scaled, will i
 
 In the development of topology
 \subsection{Hausdorff Dimension}
-\label{sec:orgeef4083}
+\label{sec:org79ca783}
 Sources for this section on Hausdorff Dimension are primarily \cite[Ch. 2]{falconerFractalGeometryMathematical2003}
 \subsubsection{Measure}
 \label{hausdorff-measure}
@@ -200,9 +200,9 @@ This is defined for all subsets of \(\mathbb{R}^n\) for example the value of  \(
 \end{figure}
 
 \paragraph{Lower Dimension Hausdorff Measurements}
-\label{sec:org3d321d8}
+\label{sec:org5019cca}
 \subparagraph{Examples}
-\label{sec:org67c983f}
+\label{sec:org6ef2872}
 Consider again the example of a 2D shape, the value of \(\mathcal{H}^{1}\) would still be defined by \eqref{eq:delta-measure}, but unlike \(\mathcal{H}^{2}\) in section \ref{hausdorff-measure} the value of \(\left\lvert U_i \right\rvert^1\) would be considered as opposed to \(\left\lvert U_i \right\rvert^2\).
 
 As \(\delta\) is made arbitrarily small the boxes that cover the shape are made also to be arbitrarily small. Although the area of the boxes must clearly be bounded by the shape of \(F\), if one imagines an infinite number of infinitely dense lines packing into a 2D shape with an infinite density it can be seen that the total length of those lines will be infinite.
@@ -212,7 +212,7 @@ To build on that same analogy, another way to imagine this is to pack a 2D shape
 This is consistent with shapes of other shapes as well, consider the koch snowflake introduced in section \ref{topological-equivalence} and shown in figure \ref{koch-line}, the dimension of this shape is greater than 1, and the number of lines necessary to describe that shape is also infinite.
 
 \subparagraph{Formally}
-\label{sec:orgd5c0eaf}
+\label{sec:org5307b33}
 If the dimension of \(F\) is less than \(s\), the Hausdorff Measure will be given by: \footnote{I haven't been able to find a proof for this, I wonder if I could prove it by just applying the definition?}
 
 \begin{align}
@@ -220,7 +220,7 @@ If the dimension of \(F\) is less than \(s\), the Hausdorff Measure will be give
 \end{align}
 
 \paragraph{Higher Dimension Hausdorff Dimension}
-\label{sec:org7998c47}
+\label{sec:orgec3d50b}
 For small values of \(s\) (i.e. less than the dimension of  \(F\)), the value of \(\mathcal{H}^s\)  will be \(\infty\).
 
 Consider some value \(s\) such that the Hausdorff measure is not infinite, i.e. values of \(s\): \footnote{Could fractal dimensions be complex? Maybe there could be a proof to show that the dimension is necessarily complex.}
@@ -262,15 +262,15 @@ Hence the value of the s-dimensional \emph{Hausdorff Measure}, \(s\) is only a f
 \end{figure}
 
 \subsubsection{Hausdorff Dimension}
-\label{sec:orgc50fe00}
+\label{sec:org2799e17}
 
 The value \(s\) at which \(\mathcal{H}^{s}\) changes from \(\infty\) to 0, shown in figure \ref{hausdorff-vals}  and \eqref{eq:hdfzero} is the definition of the \emph{Hausdorff Measure}, it is a generalisation of the idea of dimension that is typically understood with respect to ordinary shapes and 3D figures.
 \subsubsection{Research}
-\label{sec:orge528738}
+\label{sec:orgde26d5a}
 I feel very inclided to read \href{https://warwick.ac.uk/fac/sci/maths/people/staff/mark\_pollicott/p3/tehran.pdf}{these notes} \footnote{\href{file:///home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resources/Uncorrected-Warwick-BoxCount-Hausendorff-Notes.pdf}{Local Copy}}
 
 \section{Box Counting}
-\label{sec:org9453efe}
+\label{sec:org702f3e0}
 Sources for this section are primarily:
 \begin{itemize}
 \item Falconer \cite[Ch. 3.1]{falconerFractalGeometryMathematical2003b}
@@ -302,7 +302,7 @@ The box counting method is widely used because it is relatively easy to calculat
 \end{itemize}
 \end{quote}
 \section{Fractals Generally}
-\label{sec:org2752911}
+\label{sec:org3c1216c}
 While there is no formal definition for the term fractal at this stage, we may decsribe it through the following properties:
 \begin{itemize}
 \item Can be, but not subject to being self-similar \footnote{A self-similar shape is one that replicates its shape at every scale.}. On the contrary fractals can also be shapes like coastlines (which are not self-simialr)
@@ -314,11 +314,11 @@ Dimension is the main defining property of a fractal. As aforementioned above, t
 To define a fractal, we must define it's dimension. Whilst some research states that a fractal has a non-integer dimension, this is not true for all fractals. Although, most fractals like the Koch snowflake do in fact have non-integer dimensions, we can easily find a counter example namely, the Mandelbrot set. The Mandelbrot set lies in the same dimension as a square, a 2-Dimensional shape. However, we give recognition to the complexity and roughness of the Mandelbrot set which clearly distiguishes itself from a square. Beneath the Mandelbrot set's complexity are exact replicates of the largest scaled Mandelbrot set, i.e a self similar shape. Furthermore, although the Mandelbrot set has an integer dimension, the self similarity and complexity is what also defines its fractal nature.
 
 \section{Generating Self Similar Fractals}
-\label{sec:org4e6ed0d}
+\label{sec:orgeb72aa0}
 \subsubsection{Examples}
-\label{sec:orgc358cb6}
+\label{sec:org6c86117}
 \paragraph{Vicsek Fractal}
-\label{sec:orgbd9d832}
+\label{sec:org3a5f788}
 The Vicsek Fracatl is self similar, thus we can use it to test our box counting method \footnote{Since the Vicsek fractal is self similar, we know that the dimension will be constant, as opposed to a dimension that slightly varies, hence there is no need for linear regression which would be necessary to measure someting like a coastline.}.
 The Vicsek Fractal involves a pattern of iterating boxes:
 
@@ -387,7 +387,7 @@ D\ln{3} &= \ln{5}\\
 D &= \frac{\ln{5}}{\ln{3}}
 \end{align*}
 \paragraph{Sierpinskis Carpet}
-\label{sec:org8de36dc}
+\label{sec:orgc245716}
 
 Explained more in the book \footnote{See Ch. 2.7 of \cite[Ch. 2.7]{peitgenChaosFractalsNew2004}
 
@@ -406,10 +406,10 @@ By modifying listing we can get patterns like the cantor dust and sierpinskis ca
 \end{figure}
 
 \paragraph{Triangle}
-\label{sec:org7532b74}
+\label{sec:orga4fafa2}
 Producing the triangle was more difficult
 \subparagraph{Chaos Game}
-\label{sec:orgb55ace3}
+\label{sec:orgac6ef5c}
 This would be more accurate than pascals because there would be know \textbf{bias} and the model would be more accurate    :
 
 \begin{listing}[htbp]
@@ -464,7 +464,7 @@ ggplot(df, aes(x = xval, y = yval)) +
 \end{center}
 
 \subparagraph{Pascals Triange}
-\label{sec:orgd6e3eca}
+\label{sec:org1dee598}
 
 \begin{listing}[htbp]
 \begin{minted}[]{julia}
@@ -502,7 +502,7 @@ log(3)/log(2)
 
 \begin{enumerate}
 \item Motivation
-\label{sec:orgfdb3c96}
+\label{sec:org00dae85}
 Over many centuries, mathematicians have been able to produce a range of patterns from Pascal's triangle. One of which is relevant to the emergence of Sierpinski's triangle. To construct Pascal's triangle it begins with a 1 in the \(0^{th}\) (top) row, then each row underneath is made up of the sum of the numbers directly above it, see figure \ref{fig:pascal-triangle}. Alternatively, the \(n^{th}\) row and \(k^{th}\) column can be written in combinatorics form, \(\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}\).
 
 \begin{figure}[htbp]
@@ -512,7 +512,7 @@ Over many centuries, mathematicians have been able to produce a range of pattern
 \end{figure}
 
 \item The connection
-\label{sec:orgcb62855}
+\label{sec:orgab5e282}
 As mentioned before there is one pattern that produces the Sierpinski triangle, namely highlighting all odd numbers in Pascal's triangle. This is equivalent to considering all the numbers in the triangle modulo 2, shown in figure \ref{fig:pascal-sierpinski-tri}.
 
 \begin{figure}[htbp]
@@ -576,10 +576,10 @@ c=c_{i}2^{i}+c_{i-1}2^{i-1}+\cdots +c_{1}2+c_{0}=\left[c_{i}c_{i-1}\cdots c_{1}c
 Thus, \(\binom{r}{c} = \binom{2^n + r}{c} = \binom{2^n + r}{2^n + c} \quad (\text{mod} 2)\), which concludes the proof
 
 \item Comment on the dimension lining up
-\label{sec:org0af294f}
+\label{sec:orgf383376}
 Using the box-counting method, we can evaluate the dimension of Sierpinski's triangle.
 \item FIx the value
-\label{sec:org3344681}
+\label{sec:orgf36e2f1}
 
 \begin{verbatim}
 
@@ -594,7 +594,7 @@ julia> # https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle
 \end{enumerate}
 
 \section{Fractal Dimensions}
-\label{sec:org8a587b9}
+\label{sec:org50ab3f2}
 See generally \cite[Ch. 11]{strogatzNonlinearDynamicsChaos2015}
 Three ways to generate
 
@@ -608,7 +608,7 @@ Three ways to generate
 \end{enumerate}
 
 \subsection{Turtle}
-\label{sec:orgae1e016}
+\label{sec:orgb199682}
 Matrices can't explain all patterns, Turtles are useful
 \begin{listing}[htbp]
 \begin{minted}[]{julia}
@@ -622,34 +622,34 @@ using Pkg
 #------------------------------------------------------------
 
 
-function snowflake(length, level, 🐢, s)
+function snowflake(length, level, ♘, s)
     scale(s)
     if level == 0
-        Forward(🐢, 100)
-        Turn(🐢, -90)
+        Forward(♘, 100)
+        Turn(♘, -90)
         Rotate(90)
-#        Rectangle(🐢, length, length)
+#        Rectangle(♘, length, length)
         return
     end
     length = length/9
-    snowflake(length, level-1, 🐢)
-    Turn(🐢, -60)
-    snowflake(length, level-1, 🐢)
-    Turn(🐢, 2*60)
-    snowflake(length, level-1, 🐢)
-    Turn(🐢, -180/3)
-    snowflake(length, level-1, 🐢)
+    snowflake(length, level-1, ♘)
+    Turn(♘, -60)
+    snowflake(length, level-1, ♘)
+    Turn(♘, 2*60)
+    snowflake(length, level-1, ♘)
+    Turn(♘, -180/3)
+    snowflake(length, level-1, ♘)
 end
 @png begin
-    🐢 = Turtle()
-    Pencolor(🐢, 1.0, 0.4, 0.2)
-    Penup(🐢)
-    Turn(🐢,180)
-    Forward(🐢, 200)
-    Turn(🐢,180)
-    Pendown(🐢)
+    ♘ = Turtle()
+    Pencolor(♘, 1.0, 0.4, 0.2)
+    Penup(♘)
+    Turn(♘,180)
+    Forward(♘, 200)
+    Turn(♘,180)
+    Pendown(♘)
     levels = 10
-    snowflake(9^(levels), levels, 🐢, 1)
+    snowflake(9^(levels), levels, ♘, 1)
 end 800 800 "./snowFlat600.png"
 
 
@@ -658,32 +658,32 @@ end 800 800 "./snowFlat600.png"
 #------------------------------------------------------------
 
 
-function snowflake(length, level, 🐢, s)
+function snowflake(length, level, ♘, s)
     scale(s)
     if level == 0
-        Forward(🐢, length)
-#        Rectangle(🐢, length, length)
+        Forward(♘, length)
+#        Rectangle(♘, length, length)
         return
     end
     length = length/9
-    snowflake(length, level-1, 🐢)
-    Turn(🐢, -60)
-    snowflake(length, level-1, 🐢)
-    Turn(🐢, 2*60)
-    snowflake(length, level-1, 🐢)
-    Turn(🐢, -180/3)
-    snowflake(length, level-1, 🐢)
+    snowflake(length, level-1, ♘)
+    Turn(♘, -60)
+    snowflake(length, level-1, ♘)
+    Turn(♘, 2*60)
+    snowflake(length, level-1, ♘)
+    Turn(♘, -180/3)
+    snowflake(length, level-1, ♘)
 end
 @png begin
-    🐢 = Turtle()
-    Pencolor(🐢, 1.0, 0.4, 0.2)
-    Penup(🐢)
-    Turn(🐢,180)
-    Forward(🐢, 200)
-    Turn(🐢,180)
-    Pendown(🐢)
+    ♘ = Turtle()
+    Pencolor(♘, 1.0, 0.4, 0.2)
+    Penup(♘)
+    Turn(♘,180)
+    Forward(♘, 200)
+    Turn(♘,180)
+    Pendown(♘)
     levels = 10
-    snowflake(9^(levels), levels, 🐢, 1)
+    snowflake(9^(levels), levels, ♘, 1)
 end 800 800 "/tmp/snowFlat600.png"
 
 
@@ -691,27 +691,27 @@ end 800 800 "/tmp/snowFlat600.png"
 #--- Round Snowflake Working ---------------------------------
 #------------------------------------------------------------
 
-function snowflake(length, level, 🐢)
+function snowflake(length, level, ♘)
 if level == 0
-#    Forward(🐢, length)
-    Circle(🐢, 1)
+#    Forward(♘, length)
+    Circle(♘, 1)
     return
 end
 length = length/9
-snowflake(length, level-1, 🐢)
-Turn(🐢, -60)
-snowflake(length, level-1, 🐢)
-Turn(🐢, 2*60)
-snowflake(length, level-1, 🐢)
-Turn(🐢, -60)
-snowflake(length, level-1, 🐢)
+snowflake(length, level-1, ♘)
+Turn(♘, -60)
+snowflake(length, level-1, ♘)
+Turn(♘, 2*60)
+snowflake(length, level-1, ♘)
+Turn(♘, -60)
+snowflake(length, level-1, ♘)
 end
-🐢 = Turtle()
+♘ = Turtle()
 @svg begin
 for i in 1:3
     levels = 9
-    snowflake(8^(levels-1), levels, 🐢)
-    Turn(🐢, 120)
+    snowflake(8^(levels-1), levels, ♘)
+    Turn(♘, 120)
 end
 end 2000 2000 "/tmp/snowCurve.svg"
 
@@ -769,30 +769,30 @@ log(5)/log(3)
 #------------------------------------------------------------
 #--- Dragon -------------------------------------------------
 #------------------------------------------------------------
-function dragon(🐢, order, length)
+function dragon(♘, order, length)
     print(" ") # Don't remove this or code breaks, I don't know why?
-    Turn(🐢, order*45)
-    dragon_iterate(🐢, order, length, 1)
+    Turn(♘, order*45)
+    dragon_iterate(♘, order, length, 1)
 end
-function dragon_iterate(🐢, order, length, sign)
+function dragon_iterate(♘, order, length, sign)
     if order==0
-        Forward(🐢, length)
+        Forward(♘, length)
     else
         rootHalf = sqrt(0.5)
-        dragon_iterate(🐢, order -1, length*rootHalf, 1)
-        Turn(🐢, sign * -90)
-        dragon_iterate(🐢, order -1, length*rootHalf, -1)
+        dragon_iterate(♘, order -1, length*rootHalf, 1)
+        Turn(♘, sign * -90)
+        dragon_iterate(♘, order -1, length*rootHalf, -1)
     end
 end
 ;mkdir /tmp/dragon
 @png begin
-    🐢 = Turtle()
-    Turn(🐢, 180)
-    Penup(🐢)
-    Forward(🐢, 200)
-    Pendown(🐢)
-    Turn(🐢, 180)
-    dragon(🐢, 15, 400)
+    ♘ = Turtle()
+    Turn(♘, 180)
+    Penup(♘)
+    Forward(♘, 200)
+    Pendown(♘)
+    Turn(♘, 180)
+    dragon(♘, 15, 400)
 end 1000 1000
 
 using Images, TestImages, Colors, ImageMagick
@@ -822,7 +822,7 @@ end
 \end{listing}
 
 \subsubsection{Dragon Curve}
-\label{sec:orgc4c0ff2}
+\label{sec:orgd9c550d}
 
 \begin{figure}[htbp]
 \centering
@@ -833,7 +833,7 @@ end
 
 
 \subsubsection{Koch Snowflake}
-\label{sec:org7cac903}
+\label{sec:org71bf96f}
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=9cm]{../Problems/Chaos/Spirals/snowCurve.png}
@@ -841,7 +841,7 @@ end
 \end{figure}
 
 \subsection{Calculating the Dimension of Julia Set}
-\label{sec:orgbe76369}
+\label{sec:orgcc9ad0f}
 It converges too slowly
 The Julia set (discussed in section \ref{julia-set}) can be solved by \ldots{}
 
@@ -1157,7 +1157,7 @@ scale & mass\\
 
 \end{table}
 \subsubsection{Using Linear Regression}
-\label{sec:org8be9686}
+\label{sec:org8c06981}
 \begin{itemize}
 \item Avoiding \texttt{Abs} is twice as fast
 \item Column wise is faster in fortran/julia/R slower in C/Python
@@ -1166,7 +1166,7 @@ We have no evidence to show that the dimension will be stable, this is good for 
 to do that we use linear regression.
 \end{itemize}
 \paragraph{Performance}
-\label{sec:orgb8887e6}
+\label{sec:org54466dc}
 \begin{itemize}
 \item Switching from \texttt{abs()} to sqaured help
 \item Taking advantage of multi core processing in loops
@@ -1194,7 +1194,7 @@ Function & Mean Time\\
 
 \end{center}
 \subsection{My Fractal}
-\label{sec:orge4c8e75}
+\label{sec:org74a0102}
 My fractal really shows many unique patterns
 
 If it is scaled by \(\varphi\) then the boxes increase two fold.
@@ -1205,7 +1205,7 @@ We know the dimension will be constant because the figure is self similar, so we
 \mathrm{dim} (\mathtt{my\_fractal}) = \log_{\varphi}=\frac{\log \varphi}{\log 2}
 \]
 \subsubsection{Graphics}
-\label{sec:org44438d5}
+\label{sec:org6d56cc3}
 
 \begin{figure}[htbp]
 \centering
@@ -1250,11 +1250,11 @@ We know the dimension will be constant because the figure is self similar, so we
 \end{figure}
 
 \subsubsection{Discuss Pattern shows Fibonacci Numbers}
-\label{sec:orgdacc891}
+\label{sec:org1e51716}
 \paragraph{Angle Relates to Golden Ratio}
-\label{sec:orgeffcc4f}
+\label{sec:org8ed226f}
 \subsubsection{Prove Fibonacci using Monotone Convergence Theorem}
-\label{sec:orgf3d3316}
+\label{sec:orgc97590b}
 Consider the series:
 
 $$\begin{aligned}
@@ -1269,7 +1269,7 @@ F_n = F_{n- 1} +  F_{n- 2} ; \quad F_1 = F_2 = 1
 
 
 \paragraph{Show that the Series is Monotone}
-\label{sec:orgb5cdc71}
+\label{sec:org445d4b3}
 $$\begin{aligned}
 F_{n} &> 0 \\
 0 &< F_{n} \\
@@ -1289,9 +1289,9 @@ F_{n} &> 0 \\
 
 
 \paragraph{Show that the Series is Bounded}
-\label{sec:org7870c0b}
+\label{sec:org60f0385}
 \paragraph{Find the Limit}
-\label{sec:org42ff16c}
+\label{sec:orgc7bd5d6}
 $$\begin{aligned}
 G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 &= 1 +  \frac{F_{n- 1} }{F_n} \\
@@ -1303,7 +1303,7 @@ G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 
 
 \paragraph{Comments}
-\label{sec:org1973c99}
+\label{sec:org3187462}
 
 The Fibonacci sequence is quite unique, observe that:
 
@@ -1334,7 +1334,7 @@ $$\begin{aligned}
 \frac{\psi}{\varphi}  = \frac{1}{\varphi^2} = \frac{1}{1-\varphi} &= \frac{1}{2-\varphi} = \frac{2}{3 - \sqrt{5}  }
 \end{aligned}$$
 \paragraph{Python}
-\label{sec:org4881e52}
+\label{sec:orgc8ee7b9}
 
 \begin{minted}[]{python}
 #+begin_src python
@@ -1349,14 +1349,14 @@ plt.savefig("./a.png")
 \end{center}
 
 \subsubsection{Angle is \(\tan^{-1}\left( \frac{1}{1-\varphi}\right)\)}
-\label{sec:org3175130}
+\label{sec:orgaba5566}
 \paragraph{Similar to Golden Angle \(2 \pi \left( \frac{1}{1-\varphi}\right)\)}
-\label{sec:orge5e1a6c}
+\label{sec:org66381db}
 \subsubsection{Dimension of my Fractal}
-\label{sec:org7ae7e52}
+\label{sec:org42df2a0}
 \(\log_{\varphi}(2)\)
 \subsubsection{Code should be split up or put into appendix}
-\label{sec:org7b3b620}
+\label{sec:orgd9f2e99}
 \begin{minted}[]{julia}
 function matJoin(A, B)
     function nrow(X)
@@ -1490,14 +1490,14 @@ The julia set is the outline.
 
 The mandelbrot has to do with whether or not it's connected.
 \subsection{The math behind it}
-\label{sec:org2f5eb45}
+\label{sec:orgb138a52}
 \subsubsection{Like Escaping after 2}
-\label{sec:orgfe81af3}
+\label{sec:orge244af2}
 I cannot figure this out, I need more time, look around Ch. 12 of falconer \cite{falconerFractalGeometryMathematical2003}
 \section{Fibonacci Sequence}
-\label{sec:org2a2b93f}
+\label{sec:orga3c65dc}
 \subsection{Introduction}
-\label{sec:org422a580}
+\label{sec:org6b74b49}
 The \emph{Fibonacci Sequence} and \emph{Golden Ratio} share a deep connection\footnote{See section} and occur in patterns observed in nature very frequently
 (see
 \cite{shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016}), an example of such an occurence is discussed in section \ref{sunflower-example}.
@@ -1794,7 +1794,7 @@ where:
 \subsubsection{Derivative of the Exponential Generating Function}
 \label{Derivative-exp-gen-function}
 \paragraph{Base}
-\label{sec:orge9ef627}
+\label{sec:org5bf5cb9}
 Differentiating the exponential generating function has the effect of shifting the sequence to the backward: \cite{lehmanReadingsMathematicsComputer2010}
 
 \begin{align}
@@ -1807,7 +1807,7 @@ f'\left( x \right)) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 
 \end{align}
 
 \paragraph{Bridge}
-\label{sec:org9a6f2b6}
+\label{sec:org74e4f16}
 This can be shown for all derivatives by way of induction, for
 
 \begin{align}
@@ -1836,7 +1836,7 @@ first derivative has been shown to express this property
 \eqref{eq:exp-pow-series-sol}, all derivates will.
 
 \subsubsection{Homogeneous Proof}
-\label{sec:org7e880ea}
+\label{sec:org0f8842a}
 An equation of the form:
 
 \begin{align}
@@ -1878,10 +1878,10 @@ where:
 \paragraph{Unique Roots of Characteristic Equation}
 \label{uniq-roots-recurrence}
 \subparagraph{Example}
-\label{sec:orge6958e0}
+\label{sec:org8dc70d8}
 An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section \ref{solving-the-sequence}.
 \subparagraph{Proof}
-\label{sec:org27f90ea}
+\label{sec:org17ed32b}
 Consider the linear recurrence relation \eqref{eq:recurrence-relation-def}:
 
 \begin{align}
@@ -1940,7 +1940,7 @@ This can be verified by the fibonacci sequence as shown in section \ref{solving-
 \paragraph{Repeated Roots of Characteristic Equation}
 \label{rep-roots-recurrence}
 \subparagraph{Example}
-\label{sec:org402e912}
+\label{sec:org3f64d00}
 Consider the following recurrence relation:
 
 \begin{align}
@@ -1992,7 +1992,7 @@ Given the defenition of the exponential generating function from \eqref{eq:exp-g
     \square \nonumber
 \end{align}
 \subparagraph{Proof}
-\label{sec:org1d41583}
+\label{sec:org05ccfa8}
 In order to prove the the solution for a \(k^{\mathrm{th}}\) order recurrence relation with \(k\) repeated
 
 
@@ -2065,7 +2065,7 @@ Sketching out an approach for this:
 In this section a proof for identity \ref{eq:power-series-comb} is provided.
 \begin{enumerate}
 \item Motivation
-\label{sec:orgd0dc0db}
+\label{sec:org6e81e08}
 
 Consider the function \(f(x) = xe^x\). Using the taylor series formula we get the following:
 
@@ -2170,14 +2170,14 @@ The bottom right spiral in figure \ref{simulate-sunflower-image} has a ratio of 
 ψ = φ^-1
 ψ = 0.61803398875
 function sfSeeds(ratio)
-🐢 = Turtle()
+♘ = Turtle()
     for θ in [(ratio*2*π)*i for i in 1:3000]
         gsave()
         scale(0.05)
         rotate(θ)
-#        Pencolor(🐢, rand(1)[1], rand(1)[1], rand(1)[1])
-        Forward(🐢, 1)
-        Rectangle(🐢, 50, 50)
+#        Pencolor(♘, rand(1)[1], rand(1)[1], rand(1)[1])
+        Forward(♘, 1)
+        Rectangle(♘, 50, 50)
         grestore()
     end
     label = string("Ratio = ", round(ratio, digits = 8))
@@ -2210,14 +2210,14 @@ end 600 600
 \end{figure}
 
 \section{Julia Sets}
-\label{sec:orgffe55af}
+\label{sec:orgb27815f}
 
 There is a relatioship between the fibonacicci sequence, modelling population growth and the mandelbrot curve, I would like to use that to tie some of the discussion together, see \href{https://youtu.be/ovJcsL7vyrk}{this video from Veritasium to get an idea of what i mean}.
 \subsection{Introduction}
-\label{sec:org886c2f7}
+\label{sec:org0fd724a}
 Julia sets are a very interesting fractal and we hope to investigate them further in this project.
 \subsection{Motivation}
-\label{sec:orgbbd4ba4}
+\label{sec:orgdfe4d74}
 Consider the iterative process \(x \rightarrow x^{2}, \enspace x \in \mathbb{R}\),
 for values of \(x>1\) this process will diverge and for \(x<1\) it will converge.
 
@@ -2253,7 +2253,7 @@ Every value on that plane will belong to one of the two following sets
 In the case of \(f_{0}(z) = z^{2}\) all values \(\left\lvert z  \right \rvert \leq 1\) are bounded with \(\left\lvert z  \right \rvert = 1\) being an unstable stationary circle, but let's investigate what happens for different iterative functions like \(f_{1}(z) = z^{2} - 1\), despite how trivial this seems at first glance.
 
 \subsection{Plotting the Sets}
-\label{sec:orgad68a79}
+\label{sec:org4be017a}
 Although the convergence of values may appear simple at first, we'll implement a
 strategy to plot the prisoner and escape sets on the complex plane.
 
@@ -2503,7 +2503,7 @@ ffmpeg                    \
 \url{\_20200826\_005334a.png}
 
 \section{MandelBrot}
-\label{sec:orgc76eae3}
+\label{sec:org0940588}
 Investigating these fractals, a natural question might be whether or not any
 given \(c\) value will produce a fractal that is an open disc or a closed disc.
 
@@ -2638,12 +2638,12 @@ save_picture("/tmp/a.fits", my_pic)
 \label{appendix}
 So unless code contributes directly to the discussion we'll put it in the appendix.
 \subsection{Finding Material}
-\label{sec:org1e116f8}
+\label{sec:org87c92f0}
 \begin{minted}[]{bash}
 recoll -c /home/ryan/Dropbox/Books/Textbooks/Mathematics/Chaos_Theory/chaos_books_recoll & disown
 \end{minted}
 \subsection{Font Lock}
-\label{sec:org7b823ea}
+\label{sec:org360824d}
 \begin{minted}[]{elisp}
 ;; match:
 ;;; \scite:key\s
@@ -2660,7 +2660,7 @@ recoll -c /home/ryan/Dropbox/Books/Textbooks/Mathematics/Chaos_Theory/chaos_book
 \end{minted}
 
 \subsection{Section attribution}
-\label{sec:org2565673}
+\label{sec:org0bdc468}
 \begin{verbatim}
 Section Attribution
 ─────────────────
