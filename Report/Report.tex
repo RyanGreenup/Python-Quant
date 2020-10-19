@@ -1,4 +1,4 @@
-% Created 2020-09-28 Mon 14:03
+% Created 2020-10-14 Wed 09:53
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -38,16 +38,16 @@
 \tableofcontents
 
 \section{Report}
-\label{sec:org52bcd7c}
+\label{sec:org949a6e4}
 \subsection{Hausdorff Dimension\hfill{}\textsc{Ryan}}
 \label{Hausdorff-dimension}
 \subsubsection{Topological Equivalence}
 \label{topological-equivalence}
-Sources for this section on topology are primarily. 
+Sources for this section on topology are primarily. \cite[p. 106]{peitgenChaosFractalsNew2004}
 
-Topology is an area of mathematics concerned with ideas of continuity through the study of figures that are preserved under homeomorphic transformations. cite:gilmoreTopologyChaosAlice200
+Topology is an area of mathematics concerned with ideas of continuity through the study of figures that are preserved under homeomorphic transformations. \cite{gilmoreTopologyChaosAlice2002}
 
-Two figures are said to be homeomorphic if there is a continuous bijective mapping between the two shapes .
+Two figures are said to be homeomorphic if there is a continuous bijective mapping between the two shapes \cite[p. 105]{peitgenChaosFractalsNew2004}.
 
 So for example deforming a cube into a sphere would be homeomorphic, but deforming a sphere into a torus would not, because the the surface of the shape would have to be compromised to acheive that.
 
@@ -83,7 +83,7 @@ The koch snowflake, is defined such that there are no edges, every point on the 
 Briggs and Tyree provide a great introduction.
 
 the scale of resolution increases 3 fold
-THIS IS NOT CORRECT, I MUST SHOW THAT THE DIMENSION IS \(\frac{ln(4)}{\ln(3)}\) BUT I'M SIMPLY OUT OF TIME.
+
 \begin{align}
 s \cdot p_{n} &=  (4/3)^{n} \cdot s \cdot P_{0}\\
 & \propto \left(\frac{4}{3}\right)^{n} \\
@@ -91,11 +91,11 @@ s \cdot p_{n} &=  (4/3)^{n} \cdot s \cdot P_{0}\\
 \end{align}
 In ordinary geometric shapes this value \(n\) will be the dimension of the shape,
 
-See for working.
+See \cite[p. 414]{strogatzNonlinearDynamicsChaos2015} for working.
 
 The idea is we start with the similarity dimension
-which should be equal to the
-hausdorff and box counting for most fractals, but for fractals that aren't so obviously self similar it won't be feasible but for the julia set we'll need
+\cite[p. 413]{strogatzNonlinearDynamicsChaos2015} which should be equal to the
+hausdorff and box counting for most fractals, but for fractals that aren't so obviously self similar it won't be feasible \cite[p. 393]{liIntegrationFuzzyLogic2006}  but for the julia set we'll need
 to expand the concept to box counting, we don't know whether or not the
 dimension of the julia set is constant across scales so we use linear regression
 to check, this is more important for things like coastlines.
@@ -130,8 +130,8 @@ In the case of the koch snowflake, the measure of the shape, when scaled, will i
 
 In the development of topology
 \subsubsection{Hausdorff Dimension}
-\label{sec:orgf59a27c}
-Sources for this section on Hausdorff Dimension are primarily 
+\label{sec:orgef0db3e}
+Sources for this section on Hausdorff Dimension are primarily \cite[Ch. 2]{falconerFractalGeometryMathematical2003}
 \paragraph{Measure}
 \label{hausdorff-measure}
 Let \(F\) be some arbitrary subset of euclidean space \(\mathbb{R}^n\), \footnote{A subset of euclidean space could be interpreted as an uncountable set containing all points describing that region TODO Cite}
@@ -161,13 +161,13 @@ a collection of identical squares, OR
 \item \(F\) could be the surface of a sheet and \(U_{i}\) could be a set of spherical balls
 
 \begin{itemize}
-\item The use of balls is a simpler but equivalent approach to the theory because any set of diamater \(r\) can be enclosed in a ball of radius \(\frac{r}{2}\)
+\item The use of balls is a simpler but equivalent approach to the theory \cite[\textsection 2.4 ]{falconerFractalGeometryMathematical2003b} because any set of diamater \(r\) can be enclosed in a ball of radius \(\frac{r}{2}\) \cite[p. 166]{edgarMeasureTopologyFractal2008}
 \end{itemize}
 
 \item \(F\) could be a more abstracted figure like figures \ref{hausdorff-covering} or \ref{abstract-shape}  and \(\{U_{i}\}\) a collection of various different lines, shapes or 3d objects.
 \end{itemize}
 
-The Hausdorff measure is concenred with only the diamater of each element of \(\{U_{i}\}\) and considers \(\sum^{\infty}_{i=1} \left[\left\lvert U_{i}\right\rvert^{s}\right]\) where the covering of \(U_{i}\) minimizes the summation.  
+The Hausdorff measure is concenred with only the diamater of each element of \(\{U_{i}\}\) and considers \(\sum^{\infty}_{i=1} \left[\left\lvert U_{i}\right\rvert^{s}\right]\) where the covering of \(U_{i}\) minimizes the summation.  \cite[p. 27]{falconerFractalGeometryMathematical2003b}
 
 \begin{align}
 \mathcal{H}^s_{\delta}\left( F \right)= \inf \left\{ \sum^{\infty}_{i= 1}   \left\lvert U_i \right\rvert^s \enspace : \enspace  \left\{U_i\right\} \text{ is a } \delta \text{-cover of } F \right\}, \quad \delta, s > 0 \label{eq:delta-measure}
@@ -202,11 +202,11 @@ This is defined for all subsets of \(\mathbb{R}^n\) for example the value of  \(
 \end{figure}
 
 \subparagraph{Lower Dimension Hausdorff Measurements}
-\label{sec:org89cc47c}
+\label{sec:orgf9c000e}
 \begin{enumerate}
 \item Examples
-\label{sec:orga7f41f3}
-Consider again the example of a 2D shape, the value of \(\mathcal{H}^{1}\) would still be defined by eqref:eq:delta-measure, but unlike \(\mathcal{H}^{2}\) in section \ref{hausdorff-measure} the value of \(\left\lvert U_i \right\rvert^1\) would be considered as opposed to \(\left\lvert U_i \right\rvert^2\).
+\label{sec:org290bdf8}
+Consider again the example of a 2D shape, the value of \(\mathcal{H}^{1}\) would still be defined by \eqref{eq:delta-measure}, but unlike \(\mathcal{H}^{2}\) in section \ref{hausdorff-measure} the value of \(\left\lvert U_i \right\rvert^1\) would be considered as opposed to \(\left\lvert U_i \right\rvert^2\).
 
 As \(\delta\) is made arbitrarily small the boxes that cover the shape are made also to be arbitrarily small. Although the area of the boxes must clearly be bounded by the shape of \(F\), if one imagines an infinite number of infinitely dense lines packing into a 2D shape with an infinite density it can be seen that the total length of those lines will be infinite.
 
@@ -215,7 +215,7 @@ To build on that same analogy, another way to imagine this is to pack a 2D shape
 This is consistent with shapes of other shapes as well, consider the koch snowflake introduced in section \ref{topological-equivalence} and shown in figure \ref{koch-line}, the dimension of this shape is greater than 1, and the number of lines necessary to describe that shape is also infinite.
 
 \item Formally
-\label{sec:orgd80f6e4}
+\label{sec:org2dc54ce}
 If the dimension of \(F\) is less than \(s\), the Hausdorff Measure will be given by: \footnote{I haven't been able to find a proof for this, I wonder if I could prove it by just applying the definition?}
 
 \begin{align}
@@ -224,7 +224,7 @@ If the dimension of \(F\) is less than \(s\), the Hausdorff Measure will be give
 \end{enumerate}
 
 \subparagraph{Higher Dimension Hausdorff Dimension}
-\label{sec:org4c9a7e8}
+\label{sec:org9fc24ac}
 For small values of \(s\) (i.e. less than the dimension of  \(F\)), the value of \(\mathcal{H}^s\)  will be \(\infty\).
 
 Consider some value \(s\) such that the Hausdorff measure is not infinite, i.e. values of \(s\): \footnote{Could fractal dimensions be complex? Maybe there could be a proof to show that the dimension is necessarily complex.}
@@ -266,59 +266,64 @@ Hence the value of the s-dimensional \emph{Hausdorff Measure}, \(s\) is only a f
 \end{figure}
 
 \paragraph{Hausdorff Dimension}
-\label{sec:orgebf68e6}
+\label{sec:orgebac617}
 
-The value \(s\) at which \(\mathcal{H}^{s}\) changes from \(\infty\) to 0, shown in figure \ref{hausdorff-vals}  and eqref:eq:hdfzero is the definition of the \emph{Hausdorff Measure}, it is a generalisation of the idea of dimension that is typically understood with respect to ordinary shapes and 3D figures.
+The value \(s\) at which \(\mathcal{H}^{s}\) changes from \(\infty\) to 0, shown in figure \ref{hausdorff-vals}  and \eqref{eq:hdfzero} is the definition of the \emph{Hausdorff Measure}, it is a generalisation of the idea of dimension that is typically understood with respect to ordinary shapes and 3D figures.
 \paragraph{Research}
-\label{sec:orga6895a8}
-I feel very inclided to read \href{https://warwick.ac.uk/fac/sci/maths/people/staff/mark\_pollicott/p3/tehran.pdf}{these notes} \footnote{\href{file:///Users/student/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resources/Uncorrected-Warwick-BoxCount-Hausendorff-Notes.pdf}{Local Copy}}
+\label{sec:org42866b7}
+I feel very inclided to read \href{https://warwick.ac.uk/fac/sci/maths/people/staff/mark\_pollicott/p3/tehran.pdf}{these notes} \footnote{\href{file:///home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resources/Uncorrected-Warwick-BoxCount-Hausendorff-Notes.pdf}{Local Copy}}
 
-\subsection{Box Counting}
-\label{sec:orgbe5af8e}
+\subsection{Box Counting\hfill{}\textsc{Ryan}}
+\label{sec:org640cea4}
 Sources for this section are primarily:
 \begin{itemize}
-\item Falconer
-\item Strogatz Non Linear Dynamics
+\item Falconer \cite[Ch. 3.1]{falconerFractalGeometryMathematical2003b}
+\item Strogatz Non Linear Dynamics \cite[Ch. 11.4]{strogatzNonlinearDynamicsChaos2015}
 
-\item There are many different notions of dimension, atleast 10 
+\item There are many different notions of dimension, atleast 10 \cite[Ch. 4.3]{edgarMeasureTopologyFractal2008}
 \begin{itemize}
-\item \emph{Hausdorff Dimension} is the oldest and most important with respect to the dimensions of fractals
+\item \emph{Hausdorff Dimension} is the oldest and most important with respect to the dimensions of fractals \cite[p. 27]{falconerFractalGeometryMathematical2003b}
 \end{itemize}
 \item The Box dimension has only boxes of fixed sizes, unlike the \emph{Hausdorff
 Dimensions} where in the boxes may be arbitrary sizes less than \(\delta\) but
-it is significantly hader to calculate numerically
+it is significantly hader to calculate numerically \cite[\textsection 11.4]{strogatzNonlinearDynamicsChaos2015}
 \item The problem with the \emph{Hausdorff Dimension}, discussed in \textsection \ref{Hausdorff-dimension}, is that it is quite involved to solve, many shapes such as the koch snowflake haven't even h
 \begin{itemize}
-\item Upper and lower bounds for the \emph{Hausdorff Measurement/} haven't even been solved for many fractals, including the Koch Snowflake (shown in figure \ref{koch-snowflake} ). cite:zhuLowerBoundHausdorffMeasure2003
+\item Upper and lower bounds for the \emph{Hausdorff Measurement/} haven't even been solved for many fractals, including the Koch Snowflake (shown in figure \ref{koch-snowflake} ). \cite{zhuLowerBoundHausdorffMeasure2003}
 \end{itemize}
 \end{itemize}
 
-The box counting method is widely used because it is relatively easy to calculate and in many cases is equal to the \emph{Hausdorff Dimension}  (see generally cite:ListFractalsHausdorff2020).
+The box counting method is widely used because it is relatively easy to calculate \cite[p. 41]{falconerFractalGeometryMathematical2003b} and in many cases is equal to the \emph{Hausdorff Dimension}  \cite[p. 11]{markpollicottFractalsDimensionTheory2005} (see generally \cite{ListFractalsHausdorff2020}).
 
 \begin{quote}
 \begin{itemize}
 \item TODO:
 \begin{itemize}
-\item While quite simply this is the number of boxes that scale, we need to more rigorously define it, much like Ch. 3.1 of Falconer cite:falconerFractalGeometryMathematical2003
-\item We also need to contrast this with the similarity dimension discussed in p. 413 of Strogatz cite:strogatzNonlinearDynamicsChaos2015
-\item A contrast should be drawn between this and Hausdorff, the most obvious difference being that the boxes are of a fixed size, unlike \emph{Hausdorff}  see p. 418 of Strogatz cite:strogatzNonlinearDynamicsChaos2015
+\item While quite simply this is the number of boxes that scale, we need to more rigorously define it, much like Ch. 3.1 of Falconer \cite{falconerFractalGeometryMathematical2003}
+\item We also need to contrast this with the similarity dimension discussed in p. 413 of Strogatz \cite{strogatzNonlinearDynamicsChaos2015}
+\item A contrast should be drawn between this and Hausdorff, the most obvious difference being that the boxes are of a fixed size, unlike \emph{Hausdorff}  see p. 418 of Strogatz \cite{strogatzNonlinearDynamicsChaos2015}
 \end{itemize}
 \end{itemize}
 \end{quote}
 \subsection{Fractals Generally\hfill{}\textsc{James}}
-\label{sec:orgce29c4e}
+\label{sec:orgc2eea96}
 While there is no formal definition for the term fractal at this stage, we may decsribe it through the following properties:
 \begin{itemize}
-\item Can be, but not subject to being self-similar in nature.
+\item Can be, but not subject to being self-similar \footnote{A self-similar shape is one that replicates its shape at every scale.}. On the contrary fractals can also be shapes like coastlines (which are not self-simialr)
 \item The dimension of the fractal is the same at every scale.
 \end{itemize}
-\subsection{Generating Self Similar Fractals}
-\label{sec:org6cf606d}
+
+Dimension is the main defining property of a fractal. As aforementioned above, the Hausdorff dimension is a unique number in that, if we take some shape in \(\mathbb{R}^{n}\), and the Hausdorff dimension converges to some number, then the dimension of the shape is given by that number. Otherwise, it will equal \(0\) or \(\infty\). For example, if we want to evaluate the dimension of a square and we use a 1-Dimensional shape as the cover set to calculate the Hausdorff dimension, we will get \(\infty\). On the other hand, if we do the same with a 3-Dimensional shape, we will get 0. And finally if we use a 2-Dimensional shape, the Hausdorff dimension will evaluate to 2. This same notion is important when computing the dimension of a more complex shape such as the Koch snowflake.
+
+To define a fractal, we must define it's dimension. Whilst some research states that a fractal has a non-integer dimension, this is not true for all fractals. Although, most fractals like the Koch snowflake do in fact have non-integer dimensions, we can easily find a counter example namely, the Mandelbrot set. The Mandelbrot set lies in the same dimension as a square, a 2-Dimensional shape. However, we give recognition to the complexity and roughness of the Mandelbrot set which clearly distiguishes itself from a square. Beneath the Mandelbrot set's complexity are exact replicates of the largest scaled Mandelbrot set, i.e a self similar shape. Furthermore, although the Mandelbrot set has an integer dimension, the self similarity and complexity is what also defines its fractal nature. 
+
+\subsection{Generating Self Similar Fractals\hfill{}\textsc{Ryan}}
+\label{sec:orgcb3851f}
 \paragraph{Examples}
-\label{sec:org0b6d9dc}
+\label{sec:orgd590718}
 \subparagraph{Vicsek Fractal}
-\label{sec:orgf17c959}
-because this is self similar we can use it to test our box counting method \footnote{because it is self similar we know that the dimension will be constant, hence there is no need for linear regression which would be necessary to check that it is constant, well, atleast for something somewhat finite like a coastline, the julia set is infinite so how appropriate that approach is well 🤷}
+\label{sec:org78903fa}
+The Vicsek Fracatl is self similar, thus we can use it to test our box counting method \footnote{Since the Vicsek fractal is self similar, we know that the dimension will be constant, as opposed to a dimension that slightly varies, hence there is no need for linear regression which would be necessary to measure someting like a coastline.}.
 The Vicsek Fractal involves a pattern of iterating boxes:
 
 \begin{listing}[htbp]
@@ -380,41 +385,42 @@ log(5)/log(3)
 \end{figure}
 
 
-\begin{enumerate}
-\item Mention that this is the Similarity Dimension
-\label{sec:org0eabbb6}
-\item Show why it is log(5)/log(3)
-\label{sec:org26d1975}
-\end{enumerate}
+The above program demonsrates the construction of the Vicsek Fractal and its self-similarity dimension. To do this, we define a recursive function that begins with a 3x3 matrix, where the four corner squares and middle square are set to 1 and the rest is set to 0. The function repeats until it reaches some arbitrary set width. Each time the function iterates, 5 more squares are created, increasing by a factor of 3. We can use this information to calculate the dimension of the Vicsek fractal.
+Using the box counting method, we get:
+\begin{align*}
+5 &= 3^D\\
+D\ln{3} &= \ln{5}\\
+D &= \frac{\ln{5}}{\ln{3}}
+\end{align*}
 \subparagraph{Sierpinskis Carpet}
-\label{sec:org6dd847b}
+\label{sec:org3c962a8}
 
-Explained more in the book \footnote{See Ch. 2.7 of 
+Explained more in the book \footnote{See Ch. 2.7 of \cite[Ch. 2.7]{peitgenChaosFractalsNew2004}
 
 By modifying listing we can get patterns like the cantor dust and sierpinskis carpet shown in figures and .
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=9cm]{./media/sierpinsky_carpet.png}
-\caption{\label{square-carpet}TODO: I actually made this by mistake}
+\caption{\label{square-carpet}Sierpinksi's Carpet}
 \end{figure}}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=9cm]{media/Cantor_Dust_gen.png}
-\caption{\label{cantor-dust}TODO}
+\caption{\label{cantor-dust}Cantor Dust}
 \end{figure}
 
 \subparagraph{Triangle}
-\label{sec:org2c56dac}
+\label{sec:org754f846}
 Producing the triangle was more difficult
 \begin{enumerate}
 \item Chaos Game
-\label{sec:org6762fef}
+\label{sec:orga845066}
 This would be more accurate than pascals because there would be know \textbf{bias} and the model would be more accurate    :
 
+\begin{listing}[htbp]
 \begin{minted}[]{r}
-
 if (require("pacman")) {
     library(pacman)
   }else{
@@ -456,6 +462,8 @@ ggplot(df, aes(x = xval, y = yval)) +
     theme_classic()
 
 \end{minted}
+\caption{R code to construct Sierpinksi's triangle through the Choas Game concept.}
+\end{listing}
 
 
 \begin{center}
@@ -463,7 +471,7 @@ ggplot(df, aes(x = xval, y = yval)) +
 \end{center}
 
 \item Pascals Triange
-\label{sec:org6039c92}
+\label{sec:org95ddc78}
 
 \begin{listing}[htbp]
 \begin{minted}[]{julia}
@@ -490,7 +498,7 @@ log(3)/log(2)
 
 
 \end{minted}
-\caption{\label{pascal-triangle-sierpinski}TODO}
+\caption{\label{pascal-triangle-sierpinski}Julia code demonstrating Sierpinksi's triangle}
 \end{listing}
 
 \begin{figure}[htbp]
@@ -500,24 +508,86 @@ log(3)/log(2)
 \end{figure}
 
 \begin{enumerate}
-\item Explain the math (lot's of math here!)
-\label{sec:org9fbabc8}
-There is lots of math in this section, we need to show:
+\item Motivation
+\label{sec:org892ff40}
+Over many centuries, mathematicians have been able to produce a range of patterns from Pascal's triangle. One of which is relevant to the emergence of Sierpinski's triangle. To construct Pascal's triangle it begins with a 1 in the \(0^{th}\) (top) row, then each row underneath is made up of the sum of the numbers directly above it, see figure \ref{fig:pascal-triangle}. Alternatively, the \(n^{th}\) row and \(k^{th}\) column can be written in combinatorics form, \(\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}\).
 
-\begin{itemize}
-\item[{$\square$}] why we get this pattern from pascals triangle.
-\item[{$\square$}] Is there any relationship to combinatorics?
-\end{itemize}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.9\linewidth]{media/tikz/pascals-triangle.png}
+\caption{\label{fig:pascal-triangle}Pascal's triangle}
+\end{figure}
+
+\item The connection
+\label{sec:org5723941}
+As mentioned before there is one pattern that produces the Sierpinski triangle, namely highlighting all odd numbers in Pascal's triangle. This is equivalent to considering all the numbers in the triangle modulo 2, shown in figure \ref{fig:pascal-sierpinski-tri}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=9cm]{media/tikz/pascal-sierpinski-tri.png}
+\label{fig:pascal-sierpinski-tri}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=9cm]{media/tikz/row-column-pascal.png}
+\caption{\label{fig:row-column-pascal}The black squares represent one example of a position on Pascal's triangle that are equivalent modulo 2}
+\end{figure}
+
+In figure \ref{fig:pascal-sierpinski-tri}, we can observe that all the highlighted odd numbers begin to form the Sierpinski triangle. Note that this is not the complete Sierpinski's triangle, that would require an infinite number of iterations. Now, we also notice that there are three identical Sierpinski triangles within the larger triangle, each containing the same value modulo 2, at each corresponding row and column.
+
+To prove this, we need to split the triangle into two parts, \(P_{n}\) denoting the first \(2^{n}\) rows, i.e. the top ``Sierpinski triangle'' in figure \ref{fig:pascal-sierpinski-tri} and \(P_{n+1}\) representing the entire triangle. We must show that any chosen square in \(P_{n}\) is equal to the corresponding row and column in the lower two triangles of \(P_{n+1}\), shown in figure \ref{fig:row-column-pascal}. This requires an identity that allows us to work with combinations in modulo 2, namely Lucas' Theorem.
+
+\textbf{Lucas' Theorem}
+Let \(n,k \ge 0\) and for some prime \(p\), we get:
+\begin{equation}
+\binom{n}{k} = \prod_{i=0}^{m} \binom{n_i}{k_i} \quad (\text{mod}~p)
+\end{equation}
+where,
+\begin{align*}
+n &= n_{m}p^{m}+n_{m-1}p^{m-1}+\cdots + n_{1}p+n_{0},\\
+k &= k_{m}p^{m}+k_{m-1}p^{m-1}+\cdots + k_{1}p+k_{0}\\
+\end{align*}
+are the expansions in radix \(p\) \footnote{Radix refers to a numerical system which uses some number of digits. Since we are working in modulo 2 for Pascal's triangle, we are only concerned with the numbers \(0\) or \(1\), i.e. a radix 2 or a binary numeric system.}. This uses the convention that \(\binom{n}{k} = 0\) if \(k < n\)
+
+Take some arbitrary row \(r\) and column \(c\) in the triangle \(P_{n}\). If we add \(2^{n}\) rows to \(r\), we will reach the equivalent row and column in the lower left triangle of \(P_{n+1}\), since there are \(2^{n}\) rows in \(P_{n}\). In the same way, if we add \(2^{n}\) columns to \(c\) we reach the equivalent row and column in the lower right triangle of \(P_{n+1}\), leaving us with:
+
+\begin{align*}
+\text{Top Triangle:} \quad &\binom{r}{c} \label{eq:top} \\
+\text{Bottom-left Triangle:}\quad &\binom{r + 2^n}{c} \label{eq:bottom-left} \\
+\text{Bottom-right Triangle :}\quad &\binom{r + 2^n}{c + 2^n} \label{eq:bottom-right}
+\end{align*}
+
+Using Lucas' theorem, we can prove that the above statments are equivalent.
+
+We can rewrite \(r\) and \(c\) in base 2 notation as follows:
+\begin{align*}
+r=r_{i}2^{i}+r_{i-1}2^{i-1}+\cdots + r_{1}2+r_{0}= \left[r_{i}r_{i-1}\cdots r_{1}r_{0}\right]_2\\
+c=c_{i}2^{i}+c_{i-1}2^{i-1}+\cdots +c_{1}2+c_{0}=\left[c_{i}c_{i-1}\cdots c_{1}c_{0}\right]_2\\
+\end{align*}
+
+\begin{align*}
+\binom{2^n + r}{c}~(\text{mod}~2) &= \binom{1r_{i-1}r_{i-2} \cdots r_{0}}{0c_{i-1}c_{i-2} \cdots c_{0}} \quad (\text{mod} 2)\\
+&= \binom{1}{0}\binom{r_{i-1}}{c_{i-1}}\binom{r_{i-2}}{c_{i-2}} \cdots \binom{r_0}{c_0} \quad (\text{mod} 2)\\
+&=\binom{r_{i-1}}{c_{i-1}}\binom{r_{i-2}}{c_{i-2}} \cdots \binom{r_0}{c_0} \quad (\text{mod} 2)\\
+&= \binom{r}{c} \quad (\text{mod} 2)
+\end{align*}
+
+\begin{align*}
+\binom{2^n + r}{2^n + c}~(\text{mod}~2) &= \binom{1r_{i-1}r_{i-2} \cdots r_{0}}{1c_{i-1}c_{i-2} \cdots c_{0}} \quad (\text{mod} 2)\\
+&= \binom{1}{1}\binom{r_{i-1}}{c_{i-1}}\binom{r_{i-2}}{c_{i-2}} \cdots \binom{r_0}{c_0} \quad (\text{mod} 2)\\
+&=\binom{r_{i-1}}{c_{i-1}}\binom{r_{i-2}}{c_{i-2}} \cdots \binom{r_0}{c_0} \quad (\text{mod} 2)\\
+&= \binom{r}{c} \quad (\text{mod} 2)
+\end{align*}
+
+Thus, \(\binom{r}{c} = \binom{2^n + r}{c} = \binom{2^n + r}{2^n + c} \quad (\text{mod} 2)\), which concludes the proof
 
 \item Comment on the dimension lining up
-\label{sec:orgd605173}
-\begin{enumerate}
-\item Calculate what the dimension should be
-\label{sec:orgd541349}
-\end{enumerate}
+\label{sec:org6b17472}
+Using the box-counting method, we can evaluate the dimension of Sierpinski's triangle.
 \item FIx the value
-\label{sec:orge9a0b4a}
-This value is not correct \footnote{It work work before I thought}, Investigate \url{../Problems/fractal-dimensions/Sierpinsky-triangle-pascal.jl}
+\label{sec:orga376097}
+
 \begin{verbatim}
 
 julia> log(l2/l1)/log(size2/size1)
@@ -526,13 +596,14 @@ julia> log(l2/l1)/log(size2/size1)
 julia> # https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle
        log(3)/log(2)
 1.5849625007211563
+
 \end{verbatim}
 \end{enumerate}
 \end{enumerate}
 
 \subsection{Fractal Dimensions\hfill{}\textsc{Ryan}}
-\label{sec:org1013414}
-See generally 
+\label{sec:org868da78}
+See generally \cite[Ch. 11]{strogatzNonlinearDynamicsChaos2015}
 Three ways to generate
 
 \begin{enumerate}
@@ -545,7 +616,7 @@ Three ways to generate
 \end{enumerate}
 
 \subsubsection{Turtle}
-\label{sec:orgee5c9b2}
+\label{sec:org9c96f9e}
 Matrices can't explain all patterns, Turtles are useful
 \begin{listing}[htbp]
 \begin{minted}[]{julia}
@@ -759,7 +830,7 @@ end
 \end{listing}
 
 \paragraph{Dragon Curve}
-\label{sec:orgb6a649b}
+\label{sec:org31514fe}
 
 \begin{figure}[htbp]
 \centering
@@ -770,7 +841,7 @@ end
 
 
 \paragraph{Koch Snowflake}
-\label{sec:org5bf605f}
+\label{sec:org06230fb}
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=9cm]{../Problems/Chaos/Spirals/snowCurve.png}
@@ -778,7 +849,7 @@ end
 \end{figure}
 
 \subsubsection{Calculating the Dimension of Julia Set}
-\label{sec:org2eeb573}
+\label{sec:orgb9f6dfd}
 It converges too slowly
 The Julia set (discussed in section \ref{julia-set}) can be solved by \ldots{}
 
@@ -788,7 +859,7 @@ as shown in listing
 
 A value on the complex plane can be associated with the julia set by iterating
 that value against a function of the form \(z \rightarrow z^{2} + \alpha + i
-\beta\) and measureing whether or not that value diverges or converges. This process is demonstrated in listing .
+\beta\) and measureing whether or not that value diverges or converges. This process is demonstrated in listing \ref{jsetDivFunc}.
 
 By associating each value on the complex plane with an element of a matrix an image of this pattern may be produced, see for example figure RABBIT
 
@@ -1076,7 +1147,6 @@ end
 This returns the Values:
 
 \begin{table}[htbp]
-\caption{\label{table-of-values}TODO}
 \centering
 \begin{tabular}{rr}
 scale & mass\\
@@ -1091,9 +1161,11 @@ scale & mass\\
 938 & 11710.0\\
 1000 & 12744.0\\
 \end{tabular}
+\caption{\label{table-of-values}TODO}
+
 \end{table}
 \paragraph{Using Linear Regression}
-\label{sec:orgfec4b86}
+\label{sec:orgd9623a5}
 \begin{itemize}
 \item Avoiding \texttt{Abs} is twice as fast
 \item Column wise is faster in fortran/julia/R slower in C/Python
@@ -1102,7 +1174,7 @@ We have no evidence to show that the dimension will be stable, this is good for 
 to do that we use linear regression.
 \end{itemize}
 \subparagraph{Performance}
-\label{sec:orga70e4de}
+\label{sec:org006ba23}
 \begin{itemize}
 \item Switching from \texttt{abs()} to sqaured help
 \item Taking advantage of multi core processing in loops
@@ -1127,9 +1199,10 @@ times = [tme() for i in 1:10 ]
 Function & Mean Time\\
 \texttt{pmap} & 2.2825\\
 \end{tabular}
+
 \end{center}
 \subsubsection{My Fractal}
-\label{sec:orgd5703c1}
+\label{sec:org973cb90}
 My fractal really shows many unique patterns
 
 If it is scaled by \(\varphi\) then the boxes increase two fold.
@@ -1140,7 +1213,7 @@ We know the dimension will be constant because the figure is self similar, so we
 \mathrm{dim} (\mathtt{my\_fractal}) = \log_{\varphi}=\frac{\log \varphi}{\log 2}
 \]
 \paragraph{Graphics}
-\label{sec:orga51c669}
+\label{sec:org96d0f91}
 
 \begin{figure}[htbp]
 \centering
@@ -1185,11 +1258,11 @@ We know the dimension will be constant because the figure is self similar, so we
 \end{figure}
 
 \paragraph{Discuss Pattern shows Fibonacci Numbers}
-\label{sec:org56ace2f}
+\label{sec:org0cfcfbb}
 \subparagraph{Angle Relates to Golden Ratio}
-\label{sec:orgd00ab76}
+\label{sec:org09769cd}
 \paragraph{Prove Fibonacci using Monotone Convergence Theorem}
-\label{sec:orga429f0d}
+\label{sec:org7f44e2b}
 Consider the series:
 
 $$\begin{aligned}
@@ -1204,7 +1277,7 @@ F_n = F_{n- 1} +  F_{n- 2} ; \quad F_1 = F_2 = 1
 
 
 \subparagraph{Show that the Series is Monotone}
-\label{sec:org3dcf867}
+\label{sec:orgc304dd5}
 $$\begin{aligned}
 F_{n} &> 0 \\
 0 &< F_{n} \\
@@ -1224,9 +1297,9 @@ F_{n} &> 0 \\
 
 
 \subparagraph{Show that the Series is Bounded}
-\label{sec:org12921c6}
+\label{sec:orgec738e3}
 \subparagraph{Find the Limit}
-\label{sec:org5ae64ba}
+\label{sec:orgf5b9a02}
 $$\begin{aligned}
 G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 &= 1 +  \frac{F_{n- 1} }{F_n} \\
@@ -1238,7 +1311,7 @@ G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 
 
 \subparagraph{Comments}
-\label{sec:org42125b9}
+\label{sec:org3f2c886}
 
 The Fibonacci sequence is quite unique, observe that:
 
@@ -1269,7 +1342,7 @@ $$\begin{aligned}
 \frac{\psi}{\varphi}  = \frac{1}{\varphi^2} = \frac{1}{1-\varphi} &= \frac{1}{2-\varphi} = \frac{2}{3 - \sqrt{5}  }
 \end{aligned}$$
 \subparagraph{Python}
-\label{sec:orgbcd4e84}
+\label{sec:org88250d0}
 
 \begin{minted}[]{:exports}
 #+BEGIN_SRC python :exports both :results output graphics file :file ./a.png
@@ -1285,14 +1358,14 @@ plt.savefig("./a.png")
 \end{center}
 
 \paragraph{Angle is \(\tan^{-1}\left( \frac{1}{1-\varphi}\right)\)}
-\label{sec:org9acfdd0}
+\label{sec:orgc411439}
 \subparagraph{Similar to Golden Angle \(2 \pi \left( \frac{1}{1-\varphi}\right)\)}
-\label{sec:org2d552f5}
+\label{sec:org51305a3}
 \paragraph{Dimension of my Fractal}
-\label{sec:orgd7734f1}
+\label{sec:orgca51c90}
 \(\log_{\varphi}(2)\)
 \paragraph{Code should be split up or put into appendix}
-\label{sec:orgb6b0414}
+\label{sec:orgab97da5}
 \begin{minted}[]{julia}
 function matJoin(A, B)
     function nrow(X)
@@ -1420,246 +1493,23 @@ GR.imshow(mywalk([1 1], 5))
 
 \end{minted}
 
-\subsection{Julia Sets and Mandelbrot Sets}
+\subsection{Julia Sets and Mandelbrot Sets\hfill{}\textsc{Ryan}}
 \label{julia-set}
 The julia set is the outline.
 
 The mandelbrot has to do with whether or not it's connected.
 \subsubsection{The math behind it}
-\label{sec:orgfbdc0c6}
+\label{sec:org74c57cc}
 \paragraph{Like Escaping after 2}
-\label{sec:orgab31edc}
-I cannot figure this out, I need more time, look around Ch. 12 of falconer cite:falconerFractalGeometryMathematical2003
-\subsection{Turing}
-\label{sec:orgceeb03c}
-
-\subsection{Appendix}
-\label{appendix}
-So unless code contributes directly to the discussion we'll put it in the appendix.
-\subsubsection{Finding Material}
-\label{sec:org36054a0}
-\begin{minted}[]{bash}
-recoll -c /home/ryan/Dropbox/Books/Textbooks/Mathematics/Chaos_Theory/chaos_books_recoll & disown
-\end{minted}
-\subsubsection{Font Lock}
-\label{sec:org48aec0a}
-\begin{minted}[]{elisp}
-;; match:
-;;; \scite:key\s
-(add-to-list 'font-lock-extra-managed-props 'display)
-(font-lock-add-keywords nil
- '((" \\(cite:[a-z0-9A-Z]\+\\)" 1 '(face nil display "🤔"))))
-
-
-;; match
-;;; [[cite:key][p. num]]
-(add-to-list 'font-lock-extra-managed-props 'display)
-(font-lock-add-keywords nil
- '((" \\(\\[\\[cite:[a-z0-9A-Z]\+\\]\\[\.\*\\]\\]\\)" 1 '(face nil display "🤔"))))
-\end{minted}
-
-\section{Outline}
-\label{sec:org0d2fcf6}
-\subsection{Introduction\hfill{}\textsc{Ryan}}
-\label{sec:orgadd8b72}
-This project, at the outset, was very broadly concerned with the use of \emph{Python} for
-computer algebra. Much to the the reluctance of our supervisor we have however
-resolved to look at a broad variety of tools (see section \ref{other-tools}),
-in particular a language we wanted an opportunity to explore was \emph{Julia}
-cite:bezansonJuliaFreshApproach2017 \footnote{See section}.
-
-In order to give the project a more focused direction we have decided to look into: \footnote{The amount of independence that our supervisor afforded us to
-investigate other languages is something that we are both extremely grateful for.}
-
-\begin{itemize}
-\item The Emergence of patterns in Nature
-\item Chaos Theory \& Dynamical Systems
-\item Fractals
-\end{itemize}
-
-These three topics are very tightly connected and so it is difficult to look at
-any one in a vacuum, they also almost necessitate the use of software packages
-due to the fact that these phenomena appear to occur in recursive systems, more
-over such software needs to perform very well under recursion and iteration
-(making this a very good focus for this topic generally, and an excuse to work
-with Julia as well).
-
-\subsection{Programming Recursion\hfill{}\textsc{Ryan}}
-\label{sec:org087a94e}
-As an introduction to \emph{Python} generally, we undertook many problem questions which have been omitted from this outline, however, this one in particular offered an interesting insight into the difficulties we may encounter when dealing with recursive systems.
-\subsubsection{Iteration and Recursion}
-\label{series-and-recursion}
-Consider the series shown in eqref:eq:rec-ser\footnote{This problem is taken from Project A (44) of Dr. Hazrat's \emph{Mathematica: A Problem Centred Approach} cite:hazratMathematicaProblemCenteredApproach2015} :
-
-\begin{align}
-    g\left( k \right) &=  \frac{\sqrt{2} }{2} \cdot   \frac{\sqrt{2+  \sqrt{3}}  }{3} \frac{\sqrt{2 +  \sqrt{3 +  \sqrt{4} } } }{4} \cdot  \ldots \frac{\sqrt{2 +  \sqrt{3 +  \ldots +  \sqrt{k} } } }{k} \label{eq:rec-ser}
-\end{align}
-
-let's modify this for the sake of discussion:
-
-\begin{align}
-h\left( k \right) = \frac{\sqrt{2}  }{2} \cdot  \frac{\sqrt{3 +  \sqrt{2} } }{3} \cdot  \frac{\sqrt{4 +  \sqrt{3 +  \sqrt{2} } } }{4} \cdot  \ldots \cdot  \frac{\sqrt{k +  \sqrt{k - 1 +  \ldots \sqrt{3 + \sqrt{2}  } } } }{k} \label{eq:rec-ser-mod}
-\end{align}
-
-The function \(h\) can be expressed by the series:
-
-$$\begin{aligned}
-h\left( k \right) = \prod^k_{i = 2} \left( \frac{f_i}{i}  \right)  \quad : \quad f_i = \sqrt{i +  f_{i - 1}}, \enspace f_{1} = 1
-\end{aligned}$$
-
-Within \emph{Python}, it isn't difficult to express \(h\), the series can be expressed
-with recursion as shown in listing \ref{rec-one}, this is a very natural way to define
-series and sequences and is consistent with familiar mathematical thought and
-notation. Individuals more familiar with programming than analysis may find it
-more comfortable to use an iterator as shown in listing \ref{it-one}.
-
-\begin{listing}[htbp]
-\begin{minted}[]{python}
-from sympy import *
-def h(k):
-    if k > 2:
-        return f(k) * f(k-1)
-    else:
-        return 1
-
-def f(i):
-    expr = 0
-    if i > 2:
-        return sqrt(i + f(i -1))
-    else:
-        return 1
-\end{minted}
-\caption{\label{rec-one}Solving eqref:eq:rec-ser-mod using recursion.}
-\end{listing}
-
-
-\begin{listing}[htbp]
-\begin{minted}[]{python}
-  from sympy import *
-  def h(k):
-      k = k + 1 # OBOB
-      l = [f(i) for i in range(1,k)]
-      return prod(l)
-
-  def f(k):
-      expr = 0
-      for i in range(2, k+2):
-          expr = sqrt(i + expr, evaluate=False)
-      return expr/(k+1)
-\end{minted}
-\caption{\label{it-one}Solving eqref:eq:rec-ser-mod by using a \texttt{for} loop.}
-\end{listing}
-
-Any function that can be defined by using iteration, can always be defined via
-recursion and vice versa
-cite:bohmReducingRecursionIteration1988,bohmReducingRecursionIteration1986
-(see also
-cite:smolarskiMath60Notes2000,IterationVsRecursion2016 ),
-
-there is however, evidence to suggest that recursive functions are easier for
-people to understand cite:benanderEmpiricalAnalysisDebugging2000 and so should
-be favoured. Although independent research has shown that the specific language
-chosen can have a bigger effect on how well recursive as opposed to iterative
-code is understood cite:sinhaCognitiveFitEmpirical1992.
-
-The relevant question is ``\emph{which method is often more appropriate}?'', generally
-the process for determining which is more appropriate is to the effect of:
-
-\begin{enumerate}
-\item Write the problem in a way that is easier to write or is more
-appropriate for demonstration
-\item If performance is a concern then consider restructuring in favour of iteration
-\begin{itemize}
-\item For interpreted languages such \textbf{\emph{R}} and \emph{Python}, loops are usually
-faster, because of the overheads involved in creating functions
-cite:smolarskiMath60Notes2000 although there may be exceptions to this and
-I'm not sure if this would be true for compiled languages such as \emph{Julia},
-\emph{Java}, \textbf{\emph{C}} etc.
-\end{itemize}
-\end{enumerate}
-
-\paragraph{Some Functions are more difficult to express with Recursion in}
-\label{some-functions-are-more-difficult-to-express-with-recursion-in-python}
-Attacking a problem recursively isn't always the best approach however. Consider the function \(g\left( k \right)\) from eqref:eq:rec-ser:
-
-
-\begin{align}
-    g\left( k \right) &=  \frac{\sqrt{2} }{2} \cdot   \frac{\sqrt{2+  \sqrt{3}}  }{3} \frac{\sqrt{2 +  \sqrt{3 +  \sqrt{4} } } }{4} \cdot  \ldots \frac{\sqrt{2 +  \sqrt{3 +  \ldots +  \sqrt{k} } } }{k} \nonumber \\
-    &=  \prod^k_{i = 2} \left( \frac{f_i}{i}  \right) \quad : \quad f_{i} = \sqrt{i +  f_{i+1}} \nonumber
-\end{align}
-
-Observe that the difference between eqref:eq:rec-ser and eqref:eq:rec-ser-mod is
-that the sequence essentially \emph{looks} forward, not back. To solve using a \texttt{for}
-loop, this distinction is a non-concern because the list can be reversed using a built-in
-such as \texttt{rev}, \texttt{reversed} or \texttt{reverse} in \emph{Python}, \textbf{\emph{R}} and \emph{Julia}
-respectively, which means the same expression can be implemented.
-
-To implement with recursion however, the series needs to be restructured and
-this can become a little clumsy, see eqref:eq:clumsy:
-
-\begin{align}
-    g\left( k \right) &=  \prod^k_{i = 2} \left( \frac{f_i}{i}  \right) \quad : \quad f_{i} = \sqrt{\left( k- i \right)  +  f_{k - i - 1}} \label{eq:clumsy}
-\end{align}
-
-Now the function could be performed recursively in \emph{Python} in a similar way as
-shown in listing \ref{rec-two}, but it's also significantly more confusing because the
-\(f\) function now has \(k\) as a parameter and this is only made significantly more
-complicated by the differing implementations of variable scope across common
-languages used in Mathematics and Data science such as \texttt{bash}, \textbf{\emph{R}}, \emph{Julia}, \emph{Python}.
-
-If however, the \texttt{for} loop approach was implemented, as shown in listing
-\ref{iter-two}, the function would not significantly change, because the \texttt{reversed()} function can be
-used to flip the list around.
-
-What this demonstrates is that taking a different approach to simply describing
-this function can lead to big differences in the complexity involved in solving
-this problem.
-
-\begin{listing}[htbp]
-\begin{minted}[]{python}
-from sympy import *
-def h(k):
-    if k > 2:
-        return f(k, k) * f(k, k-1)
-    else:
-        return 1
-
-def f(k, i):
-    if k > i:
-        return 1
-    if i > 2:
-        return sqrt((k-i) + f(k, k - i -1))
-    else:
-        return 1
-\end{minted}
-\caption{\label{rec-two}Using Recursion to Solve eqref:eq:rec-ser}
-\end{listing}
-
-
-\begin{listing}[htbp]
-\begin{minted}[]{python}
-from sympy import *
-def h(k):
-    k = k + 1 # OBOB
-    l = [f(i) for i in range(1,k)]
-    return prod(l)
-
-def f(k):
-    expr = 0
-    for i in reversed(range(2, k+2)):
-        expr = sqrt(i + expr, evaluate=False)
-    return expr/(k+1)
-\end{minted}
-\caption{\label{iter-two}Using Iteration to Solve eqref:eq:rec-ser}
-\end{listing}
-
+\label{sec:org2fc4bd0}
+I cannot figure this out, I need more time, look around Ch. 12 of falconer \cite{falconerFractalGeometryMathematical2003}
 \subsection{Fibonacci Sequence\hfill{}\textsc{Ryan:James}}
-\label{sec:orgca91f9c}
+\label{sec:orgef2588a}
 \subsubsection{Introduction\hfill{}\textsc{Ryan}}
-\label{sec:orgb0758d8}
+\label{sec:org1e0240c}
 The \emph{Fibonacci Sequence} and \emph{Golden Ratio} share a deep connection\footnote{See section} and occur in patterns observed in nature very frequently
 (see
-cite:shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016), an example of such an occurence is discussed in section \ref{sunflower-example}.
+\cite{shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016}), an example of such an occurence is discussed in section \ref{sunflower-example}.
 
 
 In this section we lay out a strategy to find an analytic solution to the
@@ -1686,12 +1536,13 @@ as shown in listing \ref{fib-rec-0}, however using this function will reveal tha
 is extraordinarily slow, as shown in listing \ref{time-slow}, this is because the
 results of the function are not cached and every time the function is called
 every value is recalculated\footnote{Dr. Hazrat mentions something similar in his book with respect to
-\emph{Mathematica}\textsuperscript{\textregistered}}, meaning that the workload scales in
+\emph{Mathematica}\textsuperscript{\textregistered}
+\cite[Ch. 13]{hazratMathematicaProblemCenteredApproach2015}}, meaning that the workload scales in
 exponential as opposed to polynomial time.
 
 The \texttt{functools} library for python includes the \texttt{@functools.lru\_cache} decorator
 which will modify a defined function to cache results in memory
-cite:FunctoolsHigherorderFunctions, this means that the recursive function will
+\cite{FunctoolsHigherorderFunctions}, this means that the recursive function will
 only need to calculate each result once and it will hence scale in polynomial
 time, this is implemented in listing \ref{fib-cache}.
 
@@ -1708,7 +1559,7 @@ time, this is implemented in listing \ref{fib-cache}.
           return 1
       return rec_fib(k-1) + rec_fib(k-2)
 \end{minted}
-\caption{\label{fib-rec-0}Defining the \emph{Fibonacci Sequence} eqref:eq:fib-def using Recursion}
+\caption{\label{fib-rec-0}Defining the \emph{Fibonacci Sequence} \eqref{eq:fib-def} using Recursion}
 \end{listing}
 
 \begin{listing}[htbp]
@@ -1832,7 +1683,7 @@ mathematical problems to continuous ones as discussed below at section .
 \label{exp-gen-func-fib-seq}
 \paragraph{Motivation\hfill{}\textsc{Ryan}}
 \label{motivation}
-Consider the \emph{Fibonacci Sequence} from eqref:eq:fib-def:
+Consider the \emph{Fibonacci Sequence} from \eqref{eq:fib-def}:
 
 
 \begin{align}
@@ -1861,7 +1712,7 @@ relate the discrete problem back to a continuous one.
 \paragraph{Example\hfill{}\textsc{Ryan}}
 \label{solving-the-sequence}
 Consider using the following generating function, (the derivative of the
-generating function as in eqref:eq:exp-gen-def-2 and eqref:eq:exp-gen-def-3 is
+generating function as in \eqref{eq:exp-gen-def-2} and \eqref{eq:exp-gen-def-3} is
 provided in section \ref{Derivative-exp-gen-function})
 
 
@@ -1874,7 +1725,7 @@ provided in section \ref{Derivative-exp-gen-function})
 \end{align}
 
 
-So the recursive relation from eqref:eq:fib-def-shift  could be expressed :
+So the recursive relation from \eqref{eq:fib-def-shift}  could be expressed :
 
 
 \begin{align*}
@@ -1883,7 +1734,7 @@ a_{n+  2}    &= a_{n+  1} +  a_{n}\\
 \sum^{\infty}_{n= 0} \left[ \frac{x^n}{n!}   a_{n+  2} \right]        &= \sum^{\infty}_{n= 0}   \left[ \frac{x^n}{n!} a_{n+  1} \right]  + \sum^{\infty}_{n= 0}   \left[ \frac{x^n}{n!} a_{n}  \right]  \\
 \end{align*}
 
-And hence by applying eqref:eq:exp-gen-def-1:
+And hence by applying \eqref{eq:exp-gen-def-1}:
 
 \begin{align}
 f''\left( x \right) &= f'\left( x \right)+  f\left( x \right)
@@ -1932,7 +1783,7 @@ a_1= c_1 \left( \frac{1+ \sqrt{5} }{2} \right) -  c_1 \frac{1-\sqrt{5} }{2}  \im
 \end{align*}
 
 
-And so finally we have the solution to the \emph{Fibonacci Sequence} ref:eq:fib-def-shift:
+And so finally we have the solution to the \emph{Fibonacci Sequence} \ref{eq:fib-def-shift}:
 
 
 \begin{align}
@@ -1952,8 +1803,8 @@ where:
 \paragraph{Derivative of the Exponential Generating Function}
 \label{Derivative-exp-gen-function}
 \subparagraph{Base\hfill{}\textsc{Ryan}}
-\label{sec:orgbf7a1a4}
-Differentiating the exponential generating function has the effect of shifting the sequence to the backward: cite:lehmanReadingsMathematicsComputer2010
+\label{sec:orgf45a40d}
+Differentiating the exponential generating function has the effect of shifting the sequence to the backward: \cite{lehmanReadingsMathematicsComputer2010}
 
 \begin{align}
     f\left( x \right) &= \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right] \label{eq:exp-pow-series} \\
@@ -1965,7 +1816,7 @@ f'\left( x \right)) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 
 \end{align}
 
 \subparagraph{Bridge\hfill{}\textsc{James}}
-\label{sec:orga3647cd}
+\label{sec:org39f7ec9}
 This can be shown for all derivatives by way of induction, for
 
 \begin{align}
@@ -1988,20 +1839,20 @@ We need \(f^{(k+1)}(x) = \sum_{n=0}^\infty\frac{a_{n+k+1}\cdot x^n}{n!}\)
     &= \text{RHS}
 \end{align*}
 
-Thus, if the derivative of the series shown in eqref:eq:exp-gen-def-1 shifts the
+Thus, if the derivative of the series shown in \eqref{eq:exp-gen-def-1} shifts the
 sequence across, then every derivative thereafter does so as well, because the
 first derivative has been shown to express this property
-eqref:eq:exp-pow-series-sol, all derivates will.
+\eqref{eq:exp-pow-series-sol}, all derivates will.
 
 \paragraph{Homogeneous Proof\hfill{}\textsc{Ryan:James}}
-\label{sec:orgb38f6c5}
+\label{sec:org8e2f792}
 An equation of the form:
 
 \begin{align}
 \sum^{n}_{i=0} \left[ c_{i} \cdot f^{(i)}(x) \right] = 0 \label{eq:hom-ode}
 \end{align}
 
-is said to be a homogenous linear ODE: 
+is said to be a homogenous linear ODE: \cite[Ch. 2]{zillDifferentialEquations2009a}
 
 \begin{description}
 \item[{Linear}] because the equation is linear with respect to \(f(x)\)
@@ -2013,7 +1864,7 @@ is said to be a homogenous linear ODE:
 \end{itemize}
 \end{description}
 
-There will be \(k\) solutions to a \(k^{\mathrm{th}}\) order linear ODE, each may be summed to produce a superposition which will also be a solution to the equation, this will be considered as the desired complete solution (and this will be shown to be the only solution for the recurrence relation eqref:eq:recurrence-relation-def). These \(k\) solutions will be in one of two forms:
+There will be \(k\) solutions to a \(k^{\mathrm{th}}\) order linear ODE, each may be summed to produce a superposition which will also be a solution to the equation, \cite[Ch. 4]{zillDifferentialEquations2009a}  this will be considered as the desired complete solution (and this will be shown to be the only solution for the recurrence relation \eqref{eq:recurrence-relation-def}). These \(k\) solutions will be in one of two forms:
 
 \begin{enumerate}
 \item \(f(x)=c_{i} \cdot e^{m_{i}x}\)
@@ -2025,11 +1876,11 @@ where:
 \begin{itemize}
 \item \(\sum^{k}_{i=0}\left[  c_{i}m^{k-i} \right] = 0\)
 \begin{itemize}
-\item This is referred to the characteristic equation of the recurrence relation or ODE cite:levinSolvingRecurrenceRelations2018
+\item This is referred to the characteristic equation of the recurrence relation or ODE \cite{levinSolvingRecurrenceRelations2018}
 \end{itemize}
 \item \(\exists i,j \in \mathbb{Z}^{+} \cap \left[0,k\right]\)
 \begin{itemize}
-\item These is often referred to as repeated roots cite:levinSolvingRecurrenceRelations2018,zillMatrixExponential2009 with a multiplicity corresponding to the number of repetitions of that root
+\item These is often referred to as repeated roots \cite{levinSolvingRecurrenceRelations2018,zillMatrixExponential2009} with a multiplicity corresponding to the number of repetitions of that root \cite[\textsection 3.2]{nicodemiIntroductionAbstractAlgebra2007}
 \end{itemize}
 \end{itemize}
 
@@ -2037,11 +1888,11 @@ where:
 \label{uniq-roots-recurrence}
 \begin{enumerate}
 \item Example
-\label{sec:orgb126752}
+\label{sec:orgef65500}
 An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section \ref{solving-the-sequence}.
 \item Proof
-\label{sec:org16793b1}
-Consider the linear recurrence relation eqref:eq:recurrence-relation-def:
+\label{sec:orgbb4c06b}
+Consider the linear recurrence relation \eqref{eq:recurrence-relation-def}:
 
 \begin{align}
 \sum^{n}_{i= 0}   \left[ c_i \cdot  a_i \right] = 0, \quad \exists c \in
@@ -2057,14 +1908,14 @@ This implies:
 \end{align}
 
 By implementing the exponential generating function as shown in
-eqref:eq:exp-gen-def-1, this provides:
+\eqref{eq:exp-gen-def-1}, this provides:
 
 \begin{align}
    \sum^{k}_{i= 0}   \left[ c_i f^{\left( i \right)}\left( x \right) \right]
 \end{align}
 
 
-Now assume that the solution exists and all roots of the characteristic polynomial are unique (i.e. the solution is of the form \(f{\left({ x }\right)} \propto e^{m_i x}: \quad m_i \neq m_j \forall i\neq j\)), this implies that  :
+Now assume that the solution exists and all roots of the characteristic polynomial are unique (i.e. the solution is of the form \(f{\left({ x }\right)} \propto e^{m_i x}: \quad m_i \neq m_j \forall i\neq j\)), this implies that  \cite[Ch. 4]{zillDifferentialEquations2009a} :
 
 \begin{align}
     f{\left({ x }\right)} = \sum^{k}_{i= 0}   {\left[{ k_i e^{m_i x} }\right]}, \quad \exists m,k \in \mathbb{C} \nonumber
@@ -2080,7 +1931,7 @@ This can be re-expressed in terms of the exponential power series, in order to r
 \end{align}
 
 
-Recall the definition of the generating function from eqref:eq:exp-gen-def-1, by relating this to eqref:eq:unique-root-sol-power-series-form:
+Recall the definition of the generating function from \eqref{eq:exp-gen-def-1}, by relating this to \eqref{eq:unique-root-sol-power-series-form}:
 
 \begin{align}
     f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{  \frac{x^n}{n!} a_n }\right]} \nonumber \\
@@ -2101,7 +1952,7 @@ This can be verified by the fibonacci sequence as shown in section \ref{solving-
 \label{rep-roots-recurrence}
 \begin{enumerate}
 \item Example
-\label{sec:orgb483b11}
+\label{sec:org1efc28d}
 Consider the following recurrence relation:
 
 \begin{align}
@@ -2109,14 +1960,14 @@ Consider the following recurrence relation:
     \implies  \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]} - 10 \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}+    }\right]} + 25 \sum^{\infty}_{n= 0 }   {\left[{  a_{n+  2 }\frac{x^n}{n!} }\right]}&= 0 \nonumber
 \end{align}
 
-By applying the definition of the exponential generating function at eqref:eq:exp-gen-def-1 :
+By applying the definition of the exponential generating function at \eqref{eq:exp-gen-def-1} :
 
 \begin{align}
     f''{\left({ x }\right)}- 10f'{\left({ x }\right)}+  25f{\left({ x }\right)}= 0 \nonumber \label{eq:rep-roots-func-ode}
 \end{align}
 
 By implementing the already well-established theory of linear ODE's, the
-characteristic equation for eqref:eq:rep-roots-func-ode can be expressed as:
+characteristic equation for \eqref{eq:rep-roots-func-ode} can be expressed as:
 
 \begin{align}
     m^2- 10m+  25 = 0 \nonumber \\
@@ -2124,27 +1975,27 @@ characteristic equation for eqref:eq:rep-roots-func-ode can be expressed as:
     m= 5 \label{eq:rep-roots-recurrence-char-sol}
 \end{align}
 
-Herein lies a complexity, in order to solve this, the solution produced from eqref:eq:rep-roots-recurrence-char-sol can be used with the \emph{Reduction of Order} technique to produce a solution that will be of the form .
+Herein lies a complexity, in order to solve this, the solution produced from \eqref{eq:rep-roots-recurrence-char-sol} can be used with the \emph{Reduction of Order} technique to produce a solution that will be of the form \cite[\textsection 4.3]{zillMatrixExponential2009}.
 
 \begin{align}
     f{\left({ x }\right)}= c_1e^{5x} +  c_2 x e^{5x} \label{eq:rep-roots-ode-sol}
 \end{align}
 
-eqref:eq:rep-roots-ode-sol can be expressed in terms of the exponential power series in order to try and relate the solution for the function back to the generating function,
+\eqref{eq:rep-roots-ode-sol} can be expressed in terms of the exponential power series in order to try and relate the solution for the function back to the generating function,
 observe however the following power series identity (TODO Prove this in section ):
 
 \begin{align}
     x^ke^x &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}, \quad \exists k \in \mathbb{Z}^+ \label{eq:uniq-roots-pow-series-ident}
 \end{align}
 
-by applying identity eqref:eq:uniq-roots-pow-series-ident to equation eqref:eq:rep-roots-ode-sol
+by applying identity \eqref{eq:uniq-roots-pow-series-ident} to equation \eqref{eq:rep-roots-ode-sol}
 
 \begin{align}
     \implies  f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{ c_1 \frac{{\left({ 5x }\right)}^n}{n!} }\right]}  +  \sum^{\infty}_{n= 0}   {\left[{ c_2 n \frac{{\left({ 5x^n }\right)}}{n{\left({ n-1 }\right)}!} }\right]} \nonumber \\
  &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!} {\left({ c_{1}5^n +  c_2 n 5^n   }\right)} }\right]} \nonumber
 \end{align}
 
-Given the defenition of the exponential generating function from eqref:eq:exp-gen-def-1
+Given the defenition of the exponential generating function from \eqref{eq:exp-gen-def-1}
 
 \begin{align}
     f{\left({ x }\right)}&=     \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]} \nonumber \\
@@ -2153,7 +2004,7 @@ Given the defenition of the exponential generating function from eqref:eq:exp-ge
     \square \nonumber
 \end{align}
 \item Proof
-\label{sec:org5a813af}
+\label{sec:orgb16410d}
 In order to prove the the solution for a \(k^{\mathrm{th}}\) order recurrence relation with \(k\) repeated
 
 
@@ -2165,13 +2016,13 @@ Consider a recurrence relation of the form:
       \sum^{k}_{i= 0}   \sum^{\infty}_{n= 0}   c_i a_n \frac{x^n}{n!} \nonumber
 \end{align}
 
-By substituting for the value of the generating function (from eqref:eq:exp-gen-def-1):
+By substituting for the value of the generating function (from \eqref{eq:exp-gen-def-1}):
 
 \begin{align}
     \sum^{k}_{i= 0}   {\left[{ c_if^{{\left({ k }\right)}}  {\left({ x }\right)}    }\right]} \label{eq:gen-form-rep-roots-ode}
 \end{align}
 
-Assume that eqref:eq:gen-form-rep-roots-ode corresponds to a charecteristic polynomial with only 1 root of multiplicity \(k\), the solution would hence be of the form:
+Assume that \eqref{eq:gen-form-rep-roots-ode} corresponds to a charecteristic polynomial with only 1 root of multiplicity \(k\), the solution would hence be of the form:
 
 \begin{align}
 			 & \sum^{k}_{i= 0}   {\left[{ c_i m^i }\right]} = 0 \wedge m=B, \enspace  \exists! B \in \mathbb{C} \nonumber \\
@@ -2184,7 +2035,7 @@ If we assume that (see section \ref{power-series-comb}):
 k \in \mathbb{Z} \implies x^k e^x = \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}     \label{eq:power-series-comb}
 \end{align}
 
-By applying this to eqref:eq:sol-rep-roots-ode :
+By applying this to \eqref{eq:sol-rep-roots-ode} :
 
 \begin{align}
 f{\left({ x }\right)}&=     \sum^{k}_{i= 0}   {\left[{ A_i \sum^{\infty}_{n= 0}   {\left[{ \frac{{\left({ x m }\right)}^n}{{\left({ n- i }\right)}!} }\right]}  }\right]} \nonumber \\
@@ -2192,7 +2043,7 @@ f{\left({ x }\right)}&=     \sum^{k}_{i= 0}   {\left[{ A_i \sum^{\infty}_{n= 0} 
 &=     \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}   \sum^{k}_{i=0} {\left[{  \frac{n!}{{\left({ n- i }\right)}} A_i m^n }\right]}       }\right]}
 \end{align}
 
-Recall the generating function that was used to get ref:eq:gen-form-rep-roots-ode:
+Recall the generating function that was used to get \ref{eq:gen-form-rep-roots-ode}:
 
 \begin{align}
 f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]}      \nonumber \\
@@ -2225,10 +2076,10 @@ Sketching out an approach for this:
 \begin{enumerate}
 \item Power Series Combination\hfill{}\textsc{James}
 \label{power-series-comb}
-In this section a proof for identity ref:eq:power-series-comb is provided.
+In this section a proof for identity \ref{eq:power-series-comb} is provided.
 \begin{enumerate}
 \item Motivation
-\label{sec:org62a0721}
+\label{sec:org3ccac00}
 
 Consider the function \(f(x) = xe^x\). Using the taylor series formula we get the following:
 
@@ -2251,40 +2102,6 @@ We conjecture thatIf we continue this on, we get:
 \begin{align*}
     x^ke^x = \sum_{n=k}^\infty \frac{x^n}{(n-k)!} \quad \text{for}~k\in \mathbb{Z^{+}}\cap0
 \end{align*}
-\item Proof by Induction
-\label{sec:org0bc556c}
-To verify, let's prove this by induction.
-\begin{enumerate}
-\item Base
-\label{sec:org5399f51}
-Test \(k=0\)
-\begin{align*}
-    LHS &= x^0e^x = e^x\\
-    RHS &= \sum_{n=0}^\infty \frac{x^n}{n!} = e^x\\
-\end{align*}
-Therefore LHS = RHS, so \(k=0\) is true
-
-\item Bridge
-\label{sec:orgd17d704}
-Assume \(x^k e^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}\)
-
-Using this assumption, prove for the next element \$k+1\$\\
-
-We need \(x^{k+1}e^x = \sum_{n=k+1}^\infty\frac{x^n}{(n-(k+1))!}\)
-
-\begin{align*}
-    \text{LHS} &= x^{k+1}e^x\\
-    &= x\cdot x^{k}e^x\\
-    &= x\cdot \sum_{n=k}^\infty\frac{x^n}{(n-k)!} \quad \text{(by assumption)}\\
-    &= \sum_{n=k}^\infty\frac{x^{n+1}}{(n-k)!}\\
-    &= \sum_{n=k+1}^\infty\frac{x^n}{(n-1-k)!} \quad \text{(re-indexing}~ n\text{)}\\
-    &= \sum_{n=k+1}^\infty\frac{x^n}{(n-(k+1))!}\\
-    &= RHS
-\end{align*}
-So by mathematical induction \(f(x) = x^ke^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}\) \text{for} \(k \ge 0\)
-
-Moving on, by applying identity eqref:eq:uniq-roots-pow-series-ident to equation eqref:eq:rep-roots-ode-sol
-\end{enumerate}
 \end{enumerate}
 \end{enumerate}
 
@@ -2315,13 +2132,13 @@ patterns observed in nature.
 We also hope to find a method to produce the the diagram shown in figure
 computationally, ideally by using the Turtle function in \emph{Julia}.
 
-\paragraph{Fibonacci Sequence in Nature\hfill{}\textsc{Ryan}}
+\paragraph{Fibonacci Sequence in Nature (This may be Removed)\hfill{}\textsc{Ryan}}
 \label{sunflower-example}
 The distribution of sunflower seeds is an example of the \emph{Fibonacci Sequence}
 occuring in a pattern observed in nature (see Figure \ref{sunflower}).
 
 Imagine that the process a sunflower follows when placing seeds is as follows: \footnote{This process is simply conjecture, other than seeing a very nice example at \href{https://www.mathsisfun.com/numbers/nature-golden-ratio-fibonacci.html}{\emph{MathIsFun.com}}
-cite:NatureGoldenRatio2018, we have no evidence to suggest that this is the way
+\cite{NatureGoldenRatio2018}, we have no evidence to suggest that this is the way
 that sunflowers distribute there seeds.
 
 However the simulations performed within \emph{Julia} are very encouraging and
@@ -2334,14 +2151,14 @@ suggest that this process isn't too far off.}
 \item Repeat this process until a seed hits some outer boundary.
 \end{enumerate}
 
-This process can be simulated in Julia cite:bezansonJuliaFreshApproach2017 as shown in listing \ref{simulate-sunflower},\footnote{Emojis and UTF8 were used in this code, and despite using \texttt{xelatex} with \texttt{fontspec} they aren't rendering properly, we intend to have this rectified in time for final submission.} which combined with \emph{ImageMagick} (see e.g. \ref{montage-frac}), produces output as shown in figure \ref{simulate-sunflower-image} and \ref{simulate-sunflower-phi}.
+This process can be simulated in Julia \cite{bezansonJuliaFreshApproach2017} as shown in listing \ref{simulate-sunflower},\footnote{Emojis and UTF8 were used in this code, and despite using \texttt{xelatex} with \texttt{fontspec} they aren't rendering properly, we intend to have this rectified in time for final submission.} which combined with \emph{ImageMagick} (see e.g. \ref{montage-frac}), produces output as shown in figure \ref{simulate-sunflower-image} and \ref{simulate-sunflower-phi}.
 
 A distribution of seeds undder this process would be optimal if the amount of empty space was minimised, spirals, stars and swirls contain patterns compromise this.
 
 To minimize this, the proportion of the circle traversed in step 3 must be an
 irrational number, however this alone is not sufficent, the decimal values must
 also be not to approximated by a rational number, for example
-cite:NatureGoldenRatio2018:
+\cite{NatureGoldenRatio2018}:
 
 \begin{itemize}
 \item \(\pi \mod 1 \approx \frac{1}{7}=0.7142857142857143\)
@@ -2404,125 +2221,18 @@ end 600 600
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=7cm]{sunflower.jpg}
-\caption{\label{sunflower}Distribution of the seeds of a sunflower (see cite:simonbrassCCSearch2006 licenced under CC)}
-\end{figure}
-
-\subsection{Persian Recursion\hfill{}\textsc{Ryan}}
-\label{sec:org60acb3d}
-This section contains an example of how a simple process can lead to the
-development of complex patterns when exposed to feedback and iteration.
-
-The \emph{Persian Recursion} is a simple procedure developed by Anne Burns in the 90s
-cite:burnsPersianRecursion1997 that produces fantastic patterns when provided
-with a relatively simple function.
-
-The procedure is begins with an empty or zero square matrix with sides \(2^{n}+1,
-\enspace \exists n\in \mathbb{Z}^{+}\) and some value given to the edges:
-
-\begin{enumerate}
-\item Decide on some four variable function with a finite domain and range of size \(m\), for the example shown at listing \ref{persian-recursion-python} and in figure \ref{6-rug} the function \(f(w,x,y,z)=(w+x+y+z) \mod m\) was chosen.
-\item Assign this value to the centre row and centre column of the matrix
-\item Repeat this for each newly enclosed subsmatrix.
-\end{enumerate}
-
-This is illustrated in figure \ref{persian-recursion-diagram}.
-
-This can be implemented computationally by defining a function that:
-
-\begin{itemize}
-\item Takes the index of four corners enclosing a square sub-matrix of some matrix as input,
-\item proceeds only if that square is some positive real value.
-\item colours the centre column and row corresponding to a function of those four values
-\item then calls itself on the corners of the four new sub-matrices enclosed by the
-coloured row and column
-\end{itemize}
-
-
-\begin{figure}[htbp]
-\centering
-\includesvg[width=6cm]{persian}
-\caption{\label{persian-recursion-diagram}Diagram of the Persian Recursion, implemented with \emph{Python} in listing \ref{persian-recursion-python}}
-\end{figure}
-
-This is demonstrated in listing \ref{persian-recursion-python} with python and produces the output shown in figures \ref{6-rug}, various interesting examples are provided in the appendix at section \ref{persian-recursion-examples}.
-
-By mapping the values to colours, patterns emerge, this emergence of complex
-patterns from simple rules is a well known and general phenomena that occurs in nature
-cite:EmergenceHowStupid2017,kivelsonDefiningEmergencePhysics2016.
-
-Many patterns that occur in nature can be explained by relatively simple rules
-that are exposed to feedback and iteration
-, this is a central theme of Alan
-Turing's \emph{The Chemical Basis For Morphogenesis}
-cite:turingChemicalBasisMorphogenesis1952 which we hope to look in the course of
-this research.
-
-\begin{listing}[htbp]
-\begin{minted}[]{ipython}
-%matplotlib inline
-# m is colours
-# n is number of folds
-# Z is number for border
-# cx is a function to transform the variables
-def main(m, n, z, cx):
-    import numpy as np
-    import matplotlib.pyplot as plt
-
-    # Make the Empty Matrix
-    mat = np.empty([2**n+1, 2**n+1])
-    main.mat = mat
-
-    # Fill the Borders
-    mat[:,0] = mat[:,-1] = mat[0,:] = mat[-1,:] = z
-
-    # Colour the Grid
-    colorgrid(0, mat.shape[0]-1, 0, mat.shape[0]-1, m)
-
-    # Plot the Matrix
-    plt.matshow(mat)
-
-# Define Helper Functions
-def colorgrid(l, r, t, b, m):
-    # print(l, r, t, b)
-    if (l < r -1):
-        ## define the centre column and row
-        mc = int((l+r)/2); mr = int((t+b)/2)
-
-        ## Assign the colour
-        main.mat[(t+1):b,mc] = cx(l, r, t, b, m)
-        main.mat[mr,(l+1):r] = cx(l, r, t, b, m)
-
-        ## Now Recall this function on the four new squares
-                #l r   t   b
-        colorgrid(l, mc, t, mr, m)    # NW
-        colorgrid(mc, r, t, mr, m)    # NE
-        colorgrid(l, mc, mr, b, m)    # SW
-        colorgrid(mc, r, mr, b, m)    # SE
-
-def cx(l, r, t, b, m):
-    new_col = (main.mat[t,l] + main.mat[t,r] +  main.mat[b,l] + main.mat[b,r]) % m
-    return new_col.astype(int)
-
-main(5,6, 1, cx)
-\end{minted}
-\caption{\label{persian-recursion-python}Implementation of the persian recursion scheme in \emph{Python}}
-\end{listing}
-
-
-
-\begin{figure}[htbp]
-\centering
-\includesvg[width=6cm]{./persian-recursion-0}
-\caption{\label{6-rug}Output produced by listing \ref{persian-recursion-python} with 6 folds}
+\caption{\label{sunflower}Distribution of the seeds of a sunflower (see \cite{simonbrassCCSearch2006} licenced under CC)}
 \end{figure}
 
 \subsection{Julia Sets\hfill{}\textsc{Ryan}}
-\label{sec:org861111f}
+\label{sec:orgb331508}
+
+There is a relatioship between the fibonacicci sequence, modelling population growth and the mandelbrot curve, I would like to use that to tie some of the discussion together, see \href{https://youtu.be/ovJcsL7vyrk}{this video from Veritasium to get an idea of what i mean}.
 \subsubsection{Introduction}
-\label{sec:org3da3184}
+\label{sec:org2bbee95}
 Julia sets are a very interesting fractal and we hope to investigate them further in this project.
 \subsubsection{Motivation}
-\label{sec:org8ed57ac}
+\label{sec:org0fe8797}
 Consider the iterative process \(x \rightarrow x^{2}, \enspace x \in \mathbb{R}\),
 for values of \(x>1\) this process will diverge and for \(x<1\) it will converge.
 
@@ -2558,13 +2268,13 @@ Every value on that plane will belong to one of the two following sets
 In the case of \(f_{0}(z) = z^{2}\) all values \(\left\lvert z  \right \rvert \leq 1\) are bounded with \(\left\lvert z  \right \rvert = 1\) being an unstable stationary circle, but let's investigate what happens for different iterative functions like \(f_{1}(z) = z^{2} - 1\), despite how trivial this seems at first glance.
 
 \subsubsection{Plotting the Sets}
-\label{sec:org5ceb7f2}
+\label{sec:org41a47e6}
 Although the convergence of values may appear simple at first, we'll implement a
 strategy to plot the prisoner and escape sets on the complex plane.
 
 Because this involves iteration and \emph{Python} is a little slow, We'll denote
 complex values as a vector\footnote{See figure for the obligatory \emph{XKCD} Comic} and define the operations as described in
-listing \ref{complex-vec}.\footnote{This technique was adapted from Chapter 7 of \emph{Math adventures with Python} cite:farrellMathAdventuresPython2019}
+listing \ref{complex-vec}.\footnote{This technique was adapted from Chapter 7 of \emph{Math adventures with Python} \cite{farrellMathAdventuresPython2019}}
 
 To implement this test we'll consider a function called \texttt{escape\_test} that applies an
 iteration (in this case \(f_{0}: z \rightarrow z^{2}\)) until that value diverges or converges.
@@ -2593,7 +2303,7 @@ with respect to listing \ref{py-circle-code}:
 
 
 \begin{listing}[htbp]
-\begin{minted}[]{ipython}
+\begin{minted}[]{python}
 from math import sqrt
 def magnitude(z):
     # return sqrt(z[0]**2 + z[1]**2)
@@ -2616,7 +2326,7 @@ def cMult(u, v):
 \end{listing}
 
 \begin{listing}[htbp]
-\begin{minted}[]{ipython}
+\begin{minted}[]{python}
 %matplotlib inline
 %config InlineBackend.figure_format = 'svg'
 import numpy as np
@@ -2696,7 +2406,7 @@ remarkebly unexpected, as shown in figures \ref{py-jl-1-plot} and \ref{py-jl-rab
 To investigate this further consider the
 more general function \(f_{0.8 e^{\pi i \tau}}: z \rightarrow z^{2} + 0.8 e^{\pi
 i \tau}, \enspace \tau \in \mathbb{R}\), many fractals can be generated using
-this set by varying the value of \(\tau\)\footnote{This approach was inspired by an animation on the \emph{Julia Set} Wikipedia article cite:JuliaSet2020}.
+this set by varying the value of \(\tau\)\footnote{This approach was inspired by an animation on the \emph{Julia Set} Wikipedia article \cite{JuliaSet2020}}.
 
 \emph{Python} is too slow for this, but the \emph{Julia} programming language, as a
 compiled language, is significantly faster and has the benefit of treating
@@ -2808,7 +2518,7 @@ ffmpeg                    \
 \url{\_20200826\_005334a.png}
 
 \subsection{MandelBrot\hfill{}\textsc{Ryan}}
-\label{sec:orgcb5b68e}
+\label{sec:orgf3f3f31}
 Investigating these fractals, a natural question might be whether or not any
 given \(c\) value will produce a fractal that is an open disc or a closed disc.
 
@@ -2826,7 +2536,7 @@ z_{0}   &= c
 This strategy is implemented in listing and produces the output shown in figure \ref{mandelbrot-py-pic}.
 
 \begin{listing}[htbp]
-\begin{minted}[]{ipython}
+\begin{minted}[]{python}
 %matplotlib inline
 %config InlineBackend.figure_format = 'svg'
 def mandelbrot(z, num):
@@ -2939,165 +2649,28 @@ save_picture("/tmp/a.fits", my_pic)
 \includegraphics[width=10cm]{_20200828_233844screenshot.png}
 \caption{\label{mandelbrot-screen}Screenshot of Mandelbrot FITS image produced by listing }
 \end{figure}
-\subsection{Relevant Sources}
-\label{sec:org2c12e68}
-To guide research for our topic \emph{Chaos and Fractals} by Pietgen, Jurgens and Saupe cite:peitgenChaosFractalsNew2004 will act as a map of the topic broadly, other than the sources referenced already, we anticipate referring to the following textbooks that we access to throughout the project:
-
-\begin{itemize}
-\item \emph{Integration of Fuzzy Logic and Chaos Theory}      cite:liIntegrationFuzzyLogic2006
-\item \emph{Advances in Chaos Theory and Intelligent Control} cite:azarAdvancesChaosTheory2016
-\item \emph{NonLinear Dynamics and Chaos}                     cite:strogatzNonlinearDynamicsChaos2015
-\item \emph{The NonLinear Universe}                           cite:scottNonlinearUniverseChaos2007
-\item \emph{Chaos and Fractals}                               cite:peitgenChaosFractalsNew2004
-\item \emph{Turbulent Mirror}                                 cite:briggsTurbulentMirrorIllustrated1989
-\item \emph{Fractal Geometry}                                 cite:falconerFractalGeometryMathematical2003b
-\item \emph{Math Adventures with Python}                      cite:farrellMathAdventuresPython2019
-\item \emph{The Topology of Chaos}                            cite:gilmoreTopologyChaosAlice2002
-\item \emph{Chaotic Dynamics}                                 cite:telChaoticDynamicsIntroduction2006
-\end{itemize}
-
-Ron Knott's website appears also to have a lot of material related to patterns, the \emph{Fibonacci Sequence} and the \emph{Golden Ratio}, we intend to have a good look through that material as well. cite:ronknottFibonacciNumbersGolden2016
-
 \subsection{Appendix}
-\label{sec:org89f59e6}
-
-\begin{listing}[htbp]
-\begin{minted}[]{python}
-  from __future__ import division
-  from sympy import *
-  x, y, z, t = symbols('x y z t')
-  k, m, n = symbols('k m n', integer=True)
-  f, g, h = symbols('f g h', cls=Function)
-  init_printing()
-  init_printing(use_latex='mathjax', latex_mode='equation')
-
-
-  import pyperclip
-  def lx(expr):
-      pyperclip.copy(latex(expr))
-      print(expr)
-
-  import numpy as np
-  import matplotlib as plt
-
-  import time
-
-  def timeit(k):
-      start = time.time()
-      k
-      print(str(round(time.time() - start, 9)) + "seconds")
+\label{appendix}
+So unless code contributes directly to the discussion we'll put it in the appendix.
+\subsubsection{Finding Material}
+\label{sec:org2489445}
+\begin{minted}[]{bash}
+recoll -c /home/ryan/Dropbox/Books/Textbooks/Mathematics/Chaos_Theory/chaos_books_recoll & disown
 \end{minted}
-\caption{\label{py-env}Preamble for \emph{Python} Environment}
-\end{listing}
+\subsubsection{Font Lock}
+\label{sec:org567151d}
+\begin{minted}[]{elisp}
+;; match:
+;;; \scite:key\s
+(add-to-list 'font-lock-extra-managed-props 'display)
+(font-lock-add-keywords nil
+ '((" \\(cite:[a-z0-9A-Z]\+\\)" 1 '(face nil display "🤔"))))
 
-\subsubsection{Persian Recursian Examples}
-\label{persian-recursion-examples}
-\begin{listing}[htbp]
-\begin{minted}[]{ipython}
-%config InlineBackend.figure_format = 'svg'
-main(5, 9, 1, cx)
+
+;; match
+;;; [[cite:key][p. num]]
+(add-to-list 'font-lock-extra-managed-props 'display)
+(font-lock-add-keywords nil
+ '((" \\(\\[\\[cite:[a-z0-9A-Z]\+\\]\\[\.\*\\]\\]\\)" 1 '(face nil display "🤔"))))
 \end{minted}
-\caption{\label{8-fold-code}Enhance listing \ref{persian-recursion-python} to create 9 folds}
-\end{listing}
-\begin{center}
-\includesvg[width=.9\linewidth]{./persian-recursion-large}
-\end{center}
-
-
-\begin{listing}[htbp]
-\begin{minted}[]{ipython}
-%config InlineBackend.figure_format = 'svg'
-def cx(l, r, t, b, m):
-    new_col = (main.mat[t,l] + main.mat[t,r] +  main.mat[b,l] + main.mat[b,r]-7) % m
-    return new_col.astype(int)
-main(8, 8, 1, cx)
-\end{minted}
-\caption{\label{new-func-code}Modify the Function to use \(f(w,x,y,z) = (w + x + y + z - 7) \mod 8\)}
-\end{listing}
-
-\begin{figure}[htbp]
-\centering
-\includesvg[width=9cm]{./persian-recursion-new-func}
-\caption{\label{new-func-plot}Output produced by listing \ref{new-func-code} using \(f(w,x,y,z) = (w + x + y + z - 7) \mod 8\)}
-\end{figure}
-
-
-\begin{listing}[htbp]
-\begin{minted}[]{ipython}
-%config InlineBackend.figure_format = 'svg'
-import numpy as np
-def cx(l, r, t, b, m):
-    new_col = (main.mat[t,l] + main.mat[t,r]*m +  main.mat[b,l]*(m) + main.mat[b,r]*(m))**1 % m + 1
-    return new_col.astype(int)
-main(8, 8, 1, cx)
-\end{minted}
-\caption{\label{new-func2-code}Modify the function to use \(f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1\)}
-\end{listing}
-
-
-\begin{figure}[htbp]
-\centering
-\includesvg[width=9cm]{./persian-recursion-new-func2}
-\caption{\label{new-func2-plot}Output produced by listing \ref{new-func2-code} using \(f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1\)}
-\end{figure}
-\subsubsection{Figures}
-\label{sec:org92f40cf}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=.9\linewidth]{complex_numbers.png}
-\caption{\label{xkcd-complex-numbers}XKCD 2028: Complex Numbers}
-\end{figure}
-\subsubsection{Why Julia}
-\label{why-julia}
-The reason we resolved to make time to investigate \emph{Julia} is because we see it as a very important tool for mathematics in the future, in particular because:
-
-\begin{itemize}
-\item It is a new modern language, designed primarily with mathematics in mind
-\begin{itemize}
-\item First class support for UTF8 symbols
-\item Full Support to call \emph{\textbf{R}} and \emph{Python}.
-\end{itemize}
-\item Performance wise it is best in class and only rivalled by compiled languages such as \emph{Fortran} \emph{Rust} and \textbf{\emph{C}}
-\begin{itemize}
-\item \emph{Just in Time Compiling} allows for a very useable \emph{REPL} making Julia
-significantly more appealing than compiled languages
-\item The syntax of Julia is very similar to \emph{Python} and \emph{\textbf{R}}
-\end{itemize}
-\item The \texttt{DifferentialEquations.jl} library is one of the best performing libraries available.
-\end{itemize}
-
-\subparagraph{Other Packages}
-\label{other-tools}
-Other packages that are on our radar for want of investigation are listed below, in practice it is unlikely that time will permit us to investigate many packages or libraries
-
-\begin{itemize}
-\item Programming Languages and CAS
-\begin{itemize}
-\item Julia
-\begin{itemize}
-\item SymEngine.jl
-\item Symata.jl
-\item SymPy.jl
-\end{itemize}
-\item Maxima
-\begin{itemize}
-\item Being the oldest there is probably a lot too learn
-\end{itemize}
-\item Julia
-\item Reduce
-\item Xcas/Gias
-\item Python
-\begin{itemize}
-\item Numpy
-\item Sympy
-\end{itemize}
-\end{itemize}
-\item Visualisation
-\begin{itemize}
-\item Makie
-\item Plotly
-\item GNUPlot
-\end{itemize}
-\end{itemize}
 \end{document}

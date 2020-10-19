@@ -39,7 +39,7 @@
 :END:
 Sources for this section on topology are primarily. [[cite:peitgenChaosFractalsNew2004][p. 106]]
 
-Topology is an area of mathematics concerned with ideas of continuity through the study of figures that are preserved under homeomorphic transformations. cite:gilmoreTopologyChaosAlice200
+Topology is an area of mathematics concerned with ideas of continuity through the study of figures that are preserved under homeomorphic transformations. cite:gilmoreTopologyChaosAlice2002
 
 Two figures are said to be homeomorphic if there is a continuous bijective mapping between the two shapes [[cite:peitgenChaosFractalsNew2004][p. 105]].
 
@@ -79,7 +79,7 @@ The koch snowflake, is defined such that there are no edges, every point on the 
 Briggs and Tyree provide a great introduction.
 
 the scale of resolution increases 3 fold
-THIS IS NOT CORRECT, I MUST SHOW THAT THE DIMENSION IS $\frac{ln(4)}{\ln(3)}$ BUT I'M SIMPLY OUT OF TIME.
+
 \begin{align}
 s \cdot p_{n} &=  (4/3)^{n} \cdot s \cdot P_{0}\\
 & \propto \left(\frac{4}{3}\right)^{n} \\
@@ -258,7 +258,9 @@ The value $s$ at which $\mathcal{H}^{s}$ changes from $\infty$ to 0, shown in fi
 **** TODO Research
 I feel very inclided to read [[https://warwick.ac.uk/fac/sci/maths/people/staff/mark_pollicott/p3/tehran.pdf][these notes]] [fn:: [[file:~/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resources/Uncorrected-Warwick-BoxCount-Hausendorff-Notes.pdf][Local Copy]]]
 
+<<<<<<< HEAD
 ** Box Counting                                                                :James:
+>>>>>>> e842be5ec67c3c1935f5f23a65ae497f4a99bf34
 Sources for this section are primarily:
 - Falconer [[cite:falconerFractalGeometryMathematical2003b][Ch.3.1]]
 - Strogatz Non Linear Dynamics [[cite:strogatzNonlinearDynamicsChaos2015][Ch. 11.4]]
@@ -329,7 +331,7 @@ Dimension is the main defining property of a fractal. As aforementioned above, t
 
 To define a fractal, we must define it's dimension. Whilst some research states that a fractal has a non-integer dimension, this is not true for all fractals. Although, most fractals like the Koch snowflake do in fact have non-integer dimensions, we can easily find a counter example namely, the Mandelbrot set. The Mandelbrot set lies in the same dimension as a square, a 2-Dimensional shape. However, we give recognition to the complexity and roughness of the Mandelbrot set which clearly distiguishes itself from a square. Beneath the Mandelbrot set's complexity are exact replicates of the largest scaled Mandelbrot set, i.e a self similar shape. Furthermore, although the Mandelbrot set has an integer dimension, the self similarity and complexity is what also defines its fractal nature. 
 
-** Generating Self Similar Fractals
+** Generating Self Similar Fractals                                            :Ryan:
 **** TODO Examples
 ***** DONE Vicsek Fractal
 The Vicsek Fracatl is self similar, thus we can use it to test our box counting method [fn:: Since the Vicsek fractal is self similar, we know that the dimension will be constant, as opposed to a dimension that slightly varies, hence there is no need for linear regression which would be necessary to measure someting like a coastline.].
@@ -1306,8 +1308,7 @@ $$\begin{aligned}
 \end{aligned}$$
 ***** Python
 
-#+BEGIN_SRC :exports none
-,#+BEGIN_SRC python :exports both :results output graphics file :file ./a.png
+#+BEGIN_SRC python :exports both :results output graphics file :file ./a.png
 ,#+begin_src python
 import matplotlib.pyplot as plt
 import sympy
@@ -1316,6 +1317,7 @@ plt.plot([ sympy.N(sympy.fibonacci(n+1)/sympy.fibonacci(n)) for n in range(1, 30
 plt.savefig("./a.png")
 #+end_src
 [[file:./a.png]]
+
 
 **** Angle is $\tan^{-1}\left( \frac{1}{1-\varphi}\right)$
 ***** Similar to Golden Angle $2 \pi \left( \frac{1}{1-\varphi}\right)$
@@ -1449,7 +1451,7 @@ GR.imshow(mywalk([1 1], 5))
 
 #+end_src
 
-** TODO Julia Sets and Mandelbrot Sets
+** TODO Julia Sets and Mandelbrot Sets                                            :Ryan:
 :PROPERTIES:
 :CUSTOM_ID: julia-set
 :END:
@@ -1459,6 +1461,7 @@ The mandelbrot has to do with whether or not it's connected.
 *** TODO The math behind it
 **** TODO Like Escaping after 2
 I cannot figure this out, I need more time, look around Ch. 12 of falconer cite:falconerFractalGeometryMathematical2003
+<<<<<<< HEAD
 ** Appendix
 :PROPERTIES:
 :CUSTOM_ID: appendix
@@ -1674,6 +1677,9 @@ def f(k):
 #+END_SRC
 
 ** TODO Fibonacci Sequence                                                     :Ryan:James:
+=======
+** TODO Fibonacci Sequence                                                        :Ryan:James:
+>>>>>>> e842be5ec67c3c1935f5f23a65ae497f4a99bf34
 *** Introduction                                                              :Ryan:
 The /Fibonacci Sequence/ and /Golden Ratio/ share a deep connection[fn:fb] and occur in patterns observed in nature very frequently
 (see
@@ -2237,35 +2243,6 @@ We conjecture thatIf we continue this on, we get:
 \begin{align*}
     x^ke^x = \sum_{n=k}^\infty \frac{x^n}{(n-k)!} \quad \text{for}~k\in \mathbb{Z^{+}}\cap0
 \end{align*}
-******* Proof by Induction
-To verify, let's prove this by induction.
-******** Base
-Test $k=0$
-\begin{align*}
-    LHS &= x^0e^x = e^x\\
-    RHS &= \sum_{n=0}^\infty \frac{x^n}{n!} = e^x\\
-\end{align*}
-Therefore LHS = RHS, so $k=0$ is true
-
-******** Bridge
-Assume $x^k e^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}$
-
-Using this assumption, prove for the next element $k+1$\\
-
-We need $x^{k+1}e^x = \sum_{n=k+1}^\infty\frac{x^n}{(n-(k+1))!}$
-
-\begin{align*}
-    \text{LHS} &= x^{k+1}e^x\\
-    &= x\cdot x^{k}e^x\\
-    &= x\cdot \sum_{n=k}^\infty\frac{x^n}{(n-k)!} \quad \text{(by assumption)}\\
-    &= \sum_{n=k}^\infty\frac{x^{n+1}}{(n-k)!}\\
-    &= \sum_{n=k+1}^\infty\frac{x^n}{(n-1-k)!} \quad \text{(re-indexing}~ n\text{)}\\
-    &= \sum_{n=k+1}^\infty\frac{x^n}{(n-(k+1))!}\\
-    &= RHS
-\end{align*}
-So by mathematical induction $f(x) = x^ke^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}$ \text{for} $k \ge 0$
-
-Moving on, by applying identity eqref:eq:uniq-roots-pow-series-ident to equation eqref:eq:rep-roots-ode-sol
 
 ***** TODO General Proof
 :PROPERTIES:
@@ -2319,7 +2296,7 @@ patterns observed in nature.
 We also hope to find a method to produce the the diagram shown in figure
 [[golden-spiral]] computationally, ideally by using the Turtle function in /Julia/.
 
-**** Fibonacci Sequence in Nature                                            :Ryan:
+**** Fibonacci Sequence in Nature (This may be Removed)                      :Ryan:
 :PROPERTIES:
 :CUSTOM_ID: sunflower-example
 :END:
@@ -2403,112 +2380,9 @@ end 600 600
 #+CAPTION: Distribution of the seeds of a sunflower (see cite:simonbrassCCSearch2006 licenced under CC)
 [[file:sunflower.jpg]]
 
-** Persian Recursion                                                           :Ryan:
-This section contains an example of how a simple process can lead to the
-development of complex patterns when exposed to feedback and iteration.
-
-The /Persian Recursion/ is a simple procedure developed by Anne Burns in the 90s
-cite:burnsPersianRecursion1997 that produces fantastic patterns when provided
-with a relatively simple function.
-
-The procedure is begins with an empty or zero square matrix with sides $2^{n}+1,
-\enspace \exists n\in \mathbb{Z}^{+}$ and some value given to the edges:
-
-1. Decide on some four variable function with a finite domain and range of size $m$, for the example shown at listing [[persian-recursion-python]] and in figure [[6-rug]] the function $f(w,x,y,z)=(w+x+y+z) \mod m$ was chosen.
-2. Assign this value to the centre row and centre column of the matrix
-3. Repeat this for each newly enclosed subsmatrix.
-
-This is illustrated in figure [[persian-recursion-diagram]].
-
-This can be implemented computationally by defining a function that:
-
-- Takes the index of four corners enclosing a square sub-matrix of some matrix as input,
-- proceeds only if that square is some positive real value.
-- colours the centre column and row corresponding to a function of those four values
-- then calls itself on the corners of the four new sub-matrices enclosed by the
-  coloured row and column
-
-
-#+attr_html: :width 800px
-#+attr_latex: :width 6cm
-#+NAME: persian-recursion-diagram
-#+CAPTION: Diagram of the Persian Recursion, implemented with /Python/ in listing [[persian-recursion-python]]
-[[file:persian.svg]]
-
-This is demonstrated in listing [[persian-recursion-python]] with python and produces the output shown in figures [[6-rug]], various interesting examples are provided in the appendix at section [[#persian-recursion-examples]].
-
-By mapping the values to colours, patterns emerge, this emergence of complex
-patterns from simple rules is a well known and general phenomena that occurs in nature
-cite:EmergenceHowStupid2017,kivelsonDefiningEmergencePhysics2016.
-# Chaos and Fractals/ 2nd ed.:
-
-Many patterns that occur in nature can be explained by relatively simple rules
-that are exposed to feedback and iteration
-[[cite:peitgenChaosFractalsNew2004][p. 16]], this is a central theme of Alan
-Turing's /The Chemical Basis For Morphogenesis/
-cite:turingChemicalBasisMorphogenesis1952 which we hope to look in the course of
-this research.
-
-#+NAME: persian-recursion-python
-#+CAPTION: Implementation of the persian recursion scheme in /Python/
-#+BEGIN_SRC ipython :exports both :results raw drawer :eval never-export :session persian-recursion :ipyfile ./persian-recursion-0.svg
-%matplotlib inline
-# m is colours
-# n is number of folds
-# Z is number for border
-# cx is a function to transform the variables
-def main(m, n, z, cx):
-    import numpy as np
-    import matplotlib.pyplot as plt
-
-    # Make the Empty Matrix
-    mat = np.empty([2**n+1, 2**n+1])
-    main.mat = mat
-
-    # Fill the Borders
-    mat[:,0] = mat[:,-1] = mat[0,:] = mat[-1,:] = z
-
-    # Colour the Grid
-    colorgrid(0, mat.shape[0]-1, 0, mat.shape[0]-1, m)
-
-    # Plot the Matrix
-    plt.matshow(mat)
-
-# Define Helper Functions
-def colorgrid(l, r, t, b, m):
-    # print(l, r, t, b)
-    if (l < r -1):
-        ## define the centre column and row
-        mc = int((l+r)/2); mr = int((t+b)/2)
-
-        ## Assign the colour
-        main.mat[(t+1):b,mc] = cx(l, r, t, b, m)
-        main.mat[mr,(l+1):r] = cx(l, r, t, b, m)
-
-        ## Now Recall this function on the four new squares
-                #l r   t   b
-        colorgrid(l, mc, t, mr, m)    # NW
-        colorgrid(mc, r, t, mr, m)    # NE
-        colorgrid(l, mc, mr, b, m)    # SW
-        colorgrid(mc, r, mr, b, m)    # SE
-
-def cx(l, r, t, b, m):
-    new_col = (main.mat[t,l] + main.mat[t,r] +  main.mat[b,l] + main.mat[b,r]) % m
-    return new_col.astype(int)
-
-main(5,6, 1, cx)
-#+end_src
-
-
-
-#+attr_html: :width 400px
-#+attr_latex: :width 6cm
-#+NAME: 6-rug
-#+CAPTION: Output produced by listing [[persian-recursion-python]] with 6 folds
-#+RESULTS: persian-recursion-python
-[[file:./persian-recursion-0.svg]]
-
 ** Julia Sets                                                                  :Ryan:
+
+There is a relatioship between the fibonacicci sequence, modelling population growth and the mandelbrot curve, I would like to use that to tie some of the discussion together, see [[https://youtu.be/ovJcsL7vyrk][this video from Veritasium to get an idea of what i mean]].
 *** Introduction
 Julia sets are a very interesting fractal and we hope to investigate them further in this project.
 *** Motivation
@@ -2917,154 +2791,35 @@ save_picture("/tmp/a.fits", my_pic)
 #+NAME: mandelbrot-screen
 #+CAPTION: Screenshot of Mandelbrot FITS image produced by listing [[julia-large-mandelbrot]]
 [[file:_20200828_233844screenshot.png]]
-** Relevant Sources
-To guide research for our topic /Chaos and Fractals/ by Pietgen, Jurgens and Saupe cite:peitgenChaosFractalsNew2004 will act as a map of the topic broadly, other than the sources referenced already, we anticipate referring to the following textbooks that we access to throughout the project:
-
-- /Integration of Fuzzy Logic and Chaos Theory/      cite:liIntegrationFuzzyLogic2006
-- /Advances in Chaos Theory and Intelligent Control/ cite:azarAdvancesChaosTheory2016
-- /NonLinear Dynamics and Chaos/                     cite:strogatzNonlinearDynamicsChaos2015
-- /The NonLinear Universe/                           cite:scottNonlinearUniverseChaos2007
-- /Chaos and Fractals/                               cite:peitgenChaosFractalsNew2004
-- /Turbulent Mirror/                                 cite:briggsTurbulentMirrorIllustrated1989
-- /Fractal Geometry/                                 cite:falconerFractalGeometryMathematical2003b
-- /Math Adventures with Python/                      cite:farrellMathAdventuresPython2019
-- /The Topology of Chaos/                            cite:gilmoreTopologyChaosAlice2002
-- /Chaotic Dynamics/                                 cite:telChaoticDynamicsIntroduction2006
-
-Ron Knott's website appears also to have a lot of material related to patterns, the /Fibonacci Sequence/ and the /Golden Ratio/, we intend to have a good look through that material as well. cite:ronknottFibonacciNumbersGolden2016
-
 ** Appendix
-
-#+NAME: py-env
-#+CAPTION: Preamble for /Python/ Environment
-#+BEGIN_SRC python
-  from __future__ import division
-  from sympy import *
-  x, y, z, t = symbols('x y z t')
-  k, m, n = symbols('k m n', integer=True)
-  f, g, h = symbols('f g h', cls=Function)
-  init_printing()
-  init_printing(use_latex='mathjax', latex_mode='equation')
-
-
-  import pyperclip
-  def lx(expr):
-      pyperclip.copy(latex(expr))
-      print(expr)
-
-  import numpy as np
-  import matplotlib as plt
-
-  import time
-
-  def timeit(k):
-      start = time.time()
-      k
-      print(str(round(time.time() - start, 9)) + "seconds")
-#+END_SRC
-
-*** Persian Recursian Examples
 :PROPERTIES:
-:CUSTOM_ID: persian-recursion-examples
+:CUSTOM_ID: appendix
 :END:
+So unless code contributes directly to the discussion we'll put it in the appendix.
+*** Finding Material
+#+begin_src bash
+recoll -c /home/ryan/Dropbox/Books/Textbooks/Mathematics/Chaos_Theory/chaos_books_recoll & disown
+#+end_src
+*** Font Lock
+#+begin_src elisp
+;; match:
+;;; \scite:key\s
+(add-to-list 'font-lock-extra-managed-props 'display)
+(font-lock-add-keywords nil
+ '((" \\(cite:[a-z0-9A-Z]\+\\)" 1 '(face nil display "🤔"))))
 
 
-#+NAME: 8-fold-code
-#+CAPTION: Enhance listing [[persian-recursion-python]] to create 9 folds
-#+BEGIN_SRC ipython :exports output :results raw :eval never-export :session persian-recursion :eval never-export :ipyfile ./persian-recursion-large.svg
-%config InlineBackend.figure_format = 'svg'
-main(5, 9, 1, cx)
-#+END_SRC
-[[./persian-recursion-large.svg]]
+;; match
+;;; [[cite:key][p. num]]
+(add-to-list 'font-lock-extra-managed-props 'display)
+(font-lock-add-keywords nil
+ '((" \\(\\[\\[cite:[a-z0-9A-Z]\+\\]\\[\.\*\\]\\]\\)" 1 '(face nil display "🤔"))))
+#+end_src
 
+#+RESULTS:
+| t | (( \(\[\[cite:[a-z0-9A-Z]+\]\[.*\]\]\) 1 '(face nil display 🤔)) ( \(cite:[a-z0-9A-Z]+\) 1 '(face nil display 🤔)) (.*\(\[\[cite:[a-z0-9A-Z]+\]\[.*\]\]\).* 1 '(face nil display 🤔)) (.* \(cite:[a-z0-9A-Z]+\) .* 1 '(face nil display 🤔)) ( \(\[\[cite:[a-z0-9A-Z]+\]\[.*\]\]\)  1 '(face nil display 🤔)) ( \(cite:[a-z0-9A-Z]+\)  1 '(face nil display 🤔)) (org-font-lock-hook) (^\(\**\)\(\* \)\(.* |
 
-#+attr_html: :width 400px
-#+attr_latex: :width 9cm
-#+NAME: 8-fold-plot
-#+CAPTION: Output produced by listing [[persian-recursion-python]] with 9 folds
-
-#+NAME: new-func-code
-#+CAPTION: Modify the Function to use $f(w,x,y,z) = (w + x + y + z - 7) \mod 8$
-#+BEGIN_SRC ipython :exports both :results raw drawer :eval never-export :session persian-recursion :eval never-export :ipyfile ./persian-recursion-new-func.svg
-%config InlineBackend.figure_format = 'svg'
-def cx(l, r, t, b, m):
-    new_col = (main.mat[t,l] + main.mat[t,r] +  main.mat[b,l] + main.mat[b,r]-7) % m
-    return new_col.astype(int)
-main(8, 8, 1, cx)
-#+END_SRC
-
-#+attr_html: :width 400px
-#+attr_latex: :width 9cm
-#+NAME: new-func-plot
-#+CAPTION: Output produced by listing [[new-func-code]] using $f(w,x,y,z) = (w + x + y + z - 7) \mod 8$
-#+RESULTS: new-func-code
-[[file:./persian-recursion-new-func.svg]]
-
-
-#+NAME: new-func2-code
-#+CAPTION: Modify the function to use $f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1$
-#+BEGIN_SRC ipython :exports both :results raw drawer :eval never-export :session persian-recursion :eval never-export :ipyfile ./persian-recursion-new-func2.svg
-%config InlineBackend.figure_format = 'svg'
-import numpy as np
-def cx(l, r, t, b, m):
-    new_col = (main.mat[t,l] + main.mat[t,r]*m +  main.mat[b,l]*(m) + main.mat[b,r]*(m))**1 % m + 1
-    return new_col.astype(int)
-main(8, 8, 1, cx)
-#+END_SRC
-
-
-#+attr_html: :width 400px
-#+attr_latex: :width 9cm
-#+NAME: new-func2-plot
-#+CAPTION: Output produced by listing [[new-func2-code]] using $f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1$
-#+RESULTS: new-func2-code
-[[file:./persian-recursion-new-func2.svg]]
-*** Figures
-
-#+NAME: xkcd-complex-numbers
-#+CAPTION: XKCD 2028: Complex Numbers
-[[file:complex_numbers.png]]
-*** Why Julia
-:PROPERTIES:
-:CUSTOM_ID: why-julia
-:END:
-
-The reason we resolved to make time to investigate /Julia/ is because we see it as a very important tool for mathematics in the future, in particular because:
-
-- It is a new modern language, designed primarily with mathematics in mind
-  + First class support for UTF8 symbols
-  + Full Support to call /*R*/ and /Python/.
-- Performance wise it is best in class and only rivalled by compiled languages such as /Fortran/ /Rust/ and */C/*
-  + /Just in Time Compiling/ allows for a very useable /REPL/ making Julia
-    significantly more appealing than compiled languages
-  + The syntax of Julia is very similar to /Python/ and /*R*/
-- The ~DifferentialEquations.jl~ library is one of the best performing libraries available.
-
-***** Other Packages
-:PROPERTIES:
-:CUSTOM_ID: other-tools
-:END:
-Other packages that are on our radar for want of investigation are listed below, in practice it is unlikely that time will permit us to investigate many packages or libraries
-
-    + Programming Languages and CAS
-      - Julia
-        + SymEngine.jl
-        + Symata.jl
-        + SymPy.jl
-      - Maxima
-        + Being the oldest there is probably a lot too learn
-      - Julia
-      - Reduce
-      - Xcas/Gias
-      - Python
-        + Numpy
-        + Sympy
-    + Visualisation
-      - Makie
-      - Plotly
-      - GNUPlot
-
-** Footnotes
+* Footnotes
 
 [fn:un] Emojis and UTF8 were used in this code, and despite using ~xelatex~ with ~fontspec~ they aren't rendering properly, we intend to have this rectified in time for final submission.
 
