@@ -2552,6 +2552,42 @@ recoll -c /home/ryan/Dropbox/Books/Textbooks/Mathematics/Chaos_Theory/chaos_book
 #+RESULTS:
 | t | (( \(\[\[cite:[a-z0-9A-Z]+\]\[.*\]\]\) 1 '(face nil display 🤔)) ( \(cite:[a-z0-9A-Z]+\) 1 '(face nil display 🤔)) (.*\(\[\[cite:[a-z0-9A-Z]+\]\[.*\]\]\).* 1 '(face nil display 🤔)) (.* \(cite:[a-z0-9A-Z]+\) .* 1 '(face nil display 🤔)) ( \(\[\[cite:[a-z0-9A-Z]+\]\[.*\]\]\)  1 '(face nil display 🤔)) ( \(cite:[a-z0-9A-Z]+\)  1 '(face nil display 🤔)) (org-font-lock-hook) (^\(\**\)\(\* \)\(.* |
 
+** Section attribution
+#+begin_example
+Section Attribution
+─────────────────
+
+1. Report
+2. Hausdorff Dimension                                            :Ryan:
+3. Box Counting                                                   :Ryan:
+4. Fractals Generally                                            :James:
+5. Generating Self Similar Fractals                               :Ryan:
+6. Fractal Dimensions                                             :Ryan:
+7. Julia Sets and Mandelbrot Sets                                 :Ryan:
+8. Fibonacci Sequence                                       :Ryan:James:
+.. 1. Introduction                                                :Ryan:
+.. 2. Computational Approach                                      :Ryan:
+.. 3. Exponential Generating Functions
+..... 1. Motivation                                               :Ryan:
+..... 2. Example                                                  :Ryan:
+..... 3. Derivative of the Exponential Generating Function
+..... 4. Homogeneous Proof                                  :Ryan:James:
+.. 4. Fibonacci Sequence and the Golden Ratio                     :Ryan:
+9. Julia Sets                                                     :Ryan:
+10. MandelBrot                                                    :Ryan:
+11. Appendix
+12. Bibliography
+
+
+How I made this:
+
+1. add `#+OPTIONS: tags:t' to the header
+2. Collapse all headlines revealing
+only the section detail that is desired
+3. `C-c C-e C-v t U' 4. This will export
+visible to a text buffer, the TOC will have the tags of the visible
+headings so just delete what isn’t desired
+#+end_example
 * Footnotes
 
 [fn:un] Emojis and UTF8 were used in this code, and despite using ~xelatex~ with ~fontspec~ they aren't rendering properly, we intend to have this rectified in time for final submission.
