@@ -7,9 +7,6 @@
 % * Packages
 % ** General
 %\RequirePackage{~/Dropbox/profiles/Templates/LaTeX/texnotePreamble.sty}
-\RequirePackage[utf8]{inputenc}
-\RequirePackage{fontspec} %More support for fonts in XeTeX
-\RequirePackage[Latin,Greek,Emoticons]{ucharclasses}
 % \RequirePackage[framemethod=tikz]{mdframed}
 \RequirePackage{pgfplots}
 \RequirePackage{comment}
@@ -24,14 +21,15 @@
 \RequirePackage[T1]{fontenc}
 %\RequirePackage{extsizes} % More Font Sizes
 \RequirePackage[utf8]{inputenc}
-\RequirePackage{sectsty} %Need it for underlining Sections
+% \RequirePackage{sectsty} %Need it for underlining Sections, must be loaded after any modifications to sections
+\RequirePackage[normalem]{ulem}  % Needed with sectsty to underline
 \RequirePackage{lmodern}
 \RequirePackage{enumitem}
 \RequirePackage{ifxetex,ifluatex} % This doesn't work with org-mode
 \RequirePackage{lipsum}
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
-\RequirePackage[margin=2cm]{geometry}
+\RequirePackage[margin=1.5in]{geometry}
 \addtolength{\skip\footins}{2pc plus 5pt} %Add whitespace before footnotes`
 %\RequirePackage{tgadventor}
 % Titlesec is incompatible with org-mode
@@ -79,34 +77,16 @@
    backref=page %hyperlink references
 }
 % * Styling/Aesthetics
-% ** Section Numbering
-%Remove Section Numbers----------------
-% \makeatletter
-% \renewcommand{\@seccntformat}[1]{}
-% \makeatother
-%
-% % Numbering
- \renewcommand{\thesection}{}
- \renewcommand{\thesubsection}{}
- \renewcommand{\thesection}{~\arabic{section}~}
- \setcounter{subsection}{1}
- \renewcommand{\thesubsection}{~\arabic{section}.\arabic{subsection}~}
- \setcounter{subsubsection}{1}
- \renewcommand{\thesubsubsection}{~\arabic{section}.\arabic{subsection}.\arabic{subsubsection}~}
+% ** Section Names
+% Rename Chapters because a reports not a book
+\renewcommand{\chaptername}{Division}
 
 
 % ** Font Style
-%Change the Font------------------------------
-%\RequirePackage{PoiretOne}
-\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
-% ** Rule AFter Sectioning
-% Add rule after sections ------------------------------
-\RequirePackage{titlesec}
-
-	% Formatting----------------------------------------
-	\widowpenalty=1000
-	\clubpenalty=1000
-% ** Page Breaks
+% ** Penalise Page Breaks
+% Formatting----------------------------------------
+\widowpenalty=1000
+\clubpenalty=1000
 % ** Problem Boxes
 
 % Problem boxes --------------------------------------
@@ -121,42 +101,50 @@
 }{\endproof}
 
 %\renewenvironment{proof}{{\bfseries \fontfamily{ccr} \selectfont Proof}}{*something*}
-% ** Heading Colours
+% ** Heading Style
 % *** Define Heading Colours
-\definecolor{colsse}{RGB}{136, 73, 143}
-\definecolor{colsss}{RGB}{156, 118, 160}
-\definecolor{colspg}{RGB}{218, 168, 224}
-\definecolor{coltit}{RGB}{84, 65, 86}
-\definecolor{colname}{RGB}{236, 66 ,255}
-		
+% These probably need some work to be honest
+%\definecolor{part}{RGB}{136, 73, 143}
+%\definecolor{chap}{RGB}{34, 174, 209}
+\definecolor{sec}{RGB}{38, 70, 83}
+\definecolor{subsec}{RGB}{42, 157, 143}
+\definecolor{subsubsec}{RGB}{233, 196, 106}
+\definecolor{paragraph}{RGB}{244, 162, 97}
+\definecolor{subparagrap}{RGB}{47, 83, 115}
+
+% sectsty is by far the easiest way to style sections, use that (but only on it's own)
+
+\RequirePackage[]{sectsty}
+
 % *** Change Colours
 % **** Section
-\titleformat{\section}
-{\color{colsse}\normalfont\LARGE\bfseries}
-{\color{colsse}\thesection}{0em}{}
-\fontfamily{cmss}\selectfont
+\sectionfont{\color{sec}}
 % **** SubSection
-\titleformat{\subsection}
-{\color{colsss}\normalfont\Large\bfseries}
-{\color{colsss}\thesubsection}{0em}{}[\rule{0 in}{2pt}]
-\fontfamily{cmss}\selectfont
-% Change Font
-\fontfamily{cmss}\selectfont
+\subsectionfont{\color{subsec}}
+% **** SubSubSection
+\subsubsectionfont{\color{subsubsec}}
 % **** Paragraph
-\titleformat{\paragraph}
-{\color{colsss}\normalfont\large}
-{\color{colsss}\theparagraph}{0em}{}[\rule{0 in}{1 pt}]
-\fontfamily{cmss}\selectfont
-% Change Font
-\fontfamily{cmss}\selectfont
+\paragraphfont{\color{paragraph}}
+% **** SubParagraph
+\paragraphfont{\color{subparagraph}}
 
-
-
-
+% *** Actually Just use One style Instead
+\definecolor{midnightblue}{rgb}{0.1, 0.1, 0.44}
+%\allsectionsfont{  \mdseries\itshape\underline }
+\allsectionsfont{ \color{midnightblue} \sffamily}
 
 
 	
-% 	
+%
+% ** Header
+\RequirePackage{fancyheadings}
+\RequirePackage{lastpage}
+\pagestyle{fancy}
+\cfoot[]{}
+\rfoot{\thepage\ of \pageref{LastPage}}
+\renewcommand{\headrulewidth{0.1mm}}
+% \renewcommand{\footrulewidth{0.1mm}} % looks weird with footnotes
+
 % * Code Blocks
 % ** Listings Package
 
@@ -192,32 +180,73 @@
   xleftmargin=1in,
 }
 
+% ** tcolorbox
+\RequirePackage{tcolorbox}
+\tcbuselibrary{breakable, most, minted}
+% *** General Format
+% Remember that minted inside a listing is a float and will not break.
+% May be worth investigating \thetcbcounter actually
+\tcbset{
+    breakable, enhanced jigsaw, %Don't break by default because it doesn't work well with listing and tcb
+    colback=blue!1!white,colframe=blue!75!black,colbacktitle=red!20!blue!8,
+    coltitle=blue, enhanced jigsaw,
+%		title=\textbf{\textit{R}}\ ,fonttitle=\it,
+     %Indent for the line numbers, % use line numbers because line-breaks
+      /tcb/left skip=0.5 cm, %Indent the whole box
+      width=41em % make width about 80ish tt char
+}
+% *** Add Strip for Line Numbers
+\tcbuselibrary{skins}
+\tcbset{
+   left=7mm, % Indent text to make room for line Numbers
+   overlay={
+     \begin{tcbclipinterior}\fill[red!20!blue!20!white] (frame.south west) rectangle ([xshift=6mm]frame.north west); \end{tcbclipinterior}
+   }
+ }
 % ** Minted Package
-% *** With Box
-% I prefer this because:
-   %+ It has support for more languages
-      %+ listings would break =org-mode= when using emacs-lisp or elisp
-   %+ linbreaks easily by default
-
-
-% you need to install python, pygments and compile latex with the =-shell-escape= flag
-
 \RequirePackage{minted}
 \setminted{linenos,tabsize=2,breaklines, breakanywhere}
-\RequirePackage{mdframed}
-\RequirePackage{tcolorbox}
-\tcbuselibrary{skins,breakable} % Without this it will not break
-% \tcbset{enhanced jigsaw, breakable} % i might do this per box in case I want a centred one
-\RequirePackage{etoolbox}
-
+% *** With Box
 % Use tcolorbox, even though it breaks html conversion, it makes it way easier,
   %if you need to fix the html conversion just remove the box by commenting this out.
-\BeforeBeginEnvironment{minted}{\begin{tcolorbox}[
-		colback=blue!1!white,colframe=blue!75!black,colbacktitle=red!20!blue!8,
-		coltitle=blue,
-        enhanced jigsaw, breakable,
-%		title=\textbf{\textit{R}}\ ,fonttitle=\it,
-		left=0.6cm, %Indent for the line numbers, % use line numbers because line-breaks
-		 /tcb/left skip=0.5 cm %Indent the whole box
-		 ]}%
-	\AfterEndEnvironment{minted}{  \end{tcolorbox} }%
+  % Automatically wrap minted in tcolorbox
+\BeforeBeginEnvironment{minted}{\begin{tcolorbox}[]}%
+ %  \AfterEndEnvironment{verbatim}{\end{tcolorbox}}%
+\AfterEndEnvironment{minted}{\end{tcolorbox}}%
+
+
+% ** Verbatim
+% Make verbatim smaller to fit inside tcolorbox
+\patchcmd{\@verbatim}
+  {\verbatim@font}
+  {\verbatim@font\footnotesize}
+   {}{}                          %
+% * Fonts
+% ** General
+%Change the Font------------------------------
+%\RequirePackage{PoiretOne}
+% \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+\RequirePackage[mono=false]{libertine}
+% ** Monospace Size
+%
+% ** XeLaTeX Specific
+% \RequireXeTeX
+% \RequirePackage[utf8]{inputenc}
+% \RequirePackage{fontspec} %More support for fonts in XeTeX
+% \RequirePackage[Latin,Greek,Emoticons]{ucharclasses}
+
+\usepackage{xltxtra}
+\usepackage{fontspec} %Font package
+\usepackage{xunicode}
+
+%Select fonts
+% \setmainfont[Mapping=tex-text]{Minion Pro}
+% \setsansfont[Mapping=tex-text]{Myriad Pro}
+%
+% \setmonofont{GNU Unifont}
+% \setmonofont{Free Mono}
+% \setmonofont{Iosevka}
+% \setmonofont{DejaVu Sans Mono} % Too big
+\setmonofont{Fira Mono}
+% \setmonofont{monofur}
+% \setmonofont{Symbola}

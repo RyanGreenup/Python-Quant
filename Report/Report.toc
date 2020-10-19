@@ -1,127 +1,155 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {\nobreakspace {}1\nobreakspace {}}Report}{1}{section.1}%
+\contentsline {section}{\numberline {1}Report}{2}{section.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {\nobreakspace {}1.1\nobreakspace {}}Hausdorff Dimension\hfill {}\textsc {Ryan}}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.1}Cauchy Integral Formula}{2}{subsection.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {\nobreakspace {}1.1.1\nobreakspace {}}Topological Equivalence}{1}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Central Limit Theorem}{2}{subsubsection.1.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {\nobreakspace {}1.1.2\nobreakspace {}}Hausdorff Dimension}{3}{subsubsection.1.1.2}%
+\contentsline {paragraph}{Fibonacci Sequence}{2}{section*.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Measure}{3}{subsubsection.1.1.2}%
+\contentsline {subparagraph}{Sequences and Series generally}{2}{section*.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subparagraph}{Lower Dimension Hausdorff Measurements}{4}{figure.4}%
+\contentsline {section}{\numberline {2}Hausdorff Dimension}{2}{section.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subparagraph}{Higher Dimension Hausdorff Dimension}{5}{equation.1.13}%
+\contentsline {subsection}{\numberline {2.1}Topological Equivalence}{2}{subsection.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Hausdorff Dimension}{6}{figure.5}%
+\contentsline {subsection}{\numberline {2.2}Hausdorff Dimension}{4}{subsection.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Research}{7}{figure.5}%
+\contentsline {subsubsection}{\numberline {2.2.1}Measure}{5}{subsubsection.2.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {\nobreakspace {}1.2\nobreakspace {}}Box Counting\hfill {}\textsc {Ryan}}{7}{subsection.1.2}%
+\contentsline {paragraph}{Lower Dimension Hausdorff Measurements}{6}{section*.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {\nobreakspace {}1.3\nobreakspace {}}Fractals Generally\hfill {}\textsc {James}}{7}{subsection.1.3}%
+\contentsline {subparagraph}{Examples}{6}{section*.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {\nobreakspace {}1.4\nobreakspace {}}Generating Self Similar Fractals\hfill {}\textsc {Ryan}}{8}{subsection.1.4}%
+\contentsline {subparagraph}{Formally}{8}{section*.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Examples}{8}{subsection.1.4}%
+\contentsline {paragraph}{Higher Dimension Hausdorff Dimension}{8}{section*.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subparagraph}{Vicsek Fractal}{8}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {2.2.2}Hausdorff Dimension}{9}{subsubsection.2.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subparagraph}{Sierpinskis Carpet}{10}{figure.6}%
+\contentsline {subsubsection}{\numberline {2.2.3}Research}{9}{subsubsection.2.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subparagraph}{Triangle}{10}{figure.8}%
+\contentsline {section}{\numberline {3}Box Counting}{9}{section.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {\nobreakspace {}1.5\nobreakspace {}}Fractal Dimensions\hfill {}\textsc {Ryan}}{16}{subsection.1.5}%
+\contentsline {section}{\numberline {4}Fractals Generally}{10}{section.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {\nobreakspace {}1.5.1\nobreakspace {}}Turtle}{17}{subsubsection.1.5.1}%
+\contentsline {section}{\numberline {5}Generating Self Similar Fractals}{11}{section.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Dragon Curve}{17}{listing.3}%
+\contentsline {subsubsection}{\numberline {5.0.1}Examples}{11}{subsubsection.5.0.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Koch Snowflake}{17}{figure.12}%
+\contentsline {paragraph}{Vicsek Fractal}{11}{section*.8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {\nobreakspace {}1.5.2\nobreakspace {}}Calculating the Dimension of Julia Set}{17}{subsubsection.1.5.2}%
+\contentsline {paragraph}{Sierpinskis Carpet}{13}{section*.9}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Using Linear Regression}{25}{table.1}%
+\contentsline {paragraph}{Triangle}{13}{section*.10}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subparagraph}{Performance}{25}{table.1}%
+\contentsline {subparagraph}{Chaos Game}{13}{section*.11}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {\nobreakspace {}1.5.3\nobreakspace {}}My Fractal}{26}{subsubsection.1.5.3}%
+\contentsline {subparagraph}{Pascals Triange}{15}{figure.9}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Graphics}{26}{subsubsection.1.5.3}%
+\contentsline {section}{\numberline {6}Fractal Dimensions}{20}{section.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Discuss Pattern shows Fibonacci Numbers}{26}{figure.20}%
+\contentsline {subsection}{\numberline {6.1}Turtle}{20}{subsection.6.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subparagraph}{Angle Relates to Golden Ratio}{26}{figure.20}%
+\contentsline {subsubsection}{\numberline {6.1.1}Dragon Curve}{22}{subsubsection.6.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Prove Fibonacci using Monotone Convergence Theorem}{29}{figure.20}%
+\contentsline {subsubsection}{\numberline {6.1.2}Koch Snowflake}{22}{subsubsection.6.1.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subparagraph}{Show that the Series is Monotone}{29}{figure.20}%
+\contentsline {subsection}{\numberline {6.2}Calculating the Dimension of Julia Set}{22}{subsection.6.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subparagraph}{Show that the Series is Bounded}{29}{figure.20}%
+\contentsline {subsubsection}{\numberline {6.2.1}Using Linear Regression}{31}{subsubsection.6.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subparagraph}{Find the Limit}{31}{figure.20}%
+\contentsline {paragraph}{Performance}{31}{section*.13}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subparagraph}{Comments}{31}{figure.20}%
+\contentsline {subsection}{\numberline {6.3}My Fractal}{31}{subsection.6.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subparagraph}{Python}{31}{figure.20}%
+\contentsline {subsubsection}{\numberline {6.3.1}Graphics}{31}{subsubsection.6.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Angle is \(\qopname \relax o{tan}^{-1}\left ( \frac {1}{1-\varphi }\right )\)}{32}{figure.20}%
+\contentsline {subsubsection}{\numberline {6.3.2}Discuss Pattern shows Fibonacci Numbers}{31}{subsubsection.6.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subparagraph}{Similar to Golden Angle \(2 \pi \left ( \frac {1}{1-\varphi }\right )\)}{32}{figure.20}%
+\contentsline {paragraph}{Angle Relates to Golden Ratio}{31}{section*.14}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Dimension of my Fractal}{32}{figure.20}%
+\contentsline {subsubsection}{\numberline {6.3.3}Prove Fibonacci using Monotone Convergence Theorem}{36}{subsubsection.6.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Code should be split up or put into appendix}{32}{figure.20}%
+\contentsline {paragraph}{Show that the Series is Monotone}{36}{section*.15}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {\nobreakspace {}1.6\nobreakspace {}}Julia Sets and Mandelbrot Sets\hfill {}\textsc {Ryan}}{35}{subsection.1.6}%
+\contentsline {paragraph}{Show that the Series is Bounded}{36}{section*.16}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {\nobreakspace {}1.6.1\nobreakspace {}}The math behind it}{35}{subsubsection.1.6.1}%
+\contentsline {paragraph}{Find the Limit}{36}{section*.17}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Like Escaping after 2}{35}{subsubsection.1.6.1}%
+\contentsline {paragraph}{Comments}{37}{section*.18}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {\nobreakspace {}1.7\nobreakspace {}}Fibonacci Sequence\hfill {}\textsc {Ryan:James}}{35}{subsection.1.7}%
+\contentsline {paragraph}{Python}{37}{section*.19}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {\nobreakspace {}1.7.1\nobreakspace {}}Introduction\hfill {}\textsc {Ryan}}{35}{subsubsection.1.7.1}%
+\contentsline {subsubsection}{\numberline {6.3.4}Angle is \(\qopname \relax o{tan}^{-1}\left ( \frac {1}{1-\varphi }\right )\)}{38}{subsubsection.6.3.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {\nobreakspace {}1.7.2\nobreakspace {}}Computational Approach\hfill {}\textsc {Ryan}}{36}{subsubsection.1.7.2}%
+\contentsline {paragraph}{Similar to Golden Angle \(2 \pi \left ( \frac {1}{1-\varphi }\right )\)}{38}{section*.20}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {\nobreakspace {}1.7.3\nobreakspace {}}Exponential Generating Functions}{38}{subsubsection.1.7.3}%
+\contentsline {subsubsection}{\numberline {6.3.5}Dimension of my Fractal}{38}{subsubsection.6.3.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Motivation\hfill {}\textsc {Ryan}}{38}{subsubsection.1.7.3}%
+\contentsline {subsubsection}{\numberline {6.3.6}Code should be split up or put into appendix}{38}{subsubsection.6.3.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Example\hfill {}\textsc {Ryan}}{40}{equation.1.20}%
+\contentsline {section}{\numberline {7}Julia Sets and Mandelbrot Sets}{41}{section.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Derivative of the Exponential Generating Function}{41}{equation.1.25}%
+\contentsline {subsection}{\numberline {7.1}The math behind it}{41}{subsection.7.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subparagraph}{Base\hfill {}\textsc {Ryan}}{41}{equation.1.25}%
+\contentsline {subsubsection}{\numberline {7.1.1}Like Escaping after 2}{42}{subsubsection.7.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subparagraph}{Bridge\hfill {}\textsc {James}}{42}{equation.1.27}%
+\contentsline {section}{\numberline {8}Fibonacci Sequence}{42}{section.8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Homogeneous Proof\hfill {}\textsc {Ryan:James}}{42}{equation.1.28}%
+\contentsline {subsection}{\numberline {8.1}Introduction}{42}{subsection.8.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subparagraph}{Unique Roots of Characteristic Equation\hfill {}\textsc {Ryan}}{43}{Item.14}%
+\contentsline {subsection}{\numberline {8.2}Computational Approach}{42}{subsection.8.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subparagraph}{Repeated Roots of Characteristic Equation\hfill {}\textsc {Ryan}}{45}{equation.1.34}%
+\contentsline {subsection}{\numberline {8.3}Exponential Generating Functions}{47}{subsection.8.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subparagraph}{General Proof}{47}{equation.1.45}%
+\contentsline {subsubsection}{\numberline {8.3.1}Motivation}{47}{subsubsection.8.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {\nobreakspace {}1.7.4\nobreakspace {}}Fibonacci Sequence and the Golden Ratio\hfill {}\textsc {Ryan}}{48}{subsubsection.1.7.4}%
+\contentsline {subsubsection}{\numberline {8.3.2}Example}{47}{subsubsection.8.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Fibonacci Sequence in Nature (This may be Removed)\hfill {}\textsc {Ryan}}{48}{subsubsection.1.7.4}%
+\contentsline {subsubsection}{\numberline {8.3.3}Derivative of the Exponential Generating Function}{49}{subsubsection.8.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {\nobreakspace {}1.8\nobreakspace {}}Julia Sets\hfill {}\textsc {Ryan}}{50}{subsection.1.8}%
+\contentsline {paragraph}{Base}{49}{section*.21}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {\nobreakspace {}1.8.1\nobreakspace {}}Introduction}{50}{subsubsection.1.8.1}%
+\contentsline {paragraph}{Bridge}{49}{section*.22}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {\nobreakspace {}1.8.2\nobreakspace {}}Motivation}{50}{subsubsection.1.8.2}%
+\contentsline {subsubsection}{\numberline {8.3.4}Homogeneous Proof}{50}{subsubsection.8.3.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {\nobreakspace {}1.8.3\nobreakspace {}}Plotting the Sets}{51}{subsubsection.1.8.3}%
+\contentsline {paragraph}{Unique Roots of Characteristic Equation}{51}{section*.23}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {\nobreakspace {}1.9\nobreakspace {}}MandelBrot\hfill {}\textsc {Ryan}}{52}{subsection.1.9}%
+\contentsline {subparagraph}{Example}{51}{section*.24}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {\nobreakspace {}1.10\nobreakspace {}}Appendix}{58}{subsection.1.10}%
+\contentsline {subparagraph}{Proof}{51}{section*.25}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {\nobreakspace {}1.10.1\nobreakspace {}}Finding Material}{58}{subsubsection.1.10.1}%
+\contentsline {paragraph}{Repeated Roots of Characteristic Equation}{53}{section*.26}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {\nobreakspace {}1.10.2\nobreakspace {}}Font Lock}{58}{subsubsection.1.10.2}%
+\contentsline {subparagraph}{Example}{53}{section*.27}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{Proof}{54}{section*.28}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{General Proof}{55}{section*.29}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{Power Series Combination}{56}{section*.30}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {8.4}Fibonacci Sequence and the Golden Ratio}{56}{subsection.8.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {8.4.1}Fibonacci Sequence in Nature (This may be Removed)}{57}{subsubsection.8.4.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {9}Julia Sets}{60}{section.9}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {9.1}Introduction}{60}{subsection.9.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {9.2}Motivation}{60}{subsection.9.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {9.3}Plotting the Sets}{61}{subsection.9.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {10}MandelBrot}{64}{section.10}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {11}Appendix}{69}{section.11}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {11.1}Finding Material}{69}{subsection.11.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {11.2}Font Lock}{69}{subsection.11.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {11.3}Section attribution}{70}{subsection.11.3}%
