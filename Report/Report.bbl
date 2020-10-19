@@ -161,6 +161,41 @@
       \verb https://search.creativecommons.org/
       \endverb
     \endentry
+    \entry{edgarMeasureTopologyFractal2008a}{book}{}
+      \name{author}{1}{}{%
+        {{hash=37265fa47659b0002144c692793634d9}{%
+           family={Edgar},
+           familyi={E\bibinitperiod},
+           given={Gerald\bibnamedelima A.},
+           giveni={G\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{37265fa47659b0002144c692793634d9}
+      \strng{fullhash}{37265fa47659b0002144c692793634d9}
+      \strng{bibnamehash}{37265fa47659b0002144c692793634d9}
+      \strng{authorbibnamehash}{37265fa47659b0002144c692793634d9}
+      \strng{authornamehash}{37265fa47659b0002144c692793634d9}
+      \strng{authorfullhash}{37265fa47659b0002144c692793634d9}
+      \field{extraname}{1}
+      \field{sortinit}{E}
+      \field{sortinithash}{c554bd1a0b76ea92b9f105fe36d9c7b0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{annotation}{OCLC: ocn190580786}
+      \field{edition}{2nd ed}
+      \field{isbn}{978-0-387-74748-4}
+      \field{pagetotal}{268}
+      \field{series}{Undergraduate Texts in Mathematics}
+      \field{title}{Measure, Topology, and Fractal Geometry}
+      \field{year}{2008}
+      \field{dateera}{ce}
+      \keyw{Fractals,Measure theory,Topology}
+    \endentry
     \entry{edgarMeasureTopologyFractal2008}{book}{}
       \name{author}{1}{}{%
         {{hash=37265fa47659b0002144c692793634d9}{%
@@ -181,6 +216,7 @@
       \strng{authorbibnamehash}{37265fa47659b0002144c692793634d9}
       \strng{authornamehash}{37265fa47659b0002144c692793634d9}
       \strng{authorfullhash}{37265fa47659b0002144c692793634d9}
+      \field{extraname}{2}
       \field{sortinit}{E}
       \field{sortinithash}{c554bd1a0b76ea92b9f105fe36d9c7b0}
       \field{labelnamesource}{author}
@@ -198,7 +234,7 @@
       \endverb
       \keyw{Fractals,Measure theory,Topology}
     \endentry
-    \entry{falconerFractalGeometryMathematical2003}{book}{}
+    \entry{falconerFractalGeometryMathematical2003b}{book}{}
       \name{author}{1}{}{%
         {{hash=4c12e05a251255040261073154cca7bf}{%
            family={Falconer},
@@ -232,7 +268,7 @@
       \field{dateera}{ce}
       \keyw{Fractals}
     \endentry
-    \entry{falconerFractalGeometryMathematical2003b}{book}{}
+    \entry{falconerFractalGeometryMathematical2003}{book}{}
       \name{author}{1}{}{%
         {{hash=4c12e05a251255040261073154cca7bf}{%
            family={Falconer},
@@ -300,6 +336,37 @@
       \field{dateera}{ce}
       \keyw{Computer-assisted instruction,Mathematics,Python (Computer program language)}
     \endentry
+    \entry{Fractal2020}{inreference}{}
+      \field{sortinit}{F}
+      \field{sortinithash}{fb0c0faa89eb6abae8213bf60e6799ea}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In mathematics, a fractal is a self-similar subset of Euclidean space whose fractal dimension strictly exceeds its topological dimension. Fractals appear the same at different levels, as illustrated in successive magnifications of the Mandelbrot set. Fractals exhibit similar patterns at increasingly small scales called self-similarity, also known as expanding symmetry or unfolding symmetry; if this replication is exactly the same at every scale, as in the Menger sponge, it is called affine self-similar. Fractal geometry lies within the mathematical branch of measure theory. One way that fractals are different from finite geometric figures is the way in which they scale. Doubling the edge lengths of a polygon multiplies its area by four, which is two (the ratio of the new to the old side length) raised to the power of two (the dimension of the space the polygon resides in). Likewise, if the radius of a sphere is doubled, its volume scales by eight, which is two (the ratio of the new to the old radius) to the power of three (the dimension that the sphere resides in). However, if a fractal's one-dimensional lengths are all doubled, the spatial content of the fractal scales by a power that is not necessarily an integer. This power is called the fractal dimension of the fractal, and it usually exceeds the fractal's topological dimension.Analytically, fractals are usually nowhere differentiable. An infinite fractal curve can be conceived of as winding through space differently from an ordinary line – although it is still 1-dimensional, its fractal dimension indicates that it also resembles a surface. Starting in the 17th century with notions of recursion, fractals have moved through increasingly rigorous mathematical treatment of the concept to the study of continuous but not differentiable functions in the 19th century by the seminal work of Bernard Bolzano, Bernhard Riemann, and Karl Weierstrass, and on to the coining of the word fractal in the 20th century with a subsequent burgeoning of interest in fractals and computer-based modelling in the 20th century. The term "fractal" was first used by mathematician Benoit Mandelbrot in 1975. Mandelbrot based it on the Latin frāctus, meaning "broken" or "fractured", and used it to extend the concept of theoretical fractional dimensions to geometric patterns in nature.There is some disagreement among mathematicians about how the concept of a fractal should be formally defined. Mandelbrot himself summarized it as "beautiful, damn hard, increasingly useful. That's fractals." More formally, in 1982 Mandelbrot stated that "A fractal is by definition a set for which the Hausdorff–Besicovitch dimension strictly exceeds the topological dimension." Later, seeing this as too restrictive, he simplified and expanded the definition to: "A fractal is a shape made of parts similar to the whole in some way." Still later, Mandelbrot settled on this use of the language: "...to use fractal without a pedantic definition, to use fractal dimension as a generic term applicable to all the variants".The consensus is that theoretical fractals are infinitely self-similar, iterated, and detailed mathematical constructs having fractal dimensions, of which many examples have been formulated and studied in great depth. Fractals are not limited to geometric patterns, but can also describe processes in time. Fractal patterns with various degrees of self-similarity have been rendered or studied in images, structures and sounds and found in nature, technology, art, architecture and law. Fractals are of particular relevance in the field of chaos theory, since the graphs of most chaotic processes are fractals.}
+      \field{annotation}{Page Version ID: 978464038}
+      \field{booktitle}{Wikipedia}
+      \field{day}{15}
+      \field{hour}{2}
+      \field{langid}{english}
+      \field{minute}{33}
+      \field{month}{9}
+      \field{second}{51}
+      \field{timezone}{Z}
+      \field{title}{Fractal}
+      \field{urlday}{19}
+      \field{urlmonth}{10}
+      \field{urlyear}{2020}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/CDC5FAVB/index.html
+      \endverb
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/w/index.php?title=Fractal&oldid=978464038
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/w/index.php?title=Fractal&oldid=978464038
+      \endverb
+    \endentry
     \entry{FunctoolsHigherorderFunctions}{online}{}
       \field{sortinit}{F}
       \field{sortinithash}{fb0c0faa89eb6abae8213bf60e6799ea}
@@ -356,6 +423,90 @@
       \field{dateera}{ce}
       \keyw{Attractors (Mathematics),Chaotic behavior in systems}
     \endentry
+    \entry{gomoryBenoitMandelbrot19242010}{article}{}
+      \name{author}{1}{}{%
+        {{hash=2152ffdcf6138b22adb75bb06a1b15c1}{%
+           family={Gomory},
+           familyi={G\bibinitperiod},
+           given={Ralph},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{2152ffdcf6138b22adb75bb06a1b15c1}
+      \strng{fullhash}{2152ffdcf6138b22adb75bb06a1b15c1}
+      \strng{bibnamehash}{2152ffdcf6138b22adb75bb06a1b15c1}
+      \strng{authorbibnamehash}{2152ffdcf6138b22adb75bb06a1b15c1}
+      \strng{authornamehash}{2152ffdcf6138b22adb75bb06a1b15c1}
+      \strng{authorfullhash}{2152ffdcf6138b22adb75bb06a1b15c1}
+      \field{sortinit}{G}
+      \field{sortinithash}{62eb2aa29549e4fdbd3cb154ec5711cb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Mathematician, and father of fractal geometry, who described the roughness of nature.}
+      \field{issn}{1476-4687}
+      \field{issue}{7322}
+      \field{journaltitle}{Nature}
+      \field{langid}{english}
+      \field{month}{11}
+      \field{number}{7322}
+      \field{title}{Benoît {{Mandelbrot}} (1924–2010)}
+      \field{urlday}{19}
+      \field{urlmonth}{10}
+      \field{urlyear}{2020}
+      \field{volume}{468}
+      \field{year}{2010}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{378\bibrangedash 378}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1038/468378a
+      \endverb
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/V65GVQG7/gomoryBenoitMandelbrot19242010.pdf;/home/ryan/Zotero/storage/LRDNZVVA/468378a.html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.nature.com/articles/468378a
+      \endverb
+      \verb{url}
+      \verb https://www.nature.com/articles/468378a
+      \endverb
+    \endentry
+    \entry{gouyetPhysicsFractalStructures1996}{book}{}
+      \name{author}{1}{}{%
+        {{hash=f7830a1fa0a0e3304b6b980e410b10d5}{%
+           family={Gouyet},
+           familyi={G\bibinitperiod},
+           given={Jean-François},
+           giveni={J\bibinithyphendelim F\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Paris : New York}%
+      }
+      \list{publisher}{1}{%
+        {Masson ; Springer}%
+      }
+      \strng{namehash}{f7830a1fa0a0e3304b6b980e410b10d5}
+      \strng{fullhash}{f7830a1fa0a0e3304b6b980e410b10d5}
+      \strng{bibnamehash}{f7830a1fa0a0e3304b6b980e410b10d5}
+      \strng{authorbibnamehash}{f7830a1fa0a0e3304b6b980e410b10d5}
+      \strng{authornamehash}{f7830a1fa0a0e3304b6b980e410b10d5}
+      \strng{authorfullhash}{f7830a1fa0a0e3304b6b980e410b10d5}
+      \field{sortinit}{G}
+      \field{sortinithash}{62eb2aa29549e4fdbd3cb154ec5711cb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-387-94153-0 978-3-540-94153-8 978-2-225-85130-8}
+      \field{langid}{english}
+      \field{note}{Published with the support of ministère de l'Enseignement supérieur et de la Recherche (France) : Direction de l'information scientifique et technique et des bibliothèques--t.p. verso}
+      \field{pagetotal}{234}
+      \field{title}{Physics and Fractal Structures}
+      \field{year}{1996}
+      \field{dateera}{ce}
+      \keyw{Fractals,Mathematical physics}
+    \endentry
     \entry{hazratMathematicaProblemCenteredApproach2015}{book}{}
       \name{author}{1}{}{%
         {{hash=0d3a339c84be049fd891824f62a4e6ee}{%
@@ -394,6 +545,60 @@
       \verb 10.1007/978-3-319-27585-7
       \endverb
       \keyw{Computer science-Mathematics,Computer software,Mathematical Software,Programming languages (Electronic computers),Programming Languages; Compilers; Interpreters,Symbolic and Algebraic Manipulation}
+    \endentry
+    \entry{jiangFractalAnalysisComplexity1998}{article}{}
+      \name{author}{2}{}{%
+        {{hash=168824006aafec926c06d487de20ba1c}{%
+           family={Jiang},
+           familyi={J\bibinitperiod},
+           given={Junwei},
+           giveni={J\bibinitperiod}}}%
+        {{hash=bea4962f56b2ce0846504b54fbec2b45}{%
+           family={Plotnick},
+           familyi={P\bibinitperiod},
+           given={Roy\bibnamedelima E.},
+           giveni={R\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{79fbb6f150136ae7685df2c7bbbb7c81}
+      \strng{fullhash}{79fbb6f150136ae7685df2c7bbbb7c81}
+      \strng{bibnamehash}{79fbb6f150136ae7685df2c7bbbb7c81}
+      \strng{authorbibnamehash}{79fbb6f150136ae7685df2c7bbbb7c81}
+      \strng{authornamehash}{79fbb6f150136ae7685df2c7bbbb7c81}
+      \strng{authorfullhash}{79fbb6f150136ae7685df2c7bbbb7c81}
+      \field{sortinit}{J}
+      \field{sortinithash}{c45040a764d616897e7f5b30174d7b92}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Coastlines have long been used as a principal example of a natural feature that exhibits fractal structure. With the advent of large digitized databases, it has become possible to examine in detail large regions of coast and to examine differences in complexity, as measured by the fractal dimension, among regions. In this study, we have determined the fractal dimension of the Atlantic and Pacific coastlines of the conterminous United States. The traditional divider method was used in obtaining the fractal dimension of each coastline arc from the NOAA Medium-Resolution Shoreline Data Set. On average, the Atlantic coast has much higher fractal dimension than the Pacific coast. The results also indicate that the complexity of the Atlantic coast increases toward low latitudes. These results have implications for the interpretation of species distributions and diversity patterns along the coast and for the understanding of the dynamics of biotic recovery from mass extinctions.}
+      \field{day}{1}
+      \field{issn}{1573-8868}
+      \field{journaltitle}{Mathematical Geology}
+      \field{langid}{english}
+      \field{month}{7}
+      \field{number}{5}
+      \field{shortjournal}{Mathematical Geology}
+      \field{title}{Fractal {{Analysis}} of the {{Complexity}} of {{United States Coastlines}}}
+      \field{urlday}{19}
+      \field{urlmonth}{10}
+      \field{urlyear}{2020}
+      \field{volume}{30}
+      \field{year}{1998}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{535\bibrangedash 546}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1023/A:1021790111404
+      \endverb
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/GHSTCVFW/jiangFractalAnalysisComplexity1998.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1023/A:1021790111404
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1023/A:1021790111404
+      \endverb
     \endentry
     \entry{JuliaSet2020}{inreference}{}
       \field{sortinit}{J}
@@ -632,6 +837,134 @@
       \verb https://en.wikipedia.org/w/index.php?title=List_of_fractals_by_Hausdorff_dimension&oldid=977401154
       \endverb
     \endentry
+    \entry{mandelbrotHowLongCoast1967}{article}{}
+      \name{author}{1}{}{%
+        {{hash=83ced72c407b4739f234545c111ae19f}{%
+           family={Mandelbrot},
+           familyi={M\bibinitperiod},
+           given={Benoit},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Association for the Advancement of Science}%
+      }
+      \strng{namehash}{83ced72c407b4739f234545c111ae19f}
+      \strng{fullhash}{83ced72c407b4739f234545c111ae19f}
+      \strng{bibnamehash}{83ced72c407b4739f234545c111ae19f}
+      \strng{authorbibnamehash}{83ced72c407b4739f234545c111ae19f}
+      \strng{authornamehash}{83ced72c407b4739f234545c111ae19f}
+      \strng{authorfullhash}{83ced72c407b4739f234545c111ae19f}
+      \field{extraname}{1}
+      \field{sortinit}{M}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Geographical curves are so involved in their detail that their lengths are often infinite or, rather, undefinable. However, many are statistically "selfsimilar," meaning that each portion can be considered a reduced-scale image of the whole. In that case, the degree of complication can be described by a quantity D that has many properties of a "dimension," though it is fractional; that is, it exceeds the value unity associated with the ordinary, rectifiable, curves.}
+      \field{day}{5}
+      \field{eprinttype}{pmid}
+      \field{issn}{0036-8075, 1095-9203}
+      \field{journaltitle}{Science}
+      \field{langid}{english}
+      \field{month}{5}
+      \field{number}{3775}
+      \field{shorttitle}{How {{Long Is}} the {{Coast}} of {{Britain}}?}
+      \field{title}{How {{Long Is}} the {{Coast}} of {{Britain}}? {{Statistical Self}}-{{Similarity}} and {{Fractional Dimension}}}
+      \field{urlday}{19}
+      \field{urlmonth}{10}
+      \field{urlyear}{2020}
+      \field{volume}{156}
+      \field{year}{1967}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{636\bibrangedash 638}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1126/science.156.3775.636
+      \endverb
+      \verb{eprint}
+      \verb 17837158
+      \endverb
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/X6R6NDF3/636.html
+      \endverb
+      \verb{urlraw}
+      \verb https://science.sciencemag.org/content/156/3775/636
+      \endverb
+      \verb{url}
+      \verb https://science.sciencemag.org/content/156/3775/636
+      \endverb
+    \endentry
+    \entry{mandelbrotFractalGeometryNature1982}{book}{}
+      \name{author}{1}{}{%
+        {{hash=d1efa9919078b1d84e99492d760dcc14}{%
+           family={Mandelbrot},
+           familyi={M\bibinitperiod},
+           given={Benoit\bibnamedelima B.},
+           giveni={B\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {San Francisco}%
+      }
+      \list{publisher}{1}{%
+        {W.H. Freeman}%
+      }
+      \strng{namehash}{d1efa9919078b1d84e99492d760dcc14}
+      \strng{fullhash}{d1efa9919078b1d84e99492d760dcc14}
+      \strng{bibnamehash}{d1efa9919078b1d84e99492d760dcc14}
+      \strng{authorbibnamehash}{d1efa9919078b1d84e99492d760dcc14}
+      \strng{authornamehash}{d1efa9919078b1d84e99492d760dcc14}
+      \strng{authorfullhash}{d1efa9919078b1d84e99492d760dcc14}
+      \field{extraname}{2}
+      \field{sortinit}{M}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-7167-1186-5}
+      \field{note}{Includes index}
+      \field{pagetotal}{460}
+      \field{title}{The Fractal Geometry of Nature}
+      \field{year}{1982}
+      \field{dateera}{ce}
+      \keyw{Fractals,Geometry,Mathematical models,Stochastic processes}
+    \endentry
+    \entry{mandelbrotMisBehaviourMarkets2008}{book}{}
+      \name{author}{2}{}{%
+        {{hash=d1efa9919078b1d84e99492d760dcc14}{%
+           family={Mandelbrot},
+           familyi={M\bibinitperiod},
+           given={Benoit\bibnamedelima B.},
+           giveni={B\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=7ba7bd472b5d5bf2ca296005e50bd8db}{%
+           family={Hudson},
+           familyi={H\bibinitperiod},
+           given={Richard\bibnamedelima L.},
+           giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {London}%
+      }
+      \list{publisher}{1}{%
+        {Profile}%
+      }
+      \strng{namehash}{5d397a4258266110a20f0da4f532ef50}
+      \strng{fullhash}{5d397a4258266110a20f0da4f532ef50}
+      \strng{bibnamehash}{5d397a4258266110a20f0da4f532ef50}
+      \strng{authorbibnamehash}{5d397a4258266110a20f0da4f532ef50}
+      \strng{authornamehash}{5d397a4258266110a20f0da4f532ef50}
+      \strng{authorfullhash}{5d397a4258266110a20f0da4f532ef50}
+      \field{sortinit}{M}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{edition}{Pbk. ed}
+      \field{isbn}{978-1-84668-262-9}
+      \field{pagetotal}{326}
+      \field{shorttitle}{The (Mis)Behaviour of Markets}
+      \field{title}{The (Mis)Behaviour of Markets: A Fractal View of Risk, Ruin, and Reward}
+      \field{year}{2008}
+      \field{dateera}{ce}
+      \keyw{Capital market,Investment analysis,Prices,Risk management,Securities,Stocks}
+    \endentry
     \entry{markpollicottFractalsDimensionTheory2005}{misc}{}
       \name{author}{1}{}{%
         {{hash=2e98ac0490ebc4c868435653f3dbadfe}{%
@@ -841,6 +1174,42 @@
       \verb http://www.maths.surrey.ac.uk/hosted-sites/R.Knott/Fibonacci/fibnat.html
       \endverb
     \endentry
+    \entry{sandersonFractalsAreTypically2017}{video}{}
+      \name{editor}{1}{}{%
+        {{hash=5dd1de74b15229ad68590a5ce3ade3c5}{%
+           family={Sanderson},
+           familyi={S\bibinitperiod},
+           given={Grant},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{fullhash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{bibnamehash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{editorbibnamehash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{editornamehash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \strng{editorfullhash}{5dd1de74b15229ad68590a5ce3ade3c5}
+      \field{sortinit}{S}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{abstract}{An explanation of fractal dimension. Home page: https://www.3blue1brown.com/ Brought to you by you: https://3b1b.co/fractals-thanks And by Affirm: https://www.affirm.com/careers Music by Vince Rubinetti: https://soundcloud.com/vincerubinetti... One technical note: It's possible to have fractals with an integer dimension. The example to have in mind is some *very* rough curve, which just so happens to achieve roughness level exactly 2. Slightly rough might be around 1.1-dimension; quite rough could be 1.5; but a very rough curve could get up to 2.0 (or more). A classic example of this is the boundary of the Mandelbrot set. The Sierpinski pyramid also has dimension 2 (try computing it!). The proper definition of a fractal, at least as Mandelbrot wrote it, is a shape whose "Hausdorff dimension" is greater than its "topological dimension". Hausdorff dimension is similar to the box-counting one I showed in this video, in some sense counting using balls instead of boxes, and it coincides with box-counting dimension in many cases. But it's more general, at the cost of being a bit harder to describe. Topological dimension is something that's always an integer, wherein (loosely speaking) curve-ish things are 1-dimensional, surface-ish things are two-dimensional, etc. For example, a Koch Curve has topological dimension 1, and Hausdorff dimension 1.262. A rough surface might have topological dimension 2, but fractal dimension 2.3. And if a curve with topological dimension 1 has a Hausdorff dimension that *happens* to be exactly 2, or 3, or 4, etc., it would be considered a fractal, even though it's fractal dimension is an integer. See Mandelbrot's book "The Fractal Geometry of Nature" for the full details and more examples. ------------------ 3blue1brown is a channel about animating math, in all senses of the word animate. And you know the drill with YouTube, if you want to stay posted about new videos, subscribe, and click the bell to receive notifications (if you're into that). If you are new to this channel and want to see more, a good place to start is this playlist: https://www.youtube.com/playlist?list... Various social media stuffs: Twitter: https://twitter.com/3Blue1Brown Facebook: https://www.facebook.com/3blue1brown/ Reddit: https://www.reddit.com/r/3Blue1Brown}
+      \field{day}{27}
+      \field{editortype}{director}
+      \field{month}{1}
+      \field{title}{Fractals Are Typically Not Self-Similar}
+      \field{urlday}{19}
+      \field{urlmonth}{10}
+      \field{urlyear}{2020}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=gB9n2gHsHN4&lc=Ugj8mIhm_S17y3gCoAEC
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=gB9n2gHsHN4&lc=Ugj8mIhm_S17y3gCoAEC
+      \endverb
+    \endentry
     \entry{shellyallenFibonacciNature}{online}{}
       \name{author}{1}{}{%
         {{hash=1e347245170cc7f62e430ecc63df4410}{%
@@ -909,6 +1278,207 @@
       \field{year}{2015}
       \field{dateera}{ce}
       \keyw{Chaotic behavior in systems,Dynamics,Nonlinear theories}
+    \endentry
+    \entry{telChaoticDynamicsIntroduction2006}{book}{}
+      \name{author}{3}{}{%
+        {{hash=ef117faa4add1a95cb6e948809f06dc9}{%
+           family={Tél},
+           familyi={T\bibinitperiod},
+           given={Tamás},
+           giveni={T\bibinitperiod}}}%
+        {{hash=374b9852c9822667e8d7bc65b220f4a4}{%
+           family={Gruiz},
+           familyi={G\bibinitperiod},
+           given={Márton},
+           giveni={M\bibinitperiod}}}%
+        {{hash=ad14e48292e85ab0b74e63cd9df515c1}{%
+           family={Kulacsy},
+           familyi={K\bibinitperiod},
+           given={Katalin},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cambridge}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{b28636a6a84075687da7e61a4b417ca2}
+      \strng{fullhash}{b28636a6a84075687da7e61a4b417ca2}
+      \strng{bibnamehash}{b28636a6a84075687da7e61a4b417ca2}
+      \strng{authorbibnamehash}{b28636a6a84075687da7e61a4b417ca2}
+      \strng{authornamehash}{b28636a6a84075687da7e61a4b417ca2}
+      \strng{authorfullhash}{b28636a6a84075687da7e61a4b417ca2}
+      \field{sortinit}{T}
+      \field{sortinithash}{51f9faf24c60c62ca764a77f78cf5666}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{This work provides a clear introduction to chaos phenomena for undergraduate students in science, engineering, and mathematics, using examples that range from enginnering problems through to astronomical aspects.}
+      \field{annotation}{OCLC: 173845245}
+      \field{isbn}{9780511335044 9780511334467 9780511333125 9780511803277 9780511333804 9781281040114 9786611040116 9780511567216}
+      \field{langid}{Translated from Hungarian.}
+      \field{shorttitle}{Chaotic dynamics}
+      \field{title}{Chaotic dynamics: an introduction based on classical mechanics}
+      \field{urlday}{28}
+      \field{urlmonth}{8}
+      \field{urlyear}{2020}
+      \field{year}{2006}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://doi.org/10.1017/CBO9780511803277
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1017/CBO9780511803277
+      \endverb
+    \endentry
+    \entry{vicsekFractalGrowthPhenomena1992}{book}{}
+      \name{author}{1}{}{%
+        {{hash=6ff33ab4371a3804415d624c6171ef14}{%
+           family={Vicsek},
+           familyi={V\bibinitperiod},
+           given={Tamás},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Singapore ; New Jersey}%
+      }
+      \list{publisher}{1}{%
+        {World Scientific}%
+      }
+      \strng{namehash}{6ff33ab4371a3804415d624c6171ef14}
+      \strng{fullhash}{6ff33ab4371a3804415d624c6171ef14}
+      \strng{bibnamehash}{6ff33ab4371a3804415d624c6171ef14}
+      \strng{authorbibnamehash}{6ff33ab4371a3804415d624c6171ef14}
+      \strng{authornamehash}{6ff33ab4371a3804415d624c6171ef14}
+      \strng{authorfullhash}{6ff33ab4371a3804415d624c6171ef14}
+      \field{sortinit}{V}
+      \field{sortinithash}{02432525618c08e2b03cac47c19764af}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd ed}
+      \field{isbn}{978-981-02-0668-0 978-981-02-0669-7}
+      \field{pagetotal}{488}
+      \field{title}{Fractal Growth Phenomena}
+      \field{year}{1992}
+      \field{dateera}{ce}
+      \keyw{Fractals}
+    \endentry
+    \entry{zhongFractalPropertiesShoreline2017}{article}{}
+      \name{author}{3}{}{%
+        {{hash=3b99d9fb8e99115d3531c36ddf7bb9a8}{%
+           family={Zhong},
+           familyi={Z\bibinitperiod},
+           given={Xiaojing},
+           giveni={X\bibinitperiod}}}%
+        {{hash=c476255801262401399b7c2ef207ff07}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Peng},
+           giveni={P\bibinitperiod}}}%
+        {{hash=32a1f07d2babedd1a0e917c75ec29acb}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Shenliang},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{6bb51e1ba6f09e6061b1646726827b4f}
+      \strng{fullhash}{6bb51e1ba6f09e6061b1646726827b4f}
+      \strng{bibnamehash}{6bb51e1ba6f09e6061b1646726827b4f}
+      \strng{authorbibnamehash}{6bb51e1ba6f09e6061b1646726827b4f}
+      \strng{authornamehash}{6bb51e1ba6f09e6061b1646726827b4f}
+      \strng{authorfullhash}{6bb51e1ba6f09e6061b1646726827b4f}
+      \field{sortinit}{Z}
+      \field{sortinithash}{8f7b480688e809b50b6f6577b16f3db5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Extreme storm events and their consequent shoreline changes are of great importance for understanding coastal evolution and assessing storm hazards. This work investigates the fractal properties of the spatial distributions of shoreline changes caused by storms. Wavelet analysis and upper-truncated power law (UTPL) fitting are used to study the power spectra of shoreline changes and to evaluate the upper limits of the cross-shore erosion and accretion. During a period affected by storms, the alongshore shoreline change patterns are strong on the 15\,km scale but are weak with lower spectral power on the 20\,km scale. The areas adjacent to the eroded shoreline are usually accrete, and the cross-shore extent of erosion is larger than that of accretion when the coast is affected by storms. The fractal properties of shoreline changes due to storms are found to be temporally continuous: the effects of later storms build on the preceding shoreline conditions, including both the effects of previous storms and the subsequent shoreline recoveries. This work provides a new perspective on the various scales of the spatial variations of the morphodynamics of storm-affected shorelines.}
+      \field{day}{15}
+      \field{issn}{2045-2322}
+      \field{issue}{1}
+      \field{journaltitle}{Scientific Reports}
+      \field{langid}{english}
+      \field{month}{8}
+      \field{number}{1}
+      \field{title}{Fractal Properties of Shoreline Changes on a Storm-Exposed Island}
+      \field{urlday}{19}
+      \field{urlmonth}{10}
+      \field{urlyear}{2020}
+      \field{volume}{7}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{8274}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1038/s41598-017-08924-9
+      \endverb
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/MFSSX2X3/zhongFractalPropertiesShoreline2017.pdf;/home/ryan/Zotero/storage/GRT3QNWJ/s41598-017-08924-9.html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.nature.com/articles/s41598-017-08924-9
+      \endverb
+      \verb{url}
+      \verb https://www.nature.com/articles/s41598-017-08924-9
+      \endverb
+    \endentry
+    \entry{zhuFractalMechanismCoastline2002}{article}{}
+      \name{author}{2}{}{%
+        {{hash=1be4475acf4a043919f2fe9434907631}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Xiao-hua},
+           giveni={X\bibinithyphendelim h\bibinitperiod}}}%
+        {{hash=c33641e67eeaefc87b7821dc9b51ff90}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Jian},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{3827fe9f1d747a2b11fac03f5c28faa0}
+      \strng{fullhash}{3827fe9f1d747a2b11fac03f5c28faa0}
+      \strng{bibnamehash}{3827fe9f1d747a2b11fac03f5c28faa0}
+      \strng{authorbibnamehash}{3827fe9f1d747a2b11fac03f5c28faa0}
+      \strng{authornamehash}{3827fe9f1d747a2b11fac03f5c28faa0}
+      \strng{authorfullhash}{3827fe9f1d747a2b11fac03f5c28faa0}
+      \field{sortinit}{Z}
+      \field{sortinithash}{8f7b480688e809b50b6f6577b16f3db5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{MANDELBROT enunciated the uncertainty of the length of a coastline in his paper “How long is the coastline of Britain?” published in “Science” in 1967. The fractal concept was presented for the first time in that paper and has been applied to many fields ever since. According to the fractal theory and conditions of fractal research of coastline, the controls of faults and biologic function on the fractal character of coastline are preliminarily discussed on the basis of GIS in this paper. Finally, some significant conclusions are drawn: 1) the faults control the basic trends of coastlines of two study areas; 2) the fractal dimension of coastline of Taiwan is smaller than that of Changle — Lufeng, because the faults of Taiwan more intensely control the trend and fractal dimension of the coastline; 3) the larger the fractal dimension of the faults or the major faults, the more the controlling effect of them on the trend and fractal dimension of coastline; 4) the larger fractal dimension of the coastline of Changle — Lufeng indicates that the biologic function intensely shapes the coastline. In a word, the controls of faults and biologic function on the fractal character of coastline are discussed with a case study of China in this paper, it can be seen that faults and biologic function both have influence over the trend and fractal dimension of coastline, the fractal mechanism of coastline of two study areas may be so.}
+      \field{day}{1}
+      \field{issn}{1993-064X}
+      \field{journaltitle}{Chinese Geographical Science}
+      \field{langid}{english}
+      \field{month}{6}
+      \field{number}{2}
+      \field{shortjournal}{Chin. Geograph.Sc.}
+      \field{title}{On Fractal Mechanism of Coastline}
+      \field{urlday}{19}
+      \field{urlmonth}{10}
+      \field{urlyear}{2020}
+      \field{volume}{12}
+      \field{year}{2002}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{142\bibrangedash 145}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1007/s11769-002-0022-z
+      \endverb
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/XFZJUKWX/zhuFractalMechanismCoastline2002.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s11769-002-0022-z
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s11769-002-0022-z
+      \endverb
     \endentry
     \entry{zillDifferentialEquations2009a}{book}{}
       \name{author}{2}{}{%
