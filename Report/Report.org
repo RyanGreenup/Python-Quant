@@ -106,12 +106,11 @@ In the case of the koch snowflake, the measure of the shape, when scaled, will i
 
 
 #+NAME: koch-line
-#+CAPTION: Progression of the Koch Snowflake
+#+CAPTION: Progression of the Koch Curve
 #+attr_html: :width 400px
 #+attr_latex: :width 9cm
 [[file:media/tikz/Koch_line.png]]
 # \includestandalone[]{.media/tikz/Koch_line.png]]
-}
 
 #+NAME: koch-snowflake
 #+CAPTION: Progression of the Koch Snowflake
@@ -248,7 +247,7 @@ Hence the value of the s-dimensional /Hausdorff Measure/, $s$ is only a finite, 
 
 
 #+NAME: hausdorff-vals
-#+CAPTION: The value of the s-dimensional /Hausdorff Measure/ of some subset of /Euclidean space/ $F\in \mathbb{R}^{n}$ is 0 or $\infty$ when the dimension of $F$ is not equal to $s$.
+#+Caption: The value of the s-dimensional /Hausdorff Measure/ of some subset of /Euclidean space/ $F\in \mathbb{R}^{n}$ is 0 or $\infty$ when the dimension of $F$ is not equal to $s$.
 #+attr_html: :width 400px
 #+attr_latex: :width 9cm
 [[file:media/tikz/hausdorff-dimension-plot.png]]
@@ -259,31 +258,72 @@ The value $s$ at which $\mathcal{H}^{s}$ changes from $\infty$ to 0, shown in fi
 **** TODO Research
 I feel very inclided to read [[https://warwick.ac.uk/fac/sci/maths/people/staff/mark_pollicott/p3/tehran.pdf][these notes]] [fn:: [[file:~/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resources/Uncorrected-Warwick-BoxCount-Hausendorff-Notes.pdf][Local Copy]]]
 
-** Box Counting
+** Box Counting                                                                :James:
 Sources for this section are primarily:
-- Falconer [[cite:falconerFractalGeometryMathematical2003b][Ch. 3.1]]
+- Falconer [[cite:falconerFractalGeometryMathematical2003b][Ch.3.1]]
 - Strogatz Non Linear Dynamics [[cite:strogatzNonlinearDynamicsChaos2015][Ch. 11.4]]
 
-- There are many different notions of dimension, atleast 10 [[cite:edgarMeasureTopologyFractal2008][Ch. 4.3]]
-  + /Hausdorff Dimension/ is the oldest and most important with respect to the dimensions of fractals [[cite:falconerFractalGeometryMathematical2003b][p. 27]]
-- The Box dimension has only boxes of fixed sizes, unlike the /Hausdorff
-  Dimensions/ where in the boxes may be arbitrary sizes less than $\delta$ but
-  it is significantly hader to calculate numerically [[cite:strogatzNonlinearDynamicsChaos2015][\textsection 11.4]]
-- The problem with the /Hausdorff Dimension/, discussed in \textsection [[#Hausdorff-dimension]], is that it is quite involved to solve, many shapes such as the koch snowflake haven't even h
-  + Upper and lower bounds for the /Hausdorff Measurement// haven't even been solved for many fractals, including the Koch Snowflake (shown in figure [[koch-snowflake]] ). cite:zhuLowerBoundHausdorffMeasure2003
+While the Hasudorff dimension is the first formal definition to measure
+the roughness of a fractal, there are several other definitions of dimension
+that have stemmed from this. Namely, the box-counting dimension. The box
+counting method is widely used as it is relatively easy to calculate [[cite:falconerFractalGeometryMathematical2003b][p. 41]]
+and in many cases is equal to the /Hausdorff Dimension/  [[cite:markpollicottFractalsDimensionTheory2005][p. 11]] (see generally cite:ListFractalsHausdorff2020).
+The box-counting dimension is defined as the following from
+cite:falconerFractalGeometryMathematical2003:
 
-The box counting method is widely used because it is relatively easy to calculate [[cite:falconerFractalGeometryMathematical2003b][p. 41]] and in many cases is equal to the /Hausdorff Dimension/  [[cite:markpollicottFractalsDimensionTheory2005][p. 11]] (see generally cite:ListFractalsHausdorff2020).
+Let $F$ be any non-empty bounded subset of $\mathbb{R}^n$ and let $N_\delta(F)$ be the smallest
+number of sets of diameter at most $\delta$ which can cover $F$. The /lower/ and /upper/
+box-counting dimensions of $F$ respectively are defined as
 
-#+begin_quote
-- TODO:
-  + While quite simply this is the number of boxes that scale, we need to more rigorously define it, much like Ch. 3.1 of Falconer cite:falconerFractalGeometryMathematical2003
-  + We also need to contrast this with the similarity dimension discussed in p. 413 of Strogatz cite:strogatzNonlinearDynamicsChaos2015
-  + A contrast should be drawn between this and Hausdorff, the most obvious difference being that the boxes are of a fixed size, unlike /Hausdorff/  see p. 418 of Strogatz cite:strogatzNonlinearDynamicsChaos2015
-#+end_quote
+\begin{equation*}
+    \underline{\text{dim}}_BF = \underline{\lim}_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}
+\end{equation*}
+\begin{equation*}
+\overline{\text{dim}}_BF = \overline{\lim}_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}
+\end{equation*}
+
+When the /lower/ and /upper/ box-counting dimensions of $F$ are equal, then
+
+\begin{equation*}
+\text{dim}_BF = \lim_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}
+\end{equation*}
+
+For example, suppose we had a square with side length 1 and we use smaller squares of side
+length $\frac{1}{\delta$}$ to cover the larger square. This would mean that one side of the
+large square would need $\delta$ $\frac{1}{\delta}$ small squares, and so to cover
+the entire square, one would need $n^2$ small squares, i.e. $N_{\frac{1}{n}}(F) = n^2$. Now,
+substituting these values into the box-counting definiton, we get:
+
+\begin{align*}
+\text{dim}_BF &= \lim_{\frac{1}{\delta} \to 0} \frac{\ln(\delta^2)}{-\ln(\frac{1}{\delta})}\\
+&= \lim_{\frac{1}{\delta} \to 0} \frac{\ln(\delta^2)}{\ln(\delta)}\\
+&= \lim_{\frac{1}{\delta} \to 0} 2\frac{\ln(\delta)}{\ln(\delta)}\\
+&= 2
+\end{align*}
+
+Which is expected, becuase we know that a square is a 2-Dimensional shape. We
+can apply this same concept to fractals. Consider another example, the Koch
+Curve, a self similar fractal which we can calculate its dimension and provide a
+measure of roughness of the curve. If we take a close look at the curve progression
+in figure [[koch-line]], the pattern begins with one line segment and the middle third
+of the line is replaced with two sides of an equilateral triangle with side length
+$\frac{1}{3}$. After this first iteration, the line segment now becomes four line
+segments. Thus, if we use a square of length $\frac{1}{3^{\delta}}$ to cover the $\delta^{th}$
+iteration of the curve, there will be $4^{\delta}$ line segments covered.
+
+Let $F$ be the Koch Curve.
+\begin{align*}
+\text{dim}_BF &= \lim_{\frac{1}{3^{\delta}} \to 0} \frac{\ln(4^{\delta})}{-\ln(\frac{1}{3^{\delta}})}\\
+&= \lim_{\frac{1}{3^{\delta}} \to 0} \frac{\ln(4^{\delta})}{\ln(3^{\delta})}\\
+&= \lim_{\frac{1}{3^{\delta}} \to 0} \frac{\ln(4)}{\ln(3)}\\
+&= \frac{\ln(4)}{\ln(3)}
+\end{align*}
+
 ** Fractals Generally                                                           :James:
 While there is no formal definition for the term fractal at this stage, we may decsribe it through the following properties:
 - Can be, but not subject to being self-similar [fn:: A self-similar shape is one that replicates its shape at every scale.]. On the contrary fractals can also be shapes like coastlines (which are not self-simialr)
 - The dimension of the fractal is the same at every scale.
+- The shape has some a level of roughness which can be described through the Hausdorff or box-counting dimension.
 
 Dimension is the main defining property of a fractal. As aforementioned above, the Hausdorff dimension is a unique number in that, if we take some shape in $\mathbb{R}^{n}$, and the Hausdorff dimension converges to some number, then the dimension of the shape is given by that number. Otherwise, it will equal $0$ or $\infty$. For example, if we want to evaluate the dimension of a square and we use a 1-Dimensional shape as the cover set to calculate the Hausdorff dimension, we will get $\infty$. On the other hand, if we do the same with a 3-Dimensional shape, we will get 0. And finally if we use a 2-Dimensional shape, the Hausdorff dimension will evaluate to 2. This same notion is important when computing the dimension of a more complex shape such as the Koch snowflake.
 
@@ -1419,8 +1459,6 @@ The mandelbrot has to do with whether or not it's connected.
 *** TODO The math behind it
 **** TODO Like Escaping after 2
 I cannot figure this out, I need more time, look around Ch. 12 of falconer cite:falconerFractalGeometryMathematical2003
-** TODO Turing
-
 ** Appendix
 :PROPERTIES:
 :CUSTOM_ID: appendix
@@ -1803,7 +1841,7 @@ end
 #+end_src
 
 In this case however an analytic solution can be found by relating discrete
-mathematical problems to continuous ones as discussed below at section [[#exp-gen-function]].
+mathematical problems to continuous ones as discussed below at section [[#exp-gen-func-fib-seq]].
 *** Exponential Generating Functions
 :PROPERTIES:
 :CUSTOM_ID: exp-gen-func-fib-seq
@@ -1816,7 +1854,7 @@ mathematical problems to continuous ones as discussed below at section [[#exp-ge
 Consider the /Fibonacci Sequence/ from eqref:eq:fib-def:
 
 
-\begin{align}
+\begin{aLign
     a_{n}&= a_{n - 1} + a_{n - 2} \nonumber \\
 \iff a_{n+  2} &= a_{n+  1} +  a_n \label{eq:fib-def-shift}
 \end{align}
@@ -1844,8 +1882,8 @@ relate the discrete problem back to a continuous one.
     :CUSTOM_ID: solving-the-sequence
     :END:
 
-Consider using the following generating function, (the derivative of the
-generating function as in eqref:eq:exp-gen-def-2 and eqref:eq:exp-gen-def-3 is
+Consider using the following generating function, (proof of the
+generating function derivative as in eqref:eq:exp-gen-def-2 and eqref:eq:exp-gen-def-3 is
 provided in section [[#Derivative-exp-gen-function]])
 
 
@@ -1858,7 +1896,7 @@ provided in section [[#Derivative-exp-gen-function]])
 \end{align}
 
 
-So the recursive relation from eqref:eq:fib-def-shift  could be expressed :
+So the Fibonacci recursive relation from eqref:eq:fib-def-shift  could be expressed :
 
 
 \begin{align*}
@@ -1867,7 +1905,7 @@ a_{n+  2}    &= a_{n+  1} +  a_{n}\\
 \sum^{\infty}_{n= 0} \left[ \frac{x^n}{n!}   a_{n+  2} \right]        &= \sum^{\infty}_{n= 0}   \left[ \frac{x^n}{n!} a_{n+  1} \right]  + \sum^{\infty}_{n= 0}   \left[ \frac{x^n}{n!} a_{n}  \right]  \\
 \end{align*}
 
-And hence by applying eqref:eq:exp-gen-def-1:
+And hence by applying eqref:eq:exp-gen-def-1, eqref:eq:exp-gen-def-2 and eqref:eq:exp-gen-def-3:
 
 \begin{align}
 f''\left( x \right) &= f'\left( x \right)+  f\left( x \right)
@@ -1879,7 +1917,7 @@ constant coefficients it can be shown:
 
 
 \begin{align*}
-f\left( x \right)= c_1 \cdot  \mathrm{exp}\left[ \left( \frac{1- \sqrt{5} }{2} \right)x \right] +  c_2 \cdot  \mathrm{exp}\left[ \left( \frac{1 +  \sqrt{5} }{2} \right) \right]
+f\left( x \right)= c_1 \cdot  \mathrm{exp}\left[ \left( \frac{1- \sqrt{5} }{2} \right)x \right] +  c_2 \cdot  \mathrm{exp}\left[ \left( \frac{1 +  \sqrt{5} }{2} \right)x \right]
 \end{align*}
 
 
@@ -1887,7 +1925,7 @@ By equating this to the power series:
 
 
 \begin{align*}
-f\left( x \right)&= \sum^{\infty}_{n= 0}   \left[ \left( c_1\left( \frac{1- \sqrt{5} }{2} \right)^n +  c_2 \cdot  \left( \frac{1+ \sqrt{5} }{2} \right)^n \right) \cdot  \frac{x^n}{n} \right]
+f\left( x \right)&= \sum^{\infty}_{n= 0}   \left[ \left( c_1\left( \frac{1- \sqrt{5} }{2} \right)^n +  c_2  \left( \frac{1+ \sqrt{5} }{2} \right)^n \right) \cdot  \frac{x^n}{n!} \right]
 \end{align*}
 
 
@@ -1903,7 +1941,7 @@ We can conclude that:
 
 
 \begin{align*}
-a_n = c_1\cdot  \left( \frac{1- \sqrt{5} }{2} \right)^n +  c_2 \cdot  \left( \frac{1+  \sqrt{5} }{2} \right)
+a_n = c_1\cdot  \left( \frac{1- \sqrt{5} }{2} \right)^n +  c_2 \cdot  \left( \frac{1+  \sqrt{5} }{2} \right)^n
 \end{align*}
 
 
@@ -1912,7 +1950,8 @@ By applying the initial conditions:
 
 \begin{align*}
 a_0= c_1 +  c_2  \implies  c_1= - c_2\\
-a_1= c_1 \left( \frac{1+ \sqrt{5} }{2} \right) -  c_1 \frac{1-\sqrt{5} }{2}  \implies  c_1 = \frac{1}{\sqrt{5} }
+a_1= c_1 \left( \frac{1+ \sqrt{5} }{2} \right) -  c_1 \left( \frac{1-\sqrt{5} }{2} \right)  \implies  c_1 = \frac{1}{\sqrt{5} }\\
+\therefore ~ c_1 = \frac{1}{\sqrt{5}, ~ c_2 = -\frac{1}{\sqrt{5}}}
 \end{align*}
 
 
@@ -1936,44 +1975,44 @@ where:
     :CUSTOM_ID: Derivative-exp-gen-function
     :END:
 ***** Base                                                                  :Ryan:
-    Differentiating the exponential generating function has the effect of shifting the sequence to the backward: cite:lehmanReadingsMathematicsComputer2010
+    Differentiating the exponential generating function has the effect of shifting the sequence once to the left: cite:lehmanReadingsMathematicsComputer2010
 
 \begin{align}
     f\left( x \right) &= \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right] \label{eq:exp-pow-series} \\
-f'\left( x \right)) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right]  \right) \nonumber \\
+f'\left( x \right) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right]  \right) \nonumber \\
 &= \frac{\mathrm{d}}{\mathrm{d} x} \left( a_0 \frac{x^0}{0!} +  a_1 \frac{x^1}{1!} +  a_2 \frac{x^2}{2!}+  a_3 \frac{x^3}{3! } +  \ldots \frac{x^k}{k!} \right) \nonumber \\
 &= \sum^{\infty}_{n= 0}   \left[ \frac{\mathrm{d} }{\mathrm{d} x}\left( a_n \frac{x^n}{n!} \right) \right] \nonumber \\
 &= \sum^{\infty}_{n= 0}   {\left[{ \frac{a_n}{{\left({ n- 1 }\right)!}} } x^{n- 1}  \right]} \nonumber \\
-\implies f'(x) &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}a_{n+  1} }\right]} \label{eq:exp-pow-series-sol}
+\implies f'(x) &= \sum^{\infty}_{n= 1}   {\left[{ \frac{x^n}{n!}a_{n+  1} }\right]} \label{eq:exp-pow-series-sol}
 \end{align}
 
 ***** Bridge                                                                :James:
 This can be shown for all derivatives by way of induction, for
 
 \begin{align}
-f^{(k)}\left(x\right) = \sum_{n=0}^\infty\frac{a_{n+k}\cdot x^n}{n!} \quad \text{for}~k \ge 0
+f^{(k)}\left(x\right) = \sum_{n=k}^\infty\frac{a_{n+k}\cdot x^n}{n!} \quad \text{for}~k \ge 0
 \end{align}
 
-Assume that. $f^{(k)}\left(x\right) = \sum_{n=0}^\infty\frac{a_{n+k}\cdot x^n}{n!}$
+Assume that $f^{(k)}\left(x\right) = \sum_{n=k}^\infty\frac{a_{n+k}\cdot x^n}{n!}$
 
 Using this assumption, prove for the next element $k+1$
 
-We need $f^{(k+1)}(x) = \sum_{n=0}^\infty\frac{a_{n+k+1}\cdot x^n}{n!}$
+We need $f^{(k+1)}(x) = \sum_{n=k+1}^\infty\frac{a_{n+k+1}\cdot x^n}{n!}$
 
 \begin{align*}
     \text{LHS} &= f^{(k+1)}(x)\\
     &= \frac{\mathrm{d}}{\mathrm{d}x}\left(f^{(k)}(x)\right)\\
-    &= \frac{\mathrm{d}}{\mathrm{d}x}\left(\sum_{n=0}^\infty\frac{a_{n+k}\cdot x^n}{n!}\right)\quad \text{by assumption}\\
-    &= \sum_{n=0}^\infty\frac{a_{n+k}\cdot n\cdot x^{n-1}}{n!}\\
-    &= \sum_{n=1}^\infty\frac{a_{n+k}\cdot x^{n-1}}{(n-1)!}\\
-    &= \sum_{n=0}^\infty\frac{a_{n+k+1}\cdot x^{n}}{n!}\\
+    &= \frac{\mathrm{d}}{\mathrm{d}x}\left(\sum_{n=k}^\infty\frac{a_{n+k}\cdot x^n}{n!}\right)\quad \text{by assumption}\\
+    &= \sum_{n=k}^\infty\frac{a_{n+k}\cdot n\cdot x^{n-1}}{n!}\\
+    &= \sum_{n=k}^\infty\frac{a_{n+k}\cdot x^{n-1}}{(n-1)!}\\
+    &= \sum_{n=k+1}^\infty\frac{a_{n+k+1}\cdot x^{n}}{n!}\\
     &= \text{RHS}
 \end{align*}
 
-Thus, if the derivative of the series shown in eqref:eq:exp-gen-def-1 shifts the
-sequence across, then every derivative thereafter does so as well, because the
-first derivative has been shown to express this property
-eqref:eq:exp-pow-series-sol, all derivates will.
+Therefore, by mathematical induction $f^{(k)}\left(x\right) = \sum_{n=k}^\infty\frac{a_{n+k}\cdot x^n}{n!} \quad \text{for}~k \ge 0$
+
+Furthermore, if the first derivative of the exponential generating function shown in eqref:eq:exp-pow-series-sol
+shifts the sequence across, then every derivative thereafter does so as well.
 
 **** TODO Homogeneous Proof                                                  :Ryan:James:
 An equation of the form:
@@ -1990,7 +2029,7 @@ is said to be a homogenous linear ODE: [[cite:zillDifferentialEquations2009a][Ch
 - Homogenous :: because the */RHS/* is 0
   - A non-homogeous equation would have a non-zero RHS
 
-There will be $k$ solutions to a $k^{\mathrm{th}}$ order linear ODE, each may be summed to produce a superposition which will also be a solution to the equation, [[cite:zillDifferentialEquations2009a][Ch. 4]]  this will be considered as the desired complete solution (and this will be shown to be the only solution for the recurrence relation eqref:eq:recurrence-relation-def). These $k$ solutions will be in one of two forms:
+There will be $k$ solutions to a $k^{\mathrm{th}}$ order linear ODE, each may be summed to produce a superposition which will also be a solution to the equation, [[cite:zillDifferentialEquations2009a][Ch. 4]]  this will be considered as the desired complete solution (and this will be shown to be the only solution for the recurrence relation eqref:eq:recurrence-relation-def. These $k$ solutions will be in one of two forms:
 
 1. $f(x)=c_{i} \cdot e^{m_{i}x}$
 2. $f(x)=c_{i} \cdot x^{j}\cdot e^{m_{i}x}$
@@ -2000,7 +2039,7 @@ where:
 - $\sum^{k}_{i=0}\left[  c_{i}m^{k-i} \right] = 0$
   - This is referred to the characteristic equation of the recurrence relation or ODE cite:levinSolvingRecurrenceRelations2018
 - $\exists i,j \in \mathbb{Z}^{+} \cap \left[0,k\right]$
-  - These is often referred to as repeated roots cite:levinSolvingRecurrenceRelations2018,zillMatrixExponential2009 with a multiplicity corresponding to the number of repetitions of that root [[cite:nicodemiIntroductionAbstractAlgebra2007][\textsection 3.2]]
+  - These are often referred to as repeated roots cite:levinSolvingRecurrenceRelations2018,zillMatrixExponential2009 with a multiplicity corresponding to the number of repetitions of that root [[cite:nicodemiIntroductionAbstractAlgebra2007][\textsection 3.2]]
 
 ***** Unique Roots of Characteristic Equation                               :Ryan:
 :PROPERTIES:
@@ -2038,7 +2077,7 @@ Now assume that the solution exists and all roots of the characteristic polynomi
     f{\left({ x }\right)} = \sum^{k}_{i= 0}   {\left[{ k_i e^{m_i x} }\right]}, \quad \exists m,k \in \mathbb{C} \nonumber
 \end{align}
 
-This can be re-expressed in terms of the exponential power series, in order to relate the solution of the function $f{\left({ x }\right)}$ back to a solution of the sequence $a_n$, (see section [[#prove-exp-power-series]] for a derivation of the exponential power series):
+This can be re-expressed in terms of the exponential power series, in order to relate the solution of the function $f{\left({ x }\right)}$ back to a solution of the sequence $a_n$, (see section [[#prove-exp-power-series]] for a derivation of the exponential power series *#TODO make section on to prove exponential power series using taylor series expansion if we get time)*:
 
 \begin{align}
     \sum^{k}_{i= 0}   {\left[{ k_i e^{m_i x}  }\right]}  &= \sum^{k}_{i= 0}   {\left[{ k_i \sum^{\infty}_{n= 0}   \frac{{\left({ m_i x }\right)}^n}{n!}  }\right]}  \nonumber \\
@@ -2048,7 +2087,7 @@ This can be re-expressed in terms of the exponential power series, in order to r
 \end{align}
 
 
-Recall the definition of the generating function from eqref:eq:exp-gen-def-1, by relating this to eqref:eq:unique-root-sol-power-series-form:
+Recall the definition of the generating function from eqref:eq:exp-gen-def-1, by equating this to eqref:eq:unique-root-sol-power-series-form:
 
 \begin{align}
     f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{  \frac{x^n}{n!} a_n }\right]} \nonumber \\
@@ -2072,14 +2111,14 @@ This can be verified by the fibonacci sequence as shown in section [[#solving-th
 Consider the following recurrence relation:
 
 \begin{align}
-    a_n -  10a_{n+ 1} +  25a_{n+  2}&= 0 \label{eq:hom-repeated-roots-recurrence} \\
-    \implies  \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]} - 10 \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}+    }\right]} + 25 \sum^{\infty}_{n= 0 }   {\left[{  a_{n+  2 }\frac{x^n}{n!} }\right]}&= 0 \nonumber
+    a_{n+2} -  10a_{n+ 1} +  25a_{n}&= 0 \label{eq:hom-repeated-roots-recurrence} \\
+    \implies  \sum^{\infty}_{n= 0}   {\left[{ a_{n+2} \frac{x^n}{n!} }\right]} - 10 \sum^{\infty}_{n= 0}   {\left[{ a_{n+1} \frac{x^n}{n!}    }\right]} + 25 \sum^{\infty}_{n= 0 }   {\left[{  a_{n}\frac{x^n}{n!} }\right]}&= 0 \nonumber
 \end{align}
 
 By applying the definition of the exponential generating function at eqref:eq:exp-gen-def-1 :
 
 \begin{align}
-    f''{\left({ x }\right)}- 10f'{\left({ x }\right)}+  25f{\left({ x }\right)}= 0 \nonumber \label{eq:rep-roots-func-ode}
+    f''{\left({ x }\right)}- 10f'{\left({ x }\right)}+  25f{\left({ x }\right)}= 0 \label{eq:rep-roots-func-ode}
 \end{align}
 
 By implementing the already well-established theory of linear ODE's, the
@@ -2098,16 +2137,16 @@ Herein lies a complexity, in order to solve this, the solution produced from eqr
 \end{align}
 
 eqref:eq:rep-roots-ode-sol can be expressed in terms of the exponential power series in order to try and relate the solution for the function back to the generating function,
-observe however the following power series identity (TODO Prove this in section [[#prove-ext-exp-power-series-rep-roots]]):
+observe however the following power series identity (proof in section [[#prove-general-exp-identity]]):
 
 \begin{align}
-    x^ke^x &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}, \quad \exists k \in \mathbb{Z}^+ \label{eq:uniq-roots-pow-series-ident}
+    x^ke^x &= \sum^{\infty}_{n= k}   {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}, \quad \exists k \in \mathbb{Z}^+ \label{eq:uniq-roots-pow-series-ident}
 \end{align}
 
 by applying identity eqref:eq:uniq-roots-pow-series-ident to equation eqref:eq:rep-roots-ode-sol
 
 \begin{align}
-    \implies  f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{ c_1 \frac{{\left({ 5x }\right)}^n}{n!} }\right]}  +  \sum^{\infty}_{n= 0}   {\left[{ c_2 n \frac{{\left({ 5x^n }\right)}}{n{\left({ n-1 }\right)}!} }\right]} \nonumber \\
+    \implies  f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{ c_1 \frac{{\left({ 5x }\right)}^n}{n!} }\right]}  +  \sum^{\infty}_{n= 1}   {\left[{ c_2 n \frac{{\left({ 5x }\right)^n}}{n{\left({ n-1 }\right)}!} }\right]} \nonumber \\
  &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!} {\left({ c_{1}5^n +  c_2 n 5^n   }\right)} }\right]} \nonumber
 \end{align}
 
@@ -2115,14 +2154,12 @@ Given the defenition of the exponential generating function from eqref:eq:exp-ge
 
 \begin{align}
     f{\left({ x }\right)}&=     \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]} \nonumber \\
-    \iff a_n &= c_{15}^n +  c_2n_5^n \nonumber \\ \nonumber
+    \iff a_n &= c_{1}5^n +  c_{2}5^n \nonumber \\ \nonumber
     \ \nonumber \\
     \square \nonumber
 \end{align}
-****** TODO Proof
-In order to prove the the solution for a $k^{\mathrm{th}}$ order recurrence relation with $k$ repeated
 
-
+****** Proof
 Consider a recurrence relation of the form:
 
 \begin{align}
@@ -2131,7 +2168,7 @@ Consider a recurrence relation of the form:
       \sum^{k}_{i= 0}   \sum^{\infty}_{n= 0}   c_i a_n \frac{x^n}{n!} \nonumber
 \end{align}
 
-By substituting for the value of the generating function (from eqref:eq:exp-gen-def-1):
+By substituting for the value of the generating function from eqref:eq:exp-gen-def-1:
 
 \begin{align}
     \sum^{k}_{i= 0}   {\left[{ c_if^{{\left({ k }\right)}}  {\left({ x }\right)}    }\right]} \label{eq:gen-form-rep-roots-ode}
@@ -2141,57 +2178,42 @@ Assume that eqref:eq:gen-form-rep-roots-ode corresponds to a charecteristic poly
 
 \begin{align}
 			 & \sum^{k}_{i= 0}   {\left[{ c_i m^i }\right]} = 0 \wedge m=B, \enspace  \exists! B \in \mathbb{C} \nonumber \\
- \implies      f{\left({ x }\right)}&= \sum^{k}_{i= 0}   {\left[{ x^i A_i e^{mx} }\right]}, \quad \exists A \in \mathbb{C}^+, \enspace \forall i \in {\left[{ 1,k }\right]} \cap \mathbb{N}  \label{eq:sol-rep-roots-ode} \\
+ \implies      f{\left({ x }\right)}&= \sum^{k}_{i= 0}   {\left[{ x^i A_i e^{mx} }\right]}, \quad \exists A \in \mathbb{C}^+, \enspace \forall i \in {\left[{ 1,k }\right]} \cap \mathbb{N}  \label{eq:sol-rep-roots-ode}
 \end{align}
 
-If we assume that (see section [[#power-series-comb]]):
+If we assume the identity from eqref:eq:uniq-roots-pow-series-ident:
 
 \begin{align}
-k \in \mathbb{Z} \implies x^k e^x = \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}     \label{eq:power-series-comb}
+x^k e^x = \sum^{\infty}_{n= k} {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}  \nonumber
 \end{align}
 
-By applying this to eqref:eq:sol-rep-roots-ode :
+See section [[#prove-general-exp-identity]] for proof.
+
+We can apply identity eqref:eq:uniq-roots-pow-series-ident to eqref:eq:sol-rep-roots-ode, which gives:
 
 \begin{align}
-f{\left({ x }\right)}&=     \sum^{k}_{i= 0}   {\left[{ A_i \sum^{\infty}_{n= 0}   {\left[{ \frac{{\left({ x m }\right)}^n}{{\left({ n- i }\right)}!} }\right]}  }\right]} \nonumber \\
-&=     \sum^{\infty}_{n= 0}   {\left[{ \sum^{k}_{i=0} {\left[{ \frac{x^n}{n!}  \frac{n!}{{\left({ n- i }\right)}} A_i m^n }\right]}       }\right]} # \\
-&=     \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}   \sum^{k}_{i=0} {\left[{  \frac{n!}{{\left({ n- i }\right)}} A_i m^n }\right]}       }\right]}
+f{\left({ x }\right)}&=     \sum^{k}_{i= 0}   {\left[{ A_i \sum^{\infty}_{n= i}   {\left[{ \frac{{\left({ x m }\right)}^n}{{\left({ n- i }\right)}!} }\right]}  }\right]} \nonumber \\
+&=     \sum^{\infty}_{n= 0}   {\left[{ \sum^{k}_{i=0} {\left[{ \frac{x^n}{n!}  \frac{n!}{{\left({ n- i }\right)!}} A_i m^n }\right]}       }\right]} \nonumber \\
+&=     \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}   \sum^{k}_{i=0} {\left[{  \frac{n!}{{\left({ n- i }\right)!}} A_i m^n }\right]}       }\right]} \nonumber
 \end{align}
 
-Recall the generating function that was used to get ref:eq:gen-form-rep-roots-ode:
+Recall the generating function that was used to get eqref:eq:gen-form-rep-roots-ode:
 
 \begin{align}
 f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]}      \nonumber \\
  \implies  a_n &= \sum^{k}_{i= 0}   {\left[{ A_i \frac{n!}{{\left({ n- i }\right)}!} m^n  }\right]} \nonumber \\
  &= \sum^{k}_{i= 0}   {\left[{ m^n A_i \prod_{0}^{k} {\left[{ n- {\left({ i- 1 }\right)} }\right]}   }\right]}
-& \intertext{$\because \enspace i \leq k$} \notag \\
+& \intertext{$\because \enspace i \leq k$} \notag \nonumber \\
  &= \sum^{k}_{i= 0} {\left[{ A_i^* m^n n^i }\right]}, \quad \exists A_i \in \mathbb{C}, \enspace \forall i\leqk \in \mathbb{Z}^+ \nonumber \\
 \ \nonumber \\
 \square \nonumber
 \end{align}
 
-***** TODO General Proof
+****** Proof                                                                :James:
 :PROPERTIES:
-:CUSTOM_ID: general-gen-func-proof
+:CUSTOM_ID: prove-general-exp-identity
 :END:
-In sections [[#uniq-roots-recurrence]] and [[*Unique Roots of Characteristic Equation]]
-it was shown that a recurrence relation can be related to an ODE and then that
-solution can be transformed to provide a solution for the recurrence relation,
-when the charecteristic polynomial has either complex roots or 1 repeated root.
-Generally the solution to a linear ODE will be a superposition of solutions for
-each root, repeated or unique and so a goal of our research will be to put this
-together to find a general solution for homogenous linear recurrence relations.
-
-Sketching out an approach for this:
-
-- Use the Generating function to get an ODE
-- The ODE will have a solution that is a combination of the above two forms
-- The solution will translate back to a combination of both above forms
-****** Power Series Combination                                            :James:
-:PROPERTIES:
-:CUSTOM_ID: power-series-comb
-:END:
-In this section a proof for identity ref:eq:power-series-comb is provided.
+In this section the proof of
 ******* Motivation
 
 Consider the function $f(x) = xe^x$. Using the taylor series formula we get the following:
@@ -2245,6 +2267,29 @@ So by mathematical induction $f(x) = x^ke^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!
 
 Moving on, by applying identity eqref:eq:uniq-roots-pow-series-ident to equation eqref:eq:rep-roots-ode-sol
 
+***** TODO General Proof
+:PROPERTIES:
+:CUSTOM_ID: general-gen-func-proof
+:END:
+In sections [[#uniq-roots-recurrence]] and [[#rep-roots-recurrence]]
+it was shown that a recurrence relation can be related to an ODE and then that
+solution can be transformed to provide a solution for the recurrence relation.
+This was shown in two separate cases, one with unique roots and the other with
+repeated roots. However, in many circumstances the solutions to the characteristics
+equation are a combination of both unique and repeated roots. Hence, in general the
+solution to a linear ODE will be a superposition of solutions for each root, repeated
+or unique and so a goal of our research will be to put this together to find a general
+solution for homogenous linear recurrence relations.
+
+Sketching out an approach for this:
+
+- Use the Generating function to get an ODE
+- The ODE will have a solution that is a combination of the above two forms
+- The solution will translate back to a combination of both above forms
+****** Power Series Combination
+:PROPERTIES:
+:CUSTOM_ID: power-series-comb
+:END:
 *** Fibonacci Sequence and the Golden Ratio                                   :Ryan:
 :PROPERTIES:
 :CUSTOM_ID: fib-golden-ratio-proof
@@ -3060,3 +3105,4 @@ suggest that this process isn't too far off.
 
 [fn:op] Although proprietary software such as Magma, Mathematica and Maple is very good, the restrictive licence makes them undesirable for study because there is no means by which to inspect the problem solving tecniques implemented, build on top of the work and moreover the lock-in nature of the software makes it a risky investment with respect to time.
 **
+cite:zhuLowerBoundHausdorffMeasure2003,strogatzNonlinearDynamicsChaos2015

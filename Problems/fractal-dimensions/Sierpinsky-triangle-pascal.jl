@@ -20,11 +20,10 @@ end
 #-- Calculate Dimension -------------------------------------
 #------------------------------------------------------------
 
-mat2 = pascal(300)
-sum(mat2)
+mat2 = pascal(1800)
 l2   = sum(mat2)
 size2 = size(mat2)[1]
-mat1 = pascal(200)
+mat1 = pascal(800)
 l1   = sum(mat1)
 size1 = size(mat1)[1]
 log(l2/l1)/log(size2/size1)
