@@ -24,14 +24,15 @@
 \RequirePackage[T1]{fontenc}
 %\RequirePackage{extsizes} % More Font Sizes
 \RequirePackage[utf8]{inputenc}
-\RequirePackage{sectsty} %Need it for underlining Sections
+% \RequirePackage{sectsty} %Need it for underlining Sections, must be loaded after any modifications to sections
+\RequirePackage[normalem]{ulem}  % Needed with sectsty to underline
 \RequirePackage{lmodern}
 \RequirePackage{enumitem}
 \RequirePackage{ifxetex,ifluatex} % This doesn't work with org-mode
 \RequirePackage{lipsum}
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
-\RequirePackage[margin=2cm]{geometry}
+\RequirePackage[margin=2in]{geometry}
 \addtolength{\skip\footins}{2pc plus 5pt} %Add whitespace before footnotes`
 %\RequirePackage{tgadventor}
 % Titlesec is incompatible with org-mode
@@ -85,20 +86,15 @@
 % \renewcommand{\@seccntformat}[1]{}
 % \makeatother
 %
-% % Numbering
- \renewcommand{\thesection}{}
- \renewcommand{\thesubsection}{}
- \renewcommand{\thesection}{~\arabic{section}~}
- \setcounter{subsection}{1}
- \renewcommand{\thesubsection}{~\arabic{section}.\arabic{subsection}~}
- \setcounter{subsubsection}{1}
- \renewcommand{\thesubsubsection}{~\arabic{section}.\arabic{subsection}.\arabic{subsubsection}~}
+% Numbering
+\renewcommand{\chaptername}{Division}
 
 
 % ** Font Style
 %Change the Font------------------------------
 %\RequirePackage{PoiretOne}
-\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+% \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+\RequirePackage[mono=false]{libertine}
 % ** Rule AFter Sectioning
 % Add rule after sections ------------------------------
 \RequirePackage{titlesec}
@@ -123,36 +119,35 @@
 %\renewenvironment{proof}{{\bfseries \fontfamily{ccr} \selectfont Proof}}{*something*}
 % ** Heading Colours
 % *** Define Heading Colours
-\definecolor{colsse}{RGB}{136, 73, 143}
-\definecolor{colsss}{RGB}{156, 118, 160}
-\definecolor{colspg}{RGB}{218, 168, 224}
-\definecolor{coltit}{RGB}{84, 65, 86}
-\definecolor{colname}{RGB}{236, 66 ,255}
-		
+% These probably need some work to be honest
+%\definecolor{part}{RGB}{136, 73, 143}
+%\definecolor{chap}{RGB}{34, 174, 209}
+\definecolor{sec}{RGB}{38, 70, 83}
+\definecolor{subsec}{RGB}{42, 157, 143}
+\definecolor{subsubsec}{RGB}{233, 196, 106}
+\definecolor{paragraph}{RGB}{244, 162, 97}
+\definecolor{subparagrap}{RGB}{47, 83, 115}
+
+% sectsty is by far the easiest way to style sections, use that (but only on it's own)
+
+\RequirePackage[]{sectsty}
+
 % *** Change Colours
 % **** Section
-\titleformat{\section}
-{\color{colsse}\normalfont\LARGE\bfseries}
-{\color{colsse}\thesection}{0em}{}
-\fontfamily{cmss}\selectfont
+\sectionfont{\color{sec}}
 % **** SubSection
-\titleformat{\subsection}
-{\color{colsss}\normalfont\Large\bfseries}
-{\color{colsss}\thesubsection}{0em}{}[\rule{0 in}{2pt}]
-\fontfamily{cmss}\selectfont
-% Change Font
-\fontfamily{cmss}\selectfont
+\subsectionfont{\color{subsec}}
+% **** SubSubSection
+\subsubsectionfont{\color{subsubsec}}
 % **** Paragraph
-\titleformat{\paragraph}
-{\color{colsss}\normalfont\large}
-{\color{colsss}\theparagraph}{0em}{}[\rule{0 in}{1 pt}]
-\fontfamily{cmss}\selectfont
-% Change Font
-\fontfamily{cmss}\selectfont
+\paragraphfont{\color{paragraph}}
+% **** SubParagraph
+\paragraphfont{\color{subparagraph}}
 
 
-
-
+\definecolor{midnightblue}{rgb}{0.1, 0.1, 0.44}
+\allsectionsfont{  \mdseries\itshape\underline }
+%\allsectionsfont{ \color{midnightblue} \sffamily}
 
 
 	
@@ -221,3 +216,4 @@
 		 /tcb/left skip=0.5 cm %Indent the whole box
 		 ]}%
 	\AfterEndEnvironment{minted}{  \end{tcolorbox} }%
+
