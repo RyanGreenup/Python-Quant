@@ -7,9 +7,6 @@
 % * Packages
 % ** General
 %\RequirePackage{~/Dropbox/profiles/Templates/LaTeX/texnotePreamble.sty}
-\RequirePackage[utf8]{inputenc}
-\RequirePackage{fontspec} %More support for fonts in XeTeX
-\RequirePackage[Latin,Greek,Emoticons]{ucharclasses}
 % \RequirePackage[framemethod=tikz]{mdframed}
 \RequirePackage{pgfplots}
 \RequirePackage{comment}
@@ -86,10 +83,6 @@
 
 
 % ** Font Style
-%Change the Font------------------------------
-%\RequirePackage{PoiretOne}
-% \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
-\RequirePackage[mono=false]{libertine}
 % ** Penalise Page Breaks
 % Formatting----------------------------------------
 \widowpenalty=1000
@@ -205,9 +198,9 @@
 % *** Add Strip for Line Numbers
 \tcbuselibrary{skins}
 \tcbset{
-   left=5mm, % Indent text to make room for line Numbers
+   left=7mm, % Indent text to make room for line Numbers
    overlay={
-     \begin{tcbclipinterior}\fill[red!20!blue!20!white] (frame.south west) rectangle ([xshift=5mm]frame.north west); \end{tcbclipinterior}
+     \begin{tcbclipinterior}\fill[red!20!blue!20!white] (frame.south west) rectangle ([xshift=6mm]frame.north west); \end{tcbclipinterior}
    }
  }
 % ** Minted Package
@@ -228,3 +221,32 @@
   {\verbatim@font}
   {\verbatim@font\footnotesize}
    {}{}                          %
+% * Fonts
+% ** General
+%Change the Font------------------------------
+%\RequirePackage{PoiretOne}
+% \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+\RequirePackage[mono=false]{libertine}
+% ** Monospace Size
+%
+% ** XeLaTeX Specific
+% \RequireXeTeX
+% \RequirePackage[utf8]{inputenc}
+% \RequirePackage{fontspec} %More support for fonts in XeTeX
+% \RequirePackage[Latin,Greek,Emoticons]{ucharclasses}
+
+\usepackage{xltxtra}
+\usepackage{fontspec} %Font package
+\usepackage{xunicode}
+
+%Select fonts
+% \setmainfont[Mapping=tex-text]{Minion Pro}
+% \setsansfont[Mapping=tex-text]{Myriad Pro}
+%
+% \setmonofont{GNU Unifont}
+% \setmonofont{Free Mono}
+% \setmonofont{Iosevka}
+% \setmonofont{DejaVu Sans Mono} % Too big
+\setmonofont{Fira Mono}
+% \setmonofont{monofur}
+% \setmonofont{Symbola}
