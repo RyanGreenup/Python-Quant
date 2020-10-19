@@ -1,4 +1,4 @@
-% Created 2020-10-14 Wed 09:53
+% Created 2020-10-19 Mon 12:36
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -38,10 +38,19 @@
 \tableofcontents
 
 \section{Report}
-\label{sec:org949a6e4}
-\subsection{Hausdorff Dimension\hfill{}\textsc{Ryan}}
+\label{sec:org1da61f3}
+What follows below are some dummy headings for want of testing the style
+\subsection{Cauchy Integral Formula}
+\label{sec:org8547a1b}
+\subsubsection{Central Limit Theorem}
+\label{sec:orgbaff27c}
+\paragraph{Fibonacci Sequence}
+\label{sec:orgfb52cca}
+\subparagraph{Sequences and Series generally}
+\label{sec:org5b73488}
+\section{Hausdorff Dimension}
 \label{Hausdorff-dimension}
-\subsubsection{Topological Equivalence}
+\subsection{Topological Equivalence}
 \label{topological-equivalence}
 Sources for this section on topology are primarily. \cite[p. 106]{peitgenChaosFractalsNew2004}
 
@@ -129,10 +138,10 @@ In the case of the koch snowflake, the measure of the shape, when scaled, will i
 
 
 In the development of topology
-\subsubsection{Hausdorff Dimension}
-\label{sec:orgef0db3e}
+\subsection{Hausdorff Dimension}
+\label{sec:org4f8963a}
 Sources for this section on Hausdorff Dimension are primarily \cite[Ch. 2]{falconerFractalGeometryMathematical2003}
-\paragraph{Measure}
+\subsubsection{Measure}
 \label{hausdorff-measure}
 Let \(F\) be some arbitrary subset of euclidean space \(\mathbb{R}^n\), \footnote{A subset of euclidean space could be interpreted as an uncountable set containing all points describing that region TODO Cite}
 
@@ -201,11 +210,10 @@ This is defined for all subsets of \(\mathbb{R}^n\) for example the value of  \(
 \caption{\label{abstract-shape}A disconnected subset of \(\mathbb{R}^{2}\), the squares have a diameter of \(\sqrt{2}\), the circles 1 and the equilateral triangles 1.}
 \end{figure}
 
-\subparagraph{Lower Dimension Hausdorff Measurements}
-\label{sec:orgf9c000e}
-\begin{enumerate}
-\item Examples
-\label{sec:org290bdf8}
+\paragraph{Lower Dimension Hausdorff Measurements}
+\label{sec:org115ca4a}
+\subparagraph{Examples}
+\label{sec:org95964a8}
 Consider again the example of a 2D shape, the value of \(\mathcal{H}^{1}\) would still be defined by \eqref{eq:delta-measure}, but unlike \(\mathcal{H}^{2}\) in section \ref{hausdorff-measure} the value of \(\left\lvert U_i \right\rvert^1\) would be considered as opposed to \(\left\lvert U_i \right\rvert^2\).
 
 As \(\delta\) is made arbitrarily small the boxes that cover the shape are made also to be arbitrarily small. Although the area of the boxes must clearly be bounded by the shape of \(F\), if one imagines an infinite number of infinitely dense lines packing into a 2D shape with an infinite density it can be seen that the total length of those lines will be infinite.
@@ -214,17 +222,16 @@ To build on that same analogy, another way to imagine this is to pack a 2D shape
 
 This is consistent with shapes of other shapes as well, consider the koch snowflake introduced in section \ref{topological-equivalence} and shown in figure \ref{koch-line}, the dimension of this shape is greater than 1, and the number of lines necessary to describe that shape is also infinite.
 
-\item Formally
-\label{sec:org2dc54ce}
+\subparagraph{Formally}
+\label{sec:org10f9c09}
 If the dimension of \(F\) is less than \(s\), the Hausdorff Measure will be given by: \footnote{I haven't been able to find a proof for this, I wonder if I could prove it by just applying the definition?}
 
 \begin{align}
 \mathrm{dim}\left(  F \right ) < s \implies \mathcal{H}^{s} \left( F \right)  = \infty
 \end{align}
-\end{enumerate}
 
-\subparagraph{Higher Dimension Hausdorff Dimension}
-\label{sec:org9fc24ac}
+\paragraph{Higher Dimension Hausdorff Dimension}
+\label{sec:org745a3ab}
 For small values of \(s\) (i.e. less than the dimension of  \(F\)), the value of \(\mathcal{H}^s\)  will be \(\infty\).
 
 Consider some value \(s\) such that the Hausdorff measure is not infinite, i.e. values of \(s\): \footnote{Could fractal dimensions be complex? Maybe there could be a proof to show that the dimension is necessarily complex.}
@@ -265,16 +272,16 @@ Hence the value of the s-dimensional \emph{Hausdorff Measure}, \(s\) is only a f
 \caption{\label{hausdorff-vals}The value of the s-dimensional \emph{Hausdorff Measure} of some subset of \emph{Euclidean space} \(F\in \mathbb{R}^{n}\) is 0 or \(\infty\) when the dimension of \(F\) is not equal to \(s\).}
 \end{figure}
 
-\paragraph{Hausdorff Dimension}
-\label{sec:orgebac617}
+\subsubsection{Hausdorff Dimension}
+\label{sec:org7864a9d}
 
 The value \(s\) at which \(\mathcal{H}^{s}\) changes from \(\infty\) to 0, shown in figure \ref{hausdorff-vals}  and \eqref{eq:hdfzero} is the definition of the \emph{Hausdorff Measure}, it is a generalisation of the idea of dimension that is typically understood with respect to ordinary shapes and 3D figures.
-\paragraph{Research}
-\label{sec:org42866b7}
+\subsubsection{Research}
+\label{sec:org7d446ef}
 I feel very inclided to read \href{https://warwick.ac.uk/fac/sci/maths/people/staff/mark\_pollicott/p3/tehran.pdf}{these notes} \footnote{\href{file:///home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resources/Uncorrected-Warwick-BoxCount-Hausendorff-Notes.pdf}{Local Copy}}
 
-\subsection{Box Counting\hfill{}\textsc{Ryan}}
-\label{sec:org640cea4}
+\section{Box Counting}
+\label{sec:org5e0c112}
 Sources for this section are primarily:
 \begin{itemize}
 \item Falconer \cite[Ch. 3.1]{falconerFractalGeometryMathematical2003b}
@@ -305,8 +312,8 @@ The box counting method is widely used because it is relatively easy to calculat
 \end{itemize}
 \end{itemize}
 \end{quote}
-\subsection{Fractals Generally\hfill{}\textsc{James}}
-\label{sec:orgc2eea96}
+\section{Fractals Generally}
+\label{sec:org2c720be}
 While there is no formal definition for the term fractal at this stage, we may decsribe it through the following properties:
 \begin{itemize}
 \item Can be, but not subject to being self-similar \footnote{A self-similar shape is one that replicates its shape at every scale.}. On the contrary fractals can also be shapes like coastlines (which are not self-simialr)
@@ -317,12 +324,12 @@ Dimension is the main defining property of a fractal. As aforementioned above, t
 
 To define a fractal, we must define it's dimension. Whilst some research states that a fractal has a non-integer dimension, this is not true for all fractals. Although, most fractals like the Koch snowflake do in fact have non-integer dimensions, we can easily find a counter example namely, the Mandelbrot set. The Mandelbrot set lies in the same dimension as a square, a 2-Dimensional shape. However, we give recognition to the complexity and roughness of the Mandelbrot set which clearly distiguishes itself from a square. Beneath the Mandelbrot set's complexity are exact replicates of the largest scaled Mandelbrot set, i.e a self similar shape. Furthermore, although the Mandelbrot set has an integer dimension, the self similarity and complexity is what also defines its fractal nature. 
 
-\subsection{Generating Self Similar Fractals\hfill{}\textsc{Ryan}}
-\label{sec:orgcb3851f}
-\paragraph{Examples}
-\label{sec:orgd590718}
-\subparagraph{Vicsek Fractal}
-\label{sec:org78903fa}
+\section{Generating Self Similar Fractals}
+\label{sec:org251672f}
+\subsubsection{Examples}
+\label{sec:org6bc979f}
+\paragraph{Vicsek Fractal}
+\label{sec:orgbd47d71}
 The Vicsek Fracatl is self similar, thus we can use it to test our box counting method \footnote{Since the Vicsek fractal is self similar, we know that the dimension will be constant, as opposed to a dimension that slightly varies, hence there is no need for linear regression which would be necessary to measure someting like a coastline.}.
 The Vicsek Fractal involves a pattern of iterating boxes:
 
@@ -392,8 +399,8 @@ Using the box counting method, we get:
 D\ln{3} &= \ln{5}\\
 D &= \frac{\ln{5}}{\ln{3}}
 \end{align*}
-\subparagraph{Sierpinskis Carpet}
-\label{sec:org3c962a8}
+\paragraph{Sierpinskis Carpet}
+\label{sec:org8c1c6a8}
 
 Explained more in the book \footnote{See Ch. 2.7 of \cite[Ch. 2.7]{peitgenChaosFractalsNew2004}
 
@@ -411,12 +418,11 @@ By modifying listing we can get patterns like the cantor dust and sierpinskis ca
 \caption{\label{cantor-dust}Cantor Dust}
 \end{figure}
 
-\subparagraph{Triangle}
-\label{sec:org754f846}
+\paragraph{Triangle}
+\label{sec:orgeea3eb1}
 Producing the triangle was more difficult
-\begin{enumerate}
-\item Chaos Game
-\label{sec:orga845066}
+\subparagraph{Chaos Game}
+\label{sec:org1535e37}
 This would be more accurate than pascals because there would be know \textbf{bias} and the model would be more accurate    :
 
 \begin{listing}[htbp]
@@ -470,8 +476,8 @@ ggplot(df, aes(x = xval, y = yval)) +
 \includegraphics[width=.9\linewidth]{pascal-sierpinsky-chaos-game.png}
 \end{center}
 
-\item Pascals Triange
-\label{sec:org95ddc78}
+\subparagraph{Pascals Triange}
+\label{sec:org84fcffa}
 
 \begin{listing}[htbp]
 \begin{minted}[]{julia}
@@ -509,7 +515,7 @@ log(3)/log(2)
 
 \begin{enumerate}
 \item Motivation
-\label{sec:org892ff40}
+\label{sec:orgbb8f1ab}
 Over many centuries, mathematicians have been able to produce a range of patterns from Pascal's triangle. One of which is relevant to the emergence of Sierpinski's triangle. To construct Pascal's triangle it begins with a 1 in the \(0^{th}\) (top) row, then each row underneath is made up of the sum of the numbers directly above it, see figure \ref{fig:pascal-triangle}. Alternatively, the \(n^{th}\) row and \(k^{th}\) column can be written in combinatorics form, \(\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}\).
 
 \begin{figure}[htbp]
@@ -519,7 +525,7 @@ Over many centuries, mathematicians have been able to produce a range of pattern
 \end{figure}
 
 \item The connection
-\label{sec:org5723941}
+\label{sec:org04a2261}
 As mentioned before there is one pattern that produces the Sierpinski triangle, namely highlighting all odd numbers in Pascal's triangle. This is equivalent to considering all the numbers in the triangle modulo 2, shown in figure \ref{fig:pascal-sierpinski-tri}.
 
 \begin{figure}[htbp]
@@ -583,10 +589,10 @@ c=c_{i}2^{i}+c_{i-1}2^{i-1}+\cdots +c_{1}2+c_{0}=\left[c_{i}c_{i-1}\cdots c_{1}c
 Thus, \(\binom{r}{c} = \binom{2^n + r}{c} = \binom{2^n + r}{2^n + c} \quad (\text{mod} 2)\), which concludes the proof
 
 \item Comment on the dimension lining up
-\label{sec:org6b17472}
+\label{sec:org5ce369c}
 Using the box-counting method, we can evaluate the dimension of Sierpinski's triangle.
 \item FIx the value
-\label{sec:orga376097}
+\label{sec:org60b20c8}
 
 \begin{verbatim}
 
@@ -599,10 +605,9 @@ julia> # https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle
 
 \end{verbatim}
 \end{enumerate}
-\end{enumerate}
 
-\subsection{Fractal Dimensions\hfill{}\textsc{Ryan}}
-\label{sec:org868da78}
+\section{Fractal Dimensions}
+\label{sec:org6d9b019}
 See generally \cite[Ch. 11]{strogatzNonlinearDynamicsChaos2015}
 Three ways to generate
 
@@ -615,8 +620,8 @@ Three ways to generate
 \end{enumerate}
 \end{enumerate}
 
-\subsubsection{Turtle}
-\label{sec:org9c96f9e}
+\subsection{Turtle}
+\label{sec:org4936904}
 Matrices can't explain all patterns, Turtles are useful
 \begin{listing}[htbp]
 \begin{minted}[]{julia}
@@ -829,8 +834,8 @@ end
 \caption{\label{turtles-all}This generates a dragon and a koch}
 \end{listing}
 
-\paragraph{Dragon Curve}
-\label{sec:org31514fe}
+\subsubsection{Dragon Curve}
+\label{sec:org7797fad}
 
 \begin{figure}[htbp]
 \centering
@@ -840,16 +845,16 @@ end
 
 
 
-\paragraph{Koch Snowflake}
-\label{sec:org06230fb}
+\subsubsection{Koch Snowflake}
+\label{sec:org2d88e7f}
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=9cm]{../Problems/Chaos/Spirals/snowCurve.png}
 \caption{\label{dragon-turtle}TODO}
 \end{figure}
 
-\subsubsection{Calculating the Dimension of Julia Set}
-\label{sec:orgb9f6dfd}
+\subsection{Calculating the Dimension of Julia Set}
+\label{sec:org42b845c}
 It converges too slowly
 The Julia set (discussed in section \ref{julia-set}) can be solved by \ldots{}
 
@@ -1164,8 +1169,8 @@ scale & mass\\
 \caption{\label{table-of-values}TODO}
 
 \end{table}
-\paragraph{Using Linear Regression}
-\label{sec:orgd9623a5}
+\subsubsection{Using Linear Regression}
+\label{sec:org410fa4f}
 \begin{itemize}
 \item Avoiding \texttt{Abs} is twice as fast
 \item Column wise is faster in fortran/julia/R slower in C/Python
@@ -1173,8 +1178,8 @@ We have no evidence to show that the dimension will be stable, this is good for 
 
 to do that we use linear regression.
 \end{itemize}
-\subparagraph{Performance}
-\label{sec:org006ba23}
+\paragraph{Performance}
+\label{sec:org907dae6}
 \begin{itemize}
 \item Switching from \texttt{abs()} to sqaured help
 \item Taking advantage of multi core processing in loops
@@ -1201,8 +1206,8 @@ Function & Mean Time\\
 \end{tabular}
 
 \end{center}
-\subsubsection{My Fractal}
-\label{sec:org973cb90}
+\subsection{My Fractal}
+\label{sec:org6e9c73d}
 My fractal really shows many unique patterns
 
 If it is scaled by \(\varphi\) then the boxes increase two fold.
@@ -1212,8 +1217,8 @@ We know the dimension will be constant because the figure is self similar, so we
 \[
 \mathrm{dim} (\mathtt{my\_fractal}) = \log_{\varphi}=\frac{\log \varphi}{\log 2}
 \]
-\paragraph{Graphics}
-\label{sec:org96d0f91}
+\subsubsection{Graphics}
+\label{sec:orgd789c05}
 
 \begin{figure}[htbp]
 \centering
@@ -1257,12 +1262,12 @@ We know the dimension will be constant because the figure is self similar, so we
 \caption{\label{My-Frac-GR}Fractal that emerges by Rotating and appending boxes, this demonstrates the relationship between the Fibonacci numbers and golden ratio very well}
 \end{figure}
 
-\paragraph{Discuss Pattern shows Fibonacci Numbers}
-\label{sec:org0cfcfbb}
-\subparagraph{Angle Relates to Golden Ratio}
-\label{sec:org09769cd}
-\paragraph{Prove Fibonacci using Monotone Convergence Theorem}
-\label{sec:org7f44e2b}
+\subsubsection{Discuss Pattern shows Fibonacci Numbers}
+\label{sec:org079aa6b}
+\paragraph{Angle Relates to Golden Ratio}
+\label{sec:org845b261}
+\subsubsection{Prove Fibonacci using Monotone Convergence Theorem}
+\label{sec:org51b6b15}
 Consider the series:
 
 $$\begin{aligned}
@@ -1276,8 +1281,8 @@ F_n = F_{n- 1} +  F_{n- 2} ; \quad F_1 = F_2 = 1
 \end{aligned}$$
 
 
-\subparagraph{Show that the Series is Monotone}
-\label{sec:orgc304dd5}
+\paragraph{Show that the Series is Monotone}
+\label{sec:org25ec7c1}
 $$\begin{aligned}
 F_{n} &> 0 \\
 0 &< F_{n} \\
@@ -1296,10 +1301,10 @@ F_{n} &> 0 \\
 
 
 
-\subparagraph{Show that the Series is Bounded}
-\label{sec:orgec738e3}
-\subparagraph{Find the Limit}
-\label{sec:orgf5b9a02}
+\paragraph{Show that the Series is Bounded}
+\label{sec:orgb815971}
+\paragraph{Find the Limit}
+\label{sec:org00a927a}
 $$\begin{aligned}
 G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 &= 1 +  \frac{F_{n- 1} }{F_n} \\
@@ -1310,8 +1315,8 @@ G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 \end{aligned}$$
 
 
-\subparagraph{Comments}
-\label{sec:org3f2c886}
+\paragraph{Comments}
+\label{sec:orgf589659}
 
 The Fibonacci sequence is quite unique, observe that:
 
@@ -1341,11 +1346,10 @@ $$\begin{aligned}
 \varphi \times  \psi  &= 1 \\
 \frac{\psi}{\varphi}  = \frac{1}{\varphi^2} = \frac{1}{1-\varphi} &= \frac{1}{2-\varphi} = \frac{2}{3 - \sqrt{5}  }
 \end{aligned}$$
-\subparagraph{Python}
-\label{sec:org88250d0}
+\paragraph{Python}
+\label{sec:org834af1c}
 
-\begin{minted}[]{:exports}
-#+BEGIN_SRC python :exports both :results output graphics file :file ./a.png
+\begin{minted}[]{python}
 #+begin_src python
 import matplotlib.pyplot as plt
 import sympy
@@ -1357,15 +1361,15 @@ plt.savefig("./a.png")
 \includegraphics[width=.9\linewidth]{./a.png}
 \end{center}
 
-\paragraph{Angle is \(\tan^{-1}\left( \frac{1}{1-\varphi}\right)\)}
-\label{sec:orgc411439}
-\subparagraph{Similar to Golden Angle \(2 \pi \left( \frac{1}{1-\varphi}\right)\)}
-\label{sec:org51305a3}
-\paragraph{Dimension of my Fractal}
-\label{sec:orgca51c90}
+\subsubsection{Angle is \(\tan^{-1}\left( \frac{1}{1-\varphi}\right)\)}
+\label{sec:orga02358e}
+\paragraph{Similar to Golden Angle \(2 \pi \left( \frac{1}{1-\varphi}\right)\)}
+\label{sec:orga14f9f9}
+\subsubsection{Dimension of my Fractal}
+\label{sec:orgc2c0275}
 \(\log_{\varphi}(2)\)
-\paragraph{Code should be split up or put into appendix}
-\label{sec:orgab97da5}
+\subsubsection{Code should be split up or put into appendix}
+\label{sec:org9ac9d4f}
 \begin{minted}[]{julia}
 function matJoin(A, B)
     function nrow(X)
@@ -1493,20 +1497,20 @@ GR.imshow(mywalk([1 1], 5))
 
 \end{minted}
 
-\subsection{Julia Sets and Mandelbrot Sets\hfill{}\textsc{Ryan}}
+\section{Julia Sets and Mandelbrot Sets}
 \label{julia-set}
 The julia set is the outline.
 
 The mandelbrot has to do with whether or not it's connected.
-\subsubsection{The math behind it}
-\label{sec:org74c57cc}
-\paragraph{Like Escaping after 2}
-\label{sec:org2fc4bd0}
+\subsection{The math behind it}
+\label{sec:orgb5a0544}
+\subsubsection{Like Escaping after 2}
+\label{sec:orga8f9345}
 I cannot figure this out, I need more time, look around Ch. 12 of falconer \cite{falconerFractalGeometryMathematical2003}
-\subsection{Fibonacci Sequence\hfill{}\textsc{Ryan:James}}
-\label{sec:orgef2588a}
-\subsubsection{Introduction\hfill{}\textsc{Ryan}}
-\label{sec:org1e0240c}
+\section{Fibonacci Sequence}
+\label{sec:org23898db}
+\subsection{Introduction}
+\label{sec:orgfd07f7a}
 The \emph{Fibonacci Sequence} and \emph{Golden Ratio} share a deep connection\footnote{See section} and occur in patterns observed in nature very frequently
 (see
 \cite{shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016}), an example of such an occurence is discussed in section \ref{sunflower-example}.
@@ -1521,7 +1525,7 @@ identifying relationships between discrete and continuous systems generall we
 will be able to draw insights with regard to the occurrence of patterns related
 to the \emph{Fibonacci Sequence} and \emph{Golden Ratio} in nature.
 
-\subsubsection{Computational Approach\hfill{}\textsc{Ryan}}
+\subsection{Computational Approach}
 \label{define-the-fibonacci-numbers}
 Given that much of our work will involve computational analysis and simulation we begin with a strategy to solve the sequence computationally.
 
@@ -1679,9 +1683,9 @@ end
 
 In this case however an analytic solution can be found by relating discrete
 mathematical problems to continuous ones as discussed below at section .
-\subsubsection{Exponential Generating Functions}
+\subsection{Exponential Generating Functions}
 \label{exp-gen-func-fib-seq}
-\paragraph{Motivation\hfill{}\textsc{Ryan}}
+\subsubsection{Motivation}
 \label{motivation}
 Consider the \emph{Fibonacci Sequence} from \eqref{eq:fib-def}:
 
@@ -1709,7 +1713,7 @@ f\left( x \right)= e^{mx} = \sum^{\infty}_{n= 0}   \left[ r^{m} \frac{x^n}{n!} \
 So using some sort of a transformation involving a power series may help to
 relate the discrete problem back to a continuous one.
 
-\paragraph{Example\hfill{}\textsc{Ryan}}
+\subsubsection{Example}
 \label{solving-the-sequence}
 Consider using the following generating function, (the derivative of the
 generating function as in \eqref{eq:exp-gen-def-2} and \eqref{eq:exp-gen-def-3} is
@@ -1800,10 +1804,10 @@ where:
 \item \(\psi = 1-\varphi = \frac{1- \sqrt{5} }{2} \approx 0.61\ldots\)
 \end{itemize}
 
-\paragraph{Derivative of the Exponential Generating Function}
+\subsubsection{Derivative of the Exponential Generating Function}
 \label{Derivative-exp-gen-function}
-\subparagraph{Base\hfill{}\textsc{Ryan}}
-\label{sec:orgf45a40d}
+\paragraph{Base}
+\label{sec:org944fc6b}
 Differentiating the exponential generating function has the effect of shifting the sequence to the backward: \cite{lehmanReadingsMathematicsComputer2010}
 
 \begin{align}
@@ -1815,8 +1819,8 @@ f'\left( x \right)) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 
 \implies f'(x) &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}a_{n+  1} }\right]} \label{eq:exp-pow-series-sol}
 \end{align}
 
-\subparagraph{Bridge\hfill{}\textsc{James}}
-\label{sec:org39f7ec9}
+\paragraph{Bridge}
+\label{sec:org5d5e77d}
 This can be shown for all derivatives by way of induction, for
 
 \begin{align}
@@ -1844,8 +1848,8 @@ sequence across, then every derivative thereafter does so as well, because the
 first derivative has been shown to express this property
 \eqref{eq:exp-pow-series-sol}, all derivates will.
 
-\paragraph{Homogeneous Proof\hfill{}\textsc{Ryan:James}}
-\label{sec:org8e2f792}
+\subsubsection{Homogeneous Proof}
+\label{sec:orgf48bbb4}
 An equation of the form:
 
 \begin{align}
@@ -1884,14 +1888,13 @@ where:
 \end{itemize}
 \end{itemize}
 
-\subparagraph{Unique Roots of Characteristic Equation\hfill{}\textsc{Ryan}}
+\paragraph{Unique Roots of Characteristic Equation}
 \label{uniq-roots-recurrence}
-\begin{enumerate}
-\item Example
-\label{sec:orgef65500}
+\subparagraph{Example}
+\label{sec:orgc048c81}
 An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section \ref{solving-the-sequence}.
-\item Proof
-\label{sec:orgbb4c06b}
+\subparagraph{Proof}
+\label{sec:org6392173}
 Consider the linear recurrence relation \eqref{eq:recurrence-relation-def}:
 
 \begin{align}
@@ -1946,13 +1949,11 @@ This can be verified by the fibonacci sequence as shown in section \ref{solving-
     f{\left({ x }\right)} &= &c_1 e^{\varphi x} +  &c_2 e^{{\left({ 1-\varphi }\right)} x}, \quad &\exists c_1, c_2 \in \mathbb{R} \subset \mathbb{C} \nonumber \\
     \iff  a_n &= &k_1 n^{\varphi} +  &k_2 n^{1- \varphi}, &\exists k_1, k_2 \in \mathbb{R} \subset \mathbb{C} \nonumber
 \end{alignat}
-\end{enumerate}
 
-\subparagraph{Repeated Roots of Characteristic Equation\hfill{}\textsc{Ryan}}
+\paragraph{Repeated Roots of Characteristic Equation}
 \label{rep-roots-recurrence}
-\begin{enumerate}
-\item Example
-\label{sec:org1efc28d}
+\subparagraph{Example}
+\label{sec:org27ee339}
 Consider the following recurrence relation:
 
 \begin{align}
@@ -2003,8 +2004,8 @@ Given the defenition of the exponential generating function from \eqref{eq:exp-g
     \ \nonumber \\
     \square \nonumber
 \end{align}
-\item Proof
-\label{sec:orgb16410d}
+\subparagraph{Proof}
+\label{sec:org409e560}
 In order to prove the the solution for a \(k^{\mathrm{th}}\) order recurrence relation with \(k\) repeated
 
 
@@ -2054,9 +2055,8 @@ f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\rig
 \ \nonumber \\
 \square \nonumber
 \end{align}
-\end{enumerate}
 
-\subparagraph{General Proof}
+\paragraph{General Proof}
 \label{general-gen-func-proof}
 In sections \ref{uniq-roots-recurrence} and \ref{uniq-roots-recurrence}
 it was shown that a recurrence relation can be related to an ODE and then that
@@ -2073,13 +2073,12 @@ Sketching out an approach for this:
 \item The ODE will have a solution that is a combination of the above two forms
 \item The solution will translate back to a combination of both above forms
 \end{itemize}
-\begin{enumerate}
-\item Power Series Combination\hfill{}\textsc{James}
+\subparagraph{Power Series Combination}
 \label{power-series-comb}
 In this section a proof for identity \ref{eq:power-series-comb} is provided.
 \begin{enumerate}
 \item Motivation
-\label{sec:org3ccac00}
+\label{sec:org400f4f2}
 
 Consider the function \(f(x) = xe^x\). Using the taylor series formula we get the following:
 
@@ -2103,9 +2102,8 @@ We conjecture thatIf we continue this on, we get:
     x^ke^x = \sum_{n=k}^\infty \frac{x^n}{(n-k)!} \quad \text{for}~k\in \mathbb{Z^{+}}\cap0
 \end{align*}
 \end{enumerate}
-\end{enumerate}
 
-\subsubsection{Fibonacci Sequence and the Golden Ratio\hfill{}\textsc{Ryan}}
+\subsection{Fibonacci Sequence and the Golden Ratio}
 \label{fib-golden-ratio-proof}
 The \emph{Fibonacci Sequence} is actually very interesting, observe that the ratios of the terms converge to the \emph{Golden Ratio}:
 
@@ -2132,7 +2130,7 @@ patterns observed in nature.
 We also hope to find a method to produce the the diagram shown in figure
 computationally, ideally by using the Turtle function in \emph{Julia}.
 
-\paragraph{Fibonacci Sequence in Nature (This may be Removed)\hfill{}\textsc{Ryan}}
+\subsubsection{Fibonacci Sequence in Nature (This may be Removed)}
 \label{sunflower-example}
 The distribution of sunflower seeds is an example of the \emph{Fibonacci Sequence}
 occuring in a pattern observed in nature (see Figure \ref{sunflower}).
@@ -2224,15 +2222,15 @@ end 600 600
 \caption{\label{sunflower}Distribution of the seeds of a sunflower (see \cite{simonbrassCCSearch2006} licenced under CC)}
 \end{figure}
 
-\subsection{Julia Sets\hfill{}\textsc{Ryan}}
-\label{sec:orgb331508}
+\section{Julia Sets}
+\label{sec:orgdeac03c}
 
 There is a relatioship between the fibonacicci sequence, modelling population growth and the mandelbrot curve, I would like to use that to tie some of the discussion together, see \href{https://youtu.be/ovJcsL7vyrk}{this video from Veritasium to get an idea of what i mean}.
-\subsubsection{Introduction}
-\label{sec:org2bbee95}
+\subsection{Introduction}
+\label{sec:orgcf2cae2}
 Julia sets are a very interesting fractal and we hope to investigate them further in this project.
-\subsubsection{Motivation}
-\label{sec:org0fe8797}
+\subsection{Motivation}
+\label{sec:org2bc67e2}
 Consider the iterative process \(x \rightarrow x^{2}, \enspace x \in \mathbb{R}\),
 for values of \(x>1\) this process will diverge and for \(x<1\) it will converge.
 
@@ -2267,8 +2265,8 @@ Every value on that plane will belong to one of the two following sets
 
 In the case of \(f_{0}(z) = z^{2}\) all values \(\left\lvert z  \right \rvert \leq 1\) are bounded with \(\left\lvert z  \right \rvert = 1\) being an unstable stationary circle, but let's investigate what happens for different iterative functions like \(f_{1}(z) = z^{2} - 1\), despite how trivial this seems at first glance.
 
-\subsubsection{Plotting the Sets}
-\label{sec:org41a47e6}
+\subsection{Plotting the Sets}
+\label{sec:orgd2165ec}
 Although the convergence of values may appear simple at first, we'll implement a
 strategy to plot the prisoner and escape sets on the complex plane.
 
@@ -2515,10 +2513,14 @@ ffmpeg                    \
 \caption{\label{bash-frac-join}Using \texttt{bash}, \texttt{ffmpeg} and \emph{ImageMagick} to combine the images and produce an animation.}
 \end{listing}
 
-\url{\_20200826\_005334a.png}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.9\linewidth]{/home/ryan/Sync/Studies/2020Spring/QuantProject/Current/Python-Quant/Report/_20200826_005334a.png}
+\caption{\label{montage-frac}Various fracals corresponding to \(f_{0.8 e^{\pi i \tau}}\)}
+\end{figure}
 
-\subsection{MandelBrot\hfill{}\textsc{Ryan}}
-\label{sec:orgf3f3f31}
+\section{MandelBrot}
+\label{sec:org2119177}
 Investigating these fractals, a natural question might be whether or not any
 given \(c\) value will produce a fractal that is an open disc or a closed disc.
 
@@ -2649,16 +2651,16 @@ save_picture("/tmp/a.fits", my_pic)
 \includegraphics[width=10cm]{_20200828_233844screenshot.png}
 \caption{\label{mandelbrot-screen}Screenshot of Mandelbrot FITS image produced by listing }
 \end{figure}
-\subsection{Appendix}
+\section{Appendix}
 \label{appendix}
 So unless code contributes directly to the discussion we'll put it in the appendix.
-\subsubsection{Finding Material}
-\label{sec:org2489445}
+\subsection{Finding Material}
+\label{sec:org06fdd84}
 \begin{minted}[]{bash}
 recoll -c /home/ryan/Dropbox/Books/Textbooks/Mathematics/Chaos_Theory/chaos_books_recoll & disown
 \end{minted}
-\subsubsection{Font Lock}
-\label{sec:org567151d}
+\subsection{Font Lock}
+\label{sec:org6d161b6}
 \begin{minted}[]{elisp}
 ;; match:
 ;;; \scite:key\s
@@ -2673,4 +2675,42 @@ recoll -c /home/ryan/Dropbox/Books/Textbooks/Mathematics/Chaos_Theory/chaos_book
 (font-lock-add-keywords nil
  '((" \\(\\[\\[cite:[a-z0-9A-Z]\+\\]\\[\.\*\\]\\]\\)" 1 '(face nil display "🤔"))))
 \end{minted}
+
+\subsection{Section attribution}
+\label{sec:orgf812806}
+\begin{verbatim}
+Section Attribution
+─────────────────
+
+1. Report
+2. Hausdorff Dimension                                            :Ryan:
+3. Box Counting                                                   :Ryan:
+4. Fractals Generally                                            :James:
+5. Generating Self Similar Fractals                               :Ryan:
+6. Fractal Dimensions                                             :Ryan:
+7. Julia Sets and Mandelbrot Sets                                 :Ryan:
+8. Fibonacci Sequence                                       :Ryan:James:
+.. 1. Introduction                                                :Ryan:
+.. 2. Computational Approach                                      :Ryan:
+.. 3. Exponential Generating Functions
+..... 1. Motivation                                               :Ryan:
+..... 2. Example                                                  :Ryan:
+..... 3. Derivative of the Exponential Generating Function
+..... 4. Homogeneous Proof                                  :Ryan:James:
+.. 4. Fibonacci Sequence and the Golden Ratio                     :Ryan:
+9. Julia Sets                                                     :Ryan:
+10. MandelBrot                                                    :Ryan:
+11. Appendix
+12. Bibliography
+
+
+How I made this:
+
+1. add `#+OPTIONS: tags:t' to the header
+2. Collapse all headlines revealing
+only the section detail that is desired
+3. `C-c C-e C-v t U' 4. This will export
+visible to a text buffer, the TOC will have the tags of the visible
+headings so just delete what isn’t desired
+\end{verbatim}
 \end{document}

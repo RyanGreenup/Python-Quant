@@ -135,14 +135,23 @@
 % **** SubParagraph
 \paragraphfont{\color{subparagraph}}
 
-% **** Actually Just use One style Instead
+% *** Actually Just use One style Instead
 \definecolor{midnightblue}{rgb}{0.1, 0.1, 0.44}
-\allsectionsfont{  \mdseries\itshape\underline }
-%\allsectionsfont{ \color{midnightblue} \sffamily}
+%\allsectionsfont{  \mdseries\itshape\underline }
+\allsectionsfont{ \color{midnightblue} \sffamily}
 
 
 	
-% 	
+%
+% ** Header
+\RequirePackage{fancyheadings}
+\RequirePackage{lastpage}
+\pagestyle{fancy}
+\cfoot[]{}
+\rfoot{\thepage\ of \pageref{LastPage}}
+\renewcommand{\headrulewidth{0.1mm}}
+% \renewcommand{\footrulewidth{0.1mm}} % looks weird with footnotes
+
 % * Code Blocks
 % ** Listings Package
 
