@@ -20,6 +20,7 @@
 # results: table (or output or whatever)
 :END:
 :LATEX:
+#+LATEX_CLASS: article
 #+LATEX_HEADER: \IfFileExists{./resources/style.sty}{\usepackage{./resources/style}}{}
 #+LATEX_HEADER: \IfFileExists{./resources/referencing.sty}{\usepackage{./resources/referencing}}{}
 #+LATEX_HEADER: \addbibresource{../Resources/references.bib}

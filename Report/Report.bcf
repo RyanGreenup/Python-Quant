@@ -2228,9 +2228,8 @@
     <bcf:citekey order="38">bezansonJuliaFreshApproach2017</bcf:citekey>
     <bcf:citekey order="39">NatureGoldenRatio2018</bcf:citekey>
     <bcf:citekey order="40">simonbrassCCSearch2006</bcf:citekey>
-    <bcf:citekey order="41">simonbrassCCSearch2006</bcf:citekey>
-    <bcf:citekey order="42">farrellMathAdventuresPython2019</bcf:citekey>
-    <bcf:citekey order="43">JuliaSet2020</bcf:citekey>
+    <bcf:citekey order="41">farrellMathAdventuresPython2019</bcf:citekey>
+    <bcf:citekey order="42">JuliaSet2020</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">
