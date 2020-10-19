@@ -29,10 +29,15 @@
 #+LATEX_HEADER: \usetikzlibrary{decorations.fractals}
 #+LATEX_HEADER: \usetikzlibrary{lindenmayersystems}
 :END:
+
 * Hausdorff Dimension                                                           :Ryan:
 :PROPERTIES:
 :CUSTOM_ID: Hausdorff-dimension
 :END:
+TThere are many differente defintions of /fractal dimension/ the box counting dimentions was probably rejected as less mathematically robust or useful by the pioneers of the /Haussdorff dimension/ [[cite:falconerFractalGeometryMathematical2003b][\S 3.6]]. The Hausdorff dimension is more like counting balls than boxes and is identical to the Hausdorff dimension in many cases, it's more general but harder to define.
+
+That's why we use the box counting method, we can actually do it. showing the equivalence between the two methods in the cases we implemented would have been nice to do but the math was very daunting and not withing the time constraints of this project.
+
 ** STRT Topological Equivalence
 :PROPERTIES:
 :CUSTOM_ID: topological-equivalence
@@ -319,10 +324,37 @@ Let $F$ be the Koch Curve.
 &= \lim_{\frac{1}{3^{\delta}} \to 0} \frac{\ln(4)}{\ln(3)}\\
 &= \frac{\ln(4)}{\ln(3)}
 \end{align*}
-* Fractals Generally                                                            :James:
-While there is no formal definition for the term fractal at this stage, we may decsribe it through the following properties:
-- Can be, but not subject to being self-similar [fn:: A self-similar shape is one that replicates its shape at every scale.]. On the contrary fractals can also be shapes like coastlines (which are not self-simialr)
-- The dimension of the fractal is the same at every scale.
+* Fractals Generally                                                            :James:Ryan:
+
+
+Benoit Mandelbrot coined the term fractal and defined it as [[cite:mandelbrotFractalGeometryNature1982][p. 15]] :
+
+#+begin_quote
+/A fractal is by definition a set for which the Hausdorff Besicovitch dimension strictly exceeds the topological dimension./
+
+/a Every set with a noninteger \(D\) is a fractal./
+#+end_quote
+
+I can't think of any counter example for this definition but I feel like there would be.
+
+The concept of a fractal is not well defined, we may decsribe it through the following properties:
+
+- Can be, but not subject to being self-similar .  (which are not self-simialr)
+- May exhibit some degree of self similarity [fn:: A self-similar shape is one that replicates its shape at every scale.]
+  + Many authors consider shapes that do not exhibit clear self similarity as fractals, such as coastlines (see e.g. cite:jiangFractalAnalysisComplexity1998,zhuFractalMechanismCoastline2002,zhongFractalPropertiesShoreline2017) and consider a non-integer dimension as a sufficient condition to describe a shape as a fractal cite:sandersonFractalsAreTypically2017.
+- This dimension of the fractal sis the same at every scale.
+- Nowhere differentiable
+  + This is why they are somewhat interesting, calculus is no help and and fractals describe huge swaths of what we observe in nature, clouds, coastlines, electrical discharge etc.
+
+    Facloner argues that a fractal is hard to define and in defining such a case unique circcumstances may be overlooked [[cite:falconerFractalGeometryMathematical2003b][p. xxv]]:
+
+    - detail at all scales
+    - Cannot be described in a traditional geometric way
+    - May have some form of approximate self similarity
+    - Usually the fractal dimension is greater than its topological dimension
+    - In many cases defined very simply, perhaps recursively
+
+Topoligical dimension is strictly integer and describes the natural dimension used to describe a shape, e.g. sierpinsky carpet would have a topological dimension of 2 cite:sandersonFractalsAreTypically2017.
 
 Dimension is the main defining property of a fractal. As aforementioned above, the Hausdorff dimension is a unique number in that, if we take some shape in $\mathbb{R}^{n}$, and the Hausdorff dimension converges to some number, then the dimension of the shape is given by that number. Otherwise, it will equal $0$ or $\infty$. For example, if we want to evaluate the dimension of a square and we use a 1-Dimensional shape as the cover set to calculate the Hausdorff dimension, we will get $\infty$. On the other hand, if we do the same with a 3-Dimensional shape, we will get 0. And finally if we use a 2-Dimensional shape, the Hausdorff dimension will evaluate to 2. This same notion is important when computing the dimension of a more complex shape such as the Koch snowflake.
 
