@@ -301,8 +301,10 @@ To define a fractal, we must define it's dimension. Whilst some research states 
 The Vicsek Fracatl is self similar, thus we can use it to test our box counting method [fn:: Since the Vicsek fractal is self similar, we know that the dimension will be constant, as opposed to a dimension that slightly varies, hence there is no need for linear regression which would be necessary to measure someting like a coastline.].
 The Vicsek Fractal involves a pattern of iterating boxes:
 
-#+NAME: vicsek-matrix-gen
-#+CAPTION:
+
+# # #+ATTR_LATEX: :float nil
+# #+NAME: vicsek-matrix-gen
+# #+CAPTION: blah
 #+begin_src julia
 #------------------------------------------------------------
 #--- Function -----------------------------------------------
@@ -353,7 +355,7 @@ log(5)/log(3)
 #+end_src
 
 #+attr_html: :width 300px
-#+attr_latex: :width 9cm
+#+ATTR_LATEX: :float wrap :width 7cm
 #+NAME: vicsek-fractal-julia
 #+CAPTION: TODO
 [[file:media/Vicsek-Fractal.png]]
