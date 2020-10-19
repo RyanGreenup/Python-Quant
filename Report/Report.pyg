@@ -1,8 +1,0 @@
-function tme()
-    start = time()
-    data = scaleAndMeasure(900, 1000, 9)
-    length = time() - start
-    print(length, "\n")
-    return length
-end
-times = [tme() for i in 1:10 ]
