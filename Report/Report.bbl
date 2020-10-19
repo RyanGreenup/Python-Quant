@@ -910,65 +910,6 @@
       \field{dateera}{ce}
       \keyw{Chaotic behavior in systems,Dynamics,Nonlinear theories}
     \endentry
-    \entry{zhuLowerBoundHausdorffMeasure2003}{article}{}
-      \name{author}{3}{}{%
-        {{hash=57bb9b733c745f5facacf943b2e0f417}{%
-           family={Zhu},
-           familyi={Z\bibinitperiod},
-           given={Zhi\bibnamedelima Wei},
-           giveni={Z\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
-        {{hash=16e7ef4d99c1a4fb932e7aa91e65b6b7}{%
-           family={Zhou},
-           familyi={Z\bibinitperiod},
-           given={Zuo\bibnamedelima Ling},
-           giveni={Z\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
-        {{hash=ba448ef060deb25a75faa1dbef409f0e}{%
-           family={Jia},
-           familyi={J\bibinitperiod},
-           given={Bao\bibnamedelima Guo},
-           giveni={B\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
-      }
-      \strng{namehash}{4dcd454cea02fef6aea41eec600f2434}
-      \strng{fullhash}{4dcd454cea02fef6aea41eec600f2434}
-      \strng{bibnamehash}{4dcd454cea02fef6aea41eec600f2434}
-      \strng{authorbibnamehash}{4dcd454cea02fef6aea41eec600f2434}
-      \strng{authornamehash}{4dcd454cea02fef6aea41eec600f2434}
-      \strng{authorfullhash}{4dcd454cea02fef6aea41eec600f2434}
-      \field{sortinit}{Z}
-      \field{sortinithash}{8f7b480688e809b50b6f6577b16f3db5}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{This paper gives a lower bound of the Hausdorff measure ofthe Koch curve by means of the mass distributionprinciple.}
-      \field{day}{1}
-      \field{issn}{1439-7617}
-      \field{journaltitle}{Acta Mathematica Sinica}
-      \field{langid}{english}
-      \field{month}{10}
-      \field{number}{4}
-      \field{shortjournal}{Acta Math Sinica}
-      \field{title}{On the {{Lower Bound}} of the {{HausdorffMeasure}} of the {{Koch Curve}}}
-      \field{urlday}{18}
-      \field{urlmonth}{9}
-      \field{urlyear}{2020}
-      \field{volume}{19}
-      \field{year}{2003}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \field{pages}{715\bibrangedash 728}
-      \range{pages}{14}
-      \verb{doi}
-      \verb 10.1007/s10114-003-0310-2
-      \endverb
-      \verb{file}
-      \verb /home/ryan/Zotero/storage/SJLMVK2B/zhuLowerBoundHausdorffMeasure2003.pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1007/s10114-003-0310-2
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1007/s10114-003-0310-2
-      \endverb
-    \endentry
     \entry{zillDifferentialEquations2009a}{book}{}
       \name{author}{2}{}{%
         {{hash=ce0689f2d52c5a0939d5509701e4f498}{%

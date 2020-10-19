@@ -290,7 +290,7 @@ When the /lower/ and /upper/ box-counting dimensions of $F$ are equal, then
 \end{equation*}
 
 For example, suppose we had a square with side length 1 and we use smaller squares of side
-length $\frac{1}{\delta$}$ to cover the larger square. This would mean that one side of the
+length $\frac{1}{\delta}$ to cover the larger square. This would mean that one side of the
 large square would need $\delta$ $\frac{1}{\delta}$ small squares, and so to cover
 the entire square, one would need $n^2$ small squares, i.e. $N_{\frac{1}{n}}(F) = n^2$. Now,
 substituting these values into the box-counting definiton, we get:

@@ -1,4 +1,4 @@
-% Created 2020-10-19 Mon 16:53
+% Created 2020-10-19 Mon 17:58
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -128,7 +128,7 @@ In the case of the koch snowflake, the measure of the shape, when scaled, will i
 
 In the development of topology
 \subsection{Hausdorff Dimension}
-\label{sec:org79ca783}
+\label{sec:orgb4993b8}
 Sources for this section on Hausdorff Dimension are primarily \cite[Ch. 2]{falconerFractalGeometryMathematical2003}
 \subsubsection{Measure}
 \label{hausdorff-measure}
@@ -200,9 +200,9 @@ This is defined for all subsets of \(\mathbb{R}^n\) for example the value of  \(
 \end{figure}
 
 \paragraph{Lower Dimension Hausdorff Measurements}
-\label{sec:org5019cca}
+\label{sec:orgbd2f8a0}
 \subparagraph{Examples}
-\label{sec:org6ef2872}
+\label{sec:org53fd1d5}
 Consider again the example of a 2D shape, the value of \(\mathcal{H}^{1}\) would still be defined by \eqref{eq:delta-measure}, but unlike \(\mathcal{H}^{2}\) in section \ref{hausdorff-measure} the value of \(\left\lvert U_i \right\rvert^1\) would be considered as opposed to \(\left\lvert U_i \right\rvert^2\).
 
 As \(\delta\) is made arbitrarily small the boxes that cover the shape are made also to be arbitrarily small. Although the area of the boxes must clearly be bounded by the shape of \(F\), if one imagines an infinite number of infinitely dense lines packing into a 2D shape with an infinite density it can be seen that the total length of those lines will be infinite.
@@ -212,7 +212,7 @@ To build on that same analogy, another way to imagine this is to pack a 2D shape
 This is consistent with shapes of other shapes as well, consider the koch snowflake introduced in section \ref{topological-equivalence} and shown in figure \ref{koch-line}, the dimension of this shape is greater than 1, and the number of lines necessary to describe that shape is also infinite.
 
 \subparagraph{Formally}
-\label{sec:org5307b33}
+\label{sec:orgc4eb245}
 If the dimension of \(F\) is less than \(s\), the Hausdorff Measure will be given by: \footnote{I haven't been able to find a proof for this, I wonder if I could prove it by just applying the definition?}
 
 \begin{align}
@@ -220,7 +220,7 @@ If the dimension of \(F\) is less than \(s\), the Hausdorff Measure will be give
 \end{align}
 
 \paragraph{Higher Dimension Hausdorff Dimension}
-\label{sec:orgec3d50b}
+\label{sec:org49a98cb}
 For small values of \(s\) (i.e. less than the dimension of  \(F\)), the value of \(\mathcal{H}^s\)  will be \(\infty\).
 
 Consider some value \(s\) such that the Hausdorff measure is not infinite, i.e. values of \(s\): \footnote{Could fractal dimensions be complex? Maybe there could be a proof to show that the dimension is necessarily complex.}
@@ -262,47 +262,78 @@ Hence the value of the s-dimensional \emph{Hausdorff Measure}, \(s\) is only a f
 \end{figure}
 
 \subsubsection{Hausdorff Dimension}
-\label{sec:org2799e17}
+\label{sec:org4ad501c}
 
 The value \(s\) at which \(\mathcal{H}^{s}\) changes from \(\infty\) to 0, shown in figure \ref{hausdorff-vals}  and \eqref{eq:hdfzero} is the definition of the \emph{Hausdorff Measure}, it is a generalisation of the idea of dimension that is typically understood with respect to ordinary shapes and 3D figures.
 \subsubsection{Research}
-\label{sec:orgde26d5a}
+\label{sec:orgb1c70de}
 I feel very inclided to read \href{https://warwick.ac.uk/fac/sci/maths/people/staff/mark\_pollicott/p3/tehran.pdf}{these notes} \footnote{\href{file:///home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resources/Uncorrected-Warwick-BoxCount-Hausendorff-Notes.pdf}{Local Copy}}
 
 \section{Box Counting}
-\label{sec:org702f3e0}
+\label{sec:org21c16ba}
 Sources for this section are primarily:
 \begin{itemize}
 \item Falconer \cite[Ch. 3.1]{falconerFractalGeometryMathematical2003b}
 \item Strogatz Non Linear Dynamics \cite[Ch. 11.4]{strogatzNonlinearDynamicsChaos2015}
-
-\item There are many different notions of dimension, atleast 10 \cite[Ch. 4.3]{edgarMeasureTopologyFractal2008}
-\begin{itemize}
-\item \emph{Hausdorff Dimension} is the oldest and most important with respect to the dimensions of fractals \cite[p. 27]{falconerFractalGeometryMathematical2003b}
-\end{itemize}
-\item The Box dimension has only boxes of fixed sizes, unlike the \emph{Hausdorff
-Dimensions} where in the boxes may be arbitrary sizes less than \(\delta\) but
-it is significantly hader to calculate numerically \cite[\textsection 11.4]{strogatzNonlinearDynamicsChaos2015}
-\item The problem with the \emph{Hausdorff Dimension}, discussed in \textsection \ref{Hausdorff-dimension}, is that it is quite involved to solve, many shapes such as the koch snowflake haven't even h
-\begin{itemize}
-\item Upper and lower bounds for the \emph{Hausdorff Measurement/} haven't even been solved for many fractals, including the Koch Snowflake (shown in figure \ref{koch-snowflake} ). \cite{zhuLowerBoundHausdorffMeasure2003}
-\end{itemize}
 \end{itemize}
 
-The box counting method is widely used because it is relatively easy to calculate \cite[p. 41]{falconerFractalGeometryMathematical2003b} and in many cases is equal to the \emph{Hausdorff Dimension}  \cite[p. 11]{markpollicottFractalsDimensionTheory2005} (see generally \cite{ListFractalsHausdorff2020}).
+While the Hasudorff dimension is the first formal definition to measure
+the roughness of a fractal, there are several other definitions of dimension
+that have stemmed from this. Namely, the box-counting dimension. The box
+counting method is widely used as it is relatively easy to calculate \cite[p. 41]{falconerFractalGeometryMathematical2003b}
+and in many cases is equal to the \emph{Hausdorff Dimension}  \cite[p. 11]{markpollicottFractalsDimensionTheory2005} (see generally \cite{ListFractalsHausdorff2020}).
+The box-counting dimension is defined as the following from
+\cite{falconerFractalGeometryMathematical2003}:
 
-\begin{quote}
-\begin{itemize}
-\item TODO:
-\begin{itemize}
-\item While quite simply this is the number of boxes that scale, we need to more rigorously define it, much like Ch. 3.1 of Falconer \cite{falconerFractalGeometryMathematical2003}
-\item We also need to contrast this with the similarity dimension discussed in p. 413 of Strogatz \cite{strogatzNonlinearDynamicsChaos2015}
-\item A contrast should be drawn between this and Hausdorff, the most obvious difference being that the boxes are of a fixed size, unlike \emph{Hausdorff}  see p. 418 of Strogatz \cite{strogatzNonlinearDynamicsChaos2015}
-\end{itemize}
-\end{itemize}
-\end{quote}
+Let \(F\) be any non-empty bounded subset of \(\mathbb{R}^n\) and let \(N_\delta(F)\) be the smallest
+number of sets of diameter at most \(\delta\) which can cover \(F\). The \emph{lower} and \emph{upper}
+box-counting dimensions of \(F\) respectively are defined as
+
+\begin{equation*}
+    \underline{\text{dim}}_BF = \underline{\lim}_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}
+\end{equation*}
+\begin{equation*}
+\overline{\text{dim}}_BF = \overline{\lim}_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}
+\end{equation*}
+
+When the \emph{lower} and \emph{upper} box-counting dimensions of \(F\) are equal, then
+
+\begin{equation*}
+\text{dim}_BF = \lim_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}
+\end{equation*}
+
+For example, suppose we had a square with side length 1 and we use smaller squares of side
+length \(\frac{1}{\delta}\) to cover the larger square. This would mean that one side of the
+large square would need \(\delta\) \(\frac{1}{\delta}\) small squares, and so to cover
+the entire square, one would need \(n^2\) small squares, i.e. \(N_{\frac{1}{n}}(F) = n^2\). Now,
+substituting these values into the box-counting definiton, we get:
+
+\begin{align*}
+\text{dim}_BF &= \lim_{\frac{1}{\delta} \to 0} \frac{\ln(\delta^2)}{-\ln(\frac{1}{\delta})}\\
+&= \lim_{\frac{1}{\delta} \to 0} \frac{\ln(\delta^2)}{\ln(\delta)}\\
+&= \lim_{\frac{1}{\delta} \to 0} 2\frac{\ln(\delta)}{\ln(\delta)}\\
+&= 2
+\end{align*}
+
+Which is expected, becuase we know that a square is a 2-Dimensional shape. We
+can apply this same concept to fractals. Consider another example, the Koch
+Curve, a self similar fractal which we can calculate its dimension and provide a
+measure of roughness of the curve. If we take a close look at the curve progression
+in figure \ref{koch-line}, the pattern begins with one line segment and the middle third
+of the line is replaced with two sides of an equilateral triangle with side length
+\(\frac{1}{3}\). After this first iteration, the line segment now becomes four line
+segments. Thus, if we use a square of length \(\frac{1}{3^{\delta}}\) to cover the \(\delta^{th}\)
+iteration of the curve, there will be \(4^{\delta}\) line segments covered.
+
+Let \(F\) be the Koch Curve.
+\begin{align*}
+\text{dim}_BF &= \lim_{\frac{1}{3^{\delta}} \to 0} \frac{\ln(4^{\delta})}{-\ln(\frac{1}{3^{\delta}})}\\
+&= \lim_{\frac{1}{3^{\delta}} \to 0} \frac{\ln(4^{\delta})}{\ln(3^{\delta})}\\
+&= \lim_{\frac{1}{3^{\delta}} \to 0} \frac{\ln(4)}{\ln(3)}\\
+&= \frac{\ln(4)}{\ln(3)}
+\end{align*}
 \section{Fractals Generally}
-\label{sec:org3c1216c}
+\label{sec:org1a8edfa}
 While there is no formal definition for the term fractal at this stage, we may decsribe it through the following properties:
 \begin{itemize}
 \item Can be, but not subject to being self-similar \footnote{A self-similar shape is one that replicates its shape at every scale.}. On the contrary fractals can also be shapes like coastlines (which are not self-simialr)
@@ -314,11 +345,11 @@ Dimension is the main defining property of a fractal. As aforementioned above, t
 To define a fractal, we must define it's dimension. Whilst some research states that a fractal has a non-integer dimension, this is not true for all fractals. Although, most fractals like the Koch snowflake do in fact have non-integer dimensions, we can easily find a counter example namely, the Mandelbrot set. The Mandelbrot set lies in the same dimension as a square, a 2-Dimensional shape. However, we give recognition to the complexity and roughness of the Mandelbrot set which clearly distiguishes itself from a square. Beneath the Mandelbrot set's complexity are exact replicates of the largest scaled Mandelbrot set, i.e a self similar shape. Furthermore, although the Mandelbrot set has an integer dimension, the self similarity and complexity is what also defines its fractal nature.
 
 \section{Generating Self Similar Fractals}
-\label{sec:orgeb72aa0}
+\label{sec:orgf2a5e3d}
 \subsubsection{Examples}
-\label{sec:org6c86117}
+\label{sec:org7ab96bd}
 \paragraph{Vicsek Fractal}
-\label{sec:org3a5f788}
+\label{sec:orgf2910ab}
 The Vicsek Fracatl is self similar, thus we can use it to test our box counting method \footnote{Since the Vicsek fractal is self similar, we know that the dimension will be constant, as opposed to a dimension that slightly varies, hence there is no need for linear regression which would be necessary to measure someting like a coastline.}.
 The Vicsek Fractal involves a pattern of iterating boxes:
 
@@ -387,7 +418,7 @@ D\ln{3} &= \ln{5}\\
 D &= \frac{\ln{5}}{\ln{3}}
 \end{align*}
 \paragraph{Sierpinskis Carpet}
-\label{sec:orgc245716}
+\label{sec:org2718f8f}
 
 Explained more in the book \footnote{See Ch. 2.7 of \cite[Ch. 2.7]{peitgenChaosFractalsNew2004}
 
@@ -406,10 +437,10 @@ By modifying listing we can get patterns like the cantor dust and sierpinskis ca
 \end{figure}
 
 \paragraph{Triangle}
-\label{sec:orga4fafa2}
+\label{sec:org4363fba}
 Producing the triangle was more difficult
 \subparagraph{Chaos Game}
-\label{sec:orgac6ef5c}
+\label{sec:org594e668}
 This would be more accurate than pascals because there would be know \textbf{bias} and the model would be more accurate    :
 
 \begin{listing}[htbp]
@@ -464,7 +495,7 @@ ggplot(df, aes(x = xval, y = yval)) +
 \end{center}
 
 \subparagraph{Pascals Triange}
-\label{sec:org1dee598}
+\label{sec:orgb390c78}
 
 \begin{listing}[htbp]
 \begin{minted}[]{julia}
@@ -502,7 +533,7 @@ log(3)/log(2)
 
 \begin{enumerate}
 \item Motivation
-\label{sec:org00dae85}
+\label{sec:orgef7202d}
 Over many centuries, mathematicians have been able to produce a range of patterns from Pascal's triangle. One of which is relevant to the emergence of Sierpinski's triangle. To construct Pascal's triangle it begins with a 1 in the \(0^{th}\) (top) row, then each row underneath is made up of the sum of the numbers directly above it, see figure \ref{fig:pascal-triangle}. Alternatively, the \(n^{th}\) row and \(k^{th}\) column can be written in combinatorics form, \(\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}\).
 
 \begin{figure}[htbp]
@@ -512,7 +543,7 @@ Over many centuries, mathematicians have been able to produce a range of pattern
 \end{figure}
 
 \item The connection
-\label{sec:orgab5e282}
+\label{sec:orgf692ceb}
 As mentioned before there is one pattern that produces the Sierpinski triangle, namely highlighting all odd numbers in Pascal's triangle. This is equivalent to considering all the numbers in the triangle modulo 2, shown in figure \ref{fig:pascal-sierpinski-tri}.
 
 \begin{figure}[htbp]
@@ -576,10 +607,10 @@ c=c_{i}2^{i}+c_{i-1}2^{i-1}+\cdots +c_{1}2+c_{0}=\left[c_{i}c_{i-1}\cdots c_{1}c
 Thus, \(\binom{r}{c} = \binom{2^n + r}{c} = \binom{2^n + r}{2^n + c} \quad (\text{mod} 2)\), which concludes the proof
 
 \item Comment on the dimension lining up
-\label{sec:orgf383376}
+\label{sec:orgc7d2354}
 Using the box-counting method, we can evaluate the dimension of Sierpinski's triangle.
 \item FIx the value
-\label{sec:orgf36e2f1}
+\label{sec:org0ef4895}
 
 \begin{verbatim}
 
@@ -594,7 +625,7 @@ julia> # https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle
 \end{enumerate}
 
 \section{Fractal Dimensions}
-\label{sec:org50ab3f2}
+\label{sec:org5ed3a2d}
 See generally \cite[Ch. 11]{strogatzNonlinearDynamicsChaos2015}
 Three ways to generate
 
@@ -608,7 +639,7 @@ Three ways to generate
 \end{enumerate}
 
 \subsection{Turtle}
-\label{sec:orgb199682}
+\label{sec:org73d43da}
 Matrices can't explain all patterns, Turtles are useful
 \begin{listing}[htbp]
 \begin{minted}[]{julia}
@@ -822,7 +853,7 @@ end
 \end{listing}
 
 \subsubsection{Dragon Curve}
-\label{sec:orgd9c550d}
+\label{sec:orgaae8649}
 
 \begin{figure}[htbp]
 \centering
@@ -833,7 +864,7 @@ end
 
 
 \subsubsection{Koch Snowflake}
-\label{sec:org71bf96f}
+\label{sec:orgde9ad78}
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=9cm]{../Problems/Chaos/Spirals/snowCurve.png}
@@ -841,7 +872,7 @@ end
 \end{figure}
 
 \subsection{Calculating the Dimension of Julia Set}
-\label{sec:orgcc9ad0f}
+\label{sec:org7e4ee5a}
 It converges too slowly
 The Julia set (discussed in section \ref{julia-set}) can be solved by \ldots{}
 
@@ -1157,7 +1188,7 @@ scale & mass\\
 
 \end{table}
 \subsubsection{Using Linear Regression}
-\label{sec:org8c06981}
+\label{sec:org1959845}
 \begin{itemize}
 \item Avoiding \texttt{Abs} is twice as fast
 \item Column wise is faster in fortran/julia/R slower in C/Python
@@ -1166,7 +1197,7 @@ We have no evidence to show that the dimension will be stable, this is good for 
 to do that we use linear regression.
 \end{itemize}
 \paragraph{Performance}
-\label{sec:org54466dc}
+\label{sec:org1783b76}
 \begin{itemize}
 \item Switching from \texttt{abs()} to sqaured help
 \item Taking advantage of multi core processing in loops
@@ -1194,7 +1225,7 @@ Function & Mean Time\\
 
 \end{center}
 \subsection{My Fractal}
-\label{sec:org74a0102}
+\label{sec:orgda1b321}
 My fractal really shows many unique patterns
 
 If it is scaled by \(\varphi\) then the boxes increase two fold.
@@ -1205,7 +1236,7 @@ We know the dimension will be constant because the figure is self similar, so we
 \mathrm{dim} (\mathtt{my\_fractal}) = \log_{\varphi}=\frac{\log \varphi}{\log 2}
 \]
 \subsubsection{Graphics}
-\label{sec:org6d56cc3}
+\label{sec:orgc9b75d6}
 
 \begin{figure}[htbp]
 \centering
@@ -1250,11 +1281,11 @@ We know the dimension will be constant because the figure is self similar, so we
 \end{figure}
 
 \subsubsection{Discuss Pattern shows Fibonacci Numbers}
-\label{sec:org1e51716}
+\label{sec:org0e05fec}
 \paragraph{Angle Relates to Golden Ratio}
-\label{sec:org8ed226f}
+\label{sec:org0a53ca3}
 \subsubsection{Prove Fibonacci using Monotone Convergence Theorem}
-\label{sec:orgc97590b}
+\label{sec:orgee9890b}
 Consider the series:
 
 $$\begin{aligned}
@@ -1269,7 +1300,7 @@ F_n = F_{n- 1} +  F_{n- 2} ; \quad F_1 = F_2 = 1
 
 
 \paragraph{Show that the Series is Monotone}
-\label{sec:org445d4b3}
+\label{sec:orgdda8e0d}
 $$\begin{aligned}
 F_{n} &> 0 \\
 0 &< F_{n} \\
@@ -1289,9 +1320,9 @@ F_{n} &> 0 \\
 
 
 \paragraph{Show that the Series is Bounded}
-\label{sec:org60f0385}
+\label{sec:org2e4fa5f}
 \paragraph{Find the Limit}
-\label{sec:orgc7bd5d6}
+\label{sec:org645589b}
 $$\begin{aligned}
 G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 &= 1 +  \frac{F_{n- 1} }{F_n} \\
@@ -1303,7 +1334,7 @@ G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 
 
 \paragraph{Comments}
-\label{sec:org3187462}
+\label{sec:org0478732}
 
 The Fibonacci sequence is quite unique, observe that:
 
@@ -1334,7 +1365,7 @@ $$\begin{aligned}
 \frac{\psi}{\varphi}  = \frac{1}{\varphi^2} = \frac{1}{1-\varphi} &= \frac{1}{2-\varphi} = \frac{2}{3 - \sqrt{5}  }
 \end{aligned}$$
 \paragraph{Python}
-\label{sec:orgc8ee7b9}
+\label{sec:org58829cd}
 
 \begin{minted}[]{python}
 #+begin_src python
@@ -1349,14 +1380,14 @@ plt.savefig("./a.png")
 \end{center}
 
 \subsubsection{Angle is \(\tan^{-1}\left( \frac{1}{1-\varphi}\right)\)}
-\label{sec:orgaba5566}
+\label{sec:org773cd6e}
 \paragraph{Similar to Golden Angle \(2 \pi \left( \frac{1}{1-\varphi}\right)\)}
-\label{sec:org66381db}
+\label{sec:org6e8caee}
 \subsubsection{Dimension of my Fractal}
-\label{sec:org42df2a0}
+\label{sec:org4241d17}
 \(\log_{\varphi}(2)\)
 \subsubsection{Code should be split up or put into appendix}
-\label{sec:orgd9f2e99}
+\label{sec:org2a7268f}
 \begin{minted}[]{julia}
 function matJoin(A, B)
     function nrow(X)
@@ -1490,14 +1521,14 @@ The julia set is the outline.
 
 The mandelbrot has to do with whether or not it's connected.
 \subsection{The math behind it}
-\label{sec:orgb138a52}
+\label{sec:orga3c293e}
 \subsubsection{Like Escaping after 2}
-\label{sec:orge244af2}
+\label{sec:org4f26a95}
 I cannot figure this out, I need more time, look around Ch. 12 of falconer \cite{falconerFractalGeometryMathematical2003}
 \section{Fibonacci Sequence}
-\label{sec:orga3c65dc}
+\label{sec:org054b701}
 \subsection{Introduction}
-\label{sec:org6b74b49}
+\label{sec:org78d9cad}
 The \emph{Fibonacci Sequence} and \emph{Golden Ratio} share a deep connection\footnote{See section} and occur in patterns observed in nature very frequently
 (see
 \cite{shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016}), an example of such an occurence is discussed in section \ref{sunflower-example}.
@@ -1672,14 +1703,14 @@ In this case however an analytic solution can be found by relating discrete
 mathematical problems to continuous ones as discussed below at section .
 \subsection{Exponential Generating Functions}
 \label{exp-gen-func-fib-seq}
-\subsubsection{Motivation}
+\paragraph{Motivation}
 \label{motivation}
 Consider the \emph{Fibonacci Sequence} from \eqref{eq:fib-def}:
 
 
-\begin{align}
-    a_{n}&= a_{n - 1} + a_{n - 2} \nonumber \\
-\iff a_{n+  2} &= a_{n+  1} +  a_n \label{eq:fib-def-shift}
+\begin\{aLign
+    a\textsubscript{n}\&= a\textsubscript{n - 1} + a\textsubscript{n - 2} \nonumber \\
+\iff a\textsubscript{n+  2} \&= a\textsubscript{n+  1} +  a\textsubscript{n} \label{eq:fib-def-shift}
 \end{align}
 
 
@@ -1700,10 +1731,10 @@ f\left( x \right)= e^{mx} = \sum^{\infty}_{n= 0}   \left[ r^{m} \frac{x^n}{n!} \
 So using some sort of a transformation involving a power series may help to
 relate the discrete problem back to a continuous one.
 
-\subsubsection{Example}
+\paragraph{Example}
 \label{solving-the-sequence}
-Consider using the following generating function, (the derivative of the
-generating function as in \eqref{eq:exp-gen-def-2} and \eqref{eq:exp-gen-def-3} is
+Consider using the following generating function, (proof of the
+generating function derivative as in \eqref{eq:exp-gen-def-2} and \eqref{eq:exp-gen-def-3} is
 provided in section \ref{Derivative-exp-gen-function})
 
 
@@ -1716,7 +1747,7 @@ provided in section \ref{Derivative-exp-gen-function})
 \end{align}
 
 
-So the recursive relation from \eqref{eq:fib-def-shift}  could be expressed :
+So the Fibonacci recursive relation from \eqref{eq:fib-def-shift}  could be expressed :
 
 
 \begin{align*}
@@ -1725,7 +1756,7 @@ a_{n+  2}    &= a_{n+  1} +  a_{n}\\
 \sum^{\infty}_{n= 0} \left[ \frac{x^n}{n!}   a_{n+  2} \right]        &= \sum^{\infty}_{n= 0}   \left[ \frac{x^n}{n!} a_{n+  1} \right]  + \sum^{\infty}_{n= 0}   \left[ \frac{x^n}{n!} a_{n}  \right]  \\
 \end{align*}
 
-And hence by applying \eqref{eq:exp-gen-def-1}:
+And hence by applying \eqref{eq:exp-gen-def-1}, \eqref{eq:exp-gen-def-2} and \eqref{eq:exp-gen-def-3}:
 
 \begin{align}
 f''\left( x \right) &= f'\left( x \right)+  f\left( x \right)
@@ -1737,7 +1768,7 @@ constant coefficients it can be shown:
 
 
 \begin{align*}
-f\left( x \right)= c_1 \cdot  \mathrm{exp}\left[ \left( \frac{1- \sqrt{5} }{2} \right)x \right] +  c_2 \cdot  \mathrm{exp}\left[ \left( \frac{1 +  \sqrt{5} }{2} \right) \right]
+f\left( x \right)= c_1 \cdot  \mathrm{exp}\left[ \left( \frac{1- \sqrt{5} }{2} \right)x \right] +  c_2 \cdot  \mathrm{exp}\left[ \left( \frac{1 +  \sqrt{5} }{2} \right)x \right]
 \end{align*}
 
 
@@ -1745,7 +1776,7 @@ By equating this to the power series:
 
 
 \begin{align*}
-f\left( x \right)&= \sum^{\infty}_{n= 0}   \left[ \left( c_1\left( \frac{1- \sqrt{5} }{2} \right)^n +  c_2 \cdot  \left( \frac{1+ \sqrt{5} }{2} \right)^n \right) \cdot  \frac{x^n}{n} \right]
+f\left( x \right)&= \sum^{\infty}_{n= 0}   \left[ \left( c_1\left( \frac{1- \sqrt{5} }{2} \right)^n +  c_2  \left( \frac{1+ \sqrt{5} }{2} \right)^n \right) \cdot  \frac{x^n}{n!} \right]
 \end{align*}
 
 
@@ -1761,7 +1792,7 @@ We can conclude that:
 
 
 \begin{align*}
-a_n = c_1\cdot  \left( \frac{1- \sqrt{5} }{2} \right)^n +  c_2 \cdot  \left( \frac{1+  \sqrt{5} }{2} \right)
+a_n = c_1\cdot  \left( \frac{1- \sqrt{5} }{2} \right)^n +  c_2 \cdot  \left( \frac{1+  \sqrt{5} }{2} \right)^n
 \end{align*}
 
 
@@ -1770,7 +1801,8 @@ By applying the initial conditions:
 
 \begin{align*}
 a_0= c_1 +  c_2  \implies  c_1= - c_2\\
-a_1= c_1 \left( \frac{1+ \sqrt{5} }{2} \right) -  c_1 \frac{1-\sqrt{5} }{2}  \implies  c_1 = \frac{1}{\sqrt{5} }
+a_1= c_1 \left( \frac{1+ \sqrt{5} }{2} \right) -  c_1 \left( \frac{1-\sqrt{5} }{2} \right)  \implies  c_1 = \frac{1}{\sqrt{5} }\\
+\therefore ~ c_1 = \frac{1}{\sqrt{5}, ~ c_2 = -\frac{1}{\sqrt{5}}}
 \end{align*}
 
 
@@ -1791,52 +1823,52 @@ where:
 \item \(\psi = 1-\varphi = \frac{1- \sqrt{5} }{2} \approx 0.61\ldots\)
 \end{itemize}
 
-\subsubsection{Derivative of the Exponential Generating Function}
+\paragraph{Derivative of the Exponential Generating Function}
 \label{Derivative-exp-gen-function}
-\paragraph{Base}
-\label{sec:org5bf5cb9}
-Differentiating the exponential generating function has the effect of shifting the sequence to the backward: \cite{lehmanReadingsMathematicsComputer2010}
+\subparagraph{Base}
+\label{sec:org2c5e78f}
+Differentiating the exponential generating function has the effect of shifting the sequence once to the left: \cite{lehmanReadingsMathematicsComputer2010}
 
 \begin{align}
     f\left( x \right) &= \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right] \label{eq:exp-pow-series} \\
-f'\left( x \right)) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right]  \right) \nonumber \\
+f'\left( x \right) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right]  \right) \nonumber \\
 &= \frac{\mathrm{d}}{\mathrm{d} x} \left( a_0 \frac{x^0}{0!} +  a_1 \frac{x^1}{1!} +  a_2 \frac{x^2}{2!}+  a_3 \frac{x^3}{3! } +  \ldots \frac{x^k}{k!} \right) \nonumber \\
 &= \sum^{\infty}_{n= 0}   \left[ \frac{\mathrm{d} }{\mathrm{d} x}\left( a_n \frac{x^n}{n!} \right) \right] \nonumber \\
 &= \sum^{\infty}_{n= 0}   {\left[{ \frac{a_n}{{\left({ n- 1 }\right)!}} } x^{n- 1}  \right]} \nonumber \\
-\implies f'(x) &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}a_{n+  1} }\right]} \label{eq:exp-pow-series-sol}
+\implies f'(x) &= \sum^{\infty}_{n= 1}   {\left[{ \frac{x^n}{n!}a_{n+  1} }\right]} \label{eq:exp-pow-series-sol}
 \end{align}
 
-\paragraph{Bridge}
-\label{sec:org74e4f16}
+\subparagraph{Bridge}
+\label{sec:org6f8bb4a}
 This can be shown for all derivatives by way of induction, for
 
 \begin{align}
-f^{(k)}\left(x\right) = \sum_{n=0}^\infty\frac{a_{n+k}\cdot x^n}{n!} \quad \text{for}~k \ge 0
+f^{(k)}\left(x\right) = \sum_{n=k}^\infty\frac{a_{n+k}\cdot x^n}{n!} \quad \text{for}~k \ge 0
 \end{align}
 
-Assume that. \(f^{(k)}\left(x\right) = \sum_{n=0}^\infty\frac{a_{n+k}\cdot x^n}{n!}\)
+Assume that \(f^{(k)}\left(x\right) = \sum_{n=k}^\infty\frac{a_{n+k}\cdot x^n}{n!}\)
 
 Using this assumption, prove for the next element \(k+1\)
 
-We need \(f^{(k+1)}(x) = \sum_{n=0}^\infty\frac{a_{n+k+1}\cdot x^n}{n!}\)
+We need \(f^{(k+1)}(x) = \sum_{n=k+1}^\infty\frac{a_{n+k+1}\cdot x^n}{n!}\)
 
 \begin{align*}
     \text{LHS} &= f^{(k+1)}(x)\\
     &= \frac{\mathrm{d}}{\mathrm{d}x}\left(f^{(k)}(x)\right)\\
-    &= \frac{\mathrm{d}}{\mathrm{d}x}\left(\sum_{n=0}^\infty\frac{a_{n+k}\cdot x^n}{n!}\right)\quad \text{by assumption}\\
-    &= \sum_{n=0}^\infty\frac{a_{n+k}\cdot n\cdot x^{n-1}}{n!}\\
-    &= \sum_{n=1}^\infty\frac{a_{n+k}\cdot x^{n-1}}{(n-1)!}\\
-    &= \sum_{n=0}^\infty\frac{a_{n+k+1}\cdot x^{n}}{n!}\\
+    &= \frac{\mathrm{d}}{\mathrm{d}x}\left(\sum_{n=k}^\infty\frac{a_{n+k}\cdot x^n}{n!}\right)\quad \text{by assumption}\\
+    &= \sum_{n=k}^\infty\frac{a_{n+k}\cdot n\cdot x^{n-1}}{n!}\\
+    &= \sum_{n=k}^\infty\frac{a_{n+k}\cdot x^{n-1}}{(n-1)!}\\
+    &= \sum_{n=k+1}^\infty\frac{a_{n+k+1}\cdot x^{n}}{n!}\\
     &= \text{RHS}
 \end{align*}
 
-Thus, if the derivative of the series shown in \eqref{eq:exp-gen-def-1} shifts the
-sequence across, then every derivative thereafter does so as well, because the
-first derivative has been shown to express this property
-\eqref{eq:exp-pow-series-sol}, all derivates will.
+Therefore, by mathematical induction \(f^{(k)}\left(x\right) = \sum_{n=k}^\infty\frac{a_{n+k}\cdot x^n}{n!} \quad \text{for}~k \ge 0\)
 
-\subsubsection{Homogeneous Proof}
-\label{sec:org0f8842a}
+Furthermore, if the first derivative of the exponential generating function shown in \eqref{eq:exp-pow-series-sol}
+shifts the sequence across, then every derivative thereafter does so as well.
+
+\paragraph{Homogeneous Proof}
+\label{sec:org01382d1}
 An equation of the form:
 
 \begin{align}
@@ -1855,7 +1887,7 @@ is said to be a homogenous linear ODE: \cite[Ch. 2]{zillDifferentialEquations200
 \end{itemize}
 \end{description}
 
-There will be \(k\) solutions to a \(k^{\mathrm{th}}\) order linear ODE, each may be summed to produce a superposition which will also be a solution to the equation, \cite[Ch. 4]{zillDifferentialEquations2009a}  this will be considered as the desired complete solution (and this will be shown to be the only solution for the recurrence relation \eqref{eq:recurrence-relation-def}). These \(k\) solutions will be in one of two forms:
+There will be \(k\) solutions to a \(k^{\mathrm{th}}\) order linear ODE, each may be summed to produce a superposition which will also be a solution to the equation, \cite[Ch. 4]{zillDifferentialEquations2009a}  this will be considered as the desired complete solution (and this will be shown to be the only solution for the recurrence relation \eqref{eq:recurrence-relation-def}. These \(k\) solutions will be in one of two forms:
 
 \begin{enumerate}
 \item \(f(x)=c_{i} \cdot e^{m_{i}x}\)
@@ -1871,17 +1903,18 @@ where:
 \end{itemize}
 \item \(\exists i,j \in \mathbb{Z}^{+} \cap \left[0,k\right]\)
 \begin{itemize}
-\item These is often referred to as repeated roots \cite{levinSolvingRecurrenceRelations2018,zillMatrixExponential2009} with a multiplicity corresponding to the number of repetitions of that root \cite[\textsection 3.2]{nicodemiIntroductionAbstractAlgebra2007}
+\item These are often referred to as repeated roots \cite{levinSolvingRecurrenceRelations2018,zillMatrixExponential2009} with a multiplicity corresponding to the number of repetitions of that root \cite[\textsection 3.2]{nicodemiIntroductionAbstractAlgebra2007}
 \end{itemize}
 \end{itemize}
 
-\paragraph{Unique Roots of Characteristic Equation}
+\subparagraph{Unique Roots of Characteristic Equation}
 \label{uniq-roots-recurrence}
-\subparagraph{Example}
-\label{sec:org8dc70d8}
+\begin{enumerate}
+\item Example
+\label{sec:orgcf4c33f}
 An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section \ref{solving-the-sequence}.
-\subparagraph{Proof}
-\label{sec:org17ed32b}
+\item Proof
+\label{sec:orgba4cdaa}
 Consider the linear recurrence relation \eqref{eq:recurrence-relation-def}:
 
 \begin{align}
@@ -1911,7 +1944,7 @@ Now assume that the solution exists and all roots of the characteristic polynomi
     f{\left({ x }\right)} = \sum^{k}_{i= 0}   {\left[{ k_i e^{m_i x} }\right]}, \quad \exists m,k \in \mathbb{C} \nonumber
 \end{align}
 
-This can be re-expressed in terms of the exponential power series, in order to relate the solution of the function \(f{\left({ x }\right)}\) back to a solution of the sequence \(a_n\), (see section for a derivation of the exponential power series):
+This can be re-expressed in terms of the exponential power series, in order to relate the solution of the function \(f{\left({ x }\right)}\) back to a solution of the sequence \(a_n\), (see section for a derivation of the exponential power series \textbf{\#TODO make section on to prove exponential power series using taylor series expansion if we get time)}:
 
 \begin{align}
     \sum^{k}_{i= 0}   {\left[{ k_i e^{m_i x}  }\right]}  &= \sum^{k}_{i= 0}   {\left[{ k_i \sum^{\infty}_{n= 0}   \frac{{\left({ m_i x }\right)}^n}{n!}  }\right]}  \nonumber \\
@@ -1921,7 +1954,7 @@ This can be re-expressed in terms of the exponential power series, in order to r
 \end{align}
 
 
-Recall the definition of the generating function from \eqref{eq:exp-gen-def-1}, by relating this to \eqref{eq:unique-root-sol-power-series-form}:
+Recall the definition of the generating function from \eqref{eq:exp-gen-def-1}, by equating this to \eqref{eq:unique-root-sol-power-series-form}:
 
 \begin{align}
     f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{  \frac{x^n}{n!} a_n }\right]} \nonumber \\
@@ -1936,22 +1969,24 @@ This can be verified by the fibonacci sequence as shown in section \ref{solving-
     f{\left({ x }\right)} &= &c_1 e^{\varphi x} +  &c_2 e^{{\left({ 1-\varphi }\right)} x}, \quad &\exists c_1, c_2 \in \mathbb{R} \subset \mathbb{C} \nonumber \\
     \iff  a_n &= &k_1 n^{\varphi} +  &k_2 n^{1- \varphi}, &\exists k_1, k_2 \in \mathbb{R} \subset \mathbb{C} \nonumber
 \end{alignat}
+\end{enumerate}
 
-\paragraph{Repeated Roots of Characteristic Equation}
+\subparagraph{Repeated Roots of Characteristic Equation}
 \label{rep-roots-recurrence}
-\subparagraph{Example}
-\label{sec:org3f64d00}
+\begin{enumerate}
+\item Example
+\label{sec:org21436a7}
 Consider the following recurrence relation:
 
 \begin{align}
-    a_n -  10a_{n+ 1} +  25a_{n+  2}&= 0 \label{eq:hom-repeated-roots-recurrence} \\
-    \implies  \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]} - 10 \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}+    }\right]} + 25 \sum^{\infty}_{n= 0 }   {\left[{  a_{n+  2 }\frac{x^n}{n!} }\right]}&= 0 \nonumber
+    a_{n+2} -  10a_{n+ 1} +  25a_{n}&= 0 \label{eq:hom-repeated-roots-recurrence} \\
+    \implies  \sum^{\infty}_{n= 0}   {\left[{ a_{n+2} \frac{x^n}{n!} }\right]} - 10 \sum^{\infty}_{n= 0}   {\left[{ a_{n+1} \frac{x^n}{n!}    }\right]} + 25 \sum^{\infty}_{n= 0 }   {\left[{  a_{n}\frac{x^n}{n!} }\right]}&= 0 \nonumber
 \end{align}
 
 By applying the definition of the exponential generating function at \eqref{eq:exp-gen-def-1} :
 
 \begin{align}
-    f''{\left({ x }\right)}- 10f'{\left({ x }\right)}+  25f{\left({ x }\right)}= 0 \nonumber \label{eq:rep-roots-func-ode}
+    f''{\left({ x }\right)}- 10f'{\left({ x }\right)}+  25f{\left({ x }\right)}= 0 \label{eq:rep-roots-func-ode}
 \end{align}
 
 By implementing the already well-established theory of linear ODE's, the
@@ -1970,16 +2005,16 @@ Herein lies a complexity, in order to solve this, the solution produced from \eq
 \end{align}
 
 \eqref{eq:rep-roots-ode-sol} can be expressed in terms of the exponential power series in order to try and relate the solution for the function back to the generating function,
-observe however the following power series identity (TODO Prove this in section ):
+observe however the following power series identity (proof in section \ref{prove-general-exp-identity}):
 
 \begin{align}
-    x^ke^x &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}, \quad \exists k \in \mathbb{Z}^+ \label{eq:uniq-roots-pow-series-ident}
+    x^ke^x &= \sum^{\infty}_{n= k}   {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}, \quad \exists k \in \mathbb{Z}^+ \label{eq:uniq-roots-pow-series-ident}
 \end{align}
 
 by applying identity \eqref{eq:uniq-roots-pow-series-ident} to equation \eqref{eq:rep-roots-ode-sol}
 
 \begin{align}
-    \implies  f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{ c_1 \frac{{\left({ 5x }\right)}^n}{n!} }\right]}  +  \sum^{\infty}_{n= 0}   {\left[{ c_2 n \frac{{\left({ 5x^n }\right)}}{n{\left({ n-1 }\right)}!} }\right]} \nonumber \\
+    \implies  f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{ c_1 \frac{{\left({ 5x }\right)}^n}{n!} }\right]}  +  \sum^{\infty}_{n= 1}   {\left[{ c_2 n \frac{{\left({ 5x }\right)^n}}{n{\left({ n-1 }\right)}!} }\right]} \nonumber \\
  &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!} {\left({ c_{1}5^n +  c_2 n 5^n   }\right)} }\right]} \nonumber
 \end{align}
 
@@ -1987,15 +2022,13 @@ Given the defenition of the exponential generating function from \eqref{eq:exp-g
 
 \begin{align}
     f{\left({ x }\right)}&=     \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]} \nonumber \\
-    \iff a_n &= c_{15}^n +  c_2n_5^n \nonumber \\ \nonumber
+    \iff a_n &= c_{1}5^n +  c_{2}5^n \nonumber \\ \nonumber
     \ \nonumber \\
     \square \nonumber
 \end{align}
-\subparagraph{Proof}
-\label{sec:org05ccfa8}
-In order to prove the the solution for a \(k^{\mathrm{th}}\) order recurrence relation with \(k\) repeated
 
-
+\item Proof
+\label{sec:orga6c7e45}
 Consider a recurrence relation of the form:
 
 \begin{align}
@@ -2004,7 +2037,7 @@ Consider a recurrence relation of the form:
       \sum^{k}_{i= 0}   \sum^{\infty}_{n= 0}   c_i a_n \frac{x^n}{n!} \nonumber
 \end{align}
 
-By substituting for the value of the generating function (from \eqref{eq:exp-gen-def-1}):
+By substituting for the value of the generating function from \eqref{eq:exp-gen-def-1}:
 
 \begin{align}
     \sum^{k}_{i= 0}   {\left[{ c_if^{{\left({ k }\right)}}  {\left({ x }\right)}    }\right]} \label{eq:gen-form-rep-roots-ode}
@@ -2014,58 +2047,43 @@ Assume that \eqref{eq:gen-form-rep-roots-ode} corresponds to a charecteristic po
 
 \begin{align}
 			 & \sum^{k}_{i= 0}   {\left[{ c_i m^i }\right]} = 0 \wedge m=B, \enspace  \exists! B \in \mathbb{C} \nonumber \\
- \implies      f{\left({ x }\right)}&= \sum^{k}_{i= 0}   {\left[{ x^i A_i e^{mx} }\right]}, \quad \exists A \in \mathbb{C}^+, \enspace \forall i \in {\left[{ 1,k }\right]} \cap \mathbb{N}  \label{eq:sol-rep-roots-ode} \\
+ \implies      f{\left({ x }\right)}&= \sum^{k}_{i= 0}   {\left[{ x^i A_i e^{mx} }\right]}, \quad \exists A \in \mathbb{C}^+, \enspace \forall i \in {\left[{ 1,k }\right]} \cap \mathbb{N}  \label{eq:sol-rep-roots-ode}
 \end{align}
 
-If we assume that (see section \ref{power-series-comb}):
+If we assume the identity from \eqref{eq:uniq-roots-pow-series-ident}:
 
 \begin{align}
-k \in \mathbb{Z} \implies x^k e^x = \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}     \label{eq:power-series-comb}
+x^k e^x = \sum^{\infty}_{n= k} {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}  \nonumber
 \end{align}
 
-By applying this to \eqref{eq:sol-rep-roots-ode} :
+See section \ref{prove-general-exp-identity} for proof.
+
+We can apply identity \eqref{eq:uniq-roots-pow-series-ident} to \eqref{eq:sol-rep-roots-ode}, which gives:
 
 \begin{align}
-f{\left({ x }\right)}&=     \sum^{k}_{i= 0}   {\left[{ A_i \sum^{\infty}_{n= 0}   {\left[{ \frac{{\left({ x m }\right)}^n}{{\left({ n- i }\right)}!} }\right]}  }\right]} \nonumber \\
-&=     \sum^{\infty}_{n= 0}   {\left[{ \sum^{k}_{i=0} {\left[{ \frac{x^n}{n!}  \frac{n!}{{\left({ n- i }\right)}} A_i m^n }\right]}       }\right]} # \\
-&=     \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}   \sum^{k}_{i=0} {\left[{  \frac{n!}{{\left({ n- i }\right)}} A_i m^n }\right]}       }\right]}
+f{\left({ x }\right)}&=     \sum^{k}_{i= 0}   {\left[{ A_i \sum^{\infty}_{n= i}   {\left[{ \frac{{\left({ x m }\right)}^n}{{\left({ n- i }\right)}!} }\right]}  }\right]} \nonumber \\
+&=     \sum^{\infty}_{n= 0}   {\left[{ \sum^{k}_{i=0} {\left[{ \frac{x^n}{n!}  \frac{n!}{{\left({ n- i }\right)!}} A_i m^n }\right]}       }\right]} \nonumber \\
+&=     \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}   \sum^{k}_{i=0} {\left[{  \frac{n!}{{\left({ n- i }\right)!}} A_i m^n }\right]}       }\right]} \nonumber
 \end{align}
 
-Recall the generating function that was used to get \ref{eq:gen-form-rep-roots-ode}:
+Recall the generating function that was used to get \eqref{eq:gen-form-rep-roots-ode}:
 
 \begin{align}
 f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]}      \nonumber \\
  \implies  a_n &= \sum^{k}_{i= 0}   {\left[{ A_i \frac{n!}{{\left({ n- i }\right)}!} m^n  }\right]} \nonumber \\
  &= \sum^{k}_{i= 0}   {\left[{ m^n A_i \prod_{0}^{k} {\left[{ n- {\left({ i- 1 }\right)} }\right]}   }\right]}
-& \intertext{$\because \enspace i \leq k$} \notag \\
+& \intertext{$\because \enspace i \leq k$} \notag \nonumber \\
  &= \sum^{k}_{i= 0} {\left[{ A_i^* m^n n^i }\right]}, \quad \exists A_i \in \mathbb{C}, \enspace \forall i\leqk \in \mathbb{Z}^+ \nonumber \\
 \ \nonumber \\
 \square \nonumber
 \end{align}
 
-\paragraph{General Proof}
-\label{general-gen-func-proof}
-In sections \ref{uniq-roots-recurrence} and \ref{uniq-roots-recurrence}
-it was shown that a recurrence relation can be related to an ODE and then that
-solution can be transformed to provide a solution for the recurrence relation,
-when the charecteristic polynomial has either complex roots or 1 repeated root.
-Generally the solution to a linear ODE will be a superposition of solutions for
-each root, repeated or unique and so a goal of our research will be to put this
-together to find a general solution for homogenous linear recurrence relations.
-
-Sketching out an approach for this:
-
-\begin{itemize}
-\item Use the Generating function to get an ODE
-\item The ODE will have a solution that is a combination of the above two forms
-\item The solution will translate back to a combination of both above forms
-\end{itemize}
-\subparagraph{Power Series Combination}
-\label{power-series-comb}
-In this section a proof for identity \ref{eq:power-series-comb} is provided.
+\item Proof
+\label{prove-general-exp-identity}
+In this section the proof of
 \begin{enumerate}
 \item Motivation
-\label{sec:org6e81e08}
+\label{sec:org6eae72d}
 
 Consider the function \(f(x) = xe^x\). Using the taylor series formula we get the following:
 
@@ -2089,7 +2107,31 @@ We conjecture thatIf we continue this on, we get:
     x^ke^x = \sum_{n=k}^\infty \frac{x^n}{(n-k)!} \quad \text{for}~k\in \mathbb{Z^{+}}\cap0
 \end{align*}
 \end{enumerate}
+\end{enumerate}
 
+\subparagraph{General Proof}
+\label{general-gen-func-proof}
+In sections \ref{uniq-roots-recurrence} and \ref{rep-roots-recurrence}
+it was shown that a recurrence relation can be related to an ODE and then that
+solution can be transformed to provide a solution for the recurrence relation.
+This was shown in two separate cases, one with unique roots and the other with
+repeated roots. However, in many circumstances the solutions to the characteristics
+equation are a combination of both unique and repeated roots. Hence, in general the
+solution to a linear ODE will be a superposition of solutions for each root, repeated
+or unique and so a goal of our research will be to put this together to find a general
+solution for homogenous linear recurrence relations.
+
+Sketching out an approach for this:
+
+\begin{itemize}
+\item Use the Generating function to get an ODE
+\item The ODE will have a solution that is a combination of the above two forms
+\item The solution will translate back to a combination of both above forms
+\end{itemize}
+\begin{enumerate}
+\item Power Series Combination
+\label{power-series-comb}
+\end{enumerate}
 \subsection{Fibonacci Sequence and the Golden Ratio}
 \label{fib-golden-ratio-proof}
 The \emph{Fibonacci Sequence} is actually very interesting, observe that the ratios of the terms converge to the \emph{Golden Ratio}:
@@ -2210,14 +2252,14 @@ end 600 600
 \end{figure}
 
 \section{Julia Sets}
-\label{sec:orgb27815f}
+\label{sec:org392bf73}
 
 There is a relatioship between the fibonacicci sequence, modelling population growth and the mandelbrot curve, I would like to use that to tie some of the discussion together, see \href{https://youtu.be/ovJcsL7vyrk}{this video from Veritasium to get an idea of what i mean}.
 \subsection{Introduction}
-\label{sec:org0fd724a}
+\label{sec:orgf35370e}
 Julia sets are a very interesting fractal and we hope to investigate them further in this project.
 \subsection{Motivation}
-\label{sec:orgdfe4d74}
+\label{sec:org9359a7f}
 Consider the iterative process \(x \rightarrow x^{2}, \enspace x \in \mathbb{R}\),
 for values of \(x>1\) this process will diverge and for \(x<1\) it will converge.
 
@@ -2253,7 +2295,7 @@ Every value on that plane will belong to one of the two following sets
 In the case of \(f_{0}(z) = z^{2}\) all values \(\left\lvert z  \right \rvert \leq 1\) are bounded with \(\left\lvert z  \right \rvert = 1\) being an unstable stationary circle, but let's investigate what happens for different iterative functions like \(f_{1}(z) = z^{2} - 1\), despite how trivial this seems at first glance.
 
 \subsection{Plotting the Sets}
-\label{sec:org4be017a}
+\label{sec:org46ed6c6}
 Although the convergence of values may appear simple at first, we'll implement a
 strategy to plot the prisoner and escape sets on the complex plane.
 
@@ -2503,7 +2545,7 @@ ffmpeg                    \
 \url{\_20200826\_005334a.png}
 
 \section{MandelBrot}
-\label{sec:org0940588}
+\label{sec:orgd39690b}
 Investigating these fractals, a natural question might be whether or not any
 given \(c\) value will produce a fractal that is an open disc or a closed disc.
 
@@ -2638,12 +2680,12 @@ save_picture("/tmp/a.fits", my_pic)
 \label{appendix}
 So unless code contributes directly to the discussion we'll put it in the appendix.
 \subsection{Finding Material}
-\label{sec:org87c92f0}
+\label{sec:orgfae6bc9}
 \begin{minted}[]{bash}
 recoll -c /home/ryan/Dropbox/Books/Textbooks/Mathematics/Chaos_Theory/chaos_books_recoll & disown
 \end{minted}
 \subsection{Font Lock}
-\label{sec:org360824d}
+\label{sec:org4bf3de5}
 \begin{minted}[]{elisp}
 ;; match:
 ;;; \scite:key\s
@@ -2660,7 +2702,7 @@ recoll -c /home/ryan/Dropbox/Books/Textbooks/Mathematics/Chaos_Theory/chaos_book
 \end{minted}
 
 \subsection{Section attribution}
-\label{sec:org0bdc468}
+\label{sec:org4f8667f}
 \begin{verbatim}
 Section Attribution
 ─────────────────
