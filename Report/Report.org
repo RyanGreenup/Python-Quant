@@ -29,8 +29,132 @@
 #+LATEX_HEADER: \usetikzlibrary{decorations.fractals}
 #+LATEX_HEADER: \usetikzlibrary{lindenmayersystems}
 :END:
+#+begin_example
+Section Attribution
+─────────────────
 
-* Hausdorff Dimension                                                           :Ryan:
+1. Introduction                                                   :Ryan:
+2. Fractals
+.. 1. Definition of a Fractal                                     :Ryan:
+.. 2. Fractals Generally                                         :James:
+.. 3. Fractal Dimension
+..... 1. Hausdorff Dimension                                      :Ryan:
+..... 2. Box Counting                                            :James:
+.. 4. Generating Self Similar Fractals                            :Ryan:
+..... 1. Examples
+........ 1. Vicsek Fractal
+........ 2. Sierpinskis Carpet
+........ 3. Triangle
+........... 1. Chaos Game
+........... 2. Pascals Triange                                   :James:
+..... 2. Turtle
+.. 5. Fractal Dimensions                                          :Ryan:
+3. Connecting Fractals to Natural Processes                       :Ryan:
+4. The Fibonacci Sequence
+.. 1. Introduction                                                :Ryan:
+.. 2. Computational Approach                                      :Ryan:
+.. 3. Exponential Generating Functions
+........ 1. Motivation                                            :Ryan:
+........ 2. Example                                               :Ryan:
+........ 3. Derivative of the Exponential Generating Function
+........... 1. Base                                               :Ryan:
+........... 2. Bridge                                            :James:
+........ 4. Homogeneous Proof                               :Ryan:James:
+.. 4. Proving with the Monotone Convergence Theorem               :Ryan:
+.. 5. Fibonacci Sequence and the Golden Ratio                     :Ryan:
+.. 6. Relating The Fibonacci Sequence to the Julia Set            :Ryan:
+5. Julia Sets                                                     :Ryan:
+6. MandelBrot Set                                                 :Ryan:
+7. Appendix
+8. Bibliography
+#+end_example
+* TODO Introduction                                                                :Ryan:
+- Fractals occur in nature
+  + The definition of a fractal is greatly concerned with its dimension so we discuss that
+  + Linear Regression can be used to measure dimension so we implement that
+- My Fractal is an example of why these things occur in nature
+- Prove the Fibonacci Numbers, show the relationship between
+  + MCT approach
+  + ODEs
+- The Fibonacci numbers (Veritasium), by logistic regression, are connected with:
+- Julia Set
+  + Mandelbrot
+  + So we solve the fractal dimension of these
+   
+* Fractals
+** Definition of a Fractal                                                     :Ryan:
+
+Benoît Mandelbrot coined the term fractal in 1975 cite:gomoryBenoitMandelbrot19242010 and defined it his 1982 book /The Fractal Geometry of Nature/ [[cite:mandelbrotFractalGeometryNature1982][p. 15]] :
+
+#+begin_quote
+/A fractal is by definition a set for which the Hausdorff Besicovitch dimension strictly exceeds the topological dimension./
+
+/a Every set with a noninteger \(D\) is a fractal./
+#+end_quote
+
+
+The topoligical dimension is a strictly integer value that describes the natural dimension used to describe a shape cite:sandersonFractalsAreTypically2017,
+for example the /Koch Snowflake/ (shown in figure [[koch-snowflake]]) is composed of
+just a line, so it's topological dimension would simply be 1, it's /fractal
+dimension/ however is shown to be \(\frac{\ln\left( 4 \right)}{\ln\left( 3
+\right)}\) at eqref:eq:koch-dim in \S[[#topological-equivalence]].
+
+Many authors seem to accept this earlier definition (see e.g. [[cite:vicsekFractalGrowthPhenomena1992][\S2.2]] and [[cite:telChaoticDynamicsIntroduction2006][\S2.1]]),
+this definition however does not capture many edge-case fractals
+ [[cite:edgarMeasureTopologyFractal2008a][VII]] and in reprintings of /The
+Fractal Geometry of Nature/ Mandelbrot himself commented that in hindsight it
+may have been more appropriate [[cite:mandelbrotFractalGeometryNature1982][p. 459]]:
+
+#+begin_quote
+/to leave the term "fractal” without a pedantic definition, to use “fractal dimension” as a generic term applicable to all the variants in Chapter 39, and to use in each specific case whichever definition is the most appropriate./
+#+end_quote
+
+Gerald Edgar, in his 2008 book /Measure, topology, and fractal geometry/
+rejected this view because "/a term without a 'pedantic definition' cannot be
+studied mathematically/" [[cite:edgarMeasureTopologyFractal2008a][VII]] and
+presented a more robust definition in Ch. 6 of that book, it was however
+accepted that the loose definition of fractal dimension is convenient and was
+indeed adopted in that work.
+
+Although reviewing the precise definition of a fractal would have been very
+interesting, without a cursory knowledge of fractals generally this would have
+been very time consuming and outside the scope of this report, for this reason no strict definition will be used for fractals, but, guiding principles implemented by other authors will be used.
+
+Some authors simply define a fractal as a shape that /shows irregularities at all scales/ [[cite:gouyetPhysicsFractalStructures1996][p. 1]] and
+in his 2003 book, /Fractal Geometry/, Facloner  it is more convenient to describe a fractal by a list of properties characteristic of such shapes [fn:: Much like the definition of life in the field of biology] because of the difficulty in defining a fractal in a way that can encompass all edge cases [[cite:falconerFractalGeometryMathematical2003b][p. xxv]]:
+
+    - Detail at all scales
+    - Cannot be described in a traditional geometric way
+    - May have some form of approximate self similarity
+    - Usually the fractal dimension is greater than its topological dimension
+    - In many cases defined very simply, perhaps recursively
+
+This will be the approach adopted in this report.
+
+It's interesting to note that many authors to refer to complex natural shapes as
+fractals, such as coastlines (see e.g.
+cite:jiangFractalAnalysisComplexity1998,zhuFractalMechanismCoastline2002,zhongFractalPropertiesShoreline2017)
+much in the spirit of Mandelbrot's paper /How long is the Coastline of Britain/
+cite:mandelbrotHowLongCoast1967, although he coined the term fractal many years
+after this paper, presumably he might have had this in mind [fn:: Mandelbrot also
+spent much time looking at the roughness of financial markets and so presumably
+may have had that in mind as well, see e.g.
+cite:gomoryBenoitMandelbrot19242010,mandelbrotMisBehaviourMarkets2008 ] when
+framing the definition so this issue in clearly defining what a fractal is
+appears on the surface to be a purely mathematical one (as opposed to a
+practical or applied one).
+
+The Wikipedia page on fractals cite:Fractal2020 also points out that a
+fractal is nowhere differentiable, this would be because a fractal is
+nowhere smooth, which I think personally is quite a distinguishing feature.
+
+** Fractals Generally                                                          :James:
+Dimension is the main defining property of a fractal. As aforementioned above, the Hausdorff dimension is a unique number in that, if we take some shape in $\mathbb{R}^{n}$, and the Hausdorff dimension converges to some number, then the dimension of the shape is given by that number. Otherwise, it will equal $0$ or $\infty$. For example, if we want to evaluate the dimension of a square and we use a 1-Dimensional shape as the cover set to calculate the Hausdorff dimension, we will get $\infty$. On the other hand, if we do the same with a 3-Dimensional shape, we will get 0. And finally if we use a 2-Dimensional shape, the Hausdorff dimension will evaluate to 2. This same notion is important when computing the dimension of a more complex shape such as the Koch snowflake.
+
+To define a fractal, we must define it's dimension. Whilst some research states that a fractal has a non-integer dimension, this is not true for all fractals. Although, most fractals like the Koch snowflake do in fact have non-integer dimensions, we can easily find a counter example namely, the Mandelbrot set. The Mandelbrot set lies in the same dimension as a square, a 2-Dimensional shape. However, we give recognition to the complexity and roughness of the Mandelbrot set which clearly distiguishes itself from a square. Beneath the Mandelbrot set's complexity are exact replicates of the largest scaled Mandelbrot set, i.e a self similar shape. Furthermore, although the Mandelbrot set has an integer dimension, the self similarity and complexity is what also defines its fractal nature.
+
+** Fractal Dimension
+*** Hausdorff Dimension                                                       :Ryan:
 :PROPERTIES:
 :CUSTOM_ID: Hausdorff-dimension
 :END:
@@ -41,13 +165,14 @@ That's why we use the box counting method, we can actually do it. showing the eq
 Mandelbrot [[cite:mandelbrotFractalGeometryNature1982][363]] has some notes in his book but the following were quite helpful:
 
 - and jean [[cite:gouyetPhysicsFractalStructures1996][\S1.3]]
-- and [[cite:vicsekFractalGrowthPhenomena1992][Ch. 4]] (this is the guy that designed the Vicsek Fractal!)
+- Vicsek [[cite:vicsekFractalGrowthPhenomena1992][Ch. 4]]
+  + See also p 14 specifically
 - Edgar [[cite:edgarMeasureTopologyFractal2008a][Ch. 6]]
 - Falconer [[cite:falconerFractalGeometryMathematical2003b][Ch. 2]]
 - Tamas [[cite:telChaoticDynamicsIntroduction2006][\S2.1.2]]
 - Otto [[cite:peitgenChaosFractalsNew2004][\S 4.3]]
 
-** STRT Topological Equivalence
+**** STRT Topological Equivalence
 :PROPERTIES:
 :CUSTOM_ID: topological-equivalence
 :END:
@@ -140,9 +265,9 @@ In the case of the koch snowflake, the measure of the shape, when scaled, will i
 
 
 In the development of topology
-** STRT Hausdorff Dimension
+**** STRT Hausdorff Dimension
 Sources for this section on Hausdorff Dimension are primarily [[cite:falconerFractalGeometryMathematical2003][Ch. 2]]
-*** Measure
+***** Measure
 :PROPERTIES:
 :CUSTOM_ID: hausdorff-measure
 :END:
@@ -209,8 +334,8 @@ This is defined for all subsets of \(\mathbb{R}^n\) for example the value of  $\
 #+attr_latex: :width 9cm
 [[file:media/Arbitrary-F-Shape.svg]]
 
-**** Lower Dimension Hausdorff Measurements
-***** Examples
+****** Lower Dimension Hausdorff Measurements
+******* Examples
 Consider again the example of a 2D shape, the value of $\mathcal{H}^{1}$ would still be defined by eqref:eq:delta-measure, but unlike $\mathcal{H}^{2}$ in section [[#hausdorff-measure]] the value of $\left\lvert U_i \right\rvert^1$ would be considered as opposed to $\left\lvert U_i \right\rvert^2$.
 
 As $\delta$ is made arbitrarily small the boxes that cover the shape are made also to be arbitrarily small. Although the area of the boxes must clearly be bounded by the shape of $F$, if one imagines an infinite number of infinitely dense lines packing into a 2D shape with an infinite density it can be seen that the total length of those lines will be infinite.
@@ -219,14 +344,14 @@ To build on that same analogy, another way to imagine this is to pack a 2D shape
 
 This is consistent with shapes of other shapes as well, consider the koch snowflake introduced in section [[#topological-equivalence]] and shown in figure [[koch-line]], the dimension of this shape is greater than 1, and the number of lines necessary to describe that shape is also infinite.
 
-***** TODO Formally
+******* TODO Formally
 If the dimension of $F$ is less than $s$, the Hausdorff Measure will be given by: [fn:: I haven't been able to find a proof for this, I wonder if I could prove it by just applying the definition?]
 
 \begin{align}
 \mathrm{dim}\left(  F \right ) < s \implies \mathcal{H}^{s} \left( F \right)  = \infty
 \end{align}
 
-**** Higher Dimension Hausdorff Dimension
+****** Higher Dimension Hausdorff Dimension
 For small values of $s$ (i.e. less than the dimension of  $F$), the value of $\mathcal{H}^s$  will be $\infty$.
 
 Consider some value $s$ such that the Hausdorff measure is not infinite, i.e. values of $s$: [fn:: Could fractal dimensions be complex? Maybe there could be a proof to show that the dimension is necessarily complex.]
@@ -267,14 +392,13 @@ Hence the value of the s-dimensional /Hausdorff Measure/, $s$ is only a finite, 
 #+attr_latex: :width 9cm
 [[file:media/tikz/hausdorff-dimension-plot.png]]
 
-*** Hausdorff Dimension
+***** Hausdorff Dimension
 
 The value $s$ at which $\mathcal{H}^{s}$ changes from $\infty$ to 0, shown in figure [[hausdorff-vals]]  and eqref:eq:hdfzero is the definition of the /Hausdorff Measure/, it is a generalisation of the idea of dimension that is typically understood with respect to ordinary shapes and 3D figures.
-*** TODO Research
+***** TODO Research
 I feel very inclided to read [[https://warwick.ac.uk/fac/sci/maths/people/staff/mark_pollicott/p3/tehran.pdf][these notes]] [fn:: [[file:~/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resources/Uncorrected-Warwick-BoxCount-Hausendorff-Notes.pdf][Local Copy]]]
 
-
-* Box Counting :James:
+*** Box Counting                                                              :James:
 Sources for this section are primarily:
 - Falconer [[cite:falconerFractalGeometryMathematical2003b][Ch. 3.1]]
 - Strogatz Non Linear Dynamics [[cite:strogatzNonlinearDynamicsChaos2015][Ch. 11.4]]
@@ -334,82 +458,15 @@ Let $F$ be the Koch Curve.
 &= \lim_{\frac{1}{3^{\delta}} \to 0} \frac{\ln(4)}{\ln(3)}\\
 &= \frac{\ln(4)}{\ln(3)}
 \end{align*}
-* Fractals Generally                                                            :James:Ryan:
-** Definition of a Fractal                                                     :Ryan:
+** Generating Self Similar Fractals                                            :Ryan:
+See generally [[cite:strogatzNonlinearDynamicsChaos2015][Ch. 11]]
+Three ways to generate
 
-Benoît Mandelbrot coined the term fractal in 1975 cite:gomoryBenoitMandelbrot19242010 and defined it his 1982 book /The Fractal Geometry of Nature/ [[cite:mandelbrotFractalGeometryNature1982][p. 15]] :
+1. Chaos Game
+2. Iteration Like Matrices and Turtles
+3. Testing if each region Belongs
+   a. Like Julia Set
 
-#+begin_quote
-/A fractal is by definition a set for which the Hausdorff Besicovitch dimension strictly exceeds the topological dimension./
-
-/a Every set with a noninteger \(D\) is a fractal./
-#+end_quote
-
-
-The topoligical dimension is a strictly integer value that describes the natural dimension used to describe a shape cite:sandersonFractalsAreTypically2017,
-for example the /Koch Snowflake/ (shown in figure [[koch-snowflake]]) is composed of
-just a line, so it's topological dimension would simply be 1, it's /fractal
-dimension/ however is shown to be \(\frac{\ln\left( 4 \right)}{\ln\left( 3
-\right)}\) at eqref:eq:koch-dim in \S[[#topological-equivalence]].
-
-Many authors seem to accept this earlier definition (see e.g. [[cite:vicsekFractalGrowthPhenomena1992][\S2.2]] and [[cite:telChaoticDynamicsIntroduction2006][\S2.1]]),
-this definition however does not capture many edge-case fractals
- [[cite:edgarMeasureTopologyFractal2008a][VII]] and in reprintings of /The
-Fractal Geometry of Nature/ Mandelbrot himself commented that in hindsight it
-may have been more appropriate [[cite:mandelbrotFractalGeometryNature1982][p. 459]]:
-
-#+begin_quote
-/to leave the term "fractal” without a pedantic definition, to use “fractal dimension” as a generic term applicable to all the variants in Chapter 39, and to use in each specific case whichever definition is the most appropriate./
-#+end_quote
-
-Gerald Edgar, in his 2008 book /Measure, topology, and fractal geometry/
-rejected this view because "/a term without a 'pedantic definition' cannot be
-studied mathematically/" [[cite:edgarMeasureTopologyFractal2008a][VII]] and
-presented a more robust definition in Ch. 6 of that book, it was however
-accepted that the loose definition of fractal dimension is convenient and was
-indeed adopted in that work.
-
-Although reviewing the precise definition of a fractal would have been very
-interesting, without a cursory knowledge of fractals generally this would have
-been very time consuming and outside the scope of this report, for this reason no strict definition will be used for fractals, but, guiding principles implemented by other authors will be used.
-
-Some authors simply define a fractal as a shape that /shows irregularities at all scales/ [[cite:gouyetPhysicsFractalStructures1996][p. 1]] and
-in his 2003 book, /Fractal Geometry/, Facloner  it is more convenient to describe a fractal by a list of properties characteristic of such shapes [fn:: Much like the definition of life in the field of biology] because of the difficulty in defining a fractal in a way that can encompass all edge cases [[cite:falconerFractalGeometryMathematical2003b][p. xxv]]:
-
-    - Detail at all scales
-    - Cannot be described in a traditional geometric way
-    - May have some form of approximate self similarity
-    - Usually the fractal dimension is greater than its topological dimension
-    - In many cases defined very simply, perhaps recursively
-
-This will be the approach adopted in this report.
-
-It's interesting to note that many authors to refer to complex natural shapes as
-fractals, such as coastlines (see e.g.
-cite:jiangFractalAnalysisComplexity1998,zhuFractalMechanismCoastline2002,zhongFractalPropertiesShoreline2017)
-much in the spirit of Mandelbrot's paper /How long is the Coastline of Britain/
-cite:mandelbrotHowLongCoast1967, although he coined the term fractal many years
-after this paper, presumably he might have had this in mind [fn:: Mandelbrot also
-spent much time looking at the roughness of financial markets and so presumably
-may have had that in mind as well, see e.g.
-cite:gomoryBenoitMandelbrot19242010,mandelbrotMisBehaviourMarkets2008 ] when
-framing the definition so this issue in clearly defining what a fractal is
-appears on the surface to be a purely mathematical one (as opposed to a
-practical or applied one).
-
-The Wikipedia page on fractals cite:Fractal2020 also points out that a
-fractal is nowhere differentiable, this would be because a fractal is
-nowhere smooth, which I think personally is quite a distinguishing feature.
-
-
-
-
-** Fractals Generally                                                          :James:
-Dimension is the main defining property of a fractal. As aforementioned above, the Hausdorff dimension is a unique number in that, if we take some shape in $\mathbb{R}^{n}$, and the Hausdorff dimension converges to some number, then the dimension of the shape is given by that number. Otherwise, it will equal $0$ or $\infty$. For example, if we want to evaluate the dimension of a square and we use a 1-Dimensional shape as the cover set to calculate the Hausdorff dimension, we will get $\infty$. On the other hand, if we do the same with a 3-Dimensional shape, we will get 0. And finally if we use a 2-Dimensional shape, the Hausdorff dimension will evaluate to 2. This same notion is important when computing the dimension of a more complex shape such as the Koch snowflake.
-
-To define a fractal, we must define it's dimension. Whilst some research states that a fractal has a non-integer dimension, this is not true for all fractals. Although, most fractals like the Koch snowflake do in fact have non-integer dimensions, we can easily find a counter example namely, the Mandelbrot set. The Mandelbrot set lies in the same dimension as a square, a 2-Dimensional shape. However, we give recognition to the complexity and roughness of the Mandelbrot set which clearly distiguishes itself from a square. Beneath the Mandelbrot set's complexity are exact replicates of the largest scaled Mandelbrot set, i.e a self similar shape. Furthermore, although the Mandelbrot set has an integer dimension, the self similarity and complexity is what also defines its fractal nature.
-
-* Generating Self Similar Fractals                                              :Ryan:
 *** TODO Examples
 **** DONE Vicsek Fractal
 The Vicsek Fracatl is self similar, thus we can use it to test our box counting method [fn:: Since the Vicsek fractal is self similar, we know that the dimension will be constant, as opposed to a dimension that slightly varies, hence there is no need for linear regression which would be necessary to measure someting like a coastline.].
@@ -556,7 +613,7 @@ ggplot(df, aes(x = xval, y = yval)) +
 
 [[file:pascal-sierpinsky-chaos-game.png]]
 
-***** TODO Pascals Triange
+***** TODO Pascals Triange                                                  :James:
 
 #+NAME: pascal-triangle-sierpinski
 #+CAPTION: Julia code demonstrating Sierpinksi's triangle
@@ -678,16 +735,7 @@ julia> # https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle
 
 #+end_example
 
-* TODO Fractal Dimensions                                                          :Ryan:
-See generally [[cite:strogatzNonlinearDynamicsChaos2015][Ch. 11]]
-Three ways to generate
-
-1. Chaos Game
-2. Iteration Like Matrices and Turtles
-3. Testing if each region Belongs
-   a. Like Julia Set
-
-** TODO Turtle
+*** TODO Turtle
 Matrices can't explain all patterns, Turtles are useful
 #+NAME: turtles-all
 #+CAPTION: This generates a dragon and a koch
@@ -898,8 +946,7 @@ end
 
 
 #+end_src
-
-*** Dragon Curve
+**** Dragon Curve
 
 #+attr_html: :width 600px
 #+attr_latex: :width 9cm
@@ -908,15 +955,15 @@ end
 [[file:../Problems/Chaos/Spirals/dragon.png]]
 
 
-
-*** Koch Snowflake
+**** Koch Snowflake
 #+attr_html: :width 600px
 #+attr_latex: :width 9cm
 #+NAME: dragon-turtle
 #+CAPTION: TODO
 [[file:../Problems/Chaos/Spirals/snowCurve.png]]
 
-** STRT Calculating the Dimension of Julia Set
+** TODO Fractal Dimensions                                                     :Ryan:
+*** STRT Calculating the Dimension of Julia Set
 It converges too slowly
 The Julia set (discussed in section [[#julia-set]]) can be solved by ...
 
@@ -1229,13 +1276,13 @@ This returns the Values:
 |   875 | 10554.0 |
 |   938 | 11710.0 |
 |  1000 | 12744.0 |
-*** Using Linear Regression
+**** TODO Using Linear Regression
 - Avoiding ~Abs~ is twice as fast
 - Column wise is faster in fortran/julia/R slower in C/Python
  We have no evidence to show that the dimension will be stable, this is good for coastlines and stuff.
 
  to do that we use linear regression.
-**** Performance
+***** Performance
 - Switching from ~abs()~ to sqaured help
 - Taking advantage of multi core processing in loops
 
@@ -1255,7 +1302,10 @@ times = [tme() for i in 1:10 ]
 
 | Function | Mean Time |
 | ~pmap~   | 2.2825    |
-** My Fractal
+* Connecting Fractals to Natural Processes                                      :Ryan:
+:PROPERTIES:
+:CUSTOM_ID: my-fractal
+:END:
 My fractal really shows many unique patterns
 
 If it is scaled by $\varphi$ then the boxes increase two fold.
@@ -1265,7 +1315,7 @@ We know the dimension will be constant because the figure is self similar, so we
 \[
 \mathrm{dim} (\mathtt{my\_fractal}) = \log_{\varphi}=\frac{\log \varphi}{\log 2}
 \]
-*** Graphics
+** Graphics
 
 #+attr_html: :width 60px
 #+attr_latex: :width 9cm
@@ -1309,9 +1359,9 @@ We know the dimension will be constant because the figure is self similar, so we
 #+CAPTION: Fractal that emerges by Rotating and appending boxes, this demonstrates the relationship between the Fibonacci numbers and golden ratio very well
 [[file:../Problems/fractal-dimensions/My-Fib-Fractal-Diagram.svg]]
 
-*** Discuss Pattern shows Fibonacci Numbers
-**** HOLD Angle Relates to Golden Ratio
-*** HOLD Prove Fibonacci using Monotone Convergence Theorem
+** Discuss Pattern shows Fibonacci Numbers
+*** HOLD Angle Relates to Golden Ratio
+** HOLD Prove Fibonacci using Monotone Convergence Theorem
 Consider the series:
 
 $$\begin{aligned}
@@ -1325,7 +1375,7 @@ F_n = F_{n- 1} +  F_{n- 2} ; \quad F_1 = F_2 = 1
 \end{aligned}$$
 
 
-**** HOLD Show that the Series is Monotone
+*** HOLD Show that the Series is Monotone
 $$\begin{aligned}
 F_{n} &> 0 \\
 0 &< F_{n} \\
@@ -1344,8 +1394,8 @@ F_{n} &> 0 \\
 
 
 
-**** HOLD Show that the Series is Bounded
-**** HOLD Find the Limit
+*** HOLD Show that the Series is Bounded
+*** HOLD Find the Limit
 $$\begin{aligned}
 G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 &= 1 +  \frac{F_{n- 1} }{F_n} \\
@@ -1356,7 +1406,7 @@ G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 \end{aligned}$$
 
 
-**** HOLD Comments
+*** HOLD Comments
 
 The Fibonacci sequence is quite unique, observe that:
 
@@ -1386,7 +1436,7 @@ $$\begin{aligned}
 \varphi \times  \psi  &= 1 \\
 \frac{\psi}{\varphi}  = \frac{1}{\varphi^2} = \frac{1}{1-\varphi} &= \frac{1}{2-\varphi} = \frac{2}{3 - \sqrt{5}  }
 \end{aligned}$$
-**** HOLD Python
+*** HOLD Python
 
 #+BEGIN_SRC python :exports both :results output graphics file :eval never-export :file ./a.png
 ,#+begin_src python
@@ -1398,11 +1448,11 @@ plt.savefig("./a.png")
 #+end_src
 [[file:./a.png]]
 
-*** Angle is $\tan^{-1}\left( \frac{1}{1-\varphi}\right)$
-**** Similar to Golden Angle $2 \pi \left( \frac{1}{1-\varphi}\right)$
-*** Dimension of my Fractal
+** Angle is $\tan^{-1}\left( \frac{1}{1-\varphi}\right)$
+*** Similar to Golden Angle $2 \pi \left( \frac{1}{1-\varphi}\right)$
+** Dimension of my Fractal
 $\log_{\varphi}(2)$
-*** Code should be split up or put into appendix
+** Code should be split up or put into appendix
 #+begin_src julia
 function matJoin(A, B)
     function nrow(X)
@@ -1530,17 +1580,8 @@ GR.imshow(mywalk([1 1], 5))
 
 #+end_src
 
-* TODO Julia Sets and Mandelbrot Sets                                              :Ryan:
-:PROPERTIES:
-:CUSTOM_ID: julia-set
-:END:
-The julia set is the outline.
-
-The mandelbrot has to do with whether or not it's connected.
-** TODO The math behind it
-*** TODO Like Escaping after 2
-I cannot figure this out, I need more time, look around Ch. 12 of falconer cite:falconerFractalGeometryMathematical2003
-* TODO Fibonacci Sequence                                                          :Ryan:James:
+* TODO The Fibonacci Sequence
+The Fibonacci Sequence occurs in my example from the \S [[#my-fractal]], let's investigate it
 ** Introduction                                                                :Ryan:
 The /Fibonacci Sequence/ and /Golden Ratio/ share a deep connection[fn:fb] and occur in patterns observed in nature very frequently
 (see
@@ -1556,7 +1597,7 @@ identifying relationships between discrete and continuous systems generall we
 will be able to draw insights with regard to the occurrence of patterns related
 to the /Fibonacci Sequence/ and /Golden Ratio/ in nature.
 
-** Computational Approach :Ryan:
+** HOLD Computational Approach                                                 :Ryan:
    :PROPERTIES:
    :CUSTOM_ID: define-the-fibonacci-numbers
    :END:
@@ -1709,7 +1750,7 @@ end
 
 In this case however an analytic solution can be found by relating discrete
 mathematical problems to continuous ones as discussed below at section [[#exp-gen-function]].
-** Exponential Generating Functions                           :Ryan::James:
+** Exponential Generating Functions
 :PROPERTIES:
 :CUSTOM_ID: exp-gen-func-fib-seq
 :END:
@@ -2128,7 +2169,9 @@ Sketching out an approach for this:
 :PROPERTIES:
 :CUSTOM_ID: power-series-comb
 :END:
-** Fibonacci Sequence and the Golden Ratio :Ryan:
+** TODO Proving with the Monotone Convergence Theorem                          :Ryan:
+By Solving the Fibonacci Sequence using the Monotone Converge Theorem we can show that it is related to \(e\)
+** Fibonacci Sequence and the Golden Ratio                                     :Ryan:
 :PROPERTIES:
 :CUSTOM_ID: fib-golden-ratio-proof
 :END:
@@ -2241,9 +2284,19 @@ end 600 600
 #+CAPTION: Distribution of the seeds of a sunflower (see cite:simonbrassCCSearch2006 licenced under CC)
 [[file:sunflower.jpg]]
 
+** TODO Relating The Fibonacci Sequence to the Julia Set                       :Ryan:
+See [[https://youtu.be/ovJcsL7vyrk][this link]].
 * Julia Sets                                                                    :Ryan:
 
+The julia set is the outline [[cite:peitgenChaosFractalsNew2004][Ch. 14]].
+
+The mandelbrot has to do with whether or not it's connected.
+,** TODO The math behind it
+,*** TODO Like Escaping after 2
+I cannot figure this out, I need more time, look around Ch. 12 of falconer cite:falconerFractalGeometryMathematical2003
 There is a relatioship between the fibonacicci sequence, modelling population growth and the mandelbrot curve, I would like to use that to tie some of the discussion together, see [[https://youtu.be/ovJcsL7vyrk][this video from Veritasium to get an idea of what i mean]].
+
+
 ** Introduction
 Julia sets are a very interesting fractal and we hope to investigate them further in this project.
 ** Motivation
@@ -2516,7 +2569,7 @@ ffmpeg                    \
 #+CAPTION: Various fracals corresponding to $f_{0.8 e^{\pi i \tau}}$
 [[attachment:_20200826_005334a.png]]
 
-* MandelBrot                                                                    :Ryan:
+* MandelBrot Set                                                                :Ryan:
 :PROPERTIES:
 :ID:       c0c790f2-93a7-44f1-9f76-4a20bcd66c62
 :DIR:      /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/
@@ -2680,42 +2733,6 @@ recoll -c /home/ryan/Dropbox/Books/Textbooks/Mathematics/Chaos_Theory/chaos_book
 #+RESULTS:
 | t | (( \(\[\[cite:[a-z0-9A-Z]+\]\[.*\]\]\) 1 '(face nil display 🤔)) ( \(cite:[a-z0-9A-Z]+\) 1 '(face nil display 🤔)) (.*\(\[\[cite:[a-z0-9A-Z]+\]\[.*\]\]\).* 1 '(face nil display 🤔)) (.* \(cite:[a-z0-9A-Z]+\) .* 1 '(face nil display 🤔)) ( \(\[\[cite:[a-z0-9A-Z]+\]\[.*\]\]\)  1 '(face nil display 🤔)) ( \(cite:[a-z0-9A-Z]+\)  1 '(face nil display 🤔)) (org-font-lock-hook) (^\(\**\)\(\* \)\(.* |
 
-** Section attribution
-#+begin_example
-Section Attribution
-─────────────────
-
-1. Report
-2. Hausdorff Dimension                                            :Ryan:
-3. Box Counting                                                   :Ryan:
-4. Fractals Generally                                            :James:
-5. Generating Self Similar Fractals                               :Ryan:
-6. Fractal Dimensions                                             :Ryan:
-7. Julia Sets and Mandelbrot Sets                                 :Ryan:
-8. Fibonacci Sequence                                       :Ryan:James:
-.. 1. Introduction                                                :Ryan:
-.. 2. Computational Approach                                      :Ryan:
-.. 3. Exponential Generating Functions
-..... 1. Motivation                                               :Ryan:
-..... 2. Example                                                  :Ryan:
-..... 3. Derivative of the Exponential Generating Function
-..... 4. Homogeneous Proof                                  :Ryan:James:
-.. 4. Fibonacci Sequence and the Golden Ratio                     :Ryan:
-9. Julia Sets                                                     :Ryan:
-10. MandelBrot                                                    :Ryan:
-11. Appendix
-12. Bibliography
-
-
-How I made this:
-
-1. add `#+OPTIONS: tags:t' to the header
-2. Collapse all headlines revealing
-only the section detail that is desired
-3. `C-c C-e C-v t U' 4. This will export
-visible to a text buffer, the TOC will have the tags of the visible
-headings so just delete what isn’t desired
-#+end_example
 * Footnotes
 
 [fn:un] Emojis and UTF8 were used in this code, and despite using ~xelatex~ with ~fontspec~ they aren't rendering properly, we intend to have this rectified in time for final submission.
