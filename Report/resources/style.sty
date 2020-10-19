@@ -80,13 +80,8 @@
    backref=page %hyperlink references
 }
 % * Styling/Aesthetics
-% ** Section Numbering
-%Remove Section Numbers----------------
-% \makeatletter
-% \renewcommand{\@seccntformat}[1]{}
-% \makeatother
-%
-% Numbering
+% ** Section Names
+% Rename Chapters because a reports not a book
 \renewcommand{\chaptername}{Division}
 
 
@@ -95,14 +90,10 @@
 %\RequirePackage{PoiretOne}
 % \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
 \RequirePackage[mono=false]{libertine}
-% ** Rule AFter Sectioning
-% Add rule after sections ------------------------------
-\RequirePackage{titlesec}
-
-	% Formatting----------------------------------------
-	\widowpenalty=1000
-	\clubpenalty=1000
-% ** Page Breaks
+% ** Penalise Page Breaks
+% Formatting----------------------------------------
+\widowpenalty=1000
+\clubpenalty=1000
 % ** Problem Boxes
 
 % Problem boxes --------------------------------------
@@ -117,7 +108,7 @@
 }{\endproof}
 
 %\renewenvironment{proof}{{\bfseries \fontfamily{ccr} \selectfont Proof}}{*something*}
-% ** Heading Colours
+% ** Heading Style
 % *** Define Heading Colours
 % These probably need some work to be honest
 %\definecolor{part}{RGB}{136, 73, 143}
@@ -144,7 +135,7 @@
 % **** SubParagraph
 \paragraphfont{\color{subparagraph}}
 
-
+% **** Actually Just use One style Instead
 \definecolor{midnightblue}{rgb}{0.1, 0.1, 0.44}
 \allsectionsfont{  \mdseries\itshape\underline }
 %\allsectionsfont{ \color{midnightblue} \sffamily}
