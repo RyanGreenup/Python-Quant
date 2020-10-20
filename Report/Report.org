@@ -1,6 +1,6 @@
 #+TITLE: The Emergence of Patterns in Nature and Chaos Theory
 :PREAMBLE:
-#+OPTIONS: broken-links:auto todo:nil H:9 tags:nil
+#+OPTIONS: broken-links:auto todo:nil H:9 tags:t
 #+STARTUP: overview
 #+AUTHOR: Ryan Greenup & James Guerra
 #+INFOJS_OPT: view:showall toc:3
@@ -272,16 +272,20 @@ The Hausdorff dimension depends first on a rigorous definition of measure, this 
 
 Let $F$ be some arbitrary subset of euclidean space $\mathbb{R}^n$, [fn:: A subset of euclidean space could be interpreted as an uncountable set containing all points describing that region]
 
-Consider a collection of sets,$\{U_i: i \in \mathbb{Z}^{+}, U\subset \mathbb{R}^{n}\}$, each of which having a
-diameter less than $\delta$.
+Let \(U\) be a subset of euclidean space \(\mathbb{R}^{n}\) such that the diamater is defined as the greatest distance between any of the points:
 
+\[
+\left\lvert U \right\rvert = \mathrm{sup}\left(\left\{ \left\lvert x- y \right\rvert \enspace : \enspace x,y \in U\right\}  \right)
+\]
 
+Consider a collection of these sets, $G = \left\{U_i: i \in \mathbb{Z}^{+}\right\}$ such that each element has a diameter less than \(\delta\).
 
-The motivating idea is that if the elements of $U$ can be laid ontop of
-$F$ then $U$ is said to be a $\delta$ -cover of $F$, more rigorously this could be defined: [fn:: The use of square and round brackets adjacent to large operators such as \(\bigcup\) and \(\sum\) is purely for the sake of delimiting these variables, there is no mathematical signifiicance, they are just brackets]
+The motivating idea is that if the elements of $G$ can be laid ontop of
+$F$ then \(G\) is said to be a $\delta$ -cover of $F$, more rigorously, \(G\) is a \(\delta\)-cover of \(F\) if: [fn:: Falconer defines this as \(\bigcup_{i=1}^{\infty}\) [[cite:falconerFractalGeometryMathematical2003b][\S 2.1]],
+presumably treating any index value greater than the cardinality of the set as \(\emptyset\), this is particularly ambiguous and we have avoided it, an alternative way to present that might be \(\bigcup^{\#G}_{i=0}\) where \(\#G\) denotes the cardinality or \(G\) (or \(\infty\) if it is uncountable). The use of \(\#\square\) to denote cardinality was introduced by Knuth in /Concrete Mathematics/ cite:grahamConcreteMathematicsFoundation1994 and is convenenient in that it avoids any ambiguity  with diamater (\(\left\lvert \square \right\rvert \)).]
 
 \begin{align}
-    F \subset \bigcup^\infty_{i=1} \left[ U_i \right] \quad : 0 \leq \left\lvert U_i \right\rvert \leq \delta \label{eq:hausdorff-covering}
+    F \subset \bigcup_{U\in B} \left( U \right) \quad :\quad 0 \leq \left\lvert U \right\rvert \leq \delta \label{eq:hausdorff-covering}
 \end{align}
 
 An example of this covering is provided in figure [[hausdorff-covering]], in that example the figure on the right is covered by squares, which each could be an element of $\{U_{i}\}$, it is important to note, by this definition, that the shapes represented by \(U\) could be any arbitrary figure [[cite:falconerFractalGeometryMathematical2003b][\S 2.1]] the size of which may vary in size so long as the diameter is less than \(\delta\).
@@ -302,53 +306,59 @@ So for example:
 
 - $F$ could be a more abstracted figure like figures [[hausdorff-covering]] or [[abstract-shape]]  and $\{U_{i}\}$ a collection of various different lines, shapes or 3d objects.
 
-The Hausdorff measure is concenred with only the diamater of each element of $\{U_{i}\}$ and considers $\sum^{\infty}_{i=1} \left[\left\lvert U_{i}\right\rvert^{s}\right]$ where the covering of $U_{i}$ minimizes the summation.  [[cite:falconerFractalGeometryMathematical2003b][p. 27]]
+The Hausdorff measure is concerned with only the diamater of each element of $\{U_{i}\}$ and considers \(\sum_{U \in G} \left[\left\lvert U\right\rvert^{s}\right]\) where each element \(U\in G\) is arranged so as to minimize the value of the summation [[cite:falconerFractalGeometryMathematical2003b][p. 27]]
+, the \(\delta\)-Hausdorff is hence defined, for various dimensions \(s\):
 
 \begin{align}
-\mathcal{H}^s_{\delta}\left( F \right)= \inf \left\{ \sum^{\infty}_{i= 1}   \left\lvert U_i \right\rvert^s \enspace : \enspace  \left\{U_i\right\} \text{ is a } \delta \text{-cover of } F \right\}, \quad \delta, s > 0 \label{eq:delta-measure}
+\mathcal{H}^s_{\delta}\left( F \right)= \inf \left\{ \sum_{U\in G}   \left\lvert U_i \right\rvert^s \enspace : \enspace  \left\{U_i\right\} \text{ is a } \delta \text{-cover of } F \right\}, \quad \delta, s > 0 \label{eq:delta-measure}
 \end{align}
-in 2 dimensions, this is equivalent to considering the number of boxes, of
+
+The value of \(s\) can be different regardless of the dimension of \(F\), for example if \(F\) was an arbitrary 2D shape the value of \(\mathcal{H}_{\delta}^{2}\left(F\right)\)
+is equivalent to considering the number of shapes \(U\in G\) (e.g. boxes, discs etc.), of
 diamater $\leq \delta$ that will cover over a shape as shown in figure
 [[hausdorff-covering]], the delta Haussendorf measure
-$\mathcal{H}^{s}_{\delta} \left(F\right)$ will be the area of the boxes when
+$\mathcal{H}^{2}_{\delta} \left(F\right)$ will be the area of the boxes when
 arranged in such a way that minimises the area.
 
-As $\delta$ is made arbitrarily small $\matcal{H}_{\delta}^{s}$ will approach some limit, in the case of figures [[hausdorff-covering]]  and [[abstract-shape]] the value of $\mathcal{H}^{2}_{\delta}$ will approach the area of the shape as $\delta \rightarrow 0$ and so the $s^{th}$ dimensional Hausendorff measure is given by:
+As $\delta$ is made arbitrarily small $\matcal{H}_{\delta}^{s}$ will approach some limit, in the case of figures [[hausdorff-covering]]  and [[abstract-shape]] the value of $\mathcal{H}^{2}_{\delta}$ will approach the area of the shape as $\delta \rightarrow 0$ and so the $s^{th}$ dimensional Hausdorff measure is given by:
 
 \begin{align}
-\mathcal{H}^{s} = \lim_{\delta \rightarrow 0}\left( \mathcal{H}^{s}_{\delta} \right)
+\mathcal{H}^{s} = \lim_{\delta \rightarrow 0}\left( \mathcal{H}^{s}_{\delta} \right) \label{eq:limit-haus}
 \end{align}
 
 This is defined for all subsets of \(\mathbb{R}^n\) for example the value of  $\mathcal{H}^{2}$ corresponding to figure [[abstract-shape]] will be limit that boxes would approach when covering that area, which would be the area of the shape ($4\times 1^2 + 4\times \pi\times \frac{1}{2^2} + \frac{1}{2}\times 1 \times \sin{\frac{\pi}{3}}$).
 
 
 
+
+
+# #+attr_latex: :width 5cm
+#+ATTR_LATEX: :float wrap :width 5cm
 #+NAME: hausdorff-covering
-#+CAPTION: TODO: This seems wrong, remove it; The shape on the left corresponds to $F \subset \mathbb{R^{2}}$, each identical square box on the right represents a set $U_{i}$.
+#+CAPTION: The blue outline corresponds to some \(F \subset \mathbb{R}^{2}\), covered by various grey objects, each of which represent an element from the set $U_{i}$. The grey shapes all have a diameter less than \(\delta\) and so this  \(\bigcup \left[U_{i}\right]\) would be a \(\delta\)-covering of \(F\).
 #+attr_html: :width 400px
-#+attr_latex: :width 9cm
 [[file:notes/HaussDorf_Dim_Ink.svg]]
 
 
 
 #+NAME: abstract-shape
 #+CAPTION: A disconnected subset of $\mathbb{R}^{2}$, the squares have a diameter of $\sqrt{2}$, the circles 1 and the equilateral triangles 1.
-#+attr_html: :width 200px
-#+attr_latex: :width 9cm
+#+attr_html: :width 200px :float wrap
+#+attr_latex: :width 4cm
 [[file:media/Arbitrary-F-Shape.svg]]
 
 **** Lower Dimension Hausdorff Measurements
 ***** Examples
-Consider again the example of a 2D shape, the value of $\mathcal{H}^{1}$ would still be defined by eqref:eq:delta-measure, but unlike $\mathcal{H}^{2}$ in section [[#hausdorff-measure]] the value of $\left\lvert U_i \right\rvert^1$ would be considered as opposed to $\left\lvert U_i \right\rvert^2$.
+Consider again the example of a 2D shape, the value of $\mathcal{H}^{1}$ would still be defined by eqref:eq:delta-measure, but unlike $\mathcal{H}^{2}$ in \S [[#hausdorff-measure]] the value of $\left\lvert U_i \right\rvert^1$ would be considered as opposed to $\left\lvert U_i \right\rvert^2$ (i.e. the diamater as opposed to the diameter squared).
 
-As $\delta$ is made arbitrarily small the boxes that cover the shape are made also to be arbitrarily small. Although the area of the boxes must clearly be bounded by the shape of $F$, if one imagines an infinite number of infinitely dense lines packing into a 2D shape with an infinite density it can be seen that the total length of those lines will be infinite.
+As $\delta$ is made arbitrarily small the boxes [fn:: Even though \(U\) may contain a variety of shapes, eqref:eq:delta-measure is concerned only with the power of there diameter, so in this sense the limit is concerned only with boxes corresponding to the diameter of the elements of \(U\)] that cover the shape are made also to be arbitrarily small. Although the area of the boxes must clearly be bounded by the shape of $F$, if one imagines an infinite number of infinitely dense lines packing into a 2D shape with an infinite density it can be seen that the total length of those lines will be infinite and so the limit in eqref:eq:limit-haus will increase without bound.
 
-To build on that same analogy, another way to imagine this is to pack a 2D shape with straight lines, the total length of all lines will approach the same value as the length of the lines of the squares as they are packed infinitely densely. Because lines cannot fill a 2D shape, as the density of the lines increases, the overall length will be zero.
+To build on that same analogy, another way to imagine this is to pack a 2D shape with straight lines, the total length of all lines will approach the same value as the length of the lines of the squares as they are packed infinitely densely. Because lines cannot fill a 2D shape, as the density of the lines increases, the overall length will increase without bound.
 
-This is consistent with shapes of other shapes as well, consider the koch snowflake introduced in section [[#topological-equivalence]] and shown in figure [[koch-line]], the dimension of this shape is greater than 1, and the number of lines necessary to describe that shape is also infinite.
+This is consistent with factals as well, consider the koch snowflake introduced in section [[#topological-equivalence]] and shown in figure [[koch-line]], the dimension of this shape, as shown in \S [[#topological-equivalence]] is greater than 1, and the number of lines necessary to describe that shape is also infinite because every point of the "curve" is a point of an equilateral triangle.
 
 ***** TODO Formally
-If the dimension of $F$ is less than $s$, the Hausdorff Measure will be given by: [fn:: I haven't been able to find a proof for this, I wonder if I could prove it by just applying the definition?]
+If the dimension of $F$ is less than $s$, the Hausdorff Measure will be given by:
 
 \begin{align}
 \mathrm{dim}\left(  F \right ) < s \implies \mathcal{H}^{s} \left( F \right)  = \infty
@@ -357,7 +367,7 @@ If the dimension of $F$ is less than $s$, the Hausdorff Measure will be given by
 **** Higher Dimension Hausdorff Dimension
 For small values of $s$ (i.e. less than the dimension of  $F$), the value of $\mathcal{H}^s$  will be $\infty$.
 
-Consider some value $s$ such that the Hausdorff measure is not infinite, i.e. values of $s$: [fn:: Could fractal dimensions be complex? Maybe there could be a proof to show that the dimension is necessarily complex.]
+Consider some value $s$ such that the Hausdorff measure is not infinite, i.e. values of $s$:
 
 \[
 \mathcal{H}^s = L \in \mathbb{R}
@@ -382,10 +392,10 @@ Now if $\lim_{\delta \rightarrow 0}\left[ \sum_{i}   \left\lvert U_i \right\rver
 and so we have the following relationship:
 
 \begin{align}
-    \mathcal{H}^{s} \left(F\right) \in \mathbb{R}  \implies  \mathcal{H}^t\left( F \right)= 0 \quad \forall t > s \label{eq:hdfzero}
+    \mathcal{H}^{s} \left(F\right) \in \mathbb{R}^{+}  \implies  \mathcal{H}^t\left( F \right)= 0 \quad \forall t > s \label{eq:hdfzero}
 \end{align}
 
-Hence the value of the s-dimensional /Hausdorff Measure/, $s$ is only a finite, non-zero value, when $s = \mathrm{dim}_{H}\left( F \right)$ this is visualised in figure [[fig:hausdorff-vals]].
+Hence the value of the s-dimensional /Hausdorff Measure/, $s$ is only a finite, non-zero value, when $s = \mathrm{dim}_{H}\left( F \right)$.
 
 
 
@@ -398,15 +408,11 @@ Hence the value of the s-dimensional /Hausdorff Measure/, $s$ is only a finite, 
 *** Hausdorff Dimension
 
 
-The value $s$ at which $\mathcal{H}^{s}$ changes from $\infty$ to 0, shown in figure [[hausdorff-vals]]  and eqref:eq:hdfzero is the definition of the /Hausdorff Measure/, it is a generalisation of the idea of dimension that is typically understood with respect to ordinary shapes and 3D figures.
-*** TODO See also
-I feel very inclided to read [[https://warwick.ac.uk/fac/sci/maths/people/staff/mark_pollicott/p3/tehran.pdf][these notes]] [fn:: [[file:~/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resources/Uncorrected-Warwick-BoxCount-Hausendorff-Notes.pdf][Local Copy]]]
+The value $s$ at which $\mathcal{H}^{s}$ eqref:eq:hdfzero changes from $\infty$ to 0, shown in figure [[hausdorff-vals]],  is the defined to be the /Hausdorff Dimension/ [[cite:falconerFractalGeometryMathematical2003b][\S 2.2]], it is a generalisation of the idea of dimension that is typically understood with respect to ordinary figures.
+# *** TODO See also
+# I feel very inclided to read [[https://warwick.ac.uk/fac/sci/maths/people/staff/mark_pollicott/p3/tehran.pdf][these notes]] [fn:: [[file:~/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resources/Uncorrected-Warwick-BoxCount-Hausdorff-Notes.pdf][Local Copy]]]
 
 *** Box Counting Dimension                                                    :James:
-Sources for this section are primarily:
-- Falconer [[cite:falconerFractalGeometryMathematical2003b][Ch. 3.1]]
-- Strogatz Non Linear Dynamics [[cite:strogatzNonlinearDynamicsChaos2015][Ch. 11.4]]
-
 While the Hasudorff dimension is the first formal definition to measure
 the roughness of a fractal, there are several other definitions of dimension
 that have stemmed from this. Namely, the box-counting dimension. The box

@@ -507,6 +507,49 @@
       \field{dateera}{ce}
       \keyw{Fractals,Mathematical physics}
     \endentry
+    \entry{grahamConcreteMathematicsFoundation1994}{book}{}
+      \name{author}{3}{}{%
+        {{hash=65e6323adac2eec778c3822c50f54174}{%
+           family={Graham},
+           familyi={G\bibinitperiod},
+           given={Ronald\bibnamedelima L.},
+           giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=16ba958eaf56fad580491eef4f771cee}{%
+           family={Knuth},
+           familyi={K\bibinitperiod},
+           given={Donald\bibnamedelima Ervin},
+           giveni={D\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=b5085a32ea3005cb2c63376fae9f0646}{%
+           family={Patashnik},
+           familyi={P\bibinitperiod},
+           given={Oren},
+           giveni={O\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Reading, Mass}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \strng{namehash}{1c5d452be763edc4479525b415e484d1}
+      \strng{fullhash}{1c5d452be763edc4479525b415e484d1}
+      \strng{bibnamehash}{1c5d452be763edc4479525b415e484d1}
+      \strng{authorbibnamehash}{1c5d452be763edc4479525b415e484d1}
+      \strng{authornamehash}{1c5d452be763edc4479525b415e484d1}
+      \strng{authorfullhash}{1c5d452be763edc4479525b415e484d1}
+      \field{sortinit}{G}
+      \field{sortinithash}{62eb2aa29549e4fdbd3cb154ec5711cb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{edition}{2nd ed}
+      \field{isbn}{978-0-201-55802-9}
+      \field{pagetotal}{657}
+      \field{shorttitle}{Concrete Mathematics}
+      \field{title}{Concrete Mathematics: A Foundation for Computer Science}
+      \field{year}{1994}
+      \field{dateera}{ce}
+      \keyw{Computer science,Mathematics}
+    \endentry
     \entry{hazratMathematicaProblemCenteredApproach2015}{book}{}
       \name{author}{1}{}{%
         {{hash=0d3a339c84be049fd891824f62a4e6ee}{%

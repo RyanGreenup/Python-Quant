@@ -1,4 +1,4 @@
-% Created 2020-10-20 Tue 13:15
+% Created 2020-10-20 Tue 17:53
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -76,8 +76,8 @@ Section Attribution
 7. Appendix
 8. Bibliography
 \end{verbatim}
-\section{Introduction}
-\label{sec:org63e185a}
+\section{Introduction\hfill{}\textsc{Ryan}}
+\label{sec:org26d417f}
 \begin{itemize}
 \item Fractals occur in nature
 \begin{itemize}
@@ -99,9 +99,9 @@ Section Attribution
 \end{itemize}
 
 \section{Fractals}
-\label{sec:org2e7b843}
-\subsection{Definition of a Fractal}
-\label{sec:org0786efd}
+\label{sec:org6ffd0f8}
+\subsection{Definition of a Fractal\hfill{}\textsc{Ryan}}
+\label{sec:orgbbf0ee9}
 
 Benoît Mandelbrot coined the term fractal in 1975 \cite{gomoryBenoitMandelbrot19242010} and defined it his 1982 book \emph{The Fractal Geometry of Nature} \cite[p. 15]{mandelbrotFractalGeometryNature1982} :
 
@@ -177,14 +177,14 @@ The Wikipedia page on fractals \cite{Fractal2020} also points out that a
 fractal is nowhere differentiable, this would be because a fractal is
 nowhere smooth, which I think personally is quite a distinguishing feature.
 
-\subsection{Fractals Generally}
-\label{sec:orga61ebcf}
+\subsection{Fractals Generally\hfill{}\textsc{James}}
+\label{sec:orgcef8d90}
 Dimension is the main defining property of a fractal. As aforementioned above, the Hausdorff dimension is a unique number in that, if we take some shape in \(\mathbb{R}^{n}\), and the Hausdorff dimension converges to some number, then the dimension of the shape is given by that number. Otherwise, it will equal \(0\) or \(\infty\). For example, if we want to evaluate the dimension of a square and we use a 1-Dimensional shape as the cover set to calculate the Hausdorff dimension, we will get \(\infty\). On the other hand, if we do the same with a 3-Dimensional shape, we will get 0. And finally if we use a 2-Dimensional shape, the Hausdorff dimension will evaluate to 2. This same notion is important when computing the dimension of a more complex shape such as the Koch snowflake.
 
 To define a fractal, we must define it's dimension. Whilst some research states that a fractal has a non-integer dimension, this is not true for all fractals. Although, most fractals like the Koch snowflake do in fact have non-integer dimensions, we can easily find a counter example namely, the Mandelbrot set. The Mandelbrot set lies in the same dimension as a square, a 2-Dimensional shape. However, we give recognition to the complexity and roughness of the Mandelbrot set which clearly distiguishes itself from a square. Beneath the Mandelbrot set's complexity are exact replicates of the largest scaled Mandelbrot set, i.e a self similar shape. Furthermore, although the Mandelbrot set has an integer dimension, the self similarity and complexity is what also defines its fractal nature.
 
 \subsection{Fractal Dimension}
-\label{sec:org9579076}
+\label{sec:org49c16d4}
 The concept of a non-integer dimension may at first seem odd, particularly given that the familiar definition from linear algebra (concerned with the number of vectors within a basis for a vector space \cite{larsonElementaryLinearAlgebra1991}) is strictly an integer value, but in the early \(20^{\mathrm{th}}\) century mathematicians recognised the shortcomings of this definition \cite[Ch. 3]{mandelbrotFractalGeometryNature1982}.
 
 In this section we hope to convince the reader that there is grounds for
@@ -267,7 +267,7 @@ Hausdorff and box counting dimensions for most fractals. For fractals that aren'
 \caption{\label{koch-snowflake}Progression of the Koch Snowflake}
 \end{figure}
 
-\subsubsection{Hausdorff Dimension}
+\subsubsection{Hausdorff Dimension\hfill{}\textsc{Ryan}}
 \label{Hausdorff-dimension}
 \subsubsection{Hausdorff Measure}
 \label{hausdorff-measure}
@@ -282,16 +282,20 @@ The Hausdorff dimension depends first on a rigorous definition of measure, this 
 
 Let \(F\) be some arbitrary subset of euclidean space \(\mathbb{R}^n\), \footnote{A subset of euclidean space could be interpreted as an uncountable set containing all points describing that region}
 
-Consider a collection of sets,\(\{U_i: i \in \mathbb{Z}^{+}, U\subset \mathbb{R}^{n}\}\), each of which having a
-diameter less than \(\delta\).
+Let \(U\) be a subset of euclidean space \(\mathbb{R}^{n}\) such that the diamater is defined as the greatest distance between any of the points:
 
+\[
+\left\lvert U \right\rvert = \mathrm{sup}\left(\left\{ \left\lvert x- y \right\rvert \enspace : \enspace x,y \in U\right\}  \right)
+\]
 
+Consider a collection of these sets, \(G = \left\{U_i: i \in \mathbb{Z}^{+}\right\}\) such that each element has a diameter less than \(\delta\).
 
-The motivating idea is that if the elements of \(U\) can be laid ontop of
-\(F\) then \(U\) is said to be a \(\delta\) -cover of \(F\), more rigorously this could be defined: \footnote{The use of square and round brackets adjacent to large operators such as \(\bigcup\) and \(\sum\) is purely for the sake of delimiting these variables, there is no mathematical signifiicance, they are just brackets}
+The motivating idea is that if the elements of \(G\) can be laid ontop of
+\(F\) then \(G\) is said to be a \(\delta\) -cover of \(F\), more rigorously, \(G\) is a \(\delta\)-cover of \(F\) if: \footnote{Falconer defines this as \(\bigcup_{i=1}^{\infty}\) \cite[\S 2.1]{falconerFractalGeometryMathematical2003b},
+presumably treating any index value greater than the cardinality of the set as \(\emptyset\), this is particularly ambiguous and we have avoided it, an alternative way to present that might be \(\bigcup^{\#G}_{i=0}\) where \(\#G\) denotes the cardinality or \(G\) (or \(\infty\) if it is uncountable). The use of \(\#\square\) to denote cardinality was introduced by Knuth in \emph{Concrete Mathematics} \cite{grahamConcreteMathematicsFoundation1994} and is convenenient in that it avoids any ambiguity  with diamater (\(\left\lvert \square \right\rvert\)).}
 
 \begin{align}
-    F \subset \bigcup^\infty_{i=1} \left[ U_i \right] \quad : 0 \leq \left\lvert U_i \right\rvert \leq \delta \label{eq:hausdorff-covering}
+    F \subset \bigcup_{U\in B} \left( U \right) \quad :\quad 0 \leq \left\lvert U \right\rvert \leq \delta \label{eq:hausdorff-covering}
 \end{align}
 
 An example of this covering is provided in figure \ref{hausdorff-covering}, in that example the figure on the right is covered by squares, which each could be an element of \(\{U_{i}\}\), it is important to note, by this definition, that the shapes represented by \(U\) could be any arbitrary figure \cite[\S 2.1]{falconerFractalGeometryMathematical2003b} the size of which may vary in size so long as the diameter is less than \(\delta\).
@@ -316,66 +320,71 @@ a collection of identical squares, OR
 \item \(F\) could be a more abstracted figure like figures \ref{hausdorff-covering} or \ref{abstract-shape}  and \(\{U_{i}\}\) a collection of various different lines, shapes or 3d objects.
 \end{itemize}
 
-The Hausdorff measure is concenred with only the diamater of each element of \(\{U_{i}\}\) and considers \(\sum^{\infty}_{i=1} \left[\left\lvert U_{i}\right\rvert^{s}\right]\) where the covering of \(U_{i}\) minimizes the summation.  \cite[p. 27]{falconerFractalGeometryMathematical2003b}
+The Hausdorff measure is concerned with only the diamater of each element of \(\{U_{i}\}\) and considers \(\sum_{U \in G} \left[\left\lvert U\right\rvert^{s}\right]\) where each element \(U\in G\) is arranged so as to minimize the value of the summation \cite[p. 27]{falconerFractalGeometryMathematical2003b}
+, the \(\delta\)-Hausdorff is hence defined, for various dimensions \(s\):
 
 \begin{align}
-\mathcal{H}^s_{\delta}\left( F \right)= \inf \left\{ \sum^{\infty}_{i= 1}   \left\lvert U_i \right\rvert^s \enspace : \enspace  \left\{U_i\right\} \text{ is a } \delta \text{-cover of } F \right\}, \quad \delta, s > 0 \label{eq:delta-measure}
+\mathcal{H}^s_{\delta}\left( F \right)= \inf \left\{ \sum_{U\in G}   \left\lvert U_i \right\rvert^s \enspace : \enspace  \left\{U_i\right\} \text{ is a } \delta \text{-cover of } F \right\}, \quad \delta, s > 0 \label{eq:delta-measure}
 \end{align}
-in 2 dimensions, this is equivalent to considering the number of boxes, of
+
+The value of \(s\) can be different regardless of the dimension of \(F\), for example if \(F\) was an arbitrary 2D shape the value of \(\mathcal{H}_{\delta}^{2}\left(F\right)\)
+is equivalent to considering the number of shapes \(U\in G\) (e.g. boxes, discs etc.), of
 diamater \(\leq \delta\) that will cover over a shape as shown in figure
 \ref{hausdorff-covering}, the delta Haussendorf measure
-\(\mathcal{H}^{s}_{\delta} \left(F\right)\) will be the area of the boxes when
+\(\mathcal{H}^{2}_{\delta} \left(F\right)\) will be the area of the boxes when
 arranged in such a way that minimises the area.
 
-As \(\delta\) is made arbitrarily small \(\matcal{H}_{\delta}^{s}\) will approach some limit, in the case of figures \ref{hausdorff-covering}  and \ref{abstract-shape} the value of \(\mathcal{H}^{2}_{\delta}\) will approach the area of the shape as \(\delta \rightarrow 0\) and so the \(s^{th}\) dimensional Hausendorff measure is given by:
+As \(\delta\) is made arbitrarily small \(\matcal{H}_{\delta}^{s}\) will approach some limit, in the case of figures \ref{hausdorff-covering}  and \ref{abstract-shape} the value of \(\mathcal{H}^{2}_{\delta}\) will approach the area of the shape as \(\delta \rightarrow 0\) and so the \(s^{th}\) dimensional Hausdorff measure is given by:
 
 \begin{align}
-\mathcal{H}^{s} = \lim_{\delta \rightarrow 0}\left( \mathcal{H}^{s}_{\delta} \right)
+\mathcal{H}^{s} = \lim_{\delta \rightarrow 0}\left( \mathcal{H}^{s}_{\delta} \right) \label{eq:limit-haus}
 \end{align}
 
 This is defined for all subsets of \(\mathbb{R}^n\) for example the value of  \(\mathcal{H}^{2}\) corresponding to figure \ref{abstract-shape} will be limit that boxes would approach when covering that area, which would be the area of the shape (\(4\times 1^2 + 4\times \pi\times \frac{1}{2^2} + \frac{1}{2}\times 1 \times \sin{\frac{\pi}{3}}\)).
 
 
 
+
+
+\begin{wrapfigure}{l}{0.5\textwidth}
+\centering
+\includesvg[width=5cm]{notes/HaussDorf_Dim_Ink}
+\caption{\label{hausdorff-covering}The blue outline corresponds to some \(F \subset \mathbb{R}^{2}\), covered by various grey objects, each of which represent an element from the set \(U_{i}\). The grey shapes all have a diameter less than \(\delta\) and so this  \(\bigcup \left[U_{i}\right]\) would be a \(\delta\)-covering of \(F\).}
+\end{wrapfigure}
+
+
+
 \begin{figure}[htbp]
 \centering
-\includesvg[width=9cm]{notes/HaussDorf_Dim_Ink}
-\caption{\label{hausdorff-covering}TODO: This seems wrong, remove it; The shape on the left corresponds to \(F \subset \mathbb{R^{2}}\), each identical square box on the right represents a set \(U_{i}\).}
-\end{figure}
-
-
-
-\begin{figure}[htbp]
-\centering
-\includesvg[width=9cm]{media/Arbitrary-F-Shape}
+\includesvg[width=4cm]{media/Arbitrary-F-Shape}
 \caption{\label{abstract-shape}A disconnected subset of \(\mathbb{R}^{2}\), the squares have a diameter of \(\sqrt{2}\), the circles 1 and the equilateral triangles 1.}
 \end{figure}
 
 \paragraph{Lower Dimension Hausdorff Measurements}
-\label{sec:org7dbe146}
+\label{sec:org6a2bc86}
 \subparagraph{Examples}
-\label{sec:org78945fa}
-Consider again the example of a 2D shape, the value of \(\mathcal{H}^{1}\) would still be defined by \eqref{eq:delta-measure}, but unlike \(\mathcal{H}^{2}\) in section \ref{hausdorff-measure} the value of \(\left\lvert U_i \right\rvert^1\) would be considered as opposed to \(\left\lvert U_i \right\rvert^2\).
+\label{sec:orga000ecf}
+Consider again the example of a 2D shape, the value of \(\mathcal{H}^{1}\) would still be defined by \eqref{eq:delta-measure}, but unlike \(\mathcal{H}^{2}\) in \S \ref{hausdorff-measure} the value of \(\left\lvert U_i \right\rvert^1\) would be considered as opposed to \(\left\lvert U_i \right\rvert^2\) (i.e. the diamater as opposed to the diameter squared).
 
-As \(\delta\) is made arbitrarily small the boxes that cover the shape are made also to be arbitrarily small. Although the area of the boxes must clearly be bounded by the shape of \(F\), if one imagines an infinite number of infinitely dense lines packing into a 2D shape with an infinite density it can be seen that the total length of those lines will be infinite.
+As \(\delta\) is made arbitrarily small the boxes \footnote{Even though \(U\) may contain a variety of shapes, \eqref{eq:delta-measure} is concerned only with the power of there diameter, so in this sense the limit is concerned only with boxes corresponding to the diameter of the elements of \(U\)} that cover the shape are made also to be arbitrarily small. Although the area of the boxes must clearly be bounded by the shape of \(F\), if one imagines an infinite number of infinitely dense lines packing into a 2D shape with an infinite density it can be seen that the total length of those lines will be infinite and so the limit in \eqref{eq:limit-haus} will increase without bound.
 
-To build on that same analogy, another way to imagine this is to pack a 2D shape with straight lines, the total length of all lines will approach the same value as the length of the lines of the squares as they are packed infinitely densely. Because lines cannot fill a 2D shape, as the density of the lines increases, the overall length will be zero.
+To build on that same analogy, another way to imagine this is to pack a 2D shape with straight lines, the total length of all lines will approach the same value as the length of the lines of the squares as they are packed infinitely densely. Because lines cannot fill a 2D shape, as the density of the lines increases, the overall length will increase without bound.
 
-This is consistent with shapes of other shapes as well, consider the koch snowflake introduced in section \ref{topological-equivalence} and shown in figure \ref{koch-line}, the dimension of this shape is greater than 1, and the number of lines necessary to describe that shape is also infinite.
+This is consistent with factals as well, consider the koch snowflake introduced in section \ref{topological-equivalence} and shown in figure \ref{koch-line}, the dimension of this shape, as shown in \S \ref{topological-equivalence} is greater than 1, and the number of lines necessary to describe that shape is also infinite because every point of the ``curve'' is a point of an equilateral triangle.
 
 \subparagraph{Formally}
-\label{sec:orge840e01}
-If the dimension of \(F\) is less than \(s\), the Hausdorff Measure will be given by: \footnote{I haven't been able to find a proof for this, I wonder if I could prove it by just applying the definition?}
+\label{sec:orga27b3b3}
+If the dimension of \(F\) is less than \(s\), the Hausdorff Measure will be given by:
 
 \begin{align}
 \mathrm{dim}\left(  F \right ) < s \implies \mathcal{H}^{s} \left( F \right)  = \infty
 \end{align}
 
 \paragraph{Higher Dimension Hausdorff Dimension}
-\label{sec:orgd0b1c21}
+\label{sec:orgb666523}
 For small values of \(s\) (i.e. less than the dimension of  \(F\)), the value of \(\mathcal{H}^s\)  will be \(\infty\).
 
-Consider some value \(s\) such that the Hausdorff measure is not infinite, i.e. values of \(s\): \footnote{Could fractal dimensions be complex? Maybe there could be a proof to show that the dimension is necessarily complex.}
+Consider some value \(s\) such that the Hausdorff measure is not infinite, i.e. values of \(s\):
 
 \[
 \mathcal{H}^s = L \in \mathbb{R}
@@ -400,10 +409,10 @@ Now if \(\lim_{\delta \rightarrow 0}\left[ \sum_{i}   \left\lvert U_i \right\rve
 and so we have the following relationship:
 
 \begin{align}
-    \mathcal{H}^{s} \left(F\right) \in \mathbb{R}  \implies  \mathcal{H}^t\left( F \right)= 0 \quad \forall t > s \label{eq:hdfzero}
+    \mathcal{H}^{s} \left(F\right) \in \mathbb{R}^{+}  \implies  \mathcal{H}^t\left( F \right)= 0 \quad \forall t > s \label{eq:hdfzero}
 \end{align}
 
-Hence the value of the s-dimensional \emph{Hausdorff Measure}, \(s\) is only a finite, non-zero value, when \(s = \mathrm{dim}_{H}\left( F \right)\) this is visualised in figure .
+Hence the value of the s-dimensional \emph{Hausdorff Measure}, \(s\) is only a finite, non-zero value, when \(s = \mathrm{dim}_{H}\left( F \right)\).
 
 
 
@@ -414,22 +423,13 @@ Hence the value of the s-dimensional \emph{Hausdorff Measure}, \(s\) is only a f
 \end{figure}
 
 \subsubsection{Hausdorff Dimension}
-\label{sec:org342ba9f}
+\label{sec:org712cc68}
 
 
-The value \(s\) at which \(\mathcal{H}^{s}\) changes from \(\infty\) to 0, shown in figure \ref{hausdorff-vals}  and \eqref{eq:hdfzero} is the definition of the \emph{Hausdorff Measure}, it is a generalisation of the idea of dimension that is typically understood with respect to ordinary shapes and 3D figures.
-\subsubsection{See also}
-\label{sec:orgffc2de5}
-I feel very inclided to read \href{https://warwick.ac.uk/fac/sci/maths/people/staff/mark\_pollicott/p3/tehran.pdf}{these notes} \footnote{\href{file:///home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resources/Uncorrected-Warwick-BoxCount-Hausendorff-Notes.pdf}{Local Copy}}
+The value \(s\) at which \(\mathcal{H}^{s}\) \eqref{eq:hdfzero} changes from \(\infty\) to 0, shown in figure \ref{hausdorff-vals},  is the defined to be the \emph{Hausdorff Dimension} \cite[\S 2.2]{falconerFractalGeometryMathematical2003b}, it is a generalisation of the idea of dimension that is typically understood with respect to ordinary figures.
 
-\subsubsection{Box Counting Dimension}
-\label{sec:org187fb33}
-Sources for this section are primarily:
-\begin{itemize}
-\item Falconer \cite[Ch. 3.1]{falconerFractalGeometryMathematical2003b}
-\item Strogatz Non Linear Dynamics \cite[Ch. 11.4]{strogatzNonlinearDynamicsChaos2015}
-\end{itemize}
-
+\subsubsection{Box Counting Dimension\hfill{}\textsc{James}}
+\label{sec:org8ed658e}
 While the Hasudorff dimension is the first formal definition to measure
 the roughness of a fractal, there are several other definitions of dimension
 that have stemmed from this. Namely, the box-counting dimension. The box
@@ -485,8 +485,8 @@ Let \(F\) be the Koch Curve.
 &= \lim_{\frac{1}{3^{\delta}} \to 0} \frac{\ln(4)}{\ln(3)}\\
 &= \frac{\ln(4)}{\ln(3)}
 \end{align*}
-\subsection{Generating Self Similar Fractals}
-\label{sec:orge151ba3}
+\subsection{Generating Self Similar Fractals\hfill{}\textsc{Ryan}}
+\label{sec:orgdfb9738}
 See generally \cite[Ch. 11]{strogatzNonlinearDynamicsChaos2015}
 Three ways to generate
 
@@ -500,9 +500,9 @@ Three ways to generate
 \end{enumerate}
 
 \subsubsection{Examples}
-\label{sec:org9c20e35}
+\label{sec:org2484691}
 \paragraph{Vicsek Fractal}
-\label{sec:orgb6d2717}
+\label{sec:org014b5a3}
 The Vicsek Fracatl is self similar, thus we can use it to test our box counting method \footnote{Since the Vicsek fractal is self similar, we know that the dimension will be constant, as opposed to a dimension that slightly varies, hence there is no need for linear regression which would be necessary to measure someting like a coastline.}.
 The Vicsek Fractal involves a pattern of iterating boxes:
 
@@ -571,7 +571,7 @@ D\ln{3} &= \ln{5}\\
 D &= \frac{\ln{5}}{\ln{3}}
 \end{align*}
 \paragraph{Sierpinskis Carpet}
-\label{sec:org91fae12}
+\label{sec:org12b9bf9}
 
 Explained more in the book \footnote{See Ch. 2.7 of \cite[Ch. 2.7]{peitgenChaosFractalsNew2004}
 
@@ -590,10 +590,10 @@ By modifying listing we can get patterns like the cantor dust and sierpinskis ca
 \end{figure}
 
 \paragraph{Triangle}
-\label{sec:org702ba8a}
+\label{sec:org46d82d2}
 Producing the triangle was more difficult
 \subparagraph{Chaos Game}
-\label{sec:org4dd3353}
+\label{sec:org5c83a0d}
 This would be more accurate than pascals because there would be know \textbf{bias} and the model would be more accurate    :
 
 \begin{listing}[htbp]
@@ -647,8 +647,8 @@ ggplot(df, aes(x = xval, y = yval)) +
 \includegraphics[width=.9\linewidth]{pascal-sierpinsky-chaos-game.png}
 \end{center}
 
-\subparagraph{Pascals Triange}
-\label{sec:org80c58dd}
+\subparagraph{Pascals Triange\hfill{}\textsc{James}}
+\label{sec:org9b46e3a}
 
 \begin{listing}[htbp]
 \begin{minted}[]{julia}
@@ -686,7 +686,7 @@ log(3)/log(2)
 
 \begin{enumerate}
 \item Motivation
-\label{sec:org8e5aac5}
+\label{sec:org3ba0cb0}
 Over many centuries, mathematicians have been able to produce a range of patterns from Pascal's triangle. One of which is relevant to the emergence of Sierpinski's triangle. To construct Pascal's triangle it begins with a 1 in the \(0^{th}\) (top) row, then each row underneath is made up of the sum of the numbers directly above it, see figure \ref{fig:pascal-triangle}. Alternatively, the \(n^{th}\) row and \(k^{th}\) column can be written in combinatorics form, \(\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}\).
 
 \begin{figure}[htbp]
@@ -696,7 +696,7 @@ Over many centuries, mathematicians have been able to produce a range of pattern
 \end{figure}
 
 \item The connection
-\label{sec:org2e007fd}
+\label{sec:org28727f9}
 As mentioned before there is one pattern that produces the Sierpinski triangle, namely highlighting all odd numbers in Pascal's triangle. This is equivalent to considering all the numbers in the triangle modulo 2, shown in figure \ref{fig:pascal-sierpinski-tri}.
 
 \begin{figure}[htbp]
@@ -760,10 +760,10 @@ c=c_{i}2^{i}+c_{i-1}2^{i-1}+\cdots +c_{1}2+c_{0}=\left[c_{i}c_{i-1}\cdots c_{1}c
 Thus, \(\binom{r}{c} = \binom{2^n + r}{c} = \binom{2^n + r}{2^n + c} \quad (\text{mod} 2)\), which concludes the proof
 
 \item Comment on the dimension lining up
-\label{sec:org0901f02}
+\label{sec:org8da5fb0}
 Using the box-counting method, we can evaluate the dimension of Sierpinski's triangle.
 \item FIx the value
-\label{sec:org19d343d}
+\label{sec:orgb9161c7}
 
 \begin{verbatim}
 
@@ -778,7 +778,7 @@ julia> # https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle
 \end{enumerate}
 
 \subsubsection{Turtle}
-\label{sec:orgdd67fb7}
+\label{sec:orgdfd92d6}
 Matrices can't explain all patterns, Turtles are useful
 \begin{listing}[htbp]
 \begin{minted}[]{julia}
@@ -991,7 +991,7 @@ end
 \caption{\label{turtles-all}This generates a dragon and a koch}
 \end{listing}
 \paragraph{Dragon Curve}
-\label{sec:org4cd762a}
+\label{sec:org885197d}
 
 \begin{figure}[htbp]
 \centering
@@ -1001,17 +1001,17 @@ end
 
 
 \paragraph{Koch Snowflake}
-\label{sec:orgfbd5e1d}
+\label{sec:org28ecf1e}
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=9cm]{../Problems/Chaos/Spirals/snowCurve.png}
 \caption{\label{dragon-turtle}TODO}
 \end{figure}
 
-\subsection{Fractal Dimensions}
-\label{sec:orge834686}
+\subsection{Fractal Dimensions\hfill{}\textsc{Ryan}}
+\label{sec:org931f3c5}
 \subsubsection{Calculating the Dimension of Julia Set}
-\label{sec:orge3852f0}
+\label{sec:org58191f9}
 It converges too slowly
 The Julia set (discussed in section ) can be solved by \ldots{}
 
@@ -1336,7 +1336,7 @@ We have no evidence to show that the dimension will be stable, this is good for 
 
 This approach is layed out in \cite[p. 30]{vicsekFractalGrowthPhenomena1992}.
 \subparagraph{Performance}
-\label{sec:org960d528}
+\label{sec:org2386064}
 \begin{itemize}
 \item Switching from \texttt{abs()} to sqaured help
 \item Taking advantage of multi core processing in loops
@@ -1363,7 +1363,7 @@ Function & Mean Time\\
 \end{tabular}
 
 \end{center}
-\section{Connecting Fractals to Natural Processes}
+\section{Connecting Fractals to Natural Processes\hfill{}\textsc{Ryan}}
 \label{my-fractal}
 My fractal really shows many unique patterns
 
@@ -1375,7 +1375,7 @@ We know the dimension will be constant because the figure is self similar, so we
 \mathrm{dim} (\mathtt{my\_fractal}) = \log_{\varphi}=\frac{\log \varphi}{\log 2}
 \]
 \subsection{Graphics}
-\label{sec:org9276983}
+\label{sec:org7ae1643}
 
 \begin{figure}[htbp]
 \centering
@@ -1420,11 +1420,11 @@ We know the dimension will be constant because the figure is self similar, so we
 \end{figure}
 
 \subsection{Discuss Pattern shows Fibonacci Numbers}
-\label{sec:orgbe11c04}
+\label{sec:org4f02319}
 \subsubsection{Angle Relates to Golden Ratio}
-\label{sec:org1b634b9}
+\label{sec:org2fb45fa}
 \subsection{Prove Fibonacci using Monotone Convergence Theorem}
-\label{sec:org645dc7b}
+\label{sec:org3d3a84f}
 Consider the series:
 
 $$\begin{aligned}
@@ -1439,7 +1439,7 @@ F_n = F_{n- 1} +  F_{n- 2} ; \quad F_1 = F_2 = 1
 
 
 \subsubsection{Show that the Series is Monotone}
-\label{sec:org2528a11}
+\label{sec:org48a25f2}
 $$\begin{aligned}
 F_{n} &> 0 \\
 0 &< F_{n} \\
@@ -1459,9 +1459,9 @@ F_{n} &> 0 \\
 
 
 \subsubsection{Show that the Series is Bounded}
-\label{sec:orgc8f7e2c}
+\label{sec:org84c5461}
 \subsubsection{Find the Limit}
-\label{sec:org2640962}
+\label{sec:org057c569}
 $$\begin{aligned}
 G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 &= 1 +  \frac{F_{n- 1} }{F_n} \\
@@ -1473,7 +1473,7 @@ G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 
 
 \subsubsection{Comments}
-\label{sec:orgc6a1d24}
+\label{sec:orgc5e602e}
 
 The Fibonacci sequence is quite unique, observe that:
 
@@ -1504,7 +1504,7 @@ $$\begin{aligned}
 \frac{\psi}{\varphi}  = \frac{1}{\varphi^2} = \frac{1}{1-\varphi} &= \frac{1}{2-\varphi} = \frac{2}{3 - \sqrt{5}  }
 \end{aligned}$$
 \subsubsection{Python}
-\label{sec:orge4a6275}
+\label{sec:orgf8d2440}
 
 \begin{minted}[]{python}
 #+begin_src python
@@ -1519,14 +1519,14 @@ plt.savefig("./a.png")
 \end{center}
 
 \subsection{Angle is \(\tan^{-1}\left( \frac{1}{1-\varphi}\right)\)}
-\label{sec:orgfd164c2}
+\label{sec:org6b86fb5}
 \subsubsection{Similar to Golden Angle \(2 \pi \left( \frac{1}{1-\varphi}\right)\)}
-\label{sec:org345967f}
+\label{sec:orgd1e1233}
 \subsection{Dimension of my Fractal}
-\label{sec:orgeb352d2}
+\label{sec:orgb64e2dc}
 \(\log_{\varphi}(2)\)
 \subsection{Code should be split up or put into appendix}
-\label{sec:org0812b9b}
+\label{sec:orgf302d60}
 \begin{minted}[]{julia}
 function matJoin(A, B)
     function nrow(X)
@@ -1655,10 +1655,10 @@ GR.imshow(mywalk([1 1], 5))
 \end{minted}
 
 \section{The Fibonacci Sequence}
-\label{sec:org52ccdb8}
+\label{sec:org7d56db5}
 The Fibonacci Sequence occurs in my example from the \S \ref{my-fractal}, let's investigate it
-\subsection{Introduction}
-\label{sec:orga22c5d5}
+\subsection{Introduction\hfill{}\textsc{Ryan}}
+\label{sec:orge9c8802}
 The \emph{Fibonacci Sequence} and \emph{Golden Ratio} share a deep connection\footnote{See section} and occur in patterns observed in nature very frequently
 (see
 \cite{shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016}), an example of such an occurence is discussed in section \ref{sunflower-example}.
@@ -1673,7 +1673,7 @@ identifying relationships between discrete and continuous systems generall we
 will be able to draw insights with regard to the occurrence of patterns related
 to the \emph{Fibonacci Sequence} and \emph{Golden Ratio} in nature.
 
-\subsection{Computational Approach}
+\subsection{Computational Approach\hfill{}\textsc{Ryan}}
 \label{define-the-fibonacci-numbers}
 Given that much of our work will involve computational analysis and simulation we begin with a strategy to solve the sequence computationally.
 
@@ -1833,7 +1833,7 @@ In this case however an analytic solution can be found by relating discrete
 mathematical problems to continuous ones as discussed below at section .
 \subsection{Exponential Generating Functions}
 \label{exp-gen-func-fib-seq}
-\paragraph{Motivation}
+\paragraph{Motivation\hfill{}\textsc{Ryan}}
 \label{motivation}
 Consider the \emph{Fibonacci Sequence} from \eqref{eq:fib-def}:
 
@@ -1861,7 +1861,7 @@ f\left( x \right)= e^{mx} = \sum^{\infty}_{n= 0}   \left[ r^{m} \frac{x^n}{n!} \
 So using some sort of a transformation involving a power series may help to
 relate the discrete problem back to a continuous one.
 
-\paragraph{Example}
+\paragraph{Example\hfill{}\textsc{Ryan}}
 \label{solving-the-sequence}
 Consider using the following generating function, (proof of the
 generating function derivative as in \eqref{eq:exp-gen-def-2} and \eqref{eq:exp-gen-def-3} is
@@ -1955,8 +1955,8 @@ where:
 
 \paragraph{Derivative of the Exponential Generating Function}
 \label{Derivative-exp-gen-function}
-\subparagraph{Base}
-\label{sec:orgb7d7577}
+\subparagraph{Base\hfill{}\textsc{Ryan}}
+\label{sec:org881af79}
 Differentiating the exponential generating function has the effect of shifting the sequence once to the left: \cite{lehmanReadingsMathematicsComputer2010}
 
 \begin{align}
@@ -1968,8 +1968,8 @@ f'\left( x \right) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 0
 \implies f'(x) &= \sum^{\infty}_{n= 1}   {\left[{ \frac{x^n}{n!}a_{n+  1} }\right]} \label{eq:exp-pow-series-sol}
 \end{align}
 
-\subparagraph{Bridge}
-\label{sec:orga903342}
+\subparagraph{Bridge\hfill{}\textsc{James}}
+\label{sec:org9ecc619}
 This can be shown for all derivatives by way of induction, for
 
 \begin{align}
@@ -1997,8 +1997,8 @@ Therefore, by mathematical induction \(f^{(k)}\left(x\right) = \sum_{n=k}^\infty
 Furthermore, if the first derivative of the exponential generating function shown in \eqref{eq:exp-pow-series-sol}
 shifts the sequence across, then every derivative thereafter does so as well.
 
-\paragraph{Homogeneous Proof}
-\label{sec:org71f107b}
+\paragraph{Homogeneous Proof\hfill{}\textsc{Ryan:James}}
+\label{sec:org95df821}
 An equation of the form:
 
 \begin{align}
@@ -2037,14 +2037,14 @@ where:
 \end{itemize}
 \end{itemize}
 
-\subparagraph{Unique Roots of Characteristic Equation}
+\subparagraph{Unique Roots of Characteristic Equation\hfill{}\textsc{Ryan}}
 \label{uniq-roots-recurrence}
 \begin{enumerate}
 \item Example
-\label{sec:orgf440bd1}
+\label{sec:org3573097}
 An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section \ref{solving-the-sequence}.
 \item Proof
-\label{sec:org33cbec6}
+\label{sec:org414b692}
 Consider the linear recurrence relation \eqref{eq:recurrence-relation-def}:
 
 \begin{align}
@@ -2101,11 +2101,11 @@ This can be verified by the fibonacci sequence as shown in section \ref{solving-
 \end{alignat}
 \end{enumerate}
 
-\subparagraph{Repeated Roots of Characteristic Equation}
+\subparagraph{Repeated Roots of Characteristic Equation\hfill{}\textsc{Ryan}}
 \label{rep-roots-recurrence}
 \begin{enumerate}
 \item Example
-\label{sec:org370dd94}
+\label{sec:org555166c}
 Consider the following recurrence relation:
 
 \begin{align}
@@ -2158,7 +2158,7 @@ Given the defenition of the exponential generating function from \eqref{eq:exp-g
 \end{align}
 
 \item Proof
-\label{sec:orga27a822}
+\label{sec:orgb688846}
 Consider a recurrence relation of the form:
 
 \begin{align}
@@ -2208,12 +2208,12 @@ f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\rig
 \square \nonumber
 \end{align}
 
-\item Proof
+\item Proof\hfill{}\textsc{James}
 \label{prove-general-exp-identity}
 In this section the proof of
 \begin{enumerate}
 \item Motivation
-\label{sec:orgc24b4f7}
+\label{sec:orgb47a866}
 
 Consider the function \(f(x) = xe^x\). Using the taylor series formula we get the following:
 
@@ -2262,10 +2262,10 @@ Sketching out an approach for this:
 \item Power Series Combination
 \label{power-series-comb}
 \end{enumerate}
-\subsection{Proving with the Monotone Convergence Theorem}
-\label{sec:org55996e2}
+\subsection{Proving with the Monotone Convergence Theorem\hfill{}\textsc{Ryan}}
+\label{sec:org65e88ab}
 By Solving the Fibonacci Sequence using the Monotone Converge Theorem we can show that it is related to \(e\)
-\subsection{Fibonacci Sequence and the Golden Ratio}
+\subsection{Fibonacci Sequence and the Golden Ratio\hfill{}\textsc{Ryan}}
 \label{fib-golden-ratio-proof}
 The \emph{Fibonacci Sequence} is actually very interesting, observe that the ratios of the terms converge to the \emph{Golden Ratio}:
 
@@ -2292,7 +2292,7 @@ patterns observed in nature.
 We also hope to find a method to produce the the diagram shown in figure
 computationally, ideally by using the Turtle function in \emph{Julia}.
 
-\subsubsection{Fibonacci Sequence in Nature (This may be Removed)}
+\subsubsection{Fibonacci Sequence in Nature (This may be Removed)\hfill{}\textsc{Ryan}}
 \label{sunflower-example}
 The distribution of sunflower seeds is an example of the \emph{Fibonacci Sequence}
 occuring in a pattern observed in nature (see Figure \ref{sunflower}).
@@ -2384,11 +2384,11 @@ end 600 600
 \caption{\label{sunflower}Distribution of the seeds of a sunflower (see \cite{simonbrassCCSearch2006} licenced under CC)}
 \end{figure}
 
-\subsection{Relating The Fibonacci Sequence to the Julia Set}
-\label{sec:org4b34668}
+\subsection{Relating The Fibonacci Sequence to the Julia Set\hfill{}\textsc{Ryan}}
+\label{sec:orgc930a98}
 See \href{https://youtu.be/ovJcsL7vyrk}{this link}.
-\section{Julia Sets}
-\label{sec:orgd203cf7}
+\section{Julia Sets\hfill{}\textsc{Ryan}}
+\label{sec:orge8875ac}
 
 The julia set is the outline \cite[Ch. 14]{peitgenChaosFractalsNew2004}.
 
@@ -2400,10 +2400,10 @@ There is a relatioship between the fibonacicci sequence, modelling population gr
 
 
 \subsection{Introduction}
-\label{sec:org8e05b05}
+\label{sec:orgecea4e3}
 Julia sets are a very interesting fractal and we hope to investigate them further in this project.
 \subsection{Motivation}
-\label{sec:orgf9d4041}
+\label{sec:orge3e3d79}
 Consider the iterative process \(x \rightarrow x^{2}, \enspace x \in \mathbb{R}\),
 for values of \(x>1\) this process will diverge and for \(x<1\) it will converge.
 
@@ -2439,7 +2439,7 @@ Every value on that plane will belong to one of the two following sets
 In the case of \(f_{0}(z) = z^{2}\) all values \(\left\lvert z  \right \rvert \leq 1\) are bounded with \(\left\lvert z  \right \rvert = 1\) being an unstable stationary circle, but let's investigate what happens for different iterative functions like \(f_{1}(z) = z^{2} - 1\), despite how trivial this seems at first glance.
 
 \subsection{Plotting the Sets}
-\label{sec:org8b25ab6}
+\label{sec:org2ddd28d}
 Although the convergence of values may appear simple at first, we'll implement a
 strategy to plot the prisoner and escape sets on the complex plane.
 
@@ -2688,8 +2688,8 @@ ffmpeg                    \
 
 \url{\_20200826\_005334a.png}
 
-\section{MandelBrot Set}
-\label{sec:org4275c56}
+\section{MandelBrot Set\hfill{}\textsc{Ryan}}
+\label{sec:org65523ca}
 Investigating these fractals, a natural question might be whether or not any
 given \(c\) value will produce a fractal that is an open disc or a closed disc.
 
@@ -2824,12 +2824,12 @@ save_picture("/tmp/a.fits", my_pic)
 \label{appendix}
 So unless code contributes directly to the discussion we'll put it in the appendix.
 \subsection{Finding Material}
-\label{sec:orgf40070f}
+\label{sec:org0df3955}
 \begin{minted}[]{bash}
 recoll -c /home/ryan/Dropbox/Books/Textbooks/Mathematics/Chaos_Theory/chaos_books_recoll & disown
 \end{minted}
 \subsection{Font Lock}
-\label{sec:org4d0319e}
+\label{sec:org5f024ef}
 \begin{minted}[]{elisp}
 ;; match:
 ;;; \scite:key\s
