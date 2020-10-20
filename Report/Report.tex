@@ -1,4 +1,4 @@
-% Created 2020-10-20 Tue 00:13
+% Created 2020-10-20 Tue 11:18
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -77,7 +77,7 @@ Section Attribution
 8. Bibliography
 \end{verbatim}
 \section{Introduction}
-\label{sec:org284af05}
+\label{sec:org51d23de}
 \begin{itemize}
 \item Fractals occur in nature
 \begin{itemize}
@@ -99,14 +99,15 @@ Section Attribution
 \end{itemize}
 
 \section{Fractals}
-\label{sec:orgd6ec7ce}
+\label{sec:orgdec84dd}
 \subsection{Definition of a Fractal}
-\label{sec:org5eadd09}
+\label{sec:orgbba986d}
 
 Benoît Mandelbrot coined the term fractal in 1975 \cite{gomoryBenoitMandelbrot19242010} and defined it his 1982 book \emph{The Fractal Geometry of Nature} \cite[p. 15]{mandelbrotFractalGeometryNature1982} :
 
 \begin{quote}
-\emph{A fractal is by definition a set for which the Hausdorff Besicovitch dimension strictly exceeds the topological dimension.}
+\emph{A fractal is by definition a set for which the Hausdorff Besicovitch dimension
+strictly exceeds the topological dimension.}
 
 \emph{a Every set with a noninteger \(D\) is a fractal.}
 \end{quote}
@@ -125,7 +126,9 @@ Fractal Geometry of Nature} Mandelbrot himself commented that in hindsight it
 may have been more appropriate \cite[p. 459]{mandelbrotFractalGeometryNature1982}:
 
 \begin{quote}
-\emph{to leave the term ``fractal” without a pedantic definition, to use “fractal dimension” as a generic term applicable to all the variants in Chapter 39, and to use in each specific case whichever definition is the most appropriate.}
+/to leave the term ``fractal” without a pedantic definition, to use “fractal
+dimension” as a generic term applicable to all the variants in Chapter 39, and
+to use in each specific case whichever definition is the most appropriate./
 \end{quote}
 
 Gerald Edgar, in his 2008 book \emph{Measure, topology, and fractal geometry}
@@ -137,7 +140,12 @@ indeed adopted in that work.
 
 Although reviewing the precise definition of a fractal would have been very
 interesting, without a cursory knowledge of fractals generally this would have
-been very time consuming and outside the scope of this report, for this reason no strict definition will be used for fractals, but, guiding principles implemented by other authors will be used.
+been very time consuming and outside the scope of this report \footnote{Mandelbrot
+also discussed fractals of a Euclidean and Reimannian nature,
+\cite[p. 361]{mandelbrotFractalGeometryNature1982}, this again is interesting
+but too specific for the broad nature of our investigation}. no strict
+definition will be used for fractals, but, guiding principles implemented by
+other authors will be used.
 
 Some authors simply define a fractal as a shape that \emph{shows irregularities at all scales} \cite[p. 1]{gouyetPhysicsFractalStructures1996} and
 in his 2003 book, \emph{Fractal Geometry}, Facloner  it is more convenient to describe a fractal by a list of properties characteristic of such shapes \footnote{Much like the definition of life in the field of biology} because of the difficulty in defining a fractal in a way that can encompass all edge cases \cite[p. xxv]{falconerFractalGeometryMathematical2003b}:
@@ -170,32 +178,29 @@ fractal is nowhere differentiable, this would be because a fractal is
 nowhere smooth, which I think personally is quite a distinguishing feature.
 
 \subsection{Fractals Generally}
-\label{sec:org4b20c1b}
+\label{sec:org207af6d}
 Dimension is the main defining property of a fractal. As aforementioned above, the Hausdorff dimension is a unique number in that, if we take some shape in \(\mathbb{R}^{n}\), and the Hausdorff dimension converges to some number, then the dimension of the shape is given by that number. Otherwise, it will equal \(0\) or \(\infty\). For example, if we want to evaluate the dimension of a square and we use a 1-Dimensional shape as the cover set to calculate the Hausdorff dimension, we will get \(\infty\). On the other hand, if we do the same with a 3-Dimensional shape, we will get 0. And finally if we use a 2-Dimensional shape, the Hausdorff dimension will evaluate to 2. This same notion is important when computing the dimension of a more complex shape such as the Koch snowflake.
 
 To define a fractal, we must define it's dimension. Whilst some research states that a fractal has a non-integer dimension, this is not true for all fractals. Although, most fractals like the Koch snowflake do in fact have non-integer dimensions, we can easily find a counter example namely, the Mandelbrot set. The Mandelbrot set lies in the same dimension as a square, a 2-Dimensional shape. However, we give recognition to the complexity and roughness of the Mandelbrot set which clearly distiguishes itself from a square. Beneath the Mandelbrot set's complexity are exact replicates of the largest scaled Mandelbrot set, i.e a self similar shape. Furthermore, although the Mandelbrot set has an integer dimension, the self similarity and complexity is what also defines its fractal nature.
 
 \subsection{Fractal Dimension}
-\label{sec:org35e8144}
+\label{sec:org35295d0}
+The concept of a non-integer dimension may at first seem odd, particularly given that the familiar definition from linear algebra (concerned with the number of vectors within a basis for a vector space \cite{larsonElementaryLinearAlgebra1991}) is strictly an integer value, but in early \(20^{\mathrm{th}}\) century mathematicians recognised the shortcomings of this definition \cite[Ch. 3]{mandelbrotFractalGeometryNature1982}.
+
+In this section we hope to convince the reader that there is grounds for extending the definition of dimension and as a matter of fact many definitions for the measure and dimension of a set have been proposed (see generally \cite[Ch. 39]{mandelbrotFractalGeometryNature1982} and \cite[\S 1.3]{gouyetPhysicsFractalStructures1996})
+of these the \emph{Hausdorff} is considered to be the most important and mathematically robust \cite[p. 27]{falconerFractalGeometryMathematical2003b},
+while the box counting dimension has the most practical applications in science \cite[p. 192]{peitgenChaosFractalsNew2004}.
+
+The Hausdorff dimension is more like counting balls than boxes and is identical
+to the Hausdorff dimension in many cases, it's more general but harder to define
+\cite{sandersonFractalsAreTypically2017}, An extension to the work of this report
+would be to show the mathematical connections between the Hausdorff Dimension
+and box counting dimension with respect to the fractals generated and measured.
+
 \subsubsection{Hausdorff Dimension}
 \label{Hausdorff-dimension}
-TThere are many differente defintions of \emph{fractal dimension} the box counting dimentions was probably rejected as less mathematically robust or useful by the pioneers of the \emph{Haussdorff dimension} \cite[\S 3.6]{falconerFractalGeometryMathematical2003b}. The Hausdorff dimension is more like counting balls than boxes and is identical to the Hausdorff dimension in many cases, it's more general but harder to define.
+The Hausdorff dimension is \ldots{} \footnote{See \S \ref{haus-resource} for further reading.}
 
-That's why we use the box counting method, we can actually do it. showing the equivalence between the two methods in the cases we implemented would have been nice to do but the math was very daunting and not withing the time constraints of this project.
-
-Mandelbrot \cite[363]{mandelbrotFractalGeometryNature1982} has some notes in his book but the following were quite helpful:
-
-\begin{itemize}
-\item and jean \cite[\S1.3]{gouyetPhysicsFractalStructures1996}
-\item Vicsek \cite[Ch. 4]{vicsekFractalGrowthPhenomena1992}
-\begin{itemize}
-\item See also p 14 specifically
-\end{itemize}
-\item Edgar \cite[Ch. 6]{edgarMeasureTopologyFractal2008a}
-\item Falconer \cite[Ch. 2]{falconerFractalGeometryMathematical2003b}
-\item Tamas \cite[\S2.1.2]{telChaoticDynamicsIntroduction2006}
-\item Otto \cite[\S 4.3]{peitgenChaosFractalsNew2004}
-\end{itemize}
 
 \paragraph{Topological Equivalence}
 \label{topological-equivalence}
@@ -286,7 +291,7 @@ In the case of the koch snowflake, the measure of the shape, when scaled, will i
 
 In the development of topology
 \paragraph{Hausdorff Dimension}
-\label{sec:orgc652583}
+\label{sec:org38bebf0}
 Sources for this section on Hausdorff Dimension are primarily \cite[Ch. 2]{falconerFractalGeometryMathematical2003}
 \subparagraph{Measure}
 \label{hausdorff-measure}
@@ -347,7 +352,7 @@ This is defined for all subsets of \(\mathbb{R}^n\) for example the value of  \(
 \begin{figure}[htbp]
 \centering
 \includesvg[width=9cm]{./notes/HaussDorf_Dim_Ink}
-\caption{\label{hausdorff-covering}The shape on the left corresponds to \(F \subset \mathbb{R^{2}}\), each identical square box on the right represents a set \(U_{i}\).}
+\caption{\label{hausdorff-covering}TODO: This seems wrong, remove it; The shape on the left corresponds to \(F \subset \mathbb{R^{2}}\), each identical square box on the right represents a set \(U_{i}\).}
 \end{figure}
 
 
@@ -359,10 +364,10 @@ This is defined for all subsets of \(\mathbb{R}^n\) for example the value of  \(
 
 \begin{enumerate}
 \item Lower Dimension Hausdorff Measurements
-\label{sec:org0293ce9}
+\label{sec:org242bf20}
 \begin{enumerate}
 \item Examples
-\label{sec:org0f83acd}
+\label{sec:org6ad3677}
 Consider again the example of a 2D shape, the value of \(\mathcal{H}^{1}\) would still be defined by \eqref{eq:delta-measure}, but unlike \(\mathcal{H}^{2}\) in section \ref{hausdorff-measure} the value of \(\left\lvert U_i \right\rvert^1\) would be considered as opposed to \(\left\lvert U_i \right\rvert^2\).
 
 As \(\delta\) is made arbitrarily small the boxes that cover the shape are made also to be arbitrarily small. Although the area of the boxes must clearly be bounded by the shape of \(F\), if one imagines an infinite number of infinitely dense lines packing into a 2D shape with an infinite density it can be seen that the total length of those lines will be infinite.
@@ -372,7 +377,7 @@ To build on that same analogy, another way to imagine this is to pack a 2D shape
 This is consistent with shapes of other shapes as well, consider the koch snowflake introduced in section \ref{topological-equivalence} and shown in figure \ref{koch-line}, the dimension of this shape is greater than 1, and the number of lines necessary to describe that shape is also infinite.
 
 \item Formally
-\label{sec:org271f732}
+\label{sec:org36dd588}
 If the dimension of \(F\) is less than \(s\), the Hausdorff Measure will be given by: \footnote{I haven't been able to find a proof for this, I wonder if I could prove it by just applying the definition?}
 
 \begin{align}
@@ -381,7 +386,7 @@ If the dimension of \(F\) is less than \(s\), the Hausdorff Measure will be give
 \end{enumerate}
 
 \item Higher Dimension Hausdorff Dimension
-\label{sec:orgae14e00}
+\label{sec:org2ffd121}
 For small values of \(s\) (i.e. less than the dimension of  \(F\)), the value of \(\mathcal{H}^s\)  will be \(\infty\).
 
 Consider some value \(s\) such that the Hausdorff measure is not infinite, i.e. values of \(s\): \footnote{Could fractal dimensions be complex? Maybe there could be a proof to show that the dimension is necessarily complex.}
@@ -424,15 +429,16 @@ Hence the value of the s-dimensional \emph{Hausdorff Measure}, \(s\) is only a f
 \end{enumerate}
 
 \subparagraph{Hausdorff Dimension}
-\label{sec:orgdbb9c32}
+\label{sec:org25c427b}
 
 The value \(s\) at which \(\mathcal{H}^{s}\) changes from \(\infty\) to 0, shown in figure \ref{hausdorff-vals}  and \eqref{eq:hdfzero} is the definition of the \emph{Hausdorff Measure}, it is a generalisation of the idea of dimension that is typically understood with respect to ordinary shapes and 3D figures.
 \subparagraph{Research}
-\label{sec:org1856feb}
+\label{sec:org4d784b0}
 I feel very inclided to read \href{https://warwick.ac.uk/fac/sci/maths/people/staff/mark\_pollicott/p3/tehran.pdf}{these notes} \footnote{\href{file:///home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resources/Uncorrected-Warwick-BoxCount-Hausendorff-Notes.pdf}{Local Copy}}
 
+
 \subsubsection{Box Counting}
-\label{sec:orgdbbc7a3}
+\label{sec:org57a2959}
 Sources for this section are primarily:
 \begin{itemize}
 \item Falconer \cite[Ch. 3.1]{falconerFractalGeometryMathematical2003b}
@@ -495,7 +501,7 @@ Let \(F\) be the Koch Curve.
 &= \frac{\ln(4)}{\ln(3)}
 \end{align*}
 \subsection{Generating Self Similar Fractals}
-\label{sec:org2c0ca61}
+\label{sec:org80a71b8}
 See generally \cite[Ch. 11]{strogatzNonlinearDynamicsChaos2015}
 Three ways to generate
 
@@ -509,9 +515,9 @@ Three ways to generate
 \end{enumerate}
 
 \subsubsection{Examples}
-\label{sec:org8e46fa0}
+\label{sec:orgac3d316}
 \paragraph{Vicsek Fractal}
-\label{sec:org5b79d47}
+\label{sec:orgdd4d413}
 The Vicsek Fracatl is self similar, thus we can use it to test our box counting method \footnote{Since the Vicsek fractal is self similar, we know that the dimension will be constant, as opposed to a dimension that slightly varies, hence there is no need for linear regression which would be necessary to measure someting like a coastline.}.
 The Vicsek Fractal involves a pattern of iterating boxes:
 
@@ -580,7 +586,7 @@ D\ln{3} &= \ln{5}\\
 D &= \frac{\ln{5}}{\ln{3}}
 \end{align*}
 \paragraph{Sierpinskis Carpet}
-\label{sec:org56a0376}
+\label{sec:orgce02965}
 
 Explained more in the book \footnote{See Ch. 2.7 of \cite[Ch. 2.7]{peitgenChaosFractalsNew2004}
 
@@ -599,10 +605,10 @@ By modifying listing we can get patterns like the cantor dust and sierpinskis ca
 \end{figure}
 
 \paragraph{Triangle}
-\label{sec:org760916b}
+\label{sec:orge888ca2}
 Producing the triangle was more difficult
 \subparagraph{Chaos Game}
-\label{sec:org1fe09b6}
+\label{sec:org0dad565}
 This would be more accurate than pascals because there would be know \textbf{bias} and the model would be more accurate    :
 
 \begin{listing}[htbp]
@@ -657,7 +663,7 @@ ggplot(df, aes(x = xval, y = yval)) +
 \end{center}
 
 \subparagraph{Pascals Triange}
-\label{sec:org28e9b10}
+\label{sec:org3df3e8e}
 
 \begin{listing}[htbp]
 \begin{minted}[]{julia}
@@ -695,7 +701,7 @@ log(3)/log(2)
 
 \begin{enumerate}
 \item Motivation
-\label{sec:org8199a39}
+\label{sec:org44272d8}
 Over many centuries, mathematicians have been able to produce a range of patterns from Pascal's triangle. One of which is relevant to the emergence of Sierpinski's triangle. To construct Pascal's triangle it begins with a 1 in the \(0^{th}\) (top) row, then each row underneath is made up of the sum of the numbers directly above it, see figure \ref{fig:pascal-triangle}. Alternatively, the \(n^{th}\) row and \(k^{th}\) column can be written in combinatorics form, \(\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}\).
 
 \begin{figure}[htbp]
@@ -705,7 +711,7 @@ Over many centuries, mathematicians have been able to produce a range of pattern
 \end{figure}
 
 \item The connection
-\label{sec:org60af02d}
+\label{sec:org19e288d}
 As mentioned before there is one pattern that produces the Sierpinski triangle, namely highlighting all odd numbers in Pascal's triangle. This is equivalent to considering all the numbers in the triangle modulo 2, shown in figure \ref{fig:pascal-sierpinski-tri}.
 
 \begin{figure}[htbp]
@@ -769,10 +775,10 @@ c=c_{i}2^{i}+c_{i-1}2^{i-1}+\cdots +c_{1}2+c_{0}=\left[c_{i}c_{i-1}\cdots c_{1}c
 Thus, \(\binom{r}{c} = \binom{2^n + r}{c} = \binom{2^n + r}{2^n + c} \quad (\text{mod} 2)\), which concludes the proof
 
 \item Comment on the dimension lining up
-\label{sec:orgd68faac}
+\label{sec:org0b26c68}
 Using the box-counting method, we can evaluate the dimension of Sierpinski's triangle.
 \item FIx the value
-\label{sec:org17b7c6b}
+\label{sec:orgdfc2197}
 
 \begin{verbatim}
 
@@ -787,7 +793,7 @@ julia> # https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle
 \end{enumerate}
 
 \subsubsection{Turtle}
-\label{sec:orga33a9b7}
+\label{sec:orga53fce5}
 Matrices can't explain all patterns, Turtles are useful
 \begin{listing}[htbp]
 \begin{minted}[]{julia}
@@ -1000,7 +1006,7 @@ end
 \caption{\label{turtles-all}This generates a dragon and a koch}
 \end{listing}
 \paragraph{Dragon Curve}
-\label{sec:org47e46f6}
+\label{sec:org1c5fd2e}
 
 \begin{figure}[htbp]
 \centering
@@ -1010,7 +1016,7 @@ end
 
 
 \paragraph{Koch Snowflake}
-\label{sec:org3fb9932}
+\label{sec:org7fec5fd}
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=9cm]{../Problems/Chaos/Spirals/snowCurve.png}
@@ -1018,9 +1024,9 @@ end
 \end{figure}
 
 \subsection{Fractal Dimensions}
-\label{sec:orgb5a8182}
+\label{sec:org1d41bbe}
 \subsubsection{Calculating the Dimension of Julia Set}
-\label{sec:orge768e6f}
+\label{sec:orgfa6fada}
 It converges too slowly
 The Julia set (discussed in section ) can be solved by \ldots{}
 
@@ -1336,7 +1342,7 @@ scale & mass\\
 
 \end{table}
 \paragraph{Using Linear Regression}
-\label{sec:org206f521}
+\label{sec:org3ab0b8b}
 \begin{itemize}
 \item Avoiding \texttt{Abs} is twice as fast
 \item Column wise is faster in fortran/julia/R slower in C/Python
@@ -1345,7 +1351,7 @@ We have no evidence to show that the dimension will be stable, this is good for 
 to do that we use linear regression.
 \end{itemize}
 \subparagraph{Performance}
-\label{sec:orgd1add4e}
+\label{sec:orgaafbd12}
 \begin{itemize}
 \item Switching from \texttt{abs()} to sqaured help
 \item Taking advantage of multi core processing in loops
@@ -1384,7 +1390,7 @@ We know the dimension will be constant because the figure is self similar, so we
 \mathrm{dim} (\mathtt{my\_fractal}) = \log_{\varphi}=\frac{\log \varphi}{\log 2}
 \]
 \subsection{Graphics}
-\label{sec:orgbd2808a}
+\label{sec:orgf855343}
 
 \begin{figure}[htbp]
 \centering
@@ -1429,11 +1435,11 @@ We know the dimension will be constant because the figure is self similar, so we
 \end{figure}
 
 \subsection{Discuss Pattern shows Fibonacci Numbers}
-\label{sec:org4601b94}
+\label{sec:org6acd6db}
 \subsubsection{Angle Relates to Golden Ratio}
-\label{sec:org8af2910}
+\label{sec:org8f468a7}
 \subsection{Prove Fibonacci using Monotone Convergence Theorem}
-\label{sec:org4c05e45}
+\label{sec:orgccc8dcf}
 Consider the series:
 
 $$\begin{aligned}
@@ -1448,7 +1454,7 @@ F_n = F_{n- 1} +  F_{n- 2} ; \quad F_1 = F_2 = 1
 
 
 \subsubsection{Show that the Series is Monotone}
-\label{sec:org268e067}
+\label{sec:orga1cedd4}
 $$\begin{aligned}
 F_{n} &> 0 \\
 0 &< F_{n} \\
@@ -1468,9 +1474,9 @@ F_{n} &> 0 \\
 
 
 \subsubsection{Show that the Series is Bounded}
-\label{sec:orga198f35}
+\label{sec:org9358b5e}
 \subsubsection{Find the Limit}
-\label{sec:org72dfa3e}
+\label{sec:orgabb7659}
 $$\begin{aligned}
 G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 &= 1 +  \frac{F_{n- 1} }{F_n} \\
@@ -1482,7 +1488,7 @@ G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 
 
 \subsubsection{Comments}
-\label{sec:org423c584}
+\label{sec:org8ff6a75}
 
 The Fibonacci sequence is quite unique, observe that:
 
@@ -1513,7 +1519,7 @@ $$\begin{aligned}
 \frac{\psi}{\varphi}  = \frac{1}{\varphi^2} = \frac{1}{1-\varphi} &= \frac{1}{2-\varphi} = \frac{2}{3 - \sqrt{5}  }
 \end{aligned}$$
 \subsubsection{Python}
-\label{sec:org0223898}
+\label{sec:orgc867c8c}
 
 \begin{minted}[]{python}
 #+begin_src python
@@ -1528,14 +1534,14 @@ plt.savefig("./a.png")
 \end{center}
 
 \subsection{Angle is \(\tan^{-1}\left( \frac{1}{1-\varphi}\right)\)}
-\label{sec:org1ebfa83}
+\label{sec:org709fe70}
 \subsubsection{Similar to Golden Angle \(2 \pi \left( \frac{1}{1-\varphi}\right)\)}
-\label{sec:org4374629}
+\label{sec:org2c237e3}
 \subsection{Dimension of my Fractal}
-\label{sec:orge77c198}
+\label{sec:org7f906fa}
 \(\log_{\varphi}(2)\)
 \subsection{Code should be split up or put into appendix}
-\label{sec:orgaa38ff1}
+\label{sec:orga755a28}
 \begin{minted}[]{julia}
 function matJoin(A, B)
     function nrow(X)
@@ -1664,10 +1670,10 @@ GR.imshow(mywalk([1 1], 5))
 \end{minted}
 
 \section{The Fibonacci Sequence}
-\label{sec:org1baf652}
+\label{sec:org198d1c9}
 The Fibonacci Sequence occurs in my example from the \S \ref{my-fractal}, let's investigate it
 \subsection{Introduction}
-\label{sec:org52cd46b}
+\label{sec:orgcab11e0}
 The \emph{Fibonacci Sequence} and \emph{Golden Ratio} share a deep connection\footnote{See section} and occur in patterns observed in nature very frequently
 (see
 \cite{shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016}), an example of such an occurence is discussed in section \ref{sunflower-example}.
@@ -1965,7 +1971,7 @@ where:
 \paragraph{Derivative of the Exponential Generating Function}
 \label{Derivative-exp-gen-function}
 \subparagraph{Base}
-\label{sec:org83dc071}
+\label{sec:org8a66942}
 Differentiating the exponential generating function has the effect of shifting the sequence once to the left: \cite{lehmanReadingsMathematicsComputer2010}
 
 \begin{align}
@@ -1978,7 +1984,7 @@ f'\left( x \right) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 0
 \end{align}
 
 \subparagraph{Bridge}
-\label{sec:org88b14b4}
+\label{sec:orga8bd5d2}
 This can be shown for all derivatives by way of induction, for
 
 \begin{align}
@@ -2007,7 +2013,7 @@ Furthermore, if the first derivative of the exponential generating function show
 shifts the sequence across, then every derivative thereafter does so as well.
 
 \paragraph{Homogeneous Proof}
-\label{sec:org48226dc}
+\label{sec:orgf784ca5}
 An equation of the form:
 
 \begin{align}
@@ -2050,10 +2056,10 @@ where:
 \label{uniq-roots-recurrence}
 \begin{enumerate}
 \item Example
-\label{sec:org01afdad}
+\label{sec:org9a88bf8}
 An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section \ref{solving-the-sequence}.
 \item Proof
-\label{sec:org261b079}
+\label{sec:org806c69d}
 Consider the linear recurrence relation \eqref{eq:recurrence-relation-def}:
 
 \begin{align}
@@ -2114,7 +2120,7 @@ This can be verified by the fibonacci sequence as shown in section \ref{solving-
 \label{rep-roots-recurrence}
 \begin{enumerate}
 \item Example
-\label{sec:orgc53eb22}
+\label{sec:orgee19de6}
 Consider the following recurrence relation:
 
 \begin{align}
@@ -2167,7 +2173,7 @@ Given the defenition of the exponential generating function from \eqref{eq:exp-g
 \end{align}
 
 \item Proof
-\label{sec:org84c0acd}
+\label{sec:org63b243c}
 Consider a recurrence relation of the form:
 
 \begin{align}
@@ -2222,7 +2228,7 @@ f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\rig
 In this section the proof of
 \begin{enumerate}
 \item Motivation
-\label{sec:org17e3d9d}
+\label{sec:orgd9cb991}
 
 Consider the function \(f(x) = xe^x\). Using the taylor series formula we get the following:
 
@@ -2272,7 +2278,7 @@ Sketching out an approach for this:
 \label{power-series-comb}
 \end{enumerate}
 \subsection{Proving with the Monotone Convergence Theorem}
-\label{sec:orga00cff8}
+\label{sec:org0ef0377}
 By Solving the Fibonacci Sequence using the Monotone Converge Theorem we can show that it is related to \(e\)
 \subsection{Fibonacci Sequence and the Golden Ratio}
 \label{fib-golden-ratio-proof}
@@ -2394,10 +2400,10 @@ end 600 600
 \end{figure}
 
 \subsection{Relating The Fibonacci Sequence to the Julia Set}
-\label{sec:org7c47d2c}
+\label{sec:org492528b}
 See \href{https://youtu.be/ovJcsL7vyrk}{this link}.
 \section{Julia Sets}
-\label{sec:orgf2110ba}
+\label{sec:orgc5cfd45}
 
 The julia set is the outline \cite[Ch. 14]{peitgenChaosFractalsNew2004}.
 
@@ -2409,10 +2415,10 @@ There is a relatioship between the fibonacicci sequence, modelling population gr
 
 
 \subsection{Introduction}
-\label{sec:orgbbe4972}
+\label{sec:orgf22de29}
 Julia sets are a very interesting fractal and we hope to investigate them further in this project.
 \subsection{Motivation}
-\label{sec:org846187b}
+\label{sec:org50f4251}
 Consider the iterative process \(x \rightarrow x^{2}, \enspace x \in \mathbb{R}\),
 for values of \(x>1\) this process will diverge and for \(x<1\) it will converge.
 
@@ -2448,7 +2454,7 @@ Every value on that plane will belong to one of the two following sets
 In the case of \(f_{0}(z) = z^{2}\) all values \(\left\lvert z  \right \rvert \leq 1\) are bounded with \(\left\lvert z  \right \rvert = 1\) being an unstable stationary circle, but let's investigate what happens for different iterative functions like \(f_{1}(z) = z^{2} - 1\), despite how trivial this seems at first glance.
 
 \subsection{Plotting the Sets}
-\label{sec:org216b9e8}
+\label{sec:org1109652}
 Although the convergence of values may appear simple at first, we'll implement a
 strategy to plot the prisoner and escape sets on the complex plane.
 
@@ -2698,7 +2704,7 @@ ffmpeg                    \
 \url{\_20200826\_005334a.png}
 
 \section{MandelBrot Set}
-\label{sec:orgb622027}
+\label{sec:org5805cd5}
 Investigating these fractals, a natural question might be whether or not any
 given \(c\) value will produce a fractal that is an open disc or a closed disc.
 
@@ -2833,12 +2839,12 @@ save_picture("/tmp/a.fits", my_pic)
 \label{appendix}
 So unless code contributes directly to the discussion we'll put it in the appendix.
 \subsection{Finding Material}
-\label{sec:org9eeb79f}
+\label{sec:org8ce4cb2}
 \begin{minted}[]{bash}
 recoll -c /home/ryan/Dropbox/Books/Textbooks/Mathematics/Chaos_Theory/chaos_books_recoll & disown
 \end{minted}
 \subsection{Font Lock}
-\label{sec:org4dc15e4}
+\label{sec:org182c2ef}
 \begin{minted}[]{elisp}
 ;; match:
 ;;; \scite:key\s
@@ -2853,4 +2859,19 @@ recoll -c /home/ryan/Dropbox/Books/Textbooks/Mathematics/Chaos_Theory/chaos_book
 (font-lock-add-keywords nil
  '((" \\(\\[\\[cite:[a-z0-9A-Z]\+\\]\\[\.\*\\]\\]\\)" 1 '(face nil display "🤔"))))
 \end{minted}
+\subsection{Resources Used for the Hausdorff Dimension}
+\label{haus-resource}
+Research for \S \ref{Hausdorff-dimension} on the Hausdorff Dimension proved actually to be quite difficult, while much information is available online, precice and clear explanations of the Hausdorff dimension are difficult to find without scouring texts, the following proved very helpful generally in preparing for this topic and I would strongly recommend these chapters as a starting point for further reading on this topic:
+
+\begin{itemize}
+\item Edgar, G. A., \emph{Measure, topology, and fractal geometry} \cite[Ch. 6]{edgarMeasureTopologyFractal2008a}
+\item Falconer, K. J., \emph{Fractal geometry: mathematical foundations and applications}  \cite[Ch. 2]{falconerFractalGeometryMathematical2003b}
+\item Gouyet, J., \emph{Physics and fractal structures} \cite[\S1.3]{gouyetPhysicsFractalStructures1996}
+\item Vicsek, T., \emph{Fractal Growth Phenomena} \cite[Ch. 4]{vicsekFractalGrowthPhenomena1992}
+\begin{itemize}
+\item See also p 14 specifically
+\end{itemize}
+\item Tél, T., Gruiz, M., \& Kulacsy, K., \emph{Chaotic dynamics: an introduction based on classical mechanics}  \cite[\S2.1.2]{telChaoticDynamicsIntroduction2006}
+\item Peitgen, H., Jürgens, H., \& Saupe, D., \emph{Chaos and fractals: new frontiers of science}  \cite[\S 4.3]{peitgenChaosFractalsNew2004}
+\end{itemize}
 \end{document}

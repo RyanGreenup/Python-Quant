@@ -87,7 +87,8 @@ Section Attribution
 Benoît Mandelbrot coined the term fractal in 1975 cite:gomoryBenoitMandelbrot19242010 and defined it his 1982 book /The Fractal Geometry of Nature/ [[cite:mandelbrotFractalGeometryNature1982][p. 15]] :
 
 #+begin_quote
-/A fractal is by definition a set for which the Hausdorff Besicovitch dimension strictly exceeds the topological dimension./
+/A fractal is by definition a set for which the Hausdorff Besicovitch dimension
+strictly exceeds the topological dimension./
 
 /a Every set with a noninteger \(D\) is a fractal./
 #+end_quote
@@ -106,7 +107,9 @@ Fractal Geometry of Nature/ Mandelbrot himself commented that in hindsight it
 may have been more appropriate [[cite:mandelbrotFractalGeometryNature1982][p. 459]]:
 
 #+begin_quote
-/to leave the term "fractal” without a pedantic definition, to use “fractal dimension” as a generic term applicable to all the variants in Chapter 39, and to use in each specific case whichever definition is the most appropriate./
+/to leave the term "fractal” without a pedantic definition, to use “fractal
+dimension” as a generic term applicable to all the variants in Chapter 39, and
+to use in each specific case whichever definition is the most appropriate./
 #+end_quote
 
 Gerald Edgar, in his 2008 book /Measure, topology, and fractal geometry/
@@ -118,7 +121,12 @@ indeed adopted in that work.
 
 Although reviewing the precise definition of a fractal would have been very
 interesting, without a cursory knowledge of fractals generally this would have
-been very time consuming and outside the scope of this report, for this reason no strict definition will be used for fractals, but, guiding principles implemented by other authors will be used.
+been very time consuming and outside the scope of this report [fn:: Mandelbrot
+also discussed fractals of a Euclidean and Reimannian nature,
+[[cite:mandelbrotFractalGeometryNature1982][p. 361]], this again is interesting
+but too specific for the broad nature of our investigation]. no strict
+definition will be used for fractals, but, guiding principles implemented by
+other authors will be used.
 
 Some authors simply define a fractal as a shape that /shows irregularities at all scales/ [[cite:gouyetPhysicsFractalStructures1996][p. 1]] and
 in his 2003 book, /Fractal Geometry/, Facloner  it is more convenient to describe a fractal by a list of properties characteristic of such shapes [fn:: Much like the definition of life in the field of biology] because of the difficulty in defining a fractal in a way that can encompass all edge cases [[cite:falconerFractalGeometryMathematical2003b][p. xxv]]:
@@ -154,23 +162,25 @@ Dimension is the main defining property of a fractal. As aforementioned above, t
 To define a fractal, we must define it's dimension. Whilst some research states that a fractal has a non-integer dimension, this is not true for all fractals. Although, most fractals like the Koch snowflake do in fact have non-integer dimensions, we can easily find a counter example namely, the Mandelbrot set. The Mandelbrot set lies in the same dimension as a square, a 2-Dimensional shape. However, we give recognition to the complexity and roughness of the Mandelbrot set which clearly distiguishes itself from a square. Beneath the Mandelbrot set's complexity are exact replicates of the largest scaled Mandelbrot set, i.e a self similar shape. Furthermore, although the Mandelbrot set has an integer dimension, the self similarity and complexity is what also defines its fractal nature.
 
 ** Fractal Dimension
+The concept of a non-integer dimension may at first seem odd, particularly given that the familiar definition from linear algebra (concerned with the number of vectors within a basis for a vector space cite:larsonElementaryLinearAlgebra1991) is strictly an integer value, but in early \(20^{\mathrm{th}}\) century mathematicians recognised the shortcomings of this definition [[cite:mandelbrotFractalGeometryNature1982][Ch. 3]].
+
+In this section we hope to convince the reader that there is grounds for extending the definition of dimension and as a matter of fact many definitions for the measure and dimension of a set have been proposed (see generally [[cite:mandelbrotFractalGeometryNature1982][Ch. 39]] and [[cite:gouyetPhysicsFractalStructures1996][\S 1.3]])
+of these the /Hausdorff/ is considered to be the most important and mathematically robust [[cite:falconerFractalGeometryMathematical2003b][p. 27]],
+while the box counting dimension has the most practical applications in science [[cite:peitgenChaosFractalsNew2004][p. 192]].
+
+The Hausdorff dimension is more like counting balls than boxes and is identical
+to the Hausdorff dimension in many cases, it's more general but harder to define
+cite:sandersonFractalsAreTypically2017, An extension to the work of this report
+would be to show the mathematical connections between the Hausdorff Dimension
+and box counting dimension with respect to the fractals generated and measured.
+
 *** Hausdorff Dimension                                                       :Ryan:
 :PROPERTIES:
 :CUSTOM_ID: Hausdorff-dimension
 :END:
-TThere are many differente defintions of /fractal dimension/ the box counting dimentions was probably rejected as less mathematically robust or useful by the pioneers of the /Haussdorff dimension/ [[cite:falconerFractalGeometryMathematical2003b][\S 3.6]]. The Hausdorff dimension is more like counting balls than boxes and is identical to the Hausdorff dimension in many cases, it's more general but harder to define.
 
-That's why we use the box counting method, we can actually do it. showing the equivalence between the two methods in the cases we implemented would have been nice to do but the math was very daunting and not withing the time constraints of this project.
+The Hausdorff dimension is ... [fn:res]
 
-Mandelbrot [[cite:mandelbrotFractalGeometryNature1982][363]] has some notes in his book but the following were quite helpful:
-
-- and jean [[cite:gouyetPhysicsFractalStructures1996][\S1.3]]
-- Vicsek [[cite:vicsekFractalGrowthPhenomena1992][Ch. 4]]
-  + See also p 14 specifically
-- Edgar [[cite:edgarMeasureTopologyFractal2008a][Ch. 6]]
-- Falconer [[cite:falconerFractalGeometryMathematical2003b][Ch. 2]]
-- Tamas [[cite:telChaoticDynamicsIntroduction2006][\S2.1.2]]
-- Otto [[cite:peitgenChaosFractalsNew2004][\S 4.3]]
 
 **** STRT Topological Equivalence
 :PROPERTIES:
@@ -322,7 +332,7 @@ This is defined for all subsets of \(\mathbb{R}^n\) for example the value of  $\
 
 
 #+NAME: hausdorff-covering
-#+CAPTION: The shape on the left corresponds to $F \subset \mathbb{R^{2}}$, each identical square box on the right represents a set $U_{i}$.
+#+CAPTION: TODO: This seems wrong, remove it; The shape on the left corresponds to $F \subset \mathbb{R^{2}}$, each identical square box on the right represents a set $U_{i}$.
 #+attr_html: :width 400px
 #+attr_latex: :width 9cm
 [[./notes/HaussDorf_Dim_Ink.svg]]
@@ -397,6 +407,7 @@ Hence the value of the s-dimensional /Hausdorff Measure/, $s$ is only a finite, 
 The value $s$ at which $\mathcal{H}^{s}$ changes from $\infty$ to 0, shown in figure [[hausdorff-vals]]  and eqref:eq:hdfzero is the definition of the /Hausdorff Measure/, it is a generalisation of the idea of dimension that is typically understood with respect to ordinary shapes and 3D figures.
 ***** TODO Research
 I feel very inclided to read [[https://warwick.ac.uk/fac/sci/maths/people/staff/mark_pollicott/p3/tehran.pdf][these notes]] [fn:: [[file:~/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resources/Uncorrected-Warwick-BoxCount-Hausendorff-Notes.pdf][Local Copy]]]
+
 
 *** Box Counting                                                              :James:
 Sources for this section are primarily:
@@ -2732,8 +2743,25 @@ recoll -c /home/ryan/Dropbox/Books/Textbooks/Mathematics/Chaos_Theory/chaos_book
 
 #+RESULTS:
 | t | (( \(\[\[cite:[a-z0-9A-Z]+\]\[.*\]\]\) 1 '(face nil display 🤔)) ( \(cite:[a-z0-9A-Z]+\) 1 '(face nil display 🤔)) (.*\(\[\[cite:[a-z0-9A-Z]+\]\[.*\]\]\).* 1 '(face nil display 🤔)) (.* \(cite:[a-z0-9A-Z]+\) .* 1 '(face nil display 🤔)) ( \(\[\[cite:[a-z0-9A-Z]+\]\[.*\]\]\)  1 '(face nil display 🤔)) ( \(cite:[a-z0-9A-Z]+\)  1 '(face nil display 🤔)) (org-font-lock-hook) (^\(\**\)\(\* \)\(.* |
+** Resources Used for the Hausdorff Dimension
+:PROPERTIES:
+:CUSTOM_ID: haus-resource
+:END:
+Research for \S [[#Hausdorff-dimension]] on the Hausdorff Dimension proved actually to be quite difficult, while much information is available online, precice and clear explanations of the Hausdorff dimension are difficult to find without scouring texts, the following proved very helpful generally in preparing for this topic and I would strongly recommend these chapters as a starting point for further reading on this topic:
+
+- Edgar, G. A., /Measure, topology, and fractal geometry/ [[cite:edgarMeasureTopologyFractal2008a][Ch. 6]]
+- Falconer, K. J., /Fractal geometry: mathematical foundations and applications/  [[cite:falconerFractalGeometryMathematical2003b][Ch. 2]]
+- Gouyet, J., /Physics and fractal structures/ [[cite:gouyetPhysicsFractalStructures1996][\S1.3]]
+- Vicsek, T., /Fractal Growth Phenomena/ [[cite:vicsekFractalGrowthPhenomena1992][Ch. 4]]
+  + See also p 14 specifically
+- Tél, T., Gruiz, M., & Kulacsy, K., /Chaotic dynamics: an introduction based on classical mechanics/  [[cite:telChaoticDynamicsIntroduction2006][\S2.1.2]]
+- Peitgen, H., Jürgens, H., & Saupe, D., /Chaos and fractals: new frontiers of science/  [[cite:peitgenChaosFractalsNew2004][\S 4.3]]
 
 * Footnotes
+
+[fn:res]
+
+See \S [[#haus-resource]] for further reading.
 
 [fn:un] Emojis and UTF8 were used in this code, and despite using ~xelatex~ with ~fontspec~ they aren't rendering properly, we intend to have this rectified in time for final submission.
 

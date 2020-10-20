@@ -675,6 +675,44 @@
       \verb https://science.howstuffworks.com/math-concepts/fibonacci-nature.htm
       \endverb
     \endentry
+    \entry{larsonElementaryLinearAlgebra1991}{book}{}
+      \name{author}{2}{}{%
+        {{hash=8199c3ea1d4ae7a5ccbdaac7e7d521e5}{%
+           family={Larson},
+           familyi={L\bibinitperiod},
+           given={Ron},
+           giveni={R\bibinitperiod}}}%
+        {{hash=f956011e1a4f808000d3bd4d05e0e18b}{%
+           family={Edwards},
+           familyi={E\bibinitperiod},
+           given={Bruce\bibnamedelima H.},
+           giveni={B\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Lexington, Mass}%
+      }
+      \list{publisher}{1}{%
+        {D.C. Heath}%
+      }
+      \strng{namehash}{25b9a5ae2e2b8415025fe9d7d08e72b4}
+      \strng{fullhash}{25b9a5ae2e2b8415025fe9d7d08e72b4}
+      \strng{bibnamehash}{25b9a5ae2e2b8415025fe9d7d08e72b4}
+      \strng{authorbibnamehash}{25b9a5ae2e2b8415025fe9d7d08e72b4}
+      \strng{authornamehash}{25b9a5ae2e2b8415025fe9d7d08e72b4}
+      \strng{authorfullhash}{25b9a5ae2e2b8415025fe9d7d08e72b4}
+      \field{sortinit}{L}
+      \field{sortinithash}{dad3efd0836470093a7b4a7bb756eb8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd ed}
+      \field{isbn}{978-0-669-24592-9}
+      \field{note}{Includes index}
+      \field{pagetotal}{592}
+      \field{title}{Elementary Linear Algebra}
+      \field{year}{1991}
+      \field{dateera}{ce}
+      \keyw{Algebras; Linear}
+    \endentry
     \entry{lehmanReadingsMathematicsComputer2010}{online}{}
       \name{author}{3}{}{%
         {{hash=e9354f7da9d5e5cbaf657bca9e1daf67}{%
