@@ -162,11 +162,17 @@ Dimension is the main defining property of a fractal. As aforementioned above, t
 To define a fractal, we must define it's dimension. Whilst some research states that a fractal has a non-integer dimension, this is not true for all fractals. Although, most fractals like the Koch snowflake do in fact have non-integer dimensions, we can easily find a counter example namely, the Mandelbrot set. The Mandelbrot set lies in the same dimension as a square, a 2-Dimensional shape. However, we give recognition to the complexity and roughness of the Mandelbrot set which clearly distiguishes itself from a square. Beneath the Mandelbrot set's complexity are exact replicates of the largest scaled Mandelbrot set, i.e a self similar shape. Furthermore, although the Mandelbrot set has an integer dimension, the self similarity and complexity is what also defines its fractal nature.
 
 ** Fractal Dimension
-The concept of a non-integer dimension may at first seem odd, particularly given that the familiar definition from linear algebra (concerned with the number of vectors within a basis for a vector space cite:larsonElementaryLinearAlgebra1991) is strictly an integer value, but in early \(20^{\mathrm{th}}\) century mathematicians recognised the shortcomings of this definition [[cite:mandelbrotFractalGeometryNature1982][Ch. 3]].
+The concept of a non-integer dimension may at first seem odd, particularly given that the familiar definition from linear algebra (concerned with the number of vectors within a basis for a vector space cite:larsonElementaryLinearAlgebra1991) is strictly an integer value, but in the early \(20^{\mathrm{th}}\) century mathematicians recognised the shortcomings of this definition [[cite:mandelbrotFractalGeometryNature1982][Ch. 3]].
 
-In this section we hope to convince the reader that there is grounds for extending the definition of dimension and as a matter of fact many definitions for the measure and dimension of a set have been proposed (see generally [[cite:mandelbrotFractalGeometryNature1982][Ch. 39]] and [[cite:gouyetPhysicsFractalStructures1996][\S 1.3]])
-of these the /Hausdorff/ is considered to be the most important and mathematically robust [[cite:falconerFractalGeometryMathematical2003b][p. 27]],
-while the box counting dimension has the most practical applications in science [[cite:peitgenChaosFractalsNew2004][p. 192]].
+In this section we hope to convince the reader that there is grounds for
+extending the definition of dimension and as a matter of fact many definitions
+for non-integer dimensions of a shape have been proposed (see generally
+[[cite:mandelbrotFractalGeometryNature1982][Ch. 39]] and
+[[cite:gouyetPhysicsFractalStructures1996][\S 1.3]]) of these the /Hausdorff Dimension/ (and corresponding /Hausdorff Measure/) is
+considered to be the most important and mathematically robust
+[[cite:falconerFractalGeometryMathematical2003b][p. 27]], while the box counting
+dimension has the most practical applications in science
+[[cite:peitgenChaosFractalsNew2004][p. 192]].
 
 The Hausdorff dimension is more like counting balls than boxes and is identical
 to the Hausdorff dimension in many cases, it's more general but harder to define
@@ -174,34 +180,27 @@ cite:sandersonFractalsAreTypically2017, An extension to the work of this report
 would be to show the mathematical connections between the Hausdorff Dimension
 and box counting dimension with respect to the fractals generated and measured.
 
-*** Hausdorff Dimension                                                       :Ryan:
-:PROPERTIES:
-:CUSTOM_ID: Hausdorff-dimension
-:END:
 
-The Hausdorff dimension is ... [fn:res]
-
-
-**** STRT Topological Equivalence
+*** STRT Topological Equivalence
 :PROPERTIES:
 :CUSTOM_ID: topological-equivalence
 :END:
-Sources for this section on topology are primarily. [[cite:peitgenChaosFractalsNew2004][p. 106]]
 
-Topology is an area of mathematics concerned with ideas of continuity through the study of figures that are preserved under homeomorphic transformations. cite:gilmoreTopologyChaosAlice2002
 
-Two figures are said to be homeomorphic if there is a continuous bijective mapping between the two shapes [[cite:peitgenChaosFractalsNew2004][p. 105]].
+Topology is an area of mathematics concerned with ideas of continuity through the study of figures that are preserved under homeomorphic transformations cite:gilmoreTopologyChaosAlice2002 , where two figures are said to be homeomorphic if there is a continuous bijective mapping between the two shapes [[cite:peitgenChaosFractalsNew2004][p. 105]]
+.
+[fn:: For further reading on this topic see [[cite:peitgenChaosFractalsNew2004][p. 106]] ]
 
 So for example deforming a cube into a sphere would be homeomorphic, but deforming a sphere into a torus would not, because the the surface of the shape would have to be compromised to acheive that.
 
-Historically the concept of dimension was a difficult problem with a tenuous
-definition, while an inutitive definition related the dimension of a shape to
+As mentioned above, historically, the concept of dimension was a difficult problem with a tenuous
+definition.  Although an inutitive definition related the dimension of a shape to
 the number of parameters needed to describe that shape, this definition is not
-sufficient to be preserved under a homeomorphic transform however.
+sufficient to be preserved under a homeomorphic transform.
 
-Consider the koch fractal in figure [[koch-line]] (see also figure [[koch-snowflake]]), at each iteration the perimeter is given by $p_{n}=p_{n-1}  \left(\frac{4}{3} \right)$, this means if the shape is scaled by some factor $s$ the the following relationship holds.
+Consider the koch fractal and snowflake in figures [[koch-line]] and [[koch-snowflake]], at each iteration the perimeter is given by \(p_{n}= \left(\frac{4}{3} \right)p_{n-1}\) and the number of edges by:
 
-The number of edges in the koch fractal is given by:
+
 
 \begin{align}
 N_{n} &= N_{n-1} \cdot 4 \\
@@ -219,39 +218,22 @@ The total perimeter would be given by:
 \begin{align}
 p_{n} &= N_{n} \times l \\
 &= 3\cdot 4^{n} \times \frac{s \cdot l_{o}}{3^{n}} \\
-&= 3 \cdot s \cdot  l_{0} \left( \frac{4}{3} \right)^{n}
+&= 3 \cdot s \cdot  l_{0} \left( \frac{4}{3} \right)^{n}\\
+ \implies p_{n} \cdot s & \propto \left(\frac{4}{3}\right)^{n}\\
+& \implies  n = \frac{\log\left( 4 \right)}{\log\left( 3 \right)} \approx 1.26
 \end{align}
-The koch snowflake, is defined such that there are no edges, every point on the curve is the vertex of an equilateral triangle. Every time the koch curve is iterated, one edge is reduced in length by a scale of 3 and the overall length increases by a factor of 4, this means if the overall shape was scaled by a factor of $s$ the number of segments.
 
-# http://mypages.iit.edu/~maslanka/KochSnowflake.pdf
+This means that if the koch snowflake is scaled by any factor, the resulting perimeter of the snowflake will not be linearly proportional to the scaling factor, as would be the case with an ordinary shape such as a square or a circle, it will instead by proportional to 1.26, this should hopefully motivate the need to more clearly define both the concept of measure (in this case the permiter [fn:: Grant Sanderson equates the measure of a fractal as analogous to mass, which is a very helpful way comparison cite:sandersonFractalsAreTypically2017]) and dimension.
 
-Briggs and Tyree provide a great introduction.
-
-the scale of resolution increases 3 fold
-
-\begin{align}
-s \cdot p_{n} &=  (4/3)^{n} \cdot s \cdot P_{0}\\
-& \propto \left(\frac{4}{3}\right)^{n} \\
- \implies  n &= \frac{\ln\left( 4 \right)}{\ln\left( 3 \right)} \label{eq:koch-dim}
-\end{align}
-In ordinary geometric shapes this value $n$ will be the dimension of the shape,
+To clarify the koch snowflake, is defined such that there are no edges, every point on the "curve" is the vertex of an equilateral triangle, this shape has no smooth edges.
 
 See [[cite:strogatzNonlinearDynamicsChaos2015][p. 414]] for working.
 
-The idea is we start with the similarity dimension
-[[cite:strogatzNonlinearDynamicsChaos2015][p. 413]] which should be equal to the
-hausdorff and box counting for most fractals, but for fractals that aren't so obviously self similar it won't be feasible [[cite:liIntegrationFuzzyLogic2006][p. 393]]  but for the julia set we'll need
-to expand the concept to box counting, we don't know whether or not the
-dimension of the julia set is constant across scales so we use linear regression
-to check, this is more important for things like coastlines.
+This approach of considering the scaling factor of a deterministic fractal is known as the similarity dimension
+[[cite:strogatzNonlinearDynamicsChaos2015][p. 413]] and should be equal to the
+Hausdorff and box counting dimensions for most fractals. For fractals that aren't so obviously self similar it won't be feasible however, [[cite:liIntegrationFuzzyLogic2006][p. 393]]  for example with the julia set or the fractal or a coastline it is not immediately clear if the the dimension would be constant at all scales [fn:: It is indeed shown to be mostly constant at all scales in section \S
+[[#linear-reg-julia]] ].
 
-
-
-with respect to that shapes /measure/. For example consider measure similar to mass, a piece
-of wire when scaled in length, will increase in mass by a factor of that scale, whereas
-a sheet of material would increase in mass by a factor proportional to the square of that scaling.
-
-In the case of the koch snowflake, the measure of the shape, when scaled, will increase by a factor of
 
 
 #+NAME: koch-line
@@ -260,7 +242,6 @@ In the case of the koch snowflake, the measure of the shape, when scaled, will i
 #+attr_latex: :width 9cm
 [[file:media/tikz/Koch_line.png]]
 # \includestandalone[]{.media/tikz/Koch_line.png]]
-}
 
 #+NAME: koch-snowflake
 #+CAPTION: Progression of the Koch Snowflake
@@ -269,19 +250,27 @@ In the case of the koch snowflake, the measure of the shape, when scaled, will i
 [[file:media/tikz/Snowflake.png]]
 # \includestandalone[]{./media/tikz/Snowflake.tex}
 
-
-
-
-
-
-In the development of topology
-**** STRT Hausdorff Dimension
-Sources for this section on Hausdorff Dimension are primarily [[cite:falconerFractalGeometryMathematical2003][Ch. 2]]
-***** Measure
+*** Hausdorff Dimension                                                       :Ryan:
+:PROPERTIES:
+:CUSTOM_ID: Hausdorff-dimension
+:END:
+*** Hausdorff Measure
 :PROPERTIES:
 :CUSTOM_ID: hausdorff-measure
 :END:
-Let $F$ be some arbitrary subset of euclidean space $\mathbb{R}^n$, [fn:: A subset of euclidean space could be interpreted as an uncountable set containing all points describing that region TODO Cite ]
+
+
+# #+attr_latex: :width 12cm
+#+NAME: fig:ball-covering
+#+CAPTION: The Hausdorff Measure, in this case area, of an arbitrary surface approximated by the cross section of litte balls of diameter \(< \delta \), this is reproduced from /Measure, Topology and Fractal Geometry/ [[cite:edgarMeasureTopologyFractal2008a][p. 166]] because it so elegantly illustrates the concept of the Hausdorff Measure.
+#+attr_html: :width 400px
+#+ATTR_LATEX: :float wrap :width 7cm
+[[file:media/edgar_181_of_292.png]]
+
+
+The Hausdorff dimension depends first on a rigorous definition of measure, this is distinct from the box counting approach in that it is more mathematically rigorous, it is however complex and in practice this report will be concerned with implementing the box counting dimension. [fn:res]
+
+Let $F$ be some arbitrary subset of euclidean space $\mathbb{R}^n$, [fn:: A subset of euclidean space could be interpreted as an uncountable set containing all points describing that region]
 
 Consider a collection of sets,$\{U_i: i \in \mathbb{Z}^{+}, U\subset \mathbb{R}^{n}\}$, each of which having a
 diameter less than $\delta$.
@@ -289,13 +278,14 @@ diameter less than $\delta$.
 
 
 The motivating idea is that if the elements of $U$ can be laid ontop of
-$F$ then $U$ is said to be a $\delta$ -cover of $F$, more rigorously this could be defined:
+$F$ then $U$ is said to be a $\delta$ -cover of $F$, more rigorously this could be defined: [fn:: The use of square and round brackets adjacent to large operators such as \(\bigcup\) and \(\sum\) is purely for the sake of delimiting these variables, there is no mathematical signifiicance, they are just brackets]
 
 \begin{align}
     F \subset \bigcup^\infty_{i=1} \left[ U_i \right] \quad : 0 \leq \left\lvert U_i \right\rvert \leq \delta \label{eq:hausdorff-covering}
 \end{align}
 
-An example of this covering is provided in figure [[hausdorff-covering]], in that example the figure on the right is covered by squares, which each could be an element of $\{U_{i}\}$, it is important to note however that the shapes needn't be squares, they could be any arbitrary figure.
+An example of this covering is provided in figure [[hausdorff-covering]], in that example the figure on the right is covered by squares, which each could be an element of $\{U_{i}\}$, it is important to note, by this definition, that the shapes represented by \(U\) could be any arbitrary figure [[cite:falconerFractalGeometryMathematical2003b][\S 2.1]] the size of which may vary in size so long as the diameter is less than \(\delta\).
+
 
 So for example:
 
@@ -304,7 +294,9 @@ So for example:
 
 - $F$ could be the outline of a coastline and $U_{i}$ could be a set of circles, OR
 
-- $F$ could be the surface of a sheet and $U_{i}$ could be a set of spherical balls
+- $F$ could be the surface of a sheet and $U_{i}$ could be a set of spherical balls as shown in figure [[fig:ball-covering]]
+
+  + Some authors suggest that the Haussdorff Measure is concerned primarily with round covering objects (see e.g. cite:sandersonFractalsAreTypically2017), this is well illustrated by figure [[fig:ball-covering]], however in truth it is merely more convenient to use round shapes for most fractals.
 
   + The use of balls is a simpler but equivalent approach to the theory [[cite:falconerFractalGeometryMathematical2003b][\textsection 2.4 ]] because any set of diamater $r$ can be enclosed in a ball of radius $\frac{r}{2}$ [[cite:edgarMeasureTopologyFractal2008][p. 166]]
 
@@ -335,7 +327,8 @@ This is defined for all subsets of \(\mathbb{R}^n\) for example the value of  $\
 #+CAPTION: TODO: This seems wrong, remove it; The shape on the left corresponds to $F \subset \mathbb{R^{2}}$, each identical square box on the right represents a set $U_{i}$.
 #+attr_html: :width 400px
 #+attr_latex: :width 9cm
-[[./notes/HaussDorf_Dim_Ink.svg]]
+[[file:notes/HaussDorf_Dim_Ink.svg]]
+
 
 
 #+NAME: abstract-shape
@@ -344,8 +337,8 @@ This is defined for all subsets of \(\mathbb{R}^n\) for example the value of  $\
 #+attr_latex: :width 9cm
 [[file:media/Arbitrary-F-Shape.svg]]
 
-****** Lower Dimension Hausdorff Measurements
-******* Examples
+**** Lower Dimension Hausdorff Measurements
+***** Examples
 Consider again the example of a 2D shape, the value of $\mathcal{H}^{1}$ would still be defined by eqref:eq:delta-measure, but unlike $\mathcal{H}^{2}$ in section [[#hausdorff-measure]] the value of $\left\lvert U_i \right\rvert^1$ would be considered as opposed to $\left\lvert U_i \right\rvert^2$.
 
 As $\delta$ is made arbitrarily small the boxes that cover the shape are made also to be arbitrarily small. Although the area of the boxes must clearly be bounded by the shape of $F$, if one imagines an infinite number of infinitely dense lines packing into a 2D shape with an infinite density it can be seen that the total length of those lines will be infinite.
@@ -354,14 +347,14 @@ To build on that same analogy, another way to imagine this is to pack a 2D shape
 
 This is consistent with shapes of other shapes as well, consider the koch snowflake introduced in section [[#topological-equivalence]] and shown in figure [[koch-line]], the dimension of this shape is greater than 1, and the number of lines necessary to describe that shape is also infinite.
 
-******* TODO Formally
+***** TODO Formally
 If the dimension of $F$ is less than $s$, the Hausdorff Measure will be given by: [fn:: I haven't been able to find a proof for this, I wonder if I could prove it by just applying the definition?]
 
 \begin{align}
 \mathrm{dim}\left(  F \right ) < s \implies \mathcal{H}^{s} \left( F \right)  = \infty
 \end{align}
 
-****** Higher Dimension Hausdorff Dimension
+**** Higher Dimension Hausdorff Dimension
 For small values of $s$ (i.e. less than the dimension of  $F$), the value of $\mathcal{H}^s$  will be $\infty$.
 
 Consider some value $s$ such that the Hausdorff measure is not infinite, i.e. values of $s$: [fn:: Could fractal dimensions be complex? Maybe there could be a proof to show that the dimension is necessarily complex.]
@@ -402,14 +395,14 @@ Hence the value of the s-dimensional /Hausdorff Measure/, $s$ is only a finite, 
 #+attr_latex: :width 9cm
 [[file:media/tikz/hausdorff-dimension-plot.png]]
 
-***** Hausdorff Dimension
+*** Hausdorff Dimension
+
 
 The value $s$ at which $\mathcal{H}^{s}$ changes from $\infty$ to 0, shown in figure [[hausdorff-vals]]  and eqref:eq:hdfzero is the definition of the /Hausdorff Measure/, it is a generalisation of the idea of dimension that is typically understood with respect to ordinary shapes and 3D figures.
-***** TODO Research
+*** TODO See also
 I feel very inclided to read [[https://warwick.ac.uk/fac/sci/maths/people/staff/mark_pollicott/p3/tehran.pdf][these notes]] [fn:: [[file:~/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resources/Uncorrected-Warwick-BoxCount-Hausendorff-Notes.pdf][Local Copy]]]
 
-
-*** Box Counting                                                              :James:
+*** Box Counting Dimension                                                    :James:
 Sources for this section are primarily:
 - Falconer [[cite:falconerFractalGeometryMathematical2003b][Ch. 3.1]]
 - Strogatz Non Linear Dynamics [[cite:strogatzNonlinearDynamicsChaos2015][Ch. 11.4]]
@@ -1288,11 +1281,14 @@ This returns the Values:
 |   938 | 11710.0 |
 |  1000 | 12744.0 |
 **** TODO Using Linear Regression
+:PROPERTIES:
+:CUSTOM_ID: linear-reg-julia
+:END:
 - Avoiding ~Abs~ is twice as fast
 - Column wise is faster in fortran/julia/R slower in C/Python
  We have no evidence to show that the dimension will be stable, this is good for coastlines and stuff.
 
- to do that we use linear regression.
+This approach is layed out in [[cite:vicsekFractalGrowthPhenomena1992][p. 30]].
 ***** Performance
 - Switching from ~abs()~ to sqaured help
 - Taking advantage of multi core processing in loops
