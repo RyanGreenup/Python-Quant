@@ -341,11 +341,6 @@ This is defined for all subsets of \(\mathbb{R}^n\) for example the value of  $\
 
 
 
-#+NAME: abstract-shape
-#+CAPTION: A disconnected subset of $\mathbb{R}^{2}$, the squares have a diameter of $\sqrt{2}$, the circles 1 and the equilateral triangles 1.
-#+attr_html: :width 200px :float wrap
-#+attr_latex: :width 4cm
-[[file:media/Arbitrary-F-Shape.svg]]
 
 **** Lower Dimension Hausdorff Measurements
 ***** Examples
@@ -365,6 +360,8 @@ If the dimension of $F$ is less than $s$, the Hausdorff Measure will be given by
 \end{align}
 
 **** Higher Dimension Hausdorff Dimension
+
+
 For small values of $s$ (i.e. less than the dimension of  $F$), the value of $\mathcal{H}^s$  will be $\infty$.
 
 Consider some value $s$ such that the Hausdorff measure is not infinite, i.e. values of $s$:
@@ -406,6 +403,12 @@ Hence the value of the s-dimensional /Hausdorff Measure/, $s$ is only a finite, 
 [[file:media/tikz/hausdorff-dimension-plot.png]]
 
 *** Hausdorff Dimension
+
+#+NAME: abstract-shape
+#+CAPTION: A disconnected subset of $\mathbb{R}^{2}$, the squares have a diameter of $\sqrt{2}$, the circles 1 and the equilateral triangles 1.
+#+attr_html: :width 200px
+#+attr_latex: :width 4cm :float wrap
+[[file:media/Arbitrary-F-Shape.svg]]
 
 
 The value $s$ at which $\mathcal{H}^{s}$ eqref:eq:hdfzero changes from $\infty$ to 0, shown in figure [[hausdorff-vals]],  is the defined to be the /Hausdorff Dimension/ [[cite:falconerFractalGeometryMathematical2003b][\S 2.2]], it is a generalisation of the idea of dimension that is typically understood with respect to ordinary figures.
@@ -469,16 +472,16 @@ Let $F$ be the Koch Curve.
 &= \frac{\ln(4)}{\ln(3)}
 \end{align*}
 ** Generating Self Similar Fractals                                            :Ryan:
-See generally [[cite:strogatzNonlinearDynamicsChaos2015][Ch. 11]]
-Three ways to generate
+In order to investigate the dimension of fractals, we intend to generate and measure a variety of figures by using of */R/* cite:rcoreteamLanguageEnvironmentStatistical2020, /Julia/ cite:bezansonJuliaFreshApproach2017 and /Python/ cite:WelcomePythonOrg.
 
-1. Chaos Game
-2. Iteration Like Matrices and Turtles
-3. Testing if each region Belongs
-   a. Like Julia Set
+Self Similar fractals have a self-similar dimension and so can be used to verify an approach implemented with a programming language.
 
-*** TODO Examples
-**** DONE Vicsek Fractal
+# 1. Chaos Game
+# 2. Iteration Like Matrices and Turtles
+# 3. Testing if each region Belongs
+#    a. Like Julia Set
+
+*** DONE Vicsek Fractal
 The Vicsek Fracatl is self similar, thus we can use it to test our box counting method [fn:: Since the Vicsek fractal is self similar, we know that the dimension will be constant, as opposed to a dimension that slightly varies, hence there is no need for linear regression which would be necessary to measure someting like a coastline.].
 The Vicsek Fractal involves a pattern of iterating boxes:
 
