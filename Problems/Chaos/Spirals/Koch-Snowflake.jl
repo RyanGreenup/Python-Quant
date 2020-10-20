@@ -70,6 +70,9 @@ end 800 800 "/tmp/snowFlat600.png"
 #------------------------------------------------------------
 #--- Round Snowflake Working ---------------------------------
 #------------------------------------------------------------
+for i in range(1, 15)
+    print(i)
+end
 
 function snowflake(length, level, 🐢)
 if level == 0
@@ -87,17 +90,15 @@ Turn(🐢, -60)
 snowflake(length, level-1, 🐢)
 end
 🐢 = Turtle()
-@svg begin
+@png begin
 for i in 1:3
     levels = 9
+    Pendown(🐢)
     snowflake(8^(levels-1), levels, 🐢)
     Turn(🐢, 120)
 end
-end 2000 2000 "./snowCurve.svg"
-
-
-
-0 "/tmp/snowCurve.png"
+end 600 600 
+;convert -density 1000 -quality 95 -resize 400x snowCurve.svg snowCurve.png
 
 # The starting length must be such that the final length = 1 pixel
 # this depends on the levels

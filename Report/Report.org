@@ -1,6 +1,6 @@
 #+TITLE: The Emergence of Patterns in Nature and Chaos Theory
 :PREAMBLE:
-#+OPTIONS: broken-links:auto todo:nil H:9 tags:t
+#+OPTIONS: broken-links:auto todo:nil H:9 tags:nil
 #+STARTUP: overview
 #+AUTHOR: Ryan Greenup & James Guerra
 #+INFOJS_OPT: view:showall toc:3
@@ -227,7 +227,7 @@ This means that if the koch snowflake is scaled by any factor, the resulting per
 
 To clarify the koch snowflake, is defined such that there are no edges, every point on the "curve" is the vertex of an equilateral triangle, this shape has no smooth edges.
 
-See [[cite:strogatzNonlinearDynamicsChaos2015][p. 414]] for working.
+See [[cite:strogatzNonlinearDynamicsChaos2015][p. 414]] and [[cite:baderSpacefillingCurvesIntroduction2013][\S 5.4]] for further reading on the self similar dimension of the /Koch Snowflake/.
 
 This approach of considering the scaling factor of a deterministic fractal is known as the similarity dimension
 [[cite:strogatzNonlinearDynamicsChaos2015][p. 413]] and should be equal to the
@@ -476,26 +476,73 @@ In order to investigate the dimension of fractals, we intend to generate and mea
 
 Self Similar fractals have a self-similar dimension and so can be used to verify an approach implemented with a programming language.
 
-# 1. Chaos Game
-# 2. Iteration Like Matrices and Turtles
-# 3. Testing if each region Belongs
-#    a. Like Julia Set
-
-*** DONE Vicsek Fractal
-The Vicsek Fracatl is self similar, thus we can use it to test our box counting method [fn:: Since the Vicsek fractal is self similar, we know that the dimension will be constant, as opposed to a dimension that slightly varies, hence there is no need for linear regression which would be necessary to measure someting like a coastline.].
-The Vicsek Fractal involves a pattern of iterating boxes:
+*** Vicsek Fractal
+:PROPERTIES:
+:CUSTOM_ID: vicsek-fractal
+:END:
 
 
-# # #+ATTR_LATEX: :float nil
-# #+NAME: vicsek-matrix-gen
-# #+CAPTION: blah
+#+attr_html: :width 300px
+#+ATTR_LATEX: :float wrap :width 7cm
+#+NAME: vicsek-fractal-julia
+#+CAPTION: Vicsek fractal [[cite:vicsekFractalGrowthPhenomena1992][p. 12]] (also known as the /AntiCross-Stictch/ cite:janwassenaarCantorDust2005) produced by listing [[vicsek-matrix-gen]], at each iterative step the fractal itself is "copied" to the four corners of itself producing this complex shape.
+[[file:media/Vicsek-Fractal.png]]
+
+The Vicsek Fractal [[cite:vicsekFractalGrowthPhenomena1992][p. 12]] involves a pattern of iterating boxes, to implement this consider the process[fn:: This was actually a fractal I came up with myself only to later find that somebody already had the same idea!]:
+
+\begin{align}
+\mathbf{B} \leftarrow
+   \begin{bmatrix}
+       \mathbf{B} & \mathbf{Z} & \mathbf{B} \\
+       \mathbf{Z} & \mathbf{B} & \mathbf{Z} \\
+       \mathbf{B} & \mathbf{Z} & \mathbf{B} \\
+   \end{bmatrix} \label{eq:visek-iter}
+\end{align}
+
+where:
+
+- \(\mathbf{B}= \left[ 1 \right]\)
+- \(\mathbf{Z}= \left[ 0 \right]  \)
+
+
+
+If this is repeated many times a matrix of values will be created, such a matrix
+can be interpreted as a greyscale image and plotted as a heatmap to show the
+fractal (shown in figure [[vicsek-fratal-julia]]).
+
+The iterative process shown in eqref:eq:visek-iter is represented as a recursive function at line 5 of listing [[vicsek-matrix-gen]] and plotted immediately after. To measure the the dimension of this fractal a the sum of the matrix is taken to be the measure of the fractal, two fractals are generated and the change in size relative to the scale is compared and the log taken to return the value of the dimension:
+
+\[
+\mathcal{D} = \frac{s}{m_{2}/m_{1}}
+\]
+
+The recursive function begins with a 3x3 matrix, where the four corner squares
+and middle square are set to 1 and the rest are set to 0, a new matrix is built
+by joining together the past matrix following the rule described in eqref:eq:visek-iter.
+The function repeats until it reaches some arbitrary set width.
+
+At each step of the process, the number of elements of this fractal increases by
+a ratio of 5 while the height increases only by a factor of 3, hence the self
+similarity dimension is given by:
+
+
+\begin{align}
+5 &= 3^{\mathcal{D}} \nonumber \\
+\implies \mathcal{D} &= \frac{\ln 5}{\ln 3} \label{eq:vic-dim-val}
+\end{align}
+
+
+
+
+
+@@latex: \newpage @@
+#+NAME: vicsek-matrix-gen
+#+CAPTION: Generating the Vicsek Fractal (shown in figure ref:vicsek-fractal-julia) and measuring the dimension using /Julia/, the measured dimension is consistent with the self similarity dimension shown in eqref:eq:vic-dim-val
 #+begin_src julia
 #------------------------------------------------------------
 #--- Function -----------------------------------------------
 #------------------------------------------------------------
-
-# n_i+1 = 3n_i ==> n = 3^n
-function selfRep(ICMat, width)
+function visek_matrix(ICMat, width)
     B = ICMat
     h  = size(B)[1]
     w  = size(B)[2]
@@ -504,7 +551,7 @@ function selfRep(ICMat, width)
          Z B Z ;
           B Z B]
     if (3*w)<width
-        B = selfRep(B, width)
+        B = visek_matrix(B, width)
     end
     return B
 end
@@ -512,83 +559,184 @@ end
 #------------------------------------------------------------
 #-- Plot ----------------------------------------------------
 #------------------------------------------------------------
-(mat = selfRep(fill(1, 1, 1), 27)) |> size
+(mat = visek_matrix(fill(1, 1, 1), 27)) |> size
 GR.imshow(mat)
 
 #------------------------------------------------------------
 #-- Similarity Dimension ------------------------------------
 #------------------------------------------------------------
-# Each time it iterates there are 5 more
-# but the overall dimensions of the square increases by a factor of 3
-# so 3^D=5 ==> log_3(5) = log(5)/log(3) = D
 
-mat2  = selfRep(fill(1, 1, 1), 1000)
+mat2  = visek_matrix(fill(1, 1, 1), 1000)
 l2    = sum(mat2)
 size2 = size(mat2)[1]
-mat1  = selfRep(fill(1, 1, 1), 500)
+
+mat1  = visek_matrix(fill(1, 1, 1), 500)
 l1    = sum(mat1)
 size1 = size(mat1)[1]
 
-log(l2/l1)/log(size2/size1)
-# https://en.wikipedia.org/wiki/Vicsek_fractal#Construction
-log(5)/log(3)
-
-
-  ##  julia> log(l2/l1)/log(size2/size1)
-  ##  1.4649735207179269
+#------------------------------------------------------------
+julia> log(l2/l1)/log(size2/size1)
+1.4649735207179269
+julia> log(5)/log(3)
+1.4649735207179269
 #+end_src
 
-#+attr_html: :width 300px
-#+ATTR_LATEX: :float wrap :width 7cm
-#+NAME: vicsek-fractal-julia
-#+CAPTION: TODO
-[[file:media/Vicsek-Fractal.png]]
+By modifying listing [[vicsek-matrix-gen]] alternative fractals can get also be generated like /Cantor's Dust/ and /Sierpinski's Carpet/ shown in figures [[fig:cantor-dust]] and [[fig:sierpinski-carpet]].
+
+Upon review this is actually a variant on the /Cantor Dust/ which should
+actually be represented by a \(3 \times 3\) matrix:
+
+\begin{align}
+ \mathbf{B} \leftarrow
+ \begin{bmatrix}
+    \mathbf{B} & \mathbf{Z} & \mathbf{B} \\
+    \mathbf{Z} & \mathbf{Z} & \mathbf{Z} \\
+    \mathbf{B} & \mathbf{Z} & \mathbf{B} \\
+\end{bmatrix}
+\end{align}
 
 
-The above program demonsrates the construction of the Vicsek Fractal and its self-similarity dimension. To do this, we define a recursive function that begins with a 3x3 matrix, where the four corner squares and middle square are set to 1 and the rest is set to 0. The function repeats until it reaches some arbitrary set width. Each time the function iterates, 5 more squares are created, increasing by a factor of 3. We can use this information to calculate the dimension of the Vicsek fractal.
-Using the box counting method, we get:
-\begin{align*}
-5 &= 3^D\\
-D\ln{3} &= \ln{5}\\
-D &= \frac{\ln{5}}{\ln{3}}
-\end{align*}
-**** TODO Sierpinskis Carpet
+and hence has the same dimension as the /Vicsek Fractal/ as opposed to a
+dimension of 1.
 
-Explained more in the book [fn:spc]
+**** Sierpinskis Carpet and Cantor's Dust
 
-[fn:spc] See Ch. 2.7 of [[cite:peitgenChaosFractalsNew2004][Ch. 2.7]]
 
-By modifying listing [[fractal-julia]] we can get patterns like the cantor dust and sierpinskis carpet shown in figures [[fig:cantor-dust]] and [[fig:sierpinski-carpet]].
+#+NAME: l-cant-dust
+#+CAPTION: Function to generate Cantor Dust, shown in [[fig:cantor-dust]]
+#+begin_src julia
+#------------------------------------------------------------
+#--- Function -----------------------------------------------
+#------------------------------------------------------------
+
+function dust(ICMat, width)
+    B = ICMat
+    h  = size(B)[1]
+    w  = size(B)[2]
+    Z  = zeros(Int, h, w)
+    B = [Z Z B Z;
+         B Z Z Z;
+         Z Z Z B;
+         Z B Z Z]
+    if (3*w)<width
+        B = dust(B, width)
+    end
+    return B
+end
+
+#------------------------------------------------------------
+#-- Plot ----------------------------------------------------
+#------------------------------------------------------------
+using GR, Plots
+gr() # Set Plots backend as GR
+
+(mat = dust(fill(1, 1, 1), 9^2)) |> size
+p1 = GR.imshow(mat)
+
+
+#------------------------------------------------------------
+#-- Dimension -----------------------------------------------
+#------------------------------------------------------------
+mat2 = dust(fill(1, 1, 1), 1000)
+l2   = sum(mat2)
+size2 = size(mat2)[1]
+mat1 = dust(fill(1, 1, 1), 500)
+l1   = sum(mat1)
+size1 = size(mat1)[1]
+
+#------------------------------------------------------------
+## julia> log(l2/l1)/log(size2/size1)
+## 1.0
+
+#+end_src
+
+[fn:spc] See generally Ch. 2.7 of [[cite:peitgenChaosFractalsNew2004][\S 2.7]] for further Reading.
+
+#+NAME: l-s-carpet
+#+CAPTION: Function to produce Sierpinski's carpet, shown in figure [[fig:square-carpet]]
+#+begin_src julia
+#------------------------------------------------------------
+#--- Function -----------------------------------------------
+#------------------------------------------------------------
+
+function dust(ICMat, width)
+    B = ICMat
+    h  = size(B)[1]
+    w  = size(B)[2]
+    Z  = zeros(Int, h, w)
+    B = [B B B;
+         B Z B;
+         B B B]
+    if (3*w)<width
+        B = dust(B, width)
+    end
+    return B
+end
+
+#------------------------------------------------------------
+#-- Plot ----------------------------------------------------
+#------------------------------------------------------------
+using GR, Plots
+gr() # Set Plots backend as GR
+
+(mat = dust(fill(1, 1, 1), 9^2)) |> size
+p1 = GR.imshow(mat)
+
+#------------------------------------------------------------
+#-- Dimension -----------------------------------------------
+#------------------------------------------------------------
+mat2 = dust(fill(1, 1, 1), 1000)
+l2   = sum(mat2)
+size2 = size(mat2)[1]
+mat1 = dust(fill(1, 1, 1), 500)
+l1   = sum(mat1)
+size1 = size(mat1)[1]
+
+#------------------------------------------------------------
+## julia> log(l2/l1)/log(size2/size1)
+## 1.0
+#+end_src
+
 
 #+attr_html: :width 300px
 #+attr_latex: :width 9cm
-#+NAME: square-carpet
+#+NAME: fig:square-carpet
 #+CAPTION: Sierpinksi's Carpet
-[[file:./media/sierpinsky_carpet.png]]
+[[file:media/sierpinsky_carpet.png]]
 
 
 #+attr_html: :width 300px
 #+attr_latex: :width 9cm
-#+NAME: cantor-dust
-#+CAPTION: Cantor Dust
+#+NAME: fig:cantor-dust
+#+CAPTION: Fractal produced by listing [[l-cant-dust]].
 [[file:media/Cantor_Dust_gen.png]]
 [[# file:~/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Problems/fractal-dimensions/cantr-dust.png]]
 
-**** TODO Triangle
-Producing the triangle was more difficult
+**** Sierpinski's Triangle
+Not all fractal patterns can be produced by using recursive functions involving matrices, one such function is /Sierpinskis Triangle/.
 ***** Chaos Game
-This would be more accurate than pascals because there would be know *bias* and the model would be more accurate    :
+The chaos game is a technique that can generate fractals, one of the advantages of this approach is that it can provide an estimate of the theoretical measure of a fractal without needing to iterate a function many times. The technique involves marking 3 points of an equilateral triangle and marking an arbitrary point, select one of these 3 points randomly with a uniform probability and create a new point halfway between the previous point and this point, repeat this process for as many points of detail are desired for the image.
 
-#+CAPTION: R code to construct Sierpinksi's triangle through the Choas Game concept.
+This can be visualised by mapping the co-ordinates of an equilateral triangle to a cartesian plane:
+
+- \(A\) :: \(\left(0, 0\right)\)
+- \(B\) :: \(\left(0, 1\right)\)
+- \(A\) :: \(\left(0.5, \sin\left(\frac{\pi}{3}\right)\right)\)
+
+The mean value of the \(x\), \(y\) values for these co-ordinates is equal to the
+halfway point and using this the chaos game can be implemented as a program and
+visualised by plotting each point on a scatter plot. This is implemented in
+/*R*/ in listing [[l-sier-tri]] and the output is shown in figure [[fig:s-tri]].
+
+To measure the fractal dimension of this could be done by mapping the cartesian
+plane back to a matrix and taking the same approach as previous fractals
+presented, this however was not implemented, due to time constraints, the
+dimension was however measured using the method discussed at \S [[#pas-tri]].
+
+#+NAME: l-sier-tri
+#+CAPTION: R code to construct Sierpinksi's triangle through the Choas Game, shown in figure [[fig:s-tri]].
 #+BEGIN_SRC R :exports both :results output graphics file :file pascal-sierpinsky-chaos-game.png :eval never-export
-if (require("pacman")) {
-    library(pacman)
-  }else{
-    install.packages("pacman")
-    library(pacman)
-  }
-  pacman::p_load(tidyverse)
-
+library(ggplot2)
 
 n <- 50000
 df <- data.frame("xval"=1:n, "yval"=1:n)
@@ -623,13 +771,28 @@ ggplot(df, aes(x = xval, y = yval)) +
 
 #+END_SRC
 
-
+#+NAME: fig:s-tri
+#+CAPTION: Sierpinski's Triangle creates using the /Chaos Game/ in listing [[l-sier-tri]].
+#+attr_html: :width 400px
+#+attr_latex: :width 7cm :float wrap
 [[file:pascal-sierpinsky-chaos-game.png]]
 
-***** TODO Pascals Triange                                                  :James:
+***** TODO Pascals Triange                                                  :Ryan:
+:PROPERTIES:
+:CUSTOM_ID: pas-tri
+:END:
+
+The even and odd values in /Pascal's Triangle/ demonstrate the same pattern as
+the /Sierpinski Triangle/ this is discussed in greater detail in \S
+[[#pascal-sierpinski]], implementing this to produce the sierpinski triangle is very
+simple, it is however significantly more resource intensive, even in /Julia/
+than using the chaos game and the the measured dimension converges to the self
+similar dimension very slowly.
+
+The fractal produced is composed of right angle triangles, as opposed to equilateral triangles but interestingly the measured dimension is still the same as an equlateral /Sierpinski's Triangle/, it does however converge to this value slowly.
 
 #+NAME: pascal-triangle-sierpinski
-#+CAPTION: Julia code demonstrating Sierpinksi's triangle
+#+CAPTION: Julia code demonstrating Sierpinksi's triangle, this converges to the self similar dimension very slowly, using the ratio between a \(3000^{2}\) and \(2000^{2}\) matrix gave the correct answer to 2 decimal places, using a \(300^{2}\) and \(200^{2}\) matrix produced a value far of as shown.
 #+begin_src julia
 function pascal(n)
     mat = [isodd(binomial(BigInt(j+i),BigInt(i))) for i in 0:n, j in 0:n]
@@ -642,26 +805,162 @@ GR.savefig("../../Report/media/pascal-sierpinsky-triangle.png")
 #-- Calculate Dimension -------------------------------------
 #------------------------------------------------------------
 
-mat2 = pascal(3000)
+mat2 = pascal(300)
 l2   = sum(mat2)
 size2 = size(mat2)[1]
-mat1 = pascal(2000)
+mat1 = pascal(200)
 l1   = sum(mat1)
 size1 = size(mat1)[1]
 log(l2/l1)/log(size2/size1)
 # https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle
 log(3)/log(2)
 
+#------------------------------------------------------------
+julia> log(l2/l1)/log(size2/size1)
+1.8177195595512954
+julia> log(3)/log(2)
+1.5849625007211563
+
 
 #+end_src
+
+#+RESULTS: pascal-triangle-sierpinski
 
 #+attr_html: :width 300px
 #+attr_latex: :width 9cm
 #+NAME: fig:pascal-sierpinsky
-#+CAPTION: TODO
+#+CAPTION: Sierpinski's triangle generated
 [[file:media/pascal-sierpinsky-triangle.png]]
+*** TODO Turtle
+Some Fractals cannot be well explained by using matrices or the chaos game, Turtle graphics are a programatic way to draw a pen across a screen, these are implemented in /Julia/ using the /Luxor/ package cite:JuliaGraphicsLuxorJl2020.
 
-****** Motivation
+We were unfourtunately unable to implement a strategy to measure the dimension
+of such fractals, one such approach that looked promising but did not return
+consistent results was to export the generated image to a PNG and then import
+that file as a matrix using the /Python Pillow Library/ cite:PillowPillowPIL or
+the /Julia Images/ library cite:JuliaImagesImagesJl2020, when this was
+unsucessful we also experimented with /ImageMagick/ cite:llcImageMagick,
+/AstroPy/ cite:Astropy and /JuliaAstro/ cite:JuliaAstroJuliaAstro.
+Unfourtunately the values returned by this approach were inconsistent and
+further investigation into this method is required.
+
+#+NAME: turtles-dragon
+#+CAPTION: Generate a Dragon Curve using a Turtle Diagram
+#+begin_src julia
+using Shapefile
+using Luxor
+
+#------------------------------------------------------------
+#--- Dragon -------------------------------------------------
+#------------------------------------------------------------
+# Define the Parent Function
+function dragon(♘, order, length)
+    print(" ") # Don't remove this or code breaks, I don't know why?
+    Turn(♘, order*45)
+    dragon_iterate(♘, order, length, 1)
+end
+# Define the Helper Function
+function dragon_iterate(♘, order, length, sign)
+    if order==0
+        Forward(♘, length)
+    else
+        rootHalf = sqrt(0.5)
+        dragon_iterate(♘, order -1, length*rootHalf, 1)
+        Turn(♘, sign * -90)
+        dragon_iterate(♘, order -1, length*rootHalf, -1)
+    end
+end
+# Draw the Image
+@png begin
+    ♘ = Turtle()
+    # Start from left to centre result
+    Turn(♘, 180)
+    Penup(♘)
+    Forward(♘, 200)
+    Pendown(♘)
+    Turn(♘, 180)
+    # Create the Output
+    dragon(♘, 15, 400)
+end 1000 1000
+
+# Create many images
+;mkdir /tmp/dragon
+for i in range(1, 15)
+name = string("/tmp/dragon/d", lpad(d, 5, "0"), ".png")
+    @png begin
+        ♘ = Turtle()
+        # Start from left to centre result
+        Turn(♘, 180)
+        Penup(♘)
+        Forward(♘, 200)
+        Pendown(♘)
+        Turn(♘, 180)
+        # Create the Output
+        dragon(♘, 15, 400)
+    end 1000 1000 name
+end
+montage -geometry 1000x1000 *.png dragon.png
+
+#+end_src
+
+#+NAME: turtle-snow
+#+CAPTION: Generate a Koch Snowflake using a Turtle Diagram
+#+begin_src julia
+using Shapefile
+using Luxor
+using Pkg
+
+#------------------------------------------------------------
+#--- Round Snowflake Working ---------------------------------
+#------------------------------------------------------------
+function snowflake(length, level, 🐢)
+if level == 0
+    Forward(🐢, length)
+    Circle(🐢, 1)
+    return
+end
+length = length/9
+snowflake(length, level-1, 🐢)
+Turn(🐢, -60)
+snowflake(length, level-1, 🐢)
+Turn(🐢, 2*60)
+snowflake(length, level-1, 🐢)
+Turn(🐢, -60)
+snowflake(length, level-1, 🐢)
+end
+🐢 = Turtle()
+@png begin
+for i in 1:3
+    levels = 9
+    Pendown(🐢)
+    snowflake(8^(levels-1), levels, 🐢)
+    Turn(🐢, 120)
+end
+end 600 600 "snowCurve.png"
+#+end_src
+
+
+#+attr_html: :width 600px
+#+attr_latex: :width 9cm
+#+NAME: dragon-turtle
+#+CAPTION: Progression of the Dragon Curve, this is known as a space filling curve [[cite:peitgenChaosFractalsNew2004][p. 350]] which is a curve with a range that contains the entire 2-dimensional unit square cite:ventrellaSpaceFillingCurvesAre2014, it has a dimension of two. For some historical background on the curve on the origins of this curve see cite:tabachnikovDragonCurvesRevisited2014.
+[[file:../Problems/Chaos/Spirals/dragon.png]]
+
+
+#+attr_html: :width 600px
+#+attr_latex: :width 6cm :float wrap
+#+NAME: dragon-turtle
+#+CAPTION: Portion of the Koch Snowflake Produced by the Turtle graphics in listing [[turtle-snow]]
+[[file:../Problems/Chaos/Spirals/snowCurve.png]]
+
+
+
+@@latex: \newpage @@
+*** Pascals Triangle and Sierpinski's Triangle                                :James:
+:PROPERTIES:
+:CUSTOM_ID: pascal-sierpinski
+:END:
+**** Motivation
 Over many centuries, mathematicians have been able to produce a range of patterns from Pascal's triangle. One of which is relevant to the emergence of Sierpinski's triangle. To construct Pascal's triangle it begins with a 1 in the $0^{th}$ (top) row, then each row underneath is made up of the sum of the numbers directly above it, see figure [[fig:pascal-triangle]]. Alternatively, the $n^{th}$ row and $k^{th}$ column can be written in combinatorics form, $\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}$.
 
 #+attr_html: :width 300px
@@ -669,8 +968,7 @@ Over many centuries, mathematicians have been able to produce a range of pattern
 #+NAME: fig:pascal-triangle
 #+CAPTION: Pascal's triangle
 [[file:media/tikz/pascals-triangle.png]]
-
-****** The connection
+**** The connection
 As mentioned before there is one pattern that produces the Sierpinski triangle, namely highlighting all odd numbers in Pascal's triangle. This is equivalent to considering all the numbers in the triangle modulo 2, shown in figure [[fig:pascal-sierpinski-tri]].
 
 #+attr_html: :width 300px
@@ -732,248 +1030,6 @@ c=c_{i}2^{i}+c_{i-1}2^{i-1}+\cdots +c_{1}2+c_{0}=\left[c_{i}c_{i-1}\cdots c_{1}c
 \end{align*}
 
 Thus, $\binom{r}{c} = \binom{2^n + r}{c} = \binom{2^n + r}{2^n + c} \quad (\text{mod} 2)$, which concludes the proof
-
-****** TODO Comment on the dimension lining up
-Using the box-counting method, we can evaluate the dimension of Sierpinski's triangle.
-****** TODO FIx the value
-
-#+begin_example
-
-julia> log(l2/l1)/log(size2/size1)
-2.082583161459976
-
-julia> # https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle
-       log(3)/log(2)
-1.5849625007211563
-
-#+end_example
-
-*** TODO Turtle
-Matrices can't explain all patterns, Turtles are useful
-#+NAME: turtles-all
-#+CAPTION: This generates a dragon and a koch
-#+begin_src julia
-using Shapefile
-using Luxor
-using Pkg
-
-
-#------------------------------------------------------------
-#-- Dragon Curve -------------------------------------
-#------------------------------------------------------------
-
-
-function snowflake(length, level, ♘, s)
-    scale(s)
-    if level == 0
-        Forward(♘, 100)
-        Turn(♘, -90)
-        Rotate(90)
-#        Rectangle(♘, length, length)
-        return
-    end
-    length = length/9
-    snowflake(length, level-1, ♘)
-    Turn(♘, -60)
-    snowflake(length, level-1, ♘)
-    Turn(♘, 2*60)
-    snowflake(length, level-1, ♘)
-    Turn(♘, -180/3)
-    snowflake(length, level-1, ♘)
-end
-@png begin
-    ♘ = Turtle()
-    Pencolor(♘, 1.0, 0.4, 0.2)
-    Penup(♘)
-    Turn(♘,180)
-    Forward(♘, 200)
-    Turn(♘,180)
-    Pendown(♘)
-    levels = 10
-    snowflake(9^(levels), levels, ♘, 1)
-end 800 800 "./snowFlat600.png"
-
-
-#------------------------------------------------------------
-#-- Flat Snowflake ----------------------------------
-#------------------------------------------------------------
-
-
-function snowflake(length, level, ♘, s)
-    scale(s)
-    if level == 0
-        Forward(♘, length)
-#        Rectangle(♘, length, length)
-        return
-    end
-    length = length/9
-    snowflake(length, level-1, ♘)
-    Turn(♘, -60)
-    snowflake(length, level-1, ♘)
-    Turn(♘, 2*60)
-    snowflake(length, level-1, ♘)
-    Turn(♘, -180/3)
-    snowflake(length, level-1, ♘)
-end
-@png begin
-    ♘ = Turtle()
-    Pencolor(♘, 1.0, 0.4, 0.2)
-    Penup(♘)
-    Turn(♘,180)
-    Forward(♘, 200)
-    Turn(♘,180)
-    Pendown(♘)
-    levels = 10
-    snowflake(9^(levels), levels, ♘, 1)
-end 800 800 "/tmp/snowFlat600.png"
-
-
-#------------------------------------------------------------
-#--- Round Snowflake Working ---------------------------------
-#------------------------------------------------------------
-
-function snowflake(length, level, ♘)
-if level == 0
-#    Forward(♘, length)
-    Circle(♘, 1)
-    return
-end
-length = length/9
-snowflake(length, level-1, ♘)
-Turn(♘, -60)
-snowflake(length, level-1, ♘)
-Turn(♘, 2*60)
-snowflake(length, level-1, ♘)
-Turn(♘, -60)
-snowflake(length, level-1, ♘)
-end
-♘ = Turtle()
-@svg begin
-for i in 1:3
-    levels = 9
-    snowflake(8^(levels-1), levels, ♘)
-    Turn(♘, 120)
-end
-end 2000 2000 "/tmp/snowCurve.svg"
-
-
-
-0 "/tmp/snowCurve.png"
-
-# The starting length must be such that the final length = 1 pixel
-# this depends on the levels
-# The levels must hence be fit to the resolution such that
-# the only variable is the resolution.
-# There is only two variables levels and resolution
-# length depends on the levels and for a perfect snowflake
-# the levels depends on the resolution.
-
-
-using Images, TestImages, Colors, ImageMagick
-# Load Image Back in
-img = load("/tmp/snowCurve.png")
-# Convert to Grayscale so only 2D
-imgg = Gray.(img)
-# convert to Matrix
-mat = convert(Array{Float64}, imgg)
-
-# 1 is white
-    # so make all 1s 0 and everything else 1
-
-for i in 1:size(mat)[1]
-    for j in 1:size(mat)[2]
-        if mat[i, j]==1
-            mat[i,j]=0
-        else
-            mat[i,j]=1
-        end
-    end
-end
-
-
-sum(mat)
-
-using GR
-GR.imshow(mat)
-mat
-
-mat2 = selfRep(fill(1, 1, 1), 1000)
-l2   = sum(mat2)
-size2 = size(mat2)[1]
-mat1 = selfRep(fill(1, 1, 1), 500)
-l1   = sum(mat1)
-size1 = size(mat1)[1]
-log(l2/l1)/log(size2/size1)
-# https://en.wikipedia.org/wiki/Vicsek_fractal#Construction
-log(5)/log(3)
-
-#------------------------------------------------------------
-#--- Dragon -------------------------------------------------
-#------------------------------------------------------------
-function dragon(♘, order, length)
-    print(" ") # Don't remove this or code breaks, I don't know why?
-    Turn(♘, order*45)
-    dragon_iterate(♘, order, length, 1)
-end
-function dragon_iterate(♘, order, length, sign)
-    if order==0
-        Forward(♘, length)
-    else
-        rootHalf = sqrt(0.5)
-        dragon_iterate(♘, order -1, length*rootHalf, 1)
-        Turn(♘, sign * -90)
-        dragon_iterate(♘, order -1, length*rootHalf, -1)
-    end
-end
-;mkdir /tmp/dragon
-@png begin
-    ♘ = Turtle()
-    Turn(♘, 180)
-    Penup(♘)
-    Forward(♘, 200)
-    Pendown(♘)
-    Turn(♘, 180)
-    dragon(♘, 15, 400)
-end 1000 1000
-
-using Images, TestImages, Colors, ImageMagick
-# Load Image Back in
-img = load("/tmp/dragon.png")
-# Convert to Grayscale so only 2D
-imgg = Gray.(img)
-# convert to Matrix
-mat = convert(Array{Float64}, imgg)
-
-# 1 is white
-    # so make all 1s 0 and everything else 1
-
-for i in 1:size(mat)[1]
-    for j in 1:size(mat)[2]
-        if mat[i, j]==1
-            mat[i,j]=0
-        else
-            mat[i,j]=1
-        end
-    end
-end
-
-
-#+end_src
-**** Dragon Curve
-
-#+attr_html: :width 600px
-#+attr_latex: :width 9cm
-#+NAME: dragon-turtle
-#+CAPTION: TODO
-[[file:../Problems/Chaos/Spirals/dragon.png]]
-
-
-**** Koch Snowflake
-#+attr_html: :width 600px
-#+attr_latex: :width 9cm
-#+NAME: dragon-turtle
-#+CAPTION: TODO
-[[file:../Problems/Chaos/Spirals/snowCurve.png]]
 
 ** TODO Fractal Dimensions                                                     :Ryan:
 *** STRT Calculating the Dimension of Julia Set
