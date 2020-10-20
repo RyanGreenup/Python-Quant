@@ -1,6 +1,6 @@
 #+TITLE: The Emergence of Patterns in Nature and Chaos Theory
 :PREAMBLE:
-#+OPTIONS: broken-links:auto todo:nil H:9 tags:nil
+#+OPTIONS: broken-links:auto todo:nil H:9 tags:t
 #+STARTUP: overview
 #+AUTHOR: Ryan Greenup & James Guerra
 #+INFOJS_OPT: view:showall toc:3
@@ -694,23 +694,22 @@ size1 = size(mat1)[1]
 
 #------------------------------------------------------------
 ## julia> log(l2/l1)/log(size2/size1)
-## 1.0
+## 1.89
 #+end_src
 
 
-#+attr_html: :width 300px
-#+attr_latex: :width 9cm
 #+NAME: fig:square-carpet
-#+CAPTION: Sierpinksi's Carpet
+#+CAPTION: Sierpinksi's Carpet, produced by listing [[listing l-s-carpet]].
+#+attr_html: :width 400px
+#+attr_latex: :width 7cm
 [[file:media/sierpinsky_carpet.png]]
 
 
 #+attr_html: :width 300px
-#+attr_latex: :width 9cm
+#+attr_latex: :width 7cm
 #+NAME: fig:cantor-dust
-#+CAPTION: Fractal produced by listing [[l-cant-dust]].
+#+CAPTION: A shape this is similar, but different to, the /Cantor Dust/, the dimension of this fractal is 1, produced by listing [[l-cant-dust]].
 [[file:media/Cantor_Dust_gen.png]]
-[[# file:~/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Problems/fractal-dimensions/cantr-dust.png]]
 
 **** Sierpinski's Triangle
 Not all fractal patterns can be produced by using recursive functions involving matrices, one such function is /Sierpinskis Triangle/.
@@ -719,9 +718,9 @@ The chaos game is a technique that can generate fractals, one of the advantages 
 
 This can be visualised by mapping the co-ordinates of an equilateral triangle to a cartesian plane:
 
-- \(A\) :: \(\left(0, 0\right)\)
-- \(B\) :: \(\left(0, 1\right)\)
-- \(A\) :: \(\left(0.5, \sin\left(\frac{\pi}{3}\right)\right)\)
+- \(A\)  \(\left(0, 0\right)\)
+- \(B\)  \(\left(0, 1\right)\)
+- \(C\)  \(\left(0.5, \sin\left(\frac{\pi}{3}\right)\right)\)
 
 The mean value of the \(x\), \(y\) values for these co-ordinates is equal to the
 halfway point and using this the chaos game can be implemented as a program and
@@ -772,9 +771,9 @@ ggplot(df, aes(x = xval, y = yval)) +
 #+END_SRC
 
 #+NAME: fig:s-tri
-#+CAPTION: Sierpinski's Triangle creates using the /Chaos Game/ in listing [[l-sier-tri]].
+#+CAPTION: Sierpinski's Triangle created using the /Chaos Game/ in listing [[l-sier-tri]].
 #+attr_html: :width 400px
-#+attr_latex: :width 7cm :float wrap
+#+attr_latex: :width 6cm :float wrap
 [[file:pascal-sierpinsky-chaos-game.png]]
 
 ***** TODO Pascals Triange                                                  :Ryan:
@@ -791,6 +790,7 @@ similar dimension very slowly.
 
 The fractal produced is composed of right angle triangles, as opposed to equilateral triangles but interestingly the measured dimension is still the same as an equlateral /Sierpinski's Triangle/, it does however converge to this value slowly.
 
+@@latex: \newpage @@
 #+NAME: pascal-triangle-sierpinski
 #+CAPTION: Julia code demonstrating Sierpinksi's triangle, this converges to the self similar dimension very slowly, using the ratio between a \(3000^{2}\) and \(2000^{2}\) matrix gave the correct answer to 2 decimal places, using a \(300^{2}\) and \(200^{2}\) matrix produced a value far of as shown.
 #+begin_src julia
@@ -844,8 +844,49 @@ unsucessful we also experimented with /ImageMagick/ cite:llcImageMagick,
 Unfourtunately the values returned by this approach were inconsistent and
 further investigation into this method is required.
 
-#+NAME: turtles-dragon
-#+CAPTION: Generate a Dragon Curve using a Turtle Diagram
+The koch snowflake can be implemented by recursively calling a function that draws the first level of a koch curve, if this function decrements a provided level and is defined to call itself for each arm of the curve unless the level has reached zero it will produce a koch snowflake at the specified level, this is shown in figure [[snow-turtle]] and can be implemented in julia like so:
+
+@@latex: \newpage @@
+#+NAME: turtle-snow
+#+CAPTION: Generate a Koch Snowflake using a Turtle Diagram
+#+begin_src julia
+using Shapefile
+using Luxor
+using Pkg
+
+#------------------------------------------------------------
+#--- Round Snowflake Working ---------------------------------
+#------------------------------------------------------------
+function snowflake(length, level, ♘)
+    if level == 0
+        Forward(♘, length)
+        Circle(♘, 1)
+        return
+    end
+    length = length/9
+    snowflake(length, level-1, ♘)
+    Turn(♘, -60)
+    snowflake(length, level-1, ♘)
+    Turn(♘, 2*60)
+    snowflake(length, level-1, ♘)
+    Turn(♘, -60)
+    snowflake(length, level-1, ♘)
+end
+
+♘ = Turtle()
+@png begin
+for i in 1:3
+    levels = 9
+    Pendown(♘)
+    snowflake(8^(levels-1), levels, ♘)
+    Turn(♘, 120)
+end
+end 600 600 "snowCurve.png"
+
+#+end_src
+
+The dragon curve is slightly more complicated and can be implemented by two seperate functions, one to turn and trigger a motion and the other to control in which direction to turn, this is shown in figure [[dragon-turtle]] and implemented by the following /Julia/ code:
+
 #+begin_src julia
 using Shapefile
 using Luxor
@@ -903,41 +944,6 @@ montage -geometry 1000x1000 *.png dragon.png
 
 #+end_src
 
-#+NAME: turtle-snow
-#+CAPTION: Generate a Koch Snowflake using a Turtle Diagram
-#+begin_src julia
-using Shapefile
-using Luxor
-using Pkg
-
-#------------------------------------------------------------
-#--- Round Snowflake Working ---------------------------------
-#------------------------------------------------------------
-function snowflake(length, level, 🐢)
-if level == 0
-    Forward(🐢, length)
-    Circle(🐢, 1)
-    return
-end
-length = length/9
-snowflake(length, level-1, 🐢)
-Turn(🐢, -60)
-snowflake(length, level-1, 🐢)
-Turn(🐢, 2*60)
-snowflake(length, level-1, 🐢)
-Turn(🐢, -60)
-snowflake(length, level-1, 🐢)
-end
-🐢 = Turtle()
-@png begin
-for i in 1:3
-    levels = 9
-    Pendown(🐢)
-    snowflake(8^(levels-1), levels, 🐢)
-    Turn(🐢, 120)
-end
-end 600 600 "snowCurve.png"
-#+end_src
 
 
 #+attr_html: :width 600px
@@ -949,7 +955,7 @@ end 600 600 "snowCurve.png"
 
 #+attr_html: :width 600px
 #+attr_latex: :width 6cm :float wrap
-#+NAME: dragon-turtle
+#+NAME: snow-turtle
 #+CAPTION: Portion of the Koch Snowflake Produced by the Turtle graphics in listing [[turtle-snow]]
 [[file:../Problems/Chaos/Spirals/snowCurve.png]]
 
@@ -1031,20 +1037,45 @@ c=c_{i}2^{i}+c_{i-1}2^{i-1}+\cdots +c_{1}2+c_{0}=\left[c_{i}c_{i-1}\cdots c_{1}c
 
 Thus, $\binom{r}{c} = \binom{2^n + r}{c} = \binom{2^n + r}{2^n + c} \quad (\text{mod} 2)$, which concludes the proof
 
-** TODO Fractal Dimensions                                                     :Ryan:
+** TODO Fractal Dimensions Sans Self Similarity                                :Ryan:
 *** STRT Calculating the Dimension of Julia Set
-It converges too slowly
-The Julia set (discussed in section [[#julia-set]]) can be solved by ...
-
-explain the code a little bit here
-
-as shown in listing
-
+:PROPERTIES:
+:ID:       ee034972-1d74-446d-be67-d47dbb843700
+:END:
 A value on the complex plane can be associated with the julia set by iterating
 that value against a function of the form $z \rightarrow z^{2} + \alpha + i
-\beta$ and measureing whether or not that value diverges or converges. This process is demonstrated in listing [[ref:jsetDivFunc]].
+\beta$ and measuring whether or not that value diverges or converges. This
+process is demonstrated in listing [[ref:jsetDivFunc]].
 
-By associating each value on the complex plane with an element of a matrix an image of this pattern may be produced, see for example figure RABBIT
+By associating each value on the complex plane with an element of a matrix an image of this pattern may be produced, by considering only values on the boundary between convervgent and divergent an outline may be produced see for example figure [[fig:julia-rab]], this outline is known as the /Julia Set/.
+
+In order to measure the dimension of the /Julia Set/ it is necessary to generate
+a representation of the fractal at two scales, compare them and then and then
+measure the corresponding dimension value as was done previously. The julia set
+is a non self-similar fractal and so it is not immediately clear whether or not
+the dimension will be constant at all scales, to determine whether or not the
+dimension is constant at various scales it can be convenient to plot the log
+transformed scaling factor and measures and inspect whether or not the points
+form a linear relationship, the slope of such a relationship will be the
+dimension [[cite:vicsekFractalGrowthPhenomena1992][p. 30]].
+
+To implement this all the functions necessary to build the fractals were placed into a seperate script ~julia-set-functions.jl~ which is shown in \S [[julia-set-functions-script]] and this script was included into a working script ~julia-set-dimensions.jl~ by using the following line:
+
+#+begin_src julia
+@time include("./Julia-Set-Dimensions-functions.jl")
+#+end_src
+
+
+The julia set is defined as the boundary between values on the complex plane that converge and diferge under iteration of \(z\leftarrow z^{2} + a+ib\) to consider only the boundary of values, the ~juliaSet~ function shown in  listing [[jsetDivFunc]] can be modified to return only the value of 1 or 0 as opposed to the time taken to cross the threshold of divergence [fn:: \mathtt{abs}(z) exceeds to the point is assured to diverge under iteration] and then it can be determined whether or not a point is a boundary by considering whether or not the sum of all elements within the immediate neighbourhood of the elemnt is greater than 1. This is shown in the ~outline~ function which is defined in \S [[#julia-set-functions-script]].
+
+Comparing squared values rather than using ~abs()~ improved the performance of this function by about two fold.
+
+#+NAME: fig:julia-rab
+#+CAPTION: Image of the Doudy Rabbit, the julia set corresponding to the iteration of \(z \leftarrow z^{2} -0.123+0.745i\) produced by /Julia/
+#+attr_html: :width 400px
+#+attr_latex: :width 12cm
+[[file:media/outline-rabbit.png]]
+
 
 #+NAME: jsetDivFunc
 #+CAPTION: Function that returns how many iterations of a function of is necessary for a complex value to diverge, the julia set is concerned with the function $z \rightarrow z^{2} + \alpha + i \beta$
@@ -1068,7 +1099,9 @@ end
 #+end_src
 
 
-So I run the code shown in listing [[dimensions-julia-set]] which calls a file ~./Julia-Set-Dimensions-functions.jl~ which is shown in listing [[functions-julia-set]] which returs the values shown in table [[table-of-values]].
+So I run the code shown in listing [[dimensions-julia-set]] which calls a file ~./Julia-Set-Dimensions-functions.jl~ which is shown in \S [[#julia-set-functions-script]]
+
+which returs the values shown in table [[table-of-values]].
 
 #+NAME: dimensions-julia-set
 #+CAPTIONS: Functions used by listing [[dimensions-julia-set]]
@@ -1078,16 +1111,13 @@ So I run the code shown in listing [[dimensions-julia-set]] which calls a file ~
 ############################################################
 #### Investigate Plot #######################################
 ############################################################
-
-f(z) = z^2 -1
-
-test_mat = make_picture(800,800, z -> z^2 + 0.37-0.2*im)
 test_mat = make_picture(800,800, z -> z^2 + -0.123+0.745*im)
-test_mat = make_picture(800,800, f)
+
+#Inspect
 GR.imshow(test_mat) # PyPlot uses interpolation = "None"
-
-
+# Outline
 test_mat = outline(test_mat)
+#Inspect
 GR.imshow(test_mat) # PyPlot uses interpolation = "None"
 # GR.savefig("/home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Problems/fractal-dimensions/media/outline-Julia-set.png")
 
@@ -1095,6 +1125,7 @@ GR.imshow(test_mat) # PyPlot uses interpolation = "None"
 sum(test_mat)
 
 
+# Take a measurement at a point
 
 mat2 = outline(make_picture(9000,9000, f))
 l2   = sum(mat2)
@@ -1107,13 +1138,10 @@ log(l2/l1)/log(size2/size1)
 # 1.3934 Douady Rabbit
 #
 
-
-
-
-
+# Take a measurement using LInear Regression
 using CSV
 
-@time data=scaleAndMeasure(9000, 10000 , 4, f)
+@time data=scaleAndMeasure(900, 1000 , 4, f)
 # CSV.read("./julia-set-dimensions.csv", data)
 # data = CSV.read("./julia-set-dimensions.csv")
 data.scale = [log(i) for i in data.scale]
@@ -1131,27 +1159,71 @@ a = SharedArray{Float64}(10)
     a[i] = i
 end
 
-# import Gadfly
-#
-# iris = dataset("datasets", "iris")
-# p = Gadfly.plot(iris, x=:SepalLength, y=:SepalWidth, Geom.point);
-# img = SVG("iris_plot.svg")
-# draw(img, p)
+#------------------------------------------------------------
+julia> return mod
+StatsModels.TableRegressionModel{LinearModel{GLM.LmResp{Array{Float64,1}},GLM.DensePredChol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2}}}},Array{Float64,2}}
 
+mass ~ 0 + scale
 
-# The trailing `;` supresses output, equivalently:
+Coefficients:
+────────────────────────────────────────────────────────────────────
+         Coef.   Std. Error        t  Pr(>|t|)  Lower 95%  Upper 95%
+────────────────────────────────────────────────────────────────────
+scale  1.28358  0.000497296  2581.11     <1e-9    1.28199    1.28516
+────────────────────────────────────────────────────────────────────
 
-
-
-## Other Fractals to look at for this maybe?
-  # GR.imshow(test_mat) # PyPlot uses interpolation = "None"
-  # GR.imshow(make_picture(500, 500, z -> z^2 + 0.37-0.2*im)) # PyPlot uses interpolation = "None"
-  # GR.imshow(make_picture(500, 500, z -> z^2 + 0.38-0.2*im)) # PyPlot uses interpolation = "None"
-  # GR.imshow(make_picture(500, 500, z -> z^2 + 0.39-0.2*im)) # PyPlot uses interpolation = "None"
 #+end_src
 
-#+NAME: functions-julia-set
-#+CAPTIONS: Functions used by listing [[dimensions-julia-set]]
+
+This converges very slowly and the code can take a very long time to run, and has a tendency to cause crashes, likely due to the large amounts of memory required, these are things that could be improved, by running this code for scales from 9000 to 10000 and leaving it for an hour, the following table of values is returned:
+
+| scale |    mass |
+|-------+---------|
+|   500 |  4834.0 |
+|   563 |  5754.0 |
+|   625 |  6640.0 |
+|   688 |  7584.0 |
+|   750 |  8418.0 |
+|   813 |  9550.0 |
+|   875 | 10554.0 |
+|   938 | 11710.0 |
+|  1000 | 12744.0 |
+
+Linear Regression can be performed against these values using */R/* [fn:: The could just as well have been done inside Julia]
+
+#+begin_src R
+scale   <- c(500, 563, 625, 688, 750, 813, 875, 938, 1000)
+measure <- c(  4834, 5754, 6640, 7584, 8418, 9550, 10554, 11710, 12744)
+data <- data.frame(scale, measure)
+
+lm(log(measure) ~ 0 + log(scale), data)$coefficients # set 0 intercept
+#+end_src
+
+#+RESULTS[f3a76eddf73e1b71f01c46663f47f497147342d6]:
+: 1.36720041333112
+
+This shows that the value returned is 1.37 which is very close to the value provided by Wikipedia at 1.39, inspecting the behaviour ofthe log transformed scale and measure indicates that there is a very linear relationship between these variables.
+
+#+BEGIN_SRC R :exports both :results output graphics file :file media/r-ggplot-linear-reg-julia.png
+library(ggplot2)
+ggplot(data, aes(x = log(measure), y = log(scale))) +
+  geom_point(size = 6, col = 'red') +
+  geom_smooth(method = 'lm') +
+  theme_bw() +
+  labs(x = "log Measure", y = "log Scale",
+       title = "Comparison of Scale and Measure of Julia Set", subtitle = "Douady Rabbit")
+#+end_src
+
+#+RESULTS[1c407fac73de0d24ebddcf0874b6cf8d3531b064]:
+[[file:media/r-ggplot-linear-reg-julia.png]]
+
+**** Functions Julia Set
+:PROPERTIES:
+:CUSTOM_ID: julia-set-functions-script
+:END:
+
+The following functions were saved in a file called ~@time include("./Julia-Set-Dimensions-functions.jl")~, this file was loaded into the current workspace by using ~@time include("./Julia-Set-Dimensions-functions.jl")~ at the top of a script.
+
 #+begin_src julia
 using GR
 using DataFrames
@@ -1283,7 +1355,6 @@ end
 ############################################################
 ### Make the Outline ########################################
 ############################################################
-# TODO this should be inside a function
 
 """
 # Outline
@@ -1330,50 +1401,6 @@ end
 
 #+end_src
 
-This returns the Values:
-
-#+NAME: table-of-values
-#+CAPTION: TODO
-| scale |    mass |
-|-------+---------|
-|   500 |  4834.0 |
-|   563 |  5754.0 |
-|   625 |  6640.0 |
-|   688 |  7584.0 |
-|   750 |  8418.0 |
-|   813 |  9550.0 |
-|   875 | 10554.0 |
-|   938 | 11710.0 |
-|  1000 | 12744.0 |
-**** TODO Using Linear Regression
-:PROPERTIES:
-:CUSTOM_ID: linear-reg-julia
-:END:
-- Avoiding ~Abs~ is twice as fast
-- Column wise is faster in fortran/julia/R slower in C/Python
- We have no evidence to show that the dimension will be stable, this is good for coastlines and stuff.
-
-This approach is layed out in [[cite:vicsekFractalGrowthPhenomena1992][p. 30]].
-***** Performance
-- Switching from ~abs()~ to sqaured help
-- Taking advantage of multi core processing in loops
-
-- [[https://stackoverflow.com/a/55704326/12843551][pmap was chosen because]] it scales better for expensive jobs.
-
-  Comparison
-#+begin_src julia
-function tme()
-    start = time()
-    data = scaleAndMeasure(900, 1000, 9)
-    length = time() - start
-    print(length, "\n")
-    return length
-end
-times = [tme() for i in 1:10 ]
-#+end_src
-
-| Function | Mean Time |
-| ~pmap~   | 2.2825    |
 * Connecting Fractals to Natural Processes                                      :Ryan:
 :PROPERTIES:
 :CUSTOM_ID: my-fractal
@@ -2819,6 +2846,7 @@ Research for \S [[#Hausdorff-dimension]] on the Hausdorff Dimension proved actua
 - Peitgen, H., Jürgens, H., & Saupe, D., /Chaos and fractals: new frontiers of science/  [[cite:peitgenChaosFractalsNew2004][\S 4.3]]
 
 * Footnotes
+
 
 [fn:res]
 

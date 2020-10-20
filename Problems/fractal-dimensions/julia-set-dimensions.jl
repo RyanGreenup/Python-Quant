@@ -8,13 +8,14 @@ f(z) = z^2 -1
 
 test_mat = make_picture(800,800, z -> z^2 + 0.37-0.2*im)
 test_mat = make_picture(800,800, z -> z^2 + -0.123+0.745*im)
-test_mat = make_picture(800,800, f) 
+# test_mat = make_picture(800,800, f) 
 GR.imshow(test_mat) # PyPlot uses interpolation = "None"
 
 
 test_mat = outline(test_mat)
 GR.imshow(test_mat) # PyPlot uses interpolation = "None"
-# GR.savefig("/home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Problems/fractal-dimensions/media/outline-Julia-set.png")
+# GR.savefig("/home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Problems/fractal-dimensions/media/outline-rabbit.png")
+
 
 ## Return the perimeter
 sum(test_mat)
@@ -38,12 +39,12 @@ log(l2/l1)/log(size2/size1)
 
 using CSV
 
-@time data=scaleAndMeasure(9000, 10000 , 4, f)
+@time data=scaleAndMeasure(900, 1000 , 4, f)
 # CSV.read("./julia-set-dimensions.csv", data)
 # data = CSV.read("./julia-set-dimensions.csv")
 data.scale = [log(i) for i in data.scale]
 data.mass  = [log(i) for i in data.mass]
-mod   = lm(@formula(mass ~ scale), data)
+mod   = lm(@formula(mass ~ 0+scale), data)
 p = Gadfly.plot(data, x=:scale, y=:mass, Geom.point)
 
 print("the slope is $(round(coef(mod)[2], sigdigits=4))")
@@ -72,4 +73,7 @@ end
   # GR.imshow(test_mat) # PyPlot uses interpolation = "None"
   # GR.imshow(make_picture(500, 500, z -> z^2 + 0.37-0.2*im)) # PyPlot uses interpolation = "None"
   # GR.imshow(make_picture(500, 500, z -> z^2 + 0.38-0.2*im)) # PyPlot uses interpolation = "None"
-  # GR.imshow(make_picture(500, 500, z -> z^2 + 0.39-0.2*im)) # PyPlot uses interpolation = "None"
+  # GR.imshow(make_picture(500, 500, z -> z^2 + 0.39-0.2*im)) # PyPlot uses
+  # interpolation = "None"
+  
+

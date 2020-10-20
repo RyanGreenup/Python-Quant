@@ -1,4 +1,4 @@
-% Created 2020-10-20 Tue 23:47
+% Created 2020-10-21 Wed 01:49
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -76,8 +76,8 @@ Section Attribution
 7. Appendix
 8. Bibliography
 \end{verbatim}
-\section{Introduction}
-\label{sec:org949783d}
+\section{Introduction\hfill{}\textsc{Ryan}}
+\label{sec:org7706215}
 \begin{itemize}
 \item Fractals occur in nature
 \begin{itemize}
@@ -99,9 +99,9 @@ Section Attribution
 \end{itemize}
 
 \section{Fractals}
-\label{sec:org119de15}
-\subsection{Definition of a Fractal}
-\label{sec:orgd7bb3b9}
+\label{sec:org8b00068}
+\subsection{Definition of a Fractal\hfill{}\textsc{Ryan}}
+\label{sec:orgfcd2a3e}
 
 Benoît Mandelbrot coined the term fractal in 1975 \cite{gomoryBenoitMandelbrot19242010} and defined it his 1982 book \emph{The Fractal Geometry of Nature} \cite[p. 15]{mandelbrotFractalGeometryNature1982} :
 
@@ -177,14 +177,14 @@ The Wikipedia page on fractals \cite{Fractal2020} also points out that a
 fractal is nowhere differentiable, this would be because a fractal is
 nowhere smooth, which I think personally is quite a distinguishing feature.
 
-\subsection{Fractals Generally}
-\label{sec:orgeb44da0}
+\subsection{Fractals Generally\hfill{}\textsc{James}}
+\label{sec:org51581a3}
 Dimension is the main defining property of a fractal. As aforementioned above, the Hausdorff dimension is a unique number in that, if we take some shape in \(\mathbb{R}^{n}\), and the Hausdorff dimension converges to some number, then the dimension of the shape is given by that number. Otherwise, it will equal \(0\) or \(\infty\). For example, if we want to evaluate the dimension of a square and we use a 1-Dimensional shape as the cover set to calculate the Hausdorff dimension, we will get \(\infty\). On the other hand, if we do the same with a 3-Dimensional shape, we will get 0. And finally if we use a 2-Dimensional shape, the Hausdorff dimension will evaluate to 2. This same notion is important when computing the dimension of a more complex shape such as the Koch snowflake.
 
 To define a fractal, we must define it's dimension. Whilst some research states that a fractal has a non-integer dimension, this is not true for all fractals. Although, most fractals like the Koch snowflake do in fact have non-integer dimensions, we can easily find a counter example namely, the Mandelbrot set. The Mandelbrot set lies in the same dimension as a square, a 2-Dimensional shape. However, we give recognition to the complexity and roughness of the Mandelbrot set which clearly distiguishes itself from a square. Beneath the Mandelbrot set's complexity are exact replicates of the largest scaled Mandelbrot set, i.e a self similar shape. Furthermore, although the Mandelbrot set has an integer dimension, the self similarity and complexity is what also defines its fractal nature.
 
 \subsection{Fractal Dimension}
-\label{sec:org908b3bf}
+\label{sec:org56c4217}
 The concept of a non-integer dimension may at first seem odd, particularly given that the familiar definition from linear algebra (concerned with the number of vectors within a basis for a vector space \cite{larsonElementaryLinearAlgebra1991}) is strictly an integer value, but in the early \(20^{\mathrm{th}}\) century mathematicians recognised the shortcomings of this definition \cite[Ch. 3]{mandelbrotFractalGeometryNature1982}.
 
 In this section we hope to convince the reader that there is grounds for
@@ -250,8 +250,7 @@ See \cite[p. 414]{strogatzNonlinearDynamicsChaos2015} and \cite[\S 5.4]{baderSpa
 
 This approach of considering the scaling factor of a deterministic fractal is known as the similarity dimension
 \cite[p. 413]{strogatzNonlinearDynamicsChaos2015} and should be equal to the
-Hausdorff and box counting dimensions for most fractals. For fractals that aren't so obviously self similar it won't be feasible however, \cite[p. 393]{liIntegrationFuzzyLogic2006}  for example with the julia set or the fractal or a coastline it is not immediately clear if the the dimension would be constant at all scales \footnote{It is indeed shown to be mostly constant at all scales in section \S
-\ref{linear-reg-julia}}.
+Hausdorff and box counting dimensions for most fractals. For fractals that aren't so obviously self similar it won't be feasible however, \cite[p. 393]{liIntegrationFuzzyLogic2006}  for example with the julia set or the fractal or a coastline it is not immediately clear if the the dimension would be constant at all scales \footnote{It is indeed shown to be mostly constant at all scales in section \S}.
 
 
 
@@ -267,7 +266,7 @@ Hausdorff and box counting dimensions for most fractals. For fractals that aren'
 \caption{\label{koch-snowflake}Progression of the Koch Snowflake}
 \end{figure}
 
-\subsubsection{Hausdorff Dimension}
+\subsubsection{Hausdorff Dimension\hfill{}\textsc{Ryan}}
 \label{Hausdorff-dimension}
 \subsubsection{Hausdorff Measure}
 \label{hausdorff-measure}
@@ -356,9 +355,9 @@ This is defined for all subsets of \(\mathbb{R}^n\) for example the value of  \(
 
 
 \paragraph{Lower Dimension Hausdorff Measurements}
-\label{sec:org1c0769e}
+\label{sec:orgd40fcac}
 \subparagraph{Examples}
-\label{sec:org5af3a1a}
+\label{sec:org5e91d91}
 Consider again the example of a 2D shape, the value of \(\mathcal{H}^{1}\) would still be defined by \eqref{eq:delta-measure}, but unlike \(\mathcal{H}^{2}\) in \S \ref{hausdorff-measure} the value of \(\left\lvert U_i \right\rvert^1\) would be considered as opposed to \(\left\lvert U_i \right\rvert^2\) (i.e. the diamater as opposed to the diameter squared).
 
 As \(\delta\) is made arbitrarily small the boxes \footnote{Even though \(U\) may contain a variety of shapes, \eqref{eq:delta-measure} is concerned only with the power of there diameter, so in this sense the limit is concerned only with boxes corresponding to the diameter of the elements of \(U\)} that cover the shape are made also to be arbitrarily small. Although the area of the boxes must clearly be bounded by the shape of \(F\), if one imagines an infinite number of infinitely dense lines packing into a 2D shape with an infinite density it can be seen that the total length of those lines will be infinite and so the limit in \eqref{eq:limit-haus} will increase without bound.
@@ -368,7 +367,7 @@ To build on that same analogy, another way to imagine this is to pack a 2D shape
 This is consistent with factals as well, consider the koch snowflake introduced in section \ref{topological-equivalence} and shown in figure \ref{koch-line}, the dimension of this shape, as shown in \S \ref{topological-equivalence} is greater than 1, and the number of lines necessary to describe that shape is also infinite because every point of the ``curve'' is a point of an equilateral triangle.
 
 \subparagraph{Formally}
-\label{sec:org4045c90}
+\label{sec:orga6f4ab6}
 If the dimension of \(F\) is less than \(s\), the Hausdorff Measure will be given by:
 
 \begin{align}
@@ -376,7 +375,7 @@ If the dimension of \(F\) is less than \(s\), the Hausdorff Measure will be give
 \end{align}
 
 \paragraph{Higher Dimension Hausdorff Dimension}
-\label{sec:orgdac73d6}
+\label{sec:orgc95ebeb}
 
 
 For small values of \(s\) (i.e. less than the dimension of  \(F\)), the value of \(\mathcal{H}^s\)  will be \(\infty\).
@@ -420,7 +419,7 @@ Hence the value of the s-dimensional \emph{Hausdorff Measure}, \(s\) is only a f
 \end{figure}
 
 \subsubsection{Hausdorff Dimension}
-\label{sec:org44c1582}
+\label{sec:orgd3c5358}
 
 \begin{wrapfigure}{l}{0.5\textwidth}
 \centering
@@ -431,8 +430,8 @@ Hence the value of the s-dimensional \emph{Hausdorff Measure}, \(s\) is only a f
 
 The value \(s\) at which \(\mathcal{H}^{s}\) \eqref{eq:hdfzero} changes from \(\infty\) to 0, shown in figure \ref{hausdorff-vals},  is the defined to be the \emph{Hausdorff Dimension} \cite[\S 2.2]{falconerFractalGeometryMathematical2003b}, it is a generalisation of the idea of dimension that is typically understood with respect to ordinary figures.
 
-\subsubsection{Box Counting Dimension}
-\label{sec:org2704751}
+\subsubsection{Box Counting Dimension\hfill{}\textsc{James}}
+\label{sec:orgd11654d}
 While the Hasudorff dimension is the first formal definition to measure
 the roughness of a fractal, there are several other definitions of dimension
 that have stemmed from this. Namely, the box-counting dimension. The box
@@ -488,8 +487,8 @@ Let \(F\) be the Koch Curve.
 &= \lim_{\frac{1}{3^{\delta}} \to 0} \frac{\ln(4)}{\ln(3)}\\
 &= \frac{\ln(4)}{\ln(3)}
 \end{align*}
-\subsection{Generating Self Similar Fractals}
-\label{sec:orgea71caf}
+\subsection{Generating Self Similar Fractals\hfill{}\textsc{Ryan}}
+\label{sec:orgf71f211}
 In order to investigate the dimension of fractals, we intend to generate and measure a variety of figures by using of \textbf{\emph{R}} \cite{rcoreteamLanguageEnvironmentStatistical2020}, \emph{Julia} \cite{bezansonJuliaFreshApproach2017} and \emph{Python} \cite{WelcomePythonOrg}.
 
 Self Similar fractals have a self-similar dimension and so can be used to verify an approach implemented with a programming language.
@@ -617,7 +616,7 @@ and hence has the same dimension as the \emph{Vicsek Fractal} as opposed to a
 dimension of 1.
 
 \paragraph{Sierpinskis Carpet and Cantor's Dust}
-\label{sec:org2aed039}
+\label{sec:orgc0ee0ec}
 
 
 \begin{listing}[htbp]
@@ -671,31 +670,31 @@ size1 = size(mat1)[1]
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=9cm]{media/sierpinsky_carpet.png}
-\caption{\label{fig:square-carpet}Sierpinksi's Carpet}
+\includegraphics[width=7cm]{media/sierpinsky_carpet.png}
+\caption{\label{fig:square-carpet}Sierpinksi's Carpet, produced by listing .}
 \end{figure}
 
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=9cm]{media/Cantor_Dust_gen.png}
-\caption{\label{fig:cantor-dust}Fractal produced by listing \ref{l-cant-dust}.}
+\includegraphics[width=7cm]{media/Cantor_Dust_gen.png}
+\caption{\label{fig:cantor-dust}A shape this is similar, but different to, the \emph{Cantor Dust}, the dimension of this fractal is 1, produced by listing \ref{l-cant-dust}.}
 \end{figure}
 
 \paragraph{Sierpinski's Triangle}
-\label{sec:orgd36c1c0}
+\label{sec:org3ace0f2}
 Not all fractal patterns can be produced by using recursive functions involving matrices, one such function is \emph{Sierpinskis Triangle}.
 \subparagraph{Chaos Game}
-\label{sec:org9187353}
+\label{sec:orgc1c1d87}
 The chaos game is a technique that can generate fractals, one of the advantages of this approach is that it can provide an estimate of the theoretical measure of a fractal without needing to iterate a function many times. The technique involves marking 3 points of an equilateral triangle and marking an arbitrary point, select one of these 3 points randomly with a uniform probability and create a new point halfway between the previous point and this point, repeat this process for as many points of detail are desired for the image.
 
 This can be visualised by mapping the co-ordinates of an equilateral triangle to a cartesian plane:
 
-\begin{description}
-\item[{\(A\)}] \(\left(0, 0\right)\)
-\item[{\(B\)}] \(\left(0, 1\right)\)
-\item[{\(A\)}] \(\left(0.5, \sin\left(\frac{\pi}{3}\right)\right)\)
-\end{description}
+\begin{itemize}
+\item \(A\)  \(\left(0, 0\right)\)
+\item \(B\)  \(\left(0, 1\right)\)
+\item \(C\)  \(\left(0.5, \sin\left(\frac{\pi}{3}\right)\right)\)
+\end{itemize}
 
 The mean value of the \(x\), \(y\) values for these co-ordinates is equal to the
 halfway point and using this the chaos game can be implemented as a program and
@@ -748,11 +747,11 @@ ggplot(df, aes(x = xval, y = yval)) +
 
 \begin{wrapfigure}{l}{0.5\textwidth}
 \centering
-\includegraphics[width=7cm]{pascal-sierpinsky-chaos-game.png}
-\caption{\label{fig:s-tri}Sierpinski's Triangle creates using the \emph{Chaos Game} in listing \ref{l-sier-tri}.}
+\includegraphics[width=6cm]{pascal-sierpinsky-chaos-game.png}
+\caption{\label{fig:s-tri}Sierpinski's Triangle created using the \emph{Chaos Game} in listing \ref{l-sier-tri}.}
 \end{wrapfigure}
 
-\subparagraph{Pascals Triange}
+\subparagraph{Pascals Triange\hfill{}\textsc{Ryan}}
 \label{pas-tri}
 The even and odd values in \emph{Pascal's Triangle} demonstrate the same pattern as
 the \emph{Sierpinski Triangle} this is discussed in greater detail in \S
@@ -763,6 +762,7 @@ similar dimension very slowly.
 
 The fractal produced is composed of right angle triangles, as opposed to equilateral triangles but interestingly the measured dimension is still the same as an equlateral \emph{Sierpinski's Triangle}, it does however converge to this value slowly.
 
+ \newpage 
 \begin{listing}[htbp]
 \begin{minted}[]{julia}
 function pascal(n)
@@ -803,7 +803,7 @@ julia> log(3)/log(2)
 \caption{\label{fig:pascal-sierpinsky}Sierpinski's triangle generated}
 \end{figure}
 \subsubsection{Turtle}
-\label{sec:orgd3c47c1}
+\label{sec:orgdfd199f}
 Some Fractals cannot be well explained by using matrices or the chaos game, Turtle graphics are a programatic way to draw a pen across a screen, these are implemented in \emph{Julia} using the \emph{Luxor} package \cite{JuliaGraphicsLuxorJl2020}.
 
 We were unfourtunately unable to implement a strategy to measure the dimension
@@ -816,7 +816,50 @@ unsucessful we also experimented with \emph{ImageMagick} \cite{llcImageMagick},
 Unfourtunately the values returned by this approach were inconsistent and
 further investigation into this method is required.
 
+The koch snowflake can be implemented by recursively calling a function that draws the first level of a koch curve, if this function decrements a provided level and is defined to call itself for each arm of the curve unless the level has reached zero it will produce a koch snowflake at the specified level, this is shown in figure \ref{snow-turtle} and can be implemented in julia like so:
+
+ \newpage 
 \begin{listing}[htbp]
+\begin{minted}[]{julia}
+using Shapefile
+using Luxor
+using Pkg
+
+#------------------------------------------------------------
+#--- Round Snowflake Working ---------------------------------
+#------------------------------------------------------------
+function snowflake(length, level, ♘)
+    if level == 0
+        Forward(♘, length)
+        Circle(♘, 1)
+        return
+    end
+    length = length/9
+    snowflake(length, level-1, ♘)
+    Turn(♘, -60)
+    snowflake(length, level-1, ♘)
+    Turn(♘, 2*60)
+    snowflake(length, level-1, ♘)
+    Turn(♘, -60)
+    snowflake(length, level-1, ♘)
+end
+
+♘ = Turtle()
+@png begin
+for i in 1:3
+    levels = 9
+    Pendown(♘)
+    snowflake(8^(levels-1), levels, ♘)
+    Turn(♘, 120)
+end
+end 600 600 "snowCurve.png"
+
+\end{minted}
+\caption{\label{turtle-snow}Generate a Koch Snowflake using a Turtle Diagram}
+\end{listing}
+
+The dragon curve is slightly more complicated and can be implemented by two seperate functions, one to turn and trigger a motion and the other to control in which direction to turn, this is shown in figure \ref{dragon-turtle} and implemented by the following \emph{Julia} code:
+
 \begin{minted}[]{julia}
 using Shapefile
 using Luxor
@@ -873,45 +916,7 @@ end
 montage -geometry 1000x1000 *.png dragon.png
 
 \end{minted}
-\caption{\label{turtles-dragon}Generate a Dragon Curve using a Turtle Diagram}
-\end{listing}
 
-\begin{listing}[htbp]
-\begin{minted}[]{julia}
-using Shapefile
-using Luxor
-using Pkg
-
-#------------------------------------------------------------
-#--- Round Snowflake Working ---------------------------------
-#------------------------------------------------------------
-function snowflake(length, level, 🐢)
-if level == 0
-    Forward(🐢, length)
-    Circle(🐢, 1)
-    return
-end
-length = length/9
-snowflake(length, level-1, 🐢)
-Turn(🐢, -60)
-snowflake(length, level-1, 🐢)
-Turn(🐢, 2*60)
-snowflake(length, level-1, 🐢)
-Turn(🐢, -60)
-snowflake(length, level-1, 🐢)
-end
-🐢 = Turtle()
-@png begin
-for i in 1:3
-    levels = 9
-    Pendown(🐢)
-    snowflake(8^(levels-1), levels, 🐢)
-    Turn(🐢, 120)
-end
-end 600 600 "snowCurve.png"
-\end{minted}
-\caption{\label{turtle-snow}Generate a Koch Snowflake using a Turtle Diagram}
-\end{listing}
 
 
 \begin{figure}[htbp]
@@ -924,16 +929,16 @@ end 600 600 "snowCurve.png"
 \begin{wrapfigure}{l}{0.5\textwidth}
 \centering
 \includegraphics[width=6cm]{../Problems/Chaos/Spirals/snowCurve.png}
-\caption{\label{dragon-turtle}Portion of the Koch Snowflake Produced by the Turtle graphics in listing \ref{turtle-snow}}
+\caption{\label{snow-turtle}Portion of the Koch Snowflake Produced by the Turtle graphics in listing \ref{turtle-snow}}
 \end{wrapfigure}
 
 
 
  \newpage 
-\subsubsection{Pascals Triangle and Sierpinski's Triangle}
+\subsubsection{Pascals Triangle and Sierpinski's Triangle\hfill{}\textsc{James}}
 \label{pascal-sierpinski}
 \paragraph{Motivation}
-\label{sec:org78d1c7f}
+\label{sec:orga1744c8}
 Over many centuries, mathematicians have been able to produce a range of patterns from Pascal's triangle. One of which is relevant to the emergence of Sierpinski's triangle. To construct Pascal's triangle it begins with a 1 in the \(0^{th}\) (top) row, then each row underneath is made up of the sum of the numbers directly above it, see figure \ref{fig:pascal-triangle}. Alternatively, the \(n^{th}\) row and \(k^{th}\) column can be written in combinatorics form, \(\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}\).
 
 \begin{figure}[htbp]
@@ -942,7 +947,7 @@ Over many centuries, mathematicians have been able to produce a range of pattern
 \caption{\label{fig:pascal-triangle}Pascal's triangle}
 \end{figure}
 \paragraph{The connection}
-\label{sec:org95c6d3d}
+\label{sec:org1cb13fb}
 As mentioned before there is one pattern that produces the Sierpinski triangle, namely highlighting all odd numbers in Pascal's triangle. This is equivalent to considering all the numbers in the triangle modulo 2, shown in figure \ref{fig:pascal-sierpinski-tri}.
 
 \begin{figure}[htbp]
@@ -1005,22 +1010,44 @@ c=c_{i}2^{i}+c_{i-1}2^{i-1}+\cdots +c_{1}2+c_{0}=\left[c_{i}c_{i-1}\cdots c_{1}c
 
 Thus, \(\binom{r}{c} = \binom{2^n + r}{c} = \binom{2^n + r}{2^n + c} \quad (\text{mod} 2)\), which concludes the proof
 
-\subsection{Fractal Dimensions}
-\label{sec:org96f4119}
+\subsection{Fractal Dimensions Sans Self Similarity\hfill{}\textsc{Ryan}}
+\label{sec:orgdb504e9}
 \subsubsection{Calculating the Dimension of Julia Set}
-\label{sec:orge71316c}
-It converges too slowly
-The Julia set (discussed in section ) can be solved by \ldots{}
-
-explain the code a little bit here
-
-as shown in listing
-
+\label{sec:orgc6b4c57}
 A value on the complex plane can be associated with the julia set by iterating
 that value against a function of the form \(z \rightarrow z^{2} + \alpha + i
-\beta\) and measureing whether or not that value diverges or converges. This process is demonstrated in listing \ref{jsetDivFunc}.
+\beta\) and measuring whether or not that value diverges or converges. This
+process is demonstrated in listing \ref{jsetDivFunc}.
 
-By associating each value on the complex plane with an element of a matrix an image of this pattern may be produced, see for example figure RABBIT
+By associating each value on the complex plane with an element of a matrix an image of this pattern may be produced, by considering only values on the boundary between convervgent and divergent an outline may be produced see for example figure \ref{fig:julia-rab}, this outline is known as the \emph{Julia Set}.
+
+In order to measure the dimension of the \emph{Julia Set} it is necessary to generate
+a representation of the fractal at two scales, compare them and then and then
+measure the corresponding dimension value as was done previously. The julia set
+is a non self-similar fractal and so it is not immediately clear whether or not
+the dimension will be constant at all scales, to determine whether or not the
+dimension is constant at various scales it can be convenient to plot the log
+transformed scaling factor and measures and inspect whether or not the points
+form a linear relationship, the slope of such a relationship will be the
+dimension \cite[p. 30]{vicsekFractalGrowthPhenomena1992}.
+
+To implement this all the functions necessary to build the fractals were placed into a seperate script \texttt{julia-set-functions.jl} which is shown in \S and this script was included into a working script \texttt{julia-set-dimensions.jl} by using the following line:
+
+\begin{minted}[]{julia}
+@time include("./Julia-Set-Dimensions-functions.jl")
+\end{minted}
+
+
+The julia set is defined as the boundary between values on the complex plane that converge and diferge under iteration of \(z\leftarrow z^{2} + a+ib\) to consider only the boundary of values, the \texttt{juliaSet} function shown in  listing \ref{jsetDivFunc} can be modified to return only the value of 1 or 0 as opposed to the time taken to cross the threshold of divergence \footnote{\mathtt{abs}(z) exceeds to the point is assured to diverge under iteration} and then it can be determined whether or not a point is a boundary by considering whether or not the sum of all elements within the immediate neighbourhood of the elemnt is greater than 1. This is shown in the \texttt{outline} function which is defined in \S \ref{julia-set-functions-script}.
+
+Comparing squared values rather than using \texttt{abs()} improved the performance of this function by about two fold.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=12cm]{media/outline-rabbit.png}
+\caption{\label{fig:julia-rab}Image of the Doudy Rabbit, the julia set corresponding to the iteration of \(z \leftarrow z^{2} -0.123+0.745i\) produced by \emph{Julia}}
+\end{figure}
+
 
 \begin{listing}[htbp]
 \begin{minted}[]{julia}
@@ -1045,7 +1072,9 @@ end
 \end{listing}
 
 
-So I run the code shown in listing \ref{dimensions-julia-set} which calls a file \texttt{./Julia-Set-Dimensions-functions.jl} which is shown in listing \ref{functions-julia-set} which returs the values shown in table \ref{table-of-values}.
+So I run the code shown in listing \ref{dimensions-julia-set} which calls a file \texttt{./Julia-Set-Dimensions-functions.jl} which is shown in \S \ref{julia-set-functions-script}
+
+which returs the values shown in table .
 
 \begin{minted}[]{julia}
 @time include("./Julia-Set-Dimensions-functions.jl")
@@ -1053,16 +1082,13 @@ So I run the code shown in listing \ref{dimensions-julia-set} which calls a file
 ############################################################
 #### Investigate Plot #######################################
 ############################################################
-
-f(z) = z^2 -1
-
-test_mat = make_picture(800,800, z -> z^2 + 0.37-0.2*im)
 test_mat = make_picture(800,800, z -> z^2 + -0.123+0.745*im)
-test_mat = make_picture(800,800, f)
+
+#Inspect
 GR.imshow(test_mat) # PyPlot uses interpolation = "None"
-
-
+# Outline
 test_mat = outline(test_mat)
+#Inspect
 GR.imshow(test_mat) # PyPlot uses interpolation = "None"
 # GR.savefig("/home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Problems/fractal-dimensions/media/outline-Julia-set.png")
 
@@ -1070,6 +1096,7 @@ GR.imshow(test_mat) # PyPlot uses interpolation = "None"
 sum(test_mat)
 
 
+# Take a measurement at a point
 
 mat2 = outline(make_picture(9000,9000, f))
 l2   = sum(mat2)
@@ -1082,13 +1109,10 @@ log(l2/l1)/log(size2/size1)
 # 1.3934 Douady Rabbit
 #
 
-
-
-
-
+# Take a measurement using LInear Regression
 using CSV
 
-@time data=scaleAndMeasure(9000, 10000 , 4, f)
+@time data=scaleAndMeasure(900, 1000 , 4, f)
 # CSV.read("./julia-set-dimensions.csv", data)
 # data = CSV.read("./julia-set-dimensions.csv")
 data.scale = [log(i) for i in data.scale]
@@ -1106,24 +1130,70 @@ a = SharedArray{Float64}(10)
     a[i] = i
 end
 
-# import Gadfly
-#
-# iris = dataset("datasets", "iris")
-# p = Gadfly.plot(iris, x=:SepalLength, y=:SepalWidth, Geom.point);
-# img = SVG("iris_plot.svg")
-# draw(img, p)
+#------------------------------------------------------------
+julia> return mod
+StatsModels.TableRegressionModel{LinearModel{GLM.LmResp{Array{Float64,1}},GLM.DensePredChol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2}}}},Array{Float64,2}}
 
+mass ~ 0 + scale
 
-# The trailing `;` supresses output, equivalently:
+Coefficients:
+────────────────────────────────────────────────────────────────────
+         Coef.   Std. Error        t  Pr(>|t|)  Lower 95%  Upper 95%
+────────────────────────────────────────────────────────────────────
+scale  1.28358  0.000497296  2581.11     <1e-9    1.28199    1.28516
+────────────────────────────────────────────────────────────────────
 
-
-
-## Other Fractals to look at for this maybe?
-  # GR.imshow(test_mat) # PyPlot uses interpolation = "None"
-  # GR.imshow(make_picture(500, 500, z -> z^2 + 0.37-0.2*im)) # PyPlot uses interpolation = "None"
-  # GR.imshow(make_picture(500, 500, z -> z^2 + 0.38-0.2*im)) # PyPlot uses interpolation = "None"
-  # GR.imshow(make_picture(500, 500, z -> z^2 + 0.39-0.2*im)) # PyPlot uses interpolation = "None"
 \end{minted}
+
+
+This converges very slowly and the code can take a very long time to run, and has a tendency to cause crashes, likely due to the large amounts of memory required, these are things that could be improved, by running this code for scales from 9000 to 10000 and leaving it for an hour, the following table of values is returned:
+
+\begin{center}
+\begin{tabular}{rr}
+scale & mass\\
+\hline
+500 & 4834.0\\
+563 & 5754.0\\
+625 & 6640.0\\
+688 & 7584.0\\
+750 & 8418.0\\
+813 & 9550.0\\
+875 & 10554.0\\
+938 & 11710.0\\
+1000 & 12744.0\\
+\end{tabular}
+
+\end{center}
+
+Linear Regression can be performed against these values using \textbf{\emph{R}} \footnote{The could just as well have been done inside Julia}
+
+\begin{minted}[]{r}
+scale   <- c(500, 563, 625, 688, 750, 813, 875, 938, 1000)
+measure <- c(  4834, 5754, 6640, 7584, 8418, 9550, 10554, 11710, 12744)
+data <- data.frame(scale, measure)
+
+lm(log(measure) ~ 0 + log(scale), data)$coefficients # set 0 intercept
+\end{minted}
+
+This shows that the value returned is 1.37 which is very close to the value provided by Wikipedia at 1.39, inspecting the behaviour ofthe log transformed scale and measure indicates that there is a very linear relationship between these variables.
+
+\begin{minted}[]{r}
+library(ggplot2)
+ggplot(data, aes(x = log(measure), y = log(scale))) +
+  geom_point(size = 6, col = 'red') +
+  geom_smooth(method = 'lm') +
+  theme_bw() +
+  labs(x = "log Measure", y = "log Scale",
+       title = "Comparison of Scale and Measure of Julia Set", subtitle = "Douady Rabbit")
+\end{minted}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{media/r-ggplot-linear-reg-julia.png}
+\end{center}
+
+\paragraph{Functions Julia Set}
+\label{julia-set-functions-script}
+The following functions were saved in a file called \texttt{@time include("./Julia-Set-Dimensions-functions.jl")}, this file was loaded into the current workspace by using \texttt{@time include("./Julia-Set-Dimensions-functions.jl")} at the top of a script.
 
 \begin{minted}[]{julia}
 using GR
@@ -1256,7 +1326,6 @@ end
 ############################################################
 ### Make the Outline ########################################
 ############################################################
-# TODO this should be inside a function
 
 """
 # Outline
@@ -1303,64 +1372,7 @@ end
 
 \end{minted}
 
-This returns the Values:
-
-\begin{table}[htbp]
-\centering
-\begin{tabular}{rr}
-scale & mass\\
-\hline
-500 & 4834.0\\
-563 & 5754.0\\
-625 & 6640.0\\
-688 & 7584.0\\
-750 & 8418.0\\
-813 & 9550.0\\
-875 & 10554.0\\
-938 & 11710.0\\
-1000 & 12744.0\\
-\end{tabular}
-\caption{\label{table-of-values}TODO}
-
-\end{table}
-\paragraph{Using Linear Regression}
-\label{linear-reg-julia}
-\begin{itemize}
-\item Avoiding \texttt{Abs} is twice as fast
-\item Column wise is faster in fortran/julia/R slower in C/Python
-We have no evidence to show that the dimension will be stable, this is good for coastlines and stuff.
-\end{itemize}
-
-This approach is layed out in \cite[p. 30]{vicsekFractalGrowthPhenomena1992}.
-\subparagraph{Performance}
-\label{sec:org2cb7d79}
-\begin{itemize}
-\item Switching from \texttt{abs()} to sqaured help
-\item Taking advantage of multi core processing in loops
-
-\item \href{https://stackoverflow.com/a/55704326/12843551}{pmap was chosen because} it scales better for expensive jobs.
-
-Comparison
-\end{itemize}
-\begin{minted}[]{julia}
-function tme()
-    start = time()
-    data = scaleAndMeasure(900, 1000, 9)
-    length = time() - start
-    print(length, "\n")
-    return length
-end
-times = [tme() for i in 1:10 ]
-\end{minted}
-
-\begin{center}
-\begin{tabular}{lr}
-Function & Mean Time\\
-\texttt{pmap} & 2.2825\\
-\end{tabular}
-
-\end{center}
-\section{Connecting Fractals to Natural Processes}
+\section{Connecting Fractals to Natural Processes\hfill{}\textsc{Ryan}}
 \label{my-fractal}
 My fractal really shows many unique patterns
 
@@ -1372,7 +1384,7 @@ We know the dimension will be constant because the figure is self similar, so we
 \mathrm{dim} (\mathtt{my\_fractal}) = \log_{\varphi}=\frac{\log \varphi}{\log 2}
 \]
 \subsection{Graphics}
-\label{sec:org6200994}
+\label{sec:org96c7db1}
 
 \begin{figure}[htbp]
 \centering
@@ -1417,11 +1429,11 @@ We know the dimension will be constant because the figure is self similar, so we
 \end{figure}
 
 \subsection{Discuss Pattern shows Fibonacci Numbers}
-\label{sec:orga573ba2}
+\label{sec:org2f8b74b}
 \subsubsection{Angle Relates to Golden Ratio}
-\label{sec:org6ca149e}
+\label{sec:org784aed1}
 \subsection{Prove Fibonacci using Monotone Convergence Theorem}
-\label{sec:orga92bf2e}
+\label{sec:org01c36be}
 Consider the series:
 
 $$\begin{aligned}
@@ -1436,7 +1448,7 @@ F_n = F_{n- 1} +  F_{n- 2} ; \quad F_1 = F_2 = 1
 
 
 \subsubsection{Show that the Series is Monotone}
-\label{sec:org78a5a96}
+\label{sec:org35b3192}
 $$\begin{aligned}
 F_{n} &> 0 \\
 0 &< F_{n} \\
@@ -1456,9 +1468,9 @@ F_{n} &> 0 \\
 
 
 \subsubsection{Show that the Series is Bounded}
-\label{sec:org4572f35}
+\label{sec:org5f64dca}
 \subsubsection{Find the Limit}
-\label{sec:org88910e7}
+\label{sec:orgf738d7f}
 $$\begin{aligned}
 G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 &= 1 +  \frac{F_{n- 1} }{F_n} \\
@@ -1470,7 +1482,7 @@ G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 
 
 \subsubsection{Comments}
-\label{sec:org85e78ac}
+\label{sec:org68e9cc3}
 
 The Fibonacci sequence is quite unique, observe that:
 
@@ -1501,7 +1513,7 @@ $$\begin{aligned}
 \frac{\psi}{\varphi}  = \frac{1}{\varphi^2} = \frac{1}{1-\varphi} &= \frac{1}{2-\varphi} = \frac{2}{3 - \sqrt{5}  }
 \end{aligned}$$
 \subsubsection{Python}
-\label{sec:orgd392783}
+\label{sec:org509e311}
 
 \begin{minted}[]{python}
 #+begin_src python
@@ -1516,14 +1528,14 @@ plt.savefig("./a.png")
 \end{center}
 
 \subsection{Angle is \(\tan^{-1}\left( \frac{1}{1-\varphi}\right)\)}
-\label{sec:orgcd6489b}
+\label{sec:org12a040c}
 \subsubsection{Similar to Golden Angle \(2 \pi \left( \frac{1}{1-\varphi}\right)\)}
-\label{sec:org357d946}
+\label{sec:orgf9449cf}
 \subsection{Dimension of my Fractal}
-\label{sec:org6f6e1c9}
+\label{sec:org943f040}
 \(\log_{\varphi}(2)\)
 \subsection{Code should be split up or put into appendix}
-\label{sec:org4a2330f}
+\label{sec:orgd8d7647}
 \begin{minted}[]{julia}
 function matJoin(A, B)
     function nrow(X)
@@ -1652,10 +1664,10 @@ GR.imshow(mywalk([1 1], 5))
 \end{minted}
 
 \section{The Fibonacci Sequence}
-\label{sec:org130b5a5}
+\label{sec:orgca2b19a}
 The Fibonacci Sequence occurs in my example from the \S \ref{my-fractal}, let's investigate it
-\subsection{Introduction}
-\label{sec:org4bfd9fb}
+\subsection{Introduction\hfill{}\textsc{Ryan}}
+\label{sec:org4926422}
 The \emph{Fibonacci Sequence} and \emph{Golden Ratio} share a deep connection\footnote{See section} and occur in patterns observed in nature very frequently
 (see
 \cite{shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016}), an example of such an occurence is discussed in section \ref{sunflower-example}.
@@ -1670,7 +1682,7 @@ identifying relationships between discrete and continuous systems generall we
 will be able to draw insights with regard to the occurrence of patterns related
 to the \emph{Fibonacci Sequence} and \emph{Golden Ratio} in nature.
 
-\subsection{Computational Approach}
+\subsection{Computational Approach\hfill{}\textsc{Ryan}}
 \label{define-the-fibonacci-numbers}
 Given that much of our work will involve computational analysis and simulation we begin with a strategy to solve the sequence computationally.
 
@@ -1830,7 +1842,7 @@ In this case however an analytic solution can be found by relating discrete
 mathematical problems to continuous ones as discussed below at section .
 \subsection{Exponential Generating Functions}
 \label{exp-gen-func-fib-seq}
-\paragraph{Motivation}
+\paragraph{Motivation\hfill{}\textsc{Ryan}}
 \label{motivation}
 Consider the \emph{Fibonacci Sequence} from \eqref{eq:fib-def}:
 
@@ -1858,7 +1870,7 @@ f\left( x \right)= e^{mx} = \sum^{\infty}_{n= 0}   \left[ r^{m} \frac{x^n}{n!} \
 So using some sort of a transformation involving a power series may help to
 relate the discrete problem back to a continuous one.
 
-\paragraph{Example}
+\paragraph{Example\hfill{}\textsc{Ryan}}
 \label{solving-the-sequence}
 Consider using the following generating function, (proof of the
 generating function derivative as in \eqref{eq:exp-gen-def-2} and \eqref{eq:exp-gen-def-3} is
@@ -1952,8 +1964,8 @@ where:
 
 \paragraph{Derivative of the Exponential Generating Function}
 \label{Derivative-exp-gen-function}
-\subparagraph{Base}
-\label{sec:org856b9a1}
+\subparagraph{Base\hfill{}\textsc{Ryan}}
+\label{sec:org6773af1}
 Differentiating the exponential generating function has the effect of shifting the sequence once to the left: \cite{lehmanReadingsMathematicsComputer2010}
 
 \begin{align}
@@ -1965,8 +1977,8 @@ f'\left( x \right) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 0
 \implies f'(x) &= \sum^{\infty}_{n= 1}   {\left[{ \frac{x^n}{n!}a_{n+  1} }\right]} \label{eq:exp-pow-series-sol}
 \end{align}
 
-\subparagraph{Bridge}
-\label{sec:org20deed6}
+\subparagraph{Bridge\hfill{}\textsc{James}}
+\label{sec:org460c3c1}
 This can be shown for all derivatives by way of induction, for
 
 \begin{align}
@@ -1994,8 +2006,8 @@ Therefore, by mathematical induction \(f^{(k)}\left(x\right) = \sum_{n=k}^\infty
 Furthermore, if the first derivative of the exponential generating function shown in \eqref{eq:exp-pow-series-sol}
 shifts the sequence across, then every derivative thereafter does so as well.
 
-\paragraph{Homogeneous Proof}
-\label{sec:org9943528}
+\paragraph{Homogeneous Proof\hfill{}\textsc{Ryan:James}}
+\label{sec:orgee94f00}
 An equation of the form:
 
 \begin{align}
@@ -2034,14 +2046,14 @@ where:
 \end{itemize}
 \end{itemize}
 
-\subparagraph{Unique Roots of Characteristic Equation}
+\subparagraph{Unique Roots of Characteristic Equation\hfill{}\textsc{Ryan}}
 \label{uniq-roots-recurrence}
 \begin{enumerate}
 \item Example
-\label{sec:org8a2e752}
+\label{sec:org2b2a164}
 An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section \ref{solving-the-sequence}.
 \item Proof
-\label{sec:org0f20aca}
+\label{sec:org3146579}
 Consider the linear recurrence relation \eqref{eq:recurrence-relation-def}:
 
 \begin{align}
@@ -2098,11 +2110,11 @@ This can be verified by the fibonacci sequence as shown in section \ref{solving-
 \end{alignat}
 \end{enumerate}
 
-\subparagraph{Repeated Roots of Characteristic Equation}
+\subparagraph{Repeated Roots of Characteristic Equation\hfill{}\textsc{Ryan}}
 \label{rep-roots-recurrence}
 \begin{enumerate}
 \item Example
-\label{sec:orgd58b80f}
+\label{sec:org914cd94}
 Consider the following recurrence relation:
 
 \begin{align}
@@ -2155,7 +2167,7 @@ Given the defenition of the exponential generating function from \eqref{eq:exp-g
 \end{align}
 
 \item Proof
-\label{sec:org6704def}
+\label{sec:org436f699}
 Consider a recurrence relation of the form:
 
 \begin{align}
@@ -2205,12 +2217,12 @@ f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\rig
 \square \nonumber
 \end{align}
 
-\item Proof
+\item Proof\hfill{}\textsc{James}
 \label{prove-general-exp-identity}
 In this section the proof of
 \begin{enumerate}
 \item Motivation
-\label{sec:org9907579}
+\label{sec:org0422fe1}
 
 Consider the function \(f(x) = xe^x\). Using the taylor series formula we get the following:
 
@@ -2259,10 +2271,10 @@ Sketching out an approach for this:
 \item Power Series Combination
 \label{power-series-comb}
 \end{enumerate}
-\subsection{Proving with the Monotone Convergence Theorem}
-\label{sec:org1430b75}
+\subsection{Proving with the Monotone Convergence Theorem\hfill{}\textsc{Ryan}}
+\label{sec:org8e7d533}
 By Solving the Fibonacci Sequence using the Monotone Converge Theorem we can show that it is related to \(e\)
-\subsection{Fibonacci Sequence and the Golden Ratio}
+\subsection{Fibonacci Sequence and the Golden Ratio\hfill{}\textsc{Ryan}}
 \label{fib-golden-ratio-proof}
 The \emph{Fibonacci Sequence} is actually very interesting, observe that the ratios of the terms converge to the \emph{Golden Ratio}:
 
@@ -2289,7 +2301,7 @@ patterns observed in nature.
 We also hope to find a method to produce the the diagram shown in figure
 computationally, ideally by using the Turtle function in \emph{Julia}.
 
-\subsubsection{Fibonacci Sequence in Nature (This may be Removed)}
+\subsubsection{Fibonacci Sequence in Nature (This may be Removed)\hfill{}\textsc{Ryan}}
 \label{sunflower-example}
 The distribution of sunflower seeds is an example of the \emph{Fibonacci Sequence}
 occuring in a pattern observed in nature (see Figure \ref{sunflower}).
@@ -2381,11 +2393,11 @@ end 600 600
 \caption{\label{sunflower}Distribution of the seeds of a sunflower (see \cite{simonbrassCCSearch2006} licenced under CC)}
 \end{figure}
 
-\subsection{Relating The Fibonacci Sequence to the Julia Set}
-\label{sec:org621b138}
+\subsection{Relating The Fibonacci Sequence to the Julia Set\hfill{}\textsc{Ryan}}
+\label{sec:orge83a199}
 See \href{https://youtu.be/ovJcsL7vyrk}{this link}.
-\section{Julia Sets}
-\label{sec:org968a33a}
+\section{Julia Sets\hfill{}\textsc{Ryan}}
+\label{sec:orgd92d41f}
 
 The julia set is the outline \cite[Ch. 14]{peitgenChaosFractalsNew2004}.
 
@@ -2397,10 +2409,10 @@ There is a relatioship between the fibonacicci sequence, modelling population gr
 
 
 \subsection{Introduction}
-\label{sec:org808ad38}
+\label{sec:org8d2ad51}
 Julia sets are a very interesting fractal and we hope to investigate them further in this project.
 \subsection{Motivation}
-\label{sec:org71d5e66}
+\label{sec:org22344fb}
 Consider the iterative process \(x \rightarrow x^{2}, \enspace x \in \mathbb{R}\),
 for values of \(x>1\) this process will diverge and for \(x<1\) it will converge.
 
@@ -2436,7 +2448,7 @@ Every value on that plane will belong to one of the two following sets
 In the case of \(f_{0}(z) = z^{2}\) all values \(\left\lvert z  \right \rvert \leq 1\) are bounded with \(\left\lvert z  \right \rvert = 1\) being an unstable stationary circle, but let's investigate what happens for different iterative functions like \(f_{1}(z) = z^{2} - 1\), despite how trivial this seems at first glance.
 
 \subsection{Plotting the Sets}
-\label{sec:org7d25f70}
+\label{sec:org5c91697}
 Although the convergence of values may appear simple at first, we'll implement a
 strategy to plot the prisoner and escape sets on the complex plane.
 
@@ -2689,8 +2701,8 @@ ffmpeg                    \
 \caption{\label{montage-frac}Various fracals corresponding to \(f_{0.8 e^{\pi i \tau}}\)}
 \end{figure}
 
-\section{MandelBrot Set}
-\label{sec:org576f797}
+\section{MandelBrot Set\hfill{}\textsc{Ryan}}
+\label{sec:org69021df}
 Investigating these fractals, a natural question might be whether or not any
 given \(c\) value will produce a fractal that is an open disc or a closed disc.
 
@@ -2825,12 +2837,12 @@ save_picture("/tmp/a.fits", my_pic)
 \label{appendix}
 So unless code contributes directly to the discussion we'll put it in the appendix.
 \subsection{Finding Material}
-\label{sec:orgf622b15}
+\label{sec:org2b86b7e}
 \begin{minted}[]{bash}
 recoll -c /home/ryan/Dropbox/Books/Textbooks/Mathematics/Chaos_Theory/chaos_books_recoll & disown
 \end{minted}
 \subsection{Font Lock}
-\label{sec:org8e2799b}
+\label{sec:org7f8ed15}
 \begin{minted}[]{elisp}
 ;; match:
 ;;; \scite:key\s
