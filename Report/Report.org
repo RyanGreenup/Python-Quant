@@ -21,6 +21,7 @@
 :END:
 :LATEX:
 #+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS: [a4paper,10pt,twoside]
 #+LATEX_HEADER: \IfFileExists{./resources/style.sty}{\usepackage{./resources/style}}{}
 #+LATEX_HEADER: \IfFileExists{./resources/referencing.sty}{\usepackage{./resources/referencing}}{}
 #+LATEX_HEADER: \addbibresource{../Resources/references.bib}
