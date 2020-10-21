@@ -484,7 +484,7 @@ fractal (shown in figure [[vicsek-fratal-julia]]).
 [[file:media/Vicsek-Fractal.png]]
 
 
-The iterative process shown in eqref:eq:visek-iter is represented as a recursive function at line 5 of listing [[vicsek-matrix-gen]] and plotted immediately after. To measure the the dimension of this fractal a the sum of the matrix is taken to be the measure of the fractal, two fractals are generated and the change in size relative to the scale is compared and the log taken to return the value of the dimension:
+The iterative process shown in eqref:eq:visek-iter is represented as a recursive function at line 5 of listing [[vicsek-matrix-gen]] and visualised at line 22. To measure the the dimension of this fractal a the sum of the matrix is taken to be the measure of the fractal, two fractals are generated and the change in size relative to the scale is compared and the log taken to return the value of the dimension:
 
 \[
 \mathcal{D} = \frac{s}{m_{2}/m_{1}}
@@ -516,7 +516,7 @@ similarity dimension is given by:
 #------------------------------------------------------------
 #--- Function -----------------------------------------------
 #------------------------------------------------------------
-function visek_matrix(ICMat, width)
+function vicsek_matrix(ICMat, width)
     B = ICMat
     h  = size(B)[1]
     w  = size(B)[2]
@@ -525,7 +525,7 @@ function visek_matrix(ICMat, width)
          Z B Z ;
           B Z B]
     if (3*w)<width
-        B = visek_matrix(B, width)
+        B = vicsek_matrix(B, width)
     end
     return B
 end
@@ -533,18 +533,18 @@ end
 #------------------------------------------------------------
 #-- Plot ----------------------------------------------------
 #------------------------------------------------------------
-(mat = visek_matrix(fill(1, 1, 1), 27)) |> size
+(mat = vicsek_matrix(fill(1, 1, 1), 27)) |> size
 GR.imshow(mat)
 
 #------------------------------------------------------------
 #-- Similarity Dimension ------------------------------------
 #------------------------------------------------------------
 
-mat2  = visek_matrix(fill(1, 1, 1), 1000)
+mat2  = vicsek_matrix(fill(1, 1, 1), 1000)
 l2    = sum(mat2)
 size2 = size(mat2)[1]
 
-mat1  = visek_matrix(fill(1, 1, 1), 500)
+mat1  = vicsek_matrix(fill(1, 1, 1), 500)
 l1    = sum(mat1)
 size1 = size(mat1)[1]
 
@@ -578,101 +578,6 @@ By modifying the approach provided in listing [[vicsek-matrix-gen]] other fracta
 such as /Sierpinski's Carpet/ and /Cantor's Dust/ can be produced, this is
 implemented in listings [[l-s-carpet]] [[l-cant-dust]] and shown in figures
 [[fig:square-carpet]] and [[fig:cantor-dust]] respectively. [fn:spc]
-
-#+NAME: l-s-carpet
-#+CAPTION: Function to produce Sierpinski's carpet, shown in figure [[fig:square-carpet]]
-#+begin_src julia
-#------------------------------------------------------------
-#--- Function -----------------------------------------------
-#------------------------------------------------------------
-
-function carpet(ICMat, width)
-    B = ICMat
-    h  = size(B)[1]
-    w  = size(B)[2]
-    Z  = zeros(Int, h, w)
-    B = [B B B;
-         B Z B;
-         B B B]
-    if (3*w)<width
-        B = carpet(B, width)
-    end
-    return B
-end
-
-#------------------------------------------------------------
-#-- Plot ----------------------------------------------------
-#------------------------------------------------------------
-using GR, Plots
-gr() # Set Plots backend as GR
-
-(mat = carpet(fill(1, 1, 1), 9^2)) |> size
-p1 = GR.imshow(mat)
-
-#------------------------------------------------------------
-#-- Dimension -----------------------------------------------
-#------------------------------------------------------------
-mat2 = carpet(fill(1, 1, 1), 1000)
-l2   = sum(mat2)
-size2 = size(mat2)[1]
-mat1 = carpet(fill(1, 1, 1), 500)
-l1   = sum(mat1)
-size1 = size(mat1)[1]
-
-#------------------------------------------------------------
-## julia> log(l2/l1)/log(size2/size1)
-## 1.89
-#+end_src
-
-
-#+NAME: l-cant-dust
-#+CAPTION: Function to generate Cantor Dust, shown in [[fig:cantor-dust]]
-#+begin_src julia
-#------------------------------------------------------------
-#--- Function -----------------------------------------------
-#------------------------------------------------------------
-
-function dust(ICMat, width)
-    B = ICMat
-    h  = size(B)[1]
-    w  = size(B)[2]
-    Z  = zeros(Int, h, w)
-    B = [Z Z B Z;
-         B Z Z Z;
-         Z Z Z B;
-         Z B Z Z]
-    if (3*w)<width
-        B = dust(B, width)
-    end
-    return B
-end
-
-#------------------------------------------------------------
-#-- Plot ----------------------------------------------------
-#------------------------------------------------------------
-using GR, Plots
-gr() # Set Plots backend as GR
-
-(mat = dust(fill(1, 1, 1), 9^2)) |> size
-p1 = GR.imshow(mat)
-
-
-#------------------------------------------------------------
-#-- Dimension -----------------------------------------------
-#------------------------------------------------------------
-mat2 = dust(fill(1, 1, 1), 1000)
-l2   = sum(mat2)
-size2 = size(mat2)[1]
-mat1 = dust(fill(1, 1, 1), 500)
-l1   = sum(mat1)
-size1 = size(mat1)[1]
-
-#------------------------------------------------------------
-## julia> log(l2/l1)/log(size2/size1)
-## 1.0
-
-#+end_src
-
 
 #+NAME: fig:square-carpet
 #+CAPTION: Sierpinksi's Carpet, produced by listing [[listing l-s-carpet]].
@@ -2575,6 +2480,105 @@ So unless code contributes directly to the discussion we'll put it in the append
 #+begin_src bash
 recoll -c /home/ryan/Dropbox/Books/Textbooks/Mathematics/Chaos_Theory/chaos_books_recoll & disown
 #+end_src
+** Code Listings
+*** Sierpinski's Carpet
+
+
+#+NAME: l-s-carpet
+#+CAPTION: Function to produce Sierpinski's carpet, shown in figure [[fig:square-carpet]]
+#+begin_src julia
+#------------------------------------------------------------
+#--- Function -----------------------------------------------
+#------------------------------------------------------------
+
+function carpet(ICMat, width)
+    B = ICMat
+    h  = size(B)[1]
+    w  = size(B)[2]
+    Z  = zeros(Int, h, w)
+    B = [B B B;
+         B Z B;
+         B B B]
+    if (3*w)<width
+        B = carpet(B, width)
+    end
+    return B
+end
+
+#------------------------------------------------------------
+#-- Plot ----------------------------------------------------
+#------------------------------------------------------------
+using GR, Plots
+gr() # Set Plots backend as GR
+
+(mat = carpet(fill(1, 1, 1), 9^2)) |> size
+p1 = GR.imshow(mat)
+
+#------------------------------------------------------------
+#-- Dimension -----------------------------------------------
+#------------------------------------------------------------
+mat2 = carpet(fill(1, 1, 1), 1000)
+l2   = sum(mat2)
+size2 = size(mat2)[1]
+mat1 = carpet(fill(1, 1, 1), 500)
+l1   = sum(mat1)
+size1 = size(mat1)[1]
+
+#------------------------------------------------------------
+## julia> log(l2/l1)/log(size2/size1)
+## 1.89
+#+end_src
+
+*** Cantor's Dust
+
+#+NAME: l-cant-dust
+#+CAPTION: Function to generate Cantor Dust, shown in [[fig:cantor-dust]]
+#+begin_src julia
+#------------------------------------------------------------
+#--- Function -----------------------------------------------
+#------------------------------------------------------------
+
+function dust(ICMat, width)
+    B = ICMat
+    h  = size(B)[1]
+    w  = size(B)[2]
+    Z  = zeros(Int, h, w)
+    B = [Z Z B Z;
+         B Z Z Z;
+         Z Z Z B;
+         Z B Z Z]
+    if (3*w)<width
+        B = dust(B, width)
+    end
+    return B
+end
+
+#------------------------------------------------------------
+#-- Plot ----------------------------------------------------
+#------------------------------------------------------------
+using GR, Plots
+gr() # Set Plots backend as GR
+
+(mat = dust(fill(1, 1, 1), 9^2)) |> size
+p1 = GR.imshow(mat)
+
+
+#------------------------------------------------------------
+#-- Dimension -----------------------------------------------
+#------------------------------------------------------------
+mat2 = dust(fill(1, 1, 1), 1000)
+l2   = sum(mat2)
+size2 = size(mat2)[1]
+mat1 = dust(fill(1, 1, 1), 500)
+l1   = sum(mat1)
+size1 = size(mat1)[1]
+
+#------------------------------------------------------------
+## julia> log(l2/l1)/log(size2/size1)
+## 1.0
+
+#+end_src
+
 ** Font Lock
 #+begin_src elisp
 ;; match:
