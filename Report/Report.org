@@ -50,7 +50,7 @@ Benoît Mandelbrot coined the term fractal in 1975 cite:gomoryBenoitMandelbrot19
 /A fractal is by definition a set for which the Hausdorff Besicovitch dimension
 strictly exceeds the topological dimension./
 
-/Every set with a noninteger \(D\) is a fractal./
+/Every set with a noninteger \(D\) is a fractal./ [fn:qt]
 #+end_quote
 
 The topoligical dimension is a strictly integer value that describes the natural dimension used to describe a shape cite:sandersonFractalsAreTypically2017,
@@ -579,11 +579,6 @@ such as /Sierpinski's Carpet/ and /Cantor's Dust/ can be produced, this is
 implemented in listings [[l-s-carpet]] [[l-cant-dust]] and shown in figures
 [[fig:square-carpet]] and [[fig:cantor-dust]] respectively. [fn:spc]
 
-[fn:spc] See generally Ch. 2.7 of [[cite:peitgenChaosFractalsNew2004][\S 2.7]] for further Reading.
-
-
-[fn:spc] See generally Ch. 2.7 of [[cite:peitgenChaosFractalsNew2004][\S 2.7]] for further Reading.
-
 #+NAME: l-s-carpet
 #+CAPTION: Function to produce Sierpinski's carpet, shown in figure [[fig:square-carpet]]
 #+begin_src julia
@@ -810,6 +805,9 @@ julia> log(3)/log(2)
 #+CAPTION: Sierpinski's triangle generated
 [[file:media/pascal-sierpinsky-triangle.png]]
 *** Turtle
+:PROPERTIES:
+:CUSTOM_ID: turtle
+:END:
 
 #+attr_html: :width 600px
 #+NAME: snow-turtle
@@ -1049,7 +1047,7 @@ To implement this all the functions necessary to build the fractals were placed 
 #+end_src
 
 
-The julia set is defined as the boundary between values on the complex plane that converge and diferge under iteration of \(z\leftarrow z^{2} + a+ib\) to consider only the boundary of values, the ~juliaSet~ function shown in  listing [[jsetDivFunc]] can be modified to return only the value of 1 or 0 as opposed to the time taken to cross the threshold of divergence [fn:: \(\mathtt{abs}\left(z\right) \) exceeds to the point is assured to diverge under iteration] and then it can be determined whether or not a point is a boundary by considering whether or not the sum of all elements within the immediate neighbourhood of the elemnt is greater than 1. This is shown in the ~outline~ function which is defined in \S [[#julia-set-functions-script]].
+The julia set is defined as the boundary between values on the complex plane that converge and diferge under iteration of \(z\leftarrow z^{2} + a+ib\) to consider only the boundary of values, the ~juliaSet~ function shown in  listing [[jsetDivFunc]] can be modified to return only the value of 1 or 0 as opposed to the time taken to cross the threshold of divergence [fn:: if \(\mathtt{abs}\left(z\right) \geq 2\) the point is assured to diverge under iteration] and then it can be determined whether or not a point is a boundary by considering whether or not the sum of all elements within the immediate neighbourhood of the elemnt is greater than 1. This is shown in the ~outline~ function which is defined in \S [[#julia-set-functions-script]].
 
 Comparing squared values rather than using ~abs()~ improved the performance of this function by about two fold.
 
@@ -1143,17 +1141,17 @@ a = SharedArray{Float64}(10)
 end
 
 #------------------------------------------------------------
-julia> return mod
-StatsModels.TableRegressionModel{LinearModel{GLM.LmResp{Array{Float64,1}},GLM.DensePredChol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2}}}},Array{Float64,2}}
-
-mass ~ 0 + scale
-
-Coefficients:
-────────────────────────────────────────────────────────────────────
-         Coef.   Std. Error        t  Pr(>|t|)  Lower 95%  Upper 95%
-────────────────────────────────────────────────────────────────────
-scale  1.28358  0.000497296  2581.11     <1e-9    1.28199    1.28516
-────────────────────────────────────────────────────────────────────
+# julia> return mod
+# StatsModels.TableRegressionModel{LinearModel{GLM.LmResp{Array{Float64,1}},GLM.DensePredChol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2}}}},Array{Float64,2}}
+#
+# mass ~ 0 + scale
+#
+# Coefficients:
+# ────────────────────────────────────────────────────────────────────
+#          Coef.   Std. Error        t  Pr(>|t|)  Lower 95%  Upper 95%
+# ────────────────────────────────────────────────────────────────────
+# scale  1.28358  0.000497296  2581.11     <1e-9    1.28199    1.28516
+# ────────────────────────────────────────────────────────────────────
 
 #+end_src
 
@@ -1172,7 +1170,7 @@ This converges very slowly and the code can take a very long time to run, and ha
 |   938 | 11710.0 |
 |  1000 | 12744.0 |
 
-Linear Regression can be performed against these values using */R/* [fn:: The could just as well have been done inside Julia]
+Linear Regression can be performed against these values using */R/* [fn:: The could just as well have been done inside Julia, */R/* was chosen simply because ~ggplot~ produces very nice plots. ]
 
 #+begin_src R
 scale   <- c(500, 563, 625, 688, 750, 813, 875, 938, 1000)
@@ -1188,7 +1186,11 @@ lm(log(measure) ~ 0 + log(scale), data)$coefficients # set 0 intercept
 #+RESULTS[f3a76eddf73e1b71f01c46663f47f497147342d6]:
 : 1.36720041333112
 
-This shows that the value returned is 1.37 which is very close to the value provided by Wikipedia at 1.39, inspecting the behaviour ofthe log transformed scale and measure indicates that there is a very linear relationship between these variables.
+This shows that the value returned is 1.37 which is very close to the value of
+1.39 which is reported in the literature
+cite:mcmullenHausdorffDimensionConformal1998, inspecting the behaviour ofthe log
+transformed scale and measure indicates that there is a very linear relationship
+between these variables and so even though this julia set does not appear to demonstrate simple self-similarity, it appears to be a figure with a constant dimension across scales.
 
 #+BEGIN_SRC R :exports both :results output graphics file :file media/r-ggplot-linear-reg-julia.png
 library(ggplot2)
@@ -1200,253 +1202,154 @@ ggplot(data, aes(x = log(measure), y = log(scale))) +
        title = "Comparison of Scale and Measure of Julia Set", subtitle = "Douady Rabbit")
 #+end_src
 
+# #+NAME: fig:lin-reg-dim
+# #+CAPTION: Log Scaled Linear Regression of various scales of the julia set.
+#+attr_html: :width 400px
+#+attr_latex: :width 0.45\textwidth
 #+RESULTS[1c407fac73de0d24ebddcf0874b6cf8d3531b064]:
 [[file:media/r-ggplot-linear-reg-julia.png]]
-
-**** Functions Julia Set
-:PROPERTIES:
-:CUSTOM_ID: julia-set-functions-script
-:END:
-
-The following functions were saved in a file called ~@time include("./Julia-Set-Dimensions-functions.jl")~, this file was loaded into the current workspace by using ~@time include("./Julia-Set-Dimensions-functions.jl")~ at the top of a script.
-
-#+begin_src julia
-using GR
-using DataFrames
-using Gadfly
-using GLM
-using SharedArrays
-using Distributed
-
-############################################################
-### Julia / MandelBrot Functions ###########################
-############################################################
-
-"""
-# Julia Set
-Returns how many iterations it takes for a value on the complex plane to diverge
-under recursion. if `boolQ` is specified as true a 1/0 will be returned to
-indicate divergence or convergence.
-
-## Variables
-- `z`
-  - A value on the complex plane within the unit circle
-- `num`
-  - A number of iterations to perform before conceding that the value is not
-    divergent.
-- `my_func`
-  - A function to perform on `z`, for a julia set the function will be of the
-    form `z -> z^2 + a + im*b`
-    - So for example the Douady Rabbit would be described by `z -> z^2 -0.123+0.745*im`
-"""
-function juliaSet(z, num, my_func, boolQ=true)
-    count = 1
-    # Define z1 as z
-    z1 = z
-    # Iterate num times
-    while count ≤ num
-        # check for divergence
-        if real(z1)^2+imag(z1)^2 > 2^2
-            if(boolQ) return 0 else return Int(count) end
-        end
-        #iterate z
-        z1 = my_func(z1) # + z
-        count=count+1
-    end
-        #if z hasn't diverged by the end
-    if(boolQ) return 1 else return Int(count) end
-end
-
-
-"""
-# Mandelbrot Set
-Returns how many iterations it takes for a value on the complex plane to diverge
-under recursion of \$z \\rightarrow z^2 + z_0\$.
-
-Values that converge represent constants of the julia set that lead to a
-connected set. (TODO: Have I got that Vice Versa?)
-
-
-## Variables
-- `z`
-  - A value on the complex plane within the unit circle
-- `num`
-  - A number of iterations to perform before conceding that the value is not
-    divergent.
-- `boolQ`
-  - `true` or `false` value indicating whether or not to return 1/0 values
-    indicating divergence or convergence respecitvely or to return the number of
-   iterations performed before conceding no divergence.
-"""
-function mandelbrot(z, num, boolQ = true)
-    count = 1
-    # Define z1 as z
-    z1 = z
-    # Iterate num times
-    while count ≤ num
-        # check for divergence
-        if real(z1)^2+imag(z1)^2 > 2^2
-            if(boolQ) return 0 else return Int(count) end
-        end
-        #iterate z
-        z1 = z1^2 + z
-        count=count+1
-    end
-        #if z hasn't diverged by the end
-    return 1 # Int(num)
-    if(boolQ) return 1 else return Int(count) end
-end
-
-function test(x, y)
-    if(x<1) return x else return y end
-end
-
-
-############################################################
-##### Build a Matrix Image #################################
-############################################################
-
-"""
-# Make a Picture
-
-This maps a function on the complex plane to a matrix where each element of the
-matrix corresponds to a single value on the complex plane. The matrix can be
-interpreted as a greyscale image.
-
-Inside the function is a `zoom` parameter that can be modified for different
-fractals, fur the julia and mandelbrot sets this shouldn't need to be adjusted.
-
-The height and width should be interpreted as resolution of the image.
-
-- `width`
-  - width of the output matrix
-- `height`
-  - height of the output matrix
-- `myfunc`
-  - Complex Function to apply across the complex plane
-"""
-function make_picture(width, height, my_func)
-    pic_mat = zeros(width, height)
-    zoom = 0.3
-    for j in 1:size(pic_mat)[2]
-        for i in 1:size(pic_mat)[1]
-            x = (j-width/2)/(width*zoom)
-            y = (i-height/2)/(height*zoom)
-            pic_mat[i,j] = juliaSet(x+y*im, 256, my_func)
-        end
-    end
-    return pic_mat
-end
-
-############################################################
-### Make the Outline ########################################
-############################################################
-
-"""
-# Outline
-
-Sets all elements with neighbours on all sides to 0.
-
-- `mat`
-  - A matrix
-    - If this matrix is the convergent values corresponding to a julia set the
-      output will be the outline, which is the definition of the julia set.
-"""
-function outline(mat)
-    work_mat = copy(mat)
-    for col in 2:(size(mat)[2]-1)
-        for row in 2:(size(mat)[1]-1)
-            ## Make the inside 0, we only want the outline
-            neighbourhood = mat[row-1:row+1,col-1:col+1]
-            if sum(neighbourhood) >= 9 # 9 squares
-                work_mat[row,col] = 0
-            end
-        end
-    end
-    return work_mat
-end
-
-
-############################################################
-###### Return many Scaled Values ###########################
-############################################################
-
-
-
-function scaleAndMeasure(min, max, n, func)
-    # The scale is equivalent to the resolution, the initial resolution could be
-    # set as 10, 93, 72 or 1, it's arbitrary (previously I had res and scale)
-    # #TODO: Prove this
-
-    scale = [Int(ceil(i)) for i in range(min, max, length=n) ]
-    mass = pmap(s -> sum(outline(make_picture(Int(s), Int(s), func))) , scale)
-
-    data = DataFrame(scale = scale, mass = mass)
-    return data
-end
-
-#+end_src
 
 * Connecting Fractals to Natural Processes                                      :Ryan:
 :PROPERTIES:
 :CUSTOM_ID: my-fractal
 :END:
-My fractal really shows many unique patterns
 
-If it is scaled by $\varphi$ then the boxes increase two fold.
-
-We know the dimension will be constant because the figure is self similar, so we have:
-
-\[
-\mathrm{dim} (\mathtt{my\_fractal}) = \log_{\varphi}=\frac{\log \varphi}{\log 2}
-\]
-** Graphics
-
-#+attr_html: :width 60px
-#+attr_latex: :width 9cm
-#+NAME: My-Frac-GR
-#+CAPTION: TODO
-[[file:../Problems/fractal-dimensions/scale-of-my-fractal.svg]]
-
-#+attr_html: :width 60px
-#+attr_latex: :width 9cm
-#+NAME: My-Frac-GR
-#+CAPTION: TODO
-[[file:../Problems/fractal-dimensions/my-self-rep-frac.svg]]
-
-#+attr_html: :width 60px
-#+attr_latex: :width 9cm
-#+NAME: My-Frac-GR
-#+CAPTION: TODO
-[[file:../Problems/fractal-dimensions/golden-angle-diagram.svg]]
-
-#+attr_html: :width 60px
-#+attr_latex: :width 9cm
-#+NAME: My-Frac-GR
-#+CAPTION: TODO
-[[file:../Problems/fractal-dimensions/my-self-rep-frac-ink-diagram.svg]]
-
-#+attr_html: :width 60px
-#+attr_latex: :width 9cm
-#+NAME: My-Frac-GR
-#+CAPTION: TODO
-[[file:../Problems/fractal-dimensions/My-Self-Replicating-fractal-ink.svg]]
 
 #+attr_html: :width 600px
-#+attr_latex: :width 9cm
-#+NAME: My-Frac-GR
+#+attr_latex: :width 0.38\textwidth :float wrap
+#+NAME: My-Frac-GR-plot
 #+CAPTION: Fractal that emerges by Rotating and appending boxes, this demonstrates the relationship between the Fibonacci numbers and golden ratio very well
 [[file:../Problems/fractal-dimensions/my-self-rep-frac-GR.png]]
 
+In order to better understand the ways in which complex fractal patterns can
+emerge from simple processes, I have constructed a very simple process that
+leads to such a pattern.
+
+Consider a fractal that begins simply with a square
+@@latex: \begin{tikzpicture}\node at (3,0) [fill=red, rectangle,draw] (00) {};\end{tikzpicture} @@,
+imagine that this square is replicated, rotated and appended
+#+LATEX: \begin{tikzpicture} \node[] (orig) at (0,0) {}; \node at (orig) [fill=red, rectangle,draw] {}; \node[xshift=1.72ex] at (orig) [fill=red, rectangle,draw] (01) {};\end{tikzpicture}
+, then that shape, again is replicated rotated and appended
+#+LATEX: \begin{tikzpicture} \node[] (orig) at (0,0) {}; \node at (orig) [fill=red, rectangle,draw] {}; \node[xshift=1.72ex] at (orig) [fill=red, rectangle,draw] (01) {}; \node[xshift=3.44ex] at (orig) [fill=red, rectangle,draw] (01) {}; \node[xshift=3.44ex, yshift=-1.72ex] at (orig) [fill=red, rectangle,draw] (01) {}; \end{tikzpicture}
+,this    process is illustrated in figure [[My-Frac-progression-ink]], and if perpetuated a pattern emerges, as shown in figure [[My-Frac-GR-plot]], this fractal can be generated by joining a joining two matrices together in a similar way to the pattern described, this is shown in listing [[gen-frac-code]].
+
+#+NAME: gen-frac-code
+#+CAPTION:  Generate the fractal described in \S [[#my-fractal]] and shown in figure [[My-frac-GR-plot]]
+#+attr_html: :width 400px
+#+attr_latex: :width 12cm
+#+begin_src julia
+function matJoin(A, B)
+    function nrow(X)
+        return size(X)[1]
+    end
+    function ncol(X)
+        return size(X)[2]
+    end
+    emptymat = zeros(Bool, max(size(A)[1], size(B)[1]) ,sum(ncol(A) + ncol(B)) )
+    emptymat[1:nrow(A), 1:ncol(A)] = A
+    emptymat[1:nrow(B), (ncol(A)+1):ncol(emptymat)] = B
+    return emptymat
+end
+
+function mywalk(B, n)
+    for i in 1:n
+        B = matJoin(B, rotl90(B));
+    end
+    return B
+end
+
+GR.imshow(mywalk([1, 1], 9))
+#+end_src
+
+
+
 #+attr_html: :width 200px
 #+attr_latex: :width 9cm
-#+NAME: My-Frac-GR
+#+NAME: My-Frac-progression-ink
 #+CAPTION: Fractal that emerges by Rotating and appending boxes, this demonstrates the relationship between the Fibonacci numbers and golden ratio very well
 [[file:../Problems/fractal-dimensions/My-Fib-Fractal-Diagram.svg]]
 
-** Discuss Pattern shows Fibonacci Numbers
-*** HOLD Angle Relates to Golden Ratio
+
+
+The fractal producuces an angle that is caused by the point where the longest and shortest points meet up, the length of these points actually follow the fibonacci numbers and so the angle can be given by the following relationship:
+
+\begin{align}
+    \theata &= \tan^{- 1} \left(\lim_{n \rightarrow \infty} \left(\frac{F_{n- 2}}{F_{n}}                 \right)        \right) \\
+            &= \tan^{- 1} \left(\lim_{n \rightarrow \infty} \left(\frac{F_{n- 2}}{F_{n- 1}+  F_{n- 2}}   \right)        \right) \\
+            &= \tan^{- 1} \left(\lim_{n \rightarrow \infty} \left(\frac{F_{n}}{F_{n+ 1}+  F_{n}}         \right)         \right)
+	    \intertext{Because \(\lim_{n \rightarrow \infty} \left( \frac{F_n}{F_{n- 1}} \right) = \varphi \approx 1.618 \)  we can substite the values:} \notag\\
+	    &= \tan^{-1} \left( \varphi\left( \varphi + 1  \right) \right) \\
+	    &= \tan^{-1} \left( \frac{\psi}{\varphi +  1}\right) \\
+	    &\approx 0.231^{\mat\mathrm{c}}
+\end{align}
+
+
+this is illustrated in figures [[My-Frac-ink-blue]] and [[My-Frac-ink-fade]]. This angle can be contrasted to the golden angle visualised in figure [[My-Frac-gold-angle]]
+.
+
+
+#+attr_html: :width 60px
+#+attr_latex: :width 0.38\textwidth :float wrap
+#+NAME: My-Frac-gold-angle
+#+CAPTION: Diagram of the Golden Angle, an angle formed by having a ratio of edges equal to the golden ratio.
+[[file:../Problems/fractal-dimensions/golden-angle-diagram.svg]]
+
+
+#+attr_html: :width 60px
+#+attr_latex: :width 9cm
+#+NAME: My-Frac-ink-blue
+#+CAPTION: TODO
+[[file:../Problems/fractal-dimensions/my-self-rep-frac.svg]]
+
+
+#+attr_html: :width 60px
+#+attr_latex: :width 9cm
+#+NAME: My-Frac-ink-fade
+#+CAPTION: TODO
+[[file:../Problems/fractal-dimensions/scale-of-my-fractal.svg]]
+
+
+Each time this fractal is iterated the measure (i.e. the number of boxes) is doubled, but the scale of the fractal is increased by a ratio of the width and height, because the boxes add up this ratio will be a ratio of fibonacci numbers which is shown to be equal to the golden ratio \(\phi\) in \S [[#fib-golden-ratio-proof]], hence the dimension of this fractal is given by:
+
+\begin{align}
+\log_{\varphi}\left(2\right) \approx 1.44042
+\end{align}
+
+This value is consistent with measurements performed using /Julia/ in listing [[my-frac-measure-dim]].
+
+#+NAME: my-frac-measure-dim
+#+CAPTION: Measure the fractal dimension of the fractal described in \S [[#my-fractal]]
+#+begin_src julia
+using DataFrames
+function returnDim()
+    mat2 = mywalk(fill(1, 1, 1), 10)
+    l2   = sum(mat2)
+    size2 = size(mat2)[1]
+    mat1 = mywalk(fill(1, 1, 1), 11)
+    l1   = sum(mat1)
+    size1 = size(mat1)[1]
+    df = DataFrame()
+    df.measure = [log(l2/l1)/log(size2/size1)]
+    df.actual  = [log(2)/log(1.618) ]
+    return df
+end
+
+returnDim()
+
+#------------------------------------------------------------
+#  1×2 DataFrame
+# │ Row │ measure │ actual  │
+# │     │ Float64 │ Float64 │
+# ├─────┼─────────┼─────────┤
+# │ 1   │ 1.44052 │ 1.44048 │
+#+end_src
+
+
+
 ** HOLD Prove Fibonacci using Monotone Convergence Theorem
+:PROPERTIES:
+:CUSTOM_ID: fib-golden-ratio-proof
+:END:
 Consider the series:
 
 $$\begin{aligned}
@@ -1532,138 +1435,6 @@ plt.plot([ sympy.N(sympy.fibonacci(n+1)/sympy.fibonacci(n)) for n in range(1, 30
 plt.savefig("./a.png")
 #+end_src
 [[file:./a.png]]
-
-** Angle is $\tan^{-1}\left( \frac{1}{1-\varphi}\right)$
-*** Similar to Golden Angle $2 \pi \left( \frac{1}{1-\varphi}\right)$
-** Dimension of my Fractal
-$\log_{\varphi}(2)$
-** Code should be split up or put into appendix
-#+begin_src julia
-function matJoin(A, B)
-    function nrow(X)
-        return size(X)[1]
-    end
-    function ncol(X)
-        return size(X)[2]
-    end
-    emptymat = zeros(Bool, max(size(A)[1], size(B)[1]) ,sum(ncol(A) + ncol(B)) )
-    emptymat[1:nrow(A), 1:ncol(A)] = A
-    emptymat[1:nrow(B), (ncol(A)+1):ncol(emptymat)] = B
-    return emptymat
-end
-
-function mywalk(B, n)
-    for i in 1:n
-        B = matJoin(B, rotl90(B));
-    end
-    return B
-end
-
-############################################################
-##### Use Plot for themes ##################################
-############################################################
-
-using Plots
-# SavePlot
-## Docstring
-    """
-# MakePlot
-Saveplot will save a plot of the fractals
-
-- `n`
-  - Is the number of iterations to produce the fractal
-    - ``\\frac{n!}{k!(n - k)!} = \\binom{n}{k}``
-- `filename`
-  - Is the File name
-- `backend`
-  - either `gr()` or `pyplot()`
-    - Gr is faster
-    - pyplot has lines
-    - Avoiding this entirely and using `GR.image()` and
-     `GR.savefig` is even faster but there is no support
-     for changing the colour schemes
-
-    """
-function makePlot(n, backend=pyplot())
-    backend
-    plt = Plots.plot(mywalk([1 1], n),
-                     st=:heatmap, clim=(0,1),
-                     color=:coolwarm,
-                    colorbar_title="", ticks = true, legend = false, yflip = true, fmt = :svg)
-    return plt
-end
-plt = makePlot(5)
-
-"""
-# savePlot
-Saves a Plot created with `Plots.jl` to disk (regardless of backend) as both an
-svg, use ImageMagick to get a PNG if necessary
-
-- `filename`
-  - Location on disk to save image
-- `plt`
-  - A Plot object created by using `Plot.jl`
-"""
-function savePlot(filename, plt)
-    filename = replace(filename, " " => "_")
-    path = string(filename, ".svg")
-    Plots.savefig(plt, path)
-    print("Image saved to ", path)
-end
-
-#------------------------------------------------------------
-#-- Dimension -----------------------------------------------
-#------------------------------------------------------------
-# Each time it iterates the image scales by phi
-# and the number of pixels increases by 2
-# so log(2)/log(1.618)
-# lim(F_n/F_n-1)
-# but the overall dimensions of the square increases by a factor of 3
-# so 3^D=5 ==> log_3(5) = log(5)/log(3) = D
-using DataFrames
-function returnDim()
-    mat2 = mywalk(fill(1, 1, 1), 10)
-    l2   = sum(mat2)
-    size2 = size(mat2)[1]
-    mat1 = mywalk(fill(1, 1, 1), 11)
-    l1   = sum(mat1)
-    size1 = size(mat1)[1]
-    df = DataFrame
-    df.measure = [log(l2/l1)/log(size2/size1)]
-    df.actual  = [log(2)/log(1.618) ]
-    return df
-end
-
-############################################################
-### Main Functions ##########################################
-############################################################
-# Usually Main should go into a seperate .jl filename
-# Then a compination of import, using, include will
-# get the desired effect of top down programming.
-# Combine this with using a tmp.jl and tst.jl and you're set.
-# See https://stackoverflow.com/a/24935352/12843551
-# http://ryansnotes.org/mediawiki/index.php/Workflow_Tips_in_Julia
-
-# Produce and Save a Plot
-#=
-filename = "my-self-rep-frac";
-filename = string(pwd(), "/", filename);
-savePlot(filename, makePlot(5))
-;convert $filename.svg $filename.png
-makePlot(5, pyplot())
-=#
-# Return the Dimensions
-returnDim()
-
-
-############################################################
-#### Render Image ##########################################
-#################yellow and purple##########################
-using GR
-GR.imshow(mywalk([1 1], 5))
-
-
-#+end_src
 
 * TODO The Fibonacci Sequence
 The Fibonacci Sequence occurs in my example from the \S [[#my-fractal]], let's investigate it
@@ -2660,6 +2431,7 @@ ffmpeg                    \
 :PROPERTIES:
 :ID:       c0c790f2-93a7-44f1-9f76-4a20bcd66c62
 :DIR:      /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/
+:CUSTOM_ID: mandlebrot-set
 :END:
 Investigating these fractals, a natural question might be whether or not any
 given $c$ value will produce a fractal that is an open disc or a closed disc.
@@ -2798,6 +2570,7 @@ save_picture("/tmp/a.fits", my_pic)
 :CUSTOM_ID: appendix
 :END:
 So unless code contributes directly to the discussion we'll put it in the appendix.
+@@latex: \appendix @@
 ** Finding Material
 #+begin_src bash
 recoll -c /home/ryan/Dropbox/Books/Textbooks/Mathematics/Chaos_Theory/chaos_books_recoll & disown
@@ -2834,7 +2607,209 @@ Research for \S [[#Hausdorff-dimension]] on the Hausdorff Dimension proved actua
 - Tél, T., Gruiz, M., & Kulacsy, K., /Chaotic dynamics: an introduction based on classical mechanics/  [[cite:telChaoticDynamicsIntroduction2006][\S2.1.2]]
 - Peitgen, H., Jürgens, H., & Saupe, D., /Chaos and fractals: new frontiers of science/  [[cite:peitgenChaosFractalsNew2004][\S 4.3]]
 
+** Functions for constructing the Julia Set
+:PROPERTIES:
+:CUSTOM_ID: julia-set-functions-script
+:END:
+
+The following functions were saved in a file called:
+
+- ~@time include("./Julia-Set-Dimensions-functions.jl")~
+
+This file was loaded into the current workspace by using the following at the top of a /Julia/ script:
+
+- ~@time include("./Julia-Set-Dimensions-functions.jl")~
+
+
+#+begin_src julia
+using GR
+using DataFrames
+using Gadfly
+using GLM
+using SharedArrays
+using Distributed
+
+############################################################
+### Julia / MandelBrot Functions ###########################
+############################################################
+
+"""
+# Julia Set
+Returns how many iterations it takes for a value on the complex plane to diverge
+under recursion. if `boolQ` is specified as true a 1/0 will be returned to
+indicate divergence or convergence.
+
+## Variables
+- `z`
+  - A value on the complex plane within the unit circle
+- `num`
+  - A number of iterations to perform before conceding that the value is not
+    divergent.
+- `my_func`
+  - A function to perform on `z`, for a julia set the function will be of the
+    form `z -> z^2 + a + im*b`
+    - So for example the Douady Rabbit would be described by `z -> z^2 -0.123+0.745*im`
+"""
+function juliaSet(z, num, my_func, boolQ=true)
+    count = 1
+    # Define z1 as z
+    z1 = z
+    # Iterate num times
+    while count ≤ num
+        # check for divergence
+        if real(z1)^2+imag(z1)^2 > 2^2
+            if(boolQ) return 0 else return Int(count) end
+        end
+        #iterate z
+        z1 = my_func(z1) # + z
+        count=count+1
+    end
+        #if z hasn't diverged by the end
+    if(boolQ) return 1 else return Int(count) end
+end
+
+
+"""
+# Mandelbrot Set
+Returns how many iterations it takes for a value on the complex plane to diverge
+under recursion of \$z \\rightarrow z^2 + z_0\$.
+
+Values that converge represent constants of the julia set that lead to a
+connected set. (TODO: Have I got that Vice Versa?)
+
+
+## Variables
+- `z`
+  - A value on the complex plane within the unit circle
+- `num`
+  - A number of iterations to perform before conceding that the value is not
+    divergent.
+- `boolQ`
+  - `true` or `false` value indicating whether or not to return 1/0 values
+    indicating divergence or convergence respecitvely or to return the number of
+   iterations performed before conceding no divergence.
+"""
+function mandelbrot(z, num, boolQ = true)
+    count = 1
+    # Define z1 as z
+    z1 = z
+    # Iterate num times
+    while count ≤ num
+        # check for divergence
+        if real(z1)^2+imag(z1)^2 > 2^2
+            if(boolQ) return 0 else return Int(count) end
+        end
+        #iterate z
+        z1 = z1^2 + z
+        count=count+1
+    end
+        #if z hasn't diverged by the end
+    return 1 # Int(num)
+    if(boolQ) return 1 else return Int(count) end
+end
+
+function test(x, y)
+    if(x<1) return x else return y end
+end
+
+
+############################################################
+##### Build a Matrix Image #################################
+############################################################
+
+"""
+# Make a Picture
+
+This maps a function on the complex plane to a matrix where each element of the
+matrix corresponds to a single value on the complex plane. The matrix can be
+interpreted as a greyscale image.
+
+Inside the function is a `zoom` parameter that can be modified for different
+fractals, fur the julia and mandelbrot sets this shouldn't need to be adjusted.
+
+The height and width should be interpreted as resolution of the image.
+
+- `width`
+  - width of the output matrix
+- `height`
+  - height of the output matrix
+- `myfunc`
+  - Complex Function to apply across the complex plane
+"""
+function make_picture(width, height, my_func)
+    pic_mat = zeros(width, height)
+    zoom = 0.3
+    for j in 1:size(pic_mat)[2]
+        for i in 1:size(pic_mat)[1]
+            x = (j-width/2)/(width*zoom)
+            y = (i-height/2)/(height*zoom)
+            pic_mat[i,j] = juliaSet(x+y*im, 256, my_func)
+        end
+    end
+    return pic_mat
+end
+
+############################################################
+### Make the Outline ########################################
+############################################################
+
+"""
+# Outline
+
+Sets all elements with neighbours on all sides to 0.
+
+- `mat`
+  - A matrix
+    - If this matrix is the convergent values corresponding to a julia set the
+      output will be the outline, which is the definition of the julia set.
+"""
+function outline(mat)
+    work_mat = copy(mat)
+    for col in 2:(size(mat)[2]-1)
+        for row in 2:(size(mat)[1]-1)
+            ## Make the inside 0, we only want the outline
+            neighbourhood = mat[row-1:row+1,col-1:col+1]
+            if sum(neighbourhood) >= 9 # 9 squares
+                work_mat[row,col] = 0
+            end
+        end
+    end
+    return work_mat
+end
+
+
+############################################################
+###### Return many Scaled Values ###########################
+############################################################
+
+
+
+function scaleAndMeasure(min, max, n, func)
+    # The scale is equivalent to the resolution, the initial resolution could be
+    # set as 10, 93, 72 or 1, it's arbitrary (previously I had res and scale)
+    # #TODO: Prove this
+
+    scale = [Int(ceil(i)) for i in range(min, max, length=n) ]
+    mass = pmap(s -> sum(outline(make_picture(Int(s), Int(s), func))) , scale)
+
+    data = DataFrame(scale = scale, mass = mass)
+    return data
+end
+
+#+end_src
+
 * Footnotes
+
+[fn:qt]
+
+In this quote by Mandelbrot is indicating that by the earlier definition of a
+fractal, any shape (i.e. a subset of \(\mathbb{R}^{n}\) with a non-integer
+dimension must be a fractal. This however is merely a sufficent, rather than a
+necessary, condition of a fractal, for example the /Dragon Curve/ discussed in
+section [[#turtle]] and the Mandlebrot set discussed at section [[#mandlebrot-set]] both
+have a dimension of 2 but are clearly fractals by this definition because there
+shape is constructed with a line, which has a "topological" dimension of 1.
+
 
 
 [fn:res]
@@ -2878,3 +2853,5 @@ suggest that this process isn't too far off.
 
 [fn:op] Although proprietary software such as Magma, Mathematica and Maple is very good, the restrictive licence makes them undesirable for study because there is no means by which to inspect the problem solving tecniques implemented, build on top of the work and moreover the lock-in nature of the software makes it a risky investment with respect to time.
 **
+
+[fn:spc] See generally Ch. 2.7 of [[cite:peitgenChaosFractalsNew2004][\S 2.7]] for further Reading.

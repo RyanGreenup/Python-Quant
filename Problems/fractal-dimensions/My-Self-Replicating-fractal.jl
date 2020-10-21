@@ -87,7 +87,7 @@ function returnDim()
     mat1 = mywalk(fill(1, 1, 1), 11)
     l1   = sum(mat1)
     size1 = size(mat1)[1]
-    df = DataFrame
+    df = DataFrame()
     df.measure = [log(l2/l1)/log(size2/size1)]
     df.actual  = [log(2)/log(1.618) ]
     return df

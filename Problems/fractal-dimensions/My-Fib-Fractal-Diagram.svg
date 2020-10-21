@@ -7,9 +7,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   width="197.21844mm"
+   height="233.09613mm"
+   viewBox="0 0 197.21844 233.09613"
    version="1.1"
    id="svg8"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
@@ -17,75 +17,75 @@
   <defs
      id="defs2">
     <marker
-       style="overflow:visible;"
+       style="overflow:visible"
        id="marker1917"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Arrow1Lend"
        inkscape:isstock="true">
       <path
-         transform="scale(0.8) rotate(180) translate(12.5,0)"
-         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
          id="path1915" />
     </marker>
     <marker
-       style="overflow:visible;"
+       style="overflow:visible"
        id="marker1561"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Arrow1Lend"
        inkscape:isstock="true"
        inkscape:collect="always">
       <path
-         transform="scale(0.8) rotate(180) translate(12.5,0)"
-         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
          id="path1559" />
     </marker>
     <marker
-       style="overflow:visible;"
+       style="overflow:visible"
        id="marker1505"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Arrow1Lend"
        inkscape:isstock="true">
       <path
-         transform="scale(0.8) rotate(180) translate(12.5,0)"
-         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
          id="path1503" />
     </marker>
     <marker
-       style="overflow:visible;"
+       style="overflow:visible"
        id="marker1385"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Arrow1Lend"
        inkscape:isstock="true">
       <path
-         transform="scale(0.8) rotate(180) translate(12.5,0)"
-         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
          id="path1383" />
     </marker>
     <marker
-       style="overflow:visible;"
+       style="overflow:visible"
        id="Arrow1Lend"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Arrow1Lend"
        inkscape:isstock="true"
        inkscape:collect="always">
       <path
-         transform="scale(0.8) rotate(180) translate(12.5,0)"
-         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
          id="path1096" />
     </marker>
   </defs>
@@ -96,17 +96,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="536.2768"
-     inkscape:cy="343.618"
+     inkscape:zoom="0.7"
+     inkscape:cx="748.49587"
+     inkscape:cy="1000.5404"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
-     inkscape:window-width="3806"
-     inkscape:window-height="1963"
-     inkscape:window-x="1928"
-     inkscape:window-y="120"
+     inkscape:window-width="1720"
+     inkscape:window-height="1825"
+     inkscape:window-x="1684"
+     inkscape:window-y="292"
      inkscape:window-maximized="0" />
   <metadata
      id="metadata5">
@@ -123,7 +123,8 @@
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(-3.5763935,-5.022857)">
     <g
        id="g863"
        transform="matrix(0.41838554,0,0,0.41838554,14.08973,-23.493141)">
@@ -141,86 +142,6 @@
          height="46.79184"
          x="75.107109"
          y="68.657227" />
-    </g>
-    <g
-       id="g991"
-       transform="matrix(0.775051,0,0,0.775051,5.4494357,359.5949)">
-      <g
-         id="g983"
-         transform="matrix(0.53981678,0,0,0.53981678,9.2100563,74.992543)">
-        <rect
-           style="fill:#c6c5c5;fill-opacity:0.402732;stroke:#000000;stroke-width:1;stroke-linejoin:bevel;stroke-dasharray:1, 1"
-           id="rect979"
-           width="46.79184"
-           height="46.79184"
-           x="28.315269"
-           y="68.657227" />
-        <rect
-           style="fill:#c6c5c5;fill-opacity:0.402732;stroke:#000000;stroke-width:1;stroke-linejoin:bevel;stroke-dasharray:1, 1"
-           id="rect981"
-           width="46.79184"
-           height="46.79184"
-           x="75.107109"
-           y="68.657227" />
-      </g>
-      <g
-         id="g989"
-         transform="matrix(0,-0.53981678,0.53981678,0,37.950832,177.85796)">
-        <rect
-           style="fill:#c6c5c5;fill-opacity:0.402732;stroke:#000000;stroke-width:1;stroke-linejoin:bevel;stroke-dasharray:1, 1"
-           id="rect985"
-           width="46.79184"
-           height="46.79184"
-           x="28.315269"
-           y="68.657227" />
-        <rect
-           style="fill:#c6c5c5;fill-opacity:0.402732;stroke:#000000;stroke-width:1;stroke-linejoin:bevel;stroke-dasharray:1, 1"
-           id="rect987"
-           width="46.79184"
-           height="46.79184"
-           x="75.107109"
-           y="68.657227" />
-      </g>
-    </g>
-    <g
-       id="g1005"
-       transform="matrix(0,-0.775051,0.775051,0,-3.6827476,524.15918)">
-      <g
-         id="g997"
-         transform="matrix(0.53981678,0,0,0.53981678,9.2100563,74.992543)">
-        <rect
-           style="fill:#c6c5c5;fill-opacity:0.402732;stroke:#000000;stroke-width:1;stroke-linejoin:bevel;stroke-dasharray:1, 1"
-           id="rect993"
-           width="46.79184"
-           height="46.79184"
-           x="28.315269"
-           y="68.657227" />
-        <rect
-           style="fill:#c6c5c5;fill-opacity:0.402732;stroke:#000000;stroke-width:1;stroke-linejoin:bevel;stroke-dasharray:1, 1"
-           id="rect995"
-           width="46.79184"
-           height="46.79184"
-           x="75.107109"
-           y="68.657227" />
-      </g>
-      <g
-         id="g1003"
-         transform="matrix(0,-0.53981678,0.53981678,0,37.950832,177.85796)">
-        <rect
-           style="fill:#c6c5c5;fill-opacity:0.402732;stroke:#000000;stroke-width:1;stroke-linejoin:bevel;stroke-dasharray:1, 1"
-           id="rect999"
-           width="46.79184"
-           height="46.79184"
-           x="28.315269"
-           y="68.657227" />
-        <rect
-           style="fill:#c6c5c5;fill-opacity:0.402732;stroke:#000000;stroke-width:1;stroke-linejoin:bevel;stroke-dasharray:1, 1"
-           id="rect1001"
-           width="46.79184"
-           height="46.79184"
-           x="75.107109"
-           y="68.657227" />
-      </g>
     </g>
     <g
        id="g1749"
