@@ -630,20 +630,6 @@ size1 = size(mat1)[1]
 #+end_src
 
 
-#+NAME: fig:square-carpet
-#+CAPTION: Sierpinksi's Carpet, produced by listing [[listing l-s-carpet]].
-#+attr_html: :width 400px
-#+attr_latex: :width 7cm
-[[file:media/sierpinsky_carpet.png]]
-
-
-#+attr_html: :width 300px
-#+attr_latex: :width 7cm
-#+NAME: fig:cantor-dust
-#+CAPTION: A shape this is similar, but different to, the /Cantor Dust/, the dimension of this fractal is 1, produced by listing [[l-cant-dust]].
-[[file:media/Cantor_Dust_gen.png]]
-
-
 #+NAME: l-cant-dust
 #+CAPTION: Function to generate Cantor Dust, shown in [[fig:cantor-dust]]
 #+begin_src julia
@@ -691,6 +677,21 @@ size1 = size(mat1)[1]
 ## 1.0
 
 #+end_src
+
+
+#+NAME: fig:square-carpet
+#+CAPTION: Sierpinksi's Carpet, produced by listing [[listing l-s-carpet]].
+#+attr_html: :width 400px
+#+attr_latex: :width 7cm
+[[file:media/sierpinsky_carpet.png]]
+
+
+#+attr_html: :width 300px
+#+attr_latex: :width 7cm
+#+NAME: fig:cantor-dust
+#+CAPTION: A shape this is similar, but different to, the /Cantor Dust/, the dimension of this fractal is 1, produced by listing [[l-cant-dust]].
+[[file:media/Cantor_Dust_gen.png]]
+
 
 
 **** Sierpinski's Triangle
