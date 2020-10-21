@@ -216,6 +216,25 @@
       \verb https://search.creativecommons.org/
       \endverb
     \endentry
+    \entry{CTANPackageAnimate}{online}{}
+      \field{sortinit}{C}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{labeltitlesource}{title}
+      \field{title}{{{CTAN}}: {{Package}} Animate}
+      \field{urlday}{21}
+      \field{urlmonth}{10}
+      \field{urlyear}{2020}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/8GYMGG3T/animate.html
+      \endverb
+      \verb{urlraw}
+      \verb https://ctan.org/pkg/animate?lang=en
+      \endverb
+      \verb{url}
+      \verb https://ctan.org/pkg/animate?lang=en
+      \endverb
+    \endentry
     \entry{edgarMeasureTopologyFractal2008a}{book}{}
       \name{author}{1}{}{%
         {{hash=37265fa47659b0002144c692793634d9}{%
@@ -1393,6 +1412,26 @@
       \field{title}{An Introduction to Abstract Algebra with Notes to the Future Teacher}
       \field{year}{2007}
       \field{dateera}{ce}
+    \endentry
+    \entry{PdftexThereAny}{online}{}
+      \field{sortinit}{P}
+      \field{sortinithash}{bb5b15f2db90f7aef79bb9e83defefcb}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{TeX - LaTeX Stack Exchange}
+      \field{title}{Pdftex - {{Is}} There Any Way to Include an Animated {{GIF}} Directly?}
+      \field{urlday}{21}
+      \field{urlmonth}{10}
+      \field{urlyear}{2020}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/59GVW9ZJ/is-there-any-way-to-include-an-animated-gif-directly.html
+      \endverb
+      \verb{urlraw}
+      \verb https://tex.stackexchange.com/questions/5396/is-there-any-way-to-include-an-animated-gif-directly
+      \endverb
+      \verb{url}
+      \verb https://tex.stackexchange.com/questions/5396/is-there-any-way-to-include-an-animated-gif-directly
+      \endverb
     \endentry
     \entry{peitgenChaosFractalsNew2004}{book}{}
       \name{author}{3}{}{%

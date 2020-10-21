@@ -1,0 +1,25 @@
+[0] Config.pm:304> INFO - This is Biber 2.14
+[0] Config.pm:307> INFO - Logfile is 'Report.blg'
+[64] biber:322> INFO - === Wed Oct 21, 2020, 13:10:55
+[80] Biber.pm:415> INFO - Reading 'Report.bcf'
+[135] Biber.pm:943> INFO - Found 55 citekeys in bib section 0
+[144] Biber.pm:4256> INFO - Processing section 0
+[145] Utils.pm:75> INFO - Globbing data source '../Resources/references.bib'
+[145] Utils.pm:91> INFO - Globbed data source '../Resources/references.bib' to ../Resources/references.bib
+[152] Biber.pm:4455> INFO - Looking for bibtex format file '../Resources/references.bib' for section 0
+[157] bibtex.pm:1653> INFO - LaTeX decoding ...
+[292] bibtex.pm:1471> INFO - Found BibTeX data source '../Resources/references.bib'
+[338] Utils.pm:304> WARN - ISBN '978-981-02-0668-0 978-981-02-0669-7' in entry 'vicsekFractalGrowthPhenomena1992' is invalid - run biber with '--validate_datamodel' for details.
+[343] Utils.pm:304> WARN - ISBN '9780511335044 9780511334467 9780511333125 9780511803277 9780511333804 9781281040114 9786611040116 9780511567216' in entry 'telChaoticDynamicsIntroduction2006' is invalid - run biber with '--validate_datamodel' for details.
+[348] Utils.pm:304> WARN - ISBN '978-0-387-94153-0 978-3-540-94153-8 978-2-225-85130-8' in entry 'gouyetPhysicsFractalStructures1996' is invalid - run biber with '--validate_datamodel' for details.
+[350] Utils.pm:304> WARN - ISBN '978-0-470-84861-6 978-0-470-84862-3' in entry 'falconerFractalGeometryMathematical2003b' is invalid - run biber with '--validate_datamodel' for details.
+[397] Utils.pm:304> WARN - year field '2005-May' in entry 'markpollicottFractalsDimensionTheory2005' is not an integer - this will probably not sort properly.
+[400] Utils.pm:304> WARN - ISBN '978-0-470-84861-6 978-0-470-84862-3' in entry 'falconerFractalGeometryMathematical2003' is invalid - run biber with '--validate_datamodel' for details.
+[457] Utils.pm:304> WARN - year field '2006, September 5' in entry 'simonbrassCCSearch2006' is not an integer - this will probably not sort properly.
+[504] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[504] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[504] Biber.pm:4084> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[504] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[538] bbl.pm:652> INFO - Writing 'Report.bbl' with encoding 'UTF-8'
+[557] bbl.pm:755> INFO - Output to Report.bbl
+[557] Biber.pm:128> INFO - WARNINGS: 7
