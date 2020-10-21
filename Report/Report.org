@@ -1289,7 +1289,7 @@ this is illustrated in figures [[My-Frac-ink-blue]] and [[My-Frac-ink-fade]]. Th
 
 
 #+attr_html: :width 60px
-#+attr_latex: :width 0.38\textwidth :float wrap
+#+attr_latex: :width 0.25\textwidth :float wrap
 #+NAME: My-Frac-gold-angle
 #+CAPTION: Diagram of the Golden Angle, an angle formed by having a ratio of edges equal to the golden ratio.
 [[file:../Problems/fractal-dimensions/golden-angle-diagram.svg]]
