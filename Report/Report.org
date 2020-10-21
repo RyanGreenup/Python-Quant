@@ -735,10 +735,10 @@ unsucessful we also experimented with /ImageMagick/ cite:llcImageMagick,
 Unfourtunately the values returned by this approach were inconsistent and
 further investigation into this method is required.
 
-The koch snowflake can be implemented by recursively calling a function that draws the first level of a koch curve, if this function decrements a provided level and is defined to call itself for each arm of the curve unless the level has reached zero it will produce a koch snowflake at the specified level, this is shown in figure [[snow-turtle]] and can be implemented in julia like so:
+The koch snowflake can be implemented by recursively calling a function that draws the first level of a koch curve, if this function decrements a provided level and is defined to call itself for each arm of the curve unless the level has reached zero it will produce a koch snowflake at the specified level, this is implemented in listing [[turtle-snow]] and shown in figure [[snow-turtle]].
 
-# #+NAME: turtle-snow
-# #+CAPTION: Generate a Koch Snowflake using a Turtle Diagram
+#+NAME: turtle-snow
+#+CAPTION: Generate a Koch Snowflake using a Turtle Diagram
 #+begin_src julia
 using Shapefile
 using Luxor
@@ -775,8 +775,10 @@ end 600 600 "snowCurve.png"
 
 #+end_src
 
-The dragon curve is slightly more complicated and can be implemented by two seperate functions, one to turn and trigger a motion and the other to control in which direction to turn, this is shown in figure [[dragon-turtle]] and implemented by the following /Julia/ code:
+The dragon curve is slightly more complicated and can be implemented by two seperate functions, one to turn and trigger a motion and the other to control in which direction to turn, this is implemented in /Julia/ in listing [[turtle-dragon]]  and shown in figure [[dragon-turtle]].
 
+#+NAME: turtle-dragon
+#+CAPTION: /Julia/ code to produce the Dragon Curve shown in figure [[fig:turtle-dragon]]
 #+begin_src julia
 using Shapefile
 using Luxor
@@ -838,7 +840,7 @@ montage -geometry 1000x1000 *.png dragon.png
 
 #+attr_html: :width 600px
 #+attr_latex: :width 9cm
-#+NAME: dragon-turtle
+#+NAME: fig:turtle-dragon
 #+CAPTION: Progression of the Dragon Curve, this is known as a space filling curve [[cite:peitgenChaosFractalsNew2004][p. 350]] which is a curve with a range that contains the entire 2-dimensional unit square cite:ventrellaSpaceFillingCurvesAre2014, it has a dimension of two. For some historical background on the curve on the origins of this curve see cite:tabachnikovDragonCurvesRevisited2014.
 [[file:../Problems/Chaos/Spirals/dragon.png]]
 
