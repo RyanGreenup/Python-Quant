@@ -285,7 +285,7 @@ diamater $\leq \delta$ that will cover over a shape as shown in figure
 $\mathcal{H}^{2}_{\delta} \left(F\right)$ will be the area of the boxes when
 arranged in such a way that minimises the area.
 
-As $\delta$ is made arbitrarily small $\matcal{H}_{\delta}^{s}$ will approach some limit, in the case of figures [[hausdorff-covering]]  and [[abstract-shape]] the value of $\mathcal{H}^{2}_{\delta}$ will approach the area of the shape as $\delta \rightarrow 0$ and so the $s^{th}$ dimensional Hausdorff measure is given by:
+As $\delta$ is made arbitrarily small $\mathcal{H}_{\delta}^{s}$ will approach some limit, in the case of figures [[hausdorff-covering]]  and [[abstract-shape]] the value of $\mathcal{H}^{2}_{\delta}$ will approach the area of the shape as $\delta \rightarrow 0$ and so the $s^{th}$ dimensional Hausdorff measure is given by:
 
 \begin{align}
 \mathcal{H}^{s} = \lim_{\delta \rightarrow 0}\left( \mathcal{H}^{s}_{\delta} \right) \label{eq:limit-haus}
@@ -338,7 +338,7 @@ Consider some value $s$ such that the Hausdorff measure is not infinite, i.e. va
 Consider a dimensional value $t$ that is larger than  $s$ and observe that:
 
 \begin{align*}
-0<s<t  \implies   \sum_{i}  \left[ \left\levert U_i \right\rvert^t \right] &= \sum_{i}\left[ \left\levert U_i \right\rvert^{t- s} \cdot  \left\lvert U_i \right\rvert^s \right] \\
+0<s<t  \implies   \sum_{i}  \left[ \left\lvert U_i \right\rvert^t \right] &= \sum_{i}\left[ \left\lvert U_i \right\rvert^{t- s} \cdot  \left\lvert U_i \right\rvert^s \right] \\
 &\leq \sum_{i} \left[ \delta^{t - s} \cdot \left\lvert U_i \right\rvert^s  \right]    \\
 &= \delta^{t- s}\sum_{i}   \left[ \left\lvert U_i \right\rvert^s \right] 									   \\
 \end{align*}
@@ -574,7 +574,12 @@ and hence has the same dimension as the /Vicsek Fractal/ as opposed to a
 dimension of 1.
 
 **** Sierpinskis Carpet and Cantor's Dust
+By modifying the approach provided in listing [[vicsek-matrix-gen]] other fractals
+such as /Sierpinski's Carpet/ and /Cantor's Dust/ can be produced, this is
+implemented in listings [[l-s-carpet]] [[l-cant-dust]] and shown in figures
+[[fig:square-carpet]] and [[fig:cantor-dust]] respectively. [fn:spc]
 
+[fn:spc] See generally Ch. 2.7 of [[cite:peitgenChaosFractalsNew2004][\S 2.7]] for further Reading.
 
 
 [fn:spc] See generally Ch. 2.7 of [[cite:peitgenChaosFractalsNew2004][\S 2.7]] for further Reading.
@@ -984,8 +989,8 @@ are the expansions in radix $p$ [fn:: Radix refers to a numerical system which u
 Take some arbitrary row $r$ and column $c$ in the triangle $P_{n}$. If we add $2^{n}$ rows to $r$, we will reach the equivalent row and column in the lower left triangle of $P_{n+1}$, since there are $2^{n}$ rows in $P_{n}$. In the same way, if we add $2^{n}$ columns to $c$ we reach the equivalent row and column in the lower right triangle of $P_{n+1}$, leaving us with:
 
 \begin{align*}
-\text{Top Triangle:} \quad &\binom{r}{c} \label{eq:top} \\
-\text{Bottom-left Triangle:}\quad &\binom{r + 2^n}{c} \label{eq:bottom-left} \\
+\text{Top Triangle:} \quad &\binom{r}{c}  \\
+\text{Bottom-left Triangle:}\quad &\binom{r + 2^n}{c}  \\
 \text{Bottom-right Triangle :}\quad &\binom{r + 2^n}{c + 2^n} \label{eq:bottom-right}
 \end{align*}
 
@@ -1043,7 +1048,7 @@ To implement this all the functions necessary to build the fractals were placed 
 #+end_src
 
 
-The julia set is defined as the boundary between values on the complex plane that converge and diferge under iteration of \(z\leftarrow z^{2} + a+ib\) to consider only the boundary of values, the ~juliaSet~ function shown in  listing [[jsetDivFunc]] can be modified to return only the value of 1 or 0 as opposed to the time taken to cross the threshold of divergence [fn:: \mathtt{abs}(z) exceeds to the point is assured to diverge under iteration] and then it can be determined whether or not a point is a boundary by considering whether or not the sum of all elements within the immediate neighbourhood of the elemnt is greater than 1. This is shown in the ~outline~ function which is defined in \S [[#julia-set-functions-script]].
+The julia set is defined as the boundary between values on the complex plane that converge and diferge under iteration of \(z\leftarrow z^{2} + a+ib\) to consider only the boundary of values, the ~juliaSet~ function shown in  listing [[jsetDivFunc]] can be modified to return only the value of 1 or 0 as opposed to the time taken to cross the threshold of divergence [fn:: \(\mathtt{abs}\left(z\right) \) exceeds to the point is assured to diverge under iteration] and then it can be determined whether or not a point is a boundary by considering whether or not the sum of all elements within the immediate neighbourhood of the elemnt is greater than 1. This is shown in the ~outline~ function which is defined in \S [[#julia-set-functions-script]].
 
 Comparing squared values rather than using ~abs()~ improved the performance of this function by about two fold.
 
@@ -1841,7 +1846,7 @@ mathematical problems to continuous ones as discussed below at section [[#exp-ge
 Consider the /Fibonacci Sequence/ from eqref:eq:fib-def:
 
 
-\begin{aLign
+\begin{align}
     a_{n}&= a_{n - 1} + a_{n - 2} \nonumber \\
 \iff a_{n+  2} &= a_{n+  1} +  a_n \label{eq:fib-def-shift}
 \end{align}
@@ -2191,7 +2196,7 @@ f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\rig
  \implies  a_n &= \sum^{k}_{i= 0}   {\left[{ A_i \frac{n!}{{\left({ n- i }\right)}!} m^n  }\right]} \nonumber \\
  &= \sum^{k}_{i= 0}   {\left[{ m^n A_i \prod_{0}^{k} {\left[{ n- {\left({ i- 1 }\right)} }\right]}   }\right]}
 & \intertext{$\because \enspace i \leq k$} \notag \nonumber \\
- &= \sum^{k}_{i= 0} {\left[{ A_i^* m^n n^i }\right]}, \quad \exists A_i \in \mathbb{C}, \enspace \forall i\leqk \in \mathbb{Z}^+ \nonumber \\
+ &= \sum^{k}_{i= 0} {\left[{ A_i^* m^n n^i }\right]}, \quad \exists A_i \in \mathbb{C}, \enspace \forall i\leq k \in \mathbb{Z}^+ \nonumber \\
 \ \nonumber \\
 \square \nonumber
 \end{align}
@@ -2348,20 +2353,20 @@ end 600 600
 #+attr_latex: :width 9cm
 #+NAME: simulate-sunflower-image
 #+CAPTION: Simulated Distribution of Sunflower seeds as described in section [[#sunflower-example]] and listing [[simulate-sunflower]]
-[[file:sunflower-spirals-montage.png]]
+[[file:media/Outline/sunflower-spirals-montage.png]]
 
 #+attr_html: :width 600px
 #+attr_latex: :width 9cm
 #+NAME: simulate-sunflower-phi
 #+CAPTION: Optimisation of simulated distribution of Sunflower seeds occurs for $\theta =2 \varphi  \pi$ as described in section [[#sunflower-example]] and listing [[simulate-sunflower]]
-[[file:golden-flower.svg]]
+[[file:media/Outline/golden-flower.svg]]
 
 
 #+attr_html: :width 600px
 #+attr_latex: :width 7cm
 #+NAME: sunflower
 #+CAPTION: Distribution of the seeds of a sunflower (see cite:simonbrassCCSearch2006 licenced under CC)
-[[file:sunflower.jpg]]
+[[file:media/Outline/golden-flower.svg]]
 
 ** TODO Relating The Fibonacci Sequence to the Julia Set                       :Ryan:
 See [[https://youtu.be/ovJcsL7vyrk][this link]].
@@ -2418,8 +2423,8 @@ To implement this test we'll consider a function called ~escape_test~ that appli
 iteration (in this case $f_{0}: z \rightarrow z^{2}$) until that value diverges or converges.
 
 While iterating with $f_{c}$ once $\left\lvert z \right\rvert >
-\mathrm{max}\left(\left\{c, 2\}\right)$, the value must diverge because
-$\left\lvert c \rvert\right \leq 1$, so rather than record whether or not the
+\mathrm{max}\left(\left\{c, 2\right\}\right)$, the value must diverge because
+\(\left\lvert c \right\rvert \leq 1\), so rather than record whether or not the
 value converges or diverges, the ~escape_test~ can instead record the number of
 iterations $(k)$ until the value has crossed that boundary and this will provide
 a measurement of the rate of divergence.
@@ -2513,7 +2518,7 @@ plt.imshow(pic)
 #+attr_latex: :width 9cm
 #+NAME: py-circle-plot
 #+CAPTION: Circle of Convergence for $f_{0}: z \rightarrow z^{2}$
-[[file:circle-of-convergence.svg]]
+[[file:media/Outline/circle-of-convergence.svg]]
 
 This is precisely what we expected, but this is where things get interesting,
 consider now the result if we apply this same procedure to $f_{1}: z \rightarrow
@@ -2526,14 +2531,14 @@ remarkebly unexpected, as shown in figures [[py-jl-1-plot]] and [[py-jl-rab-plot
 #+attr_latex: :width 9cm
 #+NAME: py-jl-1-plot
 #+CAPTION: Circle of Convergence for $f_{0}: z \rightarrow z^{2} - 1$
-[[file:./julia-1.svg]]
+[[file:media/Outline/julia-1.svg]]
 
 
 #+attr_html: :width 400px
 #+attr_latex: :width 9cm
 #+NAME: py-jl-rab-plot
 #+CAPTION: Circle of Convergence for $f_{\frac{1}{4} + \frac{i}{2}}: z \rightarrow z^{2} + \frac{1}{4} + \frac{i}{2}$
-[[file:./julia-rab.svg]]
+[[file:media/Outline/julia-rab.svg]]
 
 To investigate this further consider the
 more general function $f_{0.8 e^{\pi i \tau}}: z \rightarrow z^{2} + 0.8 e^{\pi
@@ -2646,7 +2651,9 @@ ffmpeg                    \
 
 #+NAME: montage-frac
 #+CAPTION: Various fracals corresponding to $f_{0.8 e^{\pi i \tau}}$
-[[attachment:_20200826_005334a.png]]
+#+attr_html: :width 400px
+#+attr_latex: :width 0.38\textwidth
+[[file:media/Outline/many_julia_fractals_around_circle.png]]
 
 * MandelBrot Set                                                                :Ryan:
 :PROPERTIES:
@@ -2719,7 +2726,7 @@ plt.imshow(pic)
 #+NAME: mandelbrot-py-pic
 #+CAPTION: Mandelbrot Set produced in /Python/ as shown in listing [[py-mandelbrot-code]]
 #+RESULTS: py-mandelbrot-code
-[[file:./mandelbrot-py.svg]]
+[[file:media/Outline/mandelbrot-py.svg]]
 
 This output although remarkable is however fairly undetailed, by using /Julia/ a much
 larger image can be produced, in /Julia/ producing a 4 GB, 400 MP image can be done in little time
@@ -2783,7 +2790,8 @@ save_picture("/tmp/a.fits", my_pic)
 #+attr_latex: :width 10cm
 #+NAME: mandelbrot-screen
 #+CAPTION: Screenshot of Mandelbrot FITS image produced by listing [[julia-large-mandelbrot]]
-[[file:_20200828_233844screenshot.png]]
+[[file:media/Outline/_20200828_233844screenshot.png]]
+
 * Appendix
 :PROPERTIES:
 :CUSTOM_ID: appendix

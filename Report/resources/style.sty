@@ -8,16 +8,12 @@
 % ** General
 %\RequirePackage{~/Dropbox/profiles/Templates/LaTeX/texnotePreamble.sty}
 % \RequirePackage[framemethod=tikz]{mdframed}
-\RequirePackage{pgfplots}
 \RequirePackage{comment}
 \RequirePackage{import} %This is allows relative directories
-\RequirePackage{tikz, pstricks}
-\RequirePackage{pst-solides3d}
+\RequirePackage{tikz}
 \RequirePackage{svg} % Needed for sVG Images
 \usetikzlibrary{decorations.fractals}
 \usetikzlibrary{lindenmayersystems}
-%\usetikzlibrary{calc}
-%\RequirePackage{chngcntr}
 \RequirePackage[T1]{fontenc}
 %\RequirePackage{extsizes} % More Font Sizes
 \RequirePackage[utf8]{inputenc}
@@ -79,7 +75,7 @@
 % * Styling/Aesthetics
 % ** Section Names
 % Rename Chapters because a reports not a book
-\renewcommand{\chaptername}{Division}
+% \renewcommand{\chaptername}{Division}
 
 
 % ** Font Style
@@ -144,7 +140,7 @@
 \rfoot{\thepage\ of \pageref{LastPage}}
 \lhead[\leftmark]{\rightmark} % Leftmark is sec right is subsec, [even](odd)
 \rhead[]{}                    % clears right side for tag corresponding to Author
-\renewcommand{\headrulewidth{0.1mm}}
+%\renewcommand{\headrulewidth{0.1mm}}
 % \renewcommand{\footrulewidth{0.1mm}} % looks weird with footnotes
 %
 
