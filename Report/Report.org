@@ -1274,13 +1274,13 @@ GR.imshow(mywalk([1, 1], 9))
 The fractal producuces an angle that is caused by the point where the longest and shortest points meet up, the length of these points actually follow the fibonacci numbers and so the angle can be given by the following relationship:
 
 \begin{align}
-    \theata &= \tan^{- 1} \left(\lim_{n \rightarrow \infty} \left(\frac{F_{n- 2}}{F_{n}}                 \right)        \right) \\
+    \theta &= \tan^{- 1} \left(\lim_{n \rightarrow \infty} \left(\frac{F_{n- 2}}{F_{n}}                 \right)        \right) \\
             &= \tan^{- 1} \left(\lim_{n \rightarrow \infty} \left(\frac{F_{n- 2}}{F_{n- 1}+  F_{n- 2}}   \right)        \right) \\
             &= \tan^{- 1} \left(\lim_{n \rightarrow \infty} \left(\frac{F_{n}}{F_{n+ 1}+  F_{n}}         \right)         \right)
 	    \intertext{Because \(\lim_{n \rightarrow \infty} \left( \frac{F_n}{F_{n- 1}} \right) = \varphi \approx 1.618 \)  we can substite the values:} \notag\\
 	    &= \tan^{-1} \left( \varphi\left( \varphi + 1  \right) \right) \\
 	    &= \tan^{-1} \left( \frac{\psi}{\varphi +  1}\right) \\
-	    &\approx 0.231^{\mat\mathrm{c}}
+	    &\approx 0.231^{\mathrm{c}}
 \end{align}
 
 
