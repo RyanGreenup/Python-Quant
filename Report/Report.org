@@ -586,7 +586,7 @@ implemented in listings [[l-s-carpet]] [[l-cant-dust]] and shown in figures
 #--- Function -----------------------------------------------
 #------------------------------------------------------------
 
-function dust(ICMat, width)
+function carpet(ICMat, width)
     B = ICMat
     h  = size(B)[1]
     w  = size(B)[2]
@@ -595,7 +595,7 @@ function dust(ICMat, width)
          B Z B;
          B B B]
     if (3*w)<width
-        B = dust(B, width)
+        B = carpet(B, width)
     end
     return B
 end
@@ -606,16 +606,16 @@ end
 using GR, Plots
 gr() # Set Plots backend as GR
 
-(mat = dust(fill(1, 1, 1), 9^2)) |> size
+(mat = carpet(fill(1, 1, 1), 9^2)) |> size
 p1 = GR.imshow(mat)
 
 #------------------------------------------------------------
 #-- Dimension -----------------------------------------------
 #------------------------------------------------------------
-mat2 = dust(fill(1, 1, 1), 1000)
+mat2 = carpet(fill(1, 1, 1), 1000)
 l2   = sum(mat2)
 size2 = size(mat2)[1]
-mat1 = dust(fill(1, 1, 1), 500)
+mat1 = carpet(fill(1, 1, 1), 500)
 l1   = sum(mat1)
 size1 = size(mat1)[1]
 
