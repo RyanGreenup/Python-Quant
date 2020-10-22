@@ -1103,7 +1103,7 @@ returnDim()
 # │ 1   │ 1.44052 │ 1.44048 │
 #+end_src
 
-* HOLD The Fibonacci Sequence and the Golden Ratio
+* The Fibonacci Sequence and the Golden Ratio
 :PROPERTIES:
 :CUSTOM_ID: fib-golden-ratio-proof
 :END:
@@ -1141,19 +1141,118 @@ F_n = F_{n- 1} +  F_{n- 2} ; \quad F_1 = F_2 = 1
 
 ** Golden Ratio In terms of the Fibonacci Sequence
 The Series \(G\) is alternating convergent series, to show that consider the two sub-sequences formed by taking the odd and even ratios, these are both bounded monotone sequences.
-*** HOLD Show that the Series is Monotone                                     :James:
-*** HOLD Show that the Series is Bounded                                      :James:
-*** HOLD Find the Limit                                                       :Ryan:
-$$\begin{aligned}
-G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
-&= 1 +  \frac{F_{n- 1} }{F_n} \\
-\text{Recall that $F_n > 0 \forall n$}\\
-&=  1 +  \frac{1}{    \left\lvert G \right\rvert } \\
- \implies  0 &= G^2- G +  1; \quad G > 0  \\
-  \implies  G = \varphi &=  \frac{\sqrt{5} + 1  }{2} \quad  \square
-\end{aligned}$$
+*** Prove that the Sequence is Bounded :James:
+Since we are trying to show that the ratio of Fibonacci numbers converges by the Monotone Convergence Theorem, we will let $X_n$ be as follows:
+\begin{equation*}
+    X_n = \bigg\{ \frac{F_{n+1}}{F_n} \bigg\}_{n=1}^\infty, \quad F_1=F_2=1
+\end{equation*}
+To show $X_n$ is bounded we must consider the following sub sequences,
 
-** HOLD Comments                                                               :Ryan:
+i) $\{X_{2n}\}_{n=1}^\infty$ is bounded below and decreasing
+i) $\{X_{2n-1}\}_{n=1}^\infty$ is bounded above and increasing
+
+Proving (i):\\
+To show $\{X_{2n}\}_{n=1}^\infty$ is decreasing we will show $X_{2n} - X_{2(n+1)} > 0$ through the process of induction.
+
+Proof: \\
+For least element $n = 1$:\\
+\begin{align*}
+    X_2 - X_4 &= \frac{F_3}{F_2} - \frac{F_5}{F_4}\\
+    &= \frac{2}{1} - \frac{5}{3}\\
+    &> 0
+\end{align*}
+Now assume true for all $n$:\\
+\begin{equation*}
+    X_{2n} - X_{2(n+1)} > 0 \implies \frac{X_{2n}}{X_{2(n+1)}} > 1
+\end{equation*}
+Prove true for $n+1$:
+\begin{align*}
+    X_{2(n+1)} - X_{2(n+2)} &= X_{2n + 2} - X_{2n+4)}\\
+    &= \frac{F_{2n+3}}{F_{2n+2}} - \frac{F_{2n+5}}{F_{2n+4}}\\
+    &= \frac{F_{2n+3}F_{2n+4} - F_{2n+5}F_{2n+2}}{F_{2n+2}F_{2n+4}}\\
+    &= \frac{F_{2n+3}(F_{2n+3}+F_{2n+2}) - F_{2n+2}(F_{2n+4}+F_{2n+3})}{F_{2n+2}F_{2n+4}}\\
+    &= \frac{(F_{2n+3})^2 - F_{2n+2}F_{2n+4}}{F_{2n+2}F_{2n+4}}\\
+    &= \frac{(F_{2n+3})^2}{F_{2n+2}F_{2n+4}} - 1\\
+    &= \frac{F_{2n+3}}{F_{2n+2}} \cdot \frac{F_{2n+3}}{F_{2n+4}} -1\\
+    &= \frac{X_{2n+2}}{X_{2n+3}} - 1\\
+\end{align*}
+Since $\frac{X_{2n}}{X_{2(n+1)}} > 1$ for all $n$ by assumption, then $\frac{X_{2n+2}}{X_{2n+3}} > 1$  follows, hence
+\begin{align*}
+    X_{2(n+1)} - X_{2(n+2)} &= \frac{X_{2n+2}}{X_{2n+3}} - 1\\
+    &> 1 -1\\
+    &> 0
+\end{align*}
+Therefore by mathematical induction, $X_{2n}$ is monotic decreasing.\\
+Now, for $\{X_{2n}\}_{n=1}^\infty$ to be bounded below we will consider the entire set $X_n$, hence:
+\begin{equation*}
+    X_n = \frac{F_{n+1}}{F_n} =  \frac{F_n + F_{n-1}}{F_n} = 1 + \frac{F_{n-1}}{F_n}
+\end{equation*}
+Since all Fibonacci numbers are positive, $\frac{F_{n-1}}{F_n} > 0$, so
+\begin{equation*}
+    X_n = 1 + \frac{F_{n-1}}{F_n} > 1
+\end{equation*}
+Thus $X_n$ being bounded below implies $X_{2n}$ is also bounded below.
+
+Proving (ii):\\
+To show $\{X_{2n}\}_{n=1}^\infty$ is decreasing we will show $X_{2n-1} - X_{2(n+1)-1} < 0$ through the process of induction.
+
+Proof: \\
+For least element $n = 1$:\\
+\begin{align*}
+    X_1 - X_3 &= \frac{F_2}{F_1} - \frac{F_4}{F_3}\\
+    &= \frac{1}{1} - \frac{3}{2}\\
+    &< 0
+\end{align*}
+Now assume true for all $n$:\\
+\begin{equation*}
+    X_{2n-1} - X_{2n+1} < 0 \implies \frac{X_{2n-1}}{X_{2n+1}} < 1
+\end{equation*}
+Prove true for $n+1$:
+\begin{align*}
+    X_{2(n+1) -1} - X_{2(n+1) + 1} &= X_{2n+1} - X_{2n+3}\\
+    &= \frac{F_{2n+2}}{F_{2n+1}} - \frac{F_{2n+4}}{F_{2n+3}}\\
+    &= \frac{F_{2n+2}F_{2n+3} - F_{2n+4}F_{2n+1}}{F_{2n+1}F_{2n+3}}\\
+    &= \frac{F_{2n+2}(F_{2n+2}+F_{2n+1}) - F_{2n+1}(F_{2n+3}+F_{2n+2})}{F_{2n+1}F_{2n+3}}\\
+    &= \frac{(F_{2n+2})^2 - F_{2n+1}F_{2n+3}}{F_{2n+1}F_{2n+3}}\\
+    &= \frac{(F_{2n+2})^2}{F_{2n+1}F_{2n+3}} - 1\\
+    &= \frac{F_{2n+2}}{F_{2n+1}} \cdot \frac{F_{2n+2}}{F_{2n+3}} -1\\
+    &= \frac{X_{2n+1}}{X_{2n+2}} - 1\\
+\end{align*}
+Since $\frac{X_{2n-1}}{X_{2n+1}} < 1$ for all $n$ by assumption, then $\frac{X_{2n+1}}{X_{2n+2}} < 1$  follows, hence
+\begin{align*}
+    X_{2(n+1)-1} - X_{2(n+1)+1} &= \frac{X_{2n+1}}{X_{2n+2}} - 1\\
+    &< 1 -1\\
+    &< 0
+\end{align*}
+Therefore by mathematical induction, $X_{2n-1}$ is increasing.\\
+Now, for $\{X_{2n-1}\}_{n=1}^\infty$ to be bounded above we will again consider the entire set $X_n$, hence:
+\begin{equation*}
+    X_n = \frac{F_{n+1}}{F_n} =  \frac{F_n + F_{n-1}}{F_n} = 1 + \frac{F_{n-1}}{F_n}
+\end{equation*}
+Since $\frac{F_{n-1}}{F_n} \le 1$ we can deduce that
+\begin{equation*}
+    X_n = 1 + \frac{F_{n-1}}{F_n} \le 2
+\end{equation*}
+Thus $X_n$ being bounded above by 2 implies $X_{2n-1}$ is also bounded above by 2.
+*** Find the Limit                                                       :James:
+By the Monotone Convergence Theorem, $\lim_{n \to \infty} X_n$ exists.
+We will assume that $X_{2n}$ and $X_{2n-1}$ approach the same limit $L~~\forall n \ge 1$
+Meaning, we will also take:
+
+\begin{equation*}
+    \lim_{n\to \infty}X_n = \lim_{n\to \infty}X_{n-1} = L
+\end{equation*}
+
+\begin{align*}
+\lim_{n\to \infty}X_n &= \lim_{n \to \infty} \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
+&= 1 +  \lim_{n \to \infty} \frac{F_{n- 1} }{F_n} \\
+&=  1 +  \lim_{n \to \infty}\frac{1}{X_{n-1}} \\
+ \implies L &= 1 + \frac{1}{L}\\
+ L^2 &= L + 1\\
+ 0 &= L^2 - L - 1\\
+  \implies  L &= \frac{\sqrt{5} + 1  }{2} = \varphi
+\end{align*}
+** Comments                                                               :Ryan:
 :PROPERTIES:
 :CUSTOM_ID: comment
 :END:
