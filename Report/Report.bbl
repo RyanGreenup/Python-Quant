@@ -179,6 +179,50 @@
       \verb https://epubs.siam.org/doi/10.1137/141000671
       \endverb
     \endentry
+    \entry{bohannonSunflowersShowComplex2016}{online}{}
+      \name{author}{1}{}{%
+        {{hash=d604cef3ea7a417ec3d8113792f1a557}{%
+           family={Bohannon},
+           familyi={B\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{d604cef3ea7a417ec3d8113792f1a557}
+      \strng{fullhash}{d604cef3ea7a417ec3d8113792f1a557}
+      \strng{bibnamehash}{d604cef3ea7a417ec3d8113792f1a557}
+      \strng{authorbibnamehash}{d604cef3ea7a417ec3d8113792f1a557}
+      \strng{authornamehash}{d604cef3ea7a417ec3d8113792f1a557}
+      \strng{authorfullhash}{d604cef3ea7a417ec3d8113792f1a557}
+      \field{sortinit}{B}
+      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Crowdsourced data finds patterns more complicated than ever reported}
+      \field{day}{17}
+      \field{hour}{12}
+      \field{journaltitle}{Science | AAAS}
+      \field{langid}{english}
+      \field{minute}{7}
+      \field{month}{5}
+      \field{second}{2}
+      \field{timezone}{-04\bibtzminsep 00}
+      \field{title}{Sunflowers Show Complex {{Fibonacci}} Sequences}
+      \field{urlday}{22}
+      \field{urlmonth}{10}
+      \field{urlyear}{2020}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/ERY77GSJ/sunflowers-show-complex-fibonacci-sequences.html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencemag.org/news/2016/05/sunflowers-show-complex-fibonacci-sequences
+      \endverb
+      \verb{url}
+      \verb https://www.sciencemag.org/news/2016/05/sunflowers-show-complex-fibonacci-sequences
+      \endverb
+    \endentry
     \entry{simonbrassCCSearch2006}{online}{}
       \name{author}{1}{}{%
         {{hash=cea31a4853688eaf34f9847aaa9311ef}{%
@@ -1434,6 +1478,62 @@
       \verb https://warwick.ac.uk/fac/sci/maths/people/staff/mark_pollicott/p3
       \endverb
     \endentry
+    \entry{mathaiConstructingSunflowerHead1974}{article}{}
+      \name{author}{2}{}{%
+        {{hash=368f79a7d8c4a1f5244c602608c80365}{%
+           family={Mathai},
+           familyi={M\bibinitperiod},
+           given={A},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a146cfae8e1f58a4b9ebe2f36e317b6d}{%
+           family={Davis},
+           familyi={D\bibinitperiod},
+           given={T},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{0aa6dbcf3ad205c9b2ab862e89367cbe}
+      \strng{fullhash}{0aa6dbcf3ad205c9b2ab862e89367cbe}
+      \strng{bibnamehash}{0aa6dbcf3ad205c9b2ab862e89367cbe}
+      \strng{authorbibnamehash}{0aa6dbcf3ad205c9b2ab862e89367cbe}
+      \strng{authornamehash}{0aa6dbcf3ad205c9b2ab862e89367cbe}
+      \strng{authorfullhash}{0aa6dbcf3ad205c9b2ab862e89367cbe}
+      \field{sortinit}{M}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{By assigning the Fibonacci angle of 137.507… degrees between any two consecutive individual flowers (florets), and controlling the logarithmic scatter…}
+      \field{day}{1}
+      \field{issn}{0025-5564}
+      \field{journaltitle}{Mathematical Biosciences}
+      \field{langid}{english}
+      \field{month}{6}
+      \field{number}{1-2}
+      \field{title}{Constructing the Sunflower Head}
+      \field{urlday}{22}
+      \field{urlmonth}{10}
+      \field{urlyear}{2020}
+      \field{volume}{20}
+      \field{year}{1974}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{117\bibrangedash 133}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1016/0025-5564(74)90072-8
+      \endverb
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/GNB7A37B/0025556474900728.html
+      \endverb
+      \verb{urlraw}
+      \verb http://www.sciencedirect.com/science/article/pii/0025556474900728
+      \endverb
+      \verb{url}
+      \verb http://www.sciencedirect.com/science/article/pii/0025556474900728
+      \endverb
+    \endentry
     \entry{mcmullenHausdorffDimensionConformal1998}{article}{}
       \name{author}{1}{}{%
         {{hash=424c782e057b66c3eae5081bc696616b}{%
@@ -1693,6 +1793,50 @@
       \verb https://pillow.readthedocs.io/en/stable/
       \endverb
     \endentry
+    \entry{prasadHowFibonacciNumber2018}{online}{}
+      \name{author}{1}{}{%
+        {{hash=7af3b76902d6a3dceec34681d170774e}{%
+           family={Prasad},
+           familyi={P\bibinitperiod},
+           given={Guru},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{7af3b76902d6a3dceec34681d170774e}
+      \strng{fullhash}{7af3b76902d6a3dceec34681d170774e}
+      \strng{bibnamehash}{7af3b76902d6a3dceec34681d170774e}
+      \strng{authorbibnamehash}{7af3b76902d6a3dceec34681d170774e}
+      \strng{authornamehash}{7af3b76902d6a3dceec34681d170774e}
+      \strng{authorfullhash}{7af3b76902d6a3dceec34681d170774e}
+      \field{sortinit}{P}
+      \field{sortinithash}{bb5b15f2db90f7aef79bb9e83defefcb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Facebook Twitter Reddit Almost 2 decades ago, I was introduced to the fascinating concept called Fibonacci series, by the book “Da Vinci Code” authored by Dan Brown, which was highly circulated among friends \& the most talked about book in our college back then. Thanks to the book, Fibonacci series \& its related concepts like […]}
+      \field{day}{22}
+      \field{hour}{17}
+      \field{journaltitle}{Guruprasad's Portal}
+      \field{langid}{american}
+      \field{minute}{19}
+      \field{month}{9}
+      \field{second}{3}
+      \field{timezone}{Z}
+      \field{title}{How {{Fibonacci}} Number Series Originated in {{Ancient India}}}
+      \field{urlday}{22}
+      \field{urlmonth}{10}
+      \field{urlyear}{2020}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/6WWNJ9R8/fibonacci-number-series-originated-ancient-india.html
+      \endverb
+      \verb{urlraw}
+      \verb http://guruprasad.net/posts/fibonacci-number-series-originated-ancient-india/
+      \endverb
+      \verb{url}
+      \verb http://guruprasad.net/posts/fibonacci-number-series-originated-ancient-india/
+      \endverb
+    \endentry
     \entry{rcoreteamLanguageEnvironmentStatistical2020}{manual}{}
       \name{author}{1}{}{%
         {{hash=dcdebb6b35bff7c0568bf8c50ef8626d}{%
@@ -1724,6 +1868,57 @@
       \endverb
       \verb{url}
       \verb https://www.R-project.org/
+      \endverb
+    \endentry
+    \entry{ridleyPackingEfficiencySunflower1982}{article}{}
+      \name{author}{1}{}{%
+        {{hash=1815cd742bdf6001ef414d3793c2c21a}{%
+           family={Ridley},
+           familyi={R\bibinitperiod},
+           given={J},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{1815cd742bdf6001ef414d3793c2c21a}
+      \strng{fullhash}{1815cd742bdf6001ef414d3793c2c21a}
+      \strng{bibnamehash}{1815cd742bdf6001ef414d3793c2c21a}
+      \strng{authorbibnamehash}{1815cd742bdf6001ef414d3793c2c21a}
+      \strng{authornamehash}{1815cd742bdf6001ef414d3793c2c21a}
+      \strng{authorfullhash}{1815cd742bdf6001ef414d3793c2c21a}
+      \field{sortinit}{R}
+      \field{sortinithash}{b9c68a358aea118dfa887b6e902414a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In the mathematical description given by Vogel [1], the seeds on a sunflower head are centered at points on a “cyclotron spiral,” with constant diverg…}
+      \field{day}{1}
+      \field{issn}{0025-5564}
+      \field{journaltitle}{Mathematical Biosciences}
+      \field{langid}{english}
+      \field{month}{2}
+      \field{number}{1}
+      \field{title}{Packing Efficiency in Sunflower Heads}
+      \field{urlday}{22}
+      \field{urlmonth}{10}
+      \field{urlyear}{2020}
+      \field{volume}{58}
+      \field{year}{1982}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{129\bibrangedash 139}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1016/0025-5564(82)90056-6
+      \endverb
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/HZJHXAM7/0025556482900566.html
+      \endverb
+      \verb{urlraw}
+      \verb http://www.sciencedirect.com/science/article/pii/0025556482900566
+      \endverb
+      \verb{url}
+      \verb http://www.sciencedirect.com/science/article/pii/0025556482900566
       \endverb
     \endentry
     \entry{ronknottFibonacciNumbersGolden2016}{online}{}
@@ -2042,6 +2237,57 @@
       \field{year}{1992}
       \field{dateera}{ce}
       \keyw{Fractals}
+    \endentry
+    \entry{vogelBetterWayConstruct1979}{article}{}
+      \name{author}{1}{}{%
+        {{hash=91445b1dede0fc6cce3585e4ba475c93}{%
+           family={Vogel},
+           familyi={V\bibinitperiod},
+           given={Helmut},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{91445b1dede0fc6cce3585e4ba475c93}
+      \strng{fullhash}{91445b1dede0fc6cce3585e4ba475c93}
+      \strng{bibnamehash}{91445b1dede0fc6cce3585e4ba475c93}
+      \strng{authorbibnamehash}{91445b1dede0fc6cce3585e4ba475c93}
+      \strng{authornamehash}{91445b1dede0fc6cce3585e4ba475c93}
+      \strng{authorfullhash}{91445b1dede0fc6cce3585e4ba475c93}
+      \field{sortinit}{V}
+      \field{sortinithash}{02432525618c08e2b03cac47c19764af}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The flower or seed pattern in a sunflower head can be approximately constructed by the method of Davis and Mathai [1], which has inspired the cover of…}
+      \field{day}{1}
+      \field{issn}{0025-5564}
+      \field{journaltitle}{Mathematical Biosciences}
+      \field{langid}{english}
+      \field{month}{6}
+      \field{number}{3-4}
+      \field{title}{A Better Way to Construct the Sunflower Head}
+      \field{urlday}{22}
+      \field{urlmonth}{10}
+      \field{urlyear}{2020}
+      \field{volume}{44}
+      \field{year}{1979}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{179\bibrangedash 189}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1016/0025-5564(79)90080-4
+      \endverb
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/MR7A95YH/0025556479900804.html
+      \endverb
+      \verb{urlraw}
+      \verb http://www.sciencedirect.com/science/article/pii/0025556479900804
+      \endverb
+      \verb{url}
+      \verb http://www.sciencedirect.com/science/article/pii/0025556479900804
+      \endverb
     \endentry
     \entry{WelcomePythonOrg}{online}{}
       \field{sortinit}{W}
