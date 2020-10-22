@@ -2530,7 +2530,6 @@ By implementing the identity first introduced at eqref:eq:uniq-roots-pow-series-
 
 \begin{align}
 x^k e^x = \sum^{\infty}_{n= k} {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}  \label{eq:uniq-roots-pow-series-ident-used}%  \tag{\eqref{eq:uniq-roots-pow-series-ident}\textsuperscript{2}}
-
 \end{align}
 
 See section [[#prove-general-exp-identity]] for proof.
