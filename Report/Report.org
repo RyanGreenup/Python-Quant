@@ -227,7 +227,7 @@ The Hausdorff dimension depends first on a rigorous definition of measure, this 
 
 # #+attr_latex: :width 12cm
 #+NAME: fig:ball-covering
-#+CAPTION: The Hausdorff Measure, in this case area, of an arbitrary surface approximated by the cross section of little balls of diameter \(< \delta \), this is reproduced from /Measure, Topology and Fractal Geometry/ [[cite:edgarMeasureTopologyFractal2008a][p. 166]] because it so elegantly illustrates the concept of the Hausdorff Measure.
+#+CAPTION: The Hausdorff Measure of an arbitrary surface approximated by the cross section of balls with diameter \(< \delta \), this is reproduced from /Measure, Topology and Fractal Geometry/ [[cite:edgarMeasureTopologyFractal2008a][p. 166]].
 #+attr_html: :width 400px
 #+ATTR_LATEX: :float wrap :width 0.38\textwidth
 [[file:media/edgar_181_of_292.png]]
