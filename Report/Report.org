@@ -225,14 +225,12 @@ the dimension would be constant at all scales
 
 The Hausdorff dimension depends first on a rigorous definition of measure, this is distinct from the box counting approach in that it is more mathematically rigorous, it is however complex and in practice this report will be concerned with implementing the box counting dimension. [fn:res]
 
-:IMAGE:
 # #+attr_latex: :width 12cm
 #+NAME: fig:ball-covering
 #+CAPTION: The Hausdorff Measure, in this case area, of an arbitrary surface approximated by the cross section of little balls of diameter \(< \delta \), this is reproduced from /Measure, Topology and Fractal Geometry/ [[cite:edgarMeasureTopologyFractal2008a][p. 166]] because it so elegantly illustrates the concept of the Hausdorff Measure.
 #+attr_html: :width 400px
 #+ATTR_LATEX: :float wrap :width 0.38\textwidth
 [[file:media/edgar_181_of_292.png]]
-:END:
 
 Let $F$ be some arbitrary subset of euclidean space $\mathbb{R}^n$, [fn:: A subset of euclidean space could be interpreted as an uncountable set containing all points describing that region]
 
@@ -475,17 +473,16 @@ where:
 - \(\mathbf{Z}= \left[ 0 \right]  \)
 
 
-If this is repeated many times a matrix of values will be created, such a matrix
-can be interpreted as a greyscale image and plotted as a heat-map to show the
-fractal (shown in figure [[vicsek-fratal-julia]]).
-
-
 # #+ATTR_LATEX: :float wrap :width 0.38\textwidth :placement{r}{0.4\textwidth}
 #+attr_html: :width 300px
 #+ATTR_LATEX: :float wrap :width 0.38\textwidth
 #+NAME: vicsek-fractal-julia
 #+CAPTION: Vicsek fractal [[cite:vicsekFractalGrowthPhenomena1992][p. 12]] (also known as the /Anti-Cross-Stitch/ cite:janwassenaarCantorDust2005) produced by listing [[vicsek-matrix-gen]], at each iterative step the fractal itself is "copied" to the four corners of itself producing this complex shape.
 [[file:media/Vicsek-Fractal.png]]
+
+If this is repeated many times a matrix of values will be created, such a matrix
+can be interpreted as a greyscale image and plotted as a heat-map to show the
+fractal (shown in figure [[vicsek-fratal-julia]]).
 
 
 The iterative process shown in eqref:eq:visek-iter is represented as a recursive function at line 5 of listing [[vicsek-matrix-gen]] and visualized at line 22. To measure the the dimension of this fractal a the sum of the matrix is taken to be the measure of the fractal, two fractals are generated and the change in size relative to the scale is compared and the log taken to return the value of the dimension:
@@ -498,6 +495,9 @@ The recursive function begins with a 3x3 matrix, where the four corner squares
 and middle square are set to 1 and the rest are set to 0, a new matrix is built
 by joining together the past matrix following the rule described in eqref:eq:visek-iter.
 The function repeats until it reaches some arbitrary set width.
+
+
+
 
 
 At each step of the process, the number of elements of this fractal increases by
@@ -514,6 +514,7 @@ similarity dimension is given by:
 
 
 
+#+LATEX: \newpage
 #+NAME: vicsek-matrix-gen
 #+CAPTION: Generating the Vicsek Fractal (shown in figure ref:vicsek-fractal-julia) and measuring the dimension using /Julia/, the measured dimension is consistent with the self similarity dimension shown in eqref:eq:vic-dim-val
 #+begin_src julia
@@ -583,15 +584,16 @@ such as /Sierpinski's Carpet/ and /Cantor's Dust/ can be produced, this is
 implemented in listings [[l-s-carpet]] [[l-cant-dust]] and shown in figures
 [[fig:square-carpet]] and [[fig:cantor-dust]] respectively. [fn:spc]
 
+
 #+NAME: fig:square-carpet
 #+CAPTION: Sierpinksi's Carpet, produced by listing [[listing l-s-carpet]].
 #+attr_html: :width 400px
-#+attr_latex: :width 7cm
+#+attr_latex: :width 0.38\textwidth
 [[file:media/sierpinsky_carpet.png]]
 
 
 #+attr_html: :width 300px
-#+attr_latex: :width 7cm
+#+attr_latex: :width 0.38\textwidth
 #+NAME: fig:cantor-dust
 #+CAPTION: A shape this is similar, but different to, the /Cantor Dust/, the dimension of this fractal is 1, produced by listing [[l-cant-dust]].
 [[file:media/Cantor_Dust_gen.png]]
@@ -652,10 +654,11 @@ ggplot(df, aes(x = xval, y = yval)) +
 
 #+END_SRC
 
+#+LATEX: \newpage
 #+NAME: fig:s-tri
 #+CAPTION: Sierpinski's Triangle created using the /Chaos Game/ in listing [[l-sier-tri]].
 #+attr_html: :width 400px
-#+attr_latex: :width 3cm :float wrap
+#+attr_latex: :width 0.38\textwidth :float wrap
 [[file:pascal-sierpinsky-chaos-game.png]]
 
 ***** TODO Pascals Triangle                                                 :Ryan:
@@ -707,17 +710,14 @@ julia> log(3)/log(2)
 
 #+RESULTS: pascal-triangle-sierpinski
 
-#+attr_html: :width 300px
-#+attr_latex: :width 9cm
-#+NAME: fig:pascal-sierpinsky
-#+CAPTION: Sierpinski's triangle generated
-[[file:media/pascal-sierpinsky-triangle.png]]
+
+#+LATEX: \newpage
 *** Turtle
 :PROPERTIES:
 :CUSTOM_ID: turtle
 :END:
 
-#+attr_html: :width 600px
+#+attr_html: :width 200px
 #+NAME: snow-turtle
 #+CAPTION: Portion of the Koch Snowflake Produced by the Turtle graphics in listing [[turtle-snow]]
 #+ATTR_LATEX: :float wrap :width 0.25\textwidth :placement {r}{0.4\textwidth}
@@ -737,6 +737,13 @@ unsucessful we also experimented with /ImageMagick/ cite:llcImageMagick,
 /AstroPy/ cite:Astropy and /JuliaAstro/ cite:JuliaAstroJuliaAstro.
 Unfourtunately the values returned by this approach were inconsistent and
 further investigation into this method is required.
+
+
+#+attr_html: :width 300px
+#+NAME: fig:pascal-sierpinsky
+#+CAPTION: Sierpinski's triangle generated
+#+ATTR_LATEX: :float wrap :width 0.25\textwidth :placement {l}{0.3\textwidth}
+[[file:media/pascal-sierpinsky-triangle.png]]
 
 The koch snowflake can be implemented by recursively calling a function that draws the first level of a koch curve, if this function decrements a provided level and is defined to call itself for each arm of the curve unless the level has reached zero it will produce a koch snowflake at the specified level, this is implemented in listing [[turtle-snow]] and shown in figure [[snow-turtle]].
 
@@ -857,18 +864,19 @@ montage -geometry 1000x1000 *.png dragon.png
 **** Motivation
 Over many centuries, mathematicians have been able to produce a range of patterns from Pascal's triangle. One of which is relevant to the emergence of Sierpinski's triangle. To construct Pascal's triangle it begins with a 1 in the $0^{th}$ (top) row, then each row underneath is made up of the sum of the numbers directly above it, see figure [[fig:pascal-triangle]]. Alternatively, the $n^{th}$ row and $k^{th}$ column can be written in combinatorics form, $\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}$.
 
-#+attr_html: :width 300px
-#+att_latex: :width 9cm :height 9cm
 #+NAME: fig:pascal-triangle
-#+CAPTION: Pascal's triangle
+#+CAPTION: Pascal's Triangle
+#+attr_html: :width 400px
+#+att_latex: :width 0.38\textwidth :float wrap
 [[file:media/tikz/pascals-triangle.png]]
+
 **** The connection
 As mentioned before there is one pattern that produces the Sierpinski triangle, namely highlighting all odd numbers in Pascal's triangle. This is equivalent to considering all the numbers in the triangle modulo 2, shown in figure [[fig:pascal-sierpinski-tri]].
 
 #+attr_html: :width 300px
 #+attr_latex: :width 9cm
 #+NAME: fig:pascal-sierpinski-tri
-#+CAPTION:
+#+CAPTION: Pascals Triangle coloured red for odd values
 [[file:media/tikz/pascal-sierpinski-tri.png]]
 
 #+attr_html: :width 300px
@@ -881,7 +889,7 @@ In figure [[fig:pascal-sierpinski-tri]], we can observe that all the highlighted
 
 To prove this, we need to split the triangle into two parts, $P_{n}$ denoting the first $2^{n}$ rows, i.e. the top "Sierpinski triangle" in figure [[fig:pascal-sierpinski-tri]] and $P_{n+1}$ representing the entire triangle. We must show that any chosen square in $P_{n}$ is equal to the corresponding row and column in the lower two triangles of $P_{n+1}$, shown in figure [[fig:row-column-pascal]]. This requires an identity that allows us to work with combinations in modulo 2, namely Lucas' Theorem.
 
-*Lucas' Theorem*
+**** The connection
 Let $n,k \ge 0$ and for some prime $p$, we get:
 \begin{equation}
 \binom{n}{k} = \prod_{i=0}^{m} \binom{n_i}{k_i} \quad (\text{mod}~p)
@@ -945,24 +953,19 @@ cite:sandersonFractalsAreTypically2017
 
 This approach is implemented to measure the dimension of the /Julia Set/ in \S [[#dim-julia]].
 
+
+#+LATEX: \newpage
 * Connecting Fractals to Natural Processes                                      :Ryan:
 :PROPERTIES:
 :CUSTOM_ID: my-fractal
 :END:
 
 
-#+attr_html: :width 250px
-#+attr_latex: :width 0.38\textwidth :float wrap
-#+NAME: My-Frac-GR-plot
-#+CAPTION: Fractal that emerges by Rotating and appending boxes, this demonstrates the relationship between the Fibonacci numbers and golden ratio very well
-[[file:../Problems/fractal-dimensions/my-self-rep-frac-GR.png]]
-
 In order to better understand the ways in which complex fractal patterns can
 emerge from simple processes, a simple process that
 leads to the emergence of such a pattern has been constructed, this is not a pattern that we have been able to find discussed in the literature but it does show simple connection between simple processes, patterns and the emergence of values such as golden ratio and the Fibonacci Sequence.
 
 ** Constructing a Simple Process
-
 Consider a fractal that begins simply with a square
 @@latex: \begin{tikzpicture}\node at (3,0) [fill=red, rectangle,draw] (00) {};\end{tikzpicture} @@,
 imagine that this square is replicated, rotated and appended
@@ -998,6 +1001,14 @@ end
 
 GR.imshow(mywalk([1, 1], 9))
 #+end_src
+
+
+
+# #+attr_latex: :width 0.38\textwidth :float wrap
+#+attr_html: :width 250px
+#+NAME: My-Frac-GR-plot
+#+CAPTION: Fractal that emerges by Rotating and appending boxes, this demonstrates the relationship between the Fibonacci numbers and golden ratio very well
+[[file:../Problems/fractal-dimensions/my-self-rep-frac-GR.png]]
 
 
 
@@ -1152,7 +1163,7 @@ Continuous population growth is typically modelled with calculus by the equation
 \propto p\) [[cite:giordanoFirstCourseMathematical2014][\S 11.1]], what's interesting is that this population model itself
 generates a fractal when the number of stationary points is plotted against the
 growth rate [[cite:briggsTurbulentMirrorIllustrated1989][Ch. 3]]
-and this fractal is equivilant to a plot of the mandelbrot (discussed in \S [[#mandlebrot-set]]) set where the \(x\)-axis represents the real component of a value and the \(y\)-axis the number of iterations before a value exceeds a modulus of 2 (see generally cite:mullerThisEquationWill2020). This is not
+and this fractal is equivilant to a plot of the Mandelbrot Set (discussed in \S [[#mandlebrot-set]]) where the \(x\)-axis represents the real component of a value and the \(y\)-axis the number of iterations before a value exceeds a modulus of 2 (see generally cite:mullerThisEquationWill2020). This is not
 something we had time to investigate unfourtunately but it does demonstrate the deep connection between natural phenomena such as population growth, the Fibonacci Sequence and complex fractals such as the Mandelbrot set.
 *** Equivalent forms of the Golden Ratio
 The golden ratio is sometimes expressed in odd forms in the literature:
@@ -1304,6 +1315,13 @@ This closed solution eqref:eq:fib-sol also demonstrates that successive terms of
 :PROPERTIES:
 :CUSTOM_ID: sunflower-example
 :END:
+
+#+attr_html: :width 200px
+#+attr_latex: :width 0.38\textwidth :float wrap
+#+NAME: sunflower
+#+CAPTION: Distribution of the seeds of a sunflower cite:simonbrassCCSearch2006
+[[file:media/sunflower.jpg]]
+
 The distribution of sunflower seeds is an example of the /Fibonacci Sequence/
 occuring in a pattern observed in nature (see Figure [[sunflower]]), the distribution of seeds produces a spiral pattern and the number of clockwise and anti-clockwise spirals that emerge tend to be Fibonacci Numbers. cite:bohannonSunflowersShowComplex2016
 
@@ -1317,18 +1335,28 @@ Assume that the process a sunflower follows when placing seeds is as follows: [f
 4. Repeat this process until a seed hits some outer boundary.
 
 This process can be simulated in Julia as shown in listing
-[[simulate-sunflower]] [fn:un]. When a variety of different angles of rotation are
+[[simulate-sunflower]] . When a variety of different angles of rotation are
 tried varrious different patterns emerge, such patterns are shown in figure [[simulate-sunflower-image]], choosing an angle of \(\varphi\) produces output as shown in figure [[simulate-sunflower-image]].
 
 A distribution of seeds undder this process would be optimal if the amount of empty space was minimised, spirals, stars and swirls contain patterns that compromise this.
+
+
+
+#+attr_latex: :width 0.38\textwidth :float wrap
+#+attr_html: :width 300px
+#+NAME: simulate-sunflower-phi
+#+CAPTION: Optimisation of simulated distribution of Sunflower seeds occurs for $\theta =2 \varphi  \pi$ as described in section [[#sunflower-example]] and listing [[simulate-sunflower]]
+[[file:media/Outline/golden-flower.svg]]
 
 To minimize this, the proportion of the circle traversed in step 3 must be an
 irrational number, however this alone is not sufficent, the decimal values must
 also be not to approximated by a rational number, for example
 cite:NatureGoldenRatio2018:
 
-+ $\pi \mod 1 \approx \frac{1}{7}=0.7142857142857143$
-+ $e \mod 1 \approx \frac{5}{7}= 0.14285714285714285$
++ \(\pi \mod 1 \approx \frac{1}{7}=0.71428571428 \)
++ \(e \mod 1 \approx \frac{5}{7}= 0.142857142857 \)
+# 0.7142857142857143
+# 0.14285714285714285
 
 It can be seen by simulation that $\phi$ and $\psi$ (because $\phi \mod 1 =
 \psi$) are solutions to this optimisation problem as shown in figure
@@ -1368,19 +1396,9 @@ end 600 600
 #+CAPTION: Simulated Distribution of Sunflower seeds as described in section [[#sunflower-example]] and listing [[simulate-sunflower]]
 [[file:media/Outline/sunflower-spirals-montage.png]]
 
-#+attr_html: :width 300px
-#+attr_latex: :width 9cm
-#+NAME: simulate-sunflower-phi
-#+CAPTION: Optimisation of simulated distribution of Sunflower seeds occurs for $\theta =2 \varphi  \pi$ as described in section [[#sunflower-example]] and listing [[simulate-sunflower]]
-[[file:media/Outline/golden-flower.svg]]
 
 
-#+attr_html: :width 200px
-#+attr_latex: :width 7cm
-#+NAME: sunflower
-#+CAPTION: Distribution of the seeds of a sunflower cite:simonbrassCCSearch2006
-[[file:media/sunflower.jpg]]
-
+#+LATEX: \newpage
 * Julia Sets                                                                    :Ryan:
 ** Introduction
 Julia sets provide an example of a family of very complex structures that emerge from a very simple mathematical processes.
@@ -1413,6 +1431,14 @@ In the case of $f_{0}(z) = z^{2}$ all values $\left\lvert z  \right \rvert \leq 
 :END:
 To implement this test we'll consider a function called ~escape_test~ that applies an
 iteration (in this case $f_{0}: z \rightarrow z^{2}$) until that value diverges or converges. [fn:ma]
+
+
+#+attr_html: :width 400px
+#+attr_latex: :width 0.38\textwidth :float wrap
+#+NAME: py-jl-1-plot
+#+CAPTION: Circle of Convergence for $f_{0}: z \rightarrow z^{2} - 1$
+[[file:media/Outline/julia-1.svg]]
+
 
 While iterating with $f_{c}$ once $\left\lvert z \right\rvert >
 \mathrm{max}\left(\left\{c, 2\right\}\right)$, the value must diverge because
@@ -1508,30 +1534,19 @@ plt.imshow(pic)
 
 
 #+attr_html: :width 400px
-#+attr_latex: :width 9cm
+#+attr_latex: :width 0.25\textwidth :float wrap
 #+NAME: py-circle-plot
 #+CAPTION: Circle of Convergence for $f_{0}: z \rightarrow z^{2}$
 [[file:media/Outline/circle-of-convergence.svg]]
 
-This circle is precisely what would be expected, verifying this approach.
+The resulting circle in [[py-circle-plot]] is precisely what would be expected, verifying this approach.
 consider now the result if we apply this same procedure to $f_{1}: z \rightarrow
 z^{2} - 1$ or something arbitrary like $f_{\frac{1}{4} + \frac{i}{2}}: z
 \rightarrow z^{2} + (\frac{1}{4} + \frac{i}{2})$, the result is something
 remarkebly unexpected, as shown in figures [[py-jl-1-plot]] and [[py-jl-rab-plot]].
 
 
-#+attr_html: :width 400px
-#+attr_latex: :width 9cm
-#+NAME: py-jl-1-plot
-#+CAPTION: Circle of Convergence for $f_{0}: z \rightarrow z^{2} - 1$
-[[file:media/Outline/julia-1.svg]]
 
-
-#+attr_html: :width 400px
-#+attr_latex: :width 9cm
-#+NAME: py-jl-rab-plot
-#+CAPTION: Boundary of Convergence for $f_{\frac{1}{4} + \frac{i}{2}}: z \rightarrow z^{2} + \frac{1}{4} + \frac{i}{2}$, the figure was contrasted using /ImageMagick/ to highlight the complex boundary
-[[file:media/Outline/julia-rab.svg]]
 
 To investigate this further consider the
 more general function $f_{0.8 e^{\pi i \tau}}: z \rightarrow z^{2} + 0.8 e^{\pi
@@ -1544,6 +1559,13 @@ listing [[julia-gen-fracs]]. The ~GR~ package appears to be the best plotting
 library performance wise and so was used to save corresponding images to disc,
 this is demonstrated in listing [[GR-save]] where 1200 pictures at a 2.25 MP
 resolution were produced. [fn:tm]
+
+
+#+attr_html: :width 400px
+#+attr_latex: :width 0.38 \textwidth :float wrap
+#+NAME: py-jl-rab-plot
+#+CAPTION: Boundary of Convergence for $f_{\frac{1}{4} + \frac{i}{2}}: z \rightarrow z^{2} + \frac{1}{4} + \frac{i}{2}$, the figure was contrasted using /ImageMagick/ to highlight the complex boundary
+[[file:media/Outline/julia-rab.svg]]
 
 A subset of these images can be combined using /ImageMagick/ and ~bash~ to
 create a collage, /ImageMagick/ can also be used to produce an animation but it often
@@ -1643,7 +1665,7 @@ ffmpeg                    \
 #+NAME: montage-frac
 #+CAPTION: Various fracals corresponding to $f_{0.8 e^{\pi i \tau}}$
 #+attr_html: :width 400px
-#+attr_latex: :width 0.38\textwidth
+#+attr_latex: :width 1.0\textwidth
 [[file:media/Outline/many_julia_fractals_around_circle.png]]
 
 ** Dimension of the Julia Set
@@ -1707,18 +1729,17 @@ into a seperate script ~julia-set-functions.jl~ which is shown in \S
 #+NAME: fig:julia-rab
 #+CAPTION: Image of the Doudy Rabbit, the julia set corresponding to the iteration of \(z \leftarrow z^{2} -0.123+0.745i\) produced by /Julia/ in listing [[dimensions-julia-set]].
 #+attr_html: :width 400px
-#+attr_latex: :width 12cm
+#+attr_latex: :width 0.85\textwidth
 [[file:media/outline-rabbit.png]]
 
 
+#+LATEX: \newpage
 #+NAME: dimensions-julia-set
-#+CAPTIONS: Functions used by listing [[dimensions-julia-set]]
+#+CAPTION: Functions used by listing [[dimensions-julia-set]]
 #+begin_src julia
 @time include("./Julia-Set-Dimensions-functions.jl")
 
-############################################################
 #### Investigate Plot #######################################
-############################################################
 test_mat = make_picture(800,800, z -> z^2 + -0.123+0.745*im)
 
 #Inspect
@@ -1727,14 +1748,10 @@ GR.imshow(test_mat) # PyPlot uses interpolation = "None"
 test_mat = outline(test_mat)
 #Inspect
 GR.imshow(test_mat) # PyPlot uses interpolation = "None"
-# GR.savefig("/home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Problems/fractal-dimensions/media/outline-Julia-set.png")
-
 ## Return the perimeter
 sum(test_mat)
 
-
 # Take a measurement at a point
-
 mat2 = outline(make_picture(9000,9000, f))
 l2   = sum(mat2)
 size2 = size(mat2)[1]
@@ -1742,13 +1759,10 @@ mat1 = outline(make_picture(10000,10000, f))
 l1   = sum(mat1)
 size1 = size(mat1)[1]
 log(l2/l1)/log(size2/size1)
-# https://en.wikipedia.org/wiki/Vicsek_fractal#Construction
 # 1.3934 Douady Rabbit
-#
 
 # Take a measurement using LInear Regression
 using CSV
-
 @time data=scaleAndMeasure(900, 1000 , 4, f)
 # CSV.read("./julia-set-dimensions.csv", data)
 # data = CSV.read("./julia-set-dimensions.csv")
@@ -1769,7 +1783,6 @@ end
 
 #------------------------------------------------------------
 # julia> return mod
-# StatsModels.TableRegressionModel{LinearModel{GLM.LmResp{Array{Float64,1}},GLM.DensePredChol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2}}}},Array{Float64,2}}
 #
 # mass ~ 0 + scale
 #
@@ -1789,17 +1802,17 @@ scales, at each scale the measure of the fractal is recorded and by running the 
 for scales from 9000 to 10000 and leaving it for an hour, the following
 table of values is returned:
 
-| scale |    mass |
-|-------+---------|
-|   500 |  4834.0 |
-|   563 |  5754.0 |
-|   625 |  6640.0 |
-|   688 |  7584.0 |
-|   750 |  8418.0 |
-|   813 |  9550.0 |
-|   875 | 10554.0 |
-|   938 | 11710.0 |
-|  1000 | 12744.0 |
+| */Scale/*  | */Mass/*  |
+|------------+-----------|
+|        500 |    4834.0 |
+|        563 |    5754.0 |
+|        625 |    6640.0 |
+|        688 |    7584.0 |
+|        750 |    8418.0 |
+|        813 |    9550.0 |
+|        875 |   10554.0 |
+|        938 |   11710.0 |
+|       1000 |   12744.0 |
 
 
 Using this technique the dimension of the Julia Set converges very slowly and
@@ -1819,9 +1832,6 @@ lm(log(measure) ~ 0 + log(scale), data)$coefficients # set 0 intercept
 #------------------------------------------------------------
 # 1.36720041333112
 #+end_src
-
-#+RESULTS[f3a76eddf73e1b71f01c46663f47f497147342d6]:
-: 1.36720041333112
 
 This shows that the value returned is 1.37 which is very close to the value of
 1.39 which is reported in the literature
@@ -1870,11 +1880,21 @@ z_{0}   &= c
 
 This strategy is implemented in listing [[mandelbrot-py]] and produces the output shown in figure [[mandelbrot-py-pic]].
 
+
+#+attr_html: :width 200px
+#+attr_latex: :width 0.38\textwidth
+#+NAME: mandelbrot-py-pic
+#+CAPTION: Mandelbrot Set produced in /Python/ as shown in listing [[py-mandelbrot-code]]
+#+RESULTS: py-mandelbrot-code
+[[file:media/Outline/mandelbrot-py.svg]]
+
 #+NAME: py-mandelbrot-code
 #+CAPTION: All values of $c$ that lead to a closed /Julia-set/
 #+BEGIN_SRC ipython :exports both :results raw :eval never-export :session julia-set :eval never-export :ipyfile ./mandelbrot-py.svg
 %matplotlib inline
 %config InlineBackend.figure_format = 'svg'
+import numpy as np
+
 def mandelbrot(z, num):
     ''' runs the process num amount of times and returns the count of
     divergence'''
@@ -1892,9 +1912,6 @@ def mandelbrot(z, num):
         count+=1
         #if z hasn't diverged by the end
     return num
-
-import numpy as np
-
 
 p = 0.25 # horizontal, vertical, pinch (zoom)
 res = 200
@@ -1915,19 +1932,15 @@ plt.imshow(pic)
 # plt.show()
 #+end_src
 
-#+attr_html: :width 600px
-#+attr_latex: :width 8cm
-#+NAME: mandelbrot-py-pic
-#+CAPTION: Mandelbrot Set produced in /Python/ as shown in listing [[py-mandelbrot-code]]
-#+RESULTS: py-mandelbrot-code
-[[file:media/Outline/mandelbrot-py.svg]]
 
 This output although remarkable is however fairly undetailed, by using /Julia/ a much
 larger image can be produced, in /Julia/ producing a 4 GB, 400 MP image can be done in little time
 (about 10 minutes on my system), this is demonstrated in listing [[julia-large-mandelbrot]]
 and a screenshot of the corresponding FITS image is shown in listing [[mandelbrot-screen]].
 
+#+LATEX: \newpage
 #+NAME: julia-large-mandelbrot
+#+CAPTION: Generate High Resolution Mandelbrot Set and Export as Fits Image using Julia.
 #+begin_src julia
 function mandelbrot(z, num, my_func)
     count = 1
@@ -1981,7 +1994,7 @@ save_picture("/tmp/a.fits", my_pic)
 #+end_src
 
 #+attr_html: :width 500px
-#+attr_latex: :width 10cm
+#+attr_latex: :width 1\textwidth
 #+NAME: mandelbrot-screen
 #+CAPTION: Screenshot of Mandelbrot FITS image produced by listing [[julia-large-mandelbrot]]
 [[file:media/Outline/_20200828_233844screenshot.png]]
@@ -2002,8 +2015,7 @@ Simple processes that involve recursion can lead to the emergence of patterns th
 :END:
 So unless code contributes directly to the discussion we'll put it in the appendix.
 ** Code Listings
-*** Sierpinski's Carpet
-
+The code listings used to produce Sierpinski's Carpet and Cantor's Dust are provided in listings [[l-s-carpet]] and [[l-cant-dust]] respectively.
 
 #+NAME: l-s-carpet
 #+CAPTION: Function to produce Sierpinski's carpet, shown in figure [[fig:square-carpet]]
@@ -2050,8 +2062,8 @@ size1 = size(mat1)[1]
 ## 1.89
 #+end_src
 
-*** Cantor's Dust
 
+#+LATEX: \newpage
 #+NAME: l-cant-dust
 #+CAPTION: Function to generate Cantor Dust, shown in [[fig:cantor-dust]]
 #+begin_src julia
@@ -2726,8 +2738,6 @@ shape is constructed with a line, which has a "topological" dimension of 1.
 [fn:res]
 
 See \S [[#haus-resource]] for further reading.
-
-[fn:un] Emojis and UTF8 were used in this code, and despite using ~xelatex~ with ~fontspec~ they aren't rendering properly, we intend to have this rectified in time for final submission.
 
 [fn:nt] The amount of independence that our supervisor afforded us to
 investigate other languages is something that we are both extremely grateful for.
