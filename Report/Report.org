@@ -443,10 +443,12 @@ Let $F$ be the Koch Curve.
 &= \frac{\ln(4)}{\ln(3)}
 \end{align*}
 ** Generating Self Similar Fractals                                            :Ryan:
+:PROPERTIES:
+:CUSTOM_ID: gen-self-sim-frac
+:END:
 In order to investigate the dimension of fractals, we intend to generate and measure a variety of figures by using of */R/* cite:rcoreteamLanguageEnvironmentStatistical2020, /Julia/ cite:bezansonJuliaFreshApproach2017 and /Python/ cite:WelcomePythonOrg.
 
 Self Similar fractals have a self-similar dimension and so can be used to verify an approach implemented with a programming language.
-
 *** Vicsek Fractal
 :PROPERTIES:
 :CUSTOM_ID: vicsek-fractal
@@ -848,7 +850,6 @@ montage -geometry 1000x1000 *.png dragon.png
 
 
 
-
 *** Pascals Triangle and Sierpinski's Triangle                                :James:
 :PROPERTIES:
 :CUSTOM_ID: pascal-sierpinski
@@ -925,6 +926,9 @@ c=c_{i}2^{i}+c_{i-1}2^{i-1}+\cdots +c_{1}2+c_{0}=\left[c_{i}c_{i-1}\cdots c_{1}c
 Thus, $\binom{r}{c} = \binom{2^n + r}{c} = \binom{2^n + r}{2^n + c} \quad (\text{mod} 2)$, which concludes the proof
 
 ** Fractal Dimensions Sans Self Similarity                                     :Ryan:
+:PROPERTIES:
+:CUSTOM_ID: sans-self
+:END:
 Not all fractals demonstrate obvious self-similarity, coastlines, as previously
 mentioned in \S [[#definition]], are a common example but are not unique in this
 regard, many natural phenomena such as the distribution of galaxies, shape of
@@ -1648,15 +1652,18 @@ ffmpeg                    \
 :END:
 The Julia Set is defined as the boundary between which values diverge and
 converge on the complex plane
-[[cite:falconerFractalGeometryMathematical2003b][\S 14.1]], to implement this in
-terms of the matrix a function to test whether or not an element of a matrix is
-surrounded by other elements can be implemented, for example if an element of a
-boolean matrix is such that the sum of all immediately adjacent elements sums to
-9, then that point should be set to 0 because it does not represent a boundary.
-This is implemented in [[outline-func]] and although this will not perfectly
-trace the outline of a fractal like the /Julia Set/, it is expected that this
-approach will not introduce bias and so the impact on accuraccy will be constant
-for /Julia Sets/ accross all scales of resolution.
+[[cite:falconerFractalGeometryMathematical2003b][\S 14.1]], this means a matrix
+representing such a fractal must only have values along this boundary. This can
+be acheived by looping over every element of a matrix and replacing each value
+with 0 if it is surrounded on all sides values.
+
+To implement this for a boolean matrix a function could consider if immediately
+adjacent elements sum to 9, that point should be set to 0 if this is true
+because it does not represent a boundary. This is implemented in [[outline-func]]
+and although this will not perfectly trace the outline of a fractal like the
+/Julia Set/, it is expected that this approach will not introduce bias and so
+the impact on accuraccy will be constant for /Julia Sets/ accross all scales of
+resolution.
 
 #+NAME: outline-func
 #+CAPTION: A function to set all values of matrix, that do not represent the boundary of a shape, to zero. This is designed for a boolean matrix and works by summing the neighbourhood of an element, if that neighbourhood is greater than 9 (indicating that all values surrounding the point contain an element), the value is set to 1.
@@ -1676,61 +1683,33 @@ function outline(mat)
 end
 #+end_src
 
-By associating each value on the complex plane with an element of a matrix an image of this pattern may be produced, by considering only values on the boundary between convervgent and divergent an outline may be produced see for example figure [[fig:julia-rab]], this outline is known as the /Julia Set/.
-
 In order to measure the dimension of the /Julia Set/ it is necessary to generate
-a representation of the fractal at two scales, compare them and then and then
-measure the corresponding dimension value as was done previously. The julia set
+a representation of the fractal at two scales, compare them and then
+measure the corresponding dimension value as in \S [[#gen-self-sim-frac]]. The julia set
 is a non self-similar fractal and so it is not immediately clear whether or not
 the dimension will be constant at all scales, to determine whether or not the
 dimension is constant at various scales it can be convenient to plot the log
 transformed scaling factor and measures and inspect whether or not the points
 form a linear relationship, the slope of such a relationship will be the
-dimension [[cite:vicsekFractalGrowthPhenomena1992][p. 30]].
+dimension as discussed in \S [[#sans-self]].
 
-To implement this all the functions necessary to build the fractals were placed into a seperate script ~julia-set-functions.jl~ which is shown in \S [[julia-set-functions-script]] and this script was included into a working script ~julia-set-dimensions.jl~ by using the following line:
+To implement this all the functions necessary to build the fractals were placed
+into a seperate script ~julia-set-functions.jl~ which is shown in \S
+[[julia-set-functions-script]] and this script was included into a working script
+~julia-set-dimensions.jl~ by using the following line:
 
 #+begin_src julia
 @time include("./Julia-Set-Dimensions-functions.jl")
 #+end_src
 
 
-The julia set is defined as the boundary between values on the complex plane that converge and diferge under iteration of \(z\leftarrow z^{2} + a+ib\) to consider only the boundary of values, the ~juliaSet~ function shown in  listing [[jsetDivFunc]] can be modified to return only the value of 1 or 0 as opposed to the time taken to cross the threshold of divergence [fn:: if \(\mathtt{abs}\left(z\right) \geq 2\) the point is assured to diverge under iteration] and then it can be determined whether or not a point is a boundary by considering whether or not the sum of all elements within the immediate neighbourhood of the elemnt is greater than 1. This is shown in the ~outline~ function which is defined in \S [[#julia-set-functions-script]].
-
-Comparing squared values rather than using ~abs()~ improved the performance of this function by about two fold.
 
 #+NAME: fig:julia-rab
-#+CAPTION: Image of the Doudy Rabbit, the julia set corresponding to the iteration of \(z \leftarrow z^{2} -0.123+0.745i\) produced by /Julia/
+#+CAPTION: Image of the Doudy Rabbit, the julia set corresponding to the iteration of \(z \leftarrow z^{2} -0.123+0.745i\) produced by /Julia/ in listing [[dimensions-julia-set]].
 #+attr_html: :width 400px
 #+attr_latex: :width 12cm
 [[file:media/outline-rabbit.png]]
 
-
-#+NAME: jsetDivFunc
-#+CAPTION: Function that returns how many iterations of a function of is necessary for a complex value to diverge, the julia set is concerned with the function $z \rightarrow z^{2} + \alpha + i \beta$
-#+begin_src julia
-#!/bin/julia
-function juliaSet(z, num, my_func, boolQ=true)
-    count = 1
-    # Iterate num times
-    while count ≤ num
-        # check for divergence
-        if real(z)^2+imag(z)^2 > 2^2
-            if(boolQ) return 0 else return Int(count) end
-        end
-        #iterate z
-        z = my_func(z) # + z
-        count=count+1
-    end
-        #if z hasn't diverged by the end
-    if(boolQ) return 1 else return Int(count) end
-end
-#+end_src
-
-
-So I run the code shown in listing [[dimensions-julia-set]] which calls a file ~./Julia-Set-Dimensions-functions.jl~ which is shown in \S [[#julia-set-functions-script]]
-
-which returs the values shown in table [[table-of-values]].
 
 #+NAME: dimensions-julia-set
 #+CAPTIONS: Functions used by listing [[dimensions-julia-set]]
@@ -1803,8 +1782,12 @@ end
 
 #+end_src
 
-
-This converges very slowly and the code can take a very long time to run, and has a tendency to cause crashes, likely due to the large amounts of memory required, these are things that could be improved, by running this code for scales from 9000 to 10000 and leaving it for an hour, the following table of values is returned:
+The working script to measure the dimension of the Julia Set is shown in listing
+[[dimensions-julia-set]]. This script generates fractals of the /Julia Set/
+corresponding to \(z \leftarrow z^{2} -0.123+0.745i\) for a variety of different
+scales, at each scale the measure of the fractal is recorded and by running the code in listing [[dimensions-julia-set]]
+for scales from 9000 to 10000 and leaving it for an hour, the following
+table of values is returned:
 
 | scale |    mass |
 |-------+---------|
@@ -1817,6 +1800,12 @@ This converges very slowly and the code can take a very long time to run, and ha
 |   875 | 10554.0 |
 |   938 | 11710.0 |
 |  1000 | 12744.0 |
+
+
+Using this technique the dimension of the Julia Set converges very slowly and
+the code can take a very long time to run, and has a tendency to cause crashes,
+likely due to the large amounts of memory required, the values produced took
+about one hour to produce.
 
 Linear Regression can be performed against these values using */R/* [fn:: The could just as well have been done inside Julia, */R/* was chosen simply because ~ggplot~ produces very nice plots. ]
 
@@ -1836,9 +1825,7 @@ lm(log(measure) ~ 0 + log(scale), data)$coefficients # set 0 intercept
 
 This shows that the value returned is 1.37 which is very close to the value of
 1.39 which is reported in the literature
-cite:mcmullenHausdorffDimensionConformal1998, inspecting the behaviour ofthe log
-transformed scale and measure indicates that there is a very linear relationship
-between these variables and so even though this julia set does not appear to demonstrate simple self-similarity, it appears to be a figure with a constant dimension across scales.
+cite:mcmullenHausdorffDimensionConformal1998. A plot can be produced (shown in figure [[fig:lin-reg-dim]]) by using the following */R/* code:
 
 #+BEGIN_SRC R :exports both :results output graphics file :file media/r-ggplot-linear-reg-julia.png
 library(ggplot2)
@@ -1850,27 +1837,31 @@ ggplot(data, aes(x = log(measure), y = log(scale))) +
        title = "Comparison of Scale and Measure of Julia Set", subtitle = "Douady Rabbit")
 #+end_src
 
-# #+NAME: fig:lin-reg-dim
-# #+CAPTION: Log Scaled Linear Regression of various scales of the julia set.
+#+NAME: fig:lin-reg-dim
+#+CAPTION: Log Scaled Linear Regression of various scales of the julia set.
 #+attr_html: :width 400px
 #+attr_latex: :width 0.45\textwidth
 #+RESULTS[1c407fac73de0d24ebddcf0874b6cf8d3531b064]:
 [[file:media/r-ggplot-linear-reg-julia.png]]
 
+
+Inspecting the behaviour ofthe log transformed scale and measure in figure
+[[fig:lin-reg-dim]] indicates that there is a very linear relationship between these
+variables and so even though this julia set does not appear to demonstrate
+simple self-similarity, it appears to be a figure with a constant dimension
+across scales.
 * Mandelbrot Set                                                                :Ryan:
 :PROPERTIES:
 :ID:       c0c790f2-93a7-44f1-9f76-4a20bcd66c62
 :DIR:      /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/
 :CUSTOM_ID: mandlebrot-set
 :END:
-Investigating these fractals, a natural question might be whether or not any
-given $c$ value will produce a fractal that is an open disc or a closed disc.
-
-So pick a value $\left\lvert \gamma \right \rvert < 1$ in the complex plane and
-use it to produce the julia set $f_{\gamma}$, if the corresponding prisoner set
+Investigating the Julia Set in Figure [[montage-frac]], a natural question arises, /which values of \(c\)
+produce a fractal that is an open disc or a closed disc/. If an arbitrary complex value $\left\lvert \gamma \right \rvert < 1$
+is chosen to produce the julia set $f_{\gamma}$, that value is said to belong to the Mandelbrot set if the corresponding /Julia Set/ is a closed disc [[cite:peitgenChaosFractalsNew2004][Ch. 14]].
 $P$ is closed we this value is defined as belonging to the /Mandelbrot/ set.
 
-It can be shown (and I intend to show it generally), that this set is equivalent to re-implementing the previous strategy such that $z \rightarrow z^{2} + z_{0}$ where $z_{0}$ is unchanging or more clearly as a seqeuence:
+It can be shown, that a value \(z_{0}\) is interior to the /Mandelbrot Set/ if \(f_{z_{0}}\) is interior to the julia set and hence this problem is equivalent to re-implementing the previous strategy such that $z \rightarrow z^{2} + z_{0}$ where $z_{0}$ is unchanging or more clearly as a seqeuence:
 
 \begin{align}
 z_{n+1} &= z^{2}_n + c \label{eq:mb-sequence} \\
@@ -1934,9 +1925,9 @@ plt.imshow(pic)
 This output although remarkable is however fairly undetailed, by using /Julia/ a much
 larger image can be produced, in /Julia/ producing a 4 GB, 400 MP image can be done in little time
 (about 10 minutes on my system), this is demonstrated in listing [[julia-large-mandelbrot]]
-and the corresponding FITS image is [[https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0][available-online.]][fn:ft]
+and a screenshot of the corresponding FITS image is shown in listing [[mandelbrot-screen]].
 
-#+NAME:
+#+NAME: julia-large-mandelbrot
 #+begin_src julia
 function mandelbrot(z, num, my_func)
     count = 1
