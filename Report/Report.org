@@ -906,17 +906,17 @@ c=c_{i}2^{i}+c_{i-1}2^{i-1}+\cdots +c_{1}2+c_{0}=\left[c_{i}c_{i-1}\cdots c_{1}c
 \end{align*}
 
 \begin{align*}
-\binom{2^n + r}{c}~(\text{mod}~2) &= \binom{1r_{i-1}r_{i-2} \cdots r_{0}}{0c_{i-1}c_{i-2} \cdots c_{0}} \quad (\text{mod} 2)\\
-&= \binom{1}{0}\binom{r_{i-1}}{c_{i-1}}\binom{r_{i-2}}{c_{i-2}} \cdots \binom{r_0}{c_0} \quad (\text{mod} 2)\\
-&=\binom{r_{i-1}}{c_{i-1}}\binom{r_{i-2}}{c_{i-2}} \cdots \binom{r_0}{c_0} \quad (\text{mod} 2)\\
-&= \binom{r}{c} \quad (\text{mod} 2)
+\binom{2^n + r}{c} &\equiv \binom{1r_{i-1}r_{i-2} \cdots r_{0}}{0c_{i-1}c_{i-2} \cdots c_{0}} \quad &(\text{mod} 2)\\
+&\equiv \binom{1}{0}\binom{r_{i-1}}{c_{i-1}}\binom{r_{i-2}}{c_{i-2}} \cdots \binom{r_0}{c_0} \quad &(\text{mod} 2)\\
+&\equiv\binom{r_{i-1}}{c_{i-1}}\binom{r_{i-2}}{c_{i-2}} \cdots \binom{r_0}{c_0} \quad &(\text{mod} 2)\\
+&\equiv \binom{r}{c} \quad &(\text{mod} 2)
 \end{align*}
 
 \begin{align*}
-\binom{2^n + r}{2^n + c}~(\text{mod}~2) &= \binom{1r_{i-1}r_{i-2} \cdots r_{0}}{1c_{i-1}c_{i-2} \cdots c_{0}} \quad (\text{mod} 2)\\
-&= \binom{1}{1}\binom{r_{i-1}}{c_{i-1}}\binom{r_{i-2}}{c_{i-2}} \cdots \binom{r_0}{c_0} \quad (\text{mod} 2)\\
-&=\binom{r_{i-1}}{c_{i-1}}\binom{r_{i-2}}{c_{i-2}} \cdots \binom{r_0}{c_0} \quad (\text{mod} 2)\\
-&= \binom{r}{c} \quad (\text{mod} 2)
+\binom{2^n + r}{2^n + c} &\equiv \binom{1r_{i-1}r_{i-2} \cdots r_{0}}{1c_{i-1}c_{i-2} \cdots c_{0}} \quad &(\text{mod} 2)\\
+&\equiv \binom{1}{1}\binom{r_{i-1}}{c_{i-1}}\binom{r_{i-2}}{c_{i-2}} \cdots \binom{r_0}{c_0} \quad &(\text{mod} 2)\\
+&\equiv \binom{r_{i-1}}{c_{i-1}}\binom{r_{i-2}}{c_{i-2}} \cdots \binom{r_0}{c_0} \quad &(\text{mod} 2)\\
+&\equiv \binom{r}{c} \quad &(\text{mod} 2)
 \end{align*}
 
 Thus, $\binom{r}{c} = \binom{2^n + r}{c} = \binom{2^n + r}{2^n + c} \quad (\text{mod} 2)$, which concludes the proof
