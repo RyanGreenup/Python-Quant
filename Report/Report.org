@@ -1311,12 +1311,16 @@ G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 \end{aligned}$$
 
 ** HOLD Comments                                                               :Ryan:
+:PROPERTIES:
+:CUSTOM_ID: comment
+:END:
 In the 13\textsuperscript{th} century [fn:fib] Fibonacci developed [fn:dev]  his namesake sequence when working on a problem concerning the growth rate
 of a rabbit population cite:ronknottFibonacciNumbersGolden2016.
 Continuous population growth is typically modelled with calculus by the equation \(\frac{\mathrm{d} }{\mathrm{d} t}\left( p \right)
 \propto p\) [[cite:giordanoFirstCourseMathematical2014][\S 11.1]], what's interesting is that this population model itself
 generates a fractal when the number of stationary points is plotted against the
-growth rate [[cite:briggsTurbulentMirrorIllustrated1989][Ch. 3]]  and this fractal is equivilant to a plot of the mandelbrot set where the \(x\)-axis represents the real component of a value and the \(y\)-axis the number of iterations before a value exceeds a modulus of 2 (see generally cite:mullerThisEquationWill2020). This is not
+growth rate [[cite:briggsTurbulentMirrorIllustrated1989][Ch. 3]]
+and this fractal is equivilant to a plot of the mandelbrot (discussed in \S [[#mandlebrot-set]]) set where the \(x\)-axis represents the real component of a value and the \(y\)-axis the number of iterations before a value exceeds a modulus of 2 (see generally cite:mullerThisEquationWill2020). This is not
 something we had time to investigate unfourtunately but it does demonstrate the deep connection between natural phenomena such as population growth, the Fibonacci Sequence and complex fractals such as the Mandelbrot set.
 *** Equivalent forms of the Golden Ratio
 The golden ratio is sometimes expressed in odd forms in the literature:
@@ -1546,18 +1550,8 @@ end 600 600
 [[file:media/sunflower.jpg]]
 
 * Julia Sets                                                                    :Ryan:
-
-The julia set is the outline [[cite:peitgenChaosFractalsNew2004][Ch. 14]].
-
-The mandelbrot has to do with whether or not it's connected.
-,** TODO The math behind it
-,*** TODO Like Escaping after 2
-I cannot figure this out, I need more time, look around Ch. 12 of falconer cite:falconerFractalGeometryMathematical2003
-There is a relatioship between the fibonacicci sequence, modelling population growth and the mandelbrot curve, I would like to use that to tie some of the discussion together, see [[https://youtu.be/ovJcsL7vyrk][this video from Veritasium to get an idea of what i mean]].
-
-
 ** Introduction
-Julia sets are a very interesting fractal and we hope to investigate them further in this project.
+Julia sets provide an example of a family of very complex structures that emerge from a very simple mathematical process
 ** Motivation
 Consider the iterative process $x \rightarrow x^{2}, \enspace x \in \mathbb{R}$,
 for values of $x>1$ this process will diverge and for $x<1$ it will converge.
@@ -1581,7 +1575,7 @@ Every value on that plane will belong to one of the two following sets
 - $E_{c}$
   + The set of values on the plane that tend to $\infty$ (escapees)
 
-In the case of $f_{0}(z) = z^{2}$ all values $\left\lvert z  \right \rvert \leq 1$ are bounded with $\left\lvert z  \right \rvert = 1$ being an unstable stationary circle, but let's investigate what happens for different iterative functions like $f_{1}(z) = z^{2} - 1$, despite how trivial this seems at first glance.
+In the case of $f_{0}(z) = z^{2}$ all values $\left\lvert z  \right \rvert \leq 1$ are bounded with $\left\lvert z  \right \rvert = 1$ being an unstable stationary circle, but for different iterative functions like $f_{1}(z) = z^{2} - 1$ the circle of convergence distorts to a fractal pattern, the set of all points on the boundary of convergence is said to be the /Julia Set/ [[cite:peitgenChaosFractalsNew2004][Ch. 14]].
 
 ** Plotting the Sets
 :PROPERTIES:
