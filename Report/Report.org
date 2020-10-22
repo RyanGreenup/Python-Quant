@@ -1986,12 +1986,21 @@ save_picture("/tmp/a.fits", my_pic)
 #+CAPTION: Screenshot of Mandelbrot FITS image produced by listing [[julia-large-mandelbrot]]
 [[file:media/Outline/_20200828_233844screenshot.png]]
 
+
+The dimension of the mandelbrot set is 2 cite:bownScienceMandelbrotSet and can be measured using the exact same strategy as \S [[#dim-julia]]. [fn:cm] The Mandelbrot set is extraodinarily complex and actually contains many of the patterns of various Julia Sets within it [[cite:peitgenChaosFractalsNew2004][Ch. 14]].
+* Conclusion                                                                    :Ryan:
+Fractals are complex shapes that may or may not exhibit self similarity and often arise from natural phenomena. They are hard to define in a way that captures all potential edge cases. One important feature of fractals is the dimension of the complex shape, they are not simple finite shapes and so there dimension is usually higher than what might be anticipated by considering the corresponding the dimension of a shape that may approximate the general figure.
+
+This concept of dimension can be extended to shapes that do not exhibit clear self-similarity by using linear regression, this includes particularly complex fractals such as the Mandelbrot Set.
+
+Simple processes that involve recursion can lead to the emergence of patterns that are fractals, these fractals can often include other characteristic properties that involve values such as the golden ratio and Fibonacci Numbers.
+
+@@latex: \appendix @@
 * Appendix
 :PROPERTIES:
 :CUSTOM_ID: appendix
 :END:
 So unless code contributes directly to the discussion we'll put it in the appendix.
-@@latex: \appendix @@
 ** Code Listings
 *** Sierpinski's Carpet
 
@@ -2688,6 +2697,8 @@ Sketching out an approach for this:
 :CUSTOM_ID: power-series-comb
 :END:
 * Footnotes
+
+[fn:cm] As a matter of fact it would only be necessary to uncomment the end of line 40 of the listing provided in \S [[#julia-set-functions-script]] and use the function ~juliaSet(z, z -> z^2)~
 
 [fn:gen] For further material related to exponential generating function see [[#exp-gen-func-fib-seq]] of the appendix.
 

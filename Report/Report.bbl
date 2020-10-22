@@ -64,7 +64,6 @@
       \field{labeltitlesource}{shorttitle}
       \field{annotation}{OCLC: ocn794710381}
       \field{isbn}{978-3-642-31045-4}
-      \field{note}{1. Two motivating examples: sequential orders on quadtrees and multidimensional data structures -- 2. How to construct space-filling curves -- 3. Grammar-based description of space-filling curves -- 4. Arithmetic representation of space-filling curves -- 5. Approximating polygons -- 6. Sierpinski curves -- 7. Further space-filling curves -- 8. Space-filling curves in 3D -- 9. Refinement trees and space-filling curves -- 10. Parallelisation with space-filling curves -- 11. Locality properties of space-filling curves -- 12. Sierpinski curves on triangular and tetrahedral meshes -- 13. Case study: cache efficient algorithms for matrix operations -- 14. Case study: numerical simulation on spacetree grids using space-filling curves -- 15. Further applications of space-filling curves: references and readings -- A. Solutions to selected exercises}
       \field{number}{9}
       \field{pagetotal}{278}
       \field{series}{Texts in Computational Science and Engineering}
@@ -221,6 +220,43 @@
       \endverb
       \verb{url}
       \verb https://www.sciencemag.org/news/2016/05/sunflowers-show-complex-fibonacci-sequences
+      \endverb
+    \endentry
+    \entry{bownScienceMandelbrotSet}{online}{}
+      \name{author}{1}{}{%
+        {{hash=3c424656bf41828d2610d2aaa85d9fee}{%
+           family={Bown},
+           familyi={B\bibinitperiod},
+           given={William},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{3c424656bf41828d2610d2aaa85d9fee}
+      \strng{fullhash}{3c424656bf41828d2610d2aaa85d9fee}
+      \strng{bibnamehash}{3c424656bf41828d2610d2aaa85d9fee}
+      \strng{authorbibnamehash}{3c424656bf41828d2610d2aaa85d9fee}
+      \strng{authornamehash}{3c424656bf41828d2610d2aaa85d9fee}
+      \strng{authorfullhash}{3c424656bf41828d2610d2aaa85d9fee}
+      \field{sortinit}{B}
+      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{It's official: the Mandelbrot set is a fractal. A Japanese mathematician has finally proved something that everyone with a picture of chaos on their wall thought they already knew. In doing so, Mitsuhiro Shishikura of the Tokyo Institute of Technology has proved one of the longest-standing conjectures in fractal mathematics - that the dimension of \&hellip;}
+      \field{journaltitle}{New Scientist}
+      \field{langid}{american}
+      \field{shorttitle}{Science}
+      \field{title}{Science: {{Mandelbrot}} Set Is as Complex as It Could Be}
+      \field{urlday}{22}
+      \field{urlmonth}{10}
+      \field{urlyear}{2020}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/ryan/Zotero/storage/FSNZHGQB/mg13117882-900-science-mandelbrot-set-is-as-complex-as-it-could-be.html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.newscientist.com/article/mg13117882-900-science-mandelbrot-set-is-as-complex-as-it-could-be/
+      \endverb
+      \verb{url}
+      \verb https://www.newscientist.com/article/mg13117882-900-science-mandelbrot-set-is-as-complex-as-it-could-be/
       \endverb
     \endentry
     \entry{simonbrassCCSearch2006}{online}{}
@@ -388,7 +424,6 @@
       \field{labeltitlesource}{title}
       \field{edition}{Ninth Edition}
       \field{isbn}{978-0-07-338317-0}
-      \field{note}{Churchill's name appears first on the earlier editions}
       \field{pagetotal}{461}
       \field{series}{Brown and Churchill Series}
       \field{title}{Complex Variables and Applications}
@@ -582,7 +617,6 @@
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{"Teaches math concepts through programming. Begins with a crash course in basic programming concepts and how to use Python's built-in Turtle module, and then explores topics like writing programs to solve equations and matrices, drawing polygons and fractals, and using the Processing graphics library to create interactive 2D and 3D models"--}
       \field{isbn}{978-1-59327-867-0}
-      \field{note}{Drawing polygons with Turtle -- Doing arithmetic with lists and loops -- Guessing and checking with conditionals -- Solving equations graphically -- Transforming shapes with geometry -- Creating oscillations with trigonometry -- Complex numbers -- Creating 2D/3D graphics using matrices -- Creating an ecosystem with classes -- Creating fractals using recursion -- Cellular automata -- Solving problems using genetic algorithms \par Includes index}
       \field{pagetotal}{276}
       \field{shorttitle}{Math Adventures with {{Python}}}
       \field{title}{Math Adventures with {{Python}}: An Illustrated Guide to Exploring Math with Code}
@@ -695,7 +729,6 @@
       \field{annotation}{OCLC: ocn820108873}
       \field{edition}{5th ed., International ed}
       \field{isbn}{978-1-285-05090-4 978-1-285-07749-9}
-      \field{note}{Modeling change -- The modeling process, proportionality, and geometric similarity -- Model fitting -- Experimental modeling -- Simulation modeling -- Discrete probabilistic modeling -- Optimization of discrete models -- Modeling using graph theory -- Modeling with decision theory -- Game theory -- Modeling with a differential equation -- Modeling with systems of differential equations -- Optimization of continuous models \par Previous ed.: 2009}
       \field{pagetotal}{676}
       \field{title}{A First Course in Mathematical Modeling}
       \field{year}{2014}
@@ -779,7 +812,6 @@
       \field{labeltitlesource}{title}
       \field{isbn}{978-0-387-94153-0 978-3-540-94153-8 978-2-225-85130-8}
       \field{langid}{english}
-      \field{note}{Published with the support of ministère de l'Enseignement supérieur et de la Recherche (France) : Direction de l'information scientifique et technique et des bibliothèques--t.p. verso}
       \field{pagetotal}{234}
       \field{title}{Physics and Fractal Structures}
       \field{year}{1996}
@@ -1117,7 +1149,6 @@
       \field{labeltitlesource}{title}
       \field{edition}{2nd ed}
       \field{isbn}{978-0-669-24592-9}
-      \field{note}{Includes index}
       \field{pagetotal}{592}
       \field{title}{Elementary Linear Algebra}
       \field{year}{1991}
@@ -1404,7 +1435,6 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{978-0-7167-1186-5}
-      \field{note}{Includes index}
       \field{pagetotal}{460}
       \field{title}{The Fractal Geometry of Nature}
       \field{year}{1982}
@@ -1705,7 +1735,6 @@
       \field{annotation}{OCLC: 253915717}
       \field{isbn}{978-0-13-101963-8}
       \field{langid}{english}
-      \field{note}{Includes bibliographic references (S. 391-394) and index}
       \field{pagetotal}{436}
       \field{title}{An Introduction to Abstract Algebra with Notes to the Future Teacher}
       \field{year}{2007}
@@ -2054,7 +2083,6 @@
       \field{annotation}{OCLC: ocn842877119}
       \field{edition}{Second edition}
       \field{isbn}{978-0-8133-4910-7}
-      \field{note}{Overview -- One-dimensional flows -- Flows on the line -- Bifurcations -- Flows on the circle -- Two-dimensional flows -- Linear systems -- Phase plane -- Limit cycles -- Bifurcations revisited -- Chaos -- Lorenz equations -- One-dimensional maps -- Fractals -- Strange attractors}
       \field{pagetotal}{513}
       \field{shorttitle}{Nonlinear Dynamics and Chaos}
       \field{title}{Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering}
@@ -2493,7 +2521,6 @@
       \field{booktitle}{Differential Equations with Boundary-Value Problems}
       \field{edition}{7th ed}
       \field{isbn}{978-0-495-10836-8}
-      \field{note}{Includes index}
       \field{title}{8.4 {{Matrix Exponential}}}
       \field{year}{2009}
       \field{dateera}{ce}
@@ -2531,7 +2558,6 @@
       \field{labeltitlesource}{title}
       \field{edition}{7th ed}
       \field{isbn}{978-0-495-10836-8}
-      \field{note}{Includes index}
       \field{pagetotal}{526}
       \field{title}{Differential Equations with Boundary-Value Problems}
       \field{year}{2009}
