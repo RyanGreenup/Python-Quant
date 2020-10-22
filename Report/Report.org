@@ -925,7 +925,12 @@ c=c_{i}2^{i}+c_{i-1}2^{i-1}+\cdots +c_{1}2+c_{0}=\left[c_{i}c_{i-1}\cdots c_{1}c
 Thus, $\binom{r}{c} = \binom{2^n + r}{c} = \binom{2^n + r}{2^n + c} \quad (\text{mod} 2)$, which concludes the proof
 
 ** Fractal Dimensions Sans Self Similarity                                     :Ryan:
-Not all fractals demonstrate obvious self-similarity coastlines, as previously mentioned in \S [[#definition]], are a common example but are not unique, many natural shapes such as the distribution of galaxies, clouds, mountains and Brownian motion are all examples of fractals [[cite:gouyetPhysicsFractalStructures1996][Ch. 2]] that do not exhibit obvious self-similarity.
+Not all fractals demonstrate obvious self-similarity, coastlines, as previously
+mentioned in \S [[#definition]], are a common example but are not unique in this
+regard, many natural phenomena such as the distribution of galaxies, shape of
+clouds, outline of mountains and the the path of Brownian motion have a fractal structure
+ [[cite:gouyetPhysicsFractalStructures1996][Ch. 2]] that does not exhibit
+obvious self-similarity.
 
 In order to measure the dimension of such fractals the log transformed measure
 and scale can be compared on a scatter plot in order to confirm that the
@@ -934,9 +939,7 @@ and equal to the slope of the line, (see e.g. [[cite:vicsekFractalGrowthPhenomen
 cite:sandersonFractalsAreTypically2017
 ,mandelbrotHowLongCoast1967).
 
-This approach is implemented to measure the dimension of the /Julia Set/ in \S [[#dim-julia]] a complex fractal that does not demonstrate obvious self-similarity at all scales.
-
-
+This approach is implemented to measure the dimension of the /Julia Set/ in \S [[#dim-julia]].
 
 * Connecting Fractals to Natural Processes                                      :Ryan:
 :PROPERTIES:
@@ -1376,13 +1379,13 @@ end 600 600
 
 * Julia Sets                                                                    :Ryan:
 ** Introduction
-Julia sets provide an example of a family of very complex structures that emerge from a very simple mathematical process
+Julia sets provide an example of a family of very complex structures that emerge from a very simple mathematical processes.
 ** Motivation
 Consider the iterative process $x \rightarrow x^{2}, \enspace x \in \mathbb{R}$,
 for values of $x>1$ this process will diverge and for $x<1$ it will converge.
 
 The iterative process $z \rightarrow z^{2}, \enspace z \in \mathbb{C}$,
-for values of $\left\lvert z \right\rvert >1$ diverges and for $\left\lvert z \right\rvert <1$ it will converge.
+for values of $\left\lvert z \right\rvert >1$ diverges and for $\left\lvert z \right\rvert <1$ it will converge, this is visualized in [[py-circle-plot]]
 
 This can be generalised, consider:
 
@@ -1404,12 +1407,8 @@ In the case of $f_{0}(z) = z^{2}$ all values $\left\lvert z  \right \rvert \leq 
 :PROPERTIES:
 :ID:       baa21085-5d8f-4390-9bb7-43c3b51d940d
 :END:
-Because this involves iteration and /Python/ is a little slow, We'll denote
-complex values as a vector[fn:vc] and define the operations as described in
-listing [[complex-vec]].[fn:ma]
-
 To implement this test we'll consider a function called ~escape_test~ that applies an
-iteration (in this case $f_{0}: z \rightarrow z^{2}$) until that value diverges or converges.
+iteration (in this case $f_{0}: z \rightarrow z^{2}$) until that value diverges or converges. [fn:ma]
 
 While iterating with $f_{c}$ once $\left\lvert z \right\rvert >
 \mathrm{max}\left(\left\{c, 2\right\}\right)$, the value must diverge because
@@ -1418,15 +1417,16 @@ value converges or diverges, the ~escape_test~ can instead record the number of
 iterations $(k)$ until the value has crossed that boundary and this will provide
 a measurement of the rate of divergence.
 
-Then the ~escape_test~ function can be mapped over a matrix, where each element
-of that matrix is in turn mapped to a point on the cartesian plane, the resulting matrix
-can be visualised as an image [fn:im], this is implemented in listing
+The ~escape_test~ function can then be mapped over a matrix, where each element
+of that matrix is in turn mapped to a point on the Cartesian Plane, the resulting matrix
+can be visualised as an image, this is implemented in listing
 [[py-circle-code]] and the corresponding output shown in [[py-circle-plot]].
 
-with respect to listing [[py-circle-code]]:
-
-- Observe that the ~magnitude~ function wasn't used:
-   a. This is because a ~sqrt~ is a costly operation and comparing two squares saves an operation
+Observe that the absoluve value was not used in [[py-circle-code]] (or below in \S
+[[#dim-julia]] ), this is because a ~sqrt~ is a costly operation that can be avoided
+by comparing two squares, this is important when multiple iterations over large
+matrices are required, this accounted for as much as 50% of the time required to
+generate the data using listing [[*Definition of a Fractal]] in \S [[#dim-julia]].
 
 
 
@@ -1509,7 +1509,7 @@ plt.imshow(pic)
 #+CAPTION: Circle of Convergence for $f_{0}: z \rightarrow z^{2}$
 [[file:media/Outline/circle-of-convergence.svg]]
 
-This is precisely what we expected, but this is where things get interesting,
+This circle is precisely what would be expected, verifying this approach.
 consider now the result if we apply this same procedure to $f_{1}: z \rightarrow
 z^{2} - 1$ or something arbitrary like $f_{\frac{1}{4} + \frac{i}{2}}: z
 \rightarrow z^{2} + (\frac{1}{4} + \frac{i}{2})$, the result is something
@@ -1526,7 +1526,7 @@ remarkebly unexpected, as shown in figures [[py-jl-1-plot]] and [[py-jl-rab-plot
 #+attr_html: :width 400px
 #+attr_latex: :width 9cm
 #+NAME: py-jl-rab-plot
-#+CAPTION: Circle of Convergence for $f_{\frac{1}{4} + \frac{i}{2}}: z \rightarrow z^{2} + \frac{1}{4} + \frac{i}{2}$
+#+CAPTION: Boundary of Convergence for $f_{\frac{1}{4} + \frac{i}{2}}: z \rightarrow z^{2} + \frac{1}{4} + \frac{i}{2}$, the figure was contrasted using /ImageMagick/ to highlight the complex boundary
 [[file:media/Outline/julia-rab.svg]]
 
 To investigate this further consider the
@@ -1534,19 +1534,17 @@ more general function $f_{0.8 e^{\pi i \tau}}: z \rightarrow z^{2} + 0.8 e^{\pi
 i \tau}, \enspace \tau \in \mathbb{R}$, many fractals can be generated using
 this set by varying the value of $\tau$[fn:wk].
 
-/Python/ is too slow for this, but the /Julia/ programming language, as a
-compiled language, is significantly faster and has the benefit of treating
-complex numbers as first class citizens, these images can be generated in
-/Julia/ in a similar fashion as before, with the specifics shown in listing
-[[julia-gen-fracs]]. The ~GR~ package appears to be the best plotting library
-performance wise and so was used to save corresponding images to disc, this is
-demonstrated in listing [[GR-save]] where 1200 pictures at a 2.25 MP resolution were produced. [fn:tm]
+/Python/ is too slow for this, and so /Julia/ will be used. These images can be
+generated in /Julia/ in a similar fashion as before, with the specifics shown in
+listing [[julia-gen-fracs]]. The ~GR~ package appears to be the best plotting
+library performance wise and so was used to save corresponding images to disc,
+this is demonstrated in listing [[GR-save]] where 1200 pictures at a 2.25 MP
+resolution were produced. [fn:tm]
 
 A subset of these images can be combined using /ImageMagick/ and ~bash~ to
 create a collage, /ImageMagick/ can also be used to produce an animation but it often
 fails and a superior approach is to use ~ffmpeg~, this is demonstrated in
-listing [[bash-frac-join]], the collage is shown in figure [[montage-frac]] and a corresponding
-animation is [[https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0][available online]][fn:ln]].
+listing [[bash-frac-join]], the collage is shown in figure [[montage-frac]].
 
 #+NAME: julia-gen-fracs
 #+CAPTION: Produce a series of fractals using julia
@@ -1596,7 +1594,7 @@ end
 #+NAME: GR-save
 #+CAPTION: Generate and save the images with GR
 #+begin_src julia
-# * Use GR to Save a Bunch of Images
+# * Use GR to Save many images
   ## GR is faster than PyPlot
 using GR
 function save_images(count, res)
@@ -1648,10 +1646,35 @@ ffmpeg                    \
 :PROPERTIES:
 :CUSTOM_ID: dim-julia
 :END:
-A value on the complex plane can be associated with the julia set by iterating
-that value against a function of the form $z \rightarrow z^{2} + \alpha + i
-\beta$ and measuring whether or not that value diverges or converges. This
-process is demonstrated in listing [[ref:jsetDivFunc]].
+The Julia Set is defined as the boundary between which values diverge and
+converge on the complex plane
+[[cite:falconerFractalGeometryMathematical2003b][\S 14.1]], to implement this in
+terms of the matrix a function to test whether or not an element of a matrix is
+surrounded by other elements can be implemented, for example if an element of a
+boolean matrix is such that the sum of all immediately adjacent elements sums to
+9, then that point should be set to 0 because it does not represent a boundary.
+This is implemented in [[outline-func]] and although this will not perfectly
+trace the outline of a fractal like the /Julia Set/, it is expected that this
+approach will not introduce bias and so the impact on accuraccy will be constant
+for /Julia Sets/ accross all scales of resolution.
+
+#+NAME: outline-func
+#+CAPTION: A function to set all values of matrix, that do not represent the boundary of a shape, to zero. This is designed for a boolean matrix and works by summing the neighbourhood of an element, if that neighbourhood is greater than 9 (indicating that all values surrounding the point contain an element), the value is set to 1.
+#+begin_src julia
+function outline(mat)
+    work_mat = copy(mat)
+    for col in 2:(size(mat)[2]-1)
+        for row in 2:(size(mat)[1]-1)
+            ## Make the inside 0, we only want the outline
+            neighbourhood = mat[row-1:row+1,col-1:col+1]
+            if sum(neighbourhood) >= 9 # 9 squares
+                work_mat[row,col] = 0
+            end
+        end
+    end
+    return work_mat
+end
+#+end_src
 
 By associating each value on the complex plane with an element of a matrix an image of this pattern may be produced, by considering only values on the boundary between convervgent and divergent an outline may be produced see for example figure [[fig:julia-rab]], this outline is known as the /Julia Set/.
 
@@ -2720,17 +2743,14 @@ suggest that this process may offer good insight into the unerlying mechanisms.
 
 [fn:ft] [[https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0][https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0]]
 
-[fn:tm] On my system this took about 30 minutes.
+[fn:tm] This took about 30 minutes on an Intel I7-7700 with 32GB memory using /Julia 1.5.2/
 
-[fn:ln] [[https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0][https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0]]
 
 [fn:wk] This approach was inspired by an animation on the /Julia Set/ Wikipedia article cite:JuliaSet2020
 
-[fn:im] these cascading values are much like brightness in Astronomy
 
 [fn:ma] This technique was adapted from Chapter 7 of /Math adventures with Python/ cite:farrellMathAdventuresPython2019
 
-[fn:vc] See figure [[xkcd-im]] for the obligatory /XKCD/ Comic
 
 [fn:op] Although proprietary software such as Magma, Mathematica and Maple is very good, the restrictive licence makes them undesirable for study because there is no means by which to inspect the problem solving tecniques implemented, build on top of the work and moreover the lock-in nature of the software makes it a risky investment with respect to time.
 
