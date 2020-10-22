@@ -1,4 +1,4 @@
-% Created 2020-10-22 Thu 10:50
+% Created 2020-10-22 Thu 14:19
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper,11pt,twoside]{article}
 \usepackage[utf8]{inputenc}
@@ -39,7 +39,7 @@
 
  \newpage 
 \section{Introduction\hfill{}\textsc{Ryan}}
-\label{sec:org1b6222d}
+\label{sec:orgcd72888}
 Fractals are complex shapes that often occur from natural processes, in this
 report we hope to investigate the emergence of patterns and complex structurs
 from natural phenoma. We begin with an investigation into fractals and the
@@ -47,13 +47,13 @@ concept of dimension and then discuss links between fractal patterns and natural
 processes.
 
 \subsection{A note on Images in this report}
-\label{sec:orgf152b46}
+\label{sec:org5461c5f}
 Although the images in this document may appear to be quite small, they are high quality PNG images and one of the luxuries of PDF is that the embeded media is near lossless, so to perceive greater detail in an image it is sufficient to simply zoom in and the greater detail should be rendered. \footnote{Apparently it's also possible to embed live GIFs into PDF as well which would have been nice to do had time permitted, see for example the \texttt{Animate} package for \LaTeX \cite{CTANPackageAnimate} and \href{https://tex.stackexchange.com/questions/5396/is-there-any-way-to-include-an-animated-gif-directly}{this discussion} \cite{PdftexThereAny} generally.}
 
 \section{Fractals}
-\label{sec:org4d36454}
+\label{sec:org1066f7c}
 \subsection{Definition of a Fractal\hfill{}\textsc{Ryan}}
-\label{sec:org78bbb01}
+\label{sec:orgd3a56f6}
 
 Benoît Mandelbrot coined the term fractal in 1975 \cite{gomoryBenoitMandelbrot19242010} and defined it his 1982 book \emph{The Fractal Geometry of Nature} \cite[p. 15]{mandelbrotFractalGeometryNature1982} :
 
@@ -136,13 +136,13 @@ fractal is nowhere differentiable, this would be because a fractal is
 nowhere smooth, which is certainly an important and distinguishing feature worth noting.
 
 \subsection{Fractals Generally\hfill{}\textsc{James}}
-\label{sec:org85bb461}
+\label{sec:org7f2f18e}
 Dimension is the main defining property of a fractal. As aforementioned above, the Hausdorff dimension is a unique number in that, if we take some shape in \(\mathbb{R}^{n}\), and the Hausdorff dimension converges to some number, then the dimension of the shape is given by that number. Otherwise, it will equal \(0\) or \(\infty\). For example, if we want to evaluate the dimension of a square and we use a 1-Dimensional shape as the cover set to calculate the Hausdorff dimension, we will get \(\infty\). On the other hand, if we do the same with a 3-Dimensional shape, we will get 0. And finally if we use a 2-Dimensional shape, the Hausdorff dimension will evaluate to 2. This same notion is important when computing the dimension of a more complex shape such as the Koch snowflake.
 
 To define a fractal, we must define it's dimension. Whilst some research states that a fractal has a non-integer dimension, this is not true for all fractals. Although, most fractals like the Koch snowflake do in fact have non-integer dimensions, we can easily find a counter example namely, the Mandelbrot set. The Mandelbrot set lies in the same dimension as a square, a 2-Dimensional shape. However, we give recognition to the complexity and roughness of the Mandelbrot set which clearly distiguishes itself from a square. Beneath the Mandelbrot set's complexity are exact replicates of the largest scaled Mandelbrot set, i.e a self similar shape. Furthermore, although the Mandelbrot set has an integer dimension, the self similarity and complexity is what also defines its fractal nature.
 
 \subsection{Fractal Dimension}
-\label{sec:orgf0e6501}
+\label{sec:org58d7d15}
 The concept of a non-integer dimension may at first seem odd, particularly given that the familiar definition from linear algebra (concerned with the number of vectors within a basis for a vector space \cite{larsonElementaryLinearAlgebra1991}) is strictly an integer value, but in the early \(20^{\mathrm{th}}\) century mathematicians recognised the shortcomings of this definition \cite[Ch. 3]{mandelbrotFractalGeometryNature1982}.
 
 In this section we hope to convince the reader that there is grounds for
@@ -229,7 +229,6 @@ the dimension would be constant at all scales
 \caption{\label{koch-snowflake}Progression of the Koch Snowflake}
 \end{figure}
 
- \newpage 
 \subsubsection{Hausdorff Measure\hfill{}\textsc{Ryan}}
 \label{hausdorff-measure}
 The Hausdorff dimension depends first on a rigorous definition of measure, this is distinct from the box counting approach in that it is more mathematically rigorous, it is however complex and in practice this report will be concerned with implementing the box counting dimension. \footnote{See \S \ref{haus-resource} for further reading.}
@@ -319,9 +318,9 @@ This is defined for all subsets of \(\mathbb{R}^n\) for example the value of  \(
 
 
 \paragraph{Lower Dimension Hausdorff Measurements}
-\label{sec:org4acb097}
+\label{sec:org0ebe11b}
 \subparagraph{Examples}
-\label{sec:orgf05a720}
+\label{sec:orgdc43016}
 Consider again the example of a 2D shape, the value of \(\mathcal{H}^{1}\) would still be defined by \eqref{eq:delta-measure}, but unlike \(\mathcal{H}^{2}\) in \S \ref{hausdorff-measure} the value of \(\left\lvert U_i \right\rvert^1\) would be considered as opposed to \(\left\lvert U_i \right\rvert^2\) (i.e. the diamater as opposed to the diameter squared).
 
 As \(\delta\) is made arbitrarily small the boxes \footnote{Even though \(U\) may contain a variety of shapes, \eqref{eq:delta-measure} is concerned only with the power of there diameter, so in this sense the limit is concerned only with boxes corresponding to the diameter of the elements of \(U\)} that cover the shape are made also to be arbitrarily small. Although the area of the boxes must clearly be bounded by the shape of \(F\), if one imagines an infinite number of infinitely dense lines packing into a 2D shape with an infinite density it can be seen that the total length of those lines will be infinite and so the limit in \eqref{eq:limit-haus} will increase without bound.
@@ -331,7 +330,7 @@ To build on that same analogy, another way to imagine this is to pack a 2D shape
 This is consistent with factals as well, consider the koch snowflake introduced in section \ref{topological-equivalence} and shown in figure \ref{koch-line}, the dimension of this shape, as shown in \S \ref{topological-equivalence} is greater than 1, and the number of lines necessary to describe that shape is also infinite because every point of the ``curve'' is a point of an equilateral triangle.
 
 \subparagraph{Formally}
-\label{sec:org0696e53}
+\label{sec:org081ee6d}
 If the dimension of \(F\) is less than \(s\), the Hausdorff Measure will be given by:
 
 \begin{align}
@@ -339,7 +338,7 @@ If the dimension of \(F\) is less than \(s\), the Hausdorff Measure will be give
 \end{align}
 
 \paragraph{Higher Dimension Hausdorff Dimension}
-\label{sec:org0d59d43}
+\label{sec:orgf759ebe}
 
 
 For small values of \(s\) (i.e. less than the dimension of  \(F\)), the value of \(\mathcal{H}^s\)  will be \(\infty\).
@@ -383,7 +382,7 @@ Hence the value of the s-dimensional \emph{Hausdorff Measure}, \(s\) is only a f
 \end{figure}
 
 \subsubsection{Hausdorff Dimension\hfill{}\textsc{Ryan}}
-\label{sec:orgad28102}
+\label{sec:org12bf004}
 
 \begin{wrapfigure}{l}{0.5\textwidth}
 \centering
@@ -452,7 +451,7 @@ Let \(F\) be the Koch Curve.
 &= \frac{\ln(4)}{\ln(3)}
 \end{align*}
 \subsection{Generating Self Similar Fractals\hfill{}\textsc{Ryan}}
-\label{sec:orgcc3f382}
+\label{sec:orgee623eb}
 In order to investigate the dimension of fractals, we intend to generate and measure a variety of figures by using of \textbf{\emph{R}} \cite{rcoreteamLanguageEnvironmentStatistical2020}, \emph{Julia} \cite{bezansonJuliaFreshApproach2017} and \emph{Python} \cite{WelcomePythonOrg}.
 
 Self Similar fractals have a self-similar dimension and so can be used to verify an approach implemented with a programming language.
@@ -583,7 +582,7 @@ and hence has the same dimension as the \emph{Vicsek Fractal} as opposed to a
 dimension of 1.
 
 \paragraph{Sierpinskis Carpet and Cantor's Dust}
-\label{sec:org7465eb8}
+\label{sec:org46a9e7d}
 By modifying the approach provided in listing \ref{vicsek-matrix-gen} other fractals
 such as \emph{Sierpinski's Carpet} and \emph{Cantor's Dust} can be produced, this is
 implemented in listings \ref{l-s-carpet} \ref{l-cant-dust} and shown in figures
@@ -605,10 +604,10 @@ implemented in listings \ref{l-s-carpet} \ref{l-cant-dust} and shown in figures
 
 
 \paragraph{Sierpinski's Triangle}
-\label{sec:org0c7b155}
+\label{sec:orgf5768ae}
 Not all fractal patterns can be produced by using recursive functions involving matrices, one such function is \emph{Sierpinskis Triangle}.
 \subparagraph{Chaos Game}
-\label{sec:org0882dd5}
+\label{sec:orgef50789}
 The chaos game is a technique that can generate fractals, one of the advantages of this approach is that it can provide an estimate of the theoretical measure of a fractal without needing to iterate a function many times. The technique involves marking 3 points of an equilateral triangle and marking an arbitrary point, select one of these 3 points randomly with a uniform probability and create a new point halfway between the previous point and this point, repeat this process for as many points of detail are desired for the image.
 
 This can be visualised by mapping the co-ordinates of an equilateral triangle to a cartesian plane:
@@ -680,7 +679,6 @@ similar dimension very slowly.
 
 The fractal produced is composed of right angle triangles, as opposed to equilateral triangles but interestingly the measured dimension is still the same as an equlateral \emph{Sierpinski's Triangle}, it does however converge to this value slowly.
 
- \newpage 
 \begin{listing}[htbp]
 \begin{minted}[]{julia}
 function pascal(n)
@@ -858,11 +856,10 @@ montage -geometry 1000x1000 *.png dragon.png
 
 
 
- \newpage 
 \subsubsection{Pascals Triangle and Sierpinski's Triangle\hfill{}\textsc{James}}
 \label{pascal-sierpinski}
 \paragraph{Motivation}
-\label{sec:org3d77d12}
+\label{sec:orgd100171}
 Over many centuries, mathematicians have been able to produce a range of patterns from Pascal's triangle. One of which is relevant to the emergence of Sierpinski's triangle. To construct Pascal's triangle it begins with a 1 in the \(0^{th}\) (top) row, then each row underneath is made up of the sum of the numbers directly above it, see figure \ref{fig:pascal-triangle}. Alternatively, the \(n^{th}\) row and \(k^{th}\) column can be written in combinatorics form, \(\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}\).
 
 \begin{figure}[htbp]
@@ -871,7 +868,7 @@ Over many centuries, mathematicians have been able to produce a range of pattern
 \caption{\label{fig:pascal-triangle}Pascal's triangle}
 \end{figure}
 \paragraph{The connection}
-\label{sec:org9680570}
+\label{sec:orgd5046dd}
 As mentioned before there is one pattern that produces the Sierpinski triangle, namely highlighting all odd numbers in Pascal's triangle. This is equivalent to considering all the numbers in the triangle modulo 2, shown in figure \ref{fig:pascal-sierpinski-tri}.
 
 \begin{figure}[htbp]
@@ -935,7 +932,7 @@ c=c_{i}2^{i}+c_{i-1}2^{i-1}+\cdots +c_{1}2+c_{0}=\left[c_{i}c_{i-1}\cdots c_{1}c
 Thus, \(\binom{r}{c} = \binom{2^n + r}{c} = \binom{2^n + r}{2^n + c} \quad (\text{mod} 2)\), which concludes the proof
 
 \subsection{Fractal Dimensions Sans Self Similarity\hfill{}\textsc{Ryan}}
-\label{sec:org61ba605}
+\label{sec:org5acb864}
 \subsubsection{Calculating the Dimension of Julia Sets}
 \label{jl-set-dim}
 A value on the complex plane can be associated with the julia set by iterating
@@ -1131,8 +1128,9 @@ ggplot(data, aes(x = log(measure), y = log(scale))) +
 \end{wrapfigure}
 
 In order to better understand the ways in which complex fractal patterns can
-emerge from simple processes, I have constructed a very simple process that
-leads to such a pattern.
+emerge from simple processes, a simple process that
+leads to the emergence of such a pattern has been constructed, this is not a pattern that we have been able to find discussed in the literature but it does show simple connection between simple processes, patterns and the emergence of values such as golden ratio and the Fibonacci Sequence.
+
 
 Consider a fractal that begins simply with a square
  \begin{tikzpicture}\node at (3,0) [fill=red, rectangle,draw] (00) {};\end{tikzpicture} ,
@@ -1140,7 +1138,7 @@ imagine that this square is replicated, rotated and appended
 \begin{tikzpicture} \node[] (orig) at (0,0) {}; \node at (orig) [fill=red, rectangle,draw] {}; \node[xshift=1.72ex] at (orig) [fill=red, rectangle,draw] (01) {};\end{tikzpicture}
 , then that shape, again is replicated rotated and appended
 \begin{tikzpicture} \node[] (orig) at (0,0) {}; \node at (orig) [fill=red, rectangle,draw] {}; \node[xshift=1.72ex] at (orig) [fill=red, rectangle,draw] (01) {}; \node[xshift=3.44ex] at (orig) [fill=red, rectangle,draw] (01) {}; \node[xshift=3.44ex, yshift=-1.72ex] at (orig) [fill=red, rectangle,draw] (01) {}; \end{tikzpicture}
-,this    process is illustrated in figure \ref{My-Frac-progression-ink}, and if perpetuated a pattern emerges, as shown in figure \ref{My-Frac-GR-plot}, this fractal can be generated by joining a joining two matrices together in a similar way to the pattern described, this is shown in listing \ref{gen-frac-code}.
+,this    process is illustrated in figure \ref{My-Frac-progression-ink}, and if perpetuated a pattern emerges, as shown in figure \ref{My-Frac-GR-plot}, this fractal can be generated by joining two matrices together in a manner that is consistent with the pattern described, this is shown in listing \ref{gen-frac-code}.
 
 \begin{listing}[htbp]
 \begin{minted}[]{julia}
@@ -1166,7 +1164,7 @@ end
 
 GR.imshow(mywalk([1, 1], 9))
 \end{minted}
-\caption{\label{gen-frac-code}Generate the fractal described in \S \ref{my-fractal} and shown in figure }
+\caption{\label{gen-frac-code}Generate the fractal described in \S \ref{my-fractal} and shown in figure \ref{My-Frac-GR-plot}}
 \end{listing}
 
 
@@ -1174,12 +1172,19 @@ GR.imshow(mywalk([1, 1], 9))
 \begin{figure}[htbp]
 \centering
 \includesvg[width=9cm]{../Problems/fractal-dimensions/My-Fib-Fractal-Diagram}
-\caption{\label{My-Frac-progression-ink}Fractal that emerges by Rotating and appending boxes, this demonstrates the relationship between the Fibonacci numbers and golden ratio very well}
+\caption{\label{My-Frac-progression-ink}Process to generate the fractal shown in figure \ref{My-Frac-GR-plot} and described in \ref{My-Frac-ink-blue}. This process involves rotating and appending units and demonstrates a simple process from which the \emph{Fibonacci Numbers} emerge from simple processes.}
 \end{figure}
 
 
 
-The fractal producuces an angle that is caused by the point where the longest and shortest points meet up, the length of these points actually follow the fibonacci numbers and so the angle can be given by the following relationship:
+The fractal demonstrates a pattern that followes an angle that is caused by the
+join of the replicated and rotated unit \footnote{The term unit is used because this pattern would emerge whether or not squares were used, squares are merely more convenient because they relate to the box-counting measure and may be easily visualised.}, the shape of these joins is a
+rectangle that follows the Fibonacci numbers due to the additive nature of the
+process, this is illustrated in figure \ref{My-Frac-ink-blue}, in \S
+it is shown that \(\lim
+\left(\frac{F_{n}}{F_{n-1}}\right) = \varphi\), this means that the edges of the
+fractal are proportional to one another as shown in listing \ref{My-Frac-ink-fade} and
+so the angle can be given by the following relationship:
 
 \begin{align}
     \theta &= \tan^{- 1} \left(\lim_{n \rightarrow \infty} \left(\frac{F_{n- 2}}{F_{n}}                 \right)        \right) \\
@@ -1192,7 +1197,7 @@ The fractal producuces an angle that is caused by the point where the longest an
 \end{align}
 
 
-this is illustrated in figures \ref{My-Frac-ink-blue} and \ref{My-Frac-ink-fade}. This angle can be contrasted to the golden angle visualised in figure \ref{My-Frac-gold-angle}
+this is illustrated in figures \ref{My-Frac-ink-blue} and \ref{My-Frac-ink-fade}. This angle can be contrasted to the golden angle visualised in figure \ref{My-Frac-gold-angle} and although different it interesting to note that \(2 \pi\left( \frac{\psi}{\varphi+1}\right) \equiv 2 \pi \psi \equiv 0 \pmod \psi\)
 .
 
 
@@ -1220,7 +1225,8 @@ this is illustrated in figures \ref{My-Frac-ink-blue} and \ref{My-Frac-ink-fade}
 Each time this fractal is iterated the measure (i.e. the number of boxes) is doubled, but the scale of the fractal is increased by a ratio of the width and height, because the boxes add up this ratio will be a ratio of fibonacci numbers which is shown to be equal to the golden ratio \(\phi\) in \S \ref{fib-golden-ratio-proof}, hence the dimension of this fractal is given by:
 
 \begin{align}
-\log_{\varphi}\left(2\right) \approx 1.44042
+\log_{\varphi}\left(2\right) &= \frac{\log (2)}{\log (\varphi)} \\
+&\approx 1.44042
 \end{align}
 
 This value is consistent with measurements performed using \emph{Julia} in listing \ref{my-frac-measure-dim}.
@@ -1255,30 +1261,42 @@ returnDim()
 
 
 
-\subsection{Prove Fibonacci using Monotone Convergence Theorem}
+
+\section{Prove Fibonacci using Monotone Convergence Theorem}
 \label{fib-golden-ratio-proof}
+\subsection{The Golden Ratio\hfill{}\textsc{Ryan}}
+\label{sec:org9737aca}
+The \emph{Fibonacci Sequence} and \emph{Golden Ratio} occur in many patterns observed
+in natural phenomena (see
+\cite{shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016}),
+an example of such an occurence is discussed in section \ref{sunflower-example} and
+a simple process demonstrating the emergence of the Fibonacci Numbers
+is discussed in \S \hyperref[my-fractal]{my-frac-measure-dim}.
+
+The Golden Ratio is a value \(\varphi\) that satisfies the following property:
+
+\begin{align}
+    \frac{a}{b} &=  \frac{a+  b}{a}= \varphi \nonumber \\
+    \varphi &= 1+ \frac{1}{\varphi} \nonumber \\
+    \implies  \varphi^2 &= \varphi +  1 \label{eq:phi-sim-to-fib-rec} \\
+    \implies  \varphi &= \frac{1+ \sqrt{5} }{2} \label{eq:phi-value}
+\end{align}
+
 Consider the series:
 
 $$\begin{aligned}
 G_n &= \frac{F_{n} }{F_{n - 1} } \\
 \end{aligned}$$
 
-Such that:
+Such that \(F_{n}\) is the \(n^{\mathrm{th}}\) Fibonacci Number:
 
 $$\begin{aligned}
 F_n = F_{n- 1} +  F_{n- 2} ; \quad F_1 = F_2 = 1
 \end{aligned}$$
 
-
-\subsubsection{Show that the Series is Monotone}
-\label{sec:org143fc6b}
-$$\begin{aligned}
-F_{n} &> 0 \\
-0 &< F_{n} \\
- \implies   0 &< F_{n - 2} +  F_{n- 1} \quad \forall n > 2 \\
-  F_{n- 2} &< F_{n- 1}  \\
-   \implies  F_n & < F_{n+1}
-\end{aligned}$$
+\subsection{Show that the Series is Monotone\hfill{}\textsc{Ryan}}
+\label{sec:org30eee7d}
+This series is monotone:
 
 $$\begin{aligned}
 F_{n} &> 0 \\
@@ -1288,45 +1306,32 @@ F_{n} &> 0 \\
    \implies  F_n & < F_{n+1}
 \end{aligned}$$
 
-
-
-\subsubsection{Show that the Series is Bounded}
-\label{sec:orgc50dfbc}
-\subsubsection{Find the Limit}
-\label{sec:org20750fe}
+\subsection{Show that the Series is Bounded\hfill{}\textsc{James}}
+\label{sec:orgc41fffd}
+\subsection{Find the Limit\hfill{}\textsc{Ryan}}
+\label{sec:org5967b08}
 $$\begin{aligned}
 G &= \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 &= 1 +  \frac{F_{n- 1} }{F_n} \\
 \text{Recall that $F_n > 0 \forall n$}\\
 &=  1 +  \frac{1}{    \left\lvert G \right\rvert } \\
  \implies  0 &= G^2- G +  1; \quad G > 0  \\
-  \implies  G = \varphi &=  \frac{\sqrt{5} - 1  }{2} \quad  \square
+  \implies  G = \varphi &=  \frac{\sqrt{5} + 1  }{2} \quad  \square
 \end{aligned}$$
 
+\subsection{Comments}
+\label{sec:org5835eda}
+In the 13\textsuperscript{th} century \footnote{Although scrictly speaking this sequence can be traced back to 200 BC \cite{brownHistoryApplicationsFibonacci2019}} Fibonacci developed \footnote{Or is it discovered?}  his namesake sequence when working on a problem concerning the growth rate
+of a rabbit population \cite{ronknottFibonacciNumbersGolden2016}.
+Continuous population growth is typically modelled with calculus by the equation \(\frac{\mathrm{d} }{\mathrm{d} t}\left( p \right)
+\propto p\) \cite[\S 11.1]{giordanoFirstCourseMathematical2014}, what's interesting is that this population model itself
+generates a fractal when the number of stationary points is plotted against the
+growth rate \cite[Ch. 3]{briggsTurbulentMirrorIllustrated1989}  and this fractal is equivilant to a plot of the mandelbrot set where the \(x\)-axis represents the real component of a value and the \(y\)-axis the number of iterations before a value exceeds a modulus of 2 (see generally \cite{mullerThisEquationWill2020}). This is not
+something we had time to investigate unfourtunately but it does demonstrate the deep connection between natural phenomena such as population growth, the Fibonacci Sequence and complex fractals such as the Mandelbrot set.
+\subsubsection{Equivalent forms of the Golden Ratio}
+\label{sec:org7b3c480}
+The golden ratio is sometimes expressed in odd forms in the literature:
 
-\subsubsection{Comments}
-\label{sec:org6297f5a}
-
-The Fibonacci sequence is quite unique, observe that:
-
-This can be rearranged to show that the Fibonacci sequence is itself
-when shifted in either direction, it is the sequence that does not
-change during recursion.
-
-\[\begin{aligned}
-F_{n+ 1} - F_{n} = F_{n- 1} \quad \forall n > 1
-\end{aligned}\]
-
-This is analogous to how \(e^x\) doesn't change under differentiation:
-
-$$\begin{aligned}
-\frac{\mathrm{d} }{\mathrm{d} x}\left( e^x \right) \ldots
-\end{aligned}$$
-
-or how 0 is the additive identity and it shows why generating functions
-are so useful.
-
-Observe also that
 
 $$\begin{aligned}
 \lim_{n     \rightarrow \infty }\left[ \frac{F_n}{F_{n- 1} }  \right] &= \varphi \\
@@ -1335,9 +1340,10 @@ $$\begin{aligned}
 \varphi \times  \psi  &= 1 \\
 \frac{\psi}{\varphi}  = \frac{1}{\varphi^2} = \frac{1}{1-\varphi} &= \frac{1}{2-\varphi} = \frac{2}{3 - \sqrt{5}  }
 \end{aligned}$$
-\subsubsection{Python}
-\label{sec:org5b06ddf}
+\subsection{Python}
+\label{sec:orgcd3f6be}
 
+This is just to show that it's an alternating series, probably delete this
 \begin{minted}[]{python}
 #+begin_src python
 import matplotlib.pyplot as plt
@@ -1350,188 +1356,11 @@ plt.savefig("./a.png")
 \includegraphics[width=.9\linewidth]{./a.png}
 \end{center}
 
-\section{The Fibonacci Sequence}
-\label{sec:orgf8b103a}
-The Fibonacci Sequence occurs in my example from the \S \ref{my-fractal}, let's investigate it
-\subsection{Introduction\hfill{}\textsc{Ryan}}
-\label{sec:orga90ec61}
-The \emph{Fibonacci Sequence} and \emph{Golden Ratio} share a deep connection\footnote{See section} and occur in patterns observed in nature very frequently
-(see
-\cite{shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016}), an example of such an occurence is discussed in section \ref{sunflower-example}.
+\subsection{Using Calculus\hfill{}\textsc{Ryan}}
+\label{solving-the-sequence}
+The Fibonacci numbers can be solved  using Calculus and this closed solution can be used to show that the ratio of Fibonacci numbers converges to the golden ratio.
 
-
-In this section we lay out a strategy to find an analytic solution to the
-\emph{Fibonacci Sequence} by relating it to a continuous series and generalise this
-approach to any homogenous linear recurrence relation.
-
-This details some open mathematical work for the project and our hope is that by
-identifying relationships between discrete and continuous systems generall we
-will be able to draw insights with regard to the occurrence of patterns related
-to the \emph{Fibonacci Sequence} and \emph{Golden Ratio} in nature.
-
-\subsection{Computational Approach\hfill{}\textsc{Ryan}}
-\label{define-the-fibonacci-numbers}
-Given that much of our work will involve computational analysis and simulation we begin with a strategy to solve the sequence computationally.
-
-The \emph{Fibonacci} Numbers are given by:
-
-\begin{align}
-F_n = F_{n-1} + F_{n-2} \label{eq:fib-def}
-\end{align}
-
-This type of recursive relation can be expressed in \emph{Python} by using recursion,
-as shown in listing \ref{fib-rec-0}, however using this function will reveal that it
-is extraordinarily slow, as shown in listing \ref{time-slow}, this is because the
-results of the function are not cached and every time the function is called
-every value is recalculated\footnote{Dr. Hazrat mentions something similar in his book with respect to
-\emph{Mathematica}\textsuperscript{\textregistered}
-\cite[Ch. 13]{hazratMathematicaProblemCenteredApproach2015}}, meaning that the workload scales in
-exponential as opposed to polynomial time.
-
-The \texttt{functools} library for python includes the \texttt{@functools.lru\_cache} decorator
-which will modify a defined function to cache results in memory
-\cite{FunctoolsHigherorderFunctions}, this means that the recursive function will
-only need to calculate each result once and it will hence scale in polynomial
-time, this is implemented in listing \ref{fib-cache}.
-
-
-\begin{listing}[htbp]
-\begin{minted}[]{python}
-  def rec_fib(k):
-      if type(k) is not int:
-          print("Error: Require integer values")
-          return 0
-      elif k == 0:
-          return 0
-      elif k <= 2:
-          return 1
-      return rec_fib(k-1) + rec_fib(k-2)
-\end{minted}
-\caption{\label{fib-rec-0}Defining the \emph{Fibonacci Sequence} \eqref{eq:fib-def} using Recursion}
-\end{listing}
-
-\begin{listing}[htbp]
-\begin{minted}[]{python}
-  start = time.time()
-  rec_fib(35)
-  print(str(round(time.time() - start, 3)) + "seconds")
-
-## 2.245seconds
-\end{minted}
-\caption{\label{time-slow}Using the function from listing \ref{fib-rec-0} is quite slow.}
-\end{listing}
-
-
-\begin{listing}[htbp]
-\begin{minted}[]{python}
-  from functools import lru_cache
-
-  @lru_cache(maxsize=9999)
-  def rec_fib(k):
-      if type(k) is not int:
-          print("Error: Require Integer Values")
-          return 0
-      elif k == 0:
-          return 0
-      elif k <= 2:
-          return 1
-      return rec_fib(k-1) + rec_fib(k-2)
-
-
-start = time.time()
-rec_fib(35)
-print(str(round(time.time() - start, 3)) + "seconds")
-## 0.0seconds
-\end{minted}
-\caption{\label{fib-cache}Caching the results of the function previously defined \ref{time-slow}}
-\end{listing}
-
-\begin{minted}[]{python}
-  start = time.time()
-  rec_fib(6000)
-  print(str(round(time.time() - start, 9)) + "seconds")
-
-## 8.3923e-05seconds
-\end{minted}
-
-Restructuring the problem to use iteration will allow for even greater performance as demonstrated by finding \(F_{10^{6}}\) in listing \ref{fib-iter}. Using a compiled language such as \emph{Julia} however would be thousands of times faster still, as demonstrated in listing \ref{julia-fib}.
-
-
-
-\begin{listing}[htbp]
-\begin{minted}[]{python}
-  def my_it_fib(k):
-      if k == 0:
-          return k
-      elif type(k) is not int:
-          print("ERROR: Integer Required")
-          return 0
-      # Hence k must be a positive integer
-
-      i  = 1
-      n1 = 1
-      n2 = 1
-
-      # if k <=2:
-      #     return 1
-
-      while i < k:
-         no = n1
-         n1 = n2
-         n2 = no + n2
-         i = i + 1
-      return (n1)
-
-  start = time.time()
-  my_it_fib(10**6)
-  print(str(round(time.time() - start, 9)) + "seconds")
-
- ## 6.975890398seconds
-\end{minted}
-\caption{\label{fib-iter}Using Iteration to Solve the Fibonacci Sequence}
-\end{listing}
-
-\begin{listing}[htbp]
-\begin{minted}[]{julia}
-function my_it_fib(k)
-    if k == 0
-        return k
-    elseif typeof(k) != Int
-        print("ERROR: Integer Required")
-        return 0
-    end
-    # Hence k must be a positive integer
-
-    i  = 1
-    n1 = 1
-    n2 = 1
-
-    # if k <=2:
-    #     return 1
-    while i < k
-       no = n1
-       n1 = n2
-       n2 = no + n2
-       i = i + 1
-    end
-    return (n1)
-end
-
-@time my_it_fib(10^6)
-
-##  my_it_fib (generic function with 1 method)
-##    0.000450 seconds
-\end{minted}
-\caption{\label{julia-fib}Using Julia with an iterative approach to solve the 1 millionth fibonacci number}
-\end{listing}
-
-In this case however an analytic solution can be found by relating discrete
-mathematical problems to continuous ones as discussed below at section .
-\subsection{Exponential Generating Functions}
-\label{exp-gen-func-fib-seq}
-\paragraph{Motivation\hfill{}\textsc{Ryan}}
-\label{motivation}
-Consider the \emph{Fibonacci Sequence} from \eqref{eq:fib-def}:
+Consider the \emph{Fibonacci Sequence}:
 
 
 \begin{align}
@@ -1539,8 +1368,7 @@ Consider the \emph{Fibonacci Sequence} from \eqref{eq:fib-def}:
 \iff a_{n+  2} &= a_{n+  1} +  a_n \label{eq:fib-def-shift}
 \end{align}
 
-
-from observation, this appears similar in structure to the following \emph{ordinary
+From observation, this appears similar in structure to the following \emph{ordinary
 differential equation}, which would be fairly easy to deal with:
 
 
@@ -1548,7 +1376,8 @@ differential equation}, which would be fairly easy to deal with:
 f''\left( x \right)- f'\left( x \right)- f\left( x \right)=  0
 \end{align*}
 
-By ODE Theory we have \(y \propto e^{m_{i}x}, \enspace i = 1, 2\):
+By ODE Theory we have \(y \propto e^{m_{i}x}, \enspace i = 1, 2\) \cite[\S 4.1.2]{zillDifferentialEquationsBoundaryvalue2009}
+and the following power series \cite[\S 64]{churchillComplexVariablesApplications2014}:
 
 \begin{align*}
 f\left( x \right)= e^{mx} = \sum^{\infty}_{n= 0}   \left[ r^{m} \frac{x^n}{n!} \right]
@@ -1557,8 +1386,6 @@ f\left( x \right)= e^{mx} = \sum^{\infty}_{n= 0}   \left[ r^{m} \frac{x^n}{n!} \
 So using some sort of a transformation involving a power series may help to
 relate the discrete problem back to a continuous one.
 
-\paragraph{Example\hfill{}\textsc{Ryan}}
-\label{solving-the-sequence}
 Consider using the following generating function, (proof of the
 generating function derivative as in \eqref{eq:exp-gen-def-2} and \eqref{eq:exp-gen-def-3} is
 provided in section \ref{Derivative-exp-gen-function})
@@ -1649,321 +1476,11 @@ where:
 \item \(\psi = 1-\varphi = \frac{1- \sqrt{5} }{2} \approx 0.61\ldots\)
 \end{itemize}
 
-\paragraph{Derivative of the Exponential Generating Function}
-\label{Derivative-exp-gen-function}
-\subparagraph{Base\hfill{}\textsc{Ryan}}
-\label{sec:org1c9e983}
-Differentiating the exponential generating function has the effect of shifting the sequence once to the left: \cite{lehmanReadingsMathematicsComputer2010}
+\subsubsection{Golden Ratio}
+\label{sec:orgc7bcdc7}
+Using the identity in \eqref{eq:fib-sol} the ratio of successive Fibonacci numbers can be shown to converge to \(\varphi\)
 
-\begin{align}
-    f\left( x \right) &= \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right] \label{eq:exp-pow-series} \\
-f'\left( x \right) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right]  \right) \nonumber \\
-&= \frac{\mathrm{d}}{\mathrm{d} x} \left( a_0 \frac{x^0}{0!} +  a_1 \frac{x^1}{1!} +  a_2 \frac{x^2}{2!}+  a_3 \frac{x^3}{3! } +  \ldots \frac{x^k}{k!} \right) \nonumber \\
-&= \sum^{\infty}_{n= 0}   \left[ \frac{\mathrm{d} }{\mathrm{d} x}\left( a_n \frac{x^n}{n!} \right) \right] \nonumber \\
-&= \sum^{\infty}_{n= 0}   {\left[{ \frac{a_n}{{\left({ n- 1 }\right)!}} } x^{n- 1}  \right]} \nonumber \\
-\implies f'(x) &= \sum^{\infty}_{n= 1}   {\left[{ \frac{x^n}{n!}a_{n+  1} }\right]} \label{eq:exp-pow-series-sol}
-\end{align}
 
-\subparagraph{Bridge\hfill{}\textsc{James}}
-\label{sec:org0e8a781}
-This can be shown for all derivatives by way of induction, for
-
-\begin{align}
-f^{(k)}\left(x\right) = \sum_{n=k}^\infty\frac{a_{n+k}\cdot x^n}{n!} \quad \text{for}~k \ge 0
-\end{align}
-
-Assume that \(f^{(k)}\left(x\right) = \sum_{n=k}^\infty\frac{a_{n+k}\cdot x^n}{n!}\)
-
-Using this assumption, prove for the next element \(k+1\)
-
-We need \(f^{(k+1)}(x) = \sum_{n=k+1}^\infty\frac{a_{n+k+1}\cdot x^n}{n!}\)
-
-\begin{align*}
-    \text{LHS} &= f^{(k+1)}(x)\\
-    &= \frac{\mathrm{d}}{\mathrm{d}x}\left(f^{(k)}(x)\right)\\
-    &= \frac{\mathrm{d}}{\mathrm{d}x}\left(\sum_{n=k}^\infty\frac{a_{n+k}\cdot x^n}{n!}\right)\quad \text{by assumption}\\
-    &= \sum_{n=k}^\infty\frac{a_{n+k}\cdot n\cdot x^{n-1}}{n!}\\
-    &= \sum_{n=k}^\infty\frac{a_{n+k}\cdot x^{n-1}}{(n-1)!}\\
-    &= \sum_{n=k+1}^\infty\frac{a_{n+k+1}\cdot x^{n}}{n!}\\
-    &= \text{RHS}
-\end{align*}
-
-Therefore, by mathematical induction \(f^{(k)}\left(x\right) = \sum_{n=k}^\infty\frac{a_{n+k}\cdot x^n}{n!} \quad \text{for}~k \ge 0\)
-
-Furthermore, if the first derivative of the exponential generating function shown in \eqref{eq:exp-pow-series-sol}
-shifts the sequence across, then every derivative thereafter does so as well.
-
-\paragraph{Homogeneous Proof\hfill{}\textsc{Ryan:James}}
-\label{sec:orgd700cf1}
-An equation of the form:
-
-\begin{align}
-\sum^{n}_{i=0} \left[ c_{i} \cdot f^{(i)}(x) \right] = 0 \label{eq:hom-ode}
-\end{align}
-
-is said to be a homogenous linear ODE: \cite[Ch. 2]{zillDifferentialEquations2009a}
-
-\begin{description}
-\item[{Linear}] because the equation is linear with respect to \(f(x)\)
-\item[{Ordinary}] because there are no partial derivatives (e.g. \(\frac{\partial }{\partial x}{\left({ f{\left({ x }\right)} }\right)}\)  )
-\item[{Differential}] because the derivates of the function are concerned
-\item[{Homogenous}] because the \textbf{\emph{RHS}} is 0
-\begin{itemize}
-\item A non-homogeous equation would have a non-zero RHS
-\end{itemize}
-\end{description}
-
-There will be \(k\) solutions to a \(k^{\mathrm{th}}\) order linear ODE, each may be summed to produce a superposition which will also be a solution to the equation, \cite[Ch. 4]{zillDifferentialEquations2009a}  this will be considered as the desired complete solution (and this will be shown to be the only solution for the recurrence relation \eqref{eq:recurrence-relation-def}. These \(k\) solutions will be in one of two forms:
-
-\begin{enumerate}
-\item \(f(x)=c_{i} \cdot e^{m_{i}x}\)
-\item \(f(x)=c_{i} \cdot x^{j}\cdot e^{m_{i}x}\)
-\end{enumerate}
-
-where:
-
-\begin{itemize}
-\item \(\sum^{k}_{i=0}\left[  c_{i}m^{k-i} \right] = 0\)
-\begin{itemize}
-\item This is referred to the characteristic equation of the recurrence relation or ODE \cite{levinSolvingRecurrenceRelations2018}
-\end{itemize}
-\item \(\exists i,j \in \mathbb{Z}^{+} \cap \left[0,k\right]\)
-\begin{itemize}
-\item These are often referred to as repeated roots \cite{levinSolvingRecurrenceRelations2018,zillMatrixExponential2009} with a multiplicity corresponding to the number of repetitions of that root \cite[\textsection 3.2]{nicodemiIntroductionAbstractAlgebra2007}
-\end{itemize}
-\end{itemize}
-
-\subparagraph{Unique Roots of Characteristic Equation\hfill{}\textsc{Ryan}}
-\label{uniq-roots-recurrence}
-\begin{enumerate}
-\item Example
-\label{sec:org9cc8aea}
-An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section \ref{solving-the-sequence}.
-\item Proof
-\label{sec:orgc8951a6}
-Consider the linear recurrence relation \eqref{eq:recurrence-relation-def}:
-
-\begin{align}
-\sum^{n}_{i= 0}   \left[ c_i \cdot  a_i \right] = 0, \quad \exists c \in
-\mathbb{R}, \enspace \forall i<k\in\mathbb{Z}^+ \nonumber \label{eq:recurrence-relation-def}
-\end{align}
-This implies:
-
-
-\begin{align}
-    \sum^{\infty}_{n= 0}   \left[ \sum^{k}_{i= 0}   \left[ \frac{x^n}{n!} c_i a_n \right]  \right]  &= 0 \\
-    \sum^{\infty}_{n= 0}    \sum^{k}_{i= 0}    \frac{x^n}{n!} c_i a_n    &= 0 \\
-        \sum^{k}_{i= 0} c_i \sum^{\infty}_{n= 0}    \frac{x^n}{n!}  a_n    &= 0
-\end{align}
-
-By implementing the exponential generating function as shown in
-\eqref{eq:exp-gen-def-1}, this provides:
-
-\begin{align}
-   \sum^{k}_{i= 0}   \left[ c_i f^{\left( i \right)}\left( x \right) \right]
-\end{align}
-
-
-Now assume that the solution exists and all roots of the characteristic polynomial are unique (i.e. the solution is of the form \(f{\left({ x }\right)} \propto e^{m_i x}: \quad m_i \neq m_j \forall i\neq j\)), this implies that  \cite[Ch. 4]{zillDifferentialEquations2009a} :
-
-\begin{align}
-    f{\left({ x }\right)} = \sum^{k}_{i= 0}   {\left[{ k_i e^{m_i x} }\right]}, \quad \exists m,k \in \mathbb{C} \nonumber
-\end{align}
-
-This can be re-expressed in terms of the exponential power series, in order to relate the solution of the function \(f{\left({ x }\right)}\) back to a solution of the sequence \(a_n\), (see section for a derivation of the exponential power series \textbf{\#TODO make section on to prove exponential power series using taylor series expansion if we get time)}:
-
-\begin{align}
-    \sum^{k}_{i= 0}   {\left[{ k_i e^{m_i x}  }\right]}  &= \sum^{k}_{i= 0}   {\left[{ k_i \sum^{\infty}_{n= 0}   \frac{{\left({ m_i x }\right)}^n}{n!}  }\right]}  \nonumber \\
-							 &= \sum^{k}_{i= 0}  \sum^{\infty}_{n= 0}   k_i m_i^n \frac{x^n}{n!} \nonumber\\
-							 &=    \sum^{\infty}_{n= 0} \sum^{k}_{i= 0}   k_i m_i^n \frac{x^n}{n!} \nonumber \\
-							 &= \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}  \sum^{k}_{i=0}   {\left[{ k_im^n_i }\right]}  }\right]}, \quad \exists k_i \in \mathbb{C}, \enspace \forall i \in \mathbb{Z}^+\cap {\left[{ 1, k }\right]}     \label{eq:unique-root-sol-power-series-form}
-\end{align}
-
-
-Recall the definition of the generating function from \eqref{eq:exp-gen-def-1}, by equating this to \eqref{eq:unique-root-sol-power-series-form}:
-
-\begin{align}
-    f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{  \frac{x^n}{n!} a_n }\right]} \nonumber \\
-&= \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}  \sum^{k}_{i=0}   {\left[{ k_im^n_i }\right]}  }\right]}  \nonumber \\
-      \implies  a_n &= \sum^{k}_{n= 0} {\left[{ k_im_i^n }\right]}     \nonumber \\ \nonumber
-\square
-\end{align}
-
-This can be verified by the fibonacci sequence as shown in section \ref{solving-the-sequence}, the solution to the characteristic equation is \(m_1 = \varphi, m_2 = {\left({ 1-\varphi }\right)}\) and the corresponding solution to the linear ODE and recursive relation are:
-
-\begin{alignat}{4}
-    f{\left({ x }\right)} &= &c_1 e^{\varphi x} +  &c_2 e^{{\left({ 1-\varphi }\right)} x}, \quad &\exists c_1, c_2 \in \mathbb{R} \subset \mathbb{C} \nonumber \\
-    \iff  a_n &= &k_1 n^{\varphi} +  &k_2 n^{1- \varphi}, &\exists k_1, k_2 \in \mathbb{R} \subset \mathbb{C} \nonumber
-\end{alignat}
-\end{enumerate}
-
-\subparagraph{Repeated Roots of Characteristic Equation\hfill{}\textsc{Ryan}}
-\label{rep-roots-recurrence}
-\begin{enumerate}
-\item Example
-\label{sec:orgcb52092}
-Consider the following recurrence relation:
-
-\begin{align}
-    a_{n+2} -  10a_{n+ 1} +  25a_{n}&= 0 \label{eq:hom-repeated-roots-recurrence} \\
-    \implies  \sum^{\infty}_{n= 0}   {\left[{ a_{n+2} \frac{x^n}{n!} }\right]} - 10 \sum^{\infty}_{n= 0}   {\left[{ a_{n+1} \frac{x^n}{n!}    }\right]} + 25 \sum^{\infty}_{n= 0 }   {\left[{  a_{n}\frac{x^n}{n!} }\right]}&= 0 \nonumber
-\end{align}
-
-By applying the definition of the exponential generating function at \eqref{eq:exp-gen-def-1} :
-
-\begin{align}
-    f''{\left({ x }\right)}- 10f'{\left({ x }\right)}+  25f{\left({ x }\right)}= 0 \label{eq:rep-roots-func-ode}
-\end{align}
-
-By implementing the already well-established theory of linear ODE's, the
-characteristic equation for \eqref{eq:rep-roots-func-ode} can be expressed as:
-
-\begin{align}
-    m^2- 10m+  25 = 0 \nonumber \\
-    {\left({ m- 5 }\right)}^2 = 0 \nonumber \\
-    m= 5 \label{eq:rep-roots-recurrence-char-sol}
-\end{align}
-
-Herein lies a complexity, in order to solve this, the solution produced from \eqref{eq:rep-roots-recurrence-char-sol} can be used with the \emph{Reduction of Order} technique to produce a solution that will be of the form \cite[\textsection 4.3]{zillMatrixExponential2009}.
-
-\begin{align}
-    f{\left({ x }\right)}= c_1e^{5x} +  c_2 x e^{5x} \label{eq:rep-roots-ode-sol}
-\end{align}
-
-\eqref{eq:rep-roots-ode-sol} can be expressed in terms of the exponential power series in order to try and relate the solution for the function back to the generating function,
-observe however the following power series identity (proof in section \ref{prove-general-exp-identity}):
-
-\begin{align}
-    x^ke^x &= \sum^{\infty}_{n= k}   {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}, \quad \exists k \in \mathbb{Z}^+ \label{eq:uniq-roots-pow-series-ident}
-\end{align}
-
-by applying identity \eqref{eq:uniq-roots-pow-series-ident} to equation \eqref{eq:rep-roots-ode-sol}
-
-\begin{align}
-    \implies  f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{ c_1 \frac{{\left({ 5x }\right)}^n}{n!} }\right]}  +  \sum^{\infty}_{n= 1}   {\left[{ c_2 n \frac{{\left({ 5x }\right)^n}}{n{\left({ n-1 }\right)}!} }\right]} \nonumber \\
- &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!} {\left({ c_{1}5^n +  c_2 n 5^n   }\right)} }\right]} \nonumber
-\end{align}
-
-Given the defenition of the exponential generating function from \eqref{eq:exp-gen-def-1}
-
-\begin{align}
-    f{\left({ x }\right)}&=     \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]} \nonumber \\
-    \iff a_n &= c_{1}5^n +  c_{2}5^n \nonumber \\ \nonumber
-    \ \nonumber \\
-    \square \nonumber
-\end{align}
-
-\item Proof
-\label{sec:org6a5b317}
-Consider a recurrence relation of the form:
-
-\begin{align}
-     \sum^{k}_{n= 0}   {\left[{ c_i a_n }\right]}  = 0 \nonumber \\
-      \implies  \sum^{\infty}_{n= 0}   \sum^{k}_{i= 0}   c_i a_n \frac{x^n}{n!} = 0 \nonumber \\
-      \sum^{k}_{i= 0}   \sum^{\infty}_{n= 0}   c_i a_n \frac{x^n}{n!} \nonumber
-\end{align}
-
-By substituting for the value of the generating function from \eqref{eq:exp-gen-def-1}:
-
-\begin{align}
-    \sum^{k}_{i= 0}   {\left[{ c_if^{{\left({ k }\right)}}  {\left({ x }\right)}    }\right]} \label{eq:gen-form-rep-roots-ode}
-\end{align}
-
-Assume that \eqref{eq:gen-form-rep-roots-ode} corresponds to a charecteristic polynomial with only 1 root of multiplicity \(k\), the solution would hence be of the form:
-
-\begin{align}
-			 & \sum^{k}_{i= 0}   {\left[{ c_i m^i }\right]} = 0 \wedge m=B, \enspace  \exists! B \in \mathbb{C} \nonumber \\
- \implies      f{\left({ x }\right)}&= \sum^{k}_{i= 0}   {\left[{ x^i A_i e^{mx} }\right]}, \quad \exists A \in \mathbb{C}^+, \enspace \forall i \in {\left[{ 1,k }\right]} \cap \mathbb{N}  \label{eq:sol-rep-roots-ode}
-\end{align}
-
-If we assume the identity from \eqref{eq:uniq-roots-pow-series-ident}:
-
-\begin{align}
-x^k e^x = \sum^{\infty}_{n= k} {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}  \nonumber
-\end{align}
-
-See section \ref{prove-general-exp-identity} for proof.
-
-We can apply identity \eqref{eq:uniq-roots-pow-series-ident} to \eqref{eq:sol-rep-roots-ode}, which gives:
-
-\begin{align}
-f{\left({ x }\right)}&=     \sum^{k}_{i= 0}   {\left[{ A_i \sum^{\infty}_{n= i}   {\left[{ \frac{{\left({ x m }\right)}^n}{{\left({ n- i }\right)}!} }\right]}  }\right]} \nonumber \\
-&=     \sum^{\infty}_{n= 0}   {\left[{ \sum^{k}_{i=0} {\left[{ \frac{x^n}{n!}  \frac{n!}{{\left({ n- i }\right)!}} A_i m^n }\right]}       }\right]} \nonumber \\
-&=     \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}   \sum^{k}_{i=0} {\left[{  \frac{n!}{{\left({ n- i }\right)!}} A_i m^n }\right]}       }\right]} \nonumber
-\end{align}
-
-Recall the generating function that was used to get \eqref{eq:gen-form-rep-roots-ode}:
-
-\begin{align}
-f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]}      \nonumber \\
- \implies  a_n &= \sum^{k}_{i= 0}   {\left[{ A_i \frac{n!}{{\left({ n- i }\right)}!} m^n  }\right]} \nonumber \\
- &= \sum^{k}_{i= 0}   {\left[{ m^n A_i \prod_{0}^{k} {\left[{ n- {\left({ i- 1 }\right)} }\right]}   }\right]}
-& \intertext{$\because \enspace i \leq k$} \notag \nonumber \\
- &= \sum^{k}_{i= 0} {\left[{ A_i^* m^n n^i }\right]}, \quad \exists A_i \in \mathbb{C}, \enspace \forall i\leq k \in \mathbb{Z}^+ \nonumber \\
-\ \nonumber \\
-\square \nonumber
-\end{align}
-
-\item Proof\hfill{}\textsc{James}
-\label{prove-general-exp-identity}
-In this section the proof of
-\begin{enumerate}
-\item Motivation
-\label{sec:org5af5c77}
-
-Consider the function \(f(x) = xe^x\). Using the taylor series formula we get the following:
-
-\begin{align*}
-    xe^x &= 0+\frac{1}{1!}x+\frac{2}{2!}x^2+\frac{3}{3!}x^3+\frac{4}{4!}x^4+\frac{5}{5!}x^5+\dots\\
-    &= \sum_{n=0}^\infty \frac{nx^n}{n!}\\
-    &= \sum_{n=1}^\infty \frac{x^n}{(n-1)!}
-\end{align*}
-
-Similarly, \(f(x) = x^2e^x\) will give:
-\begin{align*}
-    x^2e^x &= \frac{0}{0!} + \frac{0x}{1!} + \frac{2x^2}{2!} + \frac{6x^3}{3!} + \frac{12x^4}{4!} + \frac{20x^5}{5!} + \dots\\
-    &= \frac{2\cdot 1x^2}{2!} + \frac{3\cdot 2 x^3}{3!} + \frac{4\cdot 3x^4}{4!} + \frac{5\cdot 4 x^5}{5!} + \dots\\
-    &= \sum_{n=2}^\infty \frac{n(n-1)x^n}{n!}\\
-    &= \sum_{n=2}^\infty \frac{x^n}{(n-2)!}
-\end{align*}
-
-We conjecture thatIf we continue this on, we get:
-
-\begin{align*}
-    x^ke^x = \sum_{n=k}^\infty \frac{x^n}{(n-k)!} \quad \text{for}~k\in \mathbb{Z^{+}}\cap0
-\end{align*}
-\end{enumerate}
-\end{enumerate}
-
-\subparagraph{General Proof}
-\label{general-gen-func-proof}
-In sections \ref{uniq-roots-recurrence} and \ref{rep-roots-recurrence}
-it was shown that a recurrence relation can be related to an ODE and then that
-solution can be transformed to provide a solution for the recurrence relation.
-This was shown in two separate cases, one with unique roots and the other with
-repeated roots. However, in many circumstances the solutions to the characteristics
-equation are a combination of both unique and repeated roots. Hence, in general the
-solution to a linear ODE will be a superposition of solutions for each root, repeated
-or unique and so a goal of our research will be to put this together to find a general
-solution for homogenous linear recurrence relations.
-
-Sketching out an approach for this:
-
-\begin{itemize}
-\item Use the Generating function to get an ODE
-\item The ODE will have a solution that is a combination of the above two forms
-\item The solution will translate back to a combination of both above forms
-\end{itemize}
-\begin{enumerate}
-\item Power Series Combination
-\label{power-series-comb}
-\end{enumerate}
-\subsection{Proving with the Monotone Convergence Theorem\hfill{}\textsc{Ryan}}
-\label{sec:orgeb9522f}
-By Solving the Fibonacci Sequence using the Monotone Converge Theorem we can show that it is related to \(e\)
-\subsection{Fibonacci Sequence and the Golden Ratio\hfill{}\textsc{Ryan}}
-\label{fib-golden-ratio-proof}
-The \emph{Fibonacci Sequence} is actually very interesting, observe that the ratios of the terms converge to the \emph{Golden Ratio}:
 
 \begin{align*}
     F_n &= \frac{\varphi^n-\psi^n}{\varphi-\psi} = \frac{\varphi^n-\psi^n}{\sqrt 5} \\
@@ -1975,20 +1492,8 @@ The \emph{Fibonacci Sequence} is actually very interesting, observe that the rat
 &= \varphi
 \end{align*}
 
-We'll come back to this later on when looking at spirals and fractals.
 
-We hope to demonstrate this relationship between the ratio of successive terms
-of the fibonacci sequence without relying on ODEs and generating functions and
-by instead using limits and the \emph{Monotone Convergence Theorem}, the hope being
-that this will reveal deeper underlying relationships between the \emph{Fibonacci
-Sequence}, the \emph{Golden Ratio} and there occurrences in nature (such as the
-example in section \ref{sunflower-example} given that the both appear to occur in
-patterns observed in nature.
-
-We also hope to find a method to produce the the diagram shown in figure
-computationally, ideally by using the Turtle function in \emph{Julia}.
-
-\subsubsection{Fibonacci Sequence in Nature (This may be Removed)\hfill{}\textsc{Ryan}}
+\section{Fibonacci Sequence in Nature, Sunflower (This may be Removed)\hfill{}\textsc{Ryan}}
 \label{sunflower-example}
 The distribution of sunflower seeds is an example of the \emph{Fibonacci Sequence}
 occuring in a pattern observed in nature (see Figure \ref{sunflower}).
@@ -2080,11 +1585,315 @@ end 600 600
 \caption{\label{sunflower}Distribution of the seeds of a sunflower (see \cite{simonbrassCCSearch2006} licenced under CC)}
 \end{figure}
 
-\subsection{Relating The Fibonacci Sequence to the Julia Set\hfill{}\textsc{Ryan}}
-\label{sec:orga298569}
-See \href{https://youtu.be/ovJcsL7vyrk}{this link}.
+\section{Exponential Generating Functions}
+\label{exp-gen-func-fib-seq}
+Exponential Generating Functions can be used to show the connection between linear recurrence relations, Markov Chains and Differential Equaions.
+
+\subsubsection{Derivative of the Exponential Generating Function}
+\label{Derivative-exp-gen-function}
+\paragraph{Base\hfill{}\textsc{Ryan}}
+\label{sec:org2616043}
+Differentiating the exponential generating function has the effect of shifting the sequence once to the left: \cite{lehmanReadingsMathematicsComputer2010}
+
+\begin{align}
+    f\left( x \right) &= \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right] \label{eq:exp-pow-series} \\
+f'\left( x \right) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right]  \right) \nonumber \\
+&= \frac{\mathrm{d}}{\mathrm{d} x} \left( a_0 \frac{x^0}{0!} +  a_1 \frac{x^1}{1!} +  a_2 \frac{x^2}{2!}+  a_3 \frac{x^3}{3! } +  \ldots \frac{x^k}{k!} \right) \nonumber \\
+&= \sum^{\infty}_{n= 0}   \left[ \frac{\mathrm{d} }{\mathrm{d} x}\left( a_n \frac{x^n}{n!} \right) \right] \nonumber \\
+&= \sum^{\infty}_{n= 0}   {\left[{ \frac{a_n}{{\left({ n- 1 }\right)!}} } x^{n- 1}  \right]} \nonumber \\
+\implies f'(x) &= \sum^{\infty}_{n= 1}   {\left[{ \frac{x^n}{n!}a_{n+  1} }\right]} \label{eq:exp-pow-series-sol}
+\end{align}
+
+\paragraph{Bridge\hfill{}\textsc{James}}
+\label{sec:org5730108}
+This can be shown for all derivatives by way of induction, for
+
+\begin{align}
+f^{(k)}\left(x\right) = \sum_{n=k}^\infty\frac{a_{n+k}\cdot x^n}{n!} \quad \text{for}~k \ge 0
+\end{align}
+
+Assume that \(f^{(k)}\left(x\right) = \sum_{n=k}^\infty\frac{a_{n+k}\cdot x^n}{n!}\)
+
+Using this assumption, prove for the next element \(k+1\)
+
+We need \(f^{(k+1)}(x) = \sum_{n=k+1}^\infty\frac{a_{n+k+1}\cdot x^n}{n!}\)
+
+\begin{align*}
+    \text{LHS} &= f^{(k+1)}(x)\\
+    &= \frac{\mathrm{d}}{\mathrm{d}x}\left(f^{(k)}(x)\right)\\
+    &= \frac{\mathrm{d}}{\mathrm{d}x}\left(\sum_{n=k}^\infty\frac{a_{n+k}\cdot x^n}{n!}\right)\quad \text{by assumption}\\
+    &= \sum_{n=k}^\infty\frac{a_{n+k}\cdot n\cdot x^{n-1}}{n!}\\
+    &= \sum_{n=k}^\infty\frac{a_{n+k}\cdot x^{n-1}}{(n-1)!}\\
+    &= \sum_{n=k+1}^\infty\frac{a_{n+k+1}\cdot x^{n}}{n!}\\
+    &= \text{RHS}
+\end{align*}
+
+Therefore, by mathematical induction \(f^{(k)}\left(x\right) = \sum_{n=k}^\infty\frac{a_{n+k}\cdot x^n}{n!} \quad \text{for}~k \ge 0\)
+
+Furthermore, if the first derivative of the exponential generating function shown in \eqref{eq:exp-pow-series-sol}
+shifts the sequence across, then every derivative thereafter does so as well.
+
+\subsubsection{Homogeneous Proof\hfill{}\textsc{Ryan:James}}
+\label{sec:org9054679}
+An equation of the form:
+
+\begin{align}
+\sum^{n}_{i=0} \left[ c_{i} \cdot f^{(i)}(x) \right] = 0 \label{eq:hom-ode}
+\end{align}
+
+is said to be a homogenous linear ODE: \cite[Ch. 2]{zillDifferentialEquations2009a}
+
+\begin{description}
+\item[{Linear}] because the equation is linear with respect to \(f(x)\)
+\item[{Ordinary}] because there are no partial derivatives (e.g. \(\frac{\partial }{\partial x}{\left({ f{\left({ x }\right)} }\right)}\)  )
+\item[{Differential}] because the derivates of the function are concerned
+\item[{Homogenous}] because the \textbf{\emph{RHS}} is 0
+\begin{itemize}
+\item A non-homogeous equation would have a non-zero RHS
+\end{itemize}
+\end{description}
+
+There will be \(k\) solutions to a \(k^{\mathrm{th}}\) order linear ODE, each may be summed to produce a superposition which will also be a solution to the equation, \cite[Ch. 4]{zillDifferentialEquations2009a}  this will be considered as the desired complete solution (and this will be shown to be the only solution for the recurrence relation \eqref{eq:recurrence-relation-def}. These \(k\) solutions will be in one of two forms:
+
+\begin{enumerate}
+\item \(f(x)=c_{i} \cdot e^{m_{i}x}\)
+\item \(f(x)=c_{i} \cdot x^{j}\cdot e^{m_{i}x}\)
+\end{enumerate}
+
+where:
+
+\begin{itemize}
+\item \(\sum^{k}_{i=0}\left[  c_{i}m^{k-i} \right] = 0\)
+\begin{itemize}
+\item This is referred to the characteristic equation of the recurrence relation or ODE \cite{levinSolvingRecurrenceRelations2018}
+\end{itemize}
+\item \(\exists i,j \in \mathbb{Z}^{+} \cap \left[0,k\right]\)
+\begin{itemize}
+\item These are often referred to as repeated roots \cite{levinSolvingRecurrenceRelations2018,zillMatrixExponential2009} with a multiplicity corresponding to the number of repetitions of that root \cite[\textsection 3.2]{nicodemiIntroductionAbstractAlgebra2007}
+\end{itemize}
+\end{itemize}
+
+\paragraph{Unique Roots of Characteristic Equation\hfill{}\textsc{Ryan}}
+\label{uniq-roots-recurrence}
+\subparagraph{Example}
+\label{sec:orgfdba494}
+An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section \ref{solving-the-sequence}.
+\subparagraph{Proof}
+\label{sec:org90247a2}
+Consider the linear recurrence relation \eqref{eq:recurrence-relation-def}:
+
+\begin{align}
+\sum^{n}_{i= 0}   \left[ c_i \cdot  a_i \right] = 0, \quad \exists c \in
+\mathbb{R}, \enspace \forall i<k\in\mathbb{Z}^+ \nonumber \label{eq:recurrence-relation-def}
+\end{align}
+This implies:
+
+
+\begin{align}
+    \sum^{\infty}_{n= 0}   \left[ \sum^{k}_{i= 0}   \left[ \frac{x^n}{n!} c_i a_n \right]  \right]  &= 0 \\
+    \sum^{\infty}_{n= 0}    \sum^{k}_{i= 0}    \frac{x^n}{n!} c_i a_n    &= 0 \\
+        \sum^{k}_{i= 0} c_i \sum^{\infty}_{n= 0}    \frac{x^n}{n!}  a_n    &= 0
+\end{align}
+
+By implementing the exponential generating function as shown in
+\eqref{eq:exp-gen-def-1}, this provides:
+
+\begin{align}
+   \sum^{k}_{i= 0}   \left[ c_i f^{\left( i \right)}\left( x \right) \right]
+\end{align}
+
+
+Now assume that the solution exists and all roots of the characteristic polynomial are unique (i.e. the solution is of the form \(f{\left({ x }\right)} \propto e^{m_i x}: \quad m_i \neq m_j \forall i\neq j\)), this implies that  \cite[Ch. 4]{zillDifferentialEquations2009a} :
+
+\begin{align}
+    f{\left({ x }\right)} = \sum^{k}_{i= 0}   {\left[{ k_i e^{m_i x} }\right]}, \quad \exists m,k \in \mathbb{C} \nonumber
+\end{align}
+
+This can be re-expressed in terms of the exponential power series, in order to relate the solution of the function \(f{\left({ x }\right)}\) back to a solution of the sequence \(a_n\), (see section for a derivation of the exponential power series \textbf{\#TODO make section on to prove exponential power series using taylor series expansion if we get time)}:
+
+\begin{align}
+    \sum^{k}_{i= 0}   {\left[{ k_i e^{m_i x}  }\right]}  &= \sum^{k}_{i= 0}   {\left[{ k_i \sum^{\infty}_{n= 0}   \frac{{\left({ m_i x }\right)}^n}{n!}  }\right]}  \nonumber \\
+							 &= \sum^{k}_{i= 0}  \sum^{\infty}_{n= 0}   k_i m_i^n \frac{x^n}{n!} \nonumber\\
+							 &=    \sum^{\infty}_{n= 0} \sum^{k}_{i= 0}   k_i m_i^n \frac{x^n}{n!} \nonumber \\
+							 &= \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}  \sum^{k}_{i=0}   {\left[{ k_im^n_i }\right]}  }\right]}, \quad \exists k_i \in \mathbb{C}, \enspace \forall i \in \mathbb{Z}^+\cap {\left[{ 1, k }\right]}     \label{eq:unique-root-sol-power-series-form}
+\end{align}
+
+
+Recall the definition of the generating function from \eqref{eq:exp-gen-def-1}, by equating this to \eqref{eq:unique-root-sol-power-series-form}:
+
+\begin{align}
+    f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{  \frac{x^n}{n!} a_n }\right]} \nonumber \\
+&= \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}  \sum^{k}_{i=0}   {\left[{ k_im^n_i }\right]}  }\right]}  \nonumber \\
+      \implies  a_n &= \sum^{k}_{n= 0} {\left[{ k_im_i^n }\right]}     \nonumber \\ \nonumber
+\square
+\end{align}
+
+This can be verified by the fibonacci sequence as shown in section \ref{solving-the-sequence}, the solution to the characteristic equation is \(m_1 = \varphi, m_2 = {\left({ 1-\varphi }\right)}\) and the corresponding solution to the linear ODE and recursive relation are:
+
+\begin{alignat}{4}
+    f{\left({ x }\right)} &= &c_1 e^{\varphi x} +  &c_2 e^{{\left({ 1-\varphi }\right)} x}, \quad &\exists c_1, c_2 \in \mathbb{R} \subset \mathbb{C} \nonumber \\
+    \iff  a_n &= &k_1 n^{\varphi} +  &k_2 n^{1- \varphi}, &\exists k_1, k_2 \in \mathbb{R} \subset \mathbb{C} \nonumber
+\end{alignat}
+
+\paragraph{Repeated Roots of Characteristic Equation\hfill{}\textsc{Ryan}}
+\label{rep-roots-recurrence}
+\subparagraph{Example}
+\label{sec:org7b60c38}
+Consider the following recurrence relation:
+
+\begin{align}
+    a_{n+2} -  10a_{n+ 1} +  25a_{n}&= 0 \label{eq:hom-repeated-roots-recurrence} \\
+    \implies  \sum^{\infty}_{n= 0}   {\left[{ a_{n+2} \frac{x^n}{n!} }\right]} - 10 \sum^{\infty}_{n= 0}   {\left[{ a_{n+1} \frac{x^n}{n!}    }\right]} + 25 \sum^{\infty}_{n= 0 }   {\left[{  a_{n}\frac{x^n}{n!} }\right]}&= 0 \nonumber
+\end{align}
+
+By applying the definition of the exponential generating function at \eqref{eq:exp-gen-def-1} :
+
+\begin{align}
+    f''{\left({ x }\right)}- 10f'{\left({ x }\right)}+  25f{\left({ x }\right)}= 0 \label{eq:rep-roots-func-ode}
+\end{align}
+
+By implementing the already well-established theory of linear ODE's, the
+characteristic equation for \eqref{eq:rep-roots-func-ode} can be expressed as:
+
+\begin{align}
+    m^2- 10m+  25 = 0 \nonumber \\
+    {\left({ m- 5 }\right)}^2 = 0 \nonumber \\
+    m= 5 \label{eq:rep-roots-recurrence-char-sol}
+\end{align}
+
+Herein lies a complexity, in order to solve this, the solution produced from \eqref{eq:rep-roots-recurrence-char-sol} can be used with the \emph{Reduction of Order} technique to produce a solution that will be of the form \cite[\textsection 4.3]{zillMatrixExponential2009}.
+
+\begin{align}
+    f{\left({ x }\right)}= c_1e^{5x} +  c_2 x e^{5x} \label{eq:rep-roots-ode-sol}
+\end{align}
+
+\eqref{eq:rep-roots-ode-sol} can be expressed in terms of the exponential power series in order to try and relate the solution for the function back to the generating function,
+observe however the following power series identity (proof in section \ref{prove-general-exp-identity}):
+
+\begin{align}
+    x^ke^x &= \sum^{\infty}_{n= k}   {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}, \quad \exists k \in \mathbb{Z}^+ \label{eq:uniq-roots-pow-series-ident}
+\end{align}
+
+by applying identity \eqref{eq:uniq-roots-pow-series-ident} to equation \eqref{eq:rep-roots-ode-sol}
+
+\begin{align}
+    \implies  f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{ c_1 \frac{{\left({ 5x }\right)}^n}{n!} }\right]}  +  \sum^{\infty}_{n= 1}   {\left[{ c_2 n \frac{{\left({ 5x }\right)^n}}{n{\left({ n-1 }\right)}!} }\right]} \nonumber \\
+ &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!} {\left({ c_{1}5^n +  c_2 n 5^n   }\right)} }\right]} \nonumber
+\end{align}
+
+Given the defenition of the exponential generating function from \eqref{eq:exp-gen-def-1}
+
+\begin{align}
+    f{\left({ x }\right)}&=     \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]} \nonumber \\
+    \iff a_n &= c_{1}5^n +  c_{2}5^n \nonumber \\ \nonumber
+    \ \nonumber \\
+    \square \nonumber
+\end{align}
+
+\subparagraph{Proof}
+\label{sec:orgf2be525}
+Consider a recurrence relation of the form:
+
+\begin{align}
+     \sum^{k}_{n= 0}   {\left[{ c_i a_n }\right]}  = 0 \nonumber \\
+      \implies  \sum^{\infty}_{n= 0}   \sum^{k}_{i= 0}   c_i a_n \frac{x^n}{n!} = 0 \nonumber \\
+      \sum^{k}_{i= 0}   \sum^{\infty}_{n= 0}   c_i a_n \frac{x^n}{n!} \nonumber
+\end{align}
+
+By substituting for the value of the generating function from \eqref{eq:exp-gen-def-1}:
+
+\begin{align}
+    \sum^{k}_{i= 0}   {\left[{ c_if^{{\left({ k }\right)}}  {\left({ x }\right)}    }\right]} \label{eq:gen-form-rep-roots-ode}
+\end{align}
+
+Assume that \eqref{eq:gen-form-rep-roots-ode} corresponds to a charecteristic polynomial with only 1 root of multiplicity \(k\), the solution would hence be of the form:
+
+\begin{align}
+			 & \sum^{k}_{i= 0}   {\left[{ c_i m^i }\right]} = 0 \wedge m=B, \enspace  \exists! B \in \mathbb{C} \nonumber \\
+ \implies      f{\left({ x }\right)}&= \sum^{k}_{i= 0}   {\left[{ x^i A_i e^{mx} }\right]}, \quad \exists A \in \mathbb{C}^+, \enspace \forall i \in {\left[{ 1,k }\right]} \cap \mathbb{N}  \label{eq:sol-rep-roots-ode}
+\end{align}
+
+If we assume the identity from \eqref{eq:uniq-roots-pow-series-ident}:
+
+\begin{align}
+x^k e^x = \sum^{\infty}_{n= k} {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}  \nonumber
+\end{align}
+
+See section \ref{prove-general-exp-identity} for proof.
+
+We can apply identity \eqref{eq:uniq-roots-pow-series-ident} to \eqref{eq:sol-rep-roots-ode}, which gives:
+
+\begin{align}
+f{\left({ x }\right)}&=     \sum^{k}_{i= 0}   {\left[{ A_i \sum^{\infty}_{n= i}   {\left[{ \frac{{\left({ x m }\right)}^n}{{\left({ n- i }\right)}!} }\right]}  }\right]} \nonumber \\
+&=     \sum^{\infty}_{n= 0}   {\left[{ \sum^{k}_{i=0} {\left[{ \frac{x^n}{n!}  \frac{n!}{{\left({ n- i }\right)!}} A_i m^n }\right]}       }\right]} \nonumber \\
+&=     \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}   \sum^{k}_{i=0} {\left[{  \frac{n!}{{\left({ n- i }\right)!}} A_i m^n }\right]}       }\right]} \nonumber
+\end{align}
+
+Recall the generating function that was used to get \eqref{eq:gen-form-rep-roots-ode}:
+
+\begin{align}
+f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]}      \nonumber \\
+ \implies  a_n &= \sum^{k}_{i= 0}   {\left[{ A_i \frac{n!}{{\left({ n- i }\right)}!} m^n  }\right]} \nonumber \\
+ &= \sum^{k}_{i= 0}   {\left[{ m^n A_i \prod_{0}^{k} {\left[{ n- {\left({ i- 1 }\right)} }\right]}   }\right]}
+& \intertext{$\because \enspace i \leq k$} \notag \nonumber \\
+ &= \sum^{k}_{i= 0} {\left[{ A_i^* m^n n^i }\right]}, \quad \exists A_i \in \mathbb{C}, \enspace \forall i\leq k \in \mathbb{Z}^+ \nonumber \\
+\ \nonumber \\
+\square \nonumber
+\end{align}
+
+\subparagraph{Proof\hfill{}\textsc{James}}
+\label{prove-general-exp-identity}
+In this section the proof of
+\begin{enumerate}
+\item Motivation
+\label{sec:org99528a2}
+
+Consider the function \(f(x) = xe^x\). Using the taylor series formula we get the following:
+
+\begin{align*}
+    xe^x &= 0+\frac{1}{1!}x+\frac{2}{2!}x^2+\frac{3}{3!}x^3+\frac{4}{4!}x^4+\frac{5}{5!}x^5+\dots\\
+    &= \sum_{n=0}^\infty \frac{nx^n}{n!}\\
+    &= \sum_{n=1}^\infty \frac{x^n}{(n-1)!}
+\end{align*}
+
+Similarly, \(f(x) = x^2e^x\) will give:
+\begin{align*}
+    x^2e^x &= \frac{0}{0!} + \frac{0x}{1!} + \frac{2x^2}{2!} + \frac{6x^3}{3!} + \frac{12x^4}{4!} + \frac{20x^5}{5!} + \dots\\
+    &= \frac{2\cdot 1x^2}{2!} + \frac{3\cdot 2 x^3}{3!} + \frac{4\cdot 3x^4}{4!} + \frac{5\cdot 4 x^5}{5!} + \dots\\
+    &= \sum_{n=2}^\infty \frac{n(n-1)x^n}{n!}\\
+    &= \sum_{n=2}^\infty \frac{x^n}{(n-2)!}
+\end{align*}
+
+We conjecture thatIf we continue this on, we get:
+
+\begin{align*}
+    x^ke^x = \sum_{n=k}^\infty \frac{x^n}{(n-k)!} \quad \text{for}~k\in \mathbb{Z^{+}}\cap0
+\end{align*}
+\end{enumerate}
+
+\paragraph{General Proof}
+\label{general-gen-func-proof}
+In sections \ref{uniq-roots-recurrence} and \ref{rep-roots-recurrence}
+it was shown that a recurrence relation can be related to an ODE and then that
+solution can be transformed to provide a solution for the recurrence relation.
+This was shown in two separate cases, one with unique roots and the other with
+repeated roots. However, in many circumstances the solutions to the characteristics
+equation are a combination of both unique and repeated roots. Hence, in general the
+solution to a linear ODE will be a superposition of solutions for each root, repeated
+or unique and so a goal of our research will be to put this together to find a general
+solution for homogenous linear recurrence relations.
+
+Sketching out an approach for this:
+
+\begin{itemize}
+\item Use the Generating function to get an ODE
+\item The ODE will have a solution that is a combination of the above two forms
+\item The solution will translate back to a combination of both above forms
+\end{itemize}
+\subparagraph{Power Series Combination}
+\label{power-series-comb}
 \section{Julia Sets\hfill{}\textsc{Ryan}}
-\label{sec:org0819d8b}
+\label{sec:org2c5d8ce}
 
 The julia set is the outline \cite[Ch. 14]{peitgenChaosFractalsNew2004}.
 
@@ -2096,10 +1905,10 @@ There is a relatioship between the fibonacicci sequence, modelling population gr
 
 
 \subsection{Introduction}
-\label{sec:orgf03bc70}
+\label{sec:orga25cc2c}
 Julia sets are a very interesting fractal and we hope to investigate them further in this project.
 \subsection{Motivation}
-\label{sec:org5aed4b1}
+\label{sec:orgcdd0718}
 Consider the iterative process \(x \rightarrow x^{2}, \enspace x \in \mathbb{R}\),
 for values of \(x>1\) this process will diverge and for \(x<1\) it will converge.
 
@@ -2135,7 +1944,7 @@ Every value on that plane will belong to one of the two following sets
 In the case of \(f_{0}(z) = z^{2}\) all values \(\left\lvert z  \right \rvert \leq 1\) are bounded with \(\left\lvert z  \right \rvert = 1\) being an unstable stationary circle, but let's investigate what happens for different iterative functions like \(f_{1}(z) = z^{2} - 1\), despite how trivial this seems at first glance.
 
 \subsection{Plotting the Sets}
-\label{sec:org13642ac}
+\label{sec:org4b031ea}
 Although the convergence of values may appear simple at first, we'll implement a
 strategy to plot the prisoner and escape sets on the complex plane.
 
@@ -2526,14 +2335,14 @@ save_picture("/tmp/a.fits", my_pic)
 So unless code contributes directly to the discussion we'll put it in the appendix.
  \appendix 
 \subsection{Finding Material}
-\label{sec:org27d2123}
+\label{sec:orgf3dd942}
 \begin{minted}[]{bash}
 recoll -c /home/ryan/Dropbox/Books/Textbooks/Mathematics/Chaos_Theory/chaos_books_recoll & disown
 \end{minted}
 \subsection{Code Listings}
-\label{sec:org3bc03f3}
+\label{sec:orgc50ee40}
 \subsubsection{Sierpinski's Carpet}
-\label{sec:org94cba6c}
+\label{sec:org924bba7}
 
 
 \begin{listing}[htbp]
@@ -2583,7 +2392,7 @@ size1 = size(mat1)[1]
 \end{listing}
 
 \subsubsection{Cantor's Dust}
-\label{sec:org8372020}
+\label{sec:orgc58d9a2}
 
 \begin{listing}[htbp]
 \begin{minted}[]{julia}
@@ -2635,7 +2444,7 @@ size1 = size(mat1)[1]
 \end{listing}
 
 \subsection{Font Lock}
-\label{sec:orgc0056bd}
+\label{sec:org9c0feed}
 \begin{minted}[]{elisp}
 ;; match:
 ;;; \scite:key\s

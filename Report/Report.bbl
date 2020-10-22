@@ -216,6 +216,142 @@
       \verb https://search.creativecommons.org/
       \endverb
     \endentry
+    \entry{briggsTurbulentMirrorIllustrated1989}{book}{}
+      \name{author}{2}{}{%
+        {{hash=809cd918520dab379b5052758612358d}{%
+           family={Briggs},
+           familyi={B\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=ef8ff34479a333d5e62cc8862a222be7}{%
+           family={Peat},
+           familyi={P\bibinitperiod},
+           given={F.\bibnamedelimi David},
+           giveni={F\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Harper \& Row}%
+      }
+      \strng{namehash}{d2e5b5ecfdcf7cc1cfe0d98ce237d19a}
+      \strng{fullhash}{d2e5b5ecfdcf7cc1cfe0d98ce237d19a}
+      \strng{bibnamehash}{d2e5b5ecfdcf7cc1cfe0d98ce237d19a}
+      \strng{authorbibnamehash}{d2e5b5ecfdcf7cc1cfe0d98ce237d19a}
+      \strng{authornamehash}{d2e5b5ecfdcf7cc1cfe0d98ce237d19a}
+      \strng{authorfullhash}{d2e5b5ecfdcf7cc1cfe0d98ce237d19a}
+      \field{sortinit}{B}
+      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{edition}{1st ed}
+      \field{isbn}{978-0-06-016061-6}
+      \field{pagetotal}{222}
+      \field{shorttitle}{Turbulent Mirror}
+      \field{title}{Turbulent Mirror: An Illustrated Guide to Chaos Theory and the Science of Wholeness}
+      \field{year}{1989}
+      \field{dateera}{ce}
+      \keyw{Chaotic behavior in systems}
+    \endentry
+    \entry{brownHistoryApplicationsFibonacci2019}{online}{}
+      \name{author}{6}{}{%
+        {{hash=ba0f875a2e518de68d3b474de01c0e9b}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=ee1ed142ac6425a510d62a33fd52a631}{%
+           family={Finch},
+           familyi={F\bibinitperiod},
+           given={Sue},
+           giveni={S\bibinitperiod}}}%
+        {{hash=7627a197de541c91082d3ff6a7f1181e}{%
+           family={Gordon},
+           familyi={G\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod}}}%
+        {{hash=fe9edc0088d156670836b885fc79ea65}{%
+           family={Hunt},
+           familyi={H\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=c50a1876cd23dfe74e33766ce03691b5}{%
+           family={Mathews},
+           familyi={M\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=59cc82be2fbb1ecb531744467227084a}{%
+           family={Watson},
+           familyi={W\bibinitperiod},
+           given={Ray},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{d33ca71b85e00a8120171d9cf78645c8}
+      \strng{fullhash}{966cd01b8733279166fb396ec192001d}
+      \strng{bibnamehash}{d33ca71b85e00a8120171d9cf78645c8}
+      \strng{authorbibnamehash}{d33ca71b85e00a8120171d9cf78645c8}
+      \strng{authornamehash}{d33ca71b85e00a8120171d9cf78645c8}
+      \strng{authorfullhash}{966cd01b8733279166fb396ec192001d}
+      \field{sortinit}{B}
+      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{2}
+      \field{month}{8}
+      \field{title}{History and Applications - {{Fibonacci}} Numbers}
+      \field{urlday}{22}
+      \field{urlmonth}{10}
+      \field{urlyear}{2020}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://amsi.org.au/ESA_Senior_Years/SeniorTopic1/1d/1d_4history_2.html
+      \endverb
+      \verb{url}
+      \verb https://amsi.org.au/ESA_Senior_Years/SeniorTopic1/1d/1d_4history_2.html
+      \endverb
+    \endentry
+    \entry{churchillComplexVariablesApplications2014}{book}{}
+      \name{author}{2}{}{%
+        {{hash=1ac49cc8881054e17d9cba1e373c67f4}{%
+           family={Churchill},
+           familyi={C\bibinitperiod},
+           given={Ruel\bibnamedelima V.},
+           giveni={R\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=1158efb2f86524344159b0b54e47195d}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={James\bibnamedelima Ward},
+           giveni={J\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY}%
+      }
+      \list{publisher}{1}{%
+        {McGraw-Hill Education}%
+      }
+      \strng{namehash}{ec19a6336b1a7affd609c240e1e0c693}
+      \strng{fullhash}{ec19a6336b1a7affd609c240e1e0c693}
+      \strng{bibnamehash}{ec19a6336b1a7affd609c240e1e0c693}
+      \strng{authorbibnamehash}{ec19a6336b1a7affd609c240e1e0c693}
+      \strng{authornamehash}{ec19a6336b1a7affd609c240e1e0c693}
+      \strng{authorfullhash}{ec19a6336b1a7affd609c240e1e0c693}
+      \field{sortinit}{C}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{Ninth Edition}
+      \field{isbn}{978-0-07-338317-0}
+      \field{note}{Churchill's name appears first on the earlier editions}
+      \field{pagetotal}{461}
+      \field{series}{Brown and Churchill Series}
+      \field{title}{Complex Variables and Applications}
+      \field{year}{2014}
+      \field{dateera}{ce}
+      \keyw{Functions of complex variables}
+    \endentry
     \entry{CTANPackageAnimate}{online}{}
       \field{sortinit}{C}
       \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
@@ -441,25 +577,6 @@
       \verb https://en.wikipedia.org/w/index.php?title=Fractal&oldid=978464038
       \endverb
     \endentry
-    \entry{FunctoolsHigherorderFunctions}{online}{}
-      \field{sortinit}{F}
-      \field{sortinithash}{fb0c0faa89eb6abae8213bf60e6799ea}
-      \field{labeltitlesource}{title}
-      \field{title}{Functools — {{Higher}}-Order Functions and Operations on Callable Objects — {{Python}} 3.8.5 Documentation}
-      \field{urlday}{25}
-      \field{urlmonth}{8}
-      \field{urlyear}{2020}
-      \field{urldateera}{ce}
-      \verb{file}
-      \verb /home/ryan/Zotero/storage/AJM3RVSB/functools.html
-      \endverb
-      \verb{urlraw}
-      \verb https://docs.python.org/3/library/functools.html
-      \endverb
-      \verb{url}
-      \verb https://docs.python.org/3/library/functools.html
-      \endverb
-    \endentry
     \entry{gilmoreTopologyChaosAlice2002}{book}{}
       \name{author}{2}{}{%
         {{hash=416eeccea7dca0e4eefc7999ba90b062}{%
@@ -496,6 +613,50 @@
       \field{year}{2002}
       \field{dateera}{ce}
       \keyw{Attractors (Mathematics),Chaotic behavior in systems}
+    \endentry
+    \entry{giordanoFirstCourseMathematical2014}{book}{}
+      \name{author}{3}{}{%
+        {{hash=813f50b397d0f7f3583f07308a75a0b9}{%
+           family={Giordano},
+           familyi={G\bibinitperiod},
+           given={Frank\bibnamedelima R.},
+           giveni={F\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=de2e5a9dcc62206fde43e027c727232d}{%
+           family={Fox},
+           familyi={F\bibinitperiod},
+           given={William\bibnamedelima P.},
+           giveni={W\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=7144298393ec4775888ee8e75fea9e0f}{%
+           family={Horton},
+           familyi={H\bibinitperiod},
+           given={Steven\bibnamedelima B.},
+           giveni={S\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Australia ; Boston, MA}%
+      }
+      \list{publisher}{1}{%
+        {Brooks/Cole, Cengage Learning}%
+      }
+      \strng{namehash}{3cc77baf28df1e223350bff0b3b76415}
+      \strng{fullhash}{3cc77baf28df1e223350bff0b3b76415}
+      \strng{bibnamehash}{3cc77baf28df1e223350bff0b3b76415}
+      \strng{authorbibnamehash}{3cc77baf28df1e223350bff0b3b76415}
+      \strng{authornamehash}{3cc77baf28df1e223350bff0b3b76415}
+      \strng{authorfullhash}{3cc77baf28df1e223350bff0b3b76415}
+      \field{sortinit}{G}
+      \field{sortinithash}{62eb2aa29549e4fdbd3cb154ec5711cb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{annotation}{OCLC: ocn820108873}
+      \field{edition}{5th ed., International ed}
+      \field{isbn}{978-1-285-05090-4 978-1-285-07749-9}
+      \field{note}{Modeling change -- The modeling process, proportionality, and geometric similarity -- Model fitting -- Experimental modeling -- Simulation modeling -- Discrete probabilistic modeling -- Optimization of discrete models -- Modeling using graph theory -- Modeling with decision theory -- Game theory -- Modeling with a differential equation -- Modeling with systems of differential equations -- Optimization of continuous models \par Previous ed.: 2009}
+      \field{pagetotal}{676}
+      \field{title}{A First Course in Mathematical Modeling}
+      \field{year}{2014}
+      \field{dateera}{ce}
+      \keyw{Mathematical models}
     \endentry
     \entry{gomoryBenoitMandelbrot19242010}{article}{}
       \name{author}{1}{}{%
@@ -623,45 +784,6 @@
       \field{year}{1994}
       \field{dateera}{ce}
       \keyw{Computer science,Mathematics}
-    \endentry
-    \entry{hazratMathematicaProblemCenteredApproach2015}{book}{}
-      \name{author}{1}{}{%
-        {{hash=0d3a339c84be049fd891824f62a4e6ee}{%
-           family={Hazrat},
-           familyi={H\bibinitperiod},
-           given={Roozbeh},
-           giveni={R\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Cham}%
-      }
-      \list{publisher}{1}{%
-        {Springer International Publishing : Imprint: Springer}%
-      }
-      \strng{namehash}{0d3a339c84be049fd891824f62a4e6ee}
-      \strng{fullhash}{0d3a339c84be049fd891824f62a4e6ee}
-      \strng{bibnamehash}{0d3a339c84be049fd891824f62a4e6ee}
-      \strng{authorbibnamehash}{0d3a339c84be049fd891824f62a4e6ee}
-      \strng{authornamehash}{0d3a339c84be049fd891824f62a4e6ee}
-      \strng{authorfullhash}{0d3a339c84be049fd891824f62a4e6ee}
-      \field{sortinit}{H}
-      \field{sortinithash}{6db6145dae8dc9e1271a8d556090b50a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{shorttitle}
-      \field{abstract}{This textbook introduces the vast array of features and powerful mathematical functions of Mathematica using a multitude of clearly presented examples and worked-out problems. Each section starts with a description of a new topic and some basic examples. The author then demonstrates the use of new commands through three categories of problems - the first category highlights those essential parts of the text that demonstrate the use of new commands in Mathematica whilst solving each problem presented; - the second comprises problems that further demonstrate the use of commands previously introduced to tackle different situations; and - the third presents more challenging problems for further study. The intention is to enable the reader to learn from the codes, thus avoiding long and exhausting explanations. While based on a computer algebra course taught to undergraduate students of mathematics, science, engineering and finance, the book also includes chapters on calculus and solving equations, and graphics, thus covering all the basic topics in Mathematica. With its strong focus upon programming and problem solving, and an emphasis on using numerical problems that do not need any particular background in mathematics, this book is also ideal for self-study and as an introduction to researchers who wish to use Mathematica as a computational tool. This new edition has been extensively revised and updated, and includes new chapters with problems and worked examples}
-      \field{edition}{2nd ed. 2015}
-      \field{isbn}{978-3-319-27585-7}
-      \field{note}{Introduction -- Basics -- Defining functions -- Lists -- Changing heads! -- A bit of logic and set theory -- Sums and products -- Loops and repetitions -- Substitutions, Mathematica rules -- Pattern matching -- Functions with multiple definitions -- Recursive functions -- Linear algebra -- Graphics -- Calculus and equations -- Worked out projects -- Projects -- Solutions to the Exercises -- Further reading -- Bibliography -- Index}
-      \field{pagetotal}{1}
-      \field{series}{Springer {{Undergraduate Mathematics Series}}}
-      \field{shorttitle}{{{Mathematica}}®}
-      \field{title}{{{Mathematica}}®: {{A Problem}}-{{Centered Approach}}}
-      \field{year}{2015}
-      \field{dateera}{ce}
-      \verb{doi}
-      \verb 10.1007/978-3-319-27585-7
-      \endverb
-      \keyw{Computer science-Mathematics,Computer software,Mathematical Software,Programming languages (Electronic computers),Programming Languages; Compilers; Interpreters,Symbolic and Algebraic Manipulation}
     \endentry
     \entry{janwassenaarCantorDust2005}{online}{}
       \name{author}{1}{}{%
@@ -1388,6 +1510,42 @@
       \verb /home/ryan/Zotero/storage/J3QWL2KA/MinarovaNikoletta2014TFSN.pdf
       \endverb
     \endentry
+    \entry{mullerThisEquationWill2020}{video}{}
+      \name{editor}{1}{}{%
+        {{hash=c9b70b7c4b9b58909d3e3e0aba033f9a}{%
+           family={Muller},
+           familyi={M\bibinitperiod},
+           given={Derick},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{c9b70b7c4b9b58909d3e3e0aba033f9a}
+      \strng{fullhash}{c9b70b7c4b9b58909d3e3e0aba033f9a}
+      \strng{bibnamehash}{c9b70b7c4b9b58909d3e3e0aba033f9a}
+      \strng{editorbibnamehash}{c9b70b7c4b9b58909d3e3e0aba033f9a}
+      \strng{editornamehash}{c9b70b7c4b9b58909d3e3e0aba033f9a}
+      \strng{editorfullhash}{c9b70b7c4b9b58909d3e3e0aba033f9a}
+      \field{sortinit}{M}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The logistic map connects fluid convection, neuron firing, the Mandelbrot set and so much more. Fasthosts Techie Test competition is now closed! Learn more about Fasthosts here: https://www.fasthosts.co.uk/veritasium Code for interactives is available below... Animations, coding, interactives in this video by Jonny Hyman 🙌 Try the code yourself: https://github.com/jonnyhyman/Chaos References: James Gleick, Chaos Steven Strogatz, Nonlinear Dynamics and Chaos May, R. Simple mathematical models with very complicated dynamics. Nature 261, 459–467 (1976). https://doi.org/10.1038/261459a0 Robert Shaw, The Dripping Faucet as a Model Chaotic System https://archive.org/details/ShawRober... Crevier DW, Meister M. Synchronous period-doubling in flicker vision of salamander and man. J Neurophysiol. 1998 Apr;79(4):1869-78. Bing Jia, Huaguang Gu, Li Li, Xiaoyan Zhao. Dynamics of period-doubling bifurcation to chaos in the spontaneous neural firing patterns Cogn Neurodyn (2012) 6:89–106 DOI 10.1007/s11571-011-9184-7 A Garfinkel, ML Spano, WL Ditto, JN Weiss. Controlling cardiac chaos Science 28 Aug 1992: Vol. 257, Issue 5074, pp. 1230-1235 DOI: 10.1126/science.1519060 R. M. May, D. M. G. Wishart, J. Bray and R. L. Smith Chaos and the Dynamics of Biological Populations Source: Proceedings of the Royal Society of London. Series A, Mathematical and Physical Sciences, Vol. 413, No. 1844, Dynamical Chaos (Sep. 8, 1987), pp. 27-44 Chialvo, D., Gilmour Jr, R. \&amp; Jalife, J. Low dimensional chaos in cardiac tissue. Nature 343, 653–657 (1990). https://doi.org/10.1038/343653a0 Xujun Ye, Kenshi Sakai. A new modified resource budget model for nonlinear dynamics in citrus production. Chaos, Solitons and Fractals 87 (2016) 51–60 Libchaber, A. \&amp; Laroche, C. \&amp; Fauve, Stephan. (1982). Period doubling cascade in mercury, a quantitative measurement. http://dx.doi.org/10.1051/jphyslet:01.... 43. 10.1051/jphyslet:01982004307021100. Special thanks to Patreon Supporters: Alfred Wallace, Arjun Chakroborty, Bryan Baker, DALE HORNE, Donal Botkin, halyoav, James Knight, Jasper Xin, Joar Wandborg, Lee Redden, Lyvann Ferrusca, Michael Krugman, Pindex, Ron Neal, Sam Lutfi, Tige Thorman, Vincent Special thanks to: Henry Reich for feedback on earlier versions of this video Raquel Nuno for enduring many earlier iterations (including parts she filmed that were replaced) Dianna Cowern for title suggestions and saying earlier versions weren't good Heather Zinn Brooks for feedback on an earlier version. Music from: https://epidemicsound.com "What We Discovered" "A Sound Foundation 1" "Seaweed" "Colored Spirals 4" https://ve42.co/Artlist "Busy World" "Children of Mystery"}
+      \field{day}{29}
+      \field{editortype}{director}
+      \field{month}{1}
+      \field{title}{This Equation Will Change How You See the World (the Logistic Map)}
+      \field{urlday}{22}
+      \field{urlmonth}{10}
+      \field{urlyear}{2020}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=ovJcsL7vyrk&vl=en
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=ovJcsL7vyrk&vl=en
+      \endverb
+    \endentry
     \entry{NatureGoldenRatio2018}{online}{}
       \field{sortinit}{N}
       \field{sortinithash}{98cf339a479c0454fe09153a08675a15}
@@ -2091,6 +2249,45 @@
       \field{isbn}{978-0-495-10836-8}
       \field{note}{Includes index}
       \field{title}{8.4 {{Matrix Exponential}}}
+      \field{year}{2009}
+      \field{dateera}{ce}
+      \keyw{Boundary value problems,Differential equations,Textbooks}
+    \endentry
+    \entry{zillDifferentialEquationsBoundaryvalue2009}{book}{}
+      \name{author}{2}{}{%
+        {{hash=ce0689f2d52c5a0939d5509701e4f498}{%
+           family={Zill},
+           familyi={Z\bibinitperiod},
+           given={Dennis\bibnamedelima G.},
+           giveni={D\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=724ffae515880969319e4b88c9995872}{%
+           family={Cullen},
+           familyi={C\bibinitperiod},
+           given={Michael\bibnamedelima R.},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Belmont, CA}%
+      }
+      \list{publisher}{1}{%
+        {Brooks/Cole, Cengage Learning}%
+      }
+      \strng{namehash}{e3f0d8f56b31e2cddc7c5b3d08e252a8}
+      \strng{fullhash}{e3f0d8f56b31e2cddc7c5b3d08e252a8}
+      \strng{bibnamehash}{e3f0d8f56b31e2cddc7c5b3d08e252a8}
+      \strng{authorbibnamehash}{e3f0d8f56b31e2cddc7c5b3d08e252a8}
+      \strng{authornamehash}{e3f0d8f56b31e2cddc7c5b3d08e252a8}
+      \strng{authorfullhash}{e3f0d8f56b31e2cddc7c5b3d08e252a8}
+      \field{extraname}{3}
+      \field{sortinit}{Z}
+      \field{sortinithash}{8f7b480688e809b50b6f6577b16f3db5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{7th ed}
+      \field{isbn}{978-0-495-10836-8}
+      \field{note}{Includes index}
+      \field{pagetotal}{526}
+      \field{title}{Differential Equations with Boundary-Value Problems}
       \field{year}{2009}
       \field{dateera}{ce}
       \keyw{Boundary value problems,Differential equations,Textbooks}
