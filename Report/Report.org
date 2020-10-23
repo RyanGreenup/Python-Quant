@@ -3,7 +3,6 @@
 #+OPTIONS: broken-links:auto todo:nil H:9 tags:t
 #+STARTUP: overview
 #+AUTHOR: Ryan Greenup & James Guerra
-#+INFOJS_OPT: view:showall toc:3
 #+PLOT: title:"Citas" ind:1 deps:(3) type:2d with:histograms set:"yrange [0:]"
 #+OPTIONS: tex:t
 # #+TODO: TODO IN-PROGRESS WAITING DONE
@@ -57,7 +56,7 @@ strictly exceeds the topological dimension./
 #+end_quote
 
 The topological dimension is a strictly integer value that describes the natural dimension used to describe a shape cite:sandersonFractalsAreTypically2017,
-for example the /Koch Snowflake/ (shown in figure [[koch-snowflake]]) is composed of
+for example the /Koch Snowflake/ (shown in Figure [[koch-snowflake]]) is composed of
 just a line, so it's topological dimension would simply be 1, it's /fractal
 dimension/ however is shown to be \(\frac{\ln\left( 4 \right)}{\ln\left( 3
 \right)}\) at eqref:eq:koch-dim in \S[[#topological-equivalence]].
@@ -162,7 +161,7 @@ definition.  Although an intuitive definition related the dimension of a shape t
 the number of parameters needed to describe that shape, this definition is not
 sufficient to be preserved under a homeomorphic transform.
 
-Consider the Koch fractal and snowflake in figures [[koch-line]] and [[koch-snowflake]], at each iteration (\(n\)) the perimeter is given by \(p_{n}= \left(\frac{4}{3} \right)p_{n-1}\) and the number of edges by \(N_{n}\):
+Consider the Koch fractal and snowflake in Figures [[koch-line]] and [[koch-snowflake]], at each iteration (\(n\)) the perimeter is given by \(p_{n}= \left(\frac{4}{3} \right)p_{n-1}\) and the number of edges by \(N_{n}\):
 
 
 
@@ -253,7 +252,7 @@ presumably treating any index value greater than the cardinality of the set as \
 
 
 
-An example of this covering is provided in figure [[hausdorff-covering]], in that example the figure on the right is covered by squares, which each could be an element of $\{U_{i}\}$, it is important to note, by this definition, that the shapes represented by \(U\) could be any arbitrary figure [[cite:falconerFractalGeometryMathematical2003b][\S 2.1]] the size of which may vary in size so long as the diameter is less than \(\delta\).
+An example of this covering is provided in Figure [[hausdorff-covering]], in that example the figure on the right is covered by squares, which each could be an element of $\{U_{i}\}$, it is important to note, by this definition, that the shapes represented by \(U\) could be any arbitrary figure [[cite:falconerFractalGeometryMathematical2003b][\S 2.1]] the size of which may vary in size so long as the diameter is less than \(\delta\).
 
 
 So for example:
@@ -263,13 +262,13 @@ So for example:
 
 - $F$ could be the outline of a coastline and $U_{i}$ could be a set of circles, OR
 
-- $F$ could be the surface of a sheet and $U_{i}$ could be a set of spherical balls as shown in figure [[fig:ball-covering]]
+- $F$ could be the surface of a sheet and $U_{i}$ could be a set of spherical balls as shown in Figure [[fig:ball-covering]]
 
-  + Some authors suggest that the Hausdorff Measure is concerned primarily with round covering objects (see e.g. cite:sandersonFractalsAreTypically2017), this is well illustrated by figure [[fig:ball-covering]], however in truth it is merely more convenient to use round shapes for most fractals.
+  + Some authors suggest that the Hausdorff Measure is concerned primarily with round covering objects (see e.g. cite:sandersonFractalsAreTypically2017), this is well illustrated by Figure [[fig:ball-covering]], however in truth it is merely more convenient to use round shapes for most fractals.
 
   + The use of balls is a simpler but equivalent approach to the theory [[cite:falconerFractalGeometryMathematical2003b][\textsection 2.4 ]] because any set of diameter $r$ can be enclosed in a ball of radius $\frac{r}{2}$ [[cite:edgarMeasureTopologyFractal2008][p. 166]]
 
-- $F$ could be a more abstracted figure like figures [[hausdorff-covering]] or [[abstract-shape]]  and $\{U_{i}\}$ a collection of various different lines, shapes or 3d objects.
+- $F$ could be a more abstracted figure like Figures [[hausdorff-covering]] or [[abstract-shape]]  and $\{U_{i}\}$ a collection of various different lines, shapes or 3d objects.
 
 The Hausdorff measure is concerned with only the diameter of each element of $\{U_{i}\}$ and considers \(\sum_{U \in G} \left[\left\lvert U\right\rvert^{s}\right]\) where each element \(U\in G\) is arranged so as to minimize the value of the summation [[cite:falconerFractalGeometryMathematical2003b][p. 27]]
 , the \(\delta\)-Hausdorff is hence defined, for various dimensions \(s\):
@@ -280,18 +279,18 @@ The Hausdorff measure is concerned with only the diameter of each element of $\{
 
 The value of \(s\) can be different regardless of the dimension of \(F\), for example if \(F\) was an arbitrary 2D shape the value of \(\mathcal{H}_{\delta}^{2}\left(F\right)\)
 is equivalent to considering the number of shapes \(U\in G\) (e.g. boxes, discs etc.), of
-diameter $\leq \delta$ that will cover over a shape as shown in figure
+diameter $\leq \delta$ that will cover over a shape as shown in Figure
 [[hausdorff-covering]], the delta Hausdorff measure
 $\mathcal{H}^{2}_{\delta} \left(F\right)$ will be the area of the boxes when
 arranged in such a way that minimizes the area.
 
-As $\delta$ is made arbitrarily small $\mathcal{H}_{\delta}^{s}$ will approach some limit, in the case of figures [[hausdorff-covering]]  and [[abstract-shape]] the value of $\mathcal{H}^{2}_{\delta}$ will approach the area of the shape as $\delta \rightarrow 0$ and so the $s^{th}$ dimensional Hausdorff measure is given by:
+As $\delta$ is made arbitrarily small $\mathcal{H}_{\delta}^{s}$ will approach some limit, in the case of Figures [[hausdorff-covering]]  and [[abstract-shape]] the value of $\mathcal{H}^{2}_{\delta}$ will approach the area of the shape as $\delta \rightarrow 0$ and so the $s^{th}$ dimensional Hausdorff measure is given by:
 
 \begin{align}
 \mathcal{H}^{s} = \lim_{\delta \rightarrow 0}\left( \mathcal{H}^{s}_{\delta} \right) \label{eq:limit-haus}
 \end{align}
 
-This is defined for all subsets of \(\mathbb{R}^n\) for example the value of  $\mathcal{H}^{2}$ corresponding to figure [[abstract-shape]] will be limit that boxes would approach when covering that area, which would be the area of the shape ($4\times 1^2 + 4\times \pi\times \frac{1}{2^2} + \frac{1}{2}\times 1 \times \sin{\frac{\pi}{3}}$).
+This is defined for all subsets of \(\mathbb{R}^n\) for example the value of  $\mathcal{H}^{2}$ corresponding to Figure [[abstract-shape]] will be limit that boxes would approach when covering that area, which would be the area of the shape ($4\times 1^2 + 4\times \pi\times \frac{1}{2^2} + \frac{1}{2}\times 1 \times \sin{\frac{\pi}{3}}$).
 
 
 
@@ -315,7 +314,7 @@ As $\delta$ is made arbitrarily small the boxes [fn:: Even though \(U\) may cont
 
 To build on that same analogy, another way to imagine this is to pack a 2D shape with straight lines, the total length of all lines will approach the same value as the length of the lines of the squares as they are packed infinitely densely. Because lines cannot fill a 2D shape, as the density of the lines increases, the overall length will increase without bound.
 
-This is consistent with fractals as well, consider the Koch snowflake introduced in section [[#topological-equivalence]] and shown in figure [[koch-line]], the dimension of this shape, as shown in \S [[#topological-equivalence]] is greater than 1, and the number of lines necessary to describe that shape is also infinite because every point of the "curve" is a point of an equilateral triangle.
+This is consistent with fractals as well, consider the Koch snowflake introduced in section [[#topological-equivalence]] and shown in Figure [[koch-line]], the dimension of this shape, as shown in \S [[#topological-equivalence]] is greater than 1, and the number of lines necessary to describe that shape is also infinite because every point of the "curve" is a point of an equilateral triangle.
 
 ***** TODO Formally
 If the dimension of $F$ is less than $s$, the Hausdorff Measure will be given by:
@@ -364,7 +363,7 @@ Hence the value of the s-dimensional /Hausdorff Measure/, $s$ is only a finite, 
 #+NAME: hausdorff-vals
 #+CAPTION: The value of the s-dimensional /Hausdorff Measure/ of some subset of /Euclidean space/ $F\in \mathbb{R}^{n}$ is 0 or $\infty$ when the dimension of $F$ is not equal to $s$.
 #+attr_html: :width 400px
-#+attr_latex: :width 9cm
+#+attr_latex: :width 0.85\textwidth
 [[file:media/tikz/hausdorff-dimension-plot.png]]
 
 *** Hausdorff Dimension                                                       :Ryan:
@@ -377,7 +376,7 @@ Hence the value of the s-dimensional /Hausdorff Measure/, $s$ is only a finite, 
 [[file:media/Arbitrary-F-Shape.svg]]
 
 
-The value $s$ at which $\mathcal{H}^{s}$ eqref:eq:hdfzero changes from $\infty$ to 0, shown in figure [[hausdorff-vals]],  is the defined to be the /Hausdorff Dimension/ [[cite:falconerFractalGeometryMathematical2003b][\S 2.2]], it is a generalization of the idea of dimension that is typically understood with respect to ordinary figures.
+The value $s$ at which $\mathcal{H}^{s}$ eqref:eq:hdfzero changes from $\infty$ to 0, shown in Figure [[hausdorff-vals]],  is the defined to be the /Hausdorff Dimension/ [[cite:falconerFractalGeometryMathematical2003b][\S 2.2]], it is a generalization of the idea of dimension that is typically understood with respect to ordinary figures.
 # *** TODO See also
 # I feel very inclided to read [[https://warwick.ac.uk/fac/sci/maths/people/staff/mark_pollicott/p3/tehran.pdf][these notes]] [fn:: [[file:~/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resources/Uncorrected-Warwick-BoxCount-Hausdorff-Notes.pdf][Local Copy]]]
 
@@ -427,7 +426,7 @@ Which is expected, because we know that a square is a 2-Dimensional shape. We
 can apply this same concept to fractals. Consider another example, the Koch
 Curve, a self similar fractal which we can calculate its dimension and provide a
 measure of roughness of the curve. If we take a close look at the curve progression
-in figure [[koch-line]], the pattern begins with one line segment and the middle third
+in Figure [[koch-line]], the pattern begins with one line segment and the middle third
 of the line is replaced with two sides of an equilateral triangle with side length
 $\frac{1}{3}$. After this first iteration, the line segment now becomes four line
 segments. Thus, if we use a square of length $\frac{1}{3^{\delta}}$ to cover the $\delta^{th}$
@@ -482,7 +481,7 @@ where:
 
 If this is repeated many times a matrix of values will be created, such a matrix
 can be interpreted as a greyscale image and plotted as a heat-map to show the
-fractal (shown in figure [[vicsek-fratal-julia]]).
+fractal (shown in Figure [[vicsek-fratal-julia]]).
 
 
 The iterative process shown in eqref:eq:visek-iter is represented as a recursive function at line 5 of listing [[vicsek-matrix-gen]] and visualized at line 22. To measure the the dimension of this fractal a the sum of the matrix is taken to be the measure of the fractal, two fractals are generated and the change in size relative to the scale is compared and the log taken to return the value of the dimension:
@@ -514,9 +513,27 @@ similarity dimension is given by:
 
 
 
-#+LATEX: \newpage
+By modifying listing [[vicsek-matrix-gen]] alternative fractals can get also be generated like /Cantor's Dust/ and /Sierpinski's Carpet/ shown in Figures [[fig:cantor-dust]] and [[fig:sierpinski-carpet]].
+
+Upon review this is actually a variant on the /Cantor Dust/ which should
+actually be represented by a \(3 \times 3\) matrix:
+
+\begin{align}
+ \mathbf{B} \leftarrow
+ \begin{bmatrix}
+    \mathbf{B} & \mathbf{Z} & \mathbf{B} \\
+    \mathbf{Z} & \mathbf{Z} & \mathbf{Z} \\
+    \mathbf{B} & \mathbf{Z} & \mathbf{B} \\
+\end{bmatrix}
+\end{align}
+
+
+and hence has the same dimension as the /Vicsek Fractal/ as opposed to a
+dimension of 1.
+
+
 #+NAME: vicsek-matrix-gen
-#+CAPTION: Generating the Vicsek Fractal (shown in figure ref:vicsek-fractal-julia) and measuring the dimension using /Julia/, the measured dimension is consistent with the self similarity dimension shown in eqref:eq:vic-dim-val
+#+CAPTION: Generating the Vicsek Fractal (shown in Figure ref:vicsek-fractal-julia) and measuring the dimension using /Julia/, the measured dimension is consistent with the self similarity dimension shown in eqref:eq:vic-dim-val
 #+begin_src julia
 #------------------------------------------------------------
 #--- Function -----------------------------------------------
@@ -560,43 +577,24 @@ julia> log(5)/log(3)
 1.4649735207179269
 #+end_src
 
-By modifying listing [[vicsek-matrix-gen]] alternative fractals can get also be generated like /Cantor's Dust/ and /Sierpinski's Carpet/ shown in figures [[fig:cantor-dust]] and [[fig:sierpinski-carpet]].
-
-Upon review this is actually a variant on the /Cantor Dust/ which should
-actually be represented by a \(3 \times 3\) matrix:
-
-\begin{align}
- \mathbf{B} \leftarrow
- \begin{bmatrix}
-    \mathbf{B} & \mathbf{Z} & \mathbf{B} \\
-    \mathbf{Z} & \mathbf{Z} & \mathbf{Z} \\
-    \mathbf{B} & \mathbf{Z} & \mathbf{B} \\
-\end{bmatrix}
-\end{align}
-
-
-and hence has the same dimension as the /Vicsek Fractal/ as opposed to a
-dimension of 1.
 
 **** Sierpinskis Carpet and Cantor's Dust
 By modifying the approach provided in listing [[vicsek-matrix-gen]] other fractals
 such as /Sierpinski's Carpet/ and /Cantor's Dust/ can be produced, this is
-implemented in listings [[l-s-carpet]] [[l-cant-dust]] and shown in figures
+implemented in listings [[l-s-carpet]] [[l-cant-dust]] and shown in Figures
 [[fig:square-carpet]] and [[fig:cantor-dust]] respectively. [fn:spc]
 
 
 #+NAME: fig:square-carpet
 #+CAPTION: Sierpinksi's Carpet, produced by listing [[listing l-s-carpet]].
+#+begin_center
 #+attr_html: :width 400px
-#+attr_latex: :width 0.38\textwidth
+#+attr_latex: :width 0.38\textwidth :center
 [[file:media/sierpinsky_carpet.png]]
-
-
 #+attr_html: :width 300px
-#+attr_latex: :width 0.38\textwidth
-#+NAME: fig:cantor-dust
-#+CAPTION: A shape this is similar, but different to, the /Cantor Dust/, the dimension of this fractal is 1, produced by listing [[l-cant-dust]].
+#+attr_latex: :width 0.38\textwidth :center
 [[file:media/Cantor_Dust_gen.png]]
+#+end_center
 
 
 
@@ -614,15 +612,16 @@ This can be visualized by mapping the co-ordinates of an equilateral triangle to
 The mean value of the \(x\), \(y\) values for these co-ordinates is equal to the
 halfway point and using this the chaos game can be implemented as a program and
 visualized by plotting each point on a scatter plot. This is implemented in
-/*R*/ in listing [[l-sier-tri]] and the output is shown in figure [[fig:s-tri]].
+/*R*/ in listing [[l-sier-tri]] and the output is shown in Figure [[fig:s-tri]].
 
 To measure the fractal dimension of this could be done by mapping the Cartesian
 plane back to a matrix and taking the same approach as previous fractals
 presented, this however was not implemented, due to time constraints, the
 dimension was however measured using the method discussed at \S [[#pas-tri]].
 
+#+LATEX: \newpage
 #+NAME: l-sier-tri
-#+CAPTION: R code to construct Sierpinksi's triangle through the Chaos Game, shown in figure [[fig:s-tri]].
+#+CAPTION: R code to construct Sierpinksi's triangle through the Chaos Game, shown in Figure [[fig:s-tri]].
 #+BEGIN_SRC R :exports both :results output graphics file :file pascal-sierpinsky-chaos-game.png :eval never-export
 library(ggplot2)
 # Parameters
@@ -745,7 +744,7 @@ further investigation into this method is required.
 #+ATTR_LATEX: :float wrap :width 0.25\textwidth :placement {l}{0.3\textwidth}
 [[file:media/pascal-sierpinsky-triangle.png]]
 
-The koch snowflake can be implemented by recursively calling a function that draws the first level of a koch curve, if this function decrements a provided level and is defined to call itself for each arm of the curve unless the level has reached zero it will produce a koch snowflake at the specified level, this is implemented in listing [[turtle-snow]] and shown in figure [[snow-turtle]].
+The koch snowflake can be implemented by recursively calling a function that draws the first level of a koch curve, if this function decrements a provided level and is defined to call itself for each arm of the curve unless the level has reached zero it will produce a koch snowflake at the specified level, this is implemented in listing [[turtle-snow]] and shown in Figure [[snow-turtle]].
 
 #+NAME: turtle-snow
 #+CAPTION: Generate a Koch Snowflake using a Turtle Diagram
@@ -785,10 +784,10 @@ end 600 600 "snowCurve.png"
 
 #+end_src
 
-The dragon curve is slightly more complicated and can be implemented by two separate functions, one to turn and trigger a motion and the other to control in which direction to turn, this is implemented in /Julia/ in listing [[turtle-dragon]]  and shown in figure [[dragon-turtle]].
+The dragon curve is slightly more complicated and can be implemented by two separate functions, one to turn and trigger a motion and the other to control in which direction to turn, this is implemented in /Julia/ in listing [[turtle-dragon]]  and shown in Figure [[dragon-turtle]].
 
 #+NAME: turtle-dragon
-#+CAPTION: /Julia/ code to produce the Dragon Curve shown in figure [[fig:turtle-dragon]]
+#+CAPTION: /Julia/ code to produce the Dragon Curve shown in Figure [[fig:turtle-dragon]]
 #+begin_src julia
 using Shapefile
 using Luxor
@@ -862,7 +861,7 @@ montage -geometry 1000x1000 *.png dragon.png
 :CUSTOM_ID: pascal-sierpinski
 :END:
 **** Motivation
-Over many centuries, mathematicians have been able to produce a range of patterns from Pascal's triangle. One of which is relevant to the emergence of Sierpinski's triangle. To construct Pascal's triangle it begins with a 1 in the $0^{th}$ (top) row, then each row underneath is made up of the sum of the numbers directly above it, see figure [[fig:pascal-triangle]]. Alternatively, the $n^{th}$ row and $k^{th}$ column can be written in combinatorics form, $\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}$.
+Over many centuries, mathematicians have been able to produce a range of patterns from Pascal's triangle. One of which is relevant to the emergence of Sierpinski's triangle. To construct Pascal's triangle it begins with a 1 in the $0^{th}$ (top) row, then each row underneath is made up of the sum of the numbers directly above it, see Figure [[fig:pascal-triangle]]. Alternatively, the $n^{th}$ row and $k^{th}$ column can be written in combinatorics form, $\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}$.
 
 #+NAME: fig:pascal-triangle
 #+CAPTION: Pascal's Triangle
@@ -871,7 +870,7 @@ Over many centuries, mathematicians have been able to produce a range of pattern
 [[file:media/tikz/pascals-triangle.png]]
 
 **** The connection
-As mentioned before there is one pattern that produces the Sierpinski triangle, namely highlighting all odd numbers in Pascal's triangle. This is equivalent to considering all the numbers in the triangle modulo 2, shown in figure [[fig:pascal-sierpinski-tri]].
+As mentioned before there is one pattern that produces the Sierpinski triangle, namely highlighting all odd numbers in Pascal's triangle. This is equivalent to considering all the numbers in the triangle modulo 2, shown in Figure [[fig:pascal-sierpinski-tri]].
 
 #+attr_html: :width 300px
 #+attr_latex: :width 9cm
@@ -885,9 +884,9 @@ As mentioned before there is one pattern that produces the Sierpinski triangle, 
 #+CAPTION: The black squares represent one example of a position on Pascal's triangle that are equivalent modulo 2
 [[file:media/tikz/row-column-pascal.png]]
 
-In figure [[fig:pascal-sierpinski-tri]], we can observe that all the highlighted odd numbers begin to form the Sierpinski triangle. Note that this is not the complete Sierpinski's triangle, that would require an infinite number of iterations. Now, we also notice that there are three identical Sierpinski triangles within the larger triangle, each containing the same value modulo 2, at each corresponding row and column.
+In Figure [[fig:pascal-sierpinski-tri]], we can observe that all the highlighted odd numbers begin to form the Sierpinski triangle. Note that this is not the complete Sierpinski's triangle, that would require an infinite number of iterations. Now, we also notice that there are three identical Sierpinski triangles within the larger triangle, each containing the same value modulo 2, at each corresponding row and column.
 
-To prove this, we need to split the triangle into two parts, $P_{n}$ denoting the first $2^{n}$ rows, i.e. the top "Sierpinski triangle" in figure [[fig:pascal-sierpinski-tri]] and $P_{n+1}$ representing the entire triangle. We must show that any chosen square in $P_{n}$ is equal to the corresponding row and column in the lower two triangles of $P_{n+1}$, shown in figure [[fig:row-column-pascal]]. This requires an identity that allows us to work with combinations in modulo 2, namely Lucas' Theorem.
+To prove this, we need to split the triangle into two parts, $P_{n}$ denoting the first $2^{n}$ rows, i.e. the top "Sierpinski triangle" in Figure [[fig:pascal-sierpinski-tri]] and $P_{n+1}$ representing the entire triangle. We must show that any chosen square in $P_{n}$ is equal to the corresponding row and column in the lower two triangles of $P_{n+1}$, shown in Figure [[fig:row-column-pascal]]. This requires an identity that allows us to work with combinations in modulo 2, namely Lucas' Theorem.
 
 **** The connection
 Let $n,k \ge 0$ and for some prime $p$, we get:
@@ -972,10 +971,10 @@ imagine that this square is replicated, rotated and appended
 #+LATEX: \begin{tikzpicture} \node[] (orig) at (0,0) {}; \node at (orig) [fill=red, rectangle,draw] {}; \node[xshift=1.72ex] at (orig) [fill=red, rectangle,draw] (01) {};\end{tikzpicture}
 , then that shape, again is replicated rotated and appended
 #+LATEX: \begin{tikzpicture} \node[] (orig) at (0,0) {}; \node at (orig) [fill=red, rectangle,draw] {}; \node[xshift=1.72ex] at (orig) [fill=red, rectangle,draw] (01) {}; \node[xshift=3.44ex] at (orig) [fill=red, rectangle,draw] (01) {}; \node[xshift=3.44ex, yshift=-1.72ex] at (orig) [fill=red, rectangle,draw] (01) {}; \end{tikzpicture}
-,this    process is illustrated in figure [[My-Frac-progression-ink]], and if perpetuated a pattern emerges, as shown in figure [[My-Frac-GR-plot]], this fractal can be generated by joining two matrices together in a manner that is consistent with the pattern described, this is shown in listing [[gen-frac-code]].
+,this    process is illustrated in Figure [[My-Frac-progression-ink]], and if perpetuated a pattern emerges, as shown in Figure [[My-Frac-GR-plot]], this fractal can be generated by joining two matrices together in a manner that is consistent with the pattern described, this is shown in listing [[gen-frac-code]].
 
 #+NAME: gen-frac-code
-#+CAPTION:  Generate the fractal described in \S [[#my-fractal]] and shown in figure [[My-Frac-GR-plot]]
+#+CAPTION:  Generate the fractal described in \S [[#my-fractal]] and shown in Figure [[My-Frac-GR-plot]]
 #+attr_html: :width 400px
 #+attr_latex: :width 12cm
 #+begin_src julia
@@ -1015,7 +1014,7 @@ GR.imshow(mywalk([1, 1], 9))
 #+attr_html: :width 200px
 #+attr_latex: :width 9cm
 #+NAME: My-Frac-progression-ink
-#+CAPTION: Process to generate the fractal shown in figure [[My-Frac-GR-plot]] and described in ref:My-Frac-ink-blue. This process involves rotating and appending units and demonstrates a simple process from which the /Fibonacci Numbers/ emerge from simple processes.
+#+CAPTION: Process to generate the fractal shown in Figure [[My-Frac-GR-plot]] and described in ref:My-Frac-ink-blue. This process involves rotating and appending units and demonstrates a simple process from which the /Fibonacci Numbers/ emerge from simple processes.
 [[file:../Problems/fractal-dimensions/My-Fib-Fractal-Diagram.svg]]
 
 
@@ -1024,7 +1023,7 @@ GR.imshow(mywalk([1, 1], 9))
 The fractal demonstrates a pattern that follows an angle that is caused by the
 join of the replicated and rotated unit [fn:sh], the shape of these joins is a
 rectangle that follows the Fibonacci numbers due to the additive nature of the
-process, this is illustrated in figure [[My-Frac-ink-blue]], in \S
+process, this is illustrated in Figure [[My-Frac-ink-blue]], in \S
 [[fib-golden-ratio-proof]] it is shown that \(\lim
 \left(\frac{F_{n}}{F_{n-1}}\right) = \varphi\), this means that the edges of the
 fractal are proportional to one another as shown in listing [[My-Frac-ink-fade]] and
@@ -1041,7 +1040,7 @@ so the angle can be given by the following relationship:
 \end{align}
 
 
-this is illustrated in figures [[My-Frac-ink-blue]] and [[My-Frac-ink-fade]]. This angle can be contrasted to the golden angle visualized in figure [[My-Frac-gold-angle]] and although different it interesting to note that \(  2 \pi\left( \frac{\psi}{\varphi+1}\right) \equiv 2 \pi \psi \equiv 0 \pmod \psi \)
+this is illustrated in Figures [[My-Frac-ink-blue]] and [[My-Frac-ink-fade]]. This angle can be contrasted to the golden angle visualized in Figure [[My-Frac-gold-angle]] and although different it interesting to note that \(  2 \pi\left( \frac{\psi}{\varphi+1}\right) \equiv 2 \pi \psi \equiv 0 \pmod \psi \)
 .
 
 
@@ -1113,7 +1112,7 @@ in natural phenomena (see
 cite:shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016),
 an example of such an occurrence is discussed in section [[#sunflower-example]] and
 a simple process demonstrating the emergence of the Fibonacci Numbers
-is discussed in \S [[#my-fractal][my-frac-measure-dim]].
+is discussed in \S [[#my-fractal]].
 
 The Golden Ratio is a value \(\varphi\) that satisfies the following property:
 
@@ -1142,111 +1141,113 @@ F_n = F_{n- 1} +  F_{n- 2} ; \quad F_1 = F_2 = 1
 ** Golden Ratio In terms of the Fibonacci Sequence
 The Series \(G\) is alternating convergent series, to show that consider the two sub-sequences formed by taking the odd and even ratios, these are both bounded monotone sequences.
 *** Prove that the Sequence is Bounded :James:
-Since we are trying to show that the ratio of Fibonacci numbers converges by the Monotone Convergence Theorem, we will let $X_n$ be as follows:
+Since we are trying to show that the ratio of Fibonacci numbers converges by the Monotone Convergence Theorem, we will let $G_n$ be as follows:
 \begin{equation*}
-    X_n = \bigg\{ \frac{F_{n+1}}{F_n} \bigg\}_{n=1}^\infty, \quad F_1=F_2=1
+    G_n = \bigg\{ \frac{F_{n+1}}{F_n} \bigg\}_{n=1}^\infty, \quad F_1=F_2=1
 \end{equation*}
-To show $X_n$ is bounded we must consider the following sub sequences,
+To show $G_n$ is bounded we must consider the following sub sequences,
 
-i) $\{X_{2n}\}_{n=1}^\infty$ is bounded below and decreasing
-i) $\{X_{2n-1}\}_{n=1}^\infty$ is bounded above and increasing
+i) $\{G_{2n}\}_{n=1}^\infty$ is bounded below and decreasing
+i) $\{G_{2n-1}\}_{n=1}^\infty$ is bounded above and increasing
+
 
 Proving (i):\\
-To show $\{X_{2n}\}_{n=1}^\infty$ is decreasing we will show $X_{2n} - X_{2(n+1)} > 0$ through the process of induction.
+
+To show $\{G_{2n}\}_{n=1}^\infty$ is decreasing we will show $G_{2n} - G_{2(n+1)} > 0$ through the process of induction.
 
 Proof: \\
 For least element $n = 1$:\\
 \begin{align*}
-    X_2 - X_4 &= \frac{F_3}{F_2} - \frac{F_5}{F_4}\\
+    G_2 - G_4 &= \frac{F_3}{F_2} - \frac{F_5}{F_4}\\
     &= \frac{2}{1} - \frac{5}{3}\\
     &> 0
 \end{align*}
 Now assume true for all $n$:\\
 \begin{equation*}
-    X_{2n} - X_{2(n+1)} > 0 \implies \frac{X_{2n}}{X_{2(n+1)}} > 1
+    G_{2n} - G_{2(n+1)} > 0 \implies \frac{G_{2n}}{G_{2(n+1)}} > 1
 \end{equation*}
 Prove true for $n+1$:
 \begin{align*}
-    X_{2(n+1)} - X_{2(n+2)} &= X_{2n + 2} - X_{2n+4)}\\
+    G_{2(n+1)} - G_{2(n+2)} &= G_{2n + 2} - G_{2n+4)}\\
     &= \frac{F_{2n+3}}{F_{2n+2}} - \frac{F_{2n+5}}{F_{2n+4}}\\
     &= \frac{F_{2n+3}F_{2n+4} - F_{2n+5}F_{2n+2}}{F_{2n+2}F_{2n+4}}\\
     &= \frac{F_{2n+3}(F_{2n+3}+F_{2n+2}) - F_{2n+2}(F_{2n+4}+F_{2n+3})}{F_{2n+2}F_{2n+4}}\\
     &= \frac{(F_{2n+3})^2 - F_{2n+2}F_{2n+4}}{F_{2n+2}F_{2n+4}}\\
     &= \frac{(F_{2n+3})^2}{F_{2n+2}F_{2n+4}} - 1\\
     &= \frac{F_{2n+3}}{F_{2n+2}} \cdot \frac{F_{2n+3}}{F_{2n+4}} -1\\
-    &= \frac{X_{2n+2}}{X_{2n+3}} - 1\\
+    &= \frac{G_{2n+2}}{G_{2n+3}} - 1\\
 \end{align*}
-Since $\frac{X_{2n}}{X_{2(n+1)}} > 1$ for all $n$ by assumption, then $\frac{X_{2n+2}}{X_{2n+3}} > 1$  follows, hence
+Since $\frac{G_{2n}}{G_{2(n+1)}} > 1$ for all $n$ by assumption, then $\frac{G_{2n+2}}{G_{2n+3}} > 1$  follows, hence
 \begin{align*}
-    X_{2(n+1)} - X_{2(n+2)} &= \frac{X_{2n+2}}{X_{2n+3}} - 1\\
+    G_{2(n+1)} - G_{2(n+2)} &= \frac{G_{2n+2}}{G_{2n+3}} - 1\\
     &> 1 -1\\
     &> 0
 \end{align*}
-Therefore by mathematical induction, $X_{2n}$ is monotic decreasing.\\
-Now, for $\{X_{2n}\}_{n=1}^\infty$ to be bounded below we will consider the entire set $X_n$, hence:
+Therefore by mathematical induction, $G_{2n}$ is monotic decreasing.\\
+Now, for $\{G_{2n}\}_{n=1}^\infty$ to be bounded below we will consider the entire set $G_n$, hence:
 \begin{equation*}
-    X_n = \frac{F_{n+1}}{F_n} =  \frac{F_n + F_{n-1}}{F_n} = 1 + \frac{F_{n-1}}{F_n}
+    G_n = \frac{F_{n+1}}{F_n} =  \frac{F_n + F_{n-1}}{F_n} = 1 + \frac{F_{n-1}}{F_n}
 \end{equation*}
 Since all Fibonacci numbers are positive, $\frac{F_{n-1}}{F_n} > 0$, so
 \begin{equation*}
-    X_n = 1 + \frac{F_{n-1}}{F_n} > 1
+    G_n = 1 + \frac{F_{n-1}}{F_n} > 1
 \end{equation*}
-Thus $X_n$ being bounded below implies $X_{2n}$ is also bounded below.
+Thus $G_n$ being bounded below implies $G_{2n}$ is also bounded below.
 
 Proving (ii):\\
-To show $\{X_{2n}\}_{n=1}^\infty$ is decreasing we will show $X_{2n-1} - X_{2(n+1)-1} < 0$ through the process of induction.
+To show $\{G_{2n}\}_{n=1}^\infty$ is decreasing we will show $G_{2n-1} - G_{2(n+1)-1} < 0$ through the process of induction.
 
 Proof: \\
 For least element $n = 1$:\\
 \begin{align*}
-    X_1 - X_3 &= \frac{F_2}{F_1} - \frac{F_4}{F_3}\\
+    G_1 - G_3 &= \frac{F_2}{F_1} - \frac{F_4}{F_3}\\
     &= \frac{1}{1} - \frac{3}{2}\\
     &< 0
 \end{align*}
 Now assume true for all $n$:\\
 \begin{equation*}
-    X_{2n-1} - X_{2n+1} < 0 \implies \frac{X_{2n-1}}{X_{2n+1}} < 1
+    G_{2n-1} - G_{2n+1} < 0 \implies \frac{G_{2n-1}}{G_{2n+1}} < 1
 \end{equation*}
 Prove true for $n+1$:
 \begin{align*}
-    X_{2(n+1) -1} - X_{2(n+1) + 1} &= X_{2n+1} - X_{2n+3}\\
+    G_{2(n+1) -1} - G_{2(n+1) + 1} &= G_{2n+1} - G_{2n+3}\\
     &= \frac{F_{2n+2}}{F_{2n+1}} - \frac{F_{2n+4}}{F_{2n+3}}\\
     &= \frac{F_{2n+2}F_{2n+3} - F_{2n+4}F_{2n+1}}{F_{2n+1}F_{2n+3}}\\
     &= \frac{F_{2n+2}(F_{2n+2}+F_{2n+1}) - F_{2n+1}(F_{2n+3}+F_{2n+2})}{F_{2n+1}F_{2n+3}}\\
     &= \frac{(F_{2n+2})^2 - F_{2n+1}F_{2n+3}}{F_{2n+1}F_{2n+3}}\\
     &= \frac{(F_{2n+2})^2}{F_{2n+1}F_{2n+3}} - 1\\
     &= \frac{F_{2n+2}}{F_{2n+1}} \cdot \frac{F_{2n+2}}{F_{2n+3}} -1\\
-    &= \frac{X_{2n+1}}{X_{2n+2}} - 1\\
+    &= \frac{G_{2n+1}}{G_{2n+2}} - 1\\
 \end{align*}
-Since $\frac{X_{2n-1}}{X_{2n+1}} < 1$ for all $n$ by assumption, then $\frac{X_{2n+1}}{X_{2n+2}} < 1$  follows, hence
+Since $\frac{G_{2n-1}}{G_{2n+1}} < 1$ for all $n$ by assumption, then $\frac{G_{2n+1}}{G_{2n+2}} < 1$  follows, hence
 \begin{align*}
-    X_{2(n+1)-1} - X_{2(n+1)+1} &= \frac{X_{2n+1}}{X_{2n+2}} - 1\\
+    G_{2(n+1)-1} - G_{2(n+1)+1} &= \frac{G_{2n+1}}{G_{2n+2}} - 1\\
     &< 1 -1\\
     &< 0
 \end{align*}
-Therefore by mathematical induction, $X_{2n-1}$ is increasing.\\
-Now, for $\{X_{2n-1}\}_{n=1}^\infty$ to be bounded above we will again consider the entire set $X_n$, hence:
+Therefore by mathematical induction, $G_{2n-1}$ is increasing.\\
+Now, for $\{G_{2n-1}\}_{n=1}^\infty$ to be bounded above we will again consider the entire set $G_n$, hence:
 \begin{equation*}
-    X_n = \frac{F_{n+1}}{F_n} =  \frac{F_n + F_{n-1}}{F_n} = 1 + \frac{F_{n-1}}{F_n}
+    G_n = \frac{F_{n+1}}{F_n} =  \frac{F_n + F_{n-1}}{F_n} = 1 + \frac{F_{n-1}}{F_n}
 \end{equation*}
 Since $\frac{F_{n-1}}{F_n} \le 1$ we can deduce that
 \begin{equation*}
-    X_n = 1 + \frac{F_{n-1}}{F_n} \le 2
+    G_n = 1 + \frac{F_{n-1}}{F_n} \le 2
 \end{equation*}
-Thus $X_n$ being bounded above by 2 implies $X_{2n-1}$ is also bounded above by 2.
+Thus $G_n$ being bounded above by 2 implies $G_{2n-1}$ is also bounded above by 2.
 *** Find the Limit                                                       :James:
-By the Monotone Convergence Theorem, $\lim_{n \to \infty} X_n$ exists.
-We will assume that $X_{2n}$ and $X_{2n-1}$ approach the same limit $L~~\forall n \ge 1$
+By the Monotone Convergence Theorem, $\lim_{n \to \infty} G_n$ exists.
+We will assume that $G_{2n}$ and $G_{2n-1}$ approach the same limit $L~~\forall n \ge 1$
 Meaning, we will also take:
 
 \begin{equation*}
-    \lim_{n\to \infty}X_n = \lim_{n\to \infty}X_{n-1} = L
+    \lim_{n\to \infty}G_n = \lim_{n\to \infty}G_{n-1} = L
 \end{equation*}
 
 \begin{align*}
-\lim_{n\to \infty}X_n &= \lim_{n \to \infty} \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
+\lim_{n\to \infty}G_n &= \lim_{n \to \infty} \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
 &= 1 +  \lim_{n \to \infty} \frac{F_{n- 1} }{F_n} \\
-&=  1 +  \lim_{n \to \infty}\frac{1}{X_{n-1}} \\
+&=  1 +  \lim_{n \to \infty}\frac{1}{G_{n-1}} \\
  \implies L &= 1 + \frac{1}{L}\\
  L^2 &= L + 1\\
  0 &= L^2 - L - 1\\
@@ -1376,7 +1377,8 @@ By applying the initial conditions:
 \begin{align*}
 a_0= c_1 +  c_2  \implies  c_1= - c_2\\
 a_1= c_1 \left( \frac{1+ \sqrt{5} }{2} \right) -  c_1 \left( \frac{1-\sqrt{5} }{2} \right)  \implies  c_1 = \frac{1}{\sqrt{5} }\\
-\therefore ~ c_1 = \frac{1}{\sqrt{5}, ~ c_2 = -\frac{1}{\sqrt{5}}}
+\ \\
+\therefore ~ c_1 = \frac{1}{\sqrt{5}}, c_2 = -\frac{1}{\sqrt{5}}
 \end{align*}
 
 
@@ -1435,7 +1437,7 @@ Assume that the process a sunflower follows when placing seeds is as follows: [f
 
 This process can be simulated in Julia as shown in listing
 [[simulate-sunflower]] . When a variety of different angles of rotation are
-tried varrious different patterns emerge, such patterns are shown in figure [[simulate-sunflower-image]], choosing an angle of \(\varphi\) produces output as shown in figure [[simulate-sunflower-image]].
+tried varrious different patterns emerge, such patterns are shown in Figure [[simulate-sunflower-image]], choosing an angle of \(\varphi\) produces output as shown in Figure [[simulate-sunflower-image]].
 
 A distribution of seeds undder this process would be optimal if the amount of empty space was minimised, spirals, stars and swirls contain patterns that compromise this.
 
@@ -1458,11 +1460,11 @@ cite:NatureGoldenRatio2018:
 # 0.14285714285714285
 
 It can be seen by simulation that $\phi$ and $\psi$ (because $\phi \mod 1 =
-\psi$) are solutions to this optimisation problem as shown in figure
+\psi$) are solutions to this optimisation problem as shown in Figure
 [[simulate-sunflower-phi]], this solution is unstable, a very minor change to the
 value will result in patterns re-emerging in the distribution. [fn:sim]
 
-The bottom right spiral in figure [[simulate-sunflower-image]] has a ratio of rotation of $\frac{1}{\pi}$, the spirals look similar to one direction of the spirals occuring in figure [[simulate-sunflower-phi]], it is not clear if there is any significance to this similarity.
+The bottom right spiral in Figure [[simulate-sunflower-image]] has a ratio of rotation of $\frac{1}{\pi}$, the spirals look similar to one direction of the spirals occuring in Figure [[simulate-sunflower-phi]], it is not clear if there is any significance to this similarity.
 
 #+NAME: simulate-sunflower
 #+CAPTION: Simulation of the distribution of sunflowers as described in section [[#sunflower-example]]
@@ -1497,7 +1499,7 @@ end 600 600
 
 
 
-#+LATEX: \newpage
+#+LATEG: \newpage
 * Julia Sets                                                                    :Ryan:
 ** Introduction
 Julia sets provide an example of a family of very complex structures that emerge from a very simple mathematical processes.
@@ -1533,7 +1535,7 @@ iteration (in this case $f_{0}: z \rightarrow z^{2}$) until that value diverges 
 
 
 #+attr_html: :width 400px
-#+attr_latex: :width 0.38\textwidth :float wrap
+#+attr_latex: :width 0.38\textwidth :float wrap :placement{R}{0.4\textwidth}
 #+NAME: py-jl-1-plot
 #+CAPTION: Circle of Convergence for $f_{0}: z \rightarrow z^{2} - 1$
 [[file:media/Outline/julia-1.svg]]
@@ -1559,6 +1561,7 @@ generate the data using listing [[*Definition of a Fractal]] in \S [[#dim-julia]
 
 
 
+#+LATEX: \newpage
 #+NAME: complex-vec
 #+CAPTION: Defining Complex Operations with vectors
 #+BEGIN_SRC ipython :exports both :results raw :eval never-export :session julia-set :eval never-export
@@ -1638,21 +1641,32 @@ plt.imshow(pic)
 #+CAPTION: Circle of Convergence for $f_{0}: z \rightarrow z^{2}$
 [[file:media/Outline/circle-of-convergence.svg]]
 
-The resulting circle in [[py-circle-plot]] is precisely what would be expected, verifying this approach.
-consider now the result if we apply this same procedure to $f_{1}: z \rightarrow
-z^{2} - 1$ or something arbitrary like $f_{\frac{1}{4} + \frac{i}{2}}: z
-\rightarrow z^{2} + (\frac{1}{4} + \frac{i}{2})$, the result is something
-remarkebly unexpected, as shown in figures [[py-jl-1-plot]] and [[py-jl-rab-plot]].
+The resulting circle in Figure [[py-circle-plot]] is precisely what would be expected, verifying this approach.
+Consider now the result if this same procedure was applied to a slightly different function, for example the following functions:
+
+\begin{align*}
+f_{1}&: z \rightarrow
+z^{2} - 1 \\
+f_{\frac{1}{4} + \frac{i}{2}}&: z
+\rightarrow z^{2} + (\frac{1}{4} + \frac{i}{2})
+\end{align*}
+
+The result is
+remarkably unexpected, as shown in Figures [[py-jl-1-plot]] and [[py-jl-rab-plot]].
 
 
 
 
 To investigate this further consider the
-more general function $f_{0.8 e^{\pi i \tau}}: z \rightarrow z^{2} + 0.8 e^{\pi
-i \tau}, \enspace \tau \in \mathbb{R}$, many fractals can be generated using
-this set by varying the value of $\tau$[fn:wk].
+more general function:
 
-/Python/ is too slow for this, and so /Julia/ will be used. These images can be
+\begin{align}
+f_{0.8 e^{\pi i \tau}}: z \rightarrow z^{2} + 0.8 e^{\pi
+i \tau}, \enspace \tau \in \mathbb{R}
+\end{align}
+
+Many fractals can be generated using
+this set by varying the value of $\tau$[fn:wk]. /Julia/ will be used to implement this due to performance constraints. These images can be
 generated in /Julia/ in a similar fashion as before, with the specifics shown in
 listing [[julia-gen-fracs]]. The ~GR~ package appears to be the best plotting
 library performance wise and so was used to save corresponding images to disc,
@@ -1669,7 +1683,7 @@ resolution were produced. [fn:tm]
 A subset of these images can be combined using /ImageMagick/ and ~bash~ to
 create a collage, /ImageMagick/ can also be used to produce an animation but it often
 fails and a superior approach is to use ~ffmpeg~, this is demonstrated in
-listing [[bash-frac-join]], the collage is shown in figure [[montage-frac]].
+listing [[bash-frac-join]], the collage is shown in Figure [[montage-frac]].
 
 #+NAME: julia-gen-fracs
 #+CAPTION: Produce a series of fractals using julia
@@ -1934,7 +1948,7 @@ lm(log(measure) ~ 0 + log(scale), data)$coefficients # set 0 intercept
 
 This shows that the value returned is 1.37 which is very close to the value of
 1.39 which is reported in the literature
-cite:mcmullenHausdorffDimensionConformal1998. A plot can be produced (shown in figure [[fig:lin-reg-dim]]) by using the following */R/* code:
+cite:mcmullenHausdorffDimensionConformal1998. A plot can be produced (shown in Figure [[fig:lin-reg-dim]]) by using the following */R/* code:
 
 #+BEGIN_SRC R :exports both :results output graphics file :file media/r-ggplot-linear-reg-julia.png
 library(ggplot2)
@@ -1954,7 +1968,7 @@ ggplot(data, aes(x = log(measure), y = log(scale))) +
 [[file:media/r-ggplot-linear-reg-julia.png]]
 
 
-Inspecting the behaviour ofthe log transformed scale and measure in figure
+Inspecting the behaviour ofthe log transformed scale and measure in Figure
 [[fig:lin-reg-dim]] indicates that there is a very linear relationship between these
 variables and so even though this julia set does not appear to demonstrate
 simple self-similarity, it appears to be a figure with a constant dimension
@@ -1977,7 +1991,7 @@ z_{n+1} &= z^{2}_n + c \label{eq:mb-sequence} \\
 z_{0}   &= c
 \end{align}
 
-This strategy is implemented in listing [[mandelbrot-py]] and produces the output shown in figure [[mandelbrot-py-pic]].
+This strategy is implemented in listing [[py-pandelbrot-code]] and produces the output shown in Figure [[mandelbrot-py-pic]].
 
 
 #+attr_html: :width 200px
@@ -2117,7 +2131,7 @@ So unless code contributes directly to the discussion we'll put it in the append
 The code listings used to produce Sierpinski's Carpet and Cantor's Dust are provided in listings [[l-s-carpet]] and [[l-cant-dust]] respectively.
 
 #+NAME: l-s-carpet
-#+CAPTION: Function to produce Sierpinski's carpet, shown in figure [[fig:square-carpet]]
+#+CAPTION: Function to produce Sierpinski's carpet, shown in Figure [[fig:square-carpet]]
 #+begin_src julia
 #------------------------------------------------------------
 #--- Function -----------------------------------------------
