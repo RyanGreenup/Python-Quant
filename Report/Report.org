@@ -15,7 +15,7 @@
 :END:
 :R:
 #+PROPERTY: header-args:R :session TADMain :dir ./ :cache yes :eval never-export :exports both
-#+PROPERTY: :eval never-export
+#+PROPERTY: :eval never
 # exports: both (or code or whatever)
 # results: table (or output or whatever)
 :END:
@@ -47,7 +47,7 @@ Although the images in this document may appear to be quite small, they are high
 :CUSTOM_ID: definition
 :END:
 
-Benoît Mandelbrot coined the term fractal in 1975 cite:gomoryBenoitMandelbrot19242010 and defined it his 1982 book /The Fractal Geometry of Nature/ [[cite:mandelbrotFractalGeometryNature1982][p. 15]] :
+Benoît Mandelbrot coined the term fractal in 1975 cite:gomoryBenoitMandelbrot19242010 and defined it in his 1982 book /The Fractal Geometry of Nature/ [[cite:mandelbrotFractalGeometryNature1982][p. 15]] :
 
 #+begin_quote
 /A fractal is by definition a set for which the Hausdorff Besicovitch dimension
@@ -56,7 +56,7 @@ strictly exceeds the topological dimension./
 /Every set with a non-integer \(D\) is a fractal./ [fn:qt]
 #+end_quote
 
-The topological dimension is a strictly integer value that describes the natural dimension used to describe a shape cite:sandersonFractalsAreTypically2017,
+The topological dimension is strictly an integer value that describes the natural dimension used to describe a shape cite:sandersonFractalsAreTypically2017,
 for example the /Koch Snowflake/ (shown in Figure [[koch-snowflake]]) is composed of
 just a line, so it's topological dimension would simply be 1, it's /fractal
 dimension/ however is shown to be \(\frac{\ln\left( 4 \right)}{\ln\left( 3
@@ -88,7 +88,7 @@ but too specific for the broad nature of our investigation].
 
 Some authors simply define a fractal as a shape that /shows irregularities at
 all scales/ [[cite:gouyetPhysicsFractalStructures1996][p. 1]] and in his 2003
-book, /Fractal Geometry/, Facloner suggested that it is more convenient to
+book, /Fractal Geometry/, Falconer suggested that it is more convenient to
 describe a fractal by a list of properties characteristic of such shapes [fn::
 Much like the definition of life in the field of biology] because of the
 difficulty in defining a fractal in a way that can encompass all edge cases and
@@ -157,7 +157,7 @@ Topology is an area of mathematics concerned with ideas of continuity through th
 
 So for example deforming a cube into a sphere would be homeomorphic, but deforming a sphere into a torus would not, because the the surface of the shape would have to be compromised to achieve that.
 
-As mentioned above, historically, the concept of dimension was a difficult problem with a tenuous
+Historically, as mentioned in \S [[#definition]], the concept of dimension was a difficult problem with a tenuous
 definition.  Although an intuitive definition related the dimension of a shape to
 the number of parameters needed to describe that shape, this definition is not
 sufficient to be preserved under a homeomorphic transform.
@@ -240,7 +240,13 @@ Let \(U\) be a subset of euclidean space \(\mathbb{R}^{n}\) such that the diamet
 \left\lvert U \right\rvert = \mathrm{sup}\left(\left\{ \left\lvert x- y \right\rvert \enspace : \enspace x,y \in U\right\}  \right)
 \]
 
-Consider a collection of these sets, $G = \left\{U_i: i \in \mathbb{Z}^{+}\right\}$ such that each element has a diameter less than \(\delta\).
+Consider a collection of these sets,
+
+\[
+G = \left\{U_i: i \in \mathbb{Z}^{+}\right\}
+\]
+
+such that each element has a diameter less than \(\delta\).
 
 
 The motivating idea is that if the elements of $G$ can be laid on-top of
@@ -440,14 +446,14 @@ Let $F$ be the Koch Curve.
 &= \lim_{\frac{1}{3^{\delta}} \to 0} \frac{\ln(4)}{\ln(3)}\\
 &= \frac{\ln(4)}{\ln(3)}
 \end{align*}
-** Generating Self Similar Fractals                                            :Ryan:
+** Generating Self Similar Fractals
 :PROPERTIES:
 :CUSTOM_ID: gen-self-sim-frac
 :END:
 In order to investigate the dimension of fractals, we intend to generate and measure a variety of figures by using of */R/* cite:rcoreteamLanguageEnvironmentStatistical2020, /Julia/ cite:bezansonJuliaFreshApproach2017 and /Python/ cite:WelcomePythonOrg.
 
 Self Similar fractals have a self-similar dimension and so can be used to verify an approach implemented with a programming language.
-*** Vicsek Fractal
+*** Vicsek Fractal                                                            :Ryan:
 :PROPERTIES:
 :CUSTOM_ID: vicsek-fractal
 :END:
@@ -582,8 +588,9 @@ julia> log(5)/log(3)
 **** Sierpinskis Carpet and Cantor's Dust
 By modifying the approach provided in listing [[vicsek-matrix-gen]] other fractals
 such as /Sierpinski's Carpet/ and /Cantor's Dust/ can be produced, this is
-implemented in listings [[l-s-carpet]] [[l-cant-dust]] and shown in Figures
-[[fig:square-carpet]] and [[fig:cantor-dust]] respectively. [fn:spc]
+implemented in listings [[l-s-carpet]] [[l-cant-dust]] provided in the appendix and shown in the following figures
+
+# and shown in Figures [[fig:square-carpet]] and [[fig:cantor-dust]] respectively. [fn:spc]
 
 
 #+NAME: fig:square-carpet
@@ -712,7 +719,7 @@ julia> log(3)/log(2)
 
 
 #+LATEX: \newpage
-*** Turtle
+*** Turtle                                                                    :Ryan:
 :PROPERTIES:
 :CUSTOM_ID: turtle
 :END:
@@ -937,8 +944,8 @@ Thus, $\binom{r}{c} = \binom{2^n + r}{c} = \binom{2^n + r}{2^n + c} \quad (\text
 :PROPERTIES:
 :CUSTOM_ID: sans-self
 :END:
-Not all fractals demonstrate obvious self-similarity, coastlines, as previously
-mentioned in \S [[#definition]], are a common example but are not unique in this
+Not all fractals demonstrate obvious self-similarity, coastlines, as
+discussed in \S [[#definition]], are a common example but are not unique in this
 regard, many natural phenomena such as the distribution of galaxies, shape of
 clouds, outline of mountains and the the path of Brownian motion have a fractal structure
  [[cite:gouyetPhysicsFractalStructures1996][Ch. 2]] that does not exhibit
@@ -948,8 +955,7 @@ In order to measure the dimension of such fractals the log transformed measure
 and scale can be compared on a scatter plot in order to confirm that the
 relationship is linear, if the relationship is linear the dimension is constant
 and equal to the slope of the line, (see e.g. [[cite:vicsekFractalGrowthPhenomena1992][\S 4.2]],
-cite:sandersonFractalsAreTypically2017
-,mandelbrotHowLongCoast1967).
+cite:sandersonFractalsAreTypically2017 and cite:mandelbrotHowLongCoast1967).
 
 This approach is implemented to measure the dimension of the /Julia Set/ in \S [[#dim-julia]].
 
@@ -1018,7 +1024,6 @@ GR.imshow(mywalk([1, 1], 9))
 #+CAPTION: Process to generate the fractal shown in Figure [[My-Frac-GR-plot]] and described in ref:My-Frac-ink-blue. This process involves rotating and appending units and demonstrates a simple process from which the /Fibonacci Numbers/ emerge from simple processes.
 [[file:../Problems/fractal-dimensions/My-Fib-Fractal-Diagram.svg]]
 
-
 ** The Fibonacci Numbers
 
 The fractal demonstrates a pattern that follows an angle that is caused by the
@@ -1064,7 +1069,6 @@ this is illustrated in Figures [[My-Frac-ink-blue]] and [[My-Frac-ink-fade]]. Th
 #+NAME: My-Frac-ink-fade
 #+CAPTION: TODO
 [[file:../Problems/fractal-dimensions/scale-of-my-fractal.svg]]
-
 
 ** The Dimension of the Fractal
 Each time this fractal is iterated the measure (i.e. the number of boxes) is doubled, but the scale of the fractal is increased by a ratio of the width and height, because the boxes add up this ratio will be a ratio of Fibonacci numbers which is shown to be equal to the golden ratio \(\phi\) in \S [[#fib-golden-ratio-proof]], hence the dimension of this fractal is given by:
@@ -1139,9 +1143,9 @@ $$\begin{aligned}
 F_n = F_{n- 1} +  F_{n- 2} ; \quad F_1 = F_2 = 1
 \end{aligned}$$
 
-** Golden Ratio In terms of the Fibonacci Sequence
+** Golden Ratio In terms of the Fibonacci Sequence                             :James:
 The Series \(G\) is alternating convergent series, to show that consider the two sub-sequences formed by taking the odd and even ratios, these are both bounded monotone sequences.
-*** Prove that the Sequence is Bounded :James:
+*** Prove that the Sequence is Bounded
 Since we are trying to show that the ratio of Fibonacci numbers converges by the Monotone Convergence Theorem, we will let $G_n$ be as follows:
 \begin{equation*}
     G_n = \bigg\{ \frac{F_{n+1}}{F_n} \bigg\}_{n=1}^\infty, \quad F_1=F_2=1
@@ -1236,7 +1240,7 @@ Since $\frac{F_{n-1}}{F_n} \le 1$ we can deduce that
     G_n = 1 + \frac{F_{n-1}}{F_n} \le 2
 \end{equation*}
 Thus $G_n$ being bounded above by 2 implies $G_{2n-1}$ is also bounded above by 2.
-*** Find the Limit                                                       :James:
+*** Find the Limit
 By the Monotone Convergence Theorem, $\lim_{n \to \infty} G_n$ exists.
 We will assume that $G_{2n}$ and $G_{2n-1}$ approach the same limit $L~~\forall n \ge 1$
 Meaning, we will also take:
@@ -2128,7 +2132,7 @@ Simple processes that involve recursion can lead to the emergence of patterns th
 :CUSTOM_ID: appendix
 :END:
 So unless code contributes directly to the discussion we'll put it in the appendix.
-** Code Listings
+** Code Listings                                                               :Ryan:
 The code listings used to produce Sierpinski's Carpet and Cantor's Dust are provided in listings [[l-s-carpet]] and [[l-cant-dust]] respectively.
 
 #+NAME: l-s-carpet
@@ -2226,7 +2230,7 @@ size1 = size(mat1)[1]
 
 #+end_src
 
-** Resources Used for the Hausdorff Dimension
+** Resources Used for the Hausdorff Dimension                                  :Ryan:
 :PROPERTIES:
 :CUSTOM_ID: haus-resource
 :END:
@@ -2240,7 +2244,7 @@ Research for \S [[#Hausdorff-dimension]] on the Hausdorff Dimension proved actua
 - Tél, T., Gruiz, M., & Kulacsy, K., /Chaotic dynamics: an introduction based on classical mechanics/  [[cite:telChaoticDynamicsIntroduction2006][\S2.1.2]]
 - Peitgen, H., Jürgens, H., & Saupe, D., /Chaos and fractals: new frontiers of science/  [[cite:peitgenChaosFractalsNew2004][\S 4.3]]
 
-** Functions for constructing the Julia Set
+** Functions for constructing the Julia Set                                    :Ryan:
 :PROPERTIES:
 :CUSTOM_ID: julia-set-functions-script
 :END:
