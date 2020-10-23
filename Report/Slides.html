@@ -1,0 +1,994 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-10-23 Fri 12:14 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Emergence of Patterns in Nature and Chaos Theory</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Ryan Greenup" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="./resources/style.css">
+<script type="text/javascript" src="https://orgmode.org/org-info.js">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license-end
+</script>
+
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+<!--/*--><![CDATA[/*><!--*/
+org_html_manager.set("TOC_DEPTH", "3");
+org_html_manager.set("LINK_HOME", "");
+org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LOCAL_TOC", "1");
+org_html_manager.set("VIEW_BUTTONS", "0");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "3");
+org_html_manager.set("VIEW", "info");
+org_html_manager.setup();  // activate after the parameters are set
+/*]]>*///-->
+// @license-end
+</script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.cacheClassElem = elem.className;
+         elem.cacheClassTarget = target.className;
+         target.className = "code-highlighted";
+         elem.className   = "code-highlighted";
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(elem.cacheClassElem)
+         elem.className = elem.cacheClassElem;
+       if(elem.cacheClassTarget)
+         target.className = elem.cacheClassTarget;
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">The Emergence of Patterns in Nature and Chaos Theory</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#introduction-ryan">1. Introduction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
+<ul>
+<li><a href="#a-note-on-images-in-this-report">1.1. A note on Images in this report</a></li>
+</ul>
+</li>
+<li><a href="#fractals">2. Fractals</a>
+<ul>
+<li><a href="#definition-of-a-fractal-ryan">2.1. Definition of a Fractal&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
+<li><a href="#fractals-generally-james">2.2. Fractals Generally&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></a></li>
+<li><a href="#fractal-dimension">2.3. Fractal Dimension</a>
+<ul>
+<li><a href="#topological-equivalence-ryan">2.3.1. Topological Equivalence&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
+<li><a href="#hausdorff-measure-ryan">2.3.2. Hausdorff Measure&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
+<li><a href="#hausdorff-dimension-ryan">2.3.3. Hausdorff Dimension&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
+<li><a href="#box-counting-dimension-james">2.3.4. Box Counting Dimension&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></a></li>
+</ul>
+</li>
+<li><a href="#generating-self-similar-fractals-ryan">2.4. Generating Self Similar Fractals&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
+<ul>
+<li><a href="#vicsek-fractal">2.4.1. Vicsek Fractal</a></li>
+<li><a href="#turtle">2.4.2. Turtle</a></li>
+<li><a href="#pascals-triangle-and-sierpinskis-triangle-james">2.4.3. Pascals Triangle and Sierpinski&rsquo;s Triangle&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></a></li>
+</ul>
+</li>
+<li><a href="#fractal-dimensions-sans-self-similarity-ryan">2.5. Fractal Dimensions Sans Self Similarity&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
+</ul>
+</li>
+<li><a href="#connecting-fractals-to-natural-processes-ryan">3. Connecting Fractals to Natural Processes&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
+<ul>
+<li><a href="#constructing-a-simple-process">3.1. Constructing a Simple Process</a></li>
+<li><a href="#the-fibonacci-numbers">3.2. The Fibonacci Numbers</a></li>
+<li><a href="#the-dimension-of-the-fractal">3.3. The Dimension of the Fractal</a></li>
+</ul>
+</li>
+<li><a href="#the-fibonacci-sequence-and-the-golden-ratio">4. The Fibonacci Sequence and the Golden Ratio</a>
+<ul>
+<li><a href="#the-golden-ratio-ryan">4.1. The Golden Ratio&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
+<li><a href="#golden-ratio-in-terms-of-the-fibonacci-sequence">4.2. Golden Ratio In terms of the Fibonacci Sequence</a>
+<ul>
+<li><a href="#prove-that-the-sequence-is-bounded-james">4.2.1. Prove that the Sequence is Bounded&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></a></li>
+<li><a href="#find-the-limit-james">4.2.2. Find the Limit&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></a></li>
+</ul>
+</li>
+<li><a href="#comments-ryan">4.3. Comments&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
+<ul>
+<li><a href="#equivalent-forms-of-the-golden-ratio">4.3.1. Equivalent forms of the Golden Ratio</a></li>
+</ul>
+</li>
+<li><a href="#a-closed-solution-for-the-fibonacci-numbers-ryan">4.4. A closed Solution for the Fibonacci Numbers&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
+<ul>
+<li><a href="#golden-ratio">4.4.1. Golden Ratio</a></li>
+</ul>
+</li>
+<li><a href="#sunflower-seeds-fibonacci-numbers-in-nature-ryan">4.5. Sunflower Seeds; Fibonacci Numbers in Nature&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
+</ul>
+</li>
+<li><a href="#julia-sets-ryan">5. Julia Sets&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
+<ul>
+<li><a href="#introduction">5.1. Introduction</a></li>
+<li><a href="#motivation-1">5.2. Motivation</a></li>
+<li><a href="#plotting-the-sets">5.3. Plotting the Sets</a></li>
+<li><a href="#dimension-of-the-julia-set">5.4. Dimension of the Julia Set</a></li>
+</ul>
+</li>
+<li><a href="#mandelbrot-set-ryan">6. Mandelbrot Set&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
+<li><a href="#conclusion-ryan">7. Conclusion&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
+<li><a href="#appendix">8. Appendix</a>
+<ul>
+<li><a href="#code-listings">8.1. Code Listings</a></li>
+<li><a href="#resources-used-for-the-hausdorff-dimension">8.2. Resources Used for the Hausdorff Dimension</a></li>
+<li><a href="#functions-for-constructing-the-julia-set">8.3. Functions for constructing the Julia Set</a></li>
+<li><a href="#exponential-generating-functions">8.4. Exponential Generating Functions</a></li>
+</ul>
+</li>
+<li><a href="#bibliography">9. Bibliography</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-introduction-ryan" class="outline-2">
+<h2 id="introduction-ryan"><span class="section-number-2">1</span> Introduction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h2>
+<div class="outline-text-2" id="text-introduction-ryan">
+</div>
+
+<div id="outline-container-a-note-on-images-in-this-report" class="outline-3">
+<h3 id="a-note-on-images-in-this-report"><span class="section-number-3">1.1</span> A note on Images in this report</h3>
+<div class="outline-text-3" id="text-a-note-on-images-in-this-report">
+</div>
+</div>
+</div>
+
+<div id="outline-container-fractals" class="outline-2">
+<h2 id="fractals"><span class="section-number-2">2</span> Fractals</h2>
+<div class="outline-text-2" id="text-fractals">
+</div>
+
+<div id="outline-container-definition-of-a-fractal-ryan" class="outline-3">
+<h3 id="definition-of-a-fractal-ryan"><span class="section-number-3">2.1</span> Definition of a Fractal&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
+<div class="outline-text-3" id="text-definition-of-a-fractal-ryan">
+</div>
+</div>
+
+<div id="outline-container-fractals-generally-james" class="outline-3">
+<h3 id="fractals-generally-james"><span class="section-number-3">2.2</span> Fractals Generally&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></h3>
+<div class="outline-text-3" id="text-fractals-generally-james">
+</div>
+</div>
+
+<div id="outline-container-fractal-dimension" class="outline-3">
+<h3 id="fractal-dimension"><span class="section-number-3">2.3</span> Fractal Dimension</h3>
+<div class="outline-text-3" id="text-fractal-dimension">
+</div>
+
+<div id="outline-container-topological-equivalence-ryan" class="outline-4">
+<h4 id="topological-equivalence-ryan"><span class="section-number-4">2.3.1</span> Topological Equivalence&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h4>
+<div class="outline-text-4" id="text-topological-equivalence-ryan">
+</div>
+</div>
+
+<div id="outline-container-hausdorff-measure-ryan" class="outline-4">
+<h4 id="hausdorff-measure-ryan"><span class="section-number-4">2.3.2</span> Hausdorff Measure&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h4>
+<div class="outline-text-4" id="text-hausdorff-measure-ryan">
+</div>
+
+<ol class="org-ol">
+<li><a id="lower-dimension-hausdorff-measurements"></a>Lower Dimension Hausdorff Measurements<br />
+<div class="outline-text-5" id="text-lower-dimension-hausdorff-measurements">
+</div>
+
+<ol class="org-ol">
+<li><a id="examples"></a>Examples<br />
+<div class="outline-text-6" id="text-examples">
+</div>
+</li>
+
+<li><a id="formally"></a>Formally<br />
+<div class="outline-text-6" id="text-formally">
+</div>
+</li>
+</ol>
+</li>
+
+<li><a id="higher-dimension-hausdorff-dimension"></a>Higher Dimension Hausdorff Dimension<br />
+<div class="outline-text-5" id="text-higher-dimension-hausdorff-dimension">
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-hausdorff-dimension-ryan" class="outline-4">
+<h4 id="hausdorff-dimension-ryan"><span class="section-number-4">2.3.3</span> Hausdorff Dimension&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h4>
+<div class="outline-text-4" id="text-hausdorff-dimension-ryan">
+</div>
+</div>
+
+<div id="outline-container-box-counting-dimension-james" class="outline-4">
+<h4 id="box-counting-dimension-james"><span class="section-number-4">2.3.4</span> Box Counting Dimension&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></h4>
+<div class="outline-text-4" id="text-box-counting-dimension-james">
+</div>
+</div>
+</div>
+
+<div id="outline-container-generating-self-similar-fractals-ryan" class="outline-3">
+<h3 id="generating-self-similar-fractals-ryan"><span class="section-number-3">2.4</span> Generating Self Similar Fractals&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
+<div class="outline-text-3" id="text-generating-self-similar-fractals-ryan">
+</div>
+
+<div id="outline-container-vicsek-fractal" class="outline-4">
+<h4 id="vicsek-fractal"><span class="section-number-4">2.4.1</span> Vicsek Fractal</h4>
+<div class="outline-text-4" id="text-vicsek-fractal">
+</div>
+
+<ol class="org-ol">
+<li><a id="sierpinskis-carpet-and-cantors-dust"></a>Sierpinskis Carpet and Cantor&rsquo;s Dust<br />
+<div class="outline-text-5" id="text-sierpinskis-carpet-and-cantors-dust">
+</div>
+</li>
+
+<li><a id="sierpinskis-triangle"></a>Sierpinski&rsquo;s Triangle<br />
+<div class="outline-text-5" id="text-sierpinskis-triangle">
+</div>
+
+<ol class="org-ol">
+<li><a id="chaos-game"></a>Chaos Game<br />
+<div class="outline-text-6" id="text-chaos-game">
+</div>
+</li>
+
+<li><a id="pascals-triangle-ryan"></a>Pascals Triangle&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span><br />
+<div class="outline-text-6" id="text-pascals-triangle-ryan">
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-turtle" class="outline-4">
+<h4 id="turtle"><span class="section-number-4">2.4.2</span> Turtle</h4>
+<div class="outline-text-4" id="text-turtle">
+</div>
+</div>
+
+<div id="outline-container-pascals-triangle-and-sierpinskis-triangle-james" class="outline-4">
+<h4 id="pascals-triangle-and-sierpinskis-triangle-james"><span class="section-number-4">2.4.3</span> Pascals Triangle and Sierpinski&rsquo;s Triangle&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></h4>
+<div class="outline-text-4" id="text-pascals-triangle-and-sierpinskis-triangle-james">
+</div>
+
+<ol class="org-ol">
+<li><a id="motivation"></a>Motivation<br />
+<div class="outline-text-5" id="text-motivation">
+</div>
+</li>
+
+<li><a id="the-connection"></a>The connection<br />
+<div class="outline-text-5" id="text-the-connection">
+</div>
+</li>
+
+<li><a id="the-connection-1"></a>The connection<br />
+<div class="outline-text-5" id="text-the-connection-1">
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-fractal-dimensions-sans-self-similarity-ryan" class="outline-3">
+<h3 id="fractal-dimensions-sans-self-similarity-ryan"><span class="section-number-3">2.5</span> Fractal Dimensions Sans Self Similarity&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
+<div class="outline-text-3" id="text-fractal-dimensions-sans-self-similarity-ryan">
+</div>
+</div>
+</div>
+
+<div id="outline-container-connecting-fractals-to-natural-processes-ryan" class="outline-2">
+<h2 id="connecting-fractals-to-natural-processes-ryan"><span class="section-number-2">3</span> Connecting Fractals to Natural Processes&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h2>
+<div class="outline-text-2" id="text-connecting-fractals-to-natural-processes-ryan">
+</div>
+
+<div id="outline-container-constructing-a-simple-process" class="outline-3">
+<h3 id="constructing-a-simple-process"><span class="section-number-3">3.1</span> Constructing a Simple Process</h3>
+<div class="outline-text-3" id="text-constructing-a-simple-process">
+</div>
+</div>
+
+<div id="outline-container-the-fibonacci-numbers" class="outline-3">
+<h3 id="the-fibonacci-numbers"><span class="section-number-3">3.2</span> The Fibonacci Numbers</h3>
+<div class="outline-text-3" id="text-the-fibonacci-numbers">
+</div>
+</div>
+
+<div id="outline-container-the-dimension-of-the-fractal" class="outline-3">
+<h3 id="the-dimension-of-the-fractal"><span class="section-number-3">3.3</span> The Dimension of the Fractal</h3>
+<div class="outline-text-3" id="text-the-dimension-of-the-fractal">
+</div>
+</div>
+</div>
+
+<div id="outline-container-the-fibonacci-sequence-and-the-golden-ratio" class="outline-2">
+<h2 id="the-fibonacci-sequence-and-the-golden-ratio"><span class="section-number-2">4</span> The Fibonacci Sequence and the Golden Ratio</h2>
+<div class="outline-text-2" id="text-the-fibonacci-sequence-and-the-golden-ratio">
+</div>
+
+<div id="outline-container-the-golden-ratio-ryan" class="outline-3">
+<h3 id="the-golden-ratio-ryan"><span class="section-number-3">4.1</span> The Golden Ratio&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
+<div class="outline-text-3" id="text-the-golden-ratio-ryan">
+</div>
+</div>
+
+<div id="outline-container-golden-ratio-in-terms-of-the-fibonacci-sequence" class="outline-3">
+<h3 id="golden-ratio-in-terms-of-the-fibonacci-sequence"><span class="section-number-3">4.2</span> Golden Ratio In terms of the Fibonacci Sequence</h3>
+<div class="outline-text-3" id="text-golden-ratio-in-terms-of-the-fibonacci-sequence">
+</div>
+
+<div id="outline-container-prove-that-the-sequence-is-bounded-james" class="outline-4">
+<h4 id="prove-that-the-sequence-is-bounded-james"><span class="section-number-4">4.2.1</span> Prove that the Sequence is Bounded&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></h4>
+<div class="outline-text-4" id="text-prove-that-the-sequence-is-bounded-james">
+</div>
+</div>
+
+<div id="outline-container-find-the-limit-james" class="outline-4">
+<h4 id="find-the-limit-james"><span class="section-number-4">4.2.2</span> Find the Limit&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></h4>
+<div class="outline-text-4" id="text-find-the-limit-james">
+</div>
+</div>
+</div>
+
+<div id="outline-container-comments-ryan" class="outline-3">
+<h3 id="comments-ryan"><span class="section-number-3">4.3</span> Comments&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
+<div class="outline-text-3" id="text-comments-ryan">
+</div>
+
+<div id="outline-container-equivalent-forms-of-the-golden-ratio" class="outline-4">
+<h4 id="equivalent-forms-of-the-golden-ratio"><span class="section-number-4">4.3.1</span> Equivalent forms of the Golden Ratio</h4>
+<div class="outline-text-4" id="text-equivalent-forms-of-the-golden-ratio">
+</div>
+</div>
+</div>
+
+<div id="outline-container-a-closed-solution-for-the-fibonacci-numbers-ryan" class="outline-3">
+<h3 id="a-closed-solution-for-the-fibonacci-numbers-ryan"><span class="section-number-3">4.4</span> A closed Solution for the Fibonacci Numbers&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
+<div class="outline-text-3" id="text-a-closed-solution-for-the-fibonacci-numbers-ryan">
+</div>
+
+<div id="outline-container-golden-ratio" class="outline-4">
+<h4 id="golden-ratio"><span class="section-number-4">4.4.1</span> Golden Ratio</h4>
+<div class="outline-text-4" id="text-golden-ratio">
+</div>
+</div>
+</div>
+
+<div id="outline-container-sunflower-seeds-fibonacci-numbers-in-nature-ryan" class="outline-3">
+<h3 id="sunflower-seeds-fibonacci-numbers-in-nature-ryan"><span class="section-number-3">4.5</span> Sunflower Seeds; Fibonacci Numbers in Nature&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
+<div class="outline-text-3" id="text-sunflower-seeds-fibonacci-numbers-in-nature-ryan">
+</div>
+</div>
+</div>
+
+<div id="outline-container-julia-sets-ryan" class="outline-2">
+<h2 id="julia-sets-ryan"><span class="section-number-2">5</span> Julia Sets&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h2>
+<div class="outline-text-2" id="text-julia-sets-ryan">
+</div>
+
+<div id="outline-container-introduction" class="outline-3">
+<h3 id="introduction"><span class="section-number-3">5.1</span> Introduction</h3>
+<div class="outline-text-3" id="text-introduction">
+</div>
+</div>
+
+<div id="outline-container-motivation-1" class="outline-3">
+<h3 id="motivation-1"><span class="section-number-3">5.2</span> Motivation</h3>
+<div class="outline-text-3" id="text-motivation-1">
+</div>
+</div>
+
+<div id="outline-container-plotting-the-sets" class="outline-3">
+<h3 id="plotting-the-sets"><span class="section-number-3">5.3</span> Plotting the Sets</h3>
+<div class="outline-text-3" id="text-plotting-the-sets">
+</div>
+</div>
+
+<div id="outline-container-dimension-of-the-julia-set" class="outline-3">
+<h3 id="dimension-of-the-julia-set"><span class="section-number-3">5.4</span> Dimension of the Julia Set</h3>
+<div class="outline-text-3" id="text-dimension-of-the-julia-set">
+<p>
+7fac73de0d24ebddcf0874b6cf8d3531b064]:
+<img src="media/r-ggplot-linear-reg-julia.png" alt="r-ggplot-linear-reg-julia.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-mandelbrot-set-ryan" class="outline-2">
+<h2 id="mandelbrot-set-ryan"><span class="section-number-2">6</span> Mandelbrot Set&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h2>
+<div class="outline-text-2" id="text-mandelbrot-set-ryan">
+</div>
+</div>
+
+<div id="outline-container-conclusion-ryan" class="outline-2">
+<h2 id="conclusion-ryan"><span class="section-number-2">7</span> Conclusion&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h2>
+<div class="outline-text-2" id="text-conclusion-ryan">
+</div>
+</div>
+
+<div id="outline-container-appendix" class="outline-2">
+<h2 id="appendix"><span class="section-number-2">8</span> Appendix</h2>
+<div class="outline-text-2" id="text-appendix">
+</div>
+
+<div id="outline-container-code-listings" class="outline-3">
+<h3 id="code-listings"><span class="section-number-3">8.1</span> Code Listings</h3>
+<div class="outline-text-3" id="text-code-listings">
+</div>
+</div>
+
+<div id="outline-container-resources-used-for-the-hausdorff-dimension" class="outline-3">
+<h3 id="resources-used-for-the-hausdorff-dimension"><span class="section-number-3">8.2</span> Resources Used for the Hausdorff Dimension</h3>
+<div class="outline-text-3" id="text-resources-used-for-the-hausdorff-dimension">
+</div>
+</div>
+
+<div id="outline-container-functions-for-constructing-the-julia-set" class="outline-3">
+<h3 id="functions-for-constructing-the-julia-set"><span class="section-number-3">8.3</span> Functions for constructing the Julia Set</h3>
+<div class="outline-text-3" id="text-functions-for-constructing-the-julia-set">
+</div>
+</div>
+
+<div id="outline-container-exponential-generating-functions" class="outline-3">
+<h3 id="exponential-generating-functions"><span class="section-number-3">8.4</span> Exponential Generating Functions</h3>
+<div class="outline-text-3" id="text-exponential-generating-functions">
+</div>
+
+<ol class="org-ol">
+<li><a id="derivative-of-the-exponential-generating-function"></a>Derivative of the Exponential Generating Function<br />
+<div class="outline-text-5" id="text-derivative-of-the-exponential-generating-function">
+</div>
+
+<ol class="org-ol">
+<li><a id="base-ryan"></a>Base&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span><br />
+<div class="outline-text-6" id="text-base-ryan">
+</div>
+</li>
+
+<li><a id="bridge-james"></a>Bridge&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span><br />
+<div class="outline-text-6" id="text-bridge-james">
+</div>
+</li>
+</ol>
+</li>
+
+<li><a id="homogeneous-proof-ryanjames"></a>Homogeneous Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span>&#xa0;<span class="James">James</span></span><br />
+<div class="outline-text-5" id="text-homogeneous-proof-ryanjames">
+</div>
+
+<ol class="org-ol">
+<li><a id="unique-roots-of-characteristic-equation-ryan"></a>Unique Roots of Characteristic Equation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span><br />
+<div class="outline-text-6" id="text-unique-roots-of-characteristic-equation-ryan">
+</div>
+
+<ol class="org-ol">
+<li><a id="proof"></a>Proof<br />
+<div class="outline-text-7" id="text-proof">
+</div>
+</li>
+</ol>
+</li>
+
+<li><a id="repeated-roots-of-characteristic-equation-ryan"></a>Repeated Roots of Characteristic Equation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span><br />
+<div class="outline-text-6" id="text-repeated-roots-of-characteristic-equation-ryan">
+</div>
+
+<ol class="org-ol">
+<li><a id="example"></a>Example<br />
+<div class="outline-text-7" id="text-example">
+</div>
+</li>
+
+<li><a id="proof-1"></a>Proof<br />
+<div class="outline-text-7" id="text-proof-1">
+</div>
+</li>
+
+<li><a id="power-series-identity-for-products-of-exponentials"></a>Power Series Identity for Products of Exponentials<br />
+<div class="outline-text-7" id="text-power-series-identity-for-products-of-exponentials">
+<ol class="org-ol">
+<li>Motivation :James:</li>
+
+<li>Proof by Induction :James:
+
+<ol class="org-ol">
+<li>Base</li>
+
+<li>Bridge</li>
+</ol></li>
+
+<li>Establishing the Proof :Ryan:</li>
+
+<li>Divergence of the Gamma Function :James:</li>
+</ol>
+</div>
+</li>
+</ol>
+</li>
+
+<li><a id="general-proof"></a>General Proof<br />
+<div class="outline-text-6" id="text-general-proof">
+</div>
+
+<ol class="org-ol">
+<li><a id="power-series-combination"></a>Power Series Combination<br />
+<div class="outline-text-7" id="text-power-series-combination">
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-bibliography" class="outline-2">
+<h2 id="bibliography"><span class="section-number-2">9</span> Bibliography</h2>
+<div class="outline-text-2" id="text-bibliography">
+<p>
+Fouss, François, Marco Saerens, and Masashi Shimbo. n.d. <i>Algorithms and
+Models for Network Data and Link Analysis</i>. Cambridge University Press.
+</p>
+
+<p>
+Nicodemi, Olympia, Melissa A. Sutherland, and Gary W. Towsley. n.d. <i>An
+Introduction to Abstract Algebra with Notes to the Future Teacher</i>.
+Pearson Prentice Hall.
+</p>
+
+<p>
+Zill, Dennis G, and Michael R Cullen. n.d. <i>Differential Equations</i>
+(version 7). 7th ed. Brooks/Cole.
+</p>
+
+<p>
+Zill, Dennis G., and Michael R. Cullen. n.d. &ldquo;8.4 Matrix Exponential.&rdquo;
+In <i>Differential Equations with Boundary-Value Problems</i>, 7th
+ed. Brooks/Cole, Cengage Learning.
+</p>
+
+<p>
+NOITEMDATA:CTANPackageAnimate
+</p>
+
+<p>
+NOITEMDATA:PdftexThereAny
+</p>
+
+<p>
+NOITEMDATA:gomoryBenoitMandelbrot19242010
+</p>
+
+<p>
+NOITEMDATA:mandelbrotFractalGeometryNature1982
+</p>
+
+<p>
+NOITEMDATA:sandersonFractalsAreTypically2017
+</p>
+
+<p>
+NOITEMDATA:vicsekFractalGrowthPhenomena1992
+</p>
+
+<p>
+NOITEMDATA:telChaoticDynamicsIntroduction2006
+</p>
+
+<p>
+NOITEMDATA:edgarMeasureTopologyFractal2008a
+</p>
+
+<p>
+NOITEMDATA:gouyetPhysicsFractalStructures1996
+</p>
+
+<p>
+NOITEMDATA:falconerFractalGeometryMathematical2003b
+</p>
+
+<p>
+NOITEMDATA:jiangFractalAnalysisComplexity1998
+</p>
+
+<p>
+NOITEMDATA:zhuFractalMechanismCoastline2002
+</p>
+
+<p>
+NOITEMDATA:zhongFractalPropertiesShoreline2017
+</p>
+
+<p>
+NOITEMDATA:mandelbrotHowLongCoast1967
+</p>
+
+<p>
+NOITEMDATA:mandelbrotMisBehaviourMarkets2008
+</p>
+
+<p>
+NOITEMDATA:Fractal2020
+</p>
+
+<p>
+NOITEMDATA:peitgenChaosFractalsNew2004
+</p>
+
+<p>
+NOITEMDATA:gilmoreTopologyChaosAlice2002
+</p>
+
+<p>
+NOITEMDATA:strogatzNonlinearDynamicsChaos2015
+</p>
+
+<p>
+NOITEMDATA:baderSpacefillingCurvesIntroduction2013
+</p>
+
+<p>
+NOITEMDATA:liIntegrationFuzzyLogic2006
+</p>
+
+<p>
+NOITEMDATA:grahamConcreteMathematicsFoundation1994
+</p>
+
+<p>
+NOITEMDATA:edgarMeasureTopologyFractal2008
+</p>
+
+<p>
+NOITEMDATA:markpollicottFractalsDimensionTheory2005
+</p>
+
+<p>
+NOITEMDATA:ListFractalsHausdorff2020
+</p>
+
+<p>
+NOITEMDATA:falconerFractalGeometryMathematical2003
+</p>
+
+<p>
+NOITEMDATA:rcoreteamLanguageEnvironmentStatistical2020
+</p>
+
+<p>
+NOITEMDATA:bezansonJuliaFreshApproach2017
+</p>
+
+<p>
+NOITEMDATA:WelcomePythonOrg
+</p>
+
+<p>
+NOITEMDATA:JuliaGraphicsLuxorJl2020
+</p>
+
+<p>
+NOITEMDATA:PillowPillowPIL
+</p>
+
+<p>
+NOITEMDATA:JuliaImagesImagesJl2020
+</p>
+
+<p>
+NOITEMDATA:llcImageMagick
+</p>
+
+<p>
+NOITEMDATA:Astropy
+</p>
+
+<p>
+NOITEMDATA:JuliaAstroJuliaAstro
+</p>
+
+<p>
+NOITEMDATA:shellyallenFibonacciNature
+</p>
+
+<p>
+NOITEMDATA:benedettapalazzoNumbersNatureFibonacci2016
+</p>
+
+<p>
+NOITEMDATA:MinarovaNikoletta2014TFSN
+</p>
+
+<p>
+NOITEMDATA:NatureGoldenRatio2018
+</p>
+
+<p>
+NOITEMDATA:robertlambHowAreFibonacci2008
+</p>
+
+<p>
+NOITEMDATA:ronknottFibonacciNumbersGolden2016
+</p>
+
+<p>
+NOITEMDATA:prasadHowFibonacciNumber2018
+</p>
+
+<p>
+NOITEMDATA:brownHistoryApplicationsFibonacci2019
+</p>
+
+<p>
+NOITEMDATA:giordanoFirstCourseMathematical2014
+</p>
+
+<p>
+NOITEMDATA:briggsTurbulentMirrorIllustrated1989
+</p>
+
+<p>
+NOITEMDATA:mullerThisEquationWill2020
+</p>
+
+<p>
+NOITEMDATA:zillDifferentialEquationsBoundaryvalue2009
+</p>
+
+<p>
+NOITEMDATA:churchillComplexVariablesApplications2014
+</p>
+
+<p>
+NOITEMDATA:bohannonSunflowersShowComplex2016
+</p>
+
+<p>
+NOITEMDATA:ridleyPackingEfficiencySunflower1982
+</p>
+
+<p>
+NOITEMDATA:mathaiConstructingSunflowerHead1974
+</p>
+
+<p>
+NOITEMDATA:vogelBetterWayConstruct1979
+</p>
+
+<p>
+NOITEMDATA:farrellMathAdventuresPython2019
+</p>
+
+<p>
+NOITEMDATA:JuliaSet2020
+</p>
+
+<p>
+NOITEMDATA:mcmullenHausdorffDimensionConformal1998
+</p>
+
+<p>
+NOITEMDATA:bownScienceMandelbrotSet
+</p>
+
+<p>
+NOITEMDATA:lehmanReadingsMathematicsComputer2010
+</p>
+
+<p>
+NOITEMDATA:levinSolvingRecurrenceRelations2018
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Ryan Greenup</p>
+<p class="date">Created: 2020-10-23 Fri 12:14</p>
+</div>
+</body>
+</html>
