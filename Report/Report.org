@@ -31,7 +31,7 @@
 #+LATEX_HEADER: \usetikzlibrary{lindenmayersystems}
 :END:
 @@latex: \newpage @@
-* TODO Introduction                                                                :Ryan:James:
+* TODO Introduction
 Fractals are complex shapes that often occur from natural processes, in this
 report we hope to investigate the emergence of patterns and complex structures
 from natural phenomena. We begin with an investigation into fractals and the
@@ -158,11 +158,14 @@ Topology is an area of mathematics concerned with ideas of continuity through th
 So for example deforming a cube into a sphere would be homeomorphic, but deforming a sphere into a torus would not, because the the surface of the shape would have to be compromised to achieve that.
 
 Historically, as mentioned in \S [[#definition]], the concept of dimension was a difficult problem with a tenuous
-definition.  Although an intuitive definition related the dimension of a shape to
-the number of parameters needed to describe that shape, this definition is not
-sufficient to be preserved under a homeomorphic transform.
+definition.  Although an intuitive definition relates the dimension of a shape to
+the number of perpendicular directions in which that shape spans, this definition is not
+sufficient to be preserved under a homeomorphic transformation.
 
-Consider the Koch fractal and snowflake in Figures [[koch-line]] and [[koch-snowflake]], at each iteration (\(n\)) the perimeter is given by \(p_{n}= \left(\frac{4}{3} \right)p_{n-1}\) and the number of edges by \(N_{n}\):
+Consider the Koch curve, which could result from such a transformation applied
+to a line, in this shape such as transformation is applied iteratively as shown in Figure [[koch-line]] (see also Figure [[koch-snowflake]] which
+could result from a homeomorphic transofrmation applied to a regular 2D shape) and at each iteration (\(n\)) the perimeter is given by \(p_{n}= \left(\frac{4}{3}
+\right)p_{n-1}\) and the number of edges by \(N_{n}\):
 
 
 
@@ -187,11 +190,13 @@ p_{n} &= N_{n} \times l \\
 & \implies  n = \frac{\log\left( 4 \right)}{\log\left( 3 \right)} \approx 1.26 \label{eq:koch-dim}
 \end{align}
 
-This means that if the Koch Snowflake is scaled by any factor, the resulting perimeter of the snowflake will not be linearly proportional to the scaling factor, as would be the case with an ordinary shape such as a square or a circle, it will instead by proportional to 1.26, this should hopefully motivate the need to more clearly define both the concept of measure (in this case the perimeter [fn:: Grant Sanderson equates the measure of a fractal as analogous to mass, which is a very helpful way comparison cite:sandersonFractalsAreTypically2017]) and dimension.
-
-To clarify the Koch snowflake, is defined such that there are no edges, every point on the "curve" is the vertex of an equilateral triangle, this shape has no smooth edges.
-
-See [[cite:strogatzNonlinearDynamicsChaos2015][p. 414]] and [[cite:baderSpacefillingCurvesIntroduction2013][\S 5.4]] for further reading on the self similar dimension of the /Koch Snowflake/.
+This means that if the Koch line is scaled by any factor, the resulting
+perimeter of the snowflake will not be directly proportional to the scaling
+factor, as would be the case with a line, it will instead be proportional to
+\(s^{1.26}\), this should hopefully motivate the need to more clearly define both the
+concept of measure (in this case the perimeter [fn:: Grant Sanderson equates the
+measure of a fractal as analogous to mass, which is a very helpful way
+comparison cite:sandersonFractalsAreTypically2017]) and dimension. To clarify the Koch Line and  Koch snowflake, are both defined such that there are no edges, every point on the "curve" is the vertex of an equilateral triangle, this shape has no smooth edges, see [[cite:strogatzNonlinearDynamicsChaos2015][p. 414]] and [[cite:baderSpacefillingCurvesIntroduction2013][\S 5.4]] for further reading on the self similar dimension of the /Koch Snowflake/.
 
 This approach of considering the scaling factor of a deterministic fractal is
 known as the similarity dimension [[cite:strogatzNonlinearDynamicsChaos2015][p.
@@ -373,15 +378,8 @@ Hence the value of the s-dimensional /Hausdorff Measure/, $s$ is only a finite, 
 #+attr_latex: :width 0.85\textwidth
 [[file:media/tikz/hausdorff-dimension-plot.png]]
 
+#+LATEX: \newpage
 *** Hausdorff Dimension                                                       :Ryan:
-
-# #+attr_latex: :width 0.38\textwidth :float wrap
-#+NAME: abstract-shape
-#+CAPTION: A disconnected subset of $\mathbb{R}^{2}$, the squares have a diameter of $\sqrt{2}$, the circles 1 and the equilateral triangles 1.
-#+attr_html: :width 200px
-#+attr_latex: :width 0.28\textwidth :float wrap
-[[file:media/Arbitrary-F-Shape.svg]]
-
 
 The value $s$ at which $\mathcal{H}^{s}$ eqref:eq:hdfzero changes from $\infty$ to 0, shown in Figure [[hausdorff-vals]],  is the defined to be the /Hausdorff Dimension/ [[cite:falconerFractalGeometryMathematical2003b][\S 2.2]], it is a generalization of the idea of dimension that is typically understood with respect to ordinary figures.
 # *** TODO See also
@@ -391,6 +389,15 @@ The value $s$ at which $\mathcal{H}^{s}$ eqref:eq:hdfzero changes from $\infty$ 
 :PROPERTIES:
 :CUSTOM_ID: box-count-dim
 :END:
+
+
+# #+attr_latex: :width 0.38\textwidth :float wrap
+#+NAME: abstract-shape
+#+CAPTION: A disconnected subset of $\mathbb{R}^{2}$, the squares have a diameter of $\sqrt{2}$, the circles 1 and the equilateral triangles 1.
+#+attr_html: :width 200px
+#+attr_latex: :width 0.28\textwidth :float wrap
+[[file:media/Arbitrary-F-Shape.svg]]
+
 While the Hausdorff dimension is the first formal definition to measure
 the roughness of a fractal, there are several other definitions of dimension
 that have stemmed from this. Namely, the box-counting dimension. The box
@@ -585,7 +592,7 @@ julia> log(5)/log(3)
 #+end_src
 
 
-**** Sierpinskis Carpet and Cantor's Dust
+**** Sierpinski's Carpet and Cantor's Dust
 By modifying the approach provided in listing [[vicsek-matrix-gen]] other fractals
 such as /Sierpinski's Carpet/ and /Cantor's Dust/ can be produced, this is
 implemented in listings [[l-s-carpet]] [[l-cant-dust]] provided in the appendix and shown in the following figures
@@ -594,7 +601,7 @@ implemented in listings [[l-s-carpet]] [[l-cant-dust]] provided in the appendix 
 
 
 #+NAME: fig:square-carpet
-#+CAPTION: Sierpinksi's Carpet, produced by listing [[listing l-s-carpet]].
+#+CAPTION: Sierpinski's Carpet, produced by listing [[listing l-s-carpet]].
 #+begin_center
 #+attr_html: :width 400px
 #+attr_latex: :width 0.38\textwidth :center
@@ -627,9 +634,8 @@ plane back to a matrix and taking the same approach as previous fractals
 presented, this however was not implemented, due to time constraints, the
 dimension was however measured using the method discussed at \S [[#pas-tri]].
 
-#+LATEX: \newpage
 #+NAME: l-sier-tri
-#+CAPTION: R code to construct Sierpinksi's triangle through the Chaos Game, shown in Figure [[fig:s-tri]].
+#+CAPTION: R code to construct Sierpinski's triangle through the Chaos Game, shown in Figure [[fig:s-tri]].
 #+BEGIN_SRC R :exports both :results output graphics file :file pascal-sierpinsky-chaos-game.png :eval never-export
 library(ggplot2)
 # Parameters
@@ -661,17 +667,18 @@ ggplot(df, aes(x = xval, y = yval)) +
 
 #+END_SRC
 
-#+LATEX: \newpage
-#+NAME: fig:s-tri
-#+CAPTION: Sierpinski's Triangle created using the /Chaos Game/ in listing [[l-sier-tri]].
-#+attr_html: :width 400px
-#+attr_latex: :width 0.38\textwidth :float wrap
-[[file:pascal-sierpinsky-chaos-game.png]]
 
 ***** TODO Pascals Triangle                                                 :Ryan:
 :PROPERTIES:
 :CUSTOM_ID: pas-tri
 :END:
+
+
+#+NAME: fig:s-tri
+#+CAPTION: Sierpinski's Triangle created using the /Chaos Game/ in listing [[l-sier-tri]].
+#+attr_html: :width 400px
+#+attr_latex: :width 0.38\textwidth :float wrap
+[[file:pascal-sierpinsky-chaos-game.png]]
 
 The even and odd values in /Pascal's Triangle/ demonstrate the same pattern as
 the /Sierpinski Triangle/ this is discussed in greater detail in \S
@@ -683,7 +690,7 @@ similar dimension very slowly.
 The fractal produced is composed of right angle triangles, as opposed to equilateral triangles but interestingly the measured dimension is still the same as an equilateral /Sierpinski's Triangle/, it does however converge to this value slowly.
 
 #+NAME: pascal-triangle-sierpinski
-#+CAPTION: Julia code demonstrating Sierpinksi's triangle, this converges to the self similar dimension very slowly, using the ratio between a \(3000^{2}\) and \(2000^{2}\) matrix gave the correct answer to 2 decimal places, using a \(300^{2}\) and \(200^{2}\) matrix produced a value far of as shown.
+#+CAPTION: Julia code demonstrating Sierpinski's triangle, this converges to the self similar dimension very slowly, using the ratio between a \(3000^{2}\) and \(2000^{2}\) matrix gave the correct answer to 2 decimal places, using a \(300^{2}\) and \(200^{2}\) matrix produced a value far of as shown.
 #+begin_src julia
 function pascal(n)
     mat = [isodd(binomial(BigInt(j+i),BigInt(i))) for i in 0:n, j in 0:n]
@@ -735,21 +742,21 @@ Some Fractals cannot be well explained by using matrices or the chaos game, Turt
 
 
 
-We were unfourtunately unable to implement a strategy to measure the dimension
+We were unfortunately unable to implement a strategy to measure the dimension
 of such fractals, one such approach that looked promising but did not return
 consistent results was to export the generated image to a PNG and then import
 that file as a matrix using the /Python Pillow Library/ cite:PillowPillowPIL or
 the /Julia Images/ library cite:JuliaImagesImagesJl2020, when this was
-unsucessful we also experimented with /ImageMagick/ cite:llcImageMagick,
+unsuccessful we also experimented with /ImageMagick/ cite:llcImageMagick,
 /AstroPy/ cite:Astropy and /JuliaAstro/ cite:JuliaAstroJuliaAstro.
-Unfourtunately the values returned by this approach were inconsistent and
+Unfortunately the values returned by this approach were inconsistent and
 further investigation into this method is required.
 
 
 #+attr_html: :width 300px
 #+NAME: fig:pascal-sierpinsky
-#+CAPTION: Sierpinski's triangle generated
-#+ATTR_LATEX: :float wrap :width 0.25\textwidth :placement {l}{0.3\textwidth}
+#+CAPTION: Sierpinski's triangle constructed by visualising Pascal's Triangle modulo 2
+#+ATTR_LATEX: :float wrap :width 0.38\textwidth :placement {l}{0.4\textwidth}
 [[file:media/pascal-sierpinsky-triangle.png]]
 
 The koch snowflake can be implemented by recursively calling a function that draws the first level of a koch curve, if this function decrements a provided level and is defined to call itself for each arm of the curve unless the level has reached zero it will produce a koch snowflake at the specified level, this is implemented in listing [[turtle-snow]] and shown in Figure [[snow-turtle]].
@@ -916,7 +923,7 @@ Take some arbitrary row $r$ and column $c$ in the triangle $P_{n}$. If we add $2
 \text{Bottom-right Triangle :}\quad &\binom{r + 2^n}{c + 2^n} \label{eq:bottom-right}
 \end{align*}
 
-Using Lucas' theorem, we can prove that the above statments are equivalent.
+Using Lucas' theorem, we can prove that the above statements are equivalent.
 
 We can rewrite $r$ and $c$ in base 2 notation as follows:
 \begin{align*}
@@ -1240,7 +1247,7 @@ Since $\frac{F_{n-1}}{F_n} \le 1$ we can deduce that
     G_n = 1 + \frac{F_{n-1}}{F_n} \le 2
 \end{equation*}
 Thus $G_n$ being bounded above by 2 implies $G_{2n-1}$ is also bounded above by 2.
-*** Find the Limit
+*** Find the Limit                                                           
 By the Monotone Convergence Theorem, $\lim_{n \to \infty} G_n$ exists.
 We will assume that $G_{2n}$ and $G_{2n-1}$ approach the same limit $L~~\forall n \ge 1$
 Meaning, we will also take:
@@ -1264,12 +1271,12 @@ Meaning, we will also take:
 :END:
 In the 13\textsuperscript{th} century [fn:fib] Fibonacci developed [fn:dev]  his namesake sequence when working on a problem concerning the growth rate
 of a rabbit population cite:ronknottFibonacciNumbersGolden2016.
-Continuous population growth is typically modelled with calculus by the equation \(\frac{\mathrm{d} }{\mathrm{d} t}\left( p \right)
+Continuous population growth is typically modeled with calculus by the equation \(\frac{\mathrm{d} }{\mathrm{d} t}\left( p \right)
 \propto p\) [[cite:giordanoFirstCourseMathematical2014][\S 11.1]], what's interesting is that this population model itself
 generates a fractal when the number of stationary points is plotted against the
 growth rate [[cite:briggsTurbulentMirrorIllustrated1989][Ch. 3]]
-and this fractal is equivilant to a plot of the Mandelbrot Set (discussed in \S [[#mandlebrot-set]]) where the \(x\)-axis represents the real component of a value and the \(y\)-axis the number of iterations before a value exceeds a modulus of 2 (see generally cite:mullerThisEquationWill2020). This is not
-something we had time to investigate unfourtunately but it does demonstrate the deep connection between natural phenomena such as population growth, the Fibonacci Sequence and complex fractals such as the Mandelbrot set.
+and this fractal is equivalent to a plot of the Mandelbrot Set (discussed in \S [[#mandlebrot-set]]) where the \(x\)-axis represents the real component of a value and the \(y\)-axis the number of iterations before a value exceeds a modulus of 2 (see generally cite:mullerThisEquationWill2020). This is not
+something we had time to investigate unfortunately but it does demonstrate the deep connection between natural phenomena such as population growth, the Fibonacci Sequence and complex fractals such as the Mandelbrot set.
 *** Equivalent forms of the Golden Ratio
 The golden ratio is sometimes expressed in odd forms in the literature:
 
@@ -1429,7 +1436,7 @@ This closed solution eqref:eq:fib-sol also demonstrates that successive terms of
 [[file:media/sunflower.jpg]]
 
 The distribution of sunflower seeds is an example of the /Fibonacci Sequence/
-occuring in a pattern observed in nature (see Figure [[sunflower]]), the distribution of seeds produces a spiral pattern and the number of clockwise and anti-clockwise spirals that emerge tend to be Fibonacci Numbers. cite:bohannonSunflowersShowComplex2016
+occurring in a pattern observed in nature (see Figure [[sunflower]]), the distribution of seeds produces a spiral pattern and the number of clockwise and anti-clockwise spirals that emerge tend to be Fibonacci Numbers. cite:bohannonSunflowersShowComplex2016
 
 Although the emergence of the Fibonacci Numbers with respect to the sunflower head and models to explain this emergence is well documented in the literature (see e.g. cite:ridleyPackingEfficiencySunflower1982,mathaiConstructingSunflowerHead1974,vogelBetterWayConstruct1979) these have not been reviewed, rather a simple approach to model this phenomena in a way that can be easily programmed with Turtle Graphics (implemented also in \S [[#turtle]]) has been devised,
 
@@ -1442,20 +1449,20 @@ Assume that the process a sunflower follows when placing seeds is as follows: [f
 
 This process can be simulated in Julia as shown in listing
 [[simulate-sunflower]] . When a variety of different angles of rotation are
-tried varrious different patterns emerge, such patterns are shown in Figure [[simulate-sunflower-image]], choosing an angle of \(\varphi\) produces output as shown in Figure [[simulate-sunflower-image]].
+tried various different patterns emerge, such patterns are shown in Figure [[simulate-sunflower-image]], choosing an angle of \(\varphi\) produces output as shown in Figure [[simulate-sunflower-image]].
 
-A distribution of seeds undder this process would be optimal if the amount of empty space was minimised, spirals, stars and swirls contain patterns that compromise this.
+A distribution of seeds under this process would be optimal if the amount of empty space was minimized, spirals, stars and swirls contain patterns that compromise this.
 
 
 
-#+attr_latex: :width 0.38\textwidth :float wrap
+#+attr_latex: :width 0.48\textwidth :float wrap
 #+attr_html: :width 300px
 #+NAME: simulate-sunflower-phi
-#+CAPTION: Optimisation of simulated distribution of Sunflower seeds occurs for $\theta =2 \varphi  \pi$ as described in section [[#sunflower-example]] and listing [[simulate-sunflower]]
+#+CAPTION: Optimization of simulated distribution of Sunflower seeds occurs for $\theta =2 \varphi  \pi$ as described in section [[#sunflower-example]] and listing [[simulate-sunflower]]
 [[file:media/Outline/golden-flower.svg]]
 
 To minimize this, the proportion of the circle traversed in step 3 must be an
-irrational number, however this alone is not sufficent, the decimal values must
+irrational number, however this alone is not sufficient, the decimal values must
 also be not to approximated by a rational number, for example
 cite:NatureGoldenRatio2018:
 
@@ -1465,11 +1472,11 @@ cite:NatureGoldenRatio2018:
 # 0.14285714285714285
 
 It can be seen by simulation that $\phi$ and $\psi$ (because $\phi \mod 1 =
-\psi$) are solutions to this optimisation problem as shown in Figure
+\psi$) are solutions to this optimization problem as shown in Figure
 [[simulate-sunflower-phi]], this solution is unstable, a very minor change to the
 value will result in patterns re-emerging in the distribution. [fn:sim]
 
-The bottom right spiral in Figure [[simulate-sunflower-image]] has a ratio of rotation of $\frac{1}{\pi}$, the spirals look similar to one direction of the spirals occuring in Figure [[simulate-sunflower-phi]], it is not clear if there is any significance to this similarity.
+The bottom right spiral in Figure [[simulate-sunflower-image]] has a ratio of rotation of $\frac{1}{\pi}$, the spirals look similar to one direction of the spirals occurring in Figure [[simulate-sunflower-phi]], it is not clear if there is any significance to this similarity.
 
 #+NAME: simulate-sunflower
 #+CAPTION: Simulation of the distribution of sunflowers as described in section [[#sunflower-example]]
@@ -1504,7 +1511,7 @@ end 600 600
 
 
 
-#+LATEG: \newpage
+#+LATEX: \newpage
 * Julia Sets                                                                    :Ryan:
 ** Introduction
 Julia sets provide an example of a family of very complex structures that emerge from a very simple mathematical processes.
@@ -1515,7 +1522,7 @@ for values of $x>1$ this process will diverge and for $x<1$ it will converge.
 The iterative process $z \rightarrow z^{2}, \enspace z \in \mathbb{C}$,
 for values of $\left\lvert z \right\rvert >1$ diverges and for $\left\lvert z \right\rvert <1$ it will converge, this is visualized in [[py-circle-plot]]
 
-This can be generalised, consider:
+This can be generalized, consider:
 
 - The complex plane for $\left\lvert z \right\rvert \leq 1$
 - Some function $f_{c}(z) = z^{2} + c, \quad c \leq 1 \in \mathbb{C}$ that can be used to iterate with
@@ -1540,7 +1547,7 @@ iteration (in this case $f_{0}: z \rightarrow z^{2}$) until that value diverges 
 
 
 #+attr_html: :width 400px
-#+attr_latex: :width 0.38\textwidth :float wrap :placement{R}{0.4\textwidth}
+#+attr_latex: :width 0.38\textwidth :float wrap
 #+NAME: py-jl-1-plot
 #+CAPTION: Circle of Convergence for $f_{0}: z \rightarrow z^{2} - 1$
 [[file:media/Outline/julia-1.svg]]
@@ -1555,10 +1562,10 @@ a measurement of the rate of divergence.
 
 The ~escape_test~ function can then be mapped over a matrix, where each element
 of that matrix is in turn mapped to a point on the Cartesian Plane, the resulting matrix
-can be visualised as an image, this is implemented in listing
+can be visualized as an image, this is implemented in listing
 [[py-circle-code]] and the corresponding output shown in [[py-circle-plot]].
 
-Observe that the absoluve value was not used in [[py-circle-code]] (or below in \S
+Observe that the absolute value was not used in [[py-circle-code]] (or below in \S
 [[#dim-julia]] ), this is because a ~sqrt~ is a costly operation that can be avoided
 by comparing two squares, this is important when multiple iterations over large
 matrices are required, this accounted for as much as 50% of the time required to
@@ -1566,7 +1573,6 @@ generate the data using listing [[*Definition of a Fractal]] in \S [[#dim-julia]
 
 
 
-#+LATEX: \newpage
 #+NAME: complex-vec
 #+CAPTION: Defining Complex Operations with vectors
 #+BEGIN_SRC ipython :exports both :results raw :eval never-export :session julia-set :eval never-export
@@ -1640,8 +1646,10 @@ plt.imshow(pic)
 #+end_src
 
 
+# #+attr_latex: :width 0.2\textwidth :float wrap :placement{l}{0.4\textwidth}
+#+ATTR_LATEX: :float wrap :width 0.25\textwidth :placement {r}{0.4\textwidth}
 #+attr_html: :width 400px
-#+attr_latex: :width 0.25\textwidth :float wrap
+#+attr_latex: :width 0.2\textwidth :float wrap
 #+NAME: py-circle-plot
 #+CAPTION: Circle of Convergence for $f_{0}: z \rightarrow z^{2}$
 [[file:media/Outline/circle-of-convergence.svg]]
@@ -1656,14 +1664,12 @@ f_{\frac{1}{4} + \frac{i}{2}}&: z
 \rightarrow z^{2} + (\frac{1}{4} + \frac{i}{2})
 \end{align*}
 
-The result is
-remarkably unexpected, as shown in Figures [[py-jl-1-plot]] and [[py-jl-rab-plot]].
+The results are shown in Figures [[py-jl-1-plot]] and [[py-jl-rab-plot]] and are remarkably complex fractals, somewhat unexpected given the simple process,
 
 
 
 
-To investigate this further consider the
-more general function:
+To investigate this further consider the more general function:
 
 \begin{align}
 f_{0.8 e^{\pi i \tau}}: z \rightarrow z^{2} + 0.8 e^{\pi
@@ -1781,7 +1787,7 @@ ffmpeg                    \
 #+end_src
 
 #+NAME: montage-frac
-#+CAPTION: Various fracals corresponding to $f_{0.8 e^{\pi i \tau}}$
+#+CAPTION: Various fractals corresponding to $f_{0.8 e^{\pi i \tau}}$
 #+attr_html: :width 400px
 #+attr_latex: :width 1.0\textwidth
 [[file:media/Outline/many_julia_fractals_around_circle.png]]
@@ -1794,7 +1800,7 @@ The Julia Set is defined as the boundary between which values diverge and
 converge on the complex plane
 [[cite:falconerFractalGeometryMathematical2003b][\S 14.1]], this means a matrix
 representing such a fractal must only have values along this boundary. This can
-be acheived by looping over every element of a matrix and replacing each value
+be achieved by looping over every element of a matrix and replacing each value
 with 0 if it is surrounded on all sides values.
 
 To implement this for a boolean matrix a function could consider if immediately
@@ -1802,11 +1808,11 @@ adjacent elements sum to 9, that point should be set to 0 if this is true
 because it does not represent a boundary. This is implemented in [[outline-func]]
 and although this will not perfectly trace the outline of a fractal like the
 /Julia Set/, it is expected that this approach will not introduce bias and so
-the impact on accuraccy will be constant for /Julia Sets/ accross all scales of
+the impact on accuracy will be constant for /Julia Sets/ across all scales of
 resolution.
 
 #+NAME: outline-func
-#+CAPTION: A function to set all values of matrix, that do not represent the boundary of a shape, to zero. This is designed for a boolean matrix and works by summing the neighbourhood of an element, if that neighbourhood is greater than 9 (indicating that all values surrounding the point contain an element), the value is set to 1.
+#+CAPTION: A function to set all values of matrix, that do not represent the boundary of a shape, to zero. This is designed for a boolean matrix and works by summing the neighborhood of an element, if that neighborhood is greater than 9 (indicating that all values surrounding the point contain an element), the value is set to 1.
 #+begin_src julia
 function outline(mat)
     work_mat = copy(mat)
@@ -1834,7 +1840,7 @@ form a linear relationship, the slope of such a relationship will be the
 dimension as discussed in \S [[#sans-self]].
 
 To implement this all the functions necessary to build the fractals were placed
-into a seperate script ~julia-set-functions.jl~ which is shown in \S
+into a separate script ~julia-set-functions.jl~ which is shown in \S
 [[julia-set-functions-script]] and this script was included into a working script
 ~julia-set-dimensions.jl~ by using the following line:
 
@@ -1845,7 +1851,7 @@ into a seperate script ~julia-set-functions.jl~ which is shown in \S
 
 
 #+NAME: fig:julia-rab
-#+CAPTION: Image of the Doudy Rabbit, the julia set corresponding to the iteration of \(z \leftarrow z^{2} -0.123+0.745i\) produced by /Julia/ in listing [[dimensions-julia-set]].
+#+CAPTION: Image of the Douady Rabbit, the julia set corresponding to the iteration of \(z \leftarrow z^{2} -0.123+0.745i\) produced by /Julia/ in listing [[dimensions-julia-set]].
 #+attr_html: :width 400px
 #+attr_latex: :width 0.85\textwidth
 [[file:media/outline-rabbit.png]]
@@ -1973,7 +1979,7 @@ ggplot(data, aes(x = log(measure), y = log(scale))) +
 [[file:media/r-ggplot-linear-reg-julia.png]]
 
 
-Inspecting the behaviour ofthe log transformed scale and measure in Figure
+Inspecting the behavior of the log transformed scale and measure in Figure
 [[fig:lin-reg-dim]] indicates that there is a very linear relationship between these
 variables and so even though this julia set does not appear to demonstrate
 simple self-similarity, it appears to be a figure with a constant dimension
@@ -1989,7 +1995,7 @@ produce a fractal that is an open disc or a closed disc/. If an arbitrary comple
 is chosen to produce the julia set $f_{\gamma}$, that value is said to belong to the Mandelbrot set if the corresponding /Julia Set/ is a closed disc [[cite:peitgenChaosFractalsNew2004][Ch. 14]].
 $P$ is closed we this value is defined as belonging to the /Mandelbrot/ set.
 
-It can be shown, that a value \(z_{0}\) is interior to the /Mandelbrot Set/ if \(f_{z_{0}}\) is interior to the julia set and hence this problem is equivalent to re-implementing the previous strategy such that $z \rightarrow z^{2} + z_{0}$ where $z_{0}$ is unchanging or more clearly as a seqeuence:
+It can be shown, that a value \(z_{0}\) is interior to the /Mandelbrot Set/ if \(f_{z_{0}}\) is interior to the julia set and hence this problem is equivalent to re-implementing the previous strategy such that $z \rightarrow z^{2} + z_{0}$ where $z_{0}$ is unchanging or more clearly as a sequence:
 
 \begin{align}
 z_{n+1} &= z^{2}_n + c \label{eq:mb-sequence} \\
@@ -2051,7 +2057,7 @@ plt.imshow(pic)
 #+end_src
 
 
-This output although remarkable is however fairly undetailed, by using /Julia/ a much
+This output although remarkable is however without great detail, by using /Julia/ a much
 larger image can be produced, in /Julia/ producing a 4 GB, 400 MP image can be done in little time
 (about 10 minutes on my system), this is demonstrated in listing [[julia-large-mandelbrot]]
 and a screenshot of the corresponding FITS image is shown in listing [[mandelbrot-screen]].
@@ -2118,8 +2124,8 @@ save_picture("/tmp/a.fits", my_pic)
 [[file:media/Outline/_20200828_233844screenshot.png]]
 
 
-The dimension of the mandelbrot set is 2 cite:bownScienceMandelbrotSet and can be measured using the exact same strategy as \S [[#dim-julia]]. [fn:cm] The Mandelbrot set is extraodinarily complex and actually contains many of the patterns of various Julia Sets within it [[cite:peitgenChaosFractalsNew2004][Ch. 14]].
-* Conclusion                                                                    :Ryan:James:
+The dimension of the mandelbrot set is 2 cite:bownScienceMandelbrotSet and can be measured using the exact same strategy as \S [[#dim-julia]]. [fn:cm] The Mandelbrot set is extraordinarily complex and actually contains many of the patterns of various Julia Sets within it [[cite:peitgenChaosFractalsNew2004][Ch. 14]].
+* Conclusion                                                                  
 Fractals are complex shapes that may or may not exhibit self similarity and often arise from natural phenomena. They are hard to define in a way that captures all potential edge cases. One important feature of fractals is the dimension of the complex shape, they are not simple finite shapes and so there dimension is usually higher than what might be anticipated by considering the corresponding the dimension of a shape that may approximate the general figure.
 
 This concept of dimension can be extended to shapes that do not exhibit clear self-similarity by using linear regression, this includes particularly complex fractals such as the Mandelbrot Set.
@@ -2160,7 +2166,7 @@ end
 #-- Plot ----------------------------------------------------
 #------------------------------------------------------------
 using GR, Plots
-gr() # Set Plots backend as GR
+gr() # Set Plots back end as GR
 
 (mat = carpet(fill(1, 1, 1), 9^2)) |> size
 p1 = GR.imshow(mat)
@@ -2208,7 +2214,7 @@ end
 #-- Plot ----------------------------------------------------
 #------------------------------------------------------------
 using GR, Plots
-gr() # Set Plots backend as GR
+gr() # Set Plots bookend as GR
 
 (mat = dust(fill(1, 1, 1), 9^2)) |> size
 p1 = GR.imshow(mat)
@@ -2234,7 +2240,7 @@ size1 = size(mat1)[1]
 :PROPERTIES:
 :CUSTOM_ID: haus-resource
 :END:
-Research for \S [[#Hausdorff-dimension]] on the Hausdorff Dimension proved actually to be quite difficult, while much information is available online, precice and clear explanations of the Hausdorff dimension are difficult to find without scouring texts, the following proved very helpful generally in preparing for this topic and I would strongly recommend these chapters as a starting point for further reading on this topic:
+Research for \S [[#Hausdorff-dimension]] on the Hausdorff Dimension proved actually to be quite difficult, while much information is available online, precise and clear explanations of the Hausdorff dimension are difficult to find without scouring texts, the following proved very helpful generally in preparing for this topic and I would strongly recommend these chapters as a starting point for further reading on this topic:
 
 - Edgar, G. A., /Measure, topology, and fractal geometry/ [[cite:edgarMeasureTopologyFractal2008a][Ch. 6]]
 - Falconer, K. J., /Fractal geometry: mathematical foundations and applications/  [[cite:falconerFractalGeometryMathematical2003b][Ch. 2]]
@@ -2267,7 +2273,7 @@ using SharedArrays
 using Distributed
 
 ############################################################
-### Julia / MandelBrot Functions ###########################
+### Julia / Mandelbrot Functions ###########################
 ############################################################
 
 """
@@ -2323,7 +2329,7 @@ connected set. (TODO: Have I got that Vice Versa?)
     divergent.
 - `boolQ`
   - `true` or `false` value indicating whether or not to return 1/0 values
-    indicating divergence or convergence respecitvely or to return the number of
+    indicating divergence or convergence respectively or to return the number of
    iterations performed before conceding no divergence.
 """
 function mandelbrot(z, num, boolQ = true)
@@ -2393,7 +2399,7 @@ end
 """
 # Outline
 
-Sets all elements with neighbours on all sides to 0.
+Sets all elements with neighbors on all sides to 0.
 
 - `mat`
   - A matrix
@@ -2441,10 +2447,10 @@ end
 :END:
 
 Exponential Generating Functions can be used to find solutions to linear
-recurrence relations, Markov Chains and Differential Equaions and may provide
+recurrence relations, Markov Chains and Differential Equations and may provide
 insight into the connections between discrete and continuous process.
 
-We were unable to find time to show generally the relationship between homogenous ODEs and homogenous linear recurrence relations and this work was not directly relevant to this report, it is included in this appendix for reference sake.
+We were unable to find time to show generally the relationship between homogeneous ODEs and homogeneous linear recurrence relations and this work was not directly relevant to this report, it is included in this appendix for reference sake.
 
 **** Derivative of the Exponential Generating Function
     :PROPERTIES:
@@ -2497,13 +2503,13 @@ An equation of the form:
 \sum^{n}_{i=0} \left[ c_{i} \cdot f^{(i)}(x) \right] = 0 \label{eq:hom-ode}
 \end{align}
 
-is said to be a homogenous linear ODE: [[cite:zillDifferentialEquations2009a][Ch. 2]]
+is said to be a homogeneous linear ODE: [[cite:zillDifferentialEquations2009a][Ch. 2]]
 
 - Linear :: because the equation is linear with respect to $f(x)$
 - Ordinary :: because there are no partial derivatives (e.g. $\frac{\partial }{\partial x}{\left({ f{\left({ x }\right)} }\right)}$  )
-- Differential :: because the derivates of the function are concerned
-- Homogenous :: because the */RHS/* is 0
-  - A non-homogeous equation would have a non-zero RHS
+- Differential :: because the derivatives of the function are concerned
+- Homogeneous :: because the */RHS/* is 0
+  - A non-homogeneous equation would have a non-zero RHS
 
 There will be $k$ solutions to a $k^{\mathrm{th}}$ order linear ODE, each may be summed to produce a superposition which will also be a solution to the equation, [[cite:zillDifferentialEquations2009a][Ch. 4]]  this will be considered as the desired complete solution (and this will be shown to be the only solution for the recurrence relation eqref:eq:recurrence-relation-def. These $k$ solutions will be in one of two forms:
 
@@ -2521,7 +2527,7 @@ where:
 :PROPERTIES:
 :CUSTOM_ID: uniq-roots-recurrence
 :END:
-An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section [[#solving-the-sequence]].
+An example of a recurrence relation with all unique roots is the Fibonacci sequence, as described in section [[#solving-the-sequence]].
 ****** Proof
 Consider the linear recurrence relation eqref:eq:recurrence-relation-def:
 
@@ -2571,7 +2577,7 @@ Recall the definition of the generating function from eqref:eq:exp-gen-def-1, by
 \square
 \end{align}
 
-This can be verified by the fibonacci sequence as shown in section [[#solving-the-sequence]], the solution to the characteristic equation is $m_1 = \varphi, m_2 = {\left({ 1-\varphi }\right)}$ and the corresponding solution to the linear ODE and recursive relation are:
+This can be verified by the Fibonacci sequence as shown in section [[#solving-the-sequence]], the solution to the characteristic equation is $m_1 = \varphi, m_2 = {\left({ 1-\varphi }\right)}$ and the corresponding solution to the linear ODE and recursive relation are:
 
 \begin{alignat}{4}
     f{\left({ x }\right)} &= &c_1 e^{\varphi x} +  &c_2 e^{{\left({ 1-\varphi }\right)} x}, \quad &\exists c_1, c_2 \in \mathbb{R} \subset \mathbb{C} \nonumber \\
@@ -2625,7 +2631,7 @@ by applying identity eqref:eq:uniq-roots-pow-series-ident to equation eqref:eq:r
  &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!} {\left({ c_{1}5^n +  c_2 n 5^n   }\right)} }\right]} \nonumber
 \end{align}
 
-Given the defenition of the exponential generating function from eqref:eq:exp-gen-def-1
+Given the definition of the exponential generating function from eqref:eq:exp-gen-def-1
 
 \begin{align}
     f{\left({ x }\right)}&=     \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]} \nonumber \\
@@ -2649,7 +2655,7 @@ By substituting for the value of the generating function from eqref:eq:exp-gen-d
     \sum^{k}_{i= 0}   {\left[{ c_if^{{\left({ k }\right)}}  {\left({ x }\right)}    }\right]} \label{eq:gen-form-rep-roots-ode}
 \end{align}
 
-Assume that eqref:eq:gen-form-rep-roots-ode corresponds to a charecteristic polynomial with only 1 root of multiplicity $k$, the solution would hence be of the form:
+Assume that eqref:eq:gen-form-rep-roots-ode corresponds to a characteristic polynomial with only 1 root of multiplicity $k$, the solution would hence be of the form:
 
 \begin{align}
 			 & \sum^{k}_{i= 0}   {\left[{ c_i m^i }\right]} = 0 \wedge m=B, \enspace  \exists! B \in \mathbb{C} \nonumber \\
@@ -2684,14 +2690,14 @@ f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\rig
 \square \nonumber
 \end{align}
 
-****** Power Series Identity for Products of Exponentials
+****** Power Series Identity for Products of Exponential
 :PROPERTIES:
 :CUSTOM_ID: power-series-comb
 :END:
 In this section a proof for identity ref:eq:power-series-comb is provided.
 ******* Motivation                                                        :James:
 
-Consider the function $f(x) = xe^x$. Using the taylor series formula we get the following:
+Consider the function $f(x) = xe^x$. Using the Taylor series formula we get the following:
 
 \begin{align*}
     xe^x &= 0+\frac{1}{1!}x+\frac{2}{2!}x^2+\frac{3}{3!}x^3+\frac{4}{4!}x^4+\frac{5}{5!}x^5+\dots\\
@@ -2707,7 +2713,7 @@ Similarly, $f(x) = x^2e^x$ will give:
     &= \sum_{n=2}^\infty \frac{x^n}{(n-2)!}
 \end{align*}
 
-We conjecture thatIf we continue this on, we get:
+We conjecture that If we continue this on, we get:
 
 \begin{align*}
     x^ke^x = \sum_{n=k}^\infty \frac{x^n}{(n-k)!} \quad \text{for}~k\in \mathbb{Z^{+}}\cap0
@@ -2781,7 +2787,7 @@ I = \int_0^1 \frac{1}{t^{p+1}} \mathrm{d}t &= \lim_{a \to 0^+} \int_a^1 \frac{1}
 \end{align}
 
 Since $I$ diverges, $$\int_0^1 \frac{1}{t^{p+1}e^t} \mathrm{d}t$$ also diverges by integral comparison test.
-And likwise, consider the integral:
+And likewise, consider the integral:
 
 \begin{align}
 J = \int_1^\infty \frac{1}{e^t}\mathrm{d}t &= \lim_{a \to \infty} \int_1^a e^{-t}dt\\
@@ -2814,7 +2820,7 @@ repeated roots. However, in many circumstances the solutions to the characterist
 equation are a combination of both unique and repeated roots. Hence, in general the
 solution to a linear ODE will be a superposition of solutions for each root, repeated
 or unique and so a goal of our research will be to put this together to find a general
-solution for homogenous linear recurrence relations.
+solution for homogeneous linear recurrence relations.
 
 Sketching out an approach for this:
 
@@ -2827,7 +2833,7 @@ Sketching out an approach for this:
 :END:
 * Footnotes
 
-[fn:cm] As a matter of fact it would only be necessary to uncomment the end of line 40 of the listing provided in \S [[#julia-set-functions-script]] and use the function ~juliaSet(z, z -> z^2)~
+[fn:cm] As a matter of fact it would only be necessary to uncommon the end of line 40 of the listing provided in \S [[#julia-set-functions-script]] and use the function ~juliaSet(z, z -> z^2)~
 
 [fn:gen] For further material related to exponential generating function see [[#exp-gen-func-fib-seq]] of the appendix.
 
@@ -2837,15 +2843,15 @@ Sketching out an approach for this:
 
 [fn:dev] Or is it discovered?
 
-[fn:fib] Although scrictly speaking this sequence can be traced back to 200 BC cite:prasadHowFibonacciNumber2018,brownHistoryApplicationsFibonacci2019
+[fn:fib] Although strictly speaking this sequence can be traced back to 200 BC cite:prasadHowFibonacciNumber2018,brownHistoryApplicationsFibonacci2019
 
-[fn:sh] The term unit is used because this pattern would emerge whether or not squares were used, squares are merely more convenient because they relate to the box-counting measure and may be easily visualised.
+[fn:sh] The term unit is used because this pattern would emerge whether or not squares were used, squares are merely more convenient because they relate to the box-counting measure and may be easily visualized.
 
 [fn:qt]
 
 In this quote by Mandelbrot is indicating that by the earlier definition of a
 fractal, any shape (i.e. a subset of \(\mathbb{R}^{n}\) with a non-integer
-dimension must be a fractal. This however is merely a sufficent, rather than a
+dimension must be a fractal. This however is merely a sufficient, rather than a
 necessary, condition of a fractal, for example the /Dragon Curve/ discussed in
 section [[#turtle]] and the Mandlebrot set discussed at section [[#mandlebrot-set]] both
 have a dimension of 2 but are clearly fractals by this definition because there
@@ -2867,7 +2873,7 @@ cite:NatureGoldenRatio2018, no evidence is presented to suggest that this is the
 that sunflowers distribute there seeds.
 
 However the simulations performed within /Julia/ are very encouraging and
-suggest that this process may offer good insight into the unerlying mechanisms.
+suggest that this process may offer good insight into the underlying mechanisms.
 
 
 [fn:ft] [[https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0][https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0]]
@@ -2880,7 +2886,5 @@ suggest that this process may offer good insight into the unerlying mechanisms.
 
 [fn:ma] This technique was adapted from Chapter 7 of /Math adventures with Python/ cite:farrellMathAdventuresPython2019
 
-
-[fn:op] Although proprietary software such as Magma, Mathematica and Maple is very good, the restrictive licence makes them undesirable for study because there is no means by which to inspect the problem solving tecniques implemented, build on top of the work and moreover the lock-in nature of the software makes it a risky investment with respect to time.
 
 [fn:spc] See generally Ch. 2.7 of [[cite:peitgenChaosFractalsNew2004][\S 2.7]] for further Reading and [[cite:mandelbrotFractalGeometryNature1982][p. 79]] for further reading on Cantor.
