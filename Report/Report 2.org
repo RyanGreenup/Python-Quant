@@ -1,0 +1,1720 @@
+#+TITLE: The Emergence of Patterns in Nature and Chaos Theory
+:PREAMBLE:
+#+OPTIONS: broken-links:auto todo:nil H:9
+#+STARTUP: content
+#+AUTHOR: Ryan Greenup & James Guerra
+#+INFOJS_OPT: view:showall toc:3
+#+PLOT: title:"Citas" ind:1 deps:(3) type:2d with:histograms set:"yrange [0:]"
+#+OPTIONS: tex:t
+# #+TODO: TODO IN-PROGRESS WAITING DONE
+#+CATEGORY: TAD
+:END:
+:HTML:
+#+INFOJS_OPT: view:info toc:3
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="style.css">
+# #+CSL_STYLE: /home/ryan/Templates/CSL/nature.csl
+:END:
+:R:
+#+PROPERTY: header-args:R :session TADMain :dir ./ :cache yes :eval never-export :exports both
+# exports: both (or code or whatever)
+# results: table (or output or whatever)
+:END:
+:LATEX:
+#+LATEX_HEADER: \IfFileExists{./resources/style.sty}{\usepackage{./resources/style}}{}
+#+LATEX_HEADER: \IfFileExists{./resources/referencing.sty}{\usepackage{./resources/referencing}}{}
+#+LATEX_HEADER: \addbibresource{../Resources/references.bib}
+:END:
+
+* Report
+** Hausdorff Dimension                                                         :James:
+** TODO Fractal Dimensions                                                     :Ryan:
+Three ways to generate
+
+1. Chaos Game
+2. Iteration Like Matrices and Turtles
+3. Testing if each region Belongs
+   a. Like Julia Set
+     
+*** Matrix
+See [[file:~/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Resources/Methods_for_Generating_Fractals.pdf][Methods for Generating Fractals]]
+**** Rotation
+**** Transitive
+**** Symmetry
+**** Examples
+***** Vicsek Fractal
+***** Triangle
+****** Chaos Game
+*** Turtle
+Matrices can't explain all patterns, Turtles are useful
+**** Dragon Curve
+**** Koch Snowflake
+*** Calculating the Dimension of Julia Set
+It converges too slowly
+**** Using Linear Regression
+- Avoiding ~Abs~ is twice as fast
+- Column wise is faster in fortran/julia/R slower in C/Python
+*** My Fractal
+**** Graphics
+
+#+attr_html: :width 60px
+#+attr_latex: :width 9cm
+#+NAME: My-Frac-GR
+#+CAPTION: TODO
+[[file:../Problems/fractal-dimensions/scale-of-my-fractal.svg]]
+
+#+attr_html: :width 60px
+#+attr_latex: :width 9cm
+#+NAME: My-Frac-GR
+#+CAPTION: TODO
+[[file:../Problems/fractal-dimensions/my-self-rep-frac.svg]]
+
+#+attr_html: :width 60px
+#+attr_latex: :width 9cm
+#+NAME: My-Frac-GR
+#+CAPTION: TODO
+[[file:../Problems/fractal-dimensions/golden-angle-diagram.svg]]
+
+#+attr_html: :width 60px
+#+attr_latex: :width 9cm
+#+NAME: My-Frac-GR
+#+CAPTION: TODO
+[[file:../Problems/fractal-dimensions/my-self-rep-frac-ink-diagram.svg]]
+
+#+attr_html: :width 60px
+#+attr_latex: :width 9cm
+#+NAME: My-Frac-GR
+#+CAPTION: TODO
+[[file:../Problems/fractal-dimensions/My-Self-Replicating-fractal-ink.svg]]
+
+#+attr_html: :width 60px
+#+attr_latex: :width 9cm
+#+NAME: My-Frac-GR
+#+CAPTION: Fractal that emerges by Rotating and appending boxes, this demonstrates the relationship between the Fibonacci numbers and golden ratio very well
+[[file:../Problems/fractal-dimensions/my-self-rep-frac-GR.png]]
+
+**** Discuss Pattern shows Fibonacci Numbers
+***** Angle Relates to Golden Ratio
+**** Prove Fibonacci using Monotone Convergence Theorem
+**** Angle is $\tan^{-1}\left( \frac{1}{1-\varphi}\right)$
+***** Similar to Golden Angle $2 \pi \left( \frac{1}{1-\varphi}\right)$
+**** Dimension of my Fractal
+$\log_{\varphi}(2)$
+
+** TODO Julia Sets and Mandelbrot Sets
+*** TODO The math behind it
+**** TODO Like Escaping after 2
+** TODO Turing
+
+* Outline
+** Introduction                                                                :Ryan:
+This project, at the outset, was very broadly concerned with the use of /Python/ for
+computer algebra. Much to the the reluctance of our supervisor we have however
+resolved to look at a broad variety of tools (see section [[#other-tools]]),
+in particular a language we wanted an opportunity to explore was /Julia/
+cite:bezansonJuliaFreshApproach2017 [fn:jl].
+
+In order to give the project a more focused direction we have decided to look into: [fn:nt]
+
+- The Emergence of patterns in Nature
+- Chaos Theory & Dynamical Systems
+- Fractals
+
+These three topics are very tightly connected and so it is difficult to look at
+any one in a vacuum, they also almost necessitate the use of software packages
+due to the fact that these phenomena appear to occur in recursive systems, more
+over such software needs to perform very well under recursion and iteration
+(making this a very good focus for this topic generally, and an excuse to work
+with Julia as well).
+
+** Programming Recursion                                                       :Ryan:
+As an introduction to /Python/ generally, we undertook many problem questions which have been omitted from this outline, however, this one in particular offered an interesting insight into the difficulties we may encounter when dealing with recursive systems.
+*** Iteration and Recursion
+   :PROPERTIES:
+   :CUSTOM_ID: series-and-recursion
+   :END:
+Consider the series shown in eqref:eq:rec-ser[fn:pja] :
+
+\begin{align}
+    g\left( k \right) &=  \frac{\sqrt{2} }{2} \cdot   \frac{\sqrt{2+  \sqrt{3}}  }{3} \frac{\sqrt{2 +  \sqrt{3 +  \sqrt{4} } } }{4} \cdot  \ldots \frac{\sqrt{2 +  \sqrt{3 +  \ldots +  \sqrt{k} } } }{k} \label{eq:rec-ser}
+\end{align}
+
+let's modify this for the sake of discussion:
+
+\begin{align}
+h\left( k \right) = \frac{\sqrt{2}  }{2} \cdot  \frac{\sqrt{3 +  \sqrt{2} } }{3} \cdot  \frac{\sqrt{4 +  \sqrt{3 +  \sqrt{2} } } }{4} \cdot  \ldots \cdot  \frac{\sqrt{k +  \sqrt{k - 1 +  \ldots \sqrt{3 + \sqrt{2}  } } } }{k} \label{eq:rec-ser-mod}
+\end{align}
+
+The function $h$ can be expressed by the series:
+
+$$\begin{aligned}
+h\left( k \right) = \prod^k_{i = 2} \left( \frac{f_i}{i}  \right)  \quad : \quad f_i = \sqrt{i +  f_{i - 1}}, \enspace f_{1} = 1
+\end{aligned}$$
+
+Within /Python/, it isn't difficult to express $h$, the series can be expressed
+with recursion as shown in listing [[rec-one]], this is a very natural way to define
+series and sequences and is consistent with familiar mathematical thought and
+notation. Individuals more familiar with programming than analysis may find it
+more comfortable to use an iterator as shown in listing [[it-one]].
+
+#+NAME: rec-one
+#+CAPTION: Solving eqref:eq:rec-ser-mod using recursion.
+#+BEGIN_SRC python
+from sympy import *
+def h(k):
+    if k > 2:
+        return f(k) * f(k-1)
+    else:
+        return 1
+
+def f(i):
+    expr = 0
+    if i > 2:
+        return sqrt(i + f(i -1))
+    else:
+        return 1
+#+END_SRC
+
+
+#+NAME: it-one
+#+CAPTION: Solving eqref:eq:rec-ser-mod by using a ~for~ loop.
+#+BEGIN_SRC python
+  from sympy import *
+  def h(k):
+      k = k + 1 # OBOB
+      l = [f(i) for i in range(1,k)]
+      return prod(l)
+
+  def f(k):
+      expr = 0
+      for i in range(2, k+2):
+          expr = sqrt(i + expr, evaluate=False)
+      return expr/(k+1)
+#+END_SRC
+
+Any function that can be defined by using iteration, can always be defined via
+recursion and vice versa
+cite:bohmReducingRecursionIteration1988,bohmReducingRecursionIteration1986
+(see also
+cite:smolarskiMath60Notes2000,IterationVsRecursion2016 ),
+
+there is however, evidence to suggest that recursive functions are easier for
+people to understand cite:benanderEmpiricalAnalysisDebugging2000 and so should
+be favoured. Although independent research has shown that the specific language
+chosen can have a bigger effect on how well recursive as opposed to iterative
+code is understood cite:sinhaCognitiveFitEmpirical1992.
+
+The relevant question is "/which method is often more appropriate/?", generally
+the process for determining which is more appropriate is to the effect of:
+
+1. Write the problem in a way that is easier to write or is more
+   appropriate for demonstration
+2. If performance is a concern then consider restructuring in favour of iteration
+   - For interpreted languages such */R/* and /Python/, loops are usually
+     faster, because of the overheads involved in creating functions
+     cite:smolarskiMath60Notes2000 although there may be exceptions to this and
+     I'm not sure if this would be true for compiled languages such as /Julia/,
+     /Java/, */C/* etc.
+
+**** Some Functions are more difficult to express with Recursion in
+:PROPERTIES:
+    :CUSTOM_ID: some-functions-are-more-difficult-to-express-with-recursion-in-python
+    :END:
+
+Attacking a problem recursively isn't always the best approach however. Consider the function $g\left( k \right)$ from eqref:eq:rec-ser:
+
+
+\begin{align}
+    g\left( k \right) &=  \frac{\sqrt{2} }{2} \cdot   \frac{\sqrt{2+  \sqrt{3}}  }{3} \frac{\sqrt{2 +  \sqrt{3 +  \sqrt{4} } } }{4} \cdot  \ldots \frac{\sqrt{2 +  \sqrt{3 +  \ldots +  \sqrt{k} } } }{k} \nonumber \\
+    &=  \prod^k_{i = 2} \left( \frac{f_i}{i}  \right) \quad : \quad f_{i} = \sqrt{i +  f_{i+1}} \nonumber
+\end{align}
+
+Observe that the difference between eqref:eq:rec-ser and eqref:eq:rec-ser-mod is
+that the sequence essentially /looks/ forward, not back. To solve using a =for=
+loop, this distinction is a non-concern because the list can be reversed using a built-in
+such as =rev=, =reversed= or =reverse= in /Python/, */R/* and /Julia/
+respectively, which means the same expression can be implemented.
+
+To implement with recursion however, the series needs to be restructured and
+this can become a little clumsy, see eqref:eq:clumsy:
+
+\begin{align}
+    g\left( k \right) &=  \prod^k_{i = 2} \left( \frac{f_i}{i}  \right) \quad : \quad f_{i} = \sqrt{\left( k- i \right)  +  f_{k - i - 1}} \label{eq:clumsy}
+\end{align}
+
+Now the function could be performed recursively in /Python/ in a similar way as
+shown in listing [[rec-two]], but it's also significantly more confusing because the
+$f$ function now has $k$ as a parameter and this is only made significantly more
+complicated by the differing implementations of variable scope across common
+languages used in Mathematics and Data science such as ~bash~, */R/*, /Julia/, /Python/.
+
+If however, the =for= loop approach was implemented, as shown in listing
+[[iter-two]], the function would not significantly change, because the =reversed()= function can be
+used to flip the list around.
+
+What this demonstrates is that taking a different approach to simply describing
+this function can lead to big differences in the complexity involved in solving
+this problem.
+
+#+NAME: rec-two
+#+CAPTION: Using Recursion to Solve eqref:eq:rec-ser
+#+BEGIN_SRC python
+from sympy import *
+def h(k):
+    if k > 2:
+        return f(k, k) * f(k, k-1)
+    else:
+        return 1
+
+def f(k, i):
+    if k > i:
+        return 1
+    if i > 2:
+        return sqrt((k-i) + f(k, k - i -1))
+    else:
+        return 1
+#+END_SRC
+
+
+#+NAME: iter-two
+#+CAPTION: Using Iteration to Solve eqref:eq:rec-ser
+#+BEGIN_SRC python
+from sympy import *
+def h(k):
+    k = k + 1 # OBOB
+    l = [f(i) for i in range(1,k)]
+    return prod(l)
+
+def f(k):
+    expr = 0
+    for i in reversed(range(2, k+2)):
+        expr = sqrt(i + expr, evaluate=False)
+    return expr/(k+1)
+#+END_SRC
+
+** TODO Fibonacci Sequence                                                     :Ryan:James:
+*** Introduction                                                              :Ryan:
+The /Fibonacci Sequence/ and /Golden Ratio/ share a deep connection[fn:fb] and occur in patterns observed in nature very frequently
+(see
+cite:shellyallenFibonacciNature,benedettapalazzoNumbersNatureFibonacci2016,MinarovaNikoletta2014TFSN,NatureGoldenRatio2018,robertlambHowAreFibonacci2008,ronknottFibonacciNumbersGolden2016), an example of such an occurence is discussed in section [[#sunflower-example]].
+
+
+In this section we lay out a strategy to find an analytic solution to the
+/Fibonacci Sequence/ by relating it to a continuous series and generalise this
+approach to any homogenous linear recurrence relation.
+
+This details some open mathematical work for the project and our hope is that by
+identifying relationships between discrete and continuous systems generall we
+will be able to draw insights with regard to the occurrence of patterns related
+to the /Fibonacci Sequence/ and /Golden Ratio/ in nature.
+
+*** Computational Approach                                                    :Ryan:
+   :PROPERTIES:
+   :CUSTOM_ID: define-the-fibonacci-numbers
+   :END:
+Given that much of our work will involve computational analysis and simulation we begin with a strategy to solve the sequence computationally.
+
+The /Fibonacci/ Numbers are given by:
+
+\begin{align}
+F_n = F_{n-1} + F_{n-2} \label{eq:fib-def}
+\end{align}
+
+This type of recursive relation can be expressed in /Python/ by using recursion,
+as shown in listing [[fib-rec-0]], however using this function will reveal that it
+is extraordinarily slow, as shown in listing [[time-slow]], this is because the
+results of the function are not cached and every time the function is called
+every value is recalculated[fn:cch], meaning that the workload scales in
+exponential as opposed to polynomial time.
+
+The ~functools~ library for python includes the ~@functools.lru_cache~ decorator
+which will modify a defined function to cache results in memory
+cite:FunctoolsHigherorderFunctions, this means that the recursive function will
+only need to calculate each result once and it will hence scale in polynomial
+time, this is implemented in listing [[fib-cache]].
+
+
+#+NAME: fib-rec-0
+#+CAPTION: Defining the /Fibonacci Sequence/ eqref:eq:fib-def using Recursion
+#+BEGIN_SRC python
+  def rec_fib(k):
+      if type(k) is not int:
+          print("Error: Require integer values")
+          return 0
+      elif k == 0:
+          return 0
+      elif k <= 2:
+          return 1
+      return rec_fib(k-1) + rec_fib(k-2)
+#+END_SRC
+
+#+NAME: time-slow
+#+CAPTION: Using the function from listing [[fib-rec-0]] is quite slow.
+#+BEGIN_SRC python
+  start = time.time()
+  rec_fib(35)
+  print(str(round(time.time() - start, 3)) + "seconds")
+
+## 2.245seconds
+#+END_SRC
+
+
+#+NAME: fib-cache
+#+CAPTION: Caching the results of the function previously defined [[time-slow]]
+#+BEGIN_SRC python
+  from functools import lru_cache
+
+  @lru_cache(maxsize=9999)
+  def rec_fib(k):
+      if type(k) is not int:
+          print("Error: Require Integer Values")
+          return 0
+      elif k == 0:
+          return 0
+      elif k <= 2:
+          return 1
+      return rec_fib(k-1) + rec_fib(k-2)
+
+
+start = time.time()
+rec_fib(35)
+print(str(round(time.time() - start, 3)) + "seconds")
+## 0.0seconds
+#+END_SRC
+
+#+BEGIN_SRC python
+  start = time.time()
+  rec_fib(6000)
+  print(str(round(time.time() - start, 9)) + "seconds")
+
+## 8.3923e-05seconds
+#+END_SRC
+
+Restructuring the problem to use iteration will allow for even greater performance as demonstrated by finding $F_{10^{6}}$ in listing [[fib-iter]]. Using a compiled language such as /Julia/ however would be thousands of times faster still, as demonstrated in listing [[julia-fib]].
+
+
+
+#+NAME: fib-iter
+#+CAPTION: Using Iteration to Solve the Fibonacci Sequence
+#+BEGIN_SRC python
+  def my_it_fib(k):
+      if k == 0:
+          return k
+      elif type(k) is not int:
+          print("ERROR: Integer Required")
+          return 0
+      # Hence k must be a positive integer
+
+      i  = 1
+      n1 = 1
+      n2 = 1
+
+      # if k <=2:
+      #     return 1
+
+      while i < k:
+         no = n1
+         n1 = n2
+         n2 = no + n2
+         i = i + 1
+      return (n1)
+
+  start = time.time()
+  my_it_fib(10**6)
+  print(str(round(time.time() - start, 9)) + "seconds")
+
+ ## 6.975890398seconds
+#+END_SRC
+
+#+NAME: julia-fib
+#+CAPTION: Using Julia with an iterative approach to solve the 1 millionth fibonacci number
+#+begin_src julia :results output
+function my_it_fib(k)
+    if k == 0
+        return k
+    elseif typeof(k) != Int
+        print("ERROR: Integer Required")
+        return 0
+    end
+    # Hence k must be a positive integer
+
+    i  = 1
+    n1 = 1
+    n2 = 1
+
+    # if k <=2:
+    #     return 1
+    while i < k
+       no = n1
+       n1 = n2
+       n2 = no + n2
+       i = i + 1
+    end
+    return (n1)
+end
+
+@time my_it_fib(10^6)
+
+##  my_it_fib (generic function with 1 method)
+##    0.000450 seconds
+#+end_src
+
+In this case however an analytic solution can be found by relating discrete
+mathematical problems to continuous ones as discussed below at section [[#exp-gen-function]].
+*** Exponential Generating Functions
+:PROPERTIES:
+:CUSTOM_ID: exp-gen-func-fib-seq
+:END:
+**** Motivation                                                              :Ryan:
+    :PROPERTIES:
+    :CUSTOM_ID: motivation
+    :END:
+
+Consider the /Fibonacci Sequence/ from eqref:eq:fib-def:
+
+
+\begin{align}
+    a_{n}&= a_{n - 1} + a_{n - 2} \nonumber \\
+\iff a_{n+  2} &= a_{n+  1} +  a_n \label{eq:fib-def-shift}
+\end{align}
+
+
+from observation, this appears similar in structure to the following /ordinary
+differential equation/, which would be fairly easy to deal with:
+
+
+\begin{align*}
+f''\left( x \right)- f'\left( x \right)- f\left( x \right)=  0
+\end{align*}
+
+By ODE Theory we have $y \propto e^{m_{i}x}, \enspace i = 1, 2$:
+
+\begin{align*}
+f\left( x \right)= e^{mx} = \sum^{\infty}_{n= 0}   \left[ r^{m} \frac{x^n}{n!} \right]
+\end{align*}
+
+So using some sort of a transformation involving a power series may help to
+relate the discrete problem back to a continuous one.
+
+**** Example                                                                 :Ryan:
+    :PROPERTIES:
+    :CUSTOM_ID: solving-the-sequence
+    :END:
+
+Consider using the following generating function, (the derivative of the
+generating function as in eqref:eq:exp-gen-def-2 and eqref:eq:exp-gen-def-3 is
+provided in section [[#Derivative-exp-gen-function]])
+
+
+
+
+\begin{align}
+    f\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n} \cdot  \frac{x^n}{n!} \right]   \label{eq:exp-gen-def-1} \\
+ \implies   f'\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n+1} \cdot  \frac{x^n}{n!} \right]   \label{eq:exp-gen-def-2} \\
+\implies    f''\left( x \right) &=  \sum^{\infty}_{n= 0}   \left[ a_{n+2} \cdot  \frac{x^n}{n!} \right]   \label{eq:exp-gen-def-3}
+\end{align}
+
+
+So the recursive relation from eqref:eq:fib-def-shift  could be expressed :
+
+
+\begin{align*}
+a_{n+  2}    &= a_{n+  1} +  a_{n}\\
+\frac{x^n}{n!}   a_{n+  2}    &= \frac{x^n}{n!}\left( a_{n+  1} +  a_{n}  \right)\\
+\sum^{\infty}_{n= 0} \left[ \frac{x^n}{n!}   a_{n+  2} \right]        &= \sum^{\infty}_{n= 0}   \left[ \frac{x^n}{n!} a_{n+  1} \right]  + \sum^{\infty}_{n= 0}   \left[ \frac{x^n}{n!} a_{n}  \right]  \\
+\end{align*}
+
+And hence by applying eqref:eq:exp-gen-def-1:
+
+\begin{align}
+f''\left( x \right) &= f'\left( x \right)+  f\left( x \right)
+\end{align}
+
+
+Using the theory of higher order linear differential equations with
+constant coefficients it can be shown:
+
+
+\begin{align*}
+f\left( x \right)= c_1 \cdot  \mathrm{exp}\left[ \left( \frac{1- \sqrt{5} }{2} \right)x \right] +  c_2 \cdot  \mathrm{exp}\left[ \left( \frac{1 +  \sqrt{5} }{2} \right) \right]
+\end{align*}
+
+
+By equating this to the power series:
+
+
+\begin{align*}
+f\left( x \right)&= \sum^{\infty}_{n= 0}   \left[ \left( c_1\left( \frac{1- \sqrt{5} }{2} \right)^n +  c_2 \cdot  \left( \frac{1+ \sqrt{5} }{2} \right)^n \right) \cdot  \frac{x^n}{n} \right]
+\end{align*}
+
+
+Now given that:
+
+
+\begin{align*}
+f\left( x \right)= \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right]
+\end{align*}
+
+
+We can conclude that:
+
+
+\begin{align*}
+a_n = c_1\cdot  \left( \frac{1- \sqrt{5} }{2} \right)^n +  c_2 \cdot  \left( \frac{1+  \sqrt{5} }{2} \right)
+\end{align*}
+
+
+By applying the initial conditions:
+
+
+\begin{align*}
+a_0= c_1 +  c_2  \implies  c_1= - c_2\\
+a_1= c_1 \left( \frac{1+ \sqrt{5} }{2} \right) -  c_1 \frac{1-\sqrt{5} }{2}  \implies  c_1 = \frac{1}{\sqrt{5} }
+\end{align*}
+
+
+And so finally we have the solution to the /Fibonacci Sequence/ ref:eq:fib-def-shift:
+
+
+\begin{align}
+    a_n &= \frac{1}{\sqrt{5} } \left[ \left( \frac{1+  \sqrt{5} }{2}  \right)^n -  \left( \frac{1- \sqrt{5} }{2} \right)^n \right] \nonumber \\
+&= \frac{\varphi^n - \psi^n}{\sqrt{5} } \nonumber\\
+&=\frac{\varphi^n -  \psi^n}{\varphi - \psi} \label{eq:fib-sol}
+\end{align}
+
+
+where:
+
+- $\varphi = \frac{1+ \sqrt{5} }{2} \approx 1.61\ldots$
+- $\psi = 1-\varphi = \frac{1- \sqrt{5} }{2} \approx 0.61\ldots$
+
+**** Derivative of the Exponential Generating Function
+    :PROPERTIES:
+    :CUSTOM_ID: Derivative-exp-gen-function
+    :END:
+***** Base                                                                  :Ryan:
+    Differentiating the exponential generating function has the effect of shifting the sequence to the backward: cite:lehmanReadingsMathematicsComputer2010
+
+\begin{align}
+    f\left( x \right) &= \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right] \label{eq:exp-pow-series} \\
+f'\left( x \right)) &= \frac{\mathrm{d} }{\mathrm{d} x}\left( \sum^{\infty}_{n= 0}   \left[ a_n \frac{x^n}{n!} \right]  \right) \nonumber \\
+&= \frac{\mathrm{d}}{\mathrm{d} x} \left( a_0 \frac{x^0}{0!} +  a_1 \frac{x^1}{1!} +  a_2 \frac{x^2}{2!}+  a_3 \frac{x^3}{3! } +  \ldots \frac{x^k}{k!} \right) \nonumber \\
+&= \sum^{\infty}_{n= 0}   \left[ \frac{\mathrm{d} }{\mathrm{d} x}\left( a_n \frac{x^n}{n!} \right) \right] \nonumber \\
+&= \sum^{\infty}_{n= 0}   {\left[{ \frac{a_n}{{\left({ n- 1 }\right)!}} } x^{n- 1}  \right]} \nonumber \\
+\implies f'(x) &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}a_{n+  1} }\right]} \label{eq:exp-pow-series-sol}
+\end{align}
+
+***** Bridge                                                                :James:
+This can be shown for all derivatives by way of induction, for
+
+\begin{align}
+f^{(k)}\left(x\right) = \sum_{n=0}^\infty\frac{a_{n+k}\cdot x^n}{n!} \quad \text{for}~k \ge 0
+\end{align}
+
+Assume that. $f^{(k)}\left(x\right) = \sum_{n=0}^\infty\frac{a_{n+k}\cdot x^n}{n!}$
+
+Using this assumption, prove for the next element $k+1$
+
+We need $f^{(k+1)}(x) = \sum_{n=0}^\infty\frac{a_{n+k+1}\cdot x^n}{n!}$
+
+\begin{align*}
+    \text{LHS} &= f^{(k+1)}(x)\\
+    &= \frac{\mathrm{d}}{\mathrm{d}x}\left(f^{(k)}(x)\right)\\
+    &= \frac{\mathrm{d}}{\mathrm{d}x}\left(\sum_{n=0}^\infty\frac{a_{n+k}\cdot x^n}{n!}\right)\quad \text{by assumption}\\
+    &= \sum_{n=0}^\infty\frac{a_{n+k}\cdot n\cdot x^{n-1}}{n!}\\
+    &= \sum_{n=1}^\infty\frac{a_{n+k}\cdot x^{n-1}}{(n-1)!}\\
+    &= \sum_{n=0}^\infty\frac{a_{n+k+1}\cdot x^{n}}{n!}\\
+    &= \text{RHS}
+\end{align*}
+
+Thus, if the derivative of the series shown in eqref:eq:exp-gen-def-1 shifts the
+sequence across, then every derivative thereafter does so as well, because the
+first derivative has been shown to express this property
+eqref:eq:exp-pow-series-sol, all derivates will.
+
+**** TODO Homogeneous Proof                                                  :Ryan:James:
+An equation of the form:
+
+\begin{align}
+\sum^{n}_{i=0} \left[ c_{i} \cdot f^{(i)}(x) \right] = 0 \label{eq:hom-ode}
+\end{align}
+
+is said to be a homogenous linear ODE: [[cite:zillDifferentialEquations2009a][Ch. 2]]
+
+- Linear :: because the equation is linear with respect to $f(x)$
+- Ordinary :: because there are no partial derivatives (e.g. $\frac{\partial }{\partial x}{\left({ f{\left({ x }\right)} }\right)}$  )
+- Differential :: because the derivates of the function are concerned
+- Homogenous :: because the */RHS/* is 0
+  - A non-homogeous equation would have a non-zero RHS
+
+There will be $k$ solutions to a $k^{\mathrm{th}}$ order linear ODE, each may be summed to produce a superposition which will also be a solution to the equation, [[cite:zillDifferentialEquations2009a][Ch. 4]]  this will be considered as the desired complete solution (and this will be shown to be the only solution for the recurrence relation eqref:eq:recurrence-relation-def). These $k$ solutions will be in one of two forms:
+
+1. $f(x)=c_{i} \cdot e^{m_{i}x}$
+2. $f(x)=c_{i} \cdot x^{j}\cdot e^{m_{i}x}$
+
+where:
+
+- $\sum^{k}_{i=0}\left[  c_{i}m^{k-i} \right] = 0$
+  - This is referred to the characteristic equation of the recurrence relation or ODE cite:levinSolvingRecurrenceRelations2018
+- $\exists i,j \in \mathbb{Z}^{+} \cap \left[0,k\right]$
+  - These is often referred to as repeated roots cite:levinSolvingRecurrenceRelations2018,zillMatrixExponential2009 with a multiplicity corresponding to the number of repetitions of that root [[cite:nicodemiIntroductionAbstractAlgebra2007][\textsection 3.2]]
+
+***** Unique Roots of Characteristic Equation                               :Ryan:
+:PROPERTIES:
+:CUSTOM_ID: uniq-roots-recurrence
+:END:
+****** Example
+An example of a recurrence relation with all unique roots is the fibonacci sequence, as described in section [[#solving-the-sequence]].
+****** Proof
+Consider the linear recurrence relation eqref:eq:recurrence-relation-def:
+
+\begin{align}
+\sum^{n}_{i= 0}   \left[ c_i \cdot  a_i \right] = 0, \quad \exists c \in
+\mathbb{R}, \enspace \forall i<k\in\mathbb{Z}^+ \nonumber \label{eq:recurrence-relation-def}
+\end{align}
+This implies:
+
+
+\begin{align}
+    \sum^{\infty}_{n= 0}   \left[ \sum^{k}_{i= 0}   \left[ \frac{x^n}{n!} c_i a_n \right]  \right]  &= 0 \\
+    \sum^{\infty}_{n= 0}    \sum^{k}_{i= 0}    \frac{x^n}{n!} c_i a_n    &= 0 \\
+        \sum^{k}_{i= 0} c_i \sum^{\infty}_{n= 0}    \frac{x^n}{n!}  a_n    &= 0
+\end{align}
+
+By implementing the exponential generating function as shown in
+eqref:eq:exp-gen-def-1, this provides:
+
+\begin{align}
+   \sum^{k}_{i= 0}   \left[ c_i f^{\left( i \right)}\left( x \right) \right]
+\end{align}
+
+
+Now assume that the solution exists and all roots of the characteristic polynomial are unique (i.e. the solution is of the form $f{\left({ x }\right)} \propto e^{m_i x}: \quad m_i \neq m_j \forall i\neq j$), this implies that  [[cite:zillDifferentialEquations2009a][Ch. 4]] :
+
+\begin{align}
+    f{\left({ x }\right)} = \sum^{k}_{i= 0}   {\left[{ k_i e^{m_i x} }\right]}, \quad \exists m,k \in \mathbb{C} \nonumber
+\end{align}
+
+This can be re-expressed in terms of the exponential power series, in order to relate the solution of the function $f{\left({ x }\right)}$ back to a solution of the sequence $a_n$, (see section [[#prove-exp-power-series]] for a derivation of the exponential power series):
+
+\begin{align}
+    \sum^{k}_{i= 0}   {\left[{ k_i e^{m_i x}  }\right]}  &= \sum^{k}_{i= 0}   {\left[{ k_i \sum^{\infty}_{n= 0}   \frac{{\left({ m_i x }\right)}^n}{n!}  }\right]}  \nonumber \\
+							 &= \sum^{k}_{i= 0}  \sum^{\infty}_{n= 0}   k_i m_i^n \frac{x^n}{n!} \nonumber\\
+							 &=    \sum^{\infty}_{n= 0} \sum^{k}_{i= 0}   k_i m_i^n \frac{x^n}{n!} \nonumber \\
+							 &= \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}  \sum^{k}_{i=0}   {\left[{ k_im^n_i }\right]}  }\right]}, \quad \exists k_i \in \mathbb{C}, \enspace \forall i \in \mathbb{Z}^+\cap {\left[{ 1, k }\right]}     \label{eq:unique-root-sol-power-series-form}
+\end{align}
+
+
+Recall the definition of the generating function from eqref:eq:exp-gen-def-1, by relating this to eqref:eq:unique-root-sol-power-series-form:
+
+\begin{align}
+    f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{  \frac{x^n}{n!} a_n }\right]} \nonumber \\
+&= \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}  \sum^{k}_{i=0}   {\left[{ k_im^n_i }\right]}  }\right]}  \nonumber \\
+      \implies  a_n &= \sum^{k}_{n= 0} {\left[{ k_im_i^n }\right]}     \nonumber \\ \nonumber
+\square
+\end{align}
+
+This can be verified by the fibonacci sequence as shown in section [[#solving-the-sequence]], the solution to the characteristic equation is $m_1 = \varphi, m_2 = {\left({ 1-\varphi }\right)}$ and the corresponding solution to the linear ODE and recursive relation are:
+
+\begin{alignat}{4}
+    f{\left({ x }\right)} &= &c_1 e^{\varphi x} +  &c_2 e^{{\left({ 1-\varphi }\right)} x}, \quad &\exists c_1, c_2 \in \mathbb{R} \subset \mathbb{C} \nonumber \\
+    \iff  a_n &= &k_1 n^{\varphi} +  &k_2 n^{1- \varphi}, &\exists k_1, k_2 \in \mathbb{R} \subset \mathbb{C} \nonumber
+\end{alignat}
+
+***** Repeated Roots of Characteristic Equation                             :Ryan:
+:PROPERTIES:
+:CUSTOM_ID: rep-roots-recurrence
+:END:
+****** Example
+Consider the following recurrence relation:
+
+\begin{align}
+    a_n -  10a_{n+ 1} +  25a_{n+  2}&= 0 \label{eq:hom-repeated-roots-recurrence} \\
+    \implies  \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]} - 10 \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!}+    }\right]} + 25 \sum^{\infty}_{n= 0 }   {\left[{  a_{n+  2 }\frac{x^n}{n!} }\right]}&= 0 \nonumber
+\end{align}
+
+By applying the definition of the exponential generating function at eqref:eq:exp-gen-def-1 :
+
+\begin{align}
+    f''{\left({ x }\right)}- 10f'{\left({ x }\right)}+  25f{\left({ x }\right)}= 0 \nonumber \label{eq:rep-roots-func-ode}
+\end{align}
+
+By implementing the already well-established theory of linear ODE's, the
+characteristic equation for eqref:eq:rep-roots-func-ode can be expressed as:
+
+\begin{align}
+    m^2- 10m+  25 = 0 \nonumber \\
+    {\left({ m- 5 }\right)}^2 = 0 \nonumber \\
+    m= 5 \label{eq:rep-roots-recurrence-char-sol}
+\end{align}
+
+Herein lies a complexity, in order to solve this, the solution produced from eqref:eq:rep-roots-recurrence-char-sol can be used with the /Reduction of Order/ technique to produce a solution that will be of the form [[cite:zillMatrixExponential2009][\textsection 4.3]].
+
+\begin{align}
+    f{\left({ x }\right)}= c_1e^{5x} +  c_2 x e^{5x} \label{eq:rep-roots-ode-sol}
+\end{align}
+
+eqref:eq:rep-roots-ode-sol can be expressed in terms of the exponential power series in order to try and relate the solution for the function back to the generating function,
+observe however the following power series identity (TODO Prove this in section [[#prove-ext-exp-power-series-rep-roots]]):
+
+\begin{align}
+    x^ke^x &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}, \quad \exists k \in \mathbb{Z}^+ \label{eq:uniq-roots-pow-series-ident}
+\end{align}
+
+by applying identity eqref:eq:uniq-roots-pow-series-ident to equation eqref:eq:rep-roots-ode-sol
+
+\begin{align}
+    \implies  f{\left({ x }\right)} &= \sum^{\infty}_{n= 0}   {\left[{ c_1 \frac{{\left({ 5x }\right)}^n}{n!} }\right]}  +  \sum^{\infty}_{n= 0}   {\left[{ c_2 n \frac{{\left({ 5x^n }\right)}}{n{\left({ n-1 }\right)}!} }\right]} \nonumber \\
+ &= \sum^{\infty}_{n= 0}   {\left[{ \frac{x^n}{n!} {\left({ c_{1}5^n +  c_2 n 5^n   }\right)} }\right]} \nonumber
+\end{align}
+
+Given the defenition of the exponential generating function from eqref:eq:exp-gen-def-1
+
+\begin{align}
+    f{\left({ x }\right)}&=     \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]} \nonumber \\
+    \iff a_n &= c_{15}^n +  c_2n_5^n \nonumber \\ \nonumber
+    \ \nonumber \\
+    \square \nonumber
+\end{align}
+****** TODO Proof
+In order to prove the the solution for a $k^{\mathrm{th}}$ order recurrence relation with $k$ repeated
+
+
+Consider a recurrence relation of the form:
+
+\begin{align}
+     \sum^{k}_{n= 0}   {\left[{ c_i a_n }\right]}  = 0 \nonumber \\
+      \implies  \sum^{\infty}_{n= 0}   \sum^{k}_{i= 0}   c_i a_n \frac{x^n}{n!} = 0 \nonumber \\
+      \sum^{k}_{i= 0}   \sum^{\infty}_{n= 0}   c_i a_n \frac{x^n}{n!} \nonumber
+\end{align}
+
+By substituting for the value of the generating function (from eqref:eq:exp-gen-def-1):
+
+\begin{align}
+    \sum^{k}_{i= 0}   {\left[{ c_if^{{\left({ k }\right)}}  {\left({ x }\right)}    }\right]} \label{eq:gen-form-rep-roots-ode}
+\end{align}
+
+Assume that eqref:eq:gen-form-rep-roots-ode corresponds to a charecteristic polynomial with only 1 root of multiplicity $k$, the solution would hence be of the form:
+
+\begin{align}
+			 & \sum^{k}_{i= 0}   {\left[{ c_i m^i }\right]} = 0 \wedge m=B, \enspace  \exists! B \in \mathbb{C} \nonumber \\
+ \implies      f{\left({ x }\right)}&= \sum^{k}_{i= 0}   {\left[{ x^i A_i e^{mx} }\right]}, \quad \exists A \in \mathbb{C}^+, \enspace \forall i \in {\left[{ 1,k }\right]} \cap \mathbb{N}  \label{eq:sol-rep-roots-ode} \\
+\end{align}
+
+If we assume that (see section [[#power-series-comb]]):
+
+\begin{align}
+k \in \mathbb{Z} \implies x^k e^x = \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{{\left({ n- k }\right)}!} }\right]}     \label{eq:power-series-comb}
+\end{align}
+
+By applying this to eqref:eq:sol-rep-roots-ode :
+
+\begin{align}
+f{\left({ x }\right)}&=     \sum^{k}_{i= 0}   {\left[{ A_i \sum^{\infty}_{n= 0}   {\left[{ \frac{{\left({ x m }\right)}^n}{{\left({ n- i }\right)}!} }\right]}  }\right]} \nonumber \\
+&=     \sum^{\infty}_{n= 0}   {\left[{ \sum^{k}_{i=0} {\left[{ \frac{x^n}{n!}  \frac{n!}{{\left({ n- i }\right)}} A_i m^n }\right]}       }\right]} # \\
+&=     \sum^{\infty}_{n= 0} {\left[{ \frac{x^n}{n!}   \sum^{k}_{i=0} {\left[{  \frac{n!}{{\left({ n- i }\right)}} A_i m^n }\right]}       }\right]}
+\end{align}
+
+Recall the generating function that was used to get ref:eq:gen-form-rep-roots-ode:
+
+\begin{align}
+f{\left({ x }\right)}&= \sum^{\infty}_{n= 0}   {\left[{ a_n \frac{x^n}{n!} }\right]}      \nonumber \\
+ \implies  a_n &= \sum^{k}_{i= 0}   {\left[{ A_i \frac{n!}{{\left({ n- i }\right)}!} m^n  }\right]} \nonumber \\
+ &= \sum^{k}_{i= 0}   {\left[{ m^n A_i \prod_{0}^{k} {\left[{ n- {\left({ i- 1 }\right)} }\right]}   }\right]}
+& \intertext{$\because \enspace i \leq k$} \notag \\
+ &= \sum^{k}_{i= 0} {\left[{ A_i^* m^n n^i }\right]}, \quad \exists A_i \in \mathbb{C}, \enspace \forall i\leqk \in \mathbb{Z}^+ \nonumber \\
+\ \nonumber \\
+\square \nonumber
+\end{align}
+
+***** TODO General Proof
+:PROPERTIES:
+:CUSTOM_ID: general-gen-func-proof
+:END:
+In sections [[#uniq-roots-recurrence]] and [[*Unique Roots of Characteristic Equation]]
+it was shown that a recurrence relation can be related to an ODE and then that
+solution can be transformed to provide a solution for the recurrence relation,
+when the charecteristic polynomial has either complex roots or 1 repeated root.
+Generally the solution to a linear ODE will be a superposition of solutions for
+each root, repeated or unique and so a goal of our research will be to put this
+together to find a general solution for homogenous linear recurrence relations.
+
+Sketching out an approach for this:
+
+- Use the Generating function to get an ODE
+- The ODE will have a solution that is a combination of the above two forms
+- The solution will translate back to a combination of both above forms
+****** Power Series Combination                                            :James:
+:PROPERTIES:
+:CUSTOM_ID: power-series-comb
+:END:
+In this section a proof for identity ref:eq:power-series-comb is provided.
+******* Motivation
+
+Consider the function $f(x) = xe^x$. Using the taylor series formula we get the following:
+
+\begin{align*}
+    xe^x &= 0+\frac{1}{1!}x+\frac{2}{2!}x^2+\frac{3}{3!}x^3+\frac{4}{4!}x^4+\frac{5}{5!}x^5+\dots\\
+    &= \sum_{n=0}^\infty \frac{nx^n}{n!}\\
+    &= \sum_{n=1}^\infty \frac{x^n}{(n-1)!}
+\end{align*}
+
+Similarly, $f(x) = x^2e^x$ will give:
+\begin{align*}
+    x^2e^x &= \frac{0}{0!} + \frac{0x}{1!} + \frac{2x^2}{2!} + \frac{6x^3}{3!} + \frac{12x^4}{4!} + \frac{20x^5}{5!} + \dots\\
+    &= \frac{2\cdot 1x^2}{2!} + \frac{3\cdot 2 x^3}{3!} + \frac{4\cdot 3x^4}{4!} + \frac{5\cdot 4 x^5}{5!} + \dots\\
+    &= \sum_{n=2}^\infty \frac{n(n-1)x^n}{n!}\\
+    &= \sum_{n=2}^\infty \frac{x^n}{(n-2)!}
+\end{align*}
+
+We conjecture thatIf we continue this on, we get:
+
+\begin{align*}
+    x^ke^x = \sum_{n=k}^\infty \frac{x^n}{(n-k)!} \quad \text{for}~k\in \mathbb{Z^{+}}\cap0
+\end{align*}
+******* Proof by Induction
+To verify, let's prove this by induction.
+******** Base
+Test $k=0$
+\begin{align*}
+    LHS &= x^0e^x = e^x\\
+    RHS &= \sum_{n=0}^\infty \frac{x^n}{n!} = e^x\\
+\end{align*}
+Therefore LHS = RHS, so $k=0$ is true
+
+******** Bridge
+Assume $x^k e^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}$
+
+Using this assumption, prove for the next element $k+1$\\
+
+We need $x^{k+1}e^x = \sum_{n=k+1}^\infty\frac{x^n}{(n-(k+1))!}$
+
+\begin{align*}
+    \text{LHS} &= x^{k+1}e^x\\
+    &= x\cdot x^{k}e^x\\
+    &= x\cdot \sum_{n=k}^\infty\frac{x^n}{(n-k)!} \quad \text{(by assumption)}\\
+    &= \sum_{n=k}^\infty\frac{x^{n+1}}{(n-k)!}\\
+    &= \sum_{n=k+1}^\infty\frac{x^n}{(n-1-k)!} \quad \text{(re-indexing}~ n\text{)}\\
+    &= \sum_{n=k+1}^\infty\frac{x^n}{(n-(k+1))!}\\
+    &= RHS
+\end{align*}
+So by mathematical induction $f(x) = x^ke^x = \sum_{n=k}^\infty\frac{x^n}{(n-k)!}$ \text{for} $k \ge 0$
+
+Moving on, by applying identity eqref:eq:uniq-roots-pow-series-ident to equation eqref:eq:rep-roots-ode-sol
+
+*** Fibonacci Sequence and the Golden Ratio                                   :Ryan:
+:PROPERTIES:
+:CUSTOM_ID: fib-golden-ratio-proof
+:END:
+The /Fibonacci Sequence/ is actually very interesting, observe that the ratios of the terms converge to the /Golden Ratio/:
+
+\begin{align*}
+    F_n &= \frac{\varphi^n-\psi^n}{\varphi-\psi} = \frac{\varphi^n-\psi^n}{\sqrt 5} \\
+    \iff \frac{F_{n+1}}{F_n}	&= \frac{\varphi^{n+ 1} - \psi^{n+  1}}{\varphi^{n} - \psi^{n}} \\
+    \iff \lim_{n \rightarrow \infty}\left[ \frac{F_{n+1}}{F_n} \right]	&= \lim_{n \rightarrow \infty}\left[ \frac{\varphi^{n+ 1} - \psi^{n+  1}}{\varphi^{n} - \psi^{n}} \right] \\
+&= \frac{\varphi^{n+ 1} -\lim_{n \rightarrow \infty}\left[ \psi^{n +  1} \right] }{\varphi^{n} - \lim_{n \rightarrow \infty}\left[ \psi^n \right] } \\
+\text{because $\mid \psi \mid < 0$ $n \rightarrow \infty \implies \psi^{n} \rightarrow 0$:} \\
+&= \frac{\varphi^{n+  1} -  0}{\varphi^{n} -  0} \\
+&= \varphi
+\end{align*}
+
+We'll come back to this later on when looking at spirals and fractals.
+
+We hope to demonstrate this relationship between the ratio of successive terms
+of the fibonacci sequence without relying on ODEs and generating functions and
+by instead using limits and the /Monotone Convergence Theorem/, the hope being
+that this will reveal deeper underlying relationships between the /Fibonacci
+Sequence/, the /Golden Ratio/ and there occurrences in nature (such as the
+example in section [[#sunflower-example]] given that the both appear to occur in
+patterns observed in nature.
+
+We also hope to find a method to produce the the diagram shown in figure
+[[golden-spiral]] computationally, ideally by using the Turtle function in /Julia/.
+
+**** Fibonacci Sequence in Nature                                            :Ryan:
+:PROPERTIES:
+:CUSTOM_ID: sunflower-example
+:END:
+The distribution of sunflower seeds is an example of the /Fibonacci Sequence/
+occuring in a pattern observed in nature (see Figure [[sunflower]]).
+
+Imagine that the process a sunflower follows when placing seeds is as follows: [fn:sf]
+
+1. Place a seed
+2. Move some small unit away from the origin
+3. Rotate some constant angle $\mathtt{\theta}$ (or θ) from the previous seed (with respect to the origin).
+4. Repeat this process until a seed hits some outer boundary.
+
+This process can be simulated in Julia cite:bezansonJuliaFreshApproach2017 as shown in listing [[simulate-sunflower]],[fn:un] which combined with /ImageMagick/ (see e.g. [[montage-frac]]), produces output as shown in figure [[simulate-sunflower-image]] and [[simulate-sunflower-phi]].
+
+A distribution of seeds undder this process would be optimal if the amount of empty space was minimised, spirals, stars and swirls contain patterns compromise this.
+
+To minimize this, the proportion of the circle traversed in step 3 must be an
+irrational number, however this alone is not sufficent, the decimal values must
+also be not to approximated by a rational number, for example
+cite:NatureGoldenRatio2018:
+
++ $\pi \mod 1 \approx \frac{1}{7}=0.7142857142857143$
++ $e \mod 1 \approx \frac{5}{7}= 0.14285714285714285$
+
+It can be seen by simulation that $\phi$ and $\psi$ (because $\phi \mod 1 =
+\psi$) are solutions to this optimisation problem as shown in figure
+[[simulate-sunflower-phi]], this solution is unstable, a very minor change to the
+value will result in patterns re-emerging in the distribution.
+
+Another interesting property is that the number of spirals that appear to rotate
+clockwise and anti-clockwise appear to be fibonacci numbers. Connecting this
+occure with the relationship between the /Fibonacci Sequence/ as discussed in
+section [[#fib-golden-ratio-proof]] is something we hope to look at in this project.
+Illustrating this phenomena with /Julia/ by finding the mathematics to colour
+the correct spirals is also something we intend to look at in this project.
+
+The bottom right spiral in figure [[simulate-sunflower-image]] has a ratio of rotation of $\frac{1}{\pi}$, the spirals look similar to one direction of the spirals occuring in figure [[simulate-sunflower-phi]], it is not clear if there is any significance to this similarity.
+
+#+NAME: simulate-sunflower
+#+CAPTION: Simulation of the distribution of sunflowers as described in section [[#sunflower-example]]
+#+begin_src julia :eval never
+φ = 1.61803398875
+ψ = φ^-1
+ψ = 0.61803398875
+function sfSeeds(ratio)
+🐢 = Turtle()
+    for θ in [(ratio*2*π)*i for i in 1:3000]
+        gsave()
+        scale(0.05)
+        rotate(θ)
+#        Pencolor(🐢, rand(1)[1], rand(1)[1], rand(1)[1])
+        Forward(🐢, 1)
+        Rectangle(🐢, 50, 50)
+        grestore()
+    end
+    label = string("Ratio = ", round(ratio, digits = 8))
+    textcentered(label, 100, 200)
+end
+@svg begin
+    sfSeeds(φ)
+end 600 600
+#+end_src
+
+#+attr_html: :width 600px
+#+attr_latex: :width 9cm
+#+NAME: simulate-sunflower-image
+#+CAPTION: Simulated Distribution of Sunflower seeds as described in section [[#sunflower-example]] and listing [[simulate-sunflower]]
+[[file:sunflower-spirals-montage.png]]
+
+#+attr_html: :width 600px
+#+attr_latex: :width 9cm
+#+NAME: simulate-sunflower-phi
+#+CAPTION: Optimisation of simulated distribution of Sunflower seeds occurs for $\theta =2 \varphi  \pi$ as described in section [[#sunflower-example]] and listing [[simulate-sunflower]]
+[[file:golden-flower.svg]]
+
+
+#+attr_html: :width 600px
+#+attr_latex: :width 7cm
+#+NAME: sunflower
+#+CAPTION: Distribution of the seeds of a sunflower (see cite:simonbrassCCSearch2006 licenced under CC)
+[[file:sunflower.jpg]]
+
+** Persian Recursion                                                           :Ryan:
+This section contains an example of how a simple process can lead to the
+development of complex patterns when exposed to feedback and iteration.
+
+The /Persian Recursion/ is a simple procedure developed by Anne Burns in the 90s
+cite:burnsPersianRecursion1997 that produces fantastic patterns when provided
+with a relatively simple function.
+
+The procedure is begins with an empty or zero square matrix with sides $2^{n}+1,
+\enspace \exists n\in \mathbb{Z}^{+}$ and some value given to the edges:
+
+1. Decide on some four variable function with a finite domain and range of size $m$, for the example shown at listing [[persian-recursion-python]] and in figure [[6-rug]] the function $f(w,x,y,z)=(w+x+y+z) \mod m$ was chosen.
+2. Assign this value to the centre row and centre column of the matrix
+3. Repeat this for each newly enclosed subsmatrix.
+
+This is illustrated in figure [[persian-recursion-diagram]].
+
+This can be implemented computationally by defining a function that:
+
+- Takes the index of four corners enclosing a square sub-matrix of some matrix as input,
+- proceeds only if that square is some positive real value.
+- colours the centre column and row corresponding to a function of those four values
+- then calls itself on the corners of the four new sub-matrices enclosed by the
+  coloured row and column
+
+
+#+attr_html: :width 800px
+#+attr_latex: :width 6cm
+#+NAME: persian-recursion-diagram
+#+CAPTION: Diagram of the Persian Recursion, implemented with /Python/ in listing [[persian-recursion-python]]
+[[file:persian.svg]]
+
+This is demonstrated in listing [[persian-recursion-python]] with python and produces the output shown in figures [[6-rug]], various interesting examples are provided in the appendix at section [[#persian-recursion-examples]].
+
+By mapping the values to colours, patterns emerge, this emergence of complex
+patterns from simple rules is a well known and general phenomena that occurs in nature
+cite:EmergenceHowStupid2017,kivelsonDefiningEmergencePhysics2016.
+# Chaos and Fractals/ 2nd ed.:
+
+Many patterns that occur in nature can be explained by relatively simple rules
+that are exposed to feedback and iteration
+[[cite:peitgenChaosFractalsNew2004][p. 16]], this is a central theme of Alan
+Turing's /The Chemical Basis For Morphogenesis/
+cite:turingChemicalBasisMorphogenesis1952 which we hope to look in the course of
+this research.
+
+#+NAME: persian-recursion-python
+#+CAPTION: Implementation of the persian recursion scheme in /Python/
+#+BEGIN_SRC ipython :exports both :results raw drawer :eval never-export :session persian-recursion :ipyfile ./persian-recursion-0.svg
+%matplotlib inline
+# m is colours
+# n is number of folds
+# Z is number for border
+# cx is a function to transform the variables
+def main(m, n, z, cx):
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    # Make the Empty Matrix
+    mat = np.empty([2**n+1, 2**n+1])
+    main.mat = mat
+
+    # Fill the Borders
+    mat[:,0] = mat[:,-1] = mat[0,:] = mat[-1,:] = z
+
+    # Colour the Grid
+    colorgrid(0, mat.shape[0]-1, 0, mat.shape[0]-1, m)
+
+    # Plot the Matrix
+    plt.matshow(mat)
+
+# Define Helper Functions
+def colorgrid(l, r, t, b, m):
+    # print(l, r, t, b)
+    if (l < r -1):
+        ## define the centre column and row
+        mc = int((l+r)/2); mr = int((t+b)/2)
+
+        ## Assign the colour
+        main.mat[(t+1):b,mc] = cx(l, r, t, b, m)
+        main.mat[mr,(l+1):r] = cx(l, r, t, b, m)
+
+        ## Now Recall this function on the four new squares
+                #l r   t   b
+        colorgrid(l, mc, t, mr, m)    # NW
+        colorgrid(mc, r, t, mr, m)    # NE
+        colorgrid(l, mc, mr, b, m)    # SW
+        colorgrid(mc, r, mr, b, m)    # SE
+
+def cx(l, r, t, b, m):
+    new_col = (main.mat[t,l] + main.mat[t,r] +  main.mat[b,l] + main.mat[b,r]) % m
+    return new_col.astype(int)
+
+main(5,6, 1, cx)
+#+end_src
+
+
+
+#+attr_html: :width 400px
+#+attr_latex: :width 6cm
+#+NAME: 6-rug
+#+CAPTION: Output produced by listing [[persian-recursion-python]] with 6 folds
+#+RESULTS: persian-recursion-python
+[[file:./persian-recursion-0.svg]]
+
+** Julia Sets                                                                  :Ryan:
+*** Introduction
+Julia sets are a very interesting fractal and we hope to investigate them further in this project.
+*** Motivation
+Consider the iterative process $x \rightarrow x^{2}, \enspace x \in \mathbb{R}$,
+for values of $x>1$ this process will diverge and for $x<1$ it will converge.
+
+Now Consider the iterative process $z \rightarrow z^{2}, \enspace z \in \mathbb{C}$,
+for values of $\left\lvert z \right\rvert >1$ this process will diverge and for $\left\lvert z \right\rvert <1$ it will converge.
+
+Although this seems trivial this can be generalised.
+
+Consider:
+
+- The complex plane for $\left\lvert z \right\rvert \leq 1$
+- Some function $f_{c}(z) = z^{2} + c, \quad c \leq 1 \in \mathbb{C}$ that can be used to iterate with
+
+Every value on that plane will belong to one of the two following sets
+
+- $P_{c}$
+  + The set of values on the plane that converge to zero (prisoners)
+  + Define $Q^{(k)}_{c}$ to be the the set of values confirmed as prisoners after $k$ iterations of $f_{c}$
+    - this implies $\lim_{k \rightarrow \infty} \left[ Q^{(k)}_{c}  \right] = P_{c}$
+- $E_{c}$
+  + The set of values on the plane that tend to $\infty$ (escapees)
+
+In the case of $f_{0}(z) = z^{2}$ all values $\left\lvert z  \right \rvert \leq 1$ are bounded with $\left\lvert z  \right \rvert = 1$ being an unstable stationary circle, but let's investigate what happens for different iterative functions like $f_{1}(z) = z^{2} - 1$, despite how trivial this seems at first glance.
+
+*** Plotting the Sets
+:PROPERTIES:
+:ID:       baa21085-5d8f-4390-9bb7-43c3b51d940d
+:END:
+Although the convergence of values may appear simple at first, we'll implement a
+strategy to plot the prisoner and escape sets on the complex plane.
+
+Because this involves iteration and /Python/ is a little slow, We'll denote
+complex values as a vector[fn:vc] and define the operations as described in
+listing [[complex-vec]].[fn:ma]
+
+To implement this test we'll consider a function called ~escape_test~ that applies an
+iteration (in this case $f_{0}: z \rightarrow z^{2}$) until that value diverges or converges.
+
+While iterating with $f_{c}$ once $\left\lvert z \right\rvert >
+\mathrm{max}\left(\left\{c, 2\}\right)$, the value must diverge because
+$\left\lvert c \rvert\right \leq 1$, so rather than record whether or not the
+value converges or diverges, the ~escape_test~ can instead record the number of
+iterations $(k)$ until the value has crossed that boundary and this will provide
+a measurement of the rate of divergence.
+
+Then the ~escape_test~ function can be mapped over a matrix, where each element
+of that matrix is in turn mapped to a point on the cartesian plane, the resulting matrix
+can be visualised as an image [fn:im], this is implemented in listing
+[[py-circle-code]] and the corresponding output shown in [[py-circle-plot]].
+
+with respect to listing [[py-circle-code]]:
+
+- Observe that the ~magnitude~ function wasn't used:
+   a. This is because a ~sqrt~ is a costly operation and comparing two squares saves an operation
+
+
+
+#+NAME: complex-vec
+#+CAPTION: Defining Complex Operations with vectors
+#+BEGIN_SRC ipython :exports both :results raw :eval never-export :session julia-set :eval never-export
+from math import sqrt
+def magnitude(z):
+    # return sqrt(z[0]**2 + z[1]**2)
+    x = z[0]
+    y = z[1]
+    return sqrt(sum(map(lambda x: x**2, [x, y])))
+
+def cAdd(a, b):
+    x = a[0] + b[0]
+    y = a[1] + b[1]
+    return [x, y]
+
+
+def cMult(u, v):
+    x = u[0]*v[0]-u[1]*v[1]
+    y = u[1]*v[0]+u[0]*v[1]
+    return [x, y]
+#+end_src
+
+#+NAME: py-circle-code
+#+CAPTION: Circle of Convergence of $z$ under recursion
+#+BEGIN_SRC ipython :exports both :results raw :eval never-export :session julia-set :eval never-export :ipyfile ./circle-of-convergence.svg
+%matplotlib inline
+%config InlineBackend.figure_format = 'svg'
+import numpy as np
+def escape_test(z, num):
+    ''' runs the process num amount of times and returns the count of
+    divergence'''
+    c = [0, 0]
+    count = 0
+    z1 = z  #Remember the original value that we are working with
+    # Iterate num times
+    while count <= num:
+        dist = sum([n**2 for n in z1])
+        distc = sum([n**2 for n in c])
+        # check for divergence
+        if dist > max(2, distc):
+            #return the step it diverged on
+            return count
+        #iterate z
+        z1 = cAdd(cMult(z1, z1), c)
+        count+=1
+        #if z hasn't diverged by the end
+    return num
+
+
+
+p = 0.25 #horizontal, vertical, pinch (zoom)
+res = 200
+h = res/2
+v = res/2
+
+pic = np.zeros([res, res])
+for i in range(pic.shape[0]):
+    for j in range(pic.shape[1]):
+        x = (j - h)/(p*res)
+        y = (i-v)/(p*res)
+        z = [x, y]
+        col = escape_test(z, 100)
+        pic[i, j] = col
+
+import matplotlib.pyplot as plt
+
+plt.axis('off')
+plt.imshow(pic)
+# plt.show()
+
+#+end_src
+
+
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+#+NAME: py-circle-plot
+#+CAPTION: Circle of Convergence for $f_{0}: z \rightarrow z^{2}$
+[[file:circle-of-convergence.svg]]
+
+This is precisely what we expected, but this is where things get interesting,
+consider now the result if we apply this same procedure to $f_{1}: z \rightarrow
+z^{2} - 1$ or something arbitrary like $f_{\frac{1}{4} + \frac{i}{2}}: z
+\rightarrow z^{2} + (\frac{1}{4} + \frac{i}{2})$, the result is something
+remarkebly unexpected, as shown in figures [[py-jl-1-plot]] and [[py-jl-rab-plot]].
+
+
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+#+NAME: py-jl-1-plot
+#+CAPTION: Circle of Convergence for $f_{0}: z \rightarrow z^{2} - 1$
+[[file:./julia-1.svg]]
+
+
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+#+NAME: py-jl-rab-plot
+#+CAPTION: Circle of Convergence for $f_{\frac{1}{4} + \frac{i}{2}}: z \rightarrow z^{2} + \frac{1}{4} + \frac{i}{2}$
+[[file:./julia-rab.svg]]
+
+To investigate this further consider the
+more general function $f_{0.8 e^{\pi i \tau}}: z \rightarrow z^{2} + 0.8 e^{\pi
+i \tau}, \enspace \tau \in \mathbb{R}$, many fractals can be generated using
+this set by varying the value of $\tau$[fn:wk].
+
+/Python/ is too slow for this, but the /Julia/ programming language, as a
+compiled language, is significantly faster and has the benefit of treating
+complex numbers as first class citizens, these images can be generated in
+/Julia/ in a similar fashion as before, with the specifics shown in listing
+[[julia-gen-fracs]]. The ~GR~ package appears to be the best plotting library
+performance wise and so was used to save corresponding images to disc, this is
+demonstrated in listing [[GR-save]] where 1200 pictures at a 2.25 MP resolution were produced. [fn:tm]
+
+A subset of these images can be combined using /ImageMagick/ and ~bash~ to
+create a collage, /ImageMagick/ can also be used to produce an animation but it often
+fails and a superior approach is to use ~ffmpeg~, this is demonstrated in
+listing [[bash-frac-join]], the collage is shown in figure [[montage-frac]] and a corresponding
+animation is [[https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0][available online]][fn:ln]].
+
+#+NAME: julia-gen-fracs
+#+CAPTION: Produce a series of fractals using julia
+#+begin_src julia
+# * Define the Julia Set
+"""
+Determine whether or not a value will converge under iteration
+"""
+function juliaSet(z, num, my_func)
+    count = 1
+    # Remember the value of z
+    z1 = z
+    # Iterate num times
+    while count ≤ num
+        # check for divergence
+        if abs(z1)>2
+            return Int(count)
+        end
+        #iterate z
+        z1 = my_func(z1) # + z
+        count=count+1
+    end
+        #if z hasn't diverged by the end
+    return Int(num)
+end
+
+# * Make a Picture
+"""
+Loop over a matrix and apply apply the julia-set function to
+the corresponding complex value
+"""
+function make_picture(width, height, my_func)
+    pic_mat = zeros(width, height)
+    zoom = 0.3
+    for i in 1:size(pic_mat)[1]
+        for j in 1:size(pic_mat)[2]
+            x = (j-width/2)/(width*zoom)
+            y = (i-height/2)/(height*zoom)
+            pic_mat[i,j] = juliaSet(x+y*im, 256, my_func)
+        end
+    end
+    return pic_mat
+end
+
+#+end_src
+
+#+NAME: GR-save
+#+CAPTION: Generate and save the images with GR
+#+begin_src julia
+# * Use GR to Save a Bunch of Images
+  ## GR is faster than PyPlot
+using GR
+function save_images(count, res)
+    try
+        mkdir("/tmp/gifs")
+    catch
+    end
+    j = 1
+    for i in (1:count)/(40*2*π)
+        j = j + 1
+        GR.imshow(make_picture(res, res, z -> z^2 + 0.8*exp(i*im*9/2))) # PyPlot uses interpolation = "None"
+        name = string("/tmp/gifs/j", lpad(j, 5, "0"), ".png")
+        GR.savefig(name)
+    end
+end
+
+save_images(1200, 1500) # Number  and Res
+#+end_src
+
+#+NAME: bash-frac-join
+#+CAPTION: Using ~bash~, ~ffmpeg~ and /ImageMagick/ to combine the images and produce an animation.
+#+begin_src bash
+# Use montage multiple times to get recursion for fun
+montage (ls *png | sed -n '1p;0~600p') 0a.png
+montage (ls *png | sed -n '1p;0~100p') a.png
+montage (ls *png | sed -n '1p;0~50p') -geometry 1000x1000  a.png
+
+# Use ImageMagick to Produce a gif (unreliable)
+convert -delay 10 *.png 0.gif
+
+# Use FFMpeg to produce a Gif instead
+ffmpeg                    \
+    -framerate 60         \
+    -pattern_type glob    \
+    -i '*.png'            \
+    -r 15                 \
+    out.mov
+
+
+#+end_src
+
+#+NAME: montage-frac
+#+CAPTION: Various fracals corresponding to $f_{0.8 e^{\pi i \tau}}$
+[[attachment:_20200826_005334a.png]]
+
+** MandelBrot                                                                  :Ryan:
+:PROPERTIES:
+:ID:       c0c790f2-93a7-44f1-9f76-4a20bcd66c62
+:DIR:      /home/ryan/Dropbox/Studies/2020Spring/QuantProject/Current/Python-Quant/Outline/
+:END:
+Investigating these fractals, a natural question might be whether or not any
+given $c$ value will produce a fractal that is an open disc or a closed disc.
+
+So pick a value $\left\lvert \gamma \right \rvert < 1$ in the complex plane and
+use it to produce the julia set $f_{\gamma}$, if the corresponding prisoner set
+$P$ is closed we this value is defined as belonging to the /Mandelbrot/ set.
+
+It can be shown (and I intend to show it generally), that this set is equivalent to re-implementing the previous strategy such that $z \rightarrow z^{2} + z_{0}$ where $z_{0}$ is unchanging or more clearly as a seqeuence:
+
+\begin{align}
+z_{n+1} &= z^{2}_n + c \label{eq:mb-sequence} \\
+z_{0}   &= c
+\end{align}
+
+This strategy is implemented in listing [[mandelbrot-py]] and produces the output shown in figure [[mandelbrot-py-pic]].
+
+#+NAME: py-mandelbrot-code
+#+CAPTION: All values of $c$ that lead to a closed /Julia-set/
+#+BEGIN_SRC ipython :exports both :results raw :eval never-export :session julia-set :eval never-export :ipyfile ./mandelbrot-py.svg
+%matplotlib inline
+%config InlineBackend.figure_format = 'svg'
+def mandelbrot(z, num):
+    ''' runs the process num amount of times and returns the count of
+    divergence'''
+    count = 0
+    # Define z1 as z
+    z1 = z
+    # Iterate num times
+    while count <= num:
+        # check for divergence
+        if magnitude(z1) > 2.0:
+            #return the step it diverged on
+            return count
+        #iterate z
+        z1 = cAdd(cMult(z1, z1),z)
+        count+=1
+        #if z hasn't diverged by the end
+    return num
+
+import numpy as np
+
+
+p = 0.25 # horizontal, vertical, pinch (zoom)
+res = 200
+h = res/2
+v = res/2
+
+pic = np.zeros([res, res])
+for i in range(pic.shape[0]):
+    for j in range(pic.shape[1]):
+        x = (j - h)/(p*res)
+        y = (i-v)/(p*res)
+        z = [x, y]
+        col = mandelbrot(z, 100)
+        pic[i, j] = col
+
+import matplotlib.pyplot as plt
+plt.imshow(pic)
+# plt.show()
+#+end_src
+
+#+attr_html: :width 600px
+#+attr_latex: :width 8cm
+#+NAME: mandelbrot-py-pic
+#+CAPTION: Mandelbrot Set produced in /Python/ as shown in listing [[py-mandelbrot-code]]
+#+RESULTS: py-mandelbrot-code
+[[file:./mandelbrot-py.svg]]
+
+This output although remarkable is however fairly undetailed, by using /Julia/ a much
+larger image can be produced, in /Julia/ producing a 4 GB, 400 MP image can be done in little time
+(about 10 minutes on my system), this is demonstrated in listing [[julia-large-mandelbrot]]
+and the corresponding FITS image is [[https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0][available-online.]][fn:ft]
+
+#+NAME:
+#+begin_src julia
+function mandelbrot(z, num, my_func)
+    count = 1
+    # Define z1 as z
+    z1 = z
+    # Iterate num times
+    while count ≤ num
+        # check for divergence
+        if abs(z1)>2
+            return Int(count)
+        end
+        #iterate z
+        z1 = my_func(z1) + z
+        count=count+1
+    end
+        #if z hasn't diverged by the end
+    return Int(num)
+end
+
+function make_picture(width, height, my_func)
+    pic_mat = zeros(width, height)
+    for i in 1:size(pic_mat)[1]
+        for j in 1:size(pic_mat)[2]
+            x = j/width
+            y = i/height
+            pic_mat[i,j] = mandelbrot(x+y*im, 99, my_func)
+        end
+    end
+    return pic_mat
+end
+
+
+using FITSIO
+function save_picture(filename, matrix)
+    f = FITS(filename, "w");
+    # data = reshape(1:100, 5, 20)
+    # data = pic_mat
+    write(f, matrix)  # Write a new image extension with the data
+
+    data = Dict("col1"=>[1., 2., 3.], "col2"=>[1, 2, 3]);
+    write(f, data)  # write a new binary table to a new extension
+
+    close(f)
+end
+
+# * Save Picture
+#------------------------------------------------------------
+my_pic = make_picture(20000, 20000, z -> z^2) 2000^2 is 4 GB
+save_picture("/tmp/a.fits", my_pic)
+
+#+end_src
+
+#+attr_html: :width 500px
+#+attr_latex: :width 10cm
+#+NAME: mandelbrot-screen
+#+CAPTION: Screenshot of Mandelbrot FITS image produced by listing [[julia-large-mandelbrot]]
+[[file:_20200828_233844screenshot.png]]
+** Relevant Sources
+To guide research for our topic /Chaos and Fractals/ by Pietgen, Jurgens and Saupe cite:peitgenChaosFractalsNew2004 will act as a map of the topic broadly, other than the sources referenced already, we anticipate referring to the following textbooks that we access to throughout the project:
+
+- /Integration of Fuzzy Logic and Chaos Theory/      cite:liIntegrationFuzzyLogic2006
+- /Advances in Chaos Theory and Intelligent Control/ cite:azarAdvancesChaosTheory2016
+- /NonLinear Dynamics and Chaos/                     cite:strogatzNonlinearDynamicsChaos2015
+- /The NonLinear Universe/                           cite:scottNonlinearUniverseChaos2007
+- /Chaos and Fractals/                               cite:peitgenChaosFractalsNew2004
+- /Turbulent Mirror/                                 cite:briggsTurbulentMirrorIllustrated1989
+- /Fractal Geometry/                                 cite:falconerFractalGeometryMathematical2003b
+- /Math Adventures with Python/                      cite:farrellMathAdventuresPython2019
+- /The Topology of Chaos/                            cite:gilmoreTopologyChaosAlice2002
+- /Chaotic Dynamics/                                 cite:telChaoticDynamicsIntroduction2006
+
+Ron Knott's website appears also to have a lot of material related to patterns, the /Fibonacci Sequence/ and the /Golden Ratio/, we intend to have a good look through that material as well. cite:ronknottFibonacciNumbersGolden2016
+
+** Appendix
+
+#+NAME: py-env
+#+CAPTION: Preamble for /Python/ Environment
+#+BEGIN_SRC python
+  from __future__ import division
+  from sympy import *
+  x, y, z, t = symbols('x y z t')
+  k, m, n = symbols('k m n', integer=True)
+  f, g, h = symbols('f g h', cls=Function)
+  init_printing()
+  init_printing(use_latex='mathjax', latex_mode='equation')
+
+
+  import pyperclip
+  def lx(expr):
+      pyperclip.copy(latex(expr))
+      print(expr)
+
+  import numpy as np
+  import matplotlib as plt
+
+  import time
+
+  def timeit(k):
+      start = time.time()
+      k
+      print(str(round(time.time() - start, 9)) + "seconds")
+#+END_SRC
+
+*** Persian Recursian Examples
+:PROPERTIES:
+:CUSTOM_ID: persian-recursion-examples
+:END:
+
+
+#+NAME: 8-fold-code
+#+CAPTION: Enhance listing [[persian-recursion-python]] to create 9 folds
+#+BEGIN_SRC ipython :exports output :results raw :eval never-export :session persian-recursion :eval never-export :ipyfile ./persian-recursion-large.svg
+%config InlineBackend.figure_format = 'svg'
+main(5, 9, 1, cx)
+#+END_SRC
+[[./persian-recursion-large.svg]]
+
+
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+#+NAME: 8-fold-plot
+#+CAPTION: Output produced by listing [[persian-recursion-python]] with 9 folds
+
+#+NAME: new-func-code
+#+CAPTION: Modify the Function to use $f(w,x,y,z) = (w + x + y + z - 7) \mod 8$
+#+BEGIN_SRC ipython :exports both :results raw drawer :eval never-export :session persian-recursion :eval never-export :ipyfile ./persian-recursion-new-func.svg
+%config InlineBackend.figure_format = 'svg'
+def cx(l, r, t, b, m):
+    new_col = (main.mat[t,l] + main.mat[t,r] +  main.mat[b,l] + main.mat[b,r]-7) % m
+    return new_col.astype(int)
+main(8, 8, 1, cx)
+#+END_SRC
+
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+#+NAME: new-func-plot
+#+CAPTION: Output produced by listing [[new-func-code]] using $f(w,x,y,z) = (w + x + y + z - 7) \mod 8$
+#+RESULTS: new-func-code
+[[file:./persian-recursion-new-func.svg]]
+
+
+#+NAME: new-func2-code
+#+CAPTION: Modify the function to use $f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1$
+#+BEGIN_SRC ipython :exports both :results raw drawer :eval never-export :session persian-recursion :eval never-export :ipyfile ./persian-recursion-new-func2.svg
+%config InlineBackend.figure_format = 'svg'
+import numpy as np
+def cx(l, r, t, b, m):
+    new_col = (main.mat[t,l] + main.mat[t,r]*m +  main.mat[b,l]*(m) + main.mat[b,r]*(m))**1 % m + 1
+    return new_col.astype(int)
+main(8, 8, 1, cx)
+#+END_SRC
+
+
+#+attr_html: :width 400px
+#+attr_latex: :width 9cm
+#+NAME: new-func2-plot
+#+CAPTION: Output produced by listing [[new-func2-code]] using $f(w,x,y,z) = (w + 8x + 8y + 8z) \mod 8 + 1$
+#+RESULTS: new-func2-code
+[[file:./persian-recursion-new-func2.svg]]
+*** Figures
+
+#+NAME: xkcd-complex-numbers
+#+CAPTION: XKCD 2028: Complex Numbers
+[[file:complex_numbers.png]]
+*** Why Julia
+:PROPERTIES:
+:CUSTOM_ID: why-julia
+:END:
+
+The reason we resolved to make time to investigate /Julia/ is because we see it as a very important tool for mathematics in the future, in particular because:
+
+- It is a new modern language, designed primarily with mathematics in mind
+  + First class support for UTF8 symbols
+  + Full Support to call /*R*/ and /Python/.
+- Performance wise it is best in class and only rivalled by compiled languages such as /Fortran/ /Rust/ and */C/*
+  + /Just in Time Compiling/ allows for a very useable /REPL/ making Julia
+    significantly more appealing than compiled languages
+  + The syntax of Julia is very similar to /Python/ and /*R*/
+- The ~DifferentialEquations.jl~ library is one of the best performing libraries available.
+
+***** Other Packages
+:PROPERTIES:
+:CUSTOM_ID: other-tools
+:END:
+Other packages that are on our radar for want of investigation are listed below, in practice it is unlikely that time will permit us to investigate many packages or libraries
+
+    + Programming Languages and CAS
+      - Julia
+        + SymEngine.jl
+        + Symata.jl
+        + SymPy.jl
+      - Maxima
+        + Being the oldest there is probably a lot too learn
+      - Julia
+      - Reduce
+      - Xcas/Gias
+      - Python
+        + Numpy
+        + Sympy
+    + Visualisation
+      - Makie
+      - Plotly
+      - GNUPlot
+
+** Footnotes
+
+[fn:un] Emojis and UTF8 were used in this code, and despite using ~xelatex~ with ~fontspec~ they aren't rendering properly, we intend to have this rectified in time for final submission.
+
+[fn:fb] See section [[#fib-golden-ratio-proof ]]
+
+[fn:nt] The amount of independence that our supervisor afforded us to
+investigate other languages is something that we are both extremely grateful for.
+
+[fn:jl] See section [[why-julia]]
+
+[fn:sf]  This process is simply conjecture, other than seeing a very nice example at [[https://www.mathsisfun.com/numbers/nature-golden-ratio-fibonacci.html][/MathIsFun.com/]]
+cite:NatureGoldenRatio2018, we have no evidence to suggest that this is the way
+that sunflowers distribute there seeds.
+
+However the simulations performed within /Julia/ are very encouraging and
+suggest that this process isn't too far off.
+
+[fn:jp] See cite:GnuplotFractalMandelbrot for an excellent, albeit quite old, resource on GNUPlot.
+
+[fn:ft] [[https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0][https://www.dropbox.com/s/jd5qf1pi2h68f2c/mandelbrot-400mpx.fits?dl=0]]
+
+[fn:tm] On my system this took about 30 minutes.
+
+[fn:ln] [[https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0][https://dl.dropboxusercontent.com/s/rbu25urfg8sbwfu/out.gif?dl=0]]
+
+[fn:wk] This approach was inspired by an animation on the /Julia Set/ Wikipedia article cite:JuliaSet2020
+
+[fn:im] these cascading values are much like brightness in Astronomy
+
+[fn:ma] This technique was adapted from Chapter 7 of /Math adventures with Python/ cite:farrellMathAdventuresPython2019
+
+[fn:vc] See figure [[xkcd-im]] for the obligatory /XKCD/ Comic
+
+[fn:cch] Dr. Hazrat mentions something similar in his book with respect to
+/Mathematica/\textsuperscript{\textregistered}
+[[cite:hazratMathematicaProblemCenteredApproach2015][Ch. 13]]
+
+[fn:pja] This problem is taken from Project A (44) of Dr. Hazrat's /Mathematica: A Problem Centred Approach/ cite:hazratMathematicaProblemCenteredApproach2015
+
+[fn:op] Although proprietary software such as Magma, Mathematica and Maple is very good, the restrictive licence makes them undesirable for study because there is no means by which to inspect the problem solving tecniques implemented, build on top of the work and moreover the lock-in nature of the software makes it a risky investment with respect to time.
+
+[fn:rv] Although Hardy made a good defence of pure math in his 1940s Apology cite:hardyMathematicianApology2012, it isn't rare at all for pure math to be found applications, for example much number theory was probably seen as fairly pure before RSA Encryption cite:spraulHowSoftwareWorks2015.

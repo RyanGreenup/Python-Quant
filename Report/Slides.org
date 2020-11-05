@@ -6,11 +6,6 @@
   :CUSTOM_ID: introduction-ryan
   :END:
 
-** A note on Images in this report
-   :PROPERTIES:
-   :CUSTOM_ID: a-note-on-images-in-this-report
-   :END:
-
 * Fractals
   :PROPERTIES:
   :CUSTOM_ID: fractals
@@ -21,20 +16,10 @@
    :CUSTOM_ID: definition-of-a-fractal-ryan
    :END:
 
-** Fractals Generally :James:
-   :PROPERTIES:
-   :CUSTOM_ID: fractals-generally-james
-   :END:
-
 ** Fractal Dimension
    :PROPERTIES:
    :CUSTOM_ID: fractal-dimension
    :END:
-
-*** Topological Equivalence :Ryan:
-    :PROPERTIES:
-    :CUSTOM_ID: topological-equivalence-ryan
-    :END:
 
 *** Hausdorff Measure :Ryan:
     :PROPERTIES:
@@ -66,12 +51,73 @@
     :CUSTOM_ID: hausdorff-dimension-ryan
     :END:
 
-*** Box Counting Dimension :James:
-    :PROPERTIES:
-    :CUSTOM_ID: box-counting-dimension-james
-    :END:
+*** Box Counting Dimension                                                    :James:
+:PROPERTIES:
+:CUSTOM_ID: box-count-dim
+:END:
+**** *Why use this method?*
+- Relatively easy to calculate
+- Equal to the Hausdorff Dimension in some cases
+- Can be applied to non-self similar fractals
 
-** Generating Self Similar Fractals :Ryan:
+**** *Definition*
+The box-counting dimension is defined as the following from (Falconer, 2003)
+
+Let $F$ be any non-empty bounded subset of $\mathbb{R}^n$ and let $N_\delta(F)$ be the smallest
+number of sets of diameter at most $\delta$ which can cover $F$. The /lower/ and /upper/
+box-counting dimensions of $F$ respectively are defined as
+
+\begin{equation*}
+    \underline{\text{dim}}_BF = \underline{\lim}_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}
+\end{equation*}
+\begin{equation*}
+\overline{\text{dim}}_BF = \overline{\lim}_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}
+\end{equation*}
+
+When the /lower/ and /upper/ box-counting dimensions of $F$ are equal, then
+
+\begin{equation*}
+\text{dim}_BF = \lim_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}
+\end{equation*}
+
+**** *Problems*
+- May not be defined if the lower and upper dimensions are not equal
+- Pixel limitation with images of non-self similar fractals
+
+**** *Examples*
+For example, suppose we had a square with side length 1 and we use smaller squares of side
+length $\frac{1}{\delta}$ to cover the larger square. This would mean that one side of the
+large square would need $\delta$ $\frac{1}{\delta}$ small squares, and so to cover
+the entire square, one would need $n^2$ small squares, i.e. $N_{\frac{1}{n}}(F) = n^2$. Now,
+substituting these values into the box-counting definition, we get:
+
+\begin{align*}
+\text{dim}_BF &= \lim_{\frac{1}{\delta} \to 0} \frac{\ln(\delta^2)}{-\ln(\frac{1}{\delta})}\\
+&= \lim_{\frac{1}{\delta} \to 0} \frac{\ln(\delta^2)}{\ln(\delta)}\\
+&= \lim_{\frac{1}{\delta} \to 0} 2\frac{\ln(\delta)}{\ln(\delta)}\\
+&= 2
+\end{align*}
+
+Which is expected, because we know that a square is a 2-Dimensional shape. We
+can apply this same concept to fractals. Consider another example, the Koch
+Curve, a self similar fractal which we can calculate its dimension and provide a
+measure of roughness of the curve. If we take a close look at the curve progression, the pattern begins with one line segment and the middle third
+of the line is replaced with two sides of an equilateral triangle with side length
+$\frac{1}{3}$. After this first iteration, the line segment now becomes four line
+segments. Thus, if we use a square of length $\frac{1}{3^{\delta}}$ to cover the $\delta^{th}$
+iteration of the curve, there will be $4^{\delta}$ line segments covered.
+
+Let $F$ be the Koch Curve.
+\begin{align*}
+\text{dim}_BF &= \lim_{\frac{1}{3^{\delta}} \to 0} \frac{\ln(4^{\delta})}{-\ln(\frac{1}{3^{\delta}})}\\
+&= \lim_{\frac{1}{3^{\delta}} \to 0} \frac{\ln(4^{\delta})}{\ln(3^{\delta})}\\
+&= \lim_{\frac{1}{3^{\delta}} \to 0} \frac{\ln(4)}{\ln(3)}\\
+&= \frac{\ln(4)}{\ln(3)}
+\end{align*}
+
+**** TODO *Proving Box Counting and Hausdorff Equivalence*
+
+** Generating Self Similar Fractals (Possibly delete this??) :Ryan:
    :PROPERTIES:
    :CUSTOM_ID: generating-self-similar-fractals-ryan
    :END:
@@ -100,36 +146,6 @@
       :PROPERTIES:
       :CUSTOM_ID: pascals-triangle-ryan
       :END:
-
-*** Turtle
-    :PROPERTIES:
-    :CUSTOM_ID: turtle
-    :END:
-
-*** Pascals Triangle and Sierpinski's Triangle :James:
-    :PROPERTIES:
-    :CUSTOM_ID: pascals-triangle-and-sierpinskis-triangle-james
-    :END:
-
-**** Motivation
-     :PROPERTIES:
-     :CUSTOM_ID: motivation
-     :END:
-
-**** The connection
-     :PROPERTIES:
-     :CUSTOM_ID: the-connection
-     :END:
-
-**** The connection
-     :PROPERTIES:
-     :CUSTOM_ID: the-connection-1
-     :END:
-
-** Fractal Dimensions Sans Self Similarity :Ryan:
-   :PROPERTIES:
-   :CUSTOM_ID: fractal-dimensions-sans-self-similarity-ryan
-   :END:
 
 * Connecting Fractals to Natural Processes :Ryan:
   :PROPERTIES:
@@ -160,48 +176,131 @@
    :PROPERTIES:
    :CUSTOM_ID: the-golden-ratio-ryan
    :END:
+- Number ocurring in a wide variety of nature
+  - Sunflower seed heads
+  - Pinecones
+  - Tree branches
+  - Nautlius shells
+  - Spiral galaxies
+  - Many more
+- Ratio of two consecutive Fibonacci numbers $\frac{F_{n}}{F_{n-1}}$ as $n \to \infty$
+- By the Monotone Convergence Theorem the limit exists. Call this limit $L$
 
-** Golden Ratio In terms of the Fibonacci Sequence
-   :PROPERTIES:
-   :CUSTOM_ID: golden-ratio-in-terms-of-the-fibonacci-sequence
-   :END:
+\begin{equation*}
+    \lim_{n\to \infty}G_n = \lim_{n\to \infty}G_{n-1} = L
+\end{equation*}
 
-*** Prove that the Sequence is Bounded :James:
+\begin{align*}
+\lim_{n\to \infty}G_n &= \lim_{n \to \infty} \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
+&= 1 +  \lim_{n \to \infty} \frac{F_{n- 1} }{F_n} \\
+&=  1 +  \lim_{n \to \infty}\frac{1}{G_{n-1}} \\
+ \implies L &= 1 + \frac{1}{L}\\
+ L^2 &= L + 1\\
+ 0 &= L^2 - L - 1\\
+  \implies  L &= \frac{\sqrt{5} + 1  }{2} = \varphi
+\end{align*}
+** A closed Solution for the Fibonacci Numbers
     :PROPERTIES:
-    :CUSTOM_ID: prove-that-the-sequence-is-bounded-james
+    :CUSTOM_ID: solving-the-sequence
     :END:
 
-*** Find the Limit :James:
-    :PROPERTIES:
-    :CUSTOM_ID: find-the-limit-james
-    :END:
+Consider the Fibonacci Sequence:
 
-** Comments :Ryan:
-   :PROPERTIES:
-   :CUSTOM_ID: comments-ryan
-   :END:
+\begin{align}
+    a_{n}&= a_{n - 1} + a_{n - 2} \nonumber \\
+\iff a_{n+  2} &= a_{n+  1} +  a_n \label{eq:fib-def-shift}
+\end{align}
 
-*** Equivalent forms of the Golden Ratio
-    :PROPERTIES:
-    :CUSTOM_ID: equivalent-forms-of-the-golden-ratio
-    :END:
+Quite similar to the following ordinary differential equation:
 
-** A closed Solution for the Fibonacci Numbers :Ryan:
-   :PROPERTIES:
-   :CUSTOM_ID: a-closed-solution-for-the-fibonacci-numbers-ryan
-   :END:
+\begin{align*}
+f''\left( x \right)- f'\left( x \right)- f\left( x \right)=  0
+\end{align*}
 
-*** Golden Ratio
-    :PROPERTIES:
-    :CUSTOM_ID: golden-ratio
-    :END:
+Let $f(x)$ be the generating function:
+
+\begin{align}
+    f\left( x \right) &=  \sum^{\infty}_{n= 0}  a_{n} \cdot  \frac{x^n}{n!}   \label{eq:exp-gen-def-1} \\
+ \implies   f'\left( x \right) &=  \sum^{\infty}_{n= 0} a_{n+1} \cdot  \frac{x^n}{n!}  \label{eq:exp-gen-def-2} \\
+\implies    f''\left( x \right) &=  \sum^{\infty}_{n= 0} a_{n+2} \cdot  \frac{x^n}{n!}   \label{eq:exp-gen-def-3}
+\end{align}
+
+Fibonacci can now be expressed as:
+
+\begin{align*}
+\sum^{\infty}_{n= 0}  \frac{x^n}{n!} a_{n+  2} = \sum^{\infty}_{n= 0}  \frac{x^n}{n!} a_{n+  1}  + \sum^{\infty}_{n= 0}  \frac{x^n}{n!} a_{n}  \\
+\end{align*}
+
+Which gives:
+
+\begin{align*}
+    f''\left( x \right)- f'\left( x \right)- f\left( x \right)=  0
+\end{align*}
+
+By equations eqref:eq:exp-gen-def-1, eqref:eq:exp-gen-def-2 and eqref:eq:exp-gen-def-3.
+
+Solving the differential equation we get:
+
+\begin{align}
+f\left( x \right)= c_1 \cdot  \mathrm{exp}\left[ \left( \frac{1- \sqrt{5} }{2} \right)x \right] +  c_2 \cdot  \mathrm{exp}\left[ \left( \frac{1 +  \sqrt{5} }{2} \right)x \right]
+\end{align}
+
+We then use the following identity:
+
+\begin{align}
+    x^ke^{ax} = \sum_{n=0}^\infty \frac{(ax)^n}{(n-k)!} \quad \forall k \in \mathrm{Z}^+\cup \{0\}\\
+\end{align}
+
+where, if $k > n,~~(n-k)!~~ \text{diverges} ~~ \forall k,n \in \mathrm{Z}$ by:
+
+\begin{align}
+    \Gamma(n - k + 1) = (n-k)! = \int_0^\infty x^{n-k}e^{-x}\mathrm{d}x
+\end{align}
+
+Applying this identity to the differentail equation solution:
+
+\begin{align*}
+f(x) &= c_1\sum_{n=0}^\infty \left(\frac{1+\sqrt{5}}{2}\right)^n \cdot \frac{x^n}{n!} + c_2\sum_{n=0}^\infty \left( \frac{1-\sqrt{5}}{2}\right)^n\cdot \frac{x^n}{n!}\\
+&= \sum_{n=0}^\infty \frac{x^n}{n!} \left( c_1 \left( \frac{1+\sqrt{5}}{2}\right)^n + c_2 \left( \frac{1-\sqrt{5}}{2} \right)^n \right)
+\end{align*}
+
+Equating this to $\sum_{n=0}^\infty a_n\frac{x^n}{n!}$, we can conclude that:
+
+\begin{equation*}
+    a_n = c_1 \left( \frac{1+\sqrt{5}}{2}\right)^n + c_2 \left( \frac{1-\sqrt{5}}{2} \right)^n
+\end{equation*}
+
+Giving a final solution of:
+
+\begin{align}
+    a_n &= \frac{1}{\sqrt{5} } \left[ \left( \frac{1+  \sqrt{5} }{2}  \right)^n -  \left( \frac{1- \sqrt{5} }{2} \right)^n \right] \nonumber \\
+&= \frac{\varphi^n - \psi^n}{\sqrt{5} } \nonumber\\
+&=\frac{\varphi^n -  \psi^n}{\varphi - \psi} \label{eq:fib-sol}
+\end{align}
+
+where:
+
+- $\varphi = \frac{1+ \sqrt{5} }{2} \approx 1.61\ldots$
+- $\psi = 1-\varphi = \frac{1- \sqrt{5} }{2} \approx 0.61\ldots$
+
+This closed solution eqref:eq:fib-sol also demonstrates that successive terms of the Fibonacci numbers converge to the Golden Ratio:
+
+\begin{align*}
+    F_n &= \frac{\varphi^n-\psi^n}{\varphi-\psi} = \frac{\varphi^n-\psi^n}{\sqrt 5} \\
+    \iff \frac{F_{n+1}}{F_n}	&= \frac{\varphi^{n+ 1} - \psi^{n+  1}}{\varphi^{n} - \psi^{n}} \\
+    \iff \lim_{n \rightarrow \infty} \frac{F_{n+1}}{F_n}	&= \lim_{n \rightarrow \infty} \frac{\varphi^{n+ 1} - \psi^{n+  1}}{\varphi^{n} - \psi^{n}} \\
+&= \frac{\varphi^{n+ 1} -\lim_{n \rightarrow \infty} \psi^{n +  1} }{\varphi^{n} - \lim_{n \rightarrow \infty} \psi^n } \\
+\text{because $\mid \psi \mid < 0$ $n \rightarrow \infty \implies \psi^{n} \rightarrow 0$:} \\
+&= \frac{\varphi^{n+  1} -  0}{\varphi^{n} -  0} \\
+&= \varphi
+\end{align*}
 
 ** Sunflower Seeds; Fibonacci Numbers in Nature :Ryan:
    :PROPERTIES:
    :CUSTOM_ID: sunflower-seeds-fibonacci-numbers-in-nature-ryan
    :END:
 
-* Julia Sets :Ryan:
+* Julia Sets (possibly delete this?) :Ryan:
   :PROPERTIES:
   :CUSTOM_ID: julia-sets-ryan
   :END:
@@ -229,244 +328,7 @@
 7fac73de0d24ebddcf0874b6cf8d3531b064]:
 [[file:media/r-ggplot-linear-reg-julia.png]]
 
-* Mandelbrot Set :Ryan:
+* Mandelbrot Set (possibly delete this?) :Ryan:
   :PROPERTIES:
   :CUSTOM_ID: mandelbrot-set-ryan
   :END:
-
-* Conclusion :Ryan:
-  :PROPERTIES:
-  :CUSTOM_ID: conclusion-ryan
-  :END:
-
-* Appendix
-  :PROPERTIES:
-  :CUSTOM_ID: appendix
-  :END:
-
-** Code Listings
-   :PROPERTIES:
-   :CUSTOM_ID: code-listings
-   :END:
-
-** Resources Used for the Hausdorff Dimension
-   :PROPERTIES:
-   :CUSTOM_ID: resources-used-for-the-hausdorff-dimension
-   :END:
-
-** Functions for constructing the Julia Set
-   :PROPERTIES:
-   :CUSTOM_ID: functions-for-constructing-the-julia-set
-   :END:
-
-** Exponential Generating Functions
-   :PROPERTIES:
-   :CUSTOM_ID: exponential-generating-functions
-   :END:
-
-**** Derivative of the Exponential Generating Function
-     :PROPERTIES:
-     :CUSTOM_ID: derivative-of-the-exponential-generating-function
-     :END:
-
-***** Base :Ryan:
-      :PROPERTIES:
-      :CUSTOM_ID: base-ryan
-      :END:
-
-***** Bridge :James:
-      :PROPERTIES:
-      :CUSTOM_ID: bridge-james
-      :END:
-
-**** Homogeneous Proof :Ryan:James:
-     :PROPERTIES:
-     :CUSTOM_ID: homogeneous-proof-ryanjames
-     :END:
-
-***** Unique Roots of Characteristic Equation :Ryan:
-      :PROPERTIES:
-      :CUSTOM_ID: unique-roots-of-characteristic-equation-ryan
-      :END:
-
-****** Proof
-       :PROPERTIES:
-       :CUSTOM_ID: proof
-       :END:
-
-***** Repeated Roots of Characteristic Equation :Ryan:
-      :PROPERTIES:
-      :CUSTOM_ID: repeated-roots-of-characteristic-equation-ryan
-      :END:
-
-****** Example
-       :PROPERTIES:
-       :CUSTOM_ID: example
-       :END:
-
-****** Proof
-       :PROPERTIES:
-       :CUSTOM_ID: proof-1
-       :END:
-
-****** Power Series Identity for Products of Exponentials
-       :PROPERTIES:
-       :CUSTOM_ID: power-series-identity-for-products-of-exponentials
-       :END:
-
-1. Motivation :James:
-
-2. Proof by Induction :James:
-
-   1. Base
-
-   2. Bridge
-
-3. Establishing the Proof :Ryan:
-
-4. Divergence of the Gamma Function :James:
-
-***** General Proof
-      :PROPERTIES:
-      :CUSTOM_ID: general-proof
-      :END:
-
-****** Power Series Combination
-       :PROPERTIES:
-       :CUSTOM_ID: power-series-combination
-       :END:
-
-* Bibliography
-  :PROPERTIES:
-  :CUSTOM_ID: bibliography
-  :END:
-
-Fouss, François, Marco Saerens, and Masashi Shimbo. n.d. /Algorithms and
-Models for Network Data and Link Analysis/. Cambridge University Press.
-
-Nicodemi, Olympia, Melissa A. Sutherland, and Gary W. Towsley. n.d. /An
-Introduction to Abstract Algebra with Notes to the Future Teacher/.
-Pearson Prentice Hall.
-
-Zill, Dennis G, and Michael R Cullen. n.d. /Differential Equations/
-(version 7). 7th ed. Brooks/Cole.
-
-Zill, Dennis G., and Michael R. Cullen. n.d. "8.4 Matrix Exponential."
-In /Differential Equations with Boundary-Value Problems/, 7th
-ed. Brooks/Cole, Cengage Learning.
-
-NOITEMDATA:CTANPackageAnimate
-
-NOITEMDATA:PdftexThereAny
-
-NOITEMDATA:gomoryBenoitMandelbrot19242010
-
-NOITEMDATA:mandelbrotFractalGeometryNature1982
-
-NOITEMDATA:sandersonFractalsAreTypically2017
-
-NOITEMDATA:vicsekFractalGrowthPhenomena1992
-
-NOITEMDATA:telChaoticDynamicsIntroduction2006
-
-NOITEMDATA:edgarMeasureTopologyFractal2008a
-
-NOITEMDATA:gouyetPhysicsFractalStructures1996
-
-NOITEMDATA:falconerFractalGeometryMathematical2003b
-
-NOITEMDATA:jiangFractalAnalysisComplexity1998
-
-NOITEMDATA:zhuFractalMechanismCoastline2002
-
-NOITEMDATA:zhongFractalPropertiesShoreline2017
-
-NOITEMDATA:mandelbrotHowLongCoast1967
-
-NOITEMDATA:mandelbrotMisBehaviourMarkets2008
-
-NOITEMDATA:Fractal2020
-
-NOITEMDATA:peitgenChaosFractalsNew2004
-
-NOITEMDATA:gilmoreTopologyChaosAlice2002
-
-NOITEMDATA:strogatzNonlinearDynamicsChaos2015
-
-NOITEMDATA:baderSpacefillingCurvesIntroduction2013
-
-NOITEMDATA:liIntegrationFuzzyLogic2006
-
-NOITEMDATA:grahamConcreteMathematicsFoundation1994
-
-NOITEMDATA:edgarMeasureTopologyFractal2008
-
-NOITEMDATA:markpollicottFractalsDimensionTheory2005
-
-NOITEMDATA:ListFractalsHausdorff2020
-
-NOITEMDATA:falconerFractalGeometryMathematical2003
-
-NOITEMDATA:rcoreteamLanguageEnvironmentStatistical2020
-
-NOITEMDATA:bezansonJuliaFreshApproach2017
-
-NOITEMDATA:WelcomePythonOrg
-
-NOITEMDATA:JuliaGraphicsLuxorJl2020
-
-NOITEMDATA:PillowPillowPIL
-
-NOITEMDATA:JuliaImagesImagesJl2020
-
-NOITEMDATA:llcImageMagick
-
-NOITEMDATA:Astropy
-
-NOITEMDATA:JuliaAstroJuliaAstro
-
-NOITEMDATA:shellyallenFibonacciNature
-
-NOITEMDATA:benedettapalazzoNumbersNatureFibonacci2016
-
-NOITEMDATA:MinarovaNikoletta2014TFSN
-
-NOITEMDATA:NatureGoldenRatio2018
-
-NOITEMDATA:robertlambHowAreFibonacci2008
-
-NOITEMDATA:ronknottFibonacciNumbersGolden2016
-
-NOITEMDATA:prasadHowFibonacciNumber2018
-
-NOITEMDATA:brownHistoryApplicationsFibonacci2019
-
-NOITEMDATA:giordanoFirstCourseMathematical2014
-
-NOITEMDATA:briggsTurbulentMirrorIllustrated1989
-
-NOITEMDATA:mullerThisEquationWill2020
-
-NOITEMDATA:zillDifferentialEquationsBoundaryvalue2009
-
-NOITEMDATA:churchillComplexVariablesApplications2014
-
-NOITEMDATA:bohannonSunflowersShowComplex2016
-
-NOITEMDATA:ridleyPackingEfficiencySunflower1982
-
-NOITEMDATA:mathaiConstructingSunflowerHead1974
-
-NOITEMDATA:vogelBetterWayConstruct1979
-
-NOITEMDATA:farrellMathAdventuresPython2019
-
-NOITEMDATA:JuliaSet2020
-
-NOITEMDATA:mcmullenHausdorffDimensionConformal1998
-
-NOITEMDATA:bownScienceMandelbrotSet
-
-NOITEMDATA:lehmanReadingsMathematicsComputer2010
-
-NOITEMDATA:levinSolvingRecurrenceRelations2018
