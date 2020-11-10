@@ -10,9 +10,11 @@
 :REVEAL:
 #+REVEAL_THEME: simple
 #+REVEAL: :frag (appear)
+#+OPTIONS: toc:nil
+#+OPTIONS: num:nil
 :END:
 
-* Introduction                                                                  :Ryan:
+* Introduction                                                              
   :PROPERTIES:
   :CUSTOM_ID: introduction-ryan
   :END:
@@ -60,15 +62,17 @@
     :CUSTOM_ID: hausdorff-dimension-ryan
     :END:
 
-*** Box Counting Dimension                                                    :James:
+*** Box Counting Dimension
 :PROPERTIES:
 :CUSTOM_ID: box-count-dim
 :END:
+#+REVEAL:split
 **** *Why use this method?*
 - Relatively easy to calculate
 - Equal to the Hausdorff Dimension in some cases
 - Can be applied to non-self similar fractals
 
+#+REVEAL:split
 **** *Definition*
 The box-counting dimension is defined as the following from (Falconer, 2003)
 
@@ -82,24 +86,25 @@ box-counting dimensions of $F$ respectively are defined as
 \begin{equation*}
 \overline{\text{dim}}_BF = \overline{\lim}_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}
 \end{equation*}
-
+#+REVEAL:split
 When the /lower/ and /upper/ box-counting dimensions of $F$ are equal, then
 
 \begin{equation*}
 \text{dim}_BF = \lim_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}
 \end{equation*}
 
+#+REVEAL:split
 **** *Problems*
 - May not be defined if the lower and upper dimensions are not equal
 - Pixel limitation with images of non-self similar fractals
-
+#+REVEAL:split
 **** *Examples*
-For example, suppose we had a square with side length 1 and we use smaller squares of side
-length $\frac{1}{\delta}$ to cover the larger square. This would mean that one side of the
-large square would need $\delta$ $\frac{1}{\delta}$ small squares, and so to cover
-the entire square, one would need $n^2$ small squares, i.e. $N_{\frac{1}{n}}(F) = n^2$. Now,
-substituting these values into the box-counting definition, we get:
+- Suppose we had a square with side length 1
+- Use squares of side length $\frac{1}{\delta}$ to cover this larger square
+- The side of the large square is $\delta$ $\frac{1}{\delta}$ small squares
+- To cover the square, one would need $n^2$ small squares, i.e. $N_{\frac{1}{n}}(F) = n^2$
 
+#+REVEAL:split
 \begin{align*}
 \text{dim}_BF &= \lim_{\frac{1}{\delta} \to 0} \frac{\ln(\delta^2)}{-\ln(\frac{1}{\delta})}\\
 &= \lim_{\frac{1}{\delta} \to 0} \frac{\ln(\delta^2)}{\ln(\delta)}\\
@@ -107,15 +112,15 @@ substituting these values into the box-counting definition, we get:
 &= 2
 \end{align*}
 
-Which is expected, because we know that a square is a 2-Dimensional shape. We
-can apply this same concept to fractals. Consider another example, the Koch
-Curve, a self similar fractal which we can calculate its dimension and provide a
-measure of roughness of the curve. If we take a close look at the curve progression, the pattern begins with one line segment and the middle third
-of the line is replaced with two sides of an equilateral triangle with side length
-$\frac{1}{3}$. After this first iteration, the line segment now becomes four line
-segments. Thus, if we use a square of length $\frac{1}{3^{\delta}}$ to cover the $\delta^{th}$
-iteration of the curve, there will be $4^{\delta}$ line segments covered.
+#+REVEAL:split
 
+- Koch Curve, a self similar fractal
+- Pattern begins with one line segment and the middle third of the line is replaced with two sides of an equilateral triangle with side length
+$\frac{1}{3}$.
+- After this first iteration, the line segment now becomes four line segments.
+- If we use a square of length $\frac{1}{3^{\delta}}$ to cover the $\delta^{th}$ iteration of the curve, there will be $4^{\delta}$ line segments covered.
+
+#+REVEAL:split
 Let $F$ be the Koch Curve.
 \begin{align*}
 \text{dim}_BF &= \lim_{\frac{1}{3^{\delta}} \to 0} \frac{\ln(4^{\delta})}{-\ln(\frac{1}{3^{\delta}})}\\
@@ -124,63 +129,20 @@ Let $F$ be the Koch Curve.
 &= \frac{\ln(4)}{\ln(3)}
 \end{align*}
 
+#+REVEAL:split
 **** TODO *Proving Box Counting and Hausdorff Equivalence*
-
-** Generating Self Similar Fractals (Possibly delete this??)                   :Ryan:
-   :PROPERTIES:
-   :CUSTOM_ID: generating-self-similar-fractals-ryan
-   :END:
-
-*** Vicsek Fractal
-    :PROPERTIES:
-    :CUSTOM_ID: vicsek-fractal
-    :END:
-
-**** Sierpinskis Carpet and Cantor's Dust
-     :PROPERTIES:
-     :CUSTOM_ID: sierpinskis-carpet-and-cantors-dust
-     :END:
-
-**** Sierpinski's Triangle
-     :PROPERTIES:
-     :CUSTOM_ID: sierpinskis-triangle
-     :END:
-
-***** Chaos Game
-      :PROPERTIES:
-      :CUSTOM_ID: chaos-game
-      :END:
-
-***** Pascals Triangle :Ryan:
-      :PROPERTIES:
-      :CUSTOM_ID: pascals-triangle-ryan
-      :END:
-
-* Connecting Fractals to Natural Processes                                      :Ryan:
-  :PROPERTIES:
-  :CUSTOM_ID: connecting-fractals-to-natural-processes-ryan
-  :END:
-
-** Constructing a Simple Process
-   :PROPERTIES:
-   :CUSTOM_ID: constructing-a-simple-process
-   :END:
-
-** The Fibonacci Numbers
-   :PROPERTIES:
-   :CUSTOM_ID: the-fibonacci-numbers
-   :END:
-
-** The Dimension of the Fractal
-   :PROPERTIES:
-   :CUSTOM_ID: the-dimension-of-the-fractal
-   :END:
 
 * The Fibonacci Sequence and the Golden Ratio
   :PROPERTIES:
   :CUSTOM_ID: the-fibonacci-sequence-and-the-golden-ratio
   :END:
-** The Golden Ratio                                                            :Ryan:
+** Motivation
+#+REVEAL:split
+- Where is the Golden ratio useful
+- How the Golden ration is obtained
+- Why are the methods to solving DE and RR similar
+ 
+** The Golden Ratio
    :PROPERTIES:
    :CUSTOM_ID: the-golden-ratio-ryan
    :END:
@@ -191,17 +153,21 @@ Let $F$ be the Koch Curve.
   - Nautlius shells
   - Spiral galaxies
   - Many more
-- Ratio of two consecutive Fibonacci numbers $\frac{F_{n}}{F_{n-1}}$ as $n \to \infty$
+- Ratio of two consecutive Fibonacci numbers $\frac{F_{n+1}}{F_{n}}$ as $n \to \infty$
+#+REVEAL: split
 - By the Monotone Convergence Theorem the limit exists. Call this limit $L$
-
+- Let $G_n = \frac{F_{n+1}}{F_n}$
 \begin{equation*}
     \lim_{n\to \infty}G_n = \lim_{n\to \infty}G_{n-1} = L
 \end{equation*}
 
 \begin{align*}
-\lim_{n\to \infty}G_n &= \lim_{n \to \infty} \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
+\lim_{n\to \infty}G_n &= \lim_{n \to \infty} \frac{F_{n} +  F_{n-1} }{F_{n} } \\
 &= 1 +  \lim_{n \to \infty} \frac{F_{n- 1} }{F_n} \\
 &=  1 +  \lim_{n \to \infty}\frac{1}{G_{n-1}} \\
+\end{align*}
+#+REVEAL: split
+\begin{align*}
  \implies L &= 1 + \frac{1}{L}\\
  L^2 &= L + 1\\
  0 &= L^2 - L - 1\\
@@ -211,7 +177,7 @@ Let $F$ be the Koch Curve.
     :PROPERTIES:
     :CUSTOM_ID: solving-the-sequence
     :END:
-
+#+REVEAL:split
 Consider the Fibonacci Sequence:
 
 \begin{align}
@@ -225,6 +191,7 @@ Quite similar to the following ordinary differential equation:
 f''\left( x \right)- f'\left( x \right)- f\left( x \right)=  0
 \end{align*}
 
+#+REVEAL: split
 Let $f(x)$ be the generating function:
 
 \begin{align}
@@ -233,6 +200,7 @@ Let $f(x)$ be the generating function:
 \implies    f''\left( x \right) &=  \sum^{\infty}_{n= 0} a_{n+2} \cdot  \frac{x^n}{n!}   \label{eq:exp-gen-def-3}
 \end{align}
 
+#+REVEAL: split
 Fibonacci can now be expressed as:
 
 \begin{align*}
@@ -245,14 +213,14 @@ Which gives:
     f''\left( x \right)- f'\left( x \right)- f\left( x \right)=  0
 \end{align*}
 
-By equations eqref:eq:exp-gen-def-1, eqref:eq:exp-gen-def-2 and eqref:eq:exp-gen-def-3.
-
+#+REVEAL: split
 Solving the differential equation we get:
 
 \begin{align}
 f\left( x \right)= c_1 \cdot  \mathrm{exp}\left[ \left( \frac{1- \sqrt{5} }{2} \right)x \right] +  c_2 \cdot  \mathrm{exp}\left[ \left( \frac{1 +  \sqrt{5} }{2} \right)x \right]
 \end{align}
 
+#+REVEAL:split
 We then use the following identity:
 
 \begin{align}
@@ -265,7 +233,8 @@ where, if $k > n,~~(n-k)!~~ \text{diverges} ~~ \forall k,n \in \mathrm{Z}$ by:
     \Gamma(n - k + 1) = (n-k)! = \int_0^\infty x^{n-k}e^{-x}\mathrm{d}x
 \end{align}
 
-Applying this identity to the differentail equation solution:
+#+REVEAL:split
+Applying this identity to the differential equation solution:
 
 \begin{align*}
 f(x) &= c_1\sum_{n=0}^\infty \left(\frac{1+\sqrt{5}}{2}\right)^n \cdot \frac{x^n}{n!} + c_2\sum_{n=0}^\infty \left( \frac{1-\sqrt{5}}{2}\right)^n\cdot \frac{x^n}{n!}\\
@@ -278,6 +247,7 @@ Equating this to $\sum_{n=0}^\infty a_n\frac{x^n}{n!}$, we can conclude that:
     a_n = c_1 \left( \frac{1+\sqrt{5}}{2}\right)^n + c_2 \left( \frac{1-\sqrt{5}}{2} \right)^n
 \end{equation*}
 
+#+REVEAL:split
 Giving a final solution of:
 
 \begin{align}
@@ -290,56 +260,6 @@ where:
 
 - $\varphi = \frac{1+ \sqrt{5} }{2} \approx 1.61\ldots$
 - $\psi = 1-\varphi = \frac{1- \sqrt{5} }{2} \approx 0.61\ldots$
-
-This closed solution eqref:eq:fib-sol also demonstrates that successive terms of the Fibonacci numbers converge to the Golden Ratio:
-
-\begin{align*}
-    F_n &= \frac{\varphi^n-\psi^n}{\varphi-\psi} = \frac{\varphi^n-\psi^n}{\sqrt 5} \\
-    \iff \frac{F_{n+1}}{F_n}	&= \frac{\varphi^{n+ 1} - \psi^{n+  1}}{\varphi^{n} - \psi^{n}} \\
-    \iff \lim_{n \rightarrow \infty} \frac{F_{n+1}}{F_n}	&= \lim_{n \rightarrow \infty} \frac{\varphi^{n+ 1} - \psi^{n+  1}}{\varphi^{n} - \psi^{n}} \\
-&= \frac{\varphi^{n+ 1} -\lim_{n \rightarrow \infty} \psi^{n +  1} }{\varphi^{n} - \lim_{n \rightarrow \infty} \psi^n } \\
-\text{because $\mid \psi \mid < 0$ $n \rightarrow \infty \implies \psi^{n} \rightarrow 0$:} \\
-&= \frac{\varphi^{n+  1} -  0}{\varphi^{n} -  0} \\
-&= \varphi
-\end{align*}
-
-** Sunflower Seeds; Fibonacci Numbers in Nature :Ryan:
-   :PROPERTIES:
-   :CUSTOM_ID: sunflower-seeds-fibonacci-numbers-in-nature-ryan
-   :END:
-
-* Julia Sets (possibly delete this?)                                            :Ryan:
-  :PROPERTIES:
-  :CUSTOM_ID: julia-sets-ryan
-  :END:
-
-** Introduction
-   :PROPERTIES:
-   :CUSTOM_ID: introduction
-   :END:
-
-** Motivation
-   :PROPERTIES:
-   :CUSTOM_ID: motivation-1
-   :END:
-
-** Plotting the Sets
-   :PROPERTIES:
-   :CUSTOM_ID: plotting-the-sets
-   :END:
-
-** Dimension of the Julia Set
-   :PROPERTIES:
-   :CUSTOM_ID: dimension-of-the-julia-set
-   :END:
-
-7fac73de0d24ebddcf0874b6cf8d3531b064]:
-[[file:media/r-ggplot-linear-reg-julia.png]]
-
-* Mandelbrot Set (possibly delete this?)                                        :Ryan:
-  :PROPERTIES:
-  :CUSTOM_ID: mandelbrot-set-ryan
-  :END:
 
 * COMMENT Using Effort Estimates
 The [[https://orgmode.org/manual/Effort-Estimates.html][Effort Estimages]] in org-mode can be used to manage how much time each headline will take.
