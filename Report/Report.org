@@ -1163,7 +1163,7 @@ i) $\{G_{2n}\}_{n=1}^\infty$ is bounded below and decreasing
 i) $\{G_{2n-1}\}_{n=1}^\infty$ is bounded above and increasing
 
 
-Proving (i):\\
+Proving part 1:\\
 
 To show $\{G_{2n}\}_{n=1}^\infty$ is decreasing we will show $G_{2n} - G_{2(n+1)} > 0$ through the process of induction.
 
@@ -1206,8 +1206,8 @@ Since all Fibonacci numbers are positive, $\frac{F_{n-1}}{F_n} > 0$, so
 \end{equation*}
 Thus $G_n$ being bounded below implies $G_{2n}$ is also bounded below.
 
-Proving (ii):\\
-To show $\{G_{2n}\}_{n=1}^\infty$ is decreasing we will show $G_{2n-1} - G_{2(n+1)-1} < 0$ through the process of induction.
+Proving part 2:\\
+To show $\{G_{2n-1}\}_{n=1}^\infty$ is increasing we will show $G_{2n-1} - G_{2(n+1)-1} < 0$ through the process of induction.
 
 Proof: \\
 For least element $n = 1$:\\

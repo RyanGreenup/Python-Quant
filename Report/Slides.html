@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-10-23 Fri 12:14 -->
+<!-- 2020-11-05 Thu 21:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Emergence of Patterns in Nature and Chaos Theory</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="Ryan Greenup" />
+<meta name="author" content="James Guerra" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -239,6 +239,28 @@ org_html_manager.setup();  // activate after the parameters are set
     /*]]>*///-->
 // @license-end
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -247,31 +269,22 @@ org_html_manager.setup();  // activate after the parameters are set
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#introduction-ryan">1. Introduction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
-<ul>
-<li><a href="#a-note-on-images-in-this-report">1.1. A note on Images in this report</a></li>
-</ul>
-</li>
+<li><a href="#introduction-ryan">1. Introduction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
 <li><a href="#fractals">2. Fractals</a>
 <ul>
 <li><a href="#definition-of-a-fractal-ryan">2.1. Definition of a Fractal&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
-<li><a href="#fractals-generally-james">2.2. Fractals Generally&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></a></li>
-<li><a href="#fractal-dimension">2.3. Fractal Dimension</a>
+<li><a href="#fractal-dimension">2.2. Fractal Dimension</a>
 <ul>
-<li><a href="#topological-equivalence-ryan">2.3.1. Topological Equivalence&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
-<li><a href="#hausdorff-measure-ryan">2.3.2. Hausdorff Measure&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
-<li><a href="#hausdorff-dimension-ryan">2.3.3. Hausdorff Dimension&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
-<li><a href="#box-counting-dimension-james">2.3.4. Box Counting Dimension&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></a></li>
+<li><a href="#hausdorff-measure-ryan">2.2.1. Hausdorff Measure&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
+<li><a href="#hausdorff-dimension-ryan">2.2.2. Hausdorff Dimension&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
+<li><a href="#box-count-dim">2.2.3. Box Counting Dimension&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></a></li>
 </ul>
 </li>
-<li><a href="#generating-self-similar-fractals-ryan">2.4. Generating Self Similar Fractals&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
+<li><a href="#generating-self-similar-fractals-ryan">2.3. Generating Self Similar Fractals (Possibly delete this??)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
 <ul>
-<li><a href="#vicsek-fractal">2.4.1. Vicsek Fractal</a></li>
-<li><a href="#turtle">2.4.2. Turtle</a></li>
-<li><a href="#pascals-triangle-and-sierpinskis-triangle-james">2.4.3. Pascals Triangle and Sierpinski&rsquo;s Triangle&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></a></li>
+<li><a href="#vicsek-fractal">2.3.1. Vicsek Fractal</a></li>
 </ul>
 </li>
-<li><a href="#fractal-dimensions-sans-self-similarity-ryan">2.5. Fractal Dimensions Sans Self Similarity&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
 </ul>
 </li>
 <li><a href="#connecting-fractals-to-natural-processes-ryan">3. Connecting Fractals to Natural Processes&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
@@ -284,26 +297,11 @@ org_html_manager.setup();  // activate after the parameters are set
 <li><a href="#the-fibonacci-sequence-and-the-golden-ratio">4. The Fibonacci Sequence and the Golden Ratio</a>
 <ul>
 <li><a href="#the-golden-ratio-ryan">4.1. The Golden Ratio&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
-<li><a href="#golden-ratio-in-terms-of-the-fibonacci-sequence">4.2. Golden Ratio In terms of the Fibonacci Sequence</a>
-<ul>
-<li><a href="#prove-that-the-sequence-is-bounded-james">4.2.1. Prove that the Sequence is Bounded&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></a></li>
-<li><a href="#find-the-limit-james">4.2.2. Find the Limit&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></a></li>
+<li><a href="#solving-the-sequence">4.2. A closed Solution for the Fibonacci Numbers</a></li>
+<li><a href="#sunflower-seeds-fibonacci-numbers-in-nature-ryan">4.3. Sunflower Seeds; Fibonacci Numbers in Nature&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
 </ul>
 </li>
-<li><a href="#comments-ryan">4.3. Comments&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
-<ul>
-<li><a href="#equivalent-forms-of-the-golden-ratio">4.3.1. Equivalent forms of the Golden Ratio</a></li>
-</ul>
-</li>
-<li><a href="#a-closed-solution-for-the-fibonacci-numbers-ryan">4.4. A closed Solution for the Fibonacci Numbers&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
-<ul>
-<li><a href="#golden-ratio">4.4.1. Golden Ratio</a></li>
-</ul>
-</li>
-<li><a href="#sunflower-seeds-fibonacci-numbers-in-nature-ryan">4.5. Sunflower Seeds; Fibonacci Numbers in Nature&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
-</ul>
-</li>
-<li><a href="#julia-sets-ryan">5. Julia Sets&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
+<li><a href="#julia-sets-ryan">5. Julia Sets (possibly delete this?)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a>
 <ul>
 <li><a href="#introduction">5.1. Introduction</a></li>
 <li><a href="#motivation-1">5.2. Motivation</a></li>
@@ -311,29 +309,13 @@ org_html_manager.setup();  // activate after the parameters are set
 <li><a href="#dimension-of-the-julia-set">5.4. Dimension of the Julia Set</a></li>
 </ul>
 </li>
-<li><a href="#mandelbrot-set-ryan">6. Mandelbrot Set&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
-<li><a href="#conclusion-ryan">7. Conclusion&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
-<li><a href="#appendix">8. Appendix</a>
-<ul>
-<li><a href="#code-listings">8.1. Code Listings</a></li>
-<li><a href="#resources-used-for-the-hausdorff-dimension">8.2. Resources Used for the Hausdorff Dimension</a></li>
-<li><a href="#functions-for-constructing-the-julia-set">8.3. Functions for constructing the Julia Set</a></li>
-<li><a href="#exponential-generating-functions">8.4. Exponential Generating Functions</a></li>
-</ul>
-</li>
-<li><a href="#bibliography">9. Bibliography</a></li>
+<li><a href="#mandelbrot-set-ryan">6. Mandelbrot Set (possibly delete this?)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></a></li>
 </ul>
 </div>
 </div>
 <div id="outline-container-introduction-ryan" class="outline-2">
 <h2 id="introduction-ryan"><span class="section-number-2">1</span> Introduction&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h2>
 <div class="outline-text-2" id="text-introduction-ryan">
-</div>
-
-<div id="outline-container-a-note-on-images-in-this-report" class="outline-3">
-<h3 id="a-note-on-images-in-this-report"><span class="section-number-3">1.1</span> A note on Images in this report</h3>
-<div class="outline-text-3" id="text-a-note-on-images-in-this-report">
-</div>
 </div>
 </div>
 
@@ -348,25 +330,13 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-fractals-generally-james" class="outline-3">
-<h3 id="fractals-generally-james"><span class="section-number-3">2.2</span> Fractals Generally&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></h3>
-<div class="outline-text-3" id="text-fractals-generally-james">
-</div>
-</div>
-
 <div id="outline-container-fractal-dimension" class="outline-3">
-<h3 id="fractal-dimension"><span class="section-number-3">2.3</span> Fractal Dimension</h3>
+<h3 id="fractal-dimension"><span class="section-number-3">2.2</span> Fractal Dimension</h3>
 <div class="outline-text-3" id="text-fractal-dimension">
 </div>
 
-<div id="outline-container-topological-equivalence-ryan" class="outline-4">
-<h4 id="topological-equivalence-ryan"><span class="section-number-4">2.3.1</span> Topological Equivalence&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h4>
-<div class="outline-text-4" id="text-topological-equivalence-ryan">
-</div>
-</div>
-
 <div id="outline-container-hausdorff-measure-ryan" class="outline-4">
-<h4 id="hausdorff-measure-ryan"><span class="section-number-4">2.3.2</span> Hausdorff Measure&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h4>
+<h4 id="hausdorff-measure-ryan"><span class="section-number-4">2.2.1</span> Hausdorff Measure&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h4>
 <div class="outline-text-4" id="text-hausdorff-measure-ryan">
 </div>
 
@@ -396,25 +366,116 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 <div id="outline-container-hausdorff-dimension-ryan" class="outline-4">
-<h4 id="hausdorff-dimension-ryan"><span class="section-number-4">2.3.3</span> Hausdorff Dimension&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h4>
+<h4 id="hausdorff-dimension-ryan"><span class="section-number-4">2.2.2</span> Hausdorff Dimension&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h4>
 <div class="outline-text-4" id="text-hausdorff-dimension-ryan">
 </div>
 </div>
 
-<div id="outline-container-box-counting-dimension-james" class="outline-4">
-<h4 id="box-counting-dimension-james"><span class="section-number-4">2.3.4</span> Box Counting Dimension&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></h4>
-<div class="outline-text-4" id="text-box-counting-dimension-james">
+<div id="outline-container-box-count-dim" class="outline-4">
+<h4 id="box-count-dim"><span class="section-number-4">2.2.3</span> Box Counting Dimension&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></h4>
+<div class="outline-text-4" id="text-box-count-dim">
 </div>
+<ol class="org-ol">
+<li><a id="org198d29b"></a><b>Why use this method?</b><br />
+<div class="outline-text-5" id="text-2-2-3-1">
+<ul class="org-ul">
+<li>Relatively easy to calculate</li>
+<li>Equal to the Hausdorff Dimension in some cases</li>
+<li>Can be applied to non-self similar fractals</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org90a5b5b"></a><b>Definition</b><br />
+<div class="outline-text-5" id="text-2-2-3-2">
+<p>
+The box-counting dimension is defined as the following from (Falconer, 2003)
+</p>
+
+<p>
+Let \(F\) be any non-empty bounded subset of \(\mathbb{R}^n\) and let \(N_\delta(F)\) be the smallest
+number of sets of diameter at most \(\delta\) which can cover \(F\). The <i>lower</i> and <i>upper</i>
+box-counting dimensions of \(F\) respectively are defined as
+</p>
+
+\begin{equation*}
+    \underline{\text{dim}}_BF = \underline{\lim}_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}
+\end{equation*}
+\begin{equation*}
+\overline{\text{dim}}_BF = \overline{\lim}_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}
+\end{equation*}
+
+<p>
+When the <i>lower</i> and <i>upper</i> box-counting dimensions of \(F\) are equal, then
+</p>
+
+\begin{equation*}
+\text{dim}_BF = \lim_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}
+\end{equation*}
+</div>
+</li>
+
+<li><a id="org1f5a331"></a><b>Problems</b><br />
+<div class="outline-text-5" id="text-2-2-3-3">
+<ul class="org-ul">
+<li>May not be defined if the lower and upper dimensions are not equal</li>
+<li>Pixel limitation with images of non-self similar fractals</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org3af000b"></a><b>Examples</b><br />
+<div class="outline-text-5" id="text-2-2-3-4">
+<p>
+For example, suppose we had a square with side length 1 and we use smaller squares of side
+length \(\frac{1}{\delta}\) to cover the larger square. This would mean that one side of the
+large square would need \(\delta\) \(\frac{1}{\delta}\) small squares, and so to cover
+the entire square, one would need \(n^2\) small squares, i.e. \(N_{\frac{1}{n}}(F) = n^2\). Now,
+substituting these values into the box-counting definition, we get:
+</p>
+
+\begin{align*}
+\text{dim}_BF &= \lim_{\frac{1}{\delta} \to 0} \frac{\ln(\delta^2)}{-\ln(\frac{1}{\delta})}\\
+&= \lim_{\frac{1}{\delta} \to 0} \frac{\ln(\delta^2)}{\ln(\delta)}\\
+&= \lim_{\frac{1}{\delta} \to 0} 2\frac{\ln(\delta)}{\ln(\delta)}\\
+&= 2
+\end{align*}
+
+<p>
+Which is expected, because we know that a square is a 2-Dimensional shape. We
+can apply this same concept to fractals. Consider another example, the Koch
+Curve, a self similar fractal which we can calculate its dimension and provide a
+measure of roughness of the curve. If we take a close look at the curve progression, the pattern begins with one line segment and the middle third
+of the line is replaced with two sides of an equilateral triangle with side length
+\(\frac{1}{3}\). After this first iteration, the line segment now becomes four line
+segments. Thus, if we use a square of length \(\frac{1}{3^{\delta}}\) to cover the \(\delta^{th}\)
+iteration of the curve, there will be \(4^{\delta}\) line segments covered.
+</p>
+
+<p>
+Let \(F\) be the Koch Curve.
+</p>
+\begin{align*}
+\text{dim}_BF &= \lim_{\frac{1}{3^{\delta}} \to 0} \frac{\ln(4^{\delta})}{-\ln(\frac{1}{3^{\delta}})}\\
+&= \lim_{\frac{1}{3^{\delta}} \to 0} \frac{\ln(4^{\delta})}{\ln(3^{\delta})}\\
+&= \lim_{\frac{1}{3^{\delta}} \to 0} \frac{\ln(4)}{\ln(3)}\\
+&= \frac{\ln(4)}{\ln(3)}
+\end{align*}
+</div>
+</li>
+
+<li><a id="orgb37cb02"></a><span class="todo TODO">TODO</span> <b>Proving Box Counting and Hausdorff Equivalence</b><br /></li>
+</ol>
 </div>
 </div>
 
 <div id="outline-container-generating-self-similar-fractals-ryan" class="outline-3">
-<h3 id="generating-self-similar-fractals-ryan"><span class="section-number-3">2.4</span> Generating Self Similar Fractals&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
+<h3 id="generating-self-similar-fractals-ryan"><span class="section-number-3">2.3</span> Generating Self Similar Fractals (Possibly delete this??)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
 <div class="outline-text-3" id="text-generating-self-similar-fractals-ryan">
 </div>
 
 <div id="outline-container-vicsek-fractal" class="outline-4">
-<h4 id="vicsek-fractal"><span class="section-number-4">2.4.1</span> Vicsek Fractal</h4>
+<h4 id="vicsek-fractal"><span class="section-number-4">2.3.1</span> Vicsek Fractal</h4>
 <div class="outline-text-4" id="text-vicsek-fractal">
 </div>
 
@@ -441,41 +502,6 @@ org_html_manager.setup();  // activate after the parameters are set
 </ol>
 </li>
 </ol>
-</div>
-
-<div id="outline-container-turtle" class="outline-4">
-<h4 id="turtle"><span class="section-number-4">2.4.2</span> Turtle</h4>
-<div class="outline-text-4" id="text-turtle">
-</div>
-</div>
-
-<div id="outline-container-pascals-triangle-and-sierpinskis-triangle-james" class="outline-4">
-<h4 id="pascals-triangle-and-sierpinskis-triangle-james"><span class="section-number-4">2.4.3</span> Pascals Triangle and Sierpinski&rsquo;s Triangle&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></h4>
-<div class="outline-text-4" id="text-pascals-triangle-and-sierpinskis-triangle-james">
-</div>
-
-<ol class="org-ol">
-<li><a id="motivation"></a>Motivation<br />
-<div class="outline-text-5" id="text-motivation">
-</div>
-</li>
-
-<li><a id="the-connection"></a>The connection<br />
-<div class="outline-text-5" id="text-the-connection">
-</div>
-</li>
-
-<li><a id="the-connection-1"></a>The connection<br />
-<div class="outline-text-5" id="text-the-connection-1">
-</div>
-</li>
-</ol>
-</div>
-</div>
-
-<div id="outline-container-fractal-dimensions-sans-self-similarity-ryan" class="outline-3">
-<h3 id="fractal-dimensions-sans-self-similarity-ryan"><span class="section-number-3">2.5</span> Fractal Dimensions Sans Self Similarity&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
-<div class="outline-text-3" id="text-fractal-dimensions-sans-self-similarity-ryan">
 </div>
 </div>
 </div>
@@ -512,60 +538,170 @@ org_html_manager.setup();  // activate after the parameters are set
 <div id="outline-container-the-golden-ratio-ryan" class="outline-3">
 <h3 id="the-golden-ratio-ryan"><span class="section-number-3">4.1</span> The Golden Ratio&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
 <div class="outline-text-3" id="text-the-golden-ratio-ryan">
-</div>
-</div>
+<ul class="org-ul">
+<li>Number ocurring in a wide variety of nature
+<ul class="org-ul">
+<li>Sunflower seed heads</li>
+<li>Pinecones</li>
+<li>Tree branches</li>
+<li>Nautlius shells</li>
+<li>Spiral galaxies</li>
+<li>Many more</li>
+</ul></li>
+<li>Ratio of two consecutive Fibonacci numbers \(\frac{F_{n}}{F_{n-1}}\) as \(n \to \infty\)</li>
+<li>By the Monotone Convergence Theorem the limit exists. Call this limit \(L\)</li>
+</ul>
 
-<div id="outline-container-golden-ratio-in-terms-of-the-fibonacci-sequence" class="outline-3">
-<h3 id="golden-ratio-in-terms-of-the-fibonacci-sequence"><span class="section-number-3">4.2</span> Golden Ratio In terms of the Fibonacci Sequence</h3>
-<div class="outline-text-3" id="text-golden-ratio-in-terms-of-the-fibonacci-sequence">
-</div>
+\begin{equation*}
+    \lim_{n\to \infty}G_n = \lim_{n\to \infty}G_{n-1} = L
+\end{equation*}
 
-<div id="outline-container-prove-that-the-sequence-is-bounded-james" class="outline-4">
-<h4 id="prove-that-the-sequence-is-bounded-james"><span class="section-number-4">4.2.1</span> Prove that the Sequence is Bounded&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></h4>
-<div class="outline-text-4" id="text-prove-that-the-sequence-is-bounded-james">
+\begin{align*}
+\lim_{n\to \infty}G_n &= \lim_{n \to \infty} \frac{F_{n} +  F_{n+  1} }{F_{n+  1} } \\
+&= 1 +  \lim_{n \to \infty} \frac{F_{n- 1} }{F_n} \\
+&=  1 +  \lim_{n \to \infty}\frac{1}{G_{n-1}} \\
+ \implies L &= 1 + \frac{1}{L}\\
+ L^2 &= L + 1\\
+ 0 &= L^2 - L - 1\\
+  \implies  L &= \frac{\sqrt{5} + 1  }{2} = \varphi
+\end{align*}
 </div>
 </div>
+<div id="outline-container-solving-the-sequence" class="outline-3">
+<h3 id="solving-the-sequence"><span class="section-number-3">4.2</span> A closed Solution for the Fibonacci Numbers</h3>
+<div class="outline-text-3" id="text-solving-the-sequence">
+<p>
+Consider the Fibonacci Sequence:
+</p>
 
-<div id="outline-container-find-the-limit-james" class="outline-4">
-<h4 id="find-the-limit-james"><span class="section-number-4">4.2.2</span> Find the Limit&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span></h4>
-<div class="outline-text-4" id="text-find-the-limit-james">
-</div>
-</div>
-</div>
+\begin{align}
+    a_{n}&= a_{n - 1} + a_{n - 2} \nonumber \\
+\iff a_{n+  2} &= a_{n+  1} +  a_n \label{eq:fib-def-shift}
+\end{align}
 
-<div id="outline-container-comments-ryan" class="outline-3">
-<h3 id="comments-ryan"><span class="section-number-3">4.3</span> Comments&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
-<div class="outline-text-3" id="text-comments-ryan">
-</div>
+<p>
+Quite similar to the following ordinary differential equation:
+</p>
 
-<div id="outline-container-equivalent-forms-of-the-golden-ratio" class="outline-4">
-<h4 id="equivalent-forms-of-the-golden-ratio"><span class="section-number-4">4.3.1</span> Equivalent forms of the Golden Ratio</h4>
-<div class="outline-text-4" id="text-equivalent-forms-of-the-golden-ratio">
-</div>
-</div>
-</div>
+\begin{align*}
+f''\left( x \right)- f'\left( x \right)- f\left( x \right)=  0
+\end{align*}
 
-<div id="outline-container-a-closed-solution-for-the-fibonacci-numbers-ryan" class="outline-3">
-<h3 id="a-closed-solution-for-the-fibonacci-numbers-ryan"><span class="section-number-3">4.4</span> A closed Solution for the Fibonacci Numbers&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
-<div class="outline-text-3" id="text-a-closed-solution-for-the-fibonacci-numbers-ryan">
-</div>
+<p>
+Let \(f(x)\) be the generating function:
+</p>
 
-<div id="outline-container-golden-ratio" class="outline-4">
-<h4 id="golden-ratio"><span class="section-number-4">4.4.1</span> Golden Ratio</h4>
-<div class="outline-text-4" id="text-golden-ratio">
-</div>
+\begin{align}
+    f\left( x \right) &=  \sum^{\infty}_{n= 0}  a_{n} \cdot  \frac{x^n}{n!}   \label{eq:exp-gen-def-1} \\
+ \implies   f'\left( x \right) &=  \sum^{\infty}_{n= 0} a_{n+1} \cdot  \frac{x^n}{n!}  \label{eq:exp-gen-def-2} \\
+\implies    f''\left( x \right) &=  \sum^{\infty}_{n= 0} a_{n+2} \cdot  \frac{x^n}{n!}   \label{eq:exp-gen-def-3}
+\end{align}
+
+<p>
+Fibonacci can now be expressed as:
+</p>
+
+\begin{align*}
+\sum^{\infty}_{n= 0}  \frac{x^n}{n!} a_{n+  2} = \sum^{\infty}_{n= 0}  \frac{x^n}{n!} a_{n+  1}  + \sum^{\infty}_{n= 0}  \frac{x^n}{n!} a_{n}  \\
+\end{align*}
+
+<p>
+Which gives:
+</p>
+
+\begin{align*}
+    f''\left( x \right)- f'\left( x \right)- f\left( x \right)=  0
+\end{align*}
+
+<p>
+By equations eqref:eq:exp-gen-def-1, eqref:eq:exp-gen-def-2 and eqref:eq:exp-gen-def-3.
+</p>
+
+<p>
+Solving the differential equation we get:
+</p>
+
+\begin{align}
+f\left( x \right)= c_1 \cdot  \mathrm{exp}\left[ \left( \frac{1- \sqrt{5} }{2} \right)x \right] +  c_2 \cdot  \mathrm{exp}\left[ \left( \frac{1 +  \sqrt{5} }{2} \right)x \right]
+\end{align}
+
+<p>
+We then use the following identity:
+</p>
+
+\begin{align}
+    x^ke^{ax} = \sum_{n=0}^\infty \frac{(ax)^n}{(n-k)!} \quad \forall k \in \mathrm{Z}^+\cup \{0\}\\
+\end{align}
+
+<p>
+where, if \(k > n,~~(n-k)!~~ \text{diverges} ~~ \forall k,n \in \mathrm{Z}\) by:
+</p>
+
+\begin{align}
+    \Gamma(n - k + 1) = (n-k)! = \int_0^\infty x^{n-k}e^{-x}\mathrm{d}x
+\end{align}
+
+<p>
+Applying this identity to the differentail equation solution:
+</p>
+
+\begin{align*}
+f(x) &= c_1\sum_{n=0}^\infty \left(\frac{1+\sqrt{5}}{2}\right)^n \cdot \frac{x^n}{n!} + c_2\sum_{n=0}^\infty \left( \frac{1-\sqrt{5}}{2}\right)^n\cdot \frac{x^n}{n!}\\
+&= \sum_{n=0}^\infty \frac{x^n}{n!} \left( c_1 \left( \frac{1+\sqrt{5}}{2}\right)^n + c_2 \left( \frac{1-\sqrt{5}}{2} \right)^n \right)
+\end{align*}
+
+<p>
+Equating this to \(\sum_{n=0}^\infty a_n\frac{x^n}{n!}\), we can conclude that:
+</p>
+
+\begin{equation*}
+    a_n = c_1 \left( \frac{1+\sqrt{5}}{2}\right)^n + c_2 \left( \frac{1-\sqrt{5}}{2} \right)^n
+\end{equation*}
+
+<p>
+Giving a final solution of:
+</p>
+
+\begin{align}
+    a_n &= \frac{1}{\sqrt{5} } \left[ \left( \frac{1+  \sqrt{5} }{2}  \right)^n -  \left( \frac{1- \sqrt{5} }{2} \right)^n \right] \nonumber \\
+&= \frac{\varphi^n - \psi^n}{\sqrt{5} } \nonumber\\
+&=\frac{\varphi^n -  \psi^n}{\varphi - \psi} \label{eq:fib-sol}
+\end{align}
+
+<p>
+where:
+</p>
+
+<ul class="org-ul">
+<li>\(\varphi = \frac{1+ \sqrt{5} }{2} \approx 1.61\ldots\)</li>
+<li>\(\psi = 1-\varphi = \frac{1- \sqrt{5} }{2} \approx 0.61\ldots\)</li>
+</ul>
+
+<p>
+This closed solution eqref:eq:fib-sol also demonstrates that successive terms of the Fibonacci numbers converge to the Golden Ratio:
+</p>
+
+\begin{align*}
+    F_n &= \frac{\varphi^n-\psi^n}{\varphi-\psi} = \frac{\varphi^n-\psi^n}{\sqrt 5} \\
+    \iff \frac{F_{n+1}}{F_n}	&= \frac{\varphi^{n+ 1} - \psi^{n+  1}}{\varphi^{n} - \psi^{n}} \\
+    \iff \lim_{n \rightarrow \infty} \frac{F_{n+1}}{F_n}	&= \lim_{n \rightarrow \infty} \frac{\varphi^{n+ 1} - \psi^{n+  1}}{\varphi^{n} - \psi^{n}} \\
+&= \frac{\varphi^{n+ 1} -\lim_{n \rightarrow \infty} \psi^{n +  1} }{\varphi^{n} - \lim_{n \rightarrow \infty} \psi^n } \\
+\text{because $\mid \psi \mid < 0$ $n \rightarrow \infty \implies \psi^{n} \rightarrow 0$:} \\
+&= \frac{\varphi^{n+  1} -  0}{\varphi^{n} -  0} \\
+&= \varphi
+\end{align*}
 </div>
 </div>
 
 <div id="outline-container-sunflower-seeds-fibonacci-numbers-in-nature-ryan" class="outline-3">
-<h3 id="sunflower-seeds-fibonacci-numbers-in-nature-ryan"><span class="section-number-3">4.5</span> Sunflower Seeds; Fibonacci Numbers in Nature&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
+<h3 id="sunflower-seeds-fibonacci-numbers-in-nature-ryan"><span class="section-number-3">4.3</span> Sunflower Seeds; Fibonacci Numbers in Nature&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h3>
 <div class="outline-text-3" id="text-sunflower-seeds-fibonacci-numbers-in-nature-ryan">
 </div>
 </div>
 </div>
 
 <div id="outline-container-julia-sets-ryan" class="outline-2">
-<h2 id="julia-sets-ryan"><span class="section-number-2">5</span> Julia Sets&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h2>
+<h2 id="julia-sets-ryan"><span class="section-number-2">5</span> Julia Sets (possibly delete this?)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h2>
 <div class="outline-text-2" id="text-julia-sets-ryan">
 </div>
 
@@ -599,396 +735,14 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 <div id="outline-container-mandelbrot-set-ryan" class="outline-2">
-<h2 id="mandelbrot-set-ryan"><span class="section-number-2">6</span> Mandelbrot Set&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h2>
+<h2 id="mandelbrot-set-ryan"><span class="section-number-2">6</span> Mandelbrot Set (possibly delete this?)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h2>
 <div class="outline-text-2" id="text-mandelbrot-set-ryan">
-</div>
-</div>
-
-<div id="outline-container-conclusion-ryan" class="outline-2">
-<h2 id="conclusion-ryan"><span class="section-number-2">7</span> Conclusion&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span></h2>
-<div class="outline-text-2" id="text-conclusion-ryan">
-</div>
-</div>
-
-<div id="outline-container-appendix" class="outline-2">
-<h2 id="appendix"><span class="section-number-2">8</span> Appendix</h2>
-<div class="outline-text-2" id="text-appendix">
-</div>
-
-<div id="outline-container-code-listings" class="outline-3">
-<h3 id="code-listings"><span class="section-number-3">8.1</span> Code Listings</h3>
-<div class="outline-text-3" id="text-code-listings">
-</div>
-</div>
-
-<div id="outline-container-resources-used-for-the-hausdorff-dimension" class="outline-3">
-<h3 id="resources-used-for-the-hausdorff-dimension"><span class="section-number-3">8.2</span> Resources Used for the Hausdorff Dimension</h3>
-<div class="outline-text-3" id="text-resources-used-for-the-hausdorff-dimension">
-</div>
-</div>
-
-<div id="outline-container-functions-for-constructing-the-julia-set" class="outline-3">
-<h3 id="functions-for-constructing-the-julia-set"><span class="section-number-3">8.3</span> Functions for constructing the Julia Set</h3>
-<div class="outline-text-3" id="text-functions-for-constructing-the-julia-set">
-</div>
-</div>
-
-<div id="outline-container-exponential-generating-functions" class="outline-3">
-<h3 id="exponential-generating-functions"><span class="section-number-3">8.4</span> Exponential Generating Functions</h3>
-<div class="outline-text-3" id="text-exponential-generating-functions">
-</div>
-
-<ol class="org-ol">
-<li><a id="derivative-of-the-exponential-generating-function"></a>Derivative of the Exponential Generating Function<br />
-<div class="outline-text-5" id="text-derivative-of-the-exponential-generating-function">
-</div>
-
-<ol class="org-ol">
-<li><a id="base-ryan"></a>Base&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span><br />
-<div class="outline-text-6" id="text-base-ryan">
-</div>
-</li>
-
-<li><a id="bridge-james"></a>Bridge&#xa0;&#xa0;&#xa0;<span class="tag"><span class="James">James</span></span><br />
-<div class="outline-text-6" id="text-bridge-james">
-</div>
-</li>
-</ol>
-</li>
-
-<li><a id="homogeneous-proof-ryanjames"></a>Homogeneous Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span>&#xa0;<span class="James">James</span></span><br />
-<div class="outline-text-5" id="text-homogeneous-proof-ryanjames">
-</div>
-
-<ol class="org-ol">
-<li><a id="unique-roots-of-characteristic-equation-ryan"></a>Unique Roots of Characteristic Equation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span><br />
-<div class="outline-text-6" id="text-unique-roots-of-characteristic-equation-ryan">
-</div>
-
-<ol class="org-ol">
-<li><a id="proof"></a>Proof<br />
-<div class="outline-text-7" id="text-proof">
-</div>
-</li>
-</ol>
-</li>
-
-<li><a id="repeated-roots-of-characteristic-equation-ryan"></a>Repeated Roots of Characteristic Equation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="Ryan">Ryan</span></span><br />
-<div class="outline-text-6" id="text-repeated-roots-of-characteristic-equation-ryan">
-</div>
-
-<ol class="org-ol">
-<li><a id="example"></a>Example<br />
-<div class="outline-text-7" id="text-example">
-</div>
-</li>
-
-<li><a id="proof-1"></a>Proof<br />
-<div class="outline-text-7" id="text-proof-1">
-</div>
-</li>
-
-<li><a id="power-series-identity-for-products-of-exponentials"></a>Power Series Identity for Products of Exponentials<br />
-<div class="outline-text-7" id="text-power-series-identity-for-products-of-exponentials">
-<ol class="org-ol">
-<li>Motivation :James:</li>
-
-<li>Proof by Induction :James:
-
-<ol class="org-ol">
-<li>Base</li>
-
-<li>Bridge</li>
-</ol></li>
-
-<li>Establishing the Proof :Ryan:</li>
-
-<li>Divergence of the Gamma Function :James:</li>
-</ol>
-</div>
-</li>
-</ol>
-</li>
-
-<li><a id="general-proof"></a>General Proof<br />
-<div class="outline-text-6" id="text-general-proof">
-</div>
-
-<ol class="org-ol">
-<li><a id="power-series-combination"></a>Power Series Combination<br />
-<div class="outline-text-7" id="text-power-series-combination">
-</div>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</div>
-</div>
-
-<div id="outline-container-bibliography" class="outline-2">
-<h2 id="bibliography"><span class="section-number-2">9</span> Bibliography</h2>
-<div class="outline-text-2" id="text-bibliography">
-<p>
-Fouss, François, Marco Saerens, and Masashi Shimbo. n.d. <i>Algorithms and
-Models for Network Data and Link Analysis</i>. Cambridge University Press.
-</p>
-
-<p>
-Nicodemi, Olympia, Melissa A. Sutherland, and Gary W. Towsley. n.d. <i>An
-Introduction to Abstract Algebra with Notes to the Future Teacher</i>.
-Pearson Prentice Hall.
-</p>
-
-<p>
-Zill, Dennis G, and Michael R Cullen. n.d. <i>Differential Equations</i>
-(version 7). 7th ed. Brooks/Cole.
-</p>
-
-<p>
-Zill, Dennis G., and Michael R. Cullen. n.d. &ldquo;8.4 Matrix Exponential.&rdquo;
-In <i>Differential Equations with Boundary-Value Problems</i>, 7th
-ed. Brooks/Cole, Cengage Learning.
-</p>
-
-<p>
-NOITEMDATA:CTANPackageAnimate
-</p>
-
-<p>
-NOITEMDATA:PdftexThereAny
-</p>
-
-<p>
-NOITEMDATA:gomoryBenoitMandelbrot19242010
-</p>
-
-<p>
-NOITEMDATA:mandelbrotFractalGeometryNature1982
-</p>
-
-<p>
-NOITEMDATA:sandersonFractalsAreTypically2017
-</p>
-
-<p>
-NOITEMDATA:vicsekFractalGrowthPhenomena1992
-</p>
-
-<p>
-NOITEMDATA:telChaoticDynamicsIntroduction2006
-</p>
-
-<p>
-NOITEMDATA:edgarMeasureTopologyFractal2008a
-</p>
-
-<p>
-NOITEMDATA:gouyetPhysicsFractalStructures1996
-</p>
-
-<p>
-NOITEMDATA:falconerFractalGeometryMathematical2003b
-</p>
-
-<p>
-NOITEMDATA:jiangFractalAnalysisComplexity1998
-</p>
-
-<p>
-NOITEMDATA:zhuFractalMechanismCoastline2002
-</p>
-
-<p>
-NOITEMDATA:zhongFractalPropertiesShoreline2017
-</p>
-
-<p>
-NOITEMDATA:mandelbrotHowLongCoast1967
-</p>
-
-<p>
-NOITEMDATA:mandelbrotMisBehaviourMarkets2008
-</p>
-
-<p>
-NOITEMDATA:Fractal2020
-</p>
-
-<p>
-NOITEMDATA:peitgenChaosFractalsNew2004
-</p>
-
-<p>
-NOITEMDATA:gilmoreTopologyChaosAlice2002
-</p>
-
-<p>
-NOITEMDATA:strogatzNonlinearDynamicsChaos2015
-</p>
-
-<p>
-NOITEMDATA:baderSpacefillingCurvesIntroduction2013
-</p>
-
-<p>
-NOITEMDATA:liIntegrationFuzzyLogic2006
-</p>
-
-<p>
-NOITEMDATA:grahamConcreteMathematicsFoundation1994
-</p>
-
-<p>
-NOITEMDATA:edgarMeasureTopologyFractal2008
-</p>
-
-<p>
-NOITEMDATA:markpollicottFractalsDimensionTheory2005
-</p>
-
-<p>
-NOITEMDATA:ListFractalsHausdorff2020
-</p>
-
-<p>
-NOITEMDATA:falconerFractalGeometryMathematical2003
-</p>
-
-<p>
-NOITEMDATA:rcoreteamLanguageEnvironmentStatistical2020
-</p>
-
-<p>
-NOITEMDATA:bezansonJuliaFreshApproach2017
-</p>
-
-<p>
-NOITEMDATA:WelcomePythonOrg
-</p>
-
-<p>
-NOITEMDATA:JuliaGraphicsLuxorJl2020
-</p>
-
-<p>
-NOITEMDATA:PillowPillowPIL
-</p>
-
-<p>
-NOITEMDATA:JuliaImagesImagesJl2020
-</p>
-
-<p>
-NOITEMDATA:llcImageMagick
-</p>
-
-<p>
-NOITEMDATA:Astropy
-</p>
-
-<p>
-NOITEMDATA:JuliaAstroJuliaAstro
-</p>
-
-<p>
-NOITEMDATA:shellyallenFibonacciNature
-</p>
-
-<p>
-NOITEMDATA:benedettapalazzoNumbersNatureFibonacci2016
-</p>
-
-<p>
-NOITEMDATA:MinarovaNikoletta2014TFSN
-</p>
-
-<p>
-NOITEMDATA:NatureGoldenRatio2018
-</p>
-
-<p>
-NOITEMDATA:robertlambHowAreFibonacci2008
-</p>
-
-<p>
-NOITEMDATA:ronknottFibonacciNumbersGolden2016
-</p>
-
-<p>
-NOITEMDATA:prasadHowFibonacciNumber2018
-</p>
-
-<p>
-NOITEMDATA:brownHistoryApplicationsFibonacci2019
-</p>
-
-<p>
-NOITEMDATA:giordanoFirstCourseMathematical2014
-</p>
-
-<p>
-NOITEMDATA:briggsTurbulentMirrorIllustrated1989
-</p>
-
-<p>
-NOITEMDATA:mullerThisEquationWill2020
-</p>
-
-<p>
-NOITEMDATA:zillDifferentialEquationsBoundaryvalue2009
-</p>
-
-<p>
-NOITEMDATA:churchillComplexVariablesApplications2014
-</p>
-
-<p>
-NOITEMDATA:bohannonSunflowersShowComplex2016
-</p>
-
-<p>
-NOITEMDATA:ridleyPackingEfficiencySunflower1982
-</p>
-
-<p>
-NOITEMDATA:mathaiConstructingSunflowerHead1974
-</p>
-
-<p>
-NOITEMDATA:vogelBetterWayConstruct1979
-</p>
-
-<p>
-NOITEMDATA:farrellMathAdventuresPython2019
-</p>
-
-<p>
-NOITEMDATA:JuliaSet2020
-</p>
-
-<p>
-NOITEMDATA:mcmullenHausdorffDimensionConformal1998
-</p>
-
-<p>
-NOITEMDATA:bownScienceMandelbrotSet
-</p>
-
-<p>
-NOITEMDATA:lehmanReadingsMathematicsComputer2010
-</p>
-
-<p>
-NOITEMDATA:levinSolvingRecurrenceRelations2018
-</p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: Ryan Greenup</p>
-<p class="date">Created: 2020-10-23 Fri 12:14</p>
+<p class="author">Author: James Guerra</p>
+<p class="date">Created: 2020-11-05 Thu 21:59</p>
 </div>
 </body>
 </html>
