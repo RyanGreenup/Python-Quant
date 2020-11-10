@@ -5,13 +5,11 @@
   :PROPERTIES:
   :CUSTOM_ID: introduction-ryan
   :END:
-
 * Fractals
   :PROPERTIES:
   :CUSTOM_ID: fractals
   :END:
-
-** Definition of a Fractal :Ryan:
+** Definition of a Fractal                                                     :Ryan:
    :PROPERTIES:
    :CUSTOM_ID: definition-of-a-fractal-ryan
    :END:
@@ -117,7 +115,7 @@ Let $F$ be the Koch Curve.
 
 **** TODO *Proving Box Counting and Hausdorff Equivalence*
 
-** Generating Self Similar Fractals (Possibly delete this??) :Ryan:
+** Generating Self Similar Fractals (Possibly delete this??)                   :Ryan:
    :PROPERTIES:
    :CUSTOM_ID: generating-self-similar-fractals-ryan
    :END:
@@ -147,7 +145,7 @@ Let $F$ be the Koch Curve.
       :CUSTOM_ID: pascals-triangle-ryan
       :END:
 
-* Connecting Fractals to Natural Processes :Ryan:
+* Connecting Fractals to Natural Processes                                      :Ryan:
   :PROPERTIES:
   :CUSTOM_ID: connecting-fractals-to-natural-processes-ryan
   :END:
@@ -300,7 +298,7 @@ This closed solution eqref:eq:fib-sol also demonstrates that successive terms of
    :CUSTOM_ID: sunflower-seeds-fibonacci-numbers-in-nature-ryan
    :END:
 
-* Julia Sets (possibly delete this?) :Ryan:
+* Julia Sets (possibly delete this?)                                            :James:
   :PROPERTIES:
   :CUSTOM_ID: julia-sets-ryan
   :END:
@@ -328,7 +326,7 @@ This closed solution eqref:eq:fib-sol also demonstrates that successive terms of
 7fac73de0d24ebddcf0874b6cf8d3531b064]:
 [[file:media/r-ggplot-linear-reg-julia.png]]
 
-* Mandelbrot Set (possibly delete this?) :Ryan:
+* Mandelbrot Set (possibly delete this?)                                        :Ryan:
   :PROPERTIES:
   :CUSTOM_ID: mandelbrot-set-ryan
   :END:
