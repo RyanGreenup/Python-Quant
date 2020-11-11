@@ -1,6 +1,8 @@
 #------------------------------------------------------------
 #--- Dragon -------------------------------------------------
 #------------------------------------------------------------
+using Luxor, Shapefile
+
 function dragon(🐢, order, length)
     print(" ") # Don't remove this or code breaks, I don't know why?
     Turn(🐢, order*45)
@@ -25,7 +27,43 @@ end
     Pendown(🐢)
     Turn(🐢, 180)
     dragon(🐢, 15, 400)
-end 1000 1000
+end 1000 1000 "/tmp/a.png"
+
+#------------------------------------------------------------
+#---- Animation ---------------------------------------------
+#------------------------------------------------------------
+# * Use GR to Save a Bunch of Images
+  ## GR is faster than PyPlot
+function make_dragon(i, filename)
+    @png begin
+        🐢 = Turtle()
+        Turn(🐢, 180)
+        Penup(🐢)
+        Forward(🐢, 200)
+        Pendown(🐢)
+        Turn(🐢, 180)
+        dragon(🐢, i, 400)
+    end 1000 1000 filename
+end
+
+
+function save_images(count)
+    try
+        mkdir("/tmp/gifs")
+    catch
+    end
+    for i in 1:count
+        name = string("/tmp/gifs/j", lpad(i, 5, "0"), ".png")
+        make_dragon(i, name)
+    end
+end
+
+save_images(15) # Number  and Res
+# ;convert -delay 40 *.png 0.gif # Requires imagemagick
+# ;ffmpeg # (Use ffmpeg, it's more reliable and verbose)
+#------------------------------------------------------------
+#-- Calculate Dimension -------------------------------------
+#------------------------------------------------------------
 
 using Images, TestImages, Colors, ImageMagick
 # Load Image Back in

@@ -1,0 +1,119 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.1}A note on Images in this report}{2}{subsection.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2}Fractals}{2}{section.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1}Definition of a Fractal\hfill {}\textsc {Ryan}}{2}{subsection.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2}Fractals Generally\hfill {}\textsc {James}}{3}{subsection.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3}Fractal Dimension}{4}{subsection.2.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.3.1}Topological Equivalence\hfill {}\textsc {Ryan}}{4}{subsubsection.2.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.3.2}Hausdorff Measure\hfill {}\textsc {Ryan}}{6}{subsubsection.2.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Lower Dimension Hausdorff Measurements}{8}{section*.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{Examples}{8}{section*.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{Formally}{9}{section*.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Higher Dimension Hausdorff Dimension}{9}{section*.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.3.3}Hausdorff Dimension\hfill {}\textsc {Ryan}}{10}{subsubsection.2.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.3.4}Box Counting Dimension\hfill {}\textsc {James}}{10}{subsubsection.2.3.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.4}Generating Self Similar Fractals}{12}{subsection.2.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.4.1}Vicsek Fractal\hfill {}\textsc {Ryan}}{12}{subsubsection.2.4.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sierpinski's Carpet and Cantor's Dust}{13}{section*.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sierpinski's Triangle}{13}{section*.8}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{Chaos Game}{13}{section*.9}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{Pascals Triangle\hfill {}\textsc {Ryan}}{16}{figure.8}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.4.2}Turtle\hfill {}\textsc {Ryan}}{17}{subsubsection.2.4.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.4.3}Pascals Triangle and Sierpinski's Triangle\hfill {}\textsc {James}}{17}{subsubsection.2.4.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Motivation}{17}{section*.11}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{The connection}{20}{section*.12}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{The connection}{22}{section*.13}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.5}Fractal Dimensions Sans Self Similarity\hfill {}\textsc {Ryan}}{23}{subsection.2.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}Connecting Fractals to Natural Processes\hfill {}\textsc {Ryan}}{24}{section.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1}Constructing a Simple Process}{24}{subsection.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2}The Fibonacci Numbers}{24}{subsection.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3}The Dimension of the Fractal}{27}{subsection.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}The Fibonacci Sequence and the Golden Ratio}{27}{section.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1}The Golden Ratio\hfill {}\textsc {Ryan}}{27}{subsection.4.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2}Golden Ratio In terms of the Fibonacci Sequence\hfill {}\textsc {James}}{28}{subsection.4.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.2.1}Prove that the Sequence is Bounded}{29}{subsubsection.4.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.2.2}Find the Limit}{31}{subsubsection.4.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.3}Comments\hfill {}\textsc {Ryan}}{32}{subsection.4.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.3.1}Equivalent forms of the Golden Ratio}{32}{subsubsection.4.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.4}A closed Solution for the Fibonacci Numbers\hfill {}\textsc {Ryan}}{33}{subsection.4.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.4.1}Golden Ratio}{35}{subsubsection.4.4.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.5}Sunflower Seeds; Fibonacci Numbers in Nature\hfill {}\textsc {Ryan}}{35}{subsection.4.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}Julia Sets\hfill {}\textsc {Ryan}}{38}{section.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.1}Introduction}{38}{subsection.5.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2}Motivation}{38}{subsection.5.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.3}Plotting the Sets}{38}{subsection.5.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.4}Dimension of the Julia Set}{41}{subsection.5.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6}Mandelbrot Set\hfill {}\textsc {Ryan}}{49}{section.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7}Conclusion}{51}{section.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A}Appendix}{53}{appendix.A}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {A.1}Code Listings\hfill {}\textsc {Ryan}}{53}{subsection.A.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {A.2}Resources Used for the Hausdorff Dimension\hfill {}\textsc {Ryan}}{54}{subsection.A.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {A.3}Functions for constructing the Julia Set\hfill {}\textsc {Ryan}}{55}{subsection.A.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {A.4}Exponential Generating Functions}{58}{subsection.A.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Derivative of the Exponential Generating Function}{58}{section*.14}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{Base\hfill {}\textsc {Ryan}}{58}{section*.15}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{Bridge\hfill {}\textsc {James}}{58}{section*.16}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Homogeneous Proof\hfill {}\textsc {Ryan:James}}{59}{section*.17}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{Unique Roots of Characteristic Equation\hfill {}\textsc {Ryan}}{60}{section*.18}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{Repeated Roots of Characteristic Equation\hfill {}\textsc {Ryan}}{61}{section*.19}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{General Proof}{68}{section*.20}%

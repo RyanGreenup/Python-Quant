@@ -47,7 +47,9 @@ Although the images in this document may appear to be quite small, they are high
 :CUSTOM_ID: definition
 :END:
 
-Benoît Mandelbrot coined the term fractal in 1975 cite:gomoryBenoitMandelbrot19242010 and defined it in his 1982 book /The Fractal Geometry of Nature/ [[cite:mandelbrotFractalGeometryNature1982][p. 15]] :
+Benoît Mandelbrot coined the term fractal in 1975
+cite:gomoryBenoitMandelbrot19242010 and defined it in his 1982 book /The Fractal
+Geometry of Nature/ [[cite:mandelbrotFractalGeometryNature1982][p. 15]] :
 
 #+begin_quote
 /A fractal is by definition a set for which the Hausdorff Besicovitch dimension
@@ -56,11 +58,13 @@ strictly exceeds the topological dimension./
 /Every set with a non-integer \(D\) is a fractal./ [fn:qt]
 #+end_quote
 
-The topological dimension is strictly an integer value that describes the natural dimension used to describe a shape cite:sandersonFractalsAreTypically2017,
-for example the /Koch Snowflake/ (shown in Figure [[koch-snowflake]]) is composed of
-just a line, so it's topological dimension would simply be 1, it's /fractal
-dimension/ however is shown to be \(\frac{\ln\left( 4 \right)}{\ln\left( 3
-\right)}\) at eqref:eq:koch-dim in \S[[#topological-equivalence]].
+The topological dimension is strictly an integer value that describes the
+natural dimension used to describe a shape
+cite:sandersonFractalsAreTypically2017, for example the /Koch Snowflake/ (shown
+in Figure [[koch-snowflake]]) is composed of just a line, so it's topological
+dimension would simply be 1, it's /fractal dimension/ however is shown to be
+\(\frac{\ln\left( 4 \right)}{\ln\left( 3 \right)}\) at eqref:eq:koch-dim in
+\S[[#topological-equivalence]].
 
 Many authors seem to accept this earlier definition (see e.g. [[cite:vicsekFractalGrowthPhenomena1992][\S2.2]] and [[cite:telChaoticDynamicsIntroduction2006][\S2.1]]),
 this definition however does not capture many edge-case fractals

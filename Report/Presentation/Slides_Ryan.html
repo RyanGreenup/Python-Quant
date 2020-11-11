@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>The Emergence of Order <img src="../media/tikz/Snowflake.png" alt="Snowflake.png" /></title>
+<meta name="author" content="(Ryan & James)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/simple.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">The Emergence of Order <img src="../media/tikz/Snowflake.png" alt="Snowflake.png" /></h1><h2 class="author">Ryan &amp; James</h2><p class="date">Created: 2020-11-11 Wed 13:04</p>
+</section>
+
+<section>
+<section id="slide-org205ecc4">
+<h2 id="org205ecc4"><span class="section-number-2">1</span> Introduction</h2>
+<ul>
+<li>Looked at the emergence of patterns from natural and iterative processes.</li>
+<li>This lead to an investigation of fractals mostly</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgddc9ab9">
+<h2 id="orgddc9ab9"><span class="section-number-2">2</span> Definition of a Fractal</h2>
+<ul>
+<li>Shapes with a complex structure</li>
+<li>Tend to exhibit self-similarity
+<ul>
+<li>Although they may not!</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-org67c86b5">
+<h3 id="org67c86b5"><span class="section-number-3">2.1</span> Examples of Fractals</h3>
+<p>
+To motivate the concept, here are some fractals we generated in our investigation:
+</p>
+
+</section>
+<section id="slide-org67c86b5-split">
+
+<ul>
+<li>Self-Similar Fractals</li>
+
+</ul>
+
+</section>
+<section id="slide-org67c86b5-split">
+
+<div>
+\begin{align*}
+\mathbf{B} \leftarrow
+   \begin{bmatrix}
+       \mathbf{B} & \mathbf{Z} & \mathbf{B} \\
+       \mathbf{Z} & \mathbf{B} & \mathbf{Z} \\
+       \mathbf{B} & \mathbf{Z} & \mathbf{B} \\
+   \end{bmatrix}
+\end{align*}
+
+</div>
+
+<p>
+where:
+</p>
+
+<ul>
+<li>\(\mathbf{B}= \left[ 1 \right]\)</li>
+<li>\(\mathbf{Z}= \left[ 0 \right]  \)</li>
+
+</ul>
+
+</section>
+<section id="slide-org67c86b5-split">
+
+<p>
+Vicsek&rsquo;s Fractal
+</p>
+
+
+<div id="orgbfa0959" class="figure">
+<p><img src="media/vicsek_fractal.gif" alt="vicsek_fractal.gif" />
+</p>
+</div>
+
+</section>
+<section id="slide-org67c86b5-split">
+
+
+
+<div>
+\begin{align*}
+\mathbf{B} \leftarrow
+   \begin{bmatrix}
+       \mathbf{B} & \mathbf{B} & \mathbf{B} \\
+       \mathbf{B} & \mathbf{Z} & \mathbf{B} \\
+       \mathbf{B} & \mathbf{B} & \mathbf{B} \\
+   \end{bmatrix}
+\end{align*}
+
+</div>
+
+</section>
+<section id="slide-org67c86b5-split">
+
+<p>
+Sierpinski&rsquo;s Carpet
+</p>
+
+
+<div id="orgcfffaff" class="figure">
+<p><img src="media/sierpinski_carpet.gif" alt="sierpinski_carpet.gif" />
+</p>
+</div>
+
+
+</section>
+<section id="slide-org67c86b5-split">
+
+<ul>
+<li>Can also use the Chaos Game</li>
+
+</ul>
+
+</section>
+<section id="slide-org67c86b5-split">
+
+<div id="orgbfb8f50" class="figure">
+<p><object type="image/svg+xml" data="media/chaos_game/1.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</section>
+<section id="slide-org67c86b5-split">
+
+<div id="org9fb4ab6" class="figure">
+<p><object type="image/svg+xml" data="media/chaos_game/2.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</section>
+<section id="slide-org67c86b5-split">
+
+<div id="org09cb165" class="figure">
+<p><object type="image/svg+xml" data="media/chaos_game/3.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</section>
+<section id="slide-org67c86b5-split">
+
+<div id="org7b0c1e3" class="figure">
+<p><object type="image/svg+xml" data="media/chaos_game/4.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</section>
+<section id="slide-org67c86b5-split">
+
+<div id="orgaf599da" class="figure">
+<p><object type="image/svg+xml" data="media/chaos_game/5.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</section>
+<section id="slide-org67c86b5-split">
+
+<div id="orgbb602c6" class="figure">
+<p><object type="image/svg+xml" data="media/chaos_game/6.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</section>
+<section id="slide-org67c86b5-split">
+
+<div id="org15c06df" class="figure">
+<p><object type="image/svg+xml" data="media/chaos_game/7.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</section>
+<section id="slide-org67c86b5-split">
+
+<div id="orge87f7e2" class="figure">
+<p><object type="image/svg+xml" data="media/chaos_game/8.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</section>
+<section id="slide-org67c86b5-split">
+<p>
+Sierpinski&rsquo;s Triangle
+</p>
+
+
+<div id="org61a33fe" class="figure">
+<p><img src="media/sierpinsky_triangle_chaos.gif" alt="sierpinsky_triangle_chaos.gif" />
+</p>
+</div>
+
+
+</section>
+<section id="slide-org67c86b5-split">
+
+<ul>
+<li>Can occur from natural phenomena like iteratively folding something:</li>
+
+</ul>
+
+</section>
+<section id="slide-org67c86b5-split">
+
+<p>
+Dragon Curve
+</p>
+
+
+<div id="org83f2ed9" class="figure">
+<p><img src="media/dragon_curve.gif" alt="dragon_curve.gif" />
+</p>
+</div>
+
+</section>
+<section id="slide-org67c86b5-split">
+
+<ul>
+<li>and sometimes thay just fall out of otherwise simple math:</li>
+
+</ul>
+
+<p>
+\[
+z \leftarrow z^{2} + c
+\]
+</p>
+
+<ul>
+<li>What follows is an illustration of all the points that converge to zero for values on the circle:</li>
+
+</ul>
+
+<p>
+\[
+z \leftarrow z^{2} + e^{i \frac{9k}{2}}
+\]
+</p>
+
+</section>
+<section id="slide-org67c86b5-split">
+<p>
+Julia Sets
+</p>
+
+
+<div id="orgd8a5fdc" class="figure">
+<p><img src="media/julia_sets.gif" alt="julia_sets.gif" />
+</p>
+</div>
+
+</section>
+<section id="slide-org221061e">
+<h3 id="org221061e"><span class="section-number-3">2.2</span> Mandelbrots Definition</h3>
+<ul>
+<li>How do we define what a fractual really is?</li>
+
+</ul>
+
+</section>
+<section id="slide-orgc62d71b">
+<h3 id="orgc62d71b"><span class="section-number-3">2.3</span> Mandelbrot</h3>
+
+<div style="width: 100%; overflow: hidden;">
+     <div style="width: 300px; float: right;">
+    <img src="_media/mandelbrot_fractal_geometry_of_Nature.png" />
+    </div>
+     <div style="margin-left: 62px;">
+            <p><em>A fractal is by definition a set for which the Hausdorff Besicovitch dimension strictly exceeds the topological dimension.</em></p>
+            <p><em>Every set with a non-integer <span class="math inline"><em>D</em></span> is a fractal.</em></p>
+    </div>
+</div>
+
+
+</section>
+<section id="slide-orgc62d71b-split">
+
+
+<ul>
+<li>This has since been rejected and is somewhat unresolved!
+<ul>
+<li>Falconer, K. J., <i>Fractal geometry: mathematical foundations and applications</i> (), : {Wiley}.</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-orgc62d71b-split">
+
+
+
+</section>
+<section id="slide-orge362ee2">
+<h3 id="orge362ee2"><span class="section-number-3">2.4</span> The Fractal Dimension</h3>
+</section>
+</section>
+<section>
+<section id="slide-org4894ae4">
+<h2 id="org4894ae4"><span class="section-number-2">3</span> Defining Dimension</h2>
+</section>
+<section id="slide-orgc99b759">
+<h3 id="orgc99b759"><span class="section-number-3">3.1</span> Hausdorff Measure</h3>
+</section>
+<section id="slide-org7023f00">
+<h3 id="org7023f00"><span class="section-number-3">3.2</span> Hausdorff Dimension</h3>
+</section>
+</section>
+<section>
+<section id="slide-org2079a6d">
+<h2 id="org2079a6d"><span class="section-number-2">4</span> My fractal if I have time</h2>
+</section>
+</section>
+<section>
+<section id="slide-org63cd4a7">
+<h2 id="org63cd4a7"><span class="section-number-2">5</span> Measuring the Dimension of a non-self-similar Fractal</h2>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/markdown/markdown.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+plugins: [RevealMarkdown,RevealZoom,RevealNotes],
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+]
+});
+</script>
+</body>
+</html>

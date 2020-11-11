@@ -1,4 +1,7 @@
-#+TITLE: Ryan's Slides
+#+TITLE: The Emergence of Order [[file:../media/tikz/Snowflake.png]]
+#+OPTIONS: tex:t
+#+AUTHOR: Ryan & James
+#+OPTIONS: toc:nil
 :HTML:
 # #+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="./resources/style.css">
 # #+INFOJS_OPT: view:info toc:3
@@ -14,13 +17,167 @@
 
 * Introduction
 :PROPERTIES:
-:Effort:   0:01
+:EFFORT:   2
 :END:
-* Haussdorff Dimension and Measure
+- Looked at the emergence of patterns from natural and iterative processes.
+- This lead to an investigation of fractals mostly
+* Definition of a Fractal
+:PROPERTIES:
+:Effort:   0:02
+:END:
+- Shapes with a complex structure
+- Tend to exhibit self-similarity
+  + Although they may not!
+
+** Examples of Fractals
+:PROPERTIES:
+:Effort:   0:02
+:END:
+To motivate the concept, here are some fractals we generated in our investigation:
+
+#+REVEAL: split
+
+- Self-Similar Fractals
+
+#+REVEAL: split
+
+\begin{align*}
+\mathbf{B} \leftarrow
+   \begin{bmatrix}
+       \mathbf{B} & \mathbf{Z} & \mathbf{B} \\
+       \mathbf{Z} & \mathbf{B} & \mathbf{Z} \\
+       \mathbf{B} & \mathbf{Z} & \mathbf{B} \\
+   \end{bmatrix}
+\end{align*}
+
+where:
+
+- \(\mathbf{B}= \left[ 1 \right]\)
+- \(\mathbf{Z}= \left[ 0 \right]  \)
+
+#+REVEAL: split
+
+Vicsek's Fractal
+# (/Fractal Growth Phenomena/, 1992)
+
+[[file:media/vicsek_fractal.gif]]
+
+#+REVEAL: split
+
+
+
+\begin{align*}
+\mathbf{B} \leftarrow
+   \begin{bmatrix}
+       \mathbf{B} & \mathbf{B} & \mathbf{B} \\
+       \mathbf{B} & \mathbf{Z} & \mathbf{B} \\
+       \mathbf{B} & \mathbf{B} & \mathbf{B} \\
+   \end{bmatrix}
+\end{align*}
+
+#+REVEAL: split
+
+Sierpinski's Carpet
+
+[[file:media/sierpinski_carpet.gif]]
+
+
+#+REVEAL: split
+
+- Can also use the Chaos Game
+
+#+REVEAL: split
+[[file:media/chaos_game/1.svg]]
+#+REVEAL: split
+[[file:media/chaos_game/2.svg]]
+#+REVEAL: split
+[[file:media/chaos_game/3.svg]]
+#+REVEAL: split
+[[file:media/chaos_game/4.svg]]
+#+REVEAL: split
+[[file:media/chaos_game/5.svg]]
+#+REVEAL: split
+[[file:media/chaos_game/6.svg]]
+#+REVEAL: split
+[[file:media/chaos_game/7.svg]]
+#+REVEAL: split
+[[file:media/chaos_game/8.svg]]
+#+REVEAL: split
+Sierpinski's Triangle
+
+[[file:media/sierpinsky_triangle_chaos.gif]]
+
+
+#+REVEAL: split
+
+- Can occur from natural phenomena like iteratively folding something:
+
+#+REVEAL: split
+
+Dragon Curve
+
+[[file:media/dragon_curve.gif]]
+
+#+REVEAL: split
+
+- and sometimes thay just fall out of otherwise simple math:
+
+\[
+z \leftarrow z^{2} + c
+\]
+
+- What follows is an illustration of all the points that converge to zero for values on the circle:
+
+\[
+z \leftarrow z^{2} + e^{i \frac{9k}{2}}
+\]
+
+#+REVEAL: split
+Julia Sets
+
+[[file:media/julia_sets.gif]]
+
+** Mandelbrots Definition
+
+- How do we define what a fractual really is?
+
+** Mandelbrot
+
+#+begin_export html
+
+<div style="width: 100%; overflow: hidden;">
+     <div style="width: 300px; float: right;">
+    <img src="_media/mandelbrot_fractal_geometry_of_Nature.png" />
+    </div>
+     <div style="margin-left: 62px;">
+            <p><em>A fractal is by definition a set for which the Hausdorff Besicovitch dimension strictly exceeds the topological dimension.</em></p>
+            <p><em>Every set with a non-integer <span class="math inline"><em>D</em></span> is a fractal.</em></p>
+    </div>
+</div>
+#+end_export
+
+# Show the Dragon Curve
+
+
+#+REVEAL:split
+
+
+- This has since been rejected and is somewhat unresolved! See e.g.
+  + Falconer, K. J., /Fractal geometry: mathematical foundations and applications/ (), : {Wiley}.
+
+#+REVEAL: split
+
+** The Fractal Dimension
+# I might want to merge this with James' Box counting method.
+
+* Defining Dimension
 :PROPERTIES:
 :Effort:   0:03
 :END:
-* My Fractal
+** Hausdorff Measure
+** Hausdorff Dimension
+* My fractal if I have time
+* Measuring the Dimension of a non-self-similar Fractal
 :PROPERTIES:
-:Effort:   0:02
+:Effort:   0:03
 :END:

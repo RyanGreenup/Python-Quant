@@ -366,7 +366,7 @@ The effort Estimate should look something like this:
 #+end_example
 
 
-Then generate a a column view using  ~M-x org-columns~ which is bound to ~C-c C-x C-c~, this will generate a layout that looks something like this:
+Then generate a a column view using  ~M-x org-columns~ which is bound to ~C-c C-x C-c~ (exit with ~C-c C-c~ or ~q~), this will generate a layout that looks something like this:
 
 #+attr_html: :width 400px
  #+attr_latex: :width 0.4\textwidth
