@@ -147,7 +147,10 @@ py_imshow_dp(make_picture(100, 100, z -> exp(2*pi*im*τ)*z^2*(z-4)/(1-4*z)  ))
 py_imshow_dp(make_picture(100, 100, z -> z^z-0.9  ))
 
 
+GR.imshow(make_picture(400, 400, z -> z^2 - 1/2 + 0.6*im)) # PyPlot uses interpolation = "None"
 
+
+GR.imshow(mat)
 
 # * Use GR to Save a Bunch of Images
   ## GR is faster than PyPlot
@@ -195,3 +198,22 @@ function save_images(count, res)
 end
 
 save_images(7, 3000)
+
+#------------------------------------------------------------
+#- Resolution Animation--------------------------------------
+#------------------------------------------------------------
+
+using Plots
+Plots.pyplot()
+
+mat = make_picture(10, 10, z -> z^2 - 1/2 + 0.6*im)
+
+function makePlot(mat, backend=pyplot())
+    backend
+    plt = Plots.plot(mat,
+                     st=:heatmap,
+                     color=:coolwarm,
+                    colorbar_title="", ticks = false, legend = false, yflip = true, fmt = :png)
+    return plt
+end
+plt = makePlot(mat)

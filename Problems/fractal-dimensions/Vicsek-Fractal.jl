@@ -39,9 +39,9 @@ function selfRep(ICMat, width)
     h  = size(B)[1]
     w  = size(B)[2]
     Z  = zeros(Int, h, w)
-    B = [B Z B;
-         Z B Z;
-         B Z B]
+    B = [B B B;
+         B Z B;
+         B B B]
     if (3*w)<width
         B = selfRep(B, width)
     end
@@ -53,7 +53,7 @@ end
 #------------------------------------------------------------
 using GR
 (mat = selfRep(fill(1, 1, 1), 9^2)) |> size
-GR.imshow(mat)
+GR.imshow(-mat)
 GR.savefig("../../Report/media/Vicsek-Fractal.png")
 
 ## Export
@@ -68,15 +68,15 @@ GR.savefig(name)
 #............................................................
 
 ;mkdir /tmp/frac
-n = 10
-for i in 1:n
-    mat = selfRep(fill(1, 1, 1), i)
+n = 5
+for i in n:1
+    mat = selfRep(fill(1, 1, 1), 3^i)
     GR.imshow(mat)
     name = string("/tmp/frac/", lpad(i, 5, "0"), ".png")
     GR.savefig(name)
     print(100*i/n)
 end
-# ;convert -resize 600x600 -delay 10 /tmp/frac/*.png /tmp/frac/0.gif
+;convert -resize 600x600 -delay 10 /tmp/frac/*.png /tmp/frac/0.gif
 
 #------------------------------------------------------------
 #-- Dimension -----------------------------------------------

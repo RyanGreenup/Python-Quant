@@ -21,7 +21,7 @@
 :END:
 - Looked at the emergence of patterns from natural and iterative processes.
 - This lead to an investigation of fractals mostly
-* Definition of a Fractal
+* What are Fractals?
 :PROPERTIES:
 :Effort:   0:02
 :END:
@@ -126,22 +126,31 @@ Dragon Curve
 z \leftarrow z^{2} + c
 \]
 
+#+attr_html: :width 600px
+[[file:media/elegant_julia.png]]
+
+#+REVEAL: split
+
 - What follows is an illustration of all the points that converge to zero for values on the circle:
 
 \[
 z \leftarrow z^{2} + e^{i \frac{9k}{2}}
 \]
 
-#+REVEAL: split
-Julia Sets
-
+#+attr_html: :width 600px
 [[file:media/julia_sets.gif]]
 
-** Mandelbrots Definition
 
-- How do we define what a fractual really is?
 
-** Mandelbrot
+
+
+#+REVEAL: split
+- How do we define what a fractal really is?
+
+
+#+REVEAL: split
+
+* Defining Fractals
 
 #+begin_export html
 
@@ -163,19 +172,73 @@ Julia Sets
 
 
 - This has since been rejected and is somewhat unresolved! See e.g.
-  + Falconer, K. J., /Fractal geometry: mathematical foundations and applications/ (), : {Wiley}.
+  + Falconer, K. J., /Fractal geometry: mathematical foundations and applications/
 
-#+REVEAL: split
 
 ** The Fractal Dimension
 # I might want to merge this with James' Box counting method.
+
+For ordinary shapes:
+
+\begin{align*}
+\left(\frac{s_{2}}{s_{1}}\right)^{D} &= \left(\frac{m_{2}}{m_{1}}\right) \\
+\ \\
+\implies D &= \log{\frac{s_{2}}{s_{1}}} \div  \log{\frac{m_{2}}{m_{1}}}
+\end{align*}
+
+- This can be used with fractals
+
+
+#+REVEAL: split
+
+Fractals that are not self similar still have a constant dimension, it is the coefficient of the linear regression:
+
+\begin{align*}
+\mathtt{coef}\left(\log \frac{s_{2}}{s_{1}} \sim \log \frac{m_{2}}{m_{1}}\right)\mathtt{[1]}
+\end{align*}
+
+#+REVEAL: split
+\[z \leftarrow z^2 + -0.123+0.745*i\]
+
+#+attr_html: :width 700px
+[[file:../media/outline-rabbit.png]]
+
+#+REVEAL: split
+By Scaling this fractal and comparing the measure and scale:
+
+[[file:media/douady_rabbit_pyplot.gif]]
+
+
+
+#+REVEAL: split
+
+| */Scale/* | */Measure/* |
+|-----------+-------------|
+|       500 |      4834.0 |
+|       563 |      5754.0 |
+|       625 |      6640.0 |
+|       688 |      7584.0 |
+|       750 |      8418.0 |
+|       813 |      9550.0 |
+|       875 |     10554.0 |
+|       938 |     11710.0 |
+|      1000 |     12744.0 |
+
+
+#+REVEAL: split
+
+Dimension of 1.37 (should be 1.39).
+
+[[file:../media/r-ggplot-linear-reg-julia.png]]
 
 * Defining Dimension
 :PROPERTIES:
 :Effort:   0:03
 :END:
 ** Hausdorff Measure
+*** TODO Add an animation here
 ** Hausdorff Dimension
+
 * My fractal if I have time
 * Measuring the Dimension of a non-self-similar Fractal
 :PROPERTIES:

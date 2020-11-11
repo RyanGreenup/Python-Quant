@@ -1,4 +1,6 @@
-#+TITLE: The Emergence of Patterns in Nature and Chaos Theory
+#+TITLE: The Emergence of Order [[file:../media/tikz/Snowflake.png]]
+#+OPTIONS: tex:t
+#+AUTHOR: Ryan & James
 :HTML:
 # #+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="./resources/style.css">
 # #+INFOJS_OPT: view:info toc:3
@@ -14,60 +16,229 @@
 #+OPTIONS: num:nil
 :END:
 
-* Introduction                                                              
-  :PROPERTIES:
-  :CUSTOM_ID: introduction-ryan
-  :END:
-* Fractals
-  :PROPERTIES:
-  :CUSTOM_ID: fractals
-  :END:
-** Definition of a Fractal                                                     :Ryan:
-   :PROPERTIES:
-   :CUSTOM_ID: definition-of-a-fractal-ryan
-   :END:
 
-** Fractal Dimension
-   :PROPERTIES:
-   :CUSTOM_ID: fractal-dimension
-   :END:
+* Introduction
+:PROPERTIES:
+:EFFORT:   2
+:END:
+- Looked at the emergence of patterns from natural and iterative processes.
+- This lead to an investigation of fractals mostly
+* What are Fractals?
+:PROPERTIES:
+:Effort:   0:02
+:END:
+- Shapes with a complex structure
+- Tend to exhibit self-similarity
+  + Although they may not!
 
-*** Hausdorff Measure :Ryan:
-    :PROPERTIES:
-    :CUSTOM_ID: hausdorff-measure-ryan
-    :END:
+** Examples of Fractals
+:PROPERTIES:
+:Effort:   0:02
+:END:
+To motivate the concept, here are some fractals we generated in our investigation:
 
-**** Lower Dimension Hausdorff Measurements
-     :PROPERTIES:
-     :CUSTOM_ID: lower-dimension-hausdorff-measurements
-     :END:
+#+REVEAL: split
 
-***** Examples
-      :PROPERTIES:
-      :CUSTOM_ID: examples
-      :END:
+- Self-Similar Fractals
 
-***** Formally
-      :PROPERTIES:
-      :CUSTOM_ID: formally
-      :END:
+#+REVEAL: split
 
-**** Higher Dimension Hausdorff Dimension
-     :PROPERTIES:
-     :CUSTOM_ID: higher-dimension-hausdorff-dimension
-     :END:
+\begin{align*}
+\mathbf{B} \leftarrow
+   \begin{bmatrix}
+       \mathbf{B} & \mathbf{Z} & \mathbf{B} \\
+       \mathbf{Z} & \mathbf{B} & \mathbf{Z} \\
+       \mathbf{B} & \mathbf{Z} & \mathbf{B} \\
+   \end{bmatrix}
+\end{align*}
 
-*** Hausdorff Dimension :Ryan:
-    :PROPERTIES:
-    :CUSTOM_ID: hausdorff-dimension-ryan
-    :END:
+where:
 
-*** Box Counting Dimension
+- \(\mathbf{B}= \left[ 1 \right]\)
+- \(\mathbf{Z}= \left[ 0 \right]  \)
+
+#+REVEAL: split
+
+Vicsek's Fractal
+# (/Fractal Growth Phenomena/, 1992)
+
+[[file:media/vicsek_fractal.gif]]
+
+#+REVEAL: split
+
+
+
+\begin{align*}
+\mathbf{B} \leftarrow
+   \begin{bmatrix}
+       \mathbf{B} & \mathbf{B} & \mathbf{B} \\
+       \mathbf{B} & \mathbf{Z} & \mathbf{B} \\
+       \mathbf{B} & \mathbf{B} & \mathbf{B} \\
+   \end{bmatrix}
+\end{align*}
+
+#+REVEAL: split
+
+Sierpinski's Carpet
+
+[[file:media/sierpinski_carpet.gif]]
+
+
+#+REVEAL: split
+
+- Can also use the Chaos Game
+
+#+REVEAL: split
+[[file:media/chaos_game/1.svg]]
+#+REVEAL: split
+[[file:media/chaos_game/2.svg]]
+#+REVEAL: split
+[[file:media/chaos_game/3.svg]]
+#+REVEAL: split
+[[file:media/chaos_game/4.svg]]
+#+REVEAL: split
+[[file:media/chaos_game/5.svg]]
+#+REVEAL: split
+[[file:media/chaos_game/6.svg]]
+#+REVEAL: split
+[[file:media/chaos_game/7.svg]]
+#+REVEAL: split
+[[file:media/chaos_game/8.svg]]
+#+REVEAL: split
+Sierpinski's Triangle
+
+[[file:media/sierpinsky_triangle_chaos.gif]]
+
+
+#+REVEAL: split
+
+- Can occur from natural phenomena like iteratively folding something:
+
+#+REVEAL: split
+
+Dragon Curve
+
+[[file:media/dragon_curve.gif]]
+
+#+REVEAL: split
+
+- and sometimes thay just fall out of otherwise simple math:
+
+\[
+z \leftarrow z^{2} + c
+\]
+
+#+attr_html: :width 600px
+[[file:media/elegant_julia.png]]
+
+#+REVEAL: split
+
+- What follows is an illustration of all the points that converge to zero for values on the circle:
+
+\[
+z \leftarrow z^{2} + e^{i \frac{9k}{2}}
+\]
+
+#+attr_html: :width 600px
+[[file:media/julia_sets.gif]]
+
+
+
+
+
+#+REVEAL: split
+- How do we define what a fractal really is?
+
+
+#+REVEAL: split
+
+* Defining Fractals
+
+#+begin_export html
+
+<div style="width: 100%; overflow: hidden;">
+     <div style="width: 300px; float: right;">
+    <img src="_media/mandelbrot_fractal_geometry_of_Nature.png" />
+    </div>
+     <div style="margin-left: 62px;">
+            <p><em>A fractal is by definition a set for which the Hausdorff Besicovitch dimension strictly exceeds the topological dimension.</em></p>
+            <p><em>Every set with a non-integer <span class="math inline"><em>D</em></span> is a fractal.</em></p>
+    </div>
+</div>
+#+end_export
+
+# Show the Dragon Curve
+
+
+#+REVEAL:split
+
+
+- This has since been rejected and is somewhat unresolved! See e.g.
+  + Falconer, K. J., /Fractal geometry: mathematical foundations and applications/
+
+
+** The Fractal Dimension
+# I might want to merge this with James' Box counting method.
+
+For ordinary shapes:
+
+\begin{align*}
+\left(\frac{s_{2}}{s_{1}}\right)^{D} &= \left(\frac{m_{2}}{m_{1}}\right) \\
+\ \\
+\implies D &= \log{\frac{s_{2}}{s_{1}}} \div  \log{\frac{m_{2}}{m_{1}}}
+\end{align*}
+
+- This can be used with fractals
+
+
+#+REVEAL: split
+
+Fractals that are not self similar still have a constant dimension, it is the coefficient of the linear regression:
+
+\begin{align*}
+\mathtt{coef}\left(\log \frac{s_{2}}{s_{1}} \sim \log \frac{m_{2}}{m_{1}}\right)\mathtt{[1]}
+\end{align*}
+
+#+REVEAL: split
+\[z \leftarrow z^2 + -0.123+0.745*i\]
+
+#+attr_html: :width 700px
+[[file:../media/outline-rabbit.png]]
+
+#+REVEAL: split
+By Scaling this fractal and comparing the measure and scale:
+
+[[file:media/douady_rabbit_pyplot.gif]]
+
+
+
+#+REVEAL: split
+
+| */Scale/* | */Measure/* |
+|-----------+-------------|
+|       500 |      4834.0 |
+|       563 |      5754.0 |
+|       625 |      6640.0 |
+|       688 |      7584.0 |
+|       750 |      8418.0 |
+|       813 |      9550.0 |
+|       875 |     10554.0 |
+|       938 |     11710.0 |
+|      1000 |     12744.0 |
+
+
+#+REVEAL: split
+
+Dimension of 1.37 (should be 1.39).
+
+[[file:../media/r-ggplot-linear-reg-julia.png]]
+
+* Box Counting Dimension
 :PROPERTIES:
 :CUSTOM_ID: box-count-dim
 :END:
 #+REVEAL:split
-**** *Definition*
+** *Definition*
 #+REVEAL:split
 Let $F$ be any non-empty bounded subset of $\mathbb{R}^n$ and let $N_\delta(F)$ be the smallest
 number of sets of diameter at most $\delta$ which can cover $F$. The /lower/ and /upper/
@@ -87,18 +258,18 @@ When the /lower/ and /upper/ box-counting dimensions of $F$ are equal, then
 \end{equation*}
 
 #+REVEAL:split
-**** *Why use this method?*
+** *Why use this method?*
 #+REVEAL:split
 - Relatively easy to calculate
 - Equal to the Hausdorff Dimension in some cases
 - Can be applied to non-self similar fractals
 #+REVEAL:split
-**** *Problems*
+** *Problems*
 #+REVEAL:split
 - May not be defined if the lower and upper dimensions are not equal
 - Pixel limitation with images of non-self similar fractals
 #+REVEAL:split
-**** *Examples*
+** *Examples*
 #+REVEAL:split
 - Suppose we had a square with side length 1
 - Use squares of side length $\frac{1}{\delta}$ to cover this larger square
@@ -135,7 +306,6 @@ Let $F$ be the Koch Curve.
 &= \lim_{\frac{1}{3^{\delta}} \to 0} \frac{\ln(4)}{\ln(3)}\\
 &= \frac{\ln(4)}{\ln(3)}
 \end{align*}
-
 * The Fibonacci Sequence and the Golden Ratio
   :PROPERTIES:
   :CUSTOM_ID: the-fibonacci-sequence-and-the-golden-ratio
@@ -190,10 +360,10 @@ Let $F$ be the Koch Curve.
 #+REVEAL:split
 Consider the Fibonacci Sequence:
 
-\begin{align}
+\begin{align*}
     a_{n}&= a_{n - 1} + a_{n - 2} \nonumber \\
 \iff a_{n+  2} &= a_{n+  1} +  a_n \label{eq:fib-def-shift}
-\end{align}
+\end{align*}
 
 Quite similar to the following ordinary differential equation:
 
@@ -204,11 +374,11 @@ f''\left( x \right)- f'\left( x \right)- f\left( x \right)=  0
 #+REVEAL: split
 Let $f(x)$ be the generating function:
 
-\begin{align}
+\begin{align*}
     f\left( x \right) &=  \sum^{\infty}_{n= 0}  a_{n} \cdot  \frac{x^n}{n!}   \label{eq:exp-gen-def-1} \\
  \implies   f'\left( x \right) &=  \sum^{\infty}_{n= 0} a_{n+1} \cdot  \frac{x^n}{n!}  \label{eq:exp-gen-def-2} \\
 \implies    f''\left( x \right) &=  \sum^{\infty}_{n= 0} a_{n+2} \cdot  \frac{x^n}{n!}   \label{eq:exp-gen-def-3}
-\end{align}
+\end{align*}
 
 #+REVEAL: split
 Fibonacci can now be expressed as:
@@ -226,22 +396,22 @@ Which gives:
 #+REVEAL: split
 Solving the differential equation we get:
 
-\begin{align}
+\begin{align*}
 f\left( x \right)= c_1 \cdot  \mathrm{exp}\left[ \left( \frac{1- \sqrt{5} }{2} \right)x \right] +  c_2 \cdot  \mathrm{exp}\left[ \left( \frac{1 +  \sqrt{5} }{2} \right)x \right]
-\end{align}
+\end{align*}
 
 #+REVEAL:split
 We then use the following identity:
 
-\begin{align}
+\begin{align*}
     x^ke^{ax} = \sum_{n=0}^\infty \frac{(ax)^n}{(n-k)!} \quad \forall k \in \mathrm{Z}^+\cup \{0\}\\
-\end{align}
+\end{align*}
 
 where, if $k > n,~~(n-k)!~~ \text{diverges} ~~ \forall k,n \in \mathrm{Z}$ by:
 
-\begin{align}
+\begin{align*}
     \Gamma(n - k + 1) = (n-k)! = \int_0^\infty x^{n-k}e^{-x}\mathrm{d}x
-\end{align}
+\end{align*}
 
 #+REVEAL:split
 Applying this identity to the differential equation solution:
@@ -260,11 +430,11 @@ Equating this to $\sum_{n=0}^\infty a_n\frac{x^n}{n!}$, we can conclude that:
 #+REVEAL:split
 Giving a final solution of:
 
-\begin{align}
+\begin{align*}
     a_n &= \frac{1}{\sqrt{5} } \left[ \left( \frac{1+  \sqrt{5} }{2}  \right)^n -  \left( \frac{1- \sqrt{5} }{2} \right)^n \right] \nonumber \\
 &= \frac{\varphi^n - \psi^n}{\sqrt{5} } \nonumber\\
 &=\frac{\varphi^n -  \psi^n}{\varphi - \psi} \label{eq:fib-sol}
-\end{align}
+\end{align*}
 
 where:
 
