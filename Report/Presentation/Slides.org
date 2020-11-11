@@ -67,15 +67,8 @@
 :CUSTOM_ID: box-count-dim
 :END:
 #+REVEAL:split
-**** *Why use this method?*
-- Relatively easy to calculate
-- Equal to the Hausdorff Dimension in some cases
-- Can be applied to non-self similar fractals
-
-#+REVEAL:split
 **** *Definition*
-The box-counting dimension is defined as the following from (Falconer, 2003)
-
+#+REVEAL:split
 Let $F$ be any non-empty bounded subset of $\mathbb{R}^n$ and let $N_\delta(F)$ be the smallest
 number of sets of diameter at most $\delta$ which can cover $F$. The /lower/ and /upper/
 box-counting dimensions of $F$ respectively are defined as
@@ -94,15 +87,25 @@ When the /lower/ and /upper/ box-counting dimensions of $F$ are equal, then
 \end{equation*}
 
 #+REVEAL:split
+**** *Why use this method?*
+#+REVEAL:split
+- Relatively easy to calculate
+- Equal to the Hausdorff Dimension in some cases
+- Can be applied to non-self similar fractals
+#+REVEAL:split
 **** *Problems*
+#+REVEAL:split
 - May not be defined if the lower and upper dimensions are not equal
 - Pixel limitation with images of non-self similar fractals
 #+REVEAL:split
 **** *Examples*
+#+REVEAL:split
 - Suppose we had a square with side length 1
 - Use squares of side length $\frac{1}{\delta}$ to cover this larger square
+  [[./media/box-count-square.png]]
+  #+REVEAL: split
 - The side of the large square is $\delta$ $\frac{1}{\delta}$ small squares
-- To cover the square, one would need $n^2$ small squares, i.e. $N_{\frac{1}{n}}(F) = n^2$
+- To cover the square, one would need $\delta^2$ small squares, i.e. $N_{\frac{1}{\delta}}(F) = \delta^2$
 
 #+REVEAL:split
 \begin{align*}
@@ -115,11 +118,15 @@ When the /lower/ and /upper/ box-counting dimensions of $F$ are equal, then
 #+REVEAL:split
 
 - Koch Curve, a self similar fractal
-- Pattern begins with one line segment and the middle third of the line is replaced with two sides of an equilateral triangle with side length
-$\frac{1}{3}$.
-- After this first iteration, the line segment now becomes four line segments.
+  #+ATTR_HTML: :width 700px :height 120px
+  [[./media/Koch_line.png]]
+  #+REVEAL:split
+  [[./media/koch-curve-two-iter.png]]
+First iteration is replaced by an equilateral triangle of length $\frac{1}{3}$, leaving four line segments in total
+  #+REVEAL:split
 - If we use a square of length $\frac{1}{3^{\delta}}$ to cover the $\delta^{th}$ iteration of the curve, there will be $4^{\delta}$ line segments covered.
-
+[[./media/koch-box-count.png]]
+- $N_{\delta}(F) = 4^\delta$ and $\delta = \frac{1}{3^\delta}$
 #+REVEAL:split
 Let $F$ be the Koch Curve.
 \begin{align*}
@@ -129,38 +136,41 @@ Let $F$ be the Koch Curve.
 &= \frac{\ln(4)}{\ln(3)}
 \end{align*}
 
-#+REVEAL:split
-**** TODO *Proving Box Counting and Hausdorff Equivalence*
-
 * The Fibonacci Sequence and the Golden Ratio
   :PROPERTIES:
   :CUSTOM_ID: the-fibonacci-sequence-and-the-golden-ratio
   :END:
 ** Motivation
 #+REVEAL:split
-- Where is the Golden ratio useful
-- How the Golden ration is obtained
-- Why are the methods to solving DE and RR similar
+- Where is the Golden ratio useful?
+- How is the Golden ration obtained?
+- Why are the methods to solving DE and RR similar?
  
-** The Golden Ratio
+** Usefuleness
    :PROPERTIES:
    :CUSTOM_ID: the-golden-ratio-ryan
    :END:
+   #+REVEAL:split
+   [[./media/golden-ratio.jpg]]
+   #+REVEAL:split
+   [[./media/golden-spiral.png]]
+   #+REVEAL:split
 - Number ocurring in a wide variety of nature
   - Sunflower seed heads
   - Pinecones
   - Tree branches
   - Nautlius shells
   - Spiral galaxies
-  - Many more
+- Used as a desgin technique
+** How it's derived
+#+REVEAL:split
 - Ratio of two consecutive Fibonacci numbers $\frac{F_{n+1}}{F_{n}}$ as $n \to \infty$
-#+REVEAL: split
 - By the Monotone Convergence Theorem the limit exists. Call this limit $L$
 - Let $G_n = \frac{F_{n+1}}{F_n}$
 \begin{equation*}
     \lim_{n\to \infty}G_n = \lim_{n\to \infty}G_{n-1} = L
 \end{equation*}
-
+#+REVEAL:split
 \begin{align*}
 \lim_{n\to \infty}G_n &= \lim_{n \to \infty} \frac{F_{n} +  F_{n-1} }{F_{n} } \\
 &= 1 +  \lim_{n \to \infty} \frac{F_{n- 1} }{F_n} \\

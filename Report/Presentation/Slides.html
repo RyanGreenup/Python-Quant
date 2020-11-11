@@ -27,7 +27,7 @@
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide"><h1 class="title">The Emergence of Patterns in Nature and Chaos Theory</h1><h2 class="author">James Guerra</h2><p class="date">Created: 2020-11-10 Tue 23:42</p>
+<section id="sec-title-slide"><h1 class="title">The Emergence of Patterns in Nature and Chaos Theory</h1><h2 class="author">James Guerra</h2><p class="date">Created: 2020-11-11 Wed 11:50</p>
 </section>
 
 <section>
@@ -70,22 +70,9 @@
 </section>
 <section id="slide-box-count-dim-split">
 <ul class="org-ul">
-<li><a id="org738987e"></a><b>Why use this method?</b><br />
-<ul>
-<li>Relatively easy to calculate</li>
-<li>Equal to the Hausdorff Dimension in some cases</li>
-<li>Can be applied to non-self similar fractals</li>
-
-</ul>
-
+<li><a id="orgbfdcbe3"></a><b>Definition</b><br />
 </section>
-<section id="slide-org738987e-split">
-</li>
-<li><a id="orgcc737be"></a><b>Definition</b><br />
-<p>
-The box-counting dimension is defined as the following from (Falconer, 2003)
-</p>
-
+<section id="slide-orgbfdcbe3-split">
 <p>
 Let \(F\) be any non-empty bounded subset of \(\mathbb{R}^n\) and let \(N_\delta(F)\) be the smallest
 number of sets of diameter at most \(\delta\) which can cover \(F\). The <i>lower</i> and <i>upper</i>
@@ -105,7 +92,7 @@ box-counting dimensions of \(F\) respectively are defined as
 
 </div>
 </section>
-<section id="slide-orgcc737be-split">
+<section id="slide-orgbfdcbe3-split">
 <p>
 When the <i>lower</i> and <i>upper</i> box-counting dimensions of \(F\) are equal, then
 </p>
@@ -118,28 +105,49 @@ When the <i>lower</i> and <i>upper</i> box-counting dimensions of \(F\) are equa
 </div>
 
 </section>
-<section id="slide-orgcc737be-split">
+<section id="slide-orgbfdcbe3-split">
 </li>
-<li><a id="orgff5ecba"></a><b>Problems</b><br />
+<li><a id="orga83a50e"></a><b>Why use this method?</b><br />
+</section>
+<section id="slide-orga83a50e-split">
+<ul>
+<li>Relatively easy to calculate</li>
+<li>Equal to the Hausdorff Dimension in some cases</li>
+<li>Can be applied to non-self similar fractals</li>
+
+</ul>
+</section>
+<section id="slide-orga83a50e-split">
+</li>
+<li><a id="org23e3d27"></a><b>Problems</b><br />
+</section>
+<section id="slide-org23e3d27-split">
 <ul>
 <li>May not be defined if the lower and upper dimensions are not equal</li>
 <li>Pixel limitation with images of non-self similar fractals</li>
 
 </ul>
 </section>
-<section id="slide-orgff5ecba-split">
+<section id="slide-org23e3d27-split">
 </li>
-<li><a id="orgd5dae58"></a><b>Examples</b><br />
+<li><a id="orgd36d09d"></a><b>Examples</b><br />
+</section>
+<section id="slide-orgd36d09d-split">
 <ul>
 <li>Suppose we had a square with side length 1</li>
-<li>Use squares of side length \(\frac{1}{\delta}\) to cover this larger square</li>
+<li><p>
+Use squares of side length \(\frac{1}{\delta}\) to cover this larger square
+<img src="./media/box-count-square.png" alt="box-count-square.png" />
+</p>
+</section>
+<section id="slide-org0726187-split"></li>
 <li>The side of the large square is \(\delta\) \(\frac{1}{\delta}\) small squares</li>
-<li>To cover the square, one would need \(n^2\) small squares, i.e. \(N_{\frac{1}{n}}(F) = n^2\)</li>
+<li>To cover the square, one would need \(\delta^2\) small squares, i.e. \(N_{\frac{1}{\delta}}(F) = \delta^2\)</li>
 
 </ul>
 
 </section>
-<section id="slide-orgd5dae58-split">
+<section id="slide-orgd36d09d-split">
 <div>
 \begin{align*}
 \text{dim}_BF &= \lim_{\frac{1}{\delta} \to 0} \frac{\ln(\delta^2)}{-\ln(\frac{1}{\delta})}\\
@@ -151,24 +159,46 @@ When the <i>lower</i> and <i>upper</i> box-counting dimensions of \(F\) are equa
 </div>
 
 </section>
-<section id="slide-orgd5dae58-split">
+<section id="slide-orgd36d09d-split">
 
 <ul>
-<li>Koch Curve, a self similar fractal</li>
-<li>Pattern begins with one line segment and the middle third of the line is replaced with two sides of an equilateral triangle with side length</li>
+<li><p>
+Koch Curve, a self similar fractal
+</p>
+
+<div id="org6edb31c" class="figure">
+<p><img src="./media/Koch_line.png" alt="Koch_line.png" width="700px" height="120px" />
+</p>
+</div>
+</section>
+<section id="slide-org4041c84-split">
+
+<div id="org735cc01" class="figure">
+<p><img src="./media/koch-curve-two-iter.png" alt="koch-curve-two-iter.png" />
+</p>
+</div></li>
 
 </ul>
 <p>
-\(\frac{1}{3}\).
+First iteration is replaced by an equilateral triangle of length \(\frac{1}{3}\), leaving four line segments in total
 </p>
+</section>
+<section id="slide-orgd36d09d-split">
 <ul>
-<li>After this first iteration, the line segment now becomes four line segments.</li>
 <li>If we use a square of length \(\frac{1}{3^{\delta}}\) to cover the \(\delta^{th}\) iteration of the curve, there will be \(4^{\delta}\) line segments covered.</li>
 
 </ul>
 
+<div id="org4b8a250" class="figure">
+<p><img src="./media/koch-box-count.png" alt="koch-box-count.png" />
+</p>
+</div>
+<ul>
+<li>\(N_{\delta}(F) = 4^\delta\) and \(\delta = \frac{1}{3^\delta}\)</li>
+
+</ul>
 </section>
-<section id="slide-orgd5dae58-split">
+<section id="slide-orgd36d09d-split">
 <p>
 Let \(F\) be the Koch Curve.
 </p>
@@ -181,11 +211,7 @@ Let \(F\) be the Koch Curve.
 \end{align*}
 
 </div>
-
-</section>
-<section id="slide-orgd5dae58-split">
 </li>
-<li><a id="org9a05171"></a><span class="todo TODO">TODO</span> <b>Proving Box Counting and Hausdorff Equivalence</b><br /></li>
 </ul>
 
 </section>
@@ -194,20 +220,36 @@ Let \(F\) be the Koch Curve.
 <section id="slide-the-fibonacci-sequence-and-the-golden-ratio">
 <h2 id="the-fibonacci-sequence-and-the-golden-ratio">The Fibonacci Sequence and the Golden Ratio</h2>
 </section>
-<section id="slide-org98e244d">
-<h3 id="org98e244d">Motivation</h3>
+<section id="slide-org156fe7c">
+<h3 id="org156fe7c">Motivation</h3>
 </section>
-<section id="slide-org98e244d-split">
+<section id="slide-org156fe7c-split">
 <ul>
-<li>Where is the Golden ratio useful</li>
-<li>How the Golden ration is obtained</li>
-<li>Why are the methods to solving DE and RR similar</li>
+<li>Where is the Golden ratio useful?</li>
+<li>How is the Golden ration obtained?</li>
+<li>Why are the methods to solving DE and RR similar?</li>
 
 </ul>
 
 </section>
 <section id="slide-the-golden-ratio-ryan">
-<h3 id="the-golden-ratio-ryan">The Golden Ratio</h3>
+<h3 id="the-golden-ratio-ryan">Usefuleness</h3>
+</section>
+<section id="slide-the-golden-ratio-ryan-split">
+
+<div id="orgadff2a4" class="figure">
+<p><img src="./media/golden-ratio.jpg" alt="golden-ratio.jpg" />
+</p>
+</div>
+</section>
+<section id="slide-the-golden-ratio-ryan-split">
+
+<div id="org85a3e74" class="figure">
+<p><img src="./media/golden-spiral.png" alt="golden-spiral.png" />
+</p>
+</div>
+</section>
+<section id="slide-the-golden-ratio-ryan-split">
 <ul>
 <li>Number ocurring in a wide variety of nature
 <ul>
@@ -216,15 +258,18 @@ Let \(F\) be the Koch Curve.
 <li>Tree branches</li>
 <li>Nautlius shells</li>
 <li>Spiral galaxies</li>
-<li>Many more</li>
 
 </ul></li>
-<li>Ratio of two consecutive Fibonacci numbers \(\frac{F_{n+1}}{F_{n}}\) as \(n \to \infty\)</li>
+<li>Used as a desgin technique</li>
 
 </ul>
 </section>
-<section id="slide-the-golden-ratio-ryan-split">
+<section id="slide-org3593791">
+<h3 id="org3593791">How it&rsquo;s derived</h3>
+</section>
+<section id="slide-org3593791-split">
 <ul>
+<li>Ratio of two consecutive Fibonacci numbers \(\frac{F_{n+1}}{F_{n}}\) as \(n \to \infty\)</li>
 <li>By the Monotone Convergence Theorem the limit exists. Call this limit \(L\)</li>
 <li>Let \(G_n = \frac{F_{n+1}}{F_n}\)</li>
 
@@ -235,7 +280,8 @@ Let \(F\) be the Koch Curve.
 \end{equation*}
 
 </div>
-
+</section>
+<section id="slide-org3593791-split">
 <div>
 \begin{align*}
 \lim_{n\to \infty}G_n &= \lim_{n \to \infty} \frac{F_{n} +  F_{n-1} }{F_{n} } \\
@@ -245,7 +291,7 @@ Let \(F\) be the Koch Curve.
 
 </div>
 </section>
-<section id="slide-the-golden-ratio-ryan-split">
+<section id="slide-org3593791-split">
 <div>
 \begin{align*}
  \implies L &= 1 + \frac{1}{L}\\
